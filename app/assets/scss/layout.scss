@@ -1,0 +1,135 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.sb {
+  min-height: 100vh;
+  background: #eff1f4;
+  &-header {
+    padding: 40px 40px 40px 300px;
+    &-menu {
+      display: flex;
+      gap: 10px;
+    }
+    &-search {
+    }
+    &-language {
+    }
+    &-notification {
+    }
+    &-user {
+    }
+  }
+  &-snb {
+    position: fixed;
+    top: 0;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+
+    width: 200px;
+    height: 100vh;
+    min-height: calc(100vh - 160px);
+    gap: 0;
+    &-logo {
+      display: block;
+      width: 209px;
+      height: 35px;
+      margin: 40px 0 60px 0;
+      background: url(../images/logo.svg) no-repeat 50% 50%;
+      font-size: 0;
+    }
+    &-menu {
+      .p-panelmenu {
+        &-panel {
+          border: none;
+        }
+        &-header {
+          &-link {
+            svg {
+              display: none;
+            }
+          }
+          &-label {
+            color: var(--Gray-500_6A7381, #6a7381);
+
+            /* PC/Pretendard JP/Button/Large */
+            font-family: var(--Font-Family-Pretendard-JP, 'Pretendard JP');
+            font-size: var(--Font-Button-Large, 18px);
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 25.2px */
+            letter-spacing: -0.45px;
+          }
+        }
+      }
+      &:last-child {
+        margin-top: auto;
+      }
+    }
+  }
+  &-contents {
+    padding: 20px 40px 40px 300px;
+  }
+}
+
+.sb {
+  &-snb {
+    &-home {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url(../icons/snb/home.svg) no-repeat 50% 50%;
+    }
+    &-document {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url(../icons/snb/document.svg) no-repeat 50% 50%;
+    }
+    &-star {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url(../icons/snb/star.svg) no-repeat 50% 50%;
+    }
+    &-chart {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url(../icons/snb/chart.svg) no-repeat 50% 50%;
+    }
+    &-chat {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url(../icons/snb/chat.svg) no-repeat 50% 50%;
+    }
+    &-setting {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url(../icons/snb/setting.svg) no-repeat 50% 50%;
+    }
+    &-logout {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url(../icons/snb/logout.svg) no-repeat 50% 50%;
+    }
+    &-menuOpen {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url(../icons/snb/menuOpen.svg) no-repeat 50% 50%;
+    }
+    &-meunClose {
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: url(../icons/snb/meunClose.svg) no-repeat 50% 50%;
+    }
+  }
+}

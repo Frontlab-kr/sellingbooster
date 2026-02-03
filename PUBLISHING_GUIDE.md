@@ -14,9 +14,11 @@
 - **Custom Preset**: `sellingbooster`
 - **Style Preprocessor**: SCSS (Dart Sass)
 
-### Nuxt 설정 (`nuxt.config.ts`)
+### Nuxt 설정
 
 프로젝트의 전역 테마로 커스텀 프리셋을 지정합니다.
+
+nuxt.config.ts
 
 ```js
 export default defineNuxtConfig({
@@ -178,7 +180,9 @@ root/
 
 ## 타이포그래피 (Typography)
 
-글로벌 서비스(한국, 일본, 중국) 대응을 위해 국가별 글리프(Glyph) 표현이 최적화된 시스템 및 웹 폰트 스택을 사용합니다. 특히 중화권의 경우 Apple 시스템 폰트인 **PingFang SC**를 우선 배치하여 가독성을 높입니다.
+글로벌 서비스(한국, 일본, 중국) 대응을 위해 국가별 글리프(Glyph) 표현이 최적화된 시스템 및 웹 폰트 스택을 사용합니다.
+
+특히 중화권의 경우 Apple 시스템 폰트인 **PingFang SC**를 우선 배치하여 가독성을 높입니다.
 
 - **KR / EN / JP**: `Pretendard JP Variable` (일관된 디자인 언어 및 가독성 유지)
 - **CN (간체)**: `PingFang SC`, `Noto Sans SC` (Apple 시스템 서체 및 구글 웹폰트 대응)
