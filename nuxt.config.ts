@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
   app: {
-    baseURL: '/sellingbooster/', // 리포지토리 이름을 입력하세요 (예: /my-nuxt-project/)
+    baseURL: '/sellingbooster/',
     buildAssetsDir: 'assets',
   },
   nitro: {
@@ -9,13 +9,13 @@ export default defineNuxtConfig({
   modules: ['@primevue/nuxt-module', '@nuxt/icon'],
 
   css: ['@/assets/scss/layout.scss'],
-  // 여기에 Sass 경고 무시 설정을 추가합니다
+
   vite: {
     css: {
       preprocessorOptions: {
         scss: {
-          api: 'modern-compiler', // 최신 컴파일러 사용
-          quietDeps: true, // 외부 라이브러리(PrimeFlex) 경고 무시
+          api: 'modern-compiler',
+          quietDeps: true,
         },
       },
     },
@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   icon: {
     customCollections: [
       {
-        prefix: 'sb', // 내가 정한 아이콘 접두어
+        prefix: 'sb',
         dir: './app/assets/icons',
       },
     ],
