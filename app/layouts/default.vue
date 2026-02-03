@@ -1,9 +1,8 @@
 <template>
   <div class="sb">
-    <!-- <AppHeader />
+    <AppHeader />
     <div class="sb-contents">
       <slot />
-    </div> -->
-    <slot />
+    </div>
   </div>
 </template>
