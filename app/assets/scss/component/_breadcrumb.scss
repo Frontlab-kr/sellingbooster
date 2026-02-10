@@ -1,0 +1,50 @@
+:root,
+:host {
+  --p-breadcrumb-separator-color: var(--p-navigation-item-icon-color);
+  --p-breadcrumb-item-color: var(--p-text-muted-color);
+  --p-breadcrumb-item-hover-color: var(--p-text-color);
+  --p-breadcrumb-item-border-radius: var(--p-content-border-radius);
+  --p-breadcrumb-item-gap: var(--p-navigation-item-gap);
+  --p-breadcrumb-item-focus-ring-width: var(--p-focus-ring-width);
+  --p-breadcrumb-item-focus-ring-style: var(--p-focus-ring-style);
+  --p-breadcrumb-item-focus-ring-color: var(--p-focus-ring-color);
+  --p-breadcrumb-item-focus-ring-offset: var(--p-focus-ring-offset);
+  --p-breadcrumb-item-focus-ring-shadow: var(--p-focus-ring-shadow);
+  --p-breadcrumb-item-icon-color: var(--p-navigation-item-icon-color);
+  --p-breadcrumb-item-icon-hover-color: var(
+    --p-navigation-item-icon-focus-color
+  );
+  --p-breadcrumb-padding: 0;
+  --p-breadcrumb-background: none;
+  --p-breadcrumb-gap: 4px;
+  --p-breadcrumb-transition-duration: var(--p-transition-duration);
+}
+
+.p-breadcrumb {
+  min-height: 20px;
+  &-separator {
+    svg {
+      display: none;
+    }
+    &::before {
+      content: '';
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: url(../../icons/16/breadcrumb.svg) no-repeat 50% 50%;
+    }
+  }
+  &-item {
+    &-label {
+      color: var(--Gray-500_6A7381, var(--Gray-500_6A7381, #6a7381));
+
+      /* PC/Pretendard JP/Body/Small */
+
+      font-size: var(--Font-Body-Medium, 14px);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 19.6px */
+      letter-spacing: -0.35px;
+    }
+  }
+}

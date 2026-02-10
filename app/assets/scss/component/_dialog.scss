@@ -1,0 +1,48 @@
+@use '../mixins' as *;
+
+.p-dialog {
+  max-height: 90%;
+  min-width: 800px;
+  width: 800px;
+  padding: 0 0 40px 0;
+  border: none;
+  border-radius: 30px;
+  &-title {
+    margin-bottom: 30px;
+    color: var(--Gray-900_1B1F27, var(--Gray-900_1B1F27, #1b1f27));
+    font-size: var(--Font-Heading-Large, 24px);
+    font-weight: 700;
+  }
+  &-inner {
+    overflow: auto;
+  }
+  &-close-button {
+    height: auto !important;
+    &::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 32px;
+      background: url(../../icons/32/dialog-close.svg) no-repeat 50% 50%;
+    }
+    svg {
+      display: none;
+    }
+  }
+  &-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 24px 40px 14px;
+  }
+  &-content {
+    padding: 0 40px;
+    color: var(--Gray-400_9AA3AF, var(--Gray-400_9AA3AF, #9aa3af));
+    font-size: var(--Font-Body-Medium, 14px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 19.6px */
+    letter-spacing: -0.35px;
+
+    @include custom-scrollbar;
+  }
+}

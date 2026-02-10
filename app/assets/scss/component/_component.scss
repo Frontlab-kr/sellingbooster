@@ -1,0 +1,194 @@
+@use '../mixins' as *;
+
+.sb {
+  &-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 40px 0 0 0;
+    &-write {
+      margin-bottom: 10px;
+      padding: 30px;
+      border-radius: 30px;
+      border: 1px solid var(--Gray-300_D1D6DD, #d1d6dd);
+      background: var(--Gray-00_FFFFFF, #fff);
+      &__textarea {
+      }
+      &__button {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        p {
+          margin: 0;
+        }
+      }
+    }
+    &-item {
+      padding: 30px;
+      border-radius: 30px;
+      background: var(--Gray-00_FFFFFF, #fff);
+    }
+  }
+
+  &-input {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: 60px;
+    padding: 0px;
+    border-radius: 30px;
+    border: 1px solid var(--Gray-300_D1D6DD, #d1d6dd);
+    background: var(--Gray-00_FFFFFF, #fff);
+    overflow: hidden;
+    .p-inputtext {
+      width: 100%;
+      height: 100%;
+
+      border: none;
+    }
+    &__length {
+      text-align: right;
+      color: var(--Gray-400_9AA3AF, var(--Gray-400_9AA3AF, #9aa3af));
+
+      /* PC/Pretendard JP/Label/Label */
+      font-size: var(--Font-Label-Large, 12px);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%;
+      letter-spacing: -0.4px;
+    }
+  }
+
+  &-textarea {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    height: 180px;
+    padding: 30px;
+    border-radius: 30px;
+    border: 1px solid var(--Gray-300_D1D6DD, #d1d6dd);
+    background: var(--Gray-00_FFFFFF, #fff);
+    overflow: hidden;
+    .p-textarea {
+      width: 100%;
+      height: 100%;
+
+      border: none;
+    }
+    &__length {
+      text-align: right;
+      color: var(--Gray-400_9AA3AF, var(--Gray-400_9AA3AF, #9aa3af));
+
+      /* PC/Pretendard JP/Label/Label */
+      font-size: var(--Font-Label-Large, 12px);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%;
+      letter-spacing: -0.4px;
+    }
+  }
+
+  &-tab {
+    display: flex;
+    gap: 8px;
+    .p-button {
+      padding: 10px;
+      border-radius: 0;
+      &-label {
+        color: var(--Gray-400_9AA3AF, var(--Gray-400_9AA3AF, #9aa3af));
+        text-align: center;
+        font-size: var(--Font-Button-Large, 18px);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%; /* 25.2px */
+        letter-spacing: -0.45px;
+      }
+      &:hover {
+        background: none;
+      }
+      &.active {
+        border-bottom: 2px solid var(--primary-500_00B1BD, #00b1bd);
+        .p-button-label {
+          color: var(--primary-500_00B1BD, #00b1bd);
+        }
+      }
+    }
+  }
+
+  &-searchbar {
+    .p-inputgroup {
+      width: 320px;
+      .p-inputtext {
+        height: 48px;
+        padding: 0 16px;
+        border-right: none;
+        border-radius: 99px 0 0 99px;
+        border-color: var(--Gray-300_D1D6DD, #d1d6dd);
+        color: var(--Gray-900_1B1F27, var(--Gray-900_1B1F27, #1b1f27));
+        font-size: var(--Font-Body-Medium, 14px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 19.6px */
+        letter-spacing: -0.35px;
+        &::placeholder {
+          color: var(--Gray-500_6A7381, var(--Gray-500_6A7381, #6a7381));
+        }
+      }
+      .p-inputgroupaddon {
+        padding: 0 16px;
+        border-radius: 0 99px 99px 0;
+        border-color: var(--Gray-300_D1D6DD, #d1d6dd);
+        .p-button {
+        }
+      }
+    }
+  }
+
+  &-loading {
+    display: flex;
+    height: 35px;
+    margin-top: 30px;
+    background: url(../../icons/etc/loading.svg) no-repeat 50% 50%;
+  }
+
+  &-attachment {
+    &-item {
+      padding: 16px;
+      border-radius: 8px;
+      background: var(--Gray-100_F4F5F7, #f4f5f7);
+      a {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        text-decoration: none;
+      }
+      p {
+        width: 100%;
+        margin: 0;
+        color: var(--gray-800191919, var(--gray-800191919, #191919));
+
+        /* PC/Pretendard JP/Body/Small */
+        font-family: var(--Font-Family-Pretendard-JP, 'Pretendard JP');
+        font-size: var(--Font-Body-Medium, 14px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 19.6px */
+        letter-spacing: -0.35px;
+        @include text-clamp(1);
+      }
+      &__size {
+        margin: 0 24px 0 40px;
+        color: var(--Gray-400_9AA3AF, var(--Gray-400_9AA3AF, #9aa3af));
+
+        /* PC/Pretendard JP/Label/Label */
+        font-family: var(--Font-Family-Pretendard-JP, 'Pretendard JP');
+        font-size: var(--Font-Label-Large, 12px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 16.8px */
+        letter-spacing: -0.4px;
+      }
+    }
+  }
+}

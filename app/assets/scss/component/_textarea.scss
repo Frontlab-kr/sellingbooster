@@ -1,0 +1,16 @@
+.p-textarea {
+  font-size: var(--Font-Body-Large, 16px);
+  color: var(--Gray-500_6A7381, var(--Gray-500_6A7381, #6a7381));
+  line-height: 140%; /* 22.4px */
+  letter-spacing: -0.4px;
+  background: none;
+  padding-block: 0;
+  padding-inline: 0;
+  border: none;
+  border-radius: 0;
+  outline-color: transparent;
+  box-shadow: none;
+  &::placeholder {
+    color: var(--Gray-500_6A7381, var(--Gray-500_6A7381, #6a7381));
+  }
+}
