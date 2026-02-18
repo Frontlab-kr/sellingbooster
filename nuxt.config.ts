@@ -1,7 +1,7 @@
-import { fileURLToPath } from 'node:url';
-
 import { definePreset } from '@primeuix/themes';
 import Aura from '@primeuix/themes/aura';
+
+import svgLoader from 'vite-svg-loader';
 
 const MyPreset = definePreset(Aura, {
   semantic: {
@@ -29,14 +29,15 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'github-pages',
   },
-  modules: ['@primevue/nuxt-module', '@nuxt/icon'],
+  modules: ['@primevue/nuxt-module', 'nuxt-tiptap-editor'],
 
-  css: ['@/assets/scss/layout.scss'],
+  css: ['@/assets/scss/common.scss', 'remixicon/fonts/remixicon.css'],
 
   vite: {
+    plugins: [svgLoader()],
     server: {
       watch: {
-        usePolling: true, // 파일 변화를 직접 주기적으로 체크합니다.
+        usePolling: true,
       },
     },
     css: {
@@ -47,16 +48,11 @@ export default defineNuxtConfig({
       },
     },
   },
-  icon: {
-    customCollections: [
-      {
-        prefix: 'sb',
-        dir: fileURLToPath(new URL('./app/assets/icons', import.meta.url)),
-        recursive: true,
-      },
-    ],
-  },
   primevue: {
+    //성능 저하 이슈로 필요한 컴포넌트만 불러옴
+    components: {
+      include: ['Button', 'Dialog', 'InputText', 'Textarea', 'TieredMenu'],
+    },
     options: {
       theme: {
         preset: MyPreset,

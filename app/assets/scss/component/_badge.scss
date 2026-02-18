@@ -1,3 +1,5 @@
+@use '../mixins' as *;
+
 :root,
 :host {
   --p-badge-xl-font-size: 1rem;
@@ -15,7 +17,7 @@
   --p-badge-font-size: 12px;
   --p-badge-font-weight: 400;
   --p-badge-min-width: 1.5rem;
-  --p-badge-height: 25px;
+  --p-badge-height: 24px;
   --p-badge-contrast-background: var(--p-surface-950);
   --p-badge-contrast-color: var(--p-surface-0);
   --p-badge-danger-background: var(--p-red-500);
@@ -44,4 +46,55 @@
   font-weight: var(--p-badge-font-weight);
   min-width: var(--p-badge-min-width);
   height: var(--p-badge-height);
+  letter-spacing: -0.4px;
+}
+@media screen and (max-width: $BreakpointMd) {
+  :root,
+  :host {
+    --p-badge-xl-font-size: 1rem;
+    --p-badge-xl-min-width: 2rem;
+    --p-badge-xl-height: 2rem;
+    --p-badge-lg-font-size: 0.875rem;
+    --p-badge-lg-min-width: 1.75rem;
+    --p-badge-lg-height: 1.75rem;
+    --p-badge-sm-font-size: 0.625rem;
+    --p-badge-sm-min-width: 1.25rem;
+    --p-badge-sm-height: 1.25rem;
+    --p-badge-dot-size: 0.5rem;
+    --p-badge-border-radius: 8px;
+    --p-badge-padding: 0 8px;
+    --p-badge-font-size: 12px;
+    --p-badge-font-weight: 400;
+    --p-badge-min-width: 1.5rem;
+    --p-badge-height: 24px;
+    --p-badge-contrast-background: var(--p-surface-950);
+    --p-badge-contrast-color: var(--p-surface-0);
+    --p-badge-danger-background: var(--p-red-500);
+    --p-badge-danger-color: var(--p-surface-0);
+    --p-badge-warn-background: var(--p-orange-500);
+    --p-badge-warn-color: var(--p-surface-0);
+    --p-badge-info-background: var(--p-sky-500);
+    --p-badge-info-color: var(--p-surface-0);
+    --p-badge-success-background: var(--p-green-500);
+    --p-badge-success-color: var(--p-surface-0);
+    --p-badge-secondary-background: var(--p-surface-100);
+    --p-badge-secondary-color: var(--p-surface-600);
+    --p-badge-primary-background: var(--p-primary-color);
+    --p-badge-primary-color: var(--p-primary-contrast-color);
+  }
+
+  .p-badge {
+    display: inline-flex;
+    border-radius: var(--p-badge-border-radius);
+    align-items: center;
+    justify-content: center;
+    padding: var(--p-badge-padding);
+    background: var(--p-badge-primary-background);
+    color: var(--p-badge-primary-color);
+    font-size: var(--p-badge-font-size);
+    font-weight: var(--p-badge-font-weight);
+    min-width: var(--p-badge-min-width);
+    height: var(--p-badge-height);
+    letter-spacing: -0.4px;
+  }
 }

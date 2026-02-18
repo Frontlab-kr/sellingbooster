@@ -1,123 +1,306 @@
+@use './mixins' as *;
+
 .ico {
   &-24-block {
     display: block;
+    min-width: 24px;
     width: 24px;
     height: 24px;
     background: url(../icons/24/block.svg) no-repeat 50% 50%;
+    background-size: cover;
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+    }
   }
   &-24-report {
     display: block;
+    min-width: 24px;
     width: 24px;
     height: 24px;
     background: url(../icons/24/report.svg) no-repeat 50% 50%;
+    background-size: cover;
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+    }
   }
   &-24-edit {
     display: block;
+    min-width: 24px;
     width: 24px;
     height: 24px;
     background: url(../icons/24/edit.svg) no-repeat 50% 50%;
+    background-size: cover;
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+    }
   }
   &-24-trash {
     display: block;
+    min-width: 24px;
     width: 24px;
     height: 24px;
     background: url(../icons/24/trash.svg) no-repeat 50% 50%;
+    background-size: cover;
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &-24-delete {
+    display: block;
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    background: url(../icons/24/delete.svg) no-repeat 50% 50%;
   }
 
   //nuxt icon
   &-16-paperclip {
+    min-width: 16px;
     width: 16px;
     height: 16px;
     color: #9aa3af;
   }
   &-16-login {
+    min-width: 16px;
     width: 16px;
     height: 16px;
-    color: #9aa3af;
   }
-  &-16-smiley-happy {
+  &-16-smile {
+    min-width: 16px;
     width: 16px;
     height: 16px;
     color: #9aa3af;
   }
   &-16-profile {
+    min-width: 16px;
     width: 16px;
     height: 16px;
     color: #9aa3af;
   }
   &-16-card {
+    min-width: 16px;
     width: 16px;
     height: 16px;
     color: #9aa3af;
   }
   &-16-alert-circle {
+    min-width: 16px;
     width: 16px;
     height: 16px;
     color: #9aa3af;
   }
   &-16-document {
+    min-width: 16px;
     width: 16px;
     height: 16px;
     color: #9aa3af;
   }
-  &-24-search {
+  &-24-paperclip {
+    min-width: 24px;
     width: 24px;
     height: 24px;
-    color: #6a7381;
+    color: #9aa3af;
   }
-  &-24-globe {
-    width: 24px;
-    height: 24px;
-    color: #6a7381;
-  }
-  &-24-bellon {
-    width: 24px;
-    height: 24px;
-    color: #6a7381;
-  }
+
   &-24-download {
+    min-width: 24px;
     width: 24px;
     height: 24px;
     color: #9aa3af;
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 16px;
+      width: 16px;
+      height: 16px;
+    }
   }
-  &-24-message {
-    width: 24px;
-    height: 24px;
-    color: #9aa3af;
-  }
-  &-24-share {
-    width: 24px;
-    height: 24px;
-    color: #9aa3af;
-  }
-  &-24-like {
-    width: 24px;
-    height: 24px;
-    color: #9aa3af;
-  }
+
   &-24-back {
+    min-width: 24px;
     width: 24px;
     height: 24px;
     color: #454f5b;
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+    }
   }
   &-24-plus {
+    min-width: 24px;
     width: 24px;
     height: 24px;
     color: #6a7381;
   }
   &-24-down {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    color: #454f5b;
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &-24-up-right {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    color: #9aa3af;
+  }
+  &-100-smile {
+    min-width: 100px;
+    width: 100px;
+    height: 100px;
+    color: #9aa3af;
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 80px;
+      width: 80px;
+      height: 80px;
+    }
+  }
+  &-100-frown {
+    min-width: 100px;
+    width: 100px;
+    height: 100px;
+    color: #9aa3af;
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 80px;
+      width: 80px;
+      height: 80px;
+    }
+  }
+
+  //
+  //여기서부터 새로
+  &-24-search {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    color: #6a7381;
+  }
+  &-24-globe {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    color: #6a7381;
+  }
+  &-24-bell-on {
+    min-width: 25px;
+    width: 25px;
+    height: 25px;
+    color: #6a7381;
+  }
+  &-24-arrow-right {
+    min-width: 24px;
     width: 24px;
     height: 24px;
     color: #454f5b;
   }
-  &-24-up-right {
+  &-24-refresh {
+    min-width: 24px;
     width: 24px;
     height: 24px;
-    color: #9aa3af;
+    color: #454f5b;
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+    }
   }
-  &-32-dotmenu {
+
+  //32
+  &-32-like {
+    min-width: 32px;
     width: 32px;
     height: 32px;
     color: #9aa3af;
+    &.active {
+      color: #00b1bd;
+    }
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &-32-message {
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+    color: #9aa3af;
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &-32-share {
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+    color: #9aa3af;
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &-32-dotmenu {
+    min-width: 32px;
+    width: 32px;
+    height: 32px;
+    color: #9aa3af;
+    @media screen and (max-width: $BreakpointMd) {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.ico {
+  &-social-facebook {
+    display: block;
+    min-width: 58px;
+    width: 58px;
+    height: 58px;
+    background: url(../icons/social/facebook.svg) no-repeat 50% 50%;
+  }
+  &-social-x {
+    display: block;
+    min-width: 58px;
+    width: 58px;
+    height: 58px;
+    background: url(../icons/social/x.svg) no-repeat 50% 50%;
+  }
+  &-social-kakaotalk {
+    display: block;
+    min-width: 58px;
+    width: 58px;
+    height: 58px;
+    background: url(../icons/social/kakaotalk.svg) no-repeat 50% 50%;
+  }
+  &-social-naverblog {
+    display: block;
+    min-width: 58px;
+    width: 58px;
+    height: 58px;
+    background: url(../icons/social/naverblog.svg) no-repeat 50% 50%;
+  }
+  &-social-copy {
+    display: block;
+    min-width: 58px;
+    width: 58px;
+    height: 58px;
+    background: url(../icons/social/copy.svg) no-repeat 50% 50%;
   }
 }

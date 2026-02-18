@@ -2,18 +2,16 @@
   <div class="sb-qna-view">
     <div class="sb-qna-view__head">
       <div class="sb-qna-view__title">
-        <Badge value="답변 완료" severity="contrast" />
+        <Badge
+          :value="item.badgeText"
+          :style="getBadgeStyle(item.badgeColor)"
+        />
         <h5>회원 문의</h5>
       </div>
       <div class="sb-qna-view__meta">
         <div class="sb-qna-view__date">2026.01.14</div>
         <div class="sb-qna-view__menu">
-          <Button variant="text" rounded @click="menuToggle">
-            <template #icon>
-              <Icon name="sb:32-dotmenu" class="ico-32-dotmenu" />
-            </template>
-          </Button>
-          <TieredMenu ref="menu" :model="menuItems" popup appendTo="body" />
+          <SbMenu :items="qnaMenuItems" />
         </div>
       </div>
     </div>
@@ -27,7 +25,7 @@
       </div>
       <div class="sb-attachment">
         <div class="sb-attachment-item">
-          <a href="#">
+          <NuxtLink to="">
             <p>
               파일 첨부했을 경우 첨부파일 정보가 노출.jpg파일 첨부했을 경우
               첨부파일 정보가 노출.jpg파일 첨부했을 경우 첨부파일 정보가
@@ -35,8 +33,8 @@
             </p>
 
             <div class="sb-attachment-item__size">13MB</div>
-            <Icon name="sb:24-download" class="ico-24-download" />
-          </a>
+            <Icon24download class="ico-24-download" />
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -59,9 +57,18 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useStatus } from '@/composables/useStatus';
 
-const menu = ref();
-const menuItems = ref([
+import Icon24download from '@/assets/icons/24/download.svg?component';
+
+const { getBadgeStyle } = useStatus();
+
+const item = ref({
+  badgeText: '답변 완료',
+  badgeColor: 'bg_ebfcfd',
+});
+
+const qnaMenuItems = ref([
   {
     label: '수정',
     icon: 'ico-24-edit',
@@ -71,25 +78,4 @@ const menuItems = ref([
     icon: 'ico-24-trash',
   },
 ]);
-
-const menuToggle = (event) => {
-  menu.value.toggle(event);
-};
-
-const getBadgeStyle = (status) => {
-  //답변 완료
-  if (status === 'done') {
-    return {
-      backgroundColor: '#EBFCFD',
-      color: '#2CA6AF',
-    };
-  }
-  //답변 대기
-  if (status === 'waiting') {
-    return {
-      backgroundColor: '#38414F',
-      color: '#ffffff',
-    };
-  }
-};
 </script>

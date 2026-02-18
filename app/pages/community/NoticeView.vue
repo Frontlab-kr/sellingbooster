@@ -10,12 +10,15 @@
       <div class="sb-notice-view">
         <div class="sb-notice-view__head">
           <div class="sb-notice-view__badge">
-            <Badge value="기본" severity="secondary" />
+            <Badge
+              :value="item.badgeText"
+              :style="getBadgeStyle(item.badgeColor)"
+            />
           </div>
-          <h6 class="sb-notice-view__title">
-            국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내
-          </h6>
-          <div class="sb-notice-view__date">2026.01.22</div>
+          <div class="sb-notice-view__title">
+            <h5>국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내</h5>
+            <div class="sb-notice-view__date">2026.01.22</div>
+          </div>
         </div>
         <div class="sb-notice-view__contents">
           안녕하세요. 셀링부스터 입니다.<br />
@@ -41,15 +44,24 @@
           ※ ARS 전화번호<br />
           - 셀링부스터서비스 대표: 1588-0000
         </div>
-        <NuxtLink to="" class="sb-notice-view__attachment">
-          <p>파일 첨부했을 경우 첨부파일 정보가 노출.jpg</p>
-          <span>13MB</span>
-          <Icon name="sb:24-download" class="ico-24-download" />
-        </NuxtLink>
+        <div class="sb-attachment">
+          <div class="sb-attachment-item">
+            <NuxtLink to="">
+              <p>
+                파일 첨부했을 경우 첨부파일 정보가 노출.jpg파일 첨부했을 경우
+                첨부파일 정보가 노출.jpg파일 첨부했을 경우 첨부파일 정보가
+                노출.jpg파일 첨부했을 경우 첨부파일 정보가 노출.jpg
+              </p>
+
+              <div class="sb-attachment-item__size">13MB</div>
+              <Icon24download class="ico-24-download" />
+            </NuxtLink>
+          </div>
+        </div>
       </div>
       <div class="sb-notice-view__button">
-        <Button outlined>
-          <Icon name="sb:24-back" class="ico-24-back" />
+        <Button severity="primary">
+          <Icon24back class="ico-24-back" />
           <span class="p-button-label">목록으로</span>
         </Button>
       </div>
@@ -59,6 +71,17 @@
 
 <script setup>
 import { ref } from 'vue';
+import Icon24back from '@/assets/icons/24/back.svg?component';
+import Icon24download from '@/assets/icons/24/download.svg?component';
+
+import { useStatus } from '@/composables/useStatus';
+
+const item = ref({
+  badgeText: '답변 대기',
+  badgeColor: 'bg_38414f',
+});
+
+const { getBadgeStyle } = useStatus();
 
 //breadcrumb
 const breadcrumb = ref([

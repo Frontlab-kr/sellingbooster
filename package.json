@@ -11,8 +11,15 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.17",
-    "@nuxt/icon": "^2.2.1",
     "@primeuix/themes": "^2.0.3",
+    "@tiptap/extension-highlight": "^3.19.0",
+    "@tiptap/extension-subscript": "^3.19.0",
+    "@tiptap/extension-superscript": "^3.19.0",
+    "@tiptap/extension-task-item": "^3.19.0",
+    "@tiptap/extension-task-list": "^3.19.0",
+    "@tiptap/extension-text-align": "^3.19.0",
+    "@tiptap/extension-underline": "^3.19.0",
+    "@tiptap/extension-youtube": "^3.19.0",
     "@yeger/vue-masonry-wall": "^5.1.5",
     "build": "^0.1.4",
     "echarts": "^6.0.0",
@@ -25,6 +32,7 @@
     "primevue": "^4.5.4",
     "react-hotkeys-hook": "^5.2.4",
     "react-plock": "^3.6.1",
+    "remixicon": "^4.9.1",
     "vue": "^3.5.27",
     "vue-echarts": "^8.0.1",
     "vue-router": "^4.6.4"
@@ -34,6 +42,7 @@
     "@tailwindcss/typography": "^0.5.19",
     "@types/lodash.throttle": "^4.1.9",
     "sass": "^1.97.3",
-    "sass-embedded": "^1.97.3"
+    "sass-embedded": "^1.97.3",
+    "vite-svg-loader": "^5.1.0"
   }
 }

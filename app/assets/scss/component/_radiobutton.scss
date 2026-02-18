@@ -1,54 +1,59 @@
+@use '../mixins' as *;
+
+:root,
+:host {
+  --p-radiobutton-icon-size: 0.75rem;
+  --p-radiobutton-icon-checked-color: var(--p-primary-contrast-color);
+  --p-radiobutton-icon-checked-hover-color: var(--p-primary-contrast-color);
+  --p-radiobutton-icon-disabled-color: var(--p-form-field-disabled-color);
+  --p-radiobutton-icon-lg-size: 1rem;
+  --p-radiobutton-icon-sm-size: 0.5rem;
+  --p-radiobutton-width: 24px;
+  --p-radiobutton-height: 24px;
+  --p-radiobutton-background: var(--p-form-field-background);
+  --p-radiobutton-checked-background: var(--p-primary-color);
+  --p-radiobutton-checked-hover-background: var(--p-primary-hover-color);
+  --p-radiobutton-disabled-background: var(--p-form-field-disabled-background);
+  --p-radiobutton-filled-background: var(--p-form-field-filled-background);
+  --p-radiobutton-border-color: var(--p-form-field-border-color);
+  --p-radiobutton-hover-border-color: var(--p-form-field-hover-border-color);
+  --p-radiobutton-focus-border-color: var(--p-form-field-border-color);
+  --p-radiobutton-checked-border-color: var(--p-primary-color);
+  --p-radiobutton-checked-hover-border-color: var(--p-primary-hover-color);
+  --p-radiobutton-checked-focus-border-color: var(--p-primary-color);
+  --p-radiobutton-checked-disabled-border-color: var(
+    --p-form-field-border-color
+  );
+  --p-radiobutton-invalid-border-color: var(
+    --p-form-field-invalid-border-color
+  );
+  --p-radiobutton-shadow: var(--p-form-field-shadow);
+  --p-radiobutton-transition-duration: var(--p-form-field-transition-duration);
+  --p-radiobutton-lg-width: 1.5rem;
+  --p-radiobutton-lg-height: 1.5rem;
+  --p-radiobutton-sm-width: 1rem;
+  --p-radiobutton-sm-height: 1rem;
+  --p-radiobutton-focus-ring-width: var(--p-focus-ring-width);
+  --p-radiobutton-focus-ring-style: var(--p-focus-ring-style);
+  --p-radiobutton-focus-ring-color: var(--p-focus-ring-color);
+  --p-radiobutton-focus-ring-offset: var(--p-focus-ring-offset);
+  --p-radiobutton-focus-ring-shadow: var(--p-focus-ring-shadow);
+}
 .p-radiobutton {
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  &-box {
-    border: 2px solid #eaecf1;
-    width: 18px;
-    height: 18px;
-    box-shadow: none;
+  position: relative;
+  display: inline-flex;
+  user-select: none;
+  vertical-align: bottom;
+  width: var(--p-radiobutton-width);
+  height: var(--p-radiobutton-height);
+  label {
+    color: var(--Gray-900_1B1F27, var(--Gray-900_1B1F27, #1b1f27));
+    font-size: var(--Font-Body-Large, 16px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 22.4px */
+    letter-spacing: -0.4px;
   }
-}
-.p-radiobutton:not(.p-disabled):has(.p-radiobutton-input:hover)
-  .p-radiobutton-box {
-  border-color: #00b1bd;
-  background: none !important;
-}
-.p-radiobutton-checked .p-radiobutton-box {
-  background: none;
-}
-.p-radiobutton-checked .p-radiobutton-box .p-radiobutton-icon {
-  width: 9px;
-  height: 9px;
-  background-color: #00b1bd;
-  border-radius: 9px;
-}
-.p-radiobutton ~ label {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  color: var(--Gray-900_1B1F27, var(--Gray-900_1B1F27, #1b1f27));
-  text-align: center;
-
-  /* PC/Pretendard JP/Body/Large */
-  font-family: var(--Font-Family-Pretendard-JP, 'Pretendard JP');
-  font-size: var(--Font-Body-Large, 16px);
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.4px;
-  white-space: noWrap;
-}
-
-.sb {
-  &-radio {
-    display: flex;
-    gap: 40px;
-    &-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+  @media screen and (max-width: $BreakpointMd) {
   }
 }

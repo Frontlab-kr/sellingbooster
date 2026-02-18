@@ -21,7 +21,7 @@ const props = defineProps({
   },
   maxlength: {
     type: [Number, String],
-    default: 1000,
+    default: 300,
   },
 
   placeholder: {

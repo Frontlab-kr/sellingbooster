@@ -9,11 +9,7 @@
         <span>{{ item.date }}</span>
       </div>
       <div class="sb-story-list-item__menu">
-        <Button variant="text" @click="menuToggle">
-          <template #icon>
-            <Icon name="sb:32-dotmenu" class="ico-32-dotmenu" />
-          </template>
-        </Button>
+        <SbMenu :items="storyMenuItems" />
       </div>
     </div>
     <NuxtLink to="./StoryView">
@@ -25,26 +21,34 @@
         <img :src="item.image" alt="" />
       </div>
       <div class="sb-story-list-item__foot">
-        <Button size="small" variant="text" disabled>
-          <Icon name="sb:24-like" class="ico-24-like" />
-          <span class="p-button-label">{{ item.likeCount || 0 }}</span>
-        </Button>
-        <Button size="small" variant="text" disabled>
-          <Icon name="sb:24-message" class="ico-24-message" />
-          <span class="p-button-label">{{ item.commentCount || 0 }}</span>
-        </Button>
-        <Button size="small" variant="text" disabled>
-          <Icon name="sb:24-share" class="ico-24-share" />
-          <span class="p-button-label">{{ item.shareCount || 0 }}</span>
-        </Button>
+        <SbSocial
+          class="sb-social--disabled"
+          :visible-buttons="['like', 'comment', 'share']"
+          :like-count="item.likeCount"
+          :comment-count="item.commentCount"
+          :share-count="item.shareCount"
+        />
       </div>
     </NuxtLink>
   </div>
   <TieredMenu ref="menu" :model="menuItems" popup appendTo="body" />
+
+  <Dialog v-model:visible="dialogReport" modal class="p-dialog-sm">
+    <div class="p-dialog-inner">
+      <h5 class="p-dialog-title">신고하기</h5>
+      <StoryReport />
+    </div>
+  </Dialog>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import StoryReport from './StoryReport.vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+const dialogReport = ref(false);
 
 const props = defineProps({
   item: {
@@ -54,9 +58,9 @@ const props = defineProps({
   },
 });
 
-//menu
-const menu = ref();
-const menuItems = ref([
+const emit = defineEmits(['report']);
+
+const storyMenuItems = ref([
   {
     label: '차단',
     icon: 'ico-24-block',
@@ -71,13 +75,17 @@ const menuItems = ref([
   {
     label: '수정',
     icon: 'ico-24-edit',
+    command: () => {
+      router.push('./storyWrite');
+    },
   },
   {
     label: '삭제',
     icon: 'ico-24-trash',
   },
 ]);
-const menuToggle = (event) => {
-  menu.value.toggle(event);
+
+const reportOpen = () => {
+  dialogReport.value = true;
 };
 </script>

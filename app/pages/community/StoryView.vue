@@ -14,16 +14,11 @@
           <span>2026.02.14</span>
         </div>
         <div class="sb-story-view__menu">
-          <Button variant="text" @click="menuToggle">
-            <template #icon>
-              <Icon name="sb:32-dotmenu" class="ico-32-dotmenu" />
-            </template>
-          </Button>
-          <TieredMenu ref="menu" :model="menuItems" popup />
+          <SbMenu :items="storyMenuItems" />
         </div>
       </div>
 
-      <h6 class="sb-story-view__title">작은 시작에서, 꾸준한 성장까지</h6>
+      <h4 class="sb-story-view__title">작은 시작에서, 꾸준한 성장까지</h4>
       <div class="sb-story-view__contents">
         <p>
           처음부터 모든 게 순조롭진 않았습니다. 상품 등록 하나에도 고민이
@@ -36,28 +31,37 @@
           도전할 수 있는 힘이 되었습니다.<br />
           지금도 완성형은 아니지만,셀러로서 성장하는 과정 자체가 값진 자산이
           되었다고 느낍니다.이 스토리가 같은 길을 걷고 있는 누군가에게 작은
-          용기가 되었으면 합니다.<br />
+          용기가 되었으면 합니다.
         </p>
+        <br />
         <img src="https://picsum.photos/id/1/800/800" alt="" />
       </div>
+      <div class="sb-attachment">
+        <div class="sb-attachment-item">
+          <NuxtLink to="">
+            <p>
+              파일 첨부했을 경우 첨부파일 정보가 노출.jpg파일 첨부했을 경우
+              첨부파일 정보가 노출.jpg파일 첨부했을 경우 첨부파일 정보가
+              노출.jpg파일 첨부했을 경우 첨부파일 정보가 노출.jpg
+            </p>
+
+            <div class="sb-attachment-item__size">13MB</div>
+            <Icon24download class="ico-24-download" />
+          </NuxtLink>
+        </div>
+      </div>
       <div class="sb-story-view__foot">
-        <Button size="small" variant="text">
-          <Icon name="sb:24-like" class="ico-24-like" />
-          <span class="p-button-label">9,000</span>
-        </Button>
-        <Button size="small" variant="text">
-          <Icon name="sb:24-message" class="ico-24-message" />
-          <span class="p-button-label">9,000</span>
-        </Button>
-        <Button size="small" variant="text">
-          <Icon name="sb:24-share" class="ico-24-share" />
-          <span class="p-button-label">9,000</span>
-        </Button>
+        <SbSocial
+          :visible-buttons="['like', 'comment', 'share']"
+          :like-count="item.likeCount"
+          :comment-count="item.commentCount"
+          :share-count="item.shareCount"
+        />
       </div>
     </div>
-    <div class="sb-notice-view__button">
-      <Button outlined>
-        <Icon name="sb:24-back" class="ico-24-back" />
+    <div class="sb-story-view__button">
+      <Button severity="primary">
+        <Icon24back class="ico-24-back" />
         <span class="p-button-label">목록으로</span>
       </Button>
     </div>
@@ -76,6 +80,8 @@
 import { ref } from 'vue';
 import StoryReport from './StoryReport.vue';
 
+import Icon24back from '@/assets/icons/24/back.svg?component';
+
 //dialog
 const dialogReport = ref(false);
 
@@ -86,16 +92,22 @@ const breadcrumb = ref([
   { label: '성장스토리' },
 ]);
 
-//menu
-const menu = ref();
-const menuItems = ref([
+const item = ref({
+  likeCount: '100',
+  commentCount: '9,000',
+  shareCount: '9,000',
+});
+
+const storyMenuItems = ref([
   {
     label: '차단',
     icon: 'ico-24-block',
+    class: 'p-tieredmenu-item-link-danger',
   },
   {
     label: '신고',
     icon: 'ico-24-report',
+    class: 'p-tieredmenu-item-link-danger',
     command: () => {
       reportOpen();
     },
@@ -110,9 +122,6 @@ const menuItems = ref([
   },
 ]);
 
-const menuToggle = (event) => {
-  menu.value.toggle(event);
-};
 const reportOpen = () => {
   dialogReport.value = true;
 };

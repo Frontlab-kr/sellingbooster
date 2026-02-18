@@ -7,6 +7,10 @@
   padding: 0 0 40px 0;
   border: none;
   border-radius: 30px;
+  &-sm {
+    min-width: 500px;
+    width: 500px;
+  }
   &-title {
     margin-bottom: 30px;
     color: var(--Gray-900_1B1F27, var(--Gray-900_1B1F27, #1b1f27));
@@ -24,6 +28,7 @@
       width: 32px;
       height: 32px;
       background: url(../../icons/32/dialog-close.svg) no-repeat 50% 50%;
+      background-size: cover;
     }
     svg {
       display: none;
@@ -32,7 +37,7 @@
   &-header {
     display: flex;
     justify-content: flex-end;
-    padding: 24px 40px 14px;
+    padding: 24px 24px 16px 40px;
   }
   &-content {
     padding: 0 40px;
@@ -42,7 +47,84 @@
     font-weight: 400;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.35px;
-
     @include custom-scrollbar;
+  }
+
+  @media screen and (max-width: $BreakpointMd) {
+    min-width: auto;
+    width: calc(100% - 40px);
+    padding: 0 0 28px 0;
+    border-radius: 24px;
+    &--full {
+      height: 100vh;
+      max-height: 100%;
+      width: 100%;
+      padding: 0 0 40px 0;
+      border: none;
+      border-radius: 0;
+      .p-dialog-header {
+        height: 56px;
+        padding: 0 20px;
+        border-bottom: 1px solid var(--Gray-200_EAECF1, #eaecf1);
+      }
+      .p-dialog-title {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 56px;
+        padding: 0 20px;
+        color: var(--Gray-800_262F38, var(--Gray-800_262F38, #262f38));
+        font-size: var(--Font-Heading-Small, 16px);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%; /* 20.8px */
+        letter-spacing: -0.4px;
+      }
+      .p-dialog-close-button::before {
+        content: '';
+        width: 24px;
+        height: 24px;
+        background: url(../../icons/24/close.svg) no-repeat 50% 50%;
+      }
+    }
+    &-sm {
+      min-width: auto;
+      width: calc(100vw - 40px);
+    }
+    &-title {
+      margin-bottom: 16px;
+      color: var(--Gray-900_1B1F27, var(--Gray-900_1B1F27, #1b1f27));
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 130%; /* 23.4px */
+      letter-spacing: -0.45px;
+    }
+    &-inner {
+      overflow: auto;
+    }
+    &-close-button {
+      &::before {
+        content: '';
+        width: 28px;
+        height: 28px;
+      }
+    }
+    &-header {
+      display: flex;
+      justify-content: flex-end;
+      padding: 20px 20px 0 20px;
+    }
+    &-content {
+      padding: 0 20px;
+      color: var(--Gray-900_1B1F27, var(--Gray-900_1B1F27, #1b1f27));
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 22.5px */
+      letter-spacing: -0.5px;
+    }
   }
 }

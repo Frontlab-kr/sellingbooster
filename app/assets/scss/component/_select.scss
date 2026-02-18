@@ -1,10 +1,5 @@
-:root,
-:host {
-  --p-selectbutton-border-radius: var(--p-form-field-border-radius);
-  --p-selectbutton-invalid-border-color: var(
-    --p-form-field-invalid-border-color
-  );
-}
+@use '../mixins' as *;
+
 :root,
 :host {
   --p-select-empty-message-padding: var(--p-list-option-padding);
@@ -16,29 +11,25 @@
   --p-select-option-group-color: var(--p-list-option-group-color);
   --p-select-option-group-font-weight: var(--p-list-option-group-font-weight);
   --p-select-option-group-padding: var(--p-list-option-group-padding);
-  --p-select-option-focus-background: var(--p-list-option-focus-background);
-  --p-select-option-selected-background: var(
-    --p-list-option-selected-background
-  );
-  --p-select-option-selected-focus-background: var(
-    --p-list-option-selected-focus-background
-  );
-  --p-select-option-color: var(--p-list-option-color);
-  --p-select-option-focus-color: var(--p-list-option-focus-color);
-  --p-select-option-selected-color: var(--p-list-option-selected-color);
+  --p-select-option-focus-background: transparent;
+  --p-select-option-selected-background: transparent;
+  --p-select-option-selected-focus-background: transparent;
+  --p-select-option-color: var(--p-gray-500);
+  --p-select-option-focus-color: var(--p-primary-500);
+  --p-select-option-selected-color: var(--p-primary-500);
   --p-select-option-selected-focus-color: var(
     --p-list-option-selected-focus-color
   );
-  --p-select-option-padding: var(--p-list-option-padding);
+  --p-select-option-padding: 6px 16px;
   --p-select-option-border-radius: var(--p-list-option-border-radius);
-  --p-select-list-padding: var(--p-list-padding);
+  --p-select-list-padding: 0;
   --p-select-list-gap: var(--p-list-gap);
   --p-select-list-header-padding: var(--p-list-header-padding);
   --p-select-overlay-background: var(--p-overlay-select-background);
-  --p-select-overlay-border-color: var(--p-overlay-select-border-color);
-  --p-select-overlay-border-radius: var(--p-overlay-select-border-radius);
-  --p-select-overlay-color: var(--p-overlay-select-color);
-  --p-select-overlay-shadow: var(--p-overlay-select-shadow);
+  --p-select-overlay-border-color: var(--p-gray-300);
+  --p-select-overlay-border-radius: 0 0 24px 24px;
+  --p-select-overlay-color: var(--p-gray-300);
+  --p-select-overlay-shadow: none;
   --p-select-dropdown-width: 2.5rem;
   --p-select-dropdown-color: var(--p-form-field-icon-color);
   --p-select-background: var(--p-form-field-background);
@@ -50,27 +41,27 @@
   --p-select-filled-focus-background: var(
     --p-form-field-filled-focus-background
   );
-  --p-select-border-color: var(--p-form-field-border-color);
+  --p-select-border-color: var(--p-gray-300);
   --p-select-hover-border-color: var(--p-form-field-hover-border-color);
   --p-select-focus-border-color: var(--p-form-field-focus-border-color);
   --p-select-invalid-border-color: var(--p-form-field-invalid-border-color);
-  --p-select-color: var(--p-form-field-color);
+  --p-select-color: var(--p-gray-900);
   --p-select-disabled-color: var(--p-form-field-disabled-color);
-  --p-select-placeholder-color: var(--p-form-field-placeholder-color);
+  --p-select-placeholder-color: var(--p-gray-500);
   --p-select-invalid-placeholder-color: var(
     --p-form-field-invalid-placeholder-color
   );
-  --p-select-shadow: var(--p-form-field-shadow);
-  --p-select-padding-x: var(--p-form-field-padding-x);
-  --p-select-padding-y: var(--p-form-field-padding-y);
-  --p-select-border-radius: var(--p-form-field-border-radius);
+  --p-select-shadow: none;
+  --p-select-padding-x: 16px;
+  --p-select-padding-y: 0;
+  --p-select-border-radius: 48px;
   --p-select-transition-duration: var(--p-form-field-transition-duration);
   --p-select-lg-font-size: var(--p-form-field-lg-font-size);
   --p-select-lg-padding-x: var(--p-form-field-lg-padding-x);
   --p-select-lg-padding-y: var(--p-form-field-lg-padding-y);
   --p-select-sm-font-size: var(--p-form-field-sm-font-size);
-  --p-select-sm-padding-x: 5px;
-  --p-select-sm-padding-y: 2px;
+  --p-select-sm-padding-x: var(--p-form-field-sm-padding-x);
+  --p-select-sm-padding-y: var(--p-form-field-sm-padding-y);
   --p-select-focus-ring-width: var(--p-form-field-focus-ring-width);
   --p-select-focus-ring-style: var(--p-form-field-focus-ring-style);
   --p-select-focus-ring-color: var(--p-form-field-focus-ring-color);
@@ -82,6 +73,7 @@
   display: inline-flex;
   cursor: pointer;
   position: relative;
+  height: 48px;
   user-select: none;
   background: var(--p-select-background);
   border: 1px solid var(--p-select-border-color);
@@ -94,28 +86,58 @@
   border-radius: var(--p-select-border-radius);
   outline-color: transparent;
   box-shadow: var(--p-select-shadow);
-  &-text {
-    border: none;
-    background: none;
-    box-shadow: none;
-  }
-  &-text & {
-    &-label {
-      color: var(--Gray-600_495666, var(--Gray-600_495666, #454f5b));
-      text-align: right;
-      font-size: var(--Font-Body-Medium, 14px);
-      font-style: normal;
-      font-weight: 400;
-      line-height: 140%; /* 19.6px */
-      letter-spacing: -0.35px;
-    }
-    &-dropdown {
-      width: 24px;
-      height: 24px;
-      background: url(../../icons/24/select.svg) no-repeat 50% 50%;
-      svg {
-        display: none;
+  &-open {
+    border-radius: 24px 24px 0 0;
+    .p-select-dropdown {
+      &::after {
+        transform: rotate(180deg);
       }
     }
+  }
+  &-label {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: var(--Font-Body-Large, 16px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1; /* 22.4px */
+    letter-spacing: -0.4px;
+  }
+  &-dropdown {
+    margin-right: 8px;
+    svg {
+      display: none;
+    }
+    &:after {
+      content: '';
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      background: url(../../icons/24/select.svg);
+      transition: all 0.2s ease;
+    }
+  }
+  &-overlay {
+    overflow: hidden;
+    border-top: none;
+  }
+  &-list-container {
+    @include custom-scrollbar();
+  }
+  &-option {
+    height: 36px;
+    &-label {
+      font-size: var(--Font-Body-Large, 16px);
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 22.4px */
+      letter-spacing: -0.4px;
+    }
+  }
+  &-text {
+    background: transparent;
+    border-color: transparent;
   }
 }

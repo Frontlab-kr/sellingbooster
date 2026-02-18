@@ -224,3 +224,11 @@ xl:  *px  // 대형
 ## 차트
 
 ECharts https://echarts.apache.org/ **(미정)**
+
+####
+
+공식지원하는 nuxt icon 쓰다가 작동이 잘 안되서 딴거 쓰는거 적어두고
+
+css 작성방식
+
+생각나는거 그때그때 적어두기

@@ -1,5 +1,7 @@
 @use 'sass:math';
 
+$BreakpointMd: 1024px;
+
 @mixin text-clamp($lines: 2, $line-height: false) {
   display: -webkit-box;
   overflow: hidden;
@@ -11,6 +13,7 @@
     max-height: $line-height * $lines * 1rem;
   }
 }
+
 @mixin custom-scrollbar(
   $width: 12px,
   $thumb-color: #c8c8c8,

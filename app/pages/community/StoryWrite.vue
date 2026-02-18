@@ -18,14 +18,19 @@
         </div>
         <div class="sb-story-write-form-item">
           <label>내용</label>
-          <!-- <SbTextarea
-            placeholder="셀러님의 성장 스토리를 공유해주세요.
-          많은 셀러분들에게 도움이 됩니다."
-          /> -->
           <TiptapEditor />
         </div>
         <div class="sb-story-write-form-item">
           <label>파일 첨부</label>
+          <SbFileupload />
+          <div class="sb-fileupload__text">
+            <p>※ 첨부파일은 50MB 이내 1개만 등록 가능합니다.</p>
+            <p class="mb-0">※ 아래에 안내된 파일 형식만 첨부가 가능합니다.</p>
+            <ul>
+              <li>이미지 : jpg/jpeg, png, gif, webp, tiff, bmp, svg</li>
+              <li>동영상 : mp4, avi, mov, wmv</li>
+            </ul>
+          </div>
         </div>
         <div class="sb-story-write-form-item">
           <div class="sb-caution">
@@ -46,7 +51,7 @@
       </div>
       <div class="sb-story-write__button">
         <Button severity="neutral" label="취소" />
-        <Button severity="primary" label="발행" />
+        <Button severity="primary" label="발행" disabled />
       </div>
     </div>
   </div>
