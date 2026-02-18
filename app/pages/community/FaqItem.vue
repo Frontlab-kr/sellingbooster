@@ -1,5 +1,9 @@
 <template>
-  <button class="sb-faq-list-item" @click="$emit('item-click', item)">
+  <button
+    class="sb-faq-list-item"
+    v-if="item"
+    @click="$emit('item-click', item)"
+  >
     <div class="sb-faq-list-item__badge">
       <Badge :value="item.badgeText" :style="getBadgeStyle(item.badgeColor)" />
     </div>

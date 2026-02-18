@@ -1,5 +1,5 @@
 <template>
-  <div class="sb-qna-list-item">
+  <div class="sb-qna-list-item" v-if="item">
     <div class="sb-qna-list-item__head">
       <div class="sb-qna-list-item__head-start">
         <h6 class="sb-qna-list-item__title">{{ item.title }}</h6>
