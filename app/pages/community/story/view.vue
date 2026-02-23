@@ -60,10 +60,12 @@
       </div>
     </div>
     <div class="sb-story-view__button">
-      <Button severity="primary" size="large">
-        <Icon24back class="ico-24-back" />
-        <span class="p-button-label">목록으로</span>
-      </Button>
+      <NuxtLink to="/community/story/">
+        <Button severity="primary" size="large">
+          <Icon24back class="ico-24-back" />
+          <span class="p-button-label">목록으로</span>
+        </Button>
+      </NuxtLink>
     </div>
     <SbComment />
   </div>

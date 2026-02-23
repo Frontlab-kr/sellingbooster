@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink to="./view" class="sb-notice-list-item" v-if="item">
+  <NuxtLink to="/community/notice/view" class="sb-notice-list-item" v-if="item">
     <div class="sb-notice-list-item__head">
       <div class="sb-notice-list-item__badge">
         <Badge

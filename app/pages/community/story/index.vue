@@ -6,7 +6,7 @@
         <Breadcrumb :model="breadcrumb" />
       </div>
       <div class="sb-community-head__button">
-        <NuxtLink to="./write" class="sb-ai">
+        <NuxtLink to="/community/story/write" class="sb-ai">
           <div class="sb-ai__tooltip">
             <p>셀러님만의 성장 스토리를 알려주세요.</p>
           </div>

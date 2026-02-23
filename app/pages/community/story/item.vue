@@ -13,7 +13,7 @@
         <SbMenu :items="storyMenuItems" />
       </div>
     </div>
-    <NuxtLink to="./view">
+    <NuxtLink to="/community/story/view">
       <h6 class="sb-story-list-item__title">{{ item.title }}</h6>
       <div class="sb-story-list-item__contents">
         {{ item.content }}
