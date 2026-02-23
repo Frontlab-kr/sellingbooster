@@ -1,20 +1,61 @@
+// useStatus.js
 export function useStatus() {
-  const getBadgeStyle = (badgeColor) => {
-    const styles = {
-      bg_ebfcfd: { backgroundColor: '#ebfcfd', color: '#2ca6af' },
-      bg_9aa3af: { backgroundColor: '#9aa3af', color: '#ffffff' },
-
-      bg_38414f: { backgroundColor: '#38414f', color: '#ffffff' },
-      bg_ffd1d3: { backgroundColor: '#ffd1d3', color: '#cc1f2f' },
-      bg_eaecf1: { backgroundColor: '#eaecf1', color: '#38414f' },
-
-      bg_fff7e0: { backgroundColor: '#fff7e0', color: '#E98C11' },
-      bg_eff0ff: { backgroundColor: '#eff0ff', color: '#6466FA' },
-    };
-
-    // 정의되지 않은 status가 들어오면 기본 스타일(secondary 등) 반환
-    return styles[badgeColor] || styles['secondary'];
+  const statusConfig = {
+    pending: {
+      backgroundColor: 'var(--badge-pending-bg)',
+      color: 'var(--badge-pending-text)',
+      label: '답변 대기',
+    },
+    completed: {
+      backgroundColor: 'var(--badge-completed-bg)',
+      color: 'var(--badge-completed-text)',
+      label: '답변 완료',
+    },
+    danger: {
+      backgroundColor: 'var(--badge-danger-bg)',
+      color: 'var(--badge-danger-text)',
+      label: '긴급',
+    },
+    important: {
+      backgroundColor: 'var(--badge-important-bg)',
+      color: 'var(--badge-important-text)',
+      label: '중요',
+    },
+    technical: {
+      backgroundColor: 'var(--badge-technical-bg)',
+      color: 'var(--badge-technical-text)',
+      label: '기술',
+    },
+    default: {
+      backgroundColor: 'var(--badge-default-bg)',
+      color: 'var(--badge-default-text)',
+      label: '기본',
+    },
+    etc: {
+      backgroundColor: 'var(--badge-etc-bg)',
+      color: 'var(--badge-etc-text)',
+      label: '기타',
+    },
+    signup: {
+      backgroundColor: 'var(--badge-signup-bg)',
+      color: 'var(--badge-signup-text)',
+      label: '가입방법',
+    },
+    guide: {
+      backgroundColor: 'var(--badge-guide-bg)',
+      color: 'var(--badge-guide-text)',
+      label: '사용방법',
+    },
+    feature: {
+      backgroundColor: 'var(--badge-feature-bg)',
+      color: 'var(--badge-feature-text)',
+      label: '기능소개',
+    },
   };
 
-  return { getBadgeStyle };
+  const getStatusDetail = (status) => {
+    return statusConfig[status] || statusConfig['default'];
+  };
+
+  return { getStatusDetail };
 }

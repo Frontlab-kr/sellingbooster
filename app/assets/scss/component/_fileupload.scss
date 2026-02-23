@@ -1,0 +1,25 @@
+:root,
+:host {
+  --p-fileupload-basic-gap: 0.5rem;
+  --p-fileupload-progressbar-height: 0.25rem;
+  --p-fileupload-file-list-gap: 0.5rem;
+  --p-fileupload-file-padding: 1rem;
+  --p-fileupload-file-gap: 1rem;
+  --p-fileupload-file-border-color: var(--p-content-border-color);
+  --p-fileupload-file-info-gap: 0.5rem;
+  --p-fileupload-content-highlight-border-color: var(--p-primary-color);
+  --p-fileupload-content-padding: 0 1.125rem 1.125rem 1.125rem;
+  --p-fileupload-content-gap: 1rem;
+  --p-fileupload-header-background: transparent;
+  --p-fileupload-header-color: var(--p-text-color);
+  --p-fileupload-header-padding: 1.125rem;
+  --p-fileupload-header-border-color: unset;
+  --p-fileupload-header-border-width: 0;
+  --p-fileupload-header-border-radius: 0;
+  --p-fileupload-header-gap: 0.5rem;
+  --p-fileupload-background: transparent;
+  --p-fileupload-border-color: var(--p-content-border-color);
+  --p-fileupload-color: var(--p-content-color);
+  --p-fileupload-border-radius: var(--p-content-border-radius);
+  --p-fileupload-transition-duration: var(--p-transition-duration);
+}

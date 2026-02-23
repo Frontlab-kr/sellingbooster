@@ -29,7 +29,7 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'github-pages',
   },
-  modules: ['@primevue/nuxt-module', 'nuxt-tiptap-editor'],
+  modules: ['@primevue/nuxt-module', '@nuxt/content', 'nuxt-tiptap-editor'],
 
   css: ['@/assets/scss/common.scss', 'remixicon/fonts/remixicon.css'],
 
@@ -51,9 +51,19 @@ export default defineNuxtConfig({
   primevue: {
     //성능 저하 이슈로 필요한 컴포넌트만 불러옴
     components: {
-      include: ['Button', 'Dialog', 'InputText', 'Textarea', 'TieredMenu'],
+      include: [
+        'Button',
+        'Dialog',
+        'InputText',
+        'Textarea',
+        'TieredMenu',
+        'ConfirmDialog',
+        'Toast',
+        'Button',
+      ],
     },
     options: {
+      ripple: true,
       theme: {
         preset: MyPreset,
         options: {

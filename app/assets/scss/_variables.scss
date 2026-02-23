@@ -1,0 +1,539 @@
+:root,
+:host {
+  --p-stone-50: #fafaf9;
+  --p-stone-100: #f5f5f4;
+  --p-stone-200: #e7e5e4;
+  --p-stone-300: #d6d3d1;
+  --p-stone-400: #a8a29e;
+  --p-stone-500: #78716c;
+  --p-stone-600: #57534e;
+  --p-stone-700: #44403c;
+  --p-stone-800: #292524;
+  --p-stone-900: #1c1917;
+  --p-stone-950: #0c0a09;
+  --p-neutral-50: #fafafa;
+  --p-neutral-100: #f5f5f5;
+  --p-neutral-200: #e5e5e5;
+  --p-neutral-300: #d4d4d4;
+  --p-neutral-400: #a3a3a3;
+  --p-neutral-500: #737373;
+  --p-neutral-600: #525252;
+  --p-neutral-700: #404040;
+  --p-neutral-800: #262626;
+  --p-neutral-900: #171717;
+  --p-neutral-950: #0a0a0a;
+  --p-zinc-50: #fafafa;
+  --p-zinc-100: #f4f4f5;
+  --p-zinc-200: #e4e4e7;
+  --p-zinc-300: #d4d4d8;
+  --p-zinc-400: #a1a1aa;
+  --p-zinc-500: #71717a;
+  --p-zinc-600: #52525b;
+  --p-zinc-700: #3f3f46;
+  --p-zinc-800: #27272a;
+  --p-zinc-900: #18181b;
+  --p-zinc-950: #09090b;
+  --p-gray-00: #ffffff;
+  --p-gray-50: #f9fafb;
+  --p-gray-100: #f3f4f6;
+  --p-gray-200: #e5e7eb;
+  --p-gray-300: #d1d5db;
+  --p-gray-400: #9ca3af;
+  --p-gray-500: #6b7280;
+  --p-gray-600: #4b5563;
+  --p-gray-700: #374151;
+  --p-gray-800: #1f2937;
+  --p-gray-900: #111827;
+  --p-gray-950: #030712;
+  --p-slate-50: #eff0ff;
+  --p-slate-100: #cfd0ff;
+  --p-slate-200: #b8b9fe;
+  --p-slate-300: #9798fe;
+  --p-slate-400: #8385fc;
+  --p-slate-500: #6466fa;
+  --p-slate-600: #5b5de4;
+  --p-slate-700: #4748b1;
+  --p-slate-800: #37388b;
+  --p-slate-900: #2a2b6a;
+  --p-slate-950: #262f38;
+  --p-rose-50: #fff1f2;
+  --p-rose-100: #ffe4e6;
+  --p-rose-200: #fecdd3;
+  --p-rose-300: #fda4af;
+  --p-rose-400: #fb7185;
+  --p-rose-500: #f43f5e;
+  --p-rose-600: #e11d48;
+  --p-rose-700: #be123c;
+  --p-rose-800: #9f1239;
+  --p-rose-900: #881337;
+  --p-rose-950: #4c0519;
+  --p-pink-50: #fdf2f8;
+  --p-pink-100: #fce7f3;
+  --p-pink-200: #fbcfe8;
+  --p-pink-300: #f9a8d4;
+  --p-pink-400: #f472b6;
+  --p-pink-500: #ec4899;
+  --p-pink-600: #db2777;
+  --p-pink-700: #be185d;
+  --p-pink-800: #9d174d;
+  --p-pink-900: #831843;
+  --p-pink-950: #500724;
+  --p-fuchsia-50: #fdf4ff;
+  --p-fuchsia-100: #fae8ff;
+  --p-fuchsia-200: #f5d0fe;
+  --p-fuchsia-300: #f0abfc;
+  --p-fuchsia-400: #e879f9;
+  --p-fuchsia-500: #d946ef;
+  --p-fuchsia-600: #c026d3;
+  --p-fuchsia-700: #a21caf;
+  --p-fuchsia-800: #86198f;
+  --p-fuchsia-900: #701a75;
+  --p-fuchsia-950: #4a044e;
+  --p-purple-50: #faf5ff;
+  --p-purple-100: #f3e8ff;
+  --p-purple-200: #e9d5ff;
+  --p-purple-300: #d8b4fe;
+  --p-purple-400: #c084fc;
+  --p-purple-500: #a855f7;
+  --p-purple-600: #9333ea;
+  --p-purple-700: #7e22ce;
+  --p-purple-800: #6b21a8;
+  --p-purple-900: #581c87;
+  --p-purple-950: #3b0764;
+  --p-violet-50: #f5f3ff;
+  --p-violet-100: #ede9fe;
+  --p-violet-200: #ddd6fe;
+  --p-violet-300: #c4b5fd;
+  --p-violet-400: #a78bfa;
+  --p-violet-500: #8b5cf6;
+  --p-violet-600: #7c3aed;
+  --p-violet-700: #6d28d9;
+  --p-violet-800: #5b21b6;
+  --p-violet-900: #4c1d95;
+  --p-violet-950: #2e1065;
+  --p-indigo-00: #ffffff;
+  --p-indigo-50: #ebfcfd;
+  --p-indigo-100: #e1fafc;
+  --p-indigo-200: #c2f4f8;
+  --p-indigo-300: #3adde9;
+  --p-indigo-400: #34c7d2;
+  --p-indigo-500: #00b1bd;
+  --p-indigo-600: #2ca6af;
+  --p-indigo-700: #23858c;
+  --p-indigo-800: #1a6369;
+  --p-indigo-900: #144d52;
+  --p-indigo-950: #144d52;
+  --p-blue-50: #eff6ff;
+  --p-blue-100: #dbeafe;
+  --p-blue-200: #bfdbfe;
+  --p-blue-300: #93c5fd;
+  --p-blue-400: #60a5fa;
+  --p-blue-500: #3b82f6;
+  --p-blue-600: #2563eb;
+  --p-blue-700: #1d4ed8;
+  --p-blue-800: #1e40af;
+  --p-blue-900: #1e3a8a;
+  --p-blue-950: #172554;
+  --p-sky-50: #f0f9ff;
+  --p-sky-100: #e0f2fe;
+  --p-sky-200: #bae6fd;
+  --p-sky-300: #7dd3fc;
+  --p-sky-400: #38bdf8;
+  --p-sky-500: #0ea5e9;
+  --p-sky-600: #0284c7;
+  --p-sky-700: #0369a1;
+  --p-sky-800: #075985;
+  --p-sky-900: #0c4a6e;
+  --p-sky-950: #082f49;
+  --p-cyan-50: #ecfeff;
+  --p-cyan-100: #cffafe;
+  --p-cyan-200: #a5f3fc;
+  --p-cyan-300: #67e8f9;
+  --p-cyan-400: #22d3ee;
+  --p-cyan-500: #06b6d4;
+  --p-cyan-600: #0891b2;
+  --p-cyan-700: #0e7490;
+  --p-cyan-800: #155e75;
+  --p-cyan-900: #164e63;
+  --p-cyan-950: #083344;
+  --p-teal-50: #f0fdfa;
+  --p-teal-100: #ccfbf1;
+  --p-teal-200: #99f6e4;
+  --p-teal-300: #5eead4;
+  --p-teal-400: #2dd4bf;
+  --p-teal-500: #14b8a6;
+  --p-teal-600: #0d9488;
+  --p-teal-700: #0f766e;
+  --p-teal-800: #115e59;
+  --p-teal-900: #134e4a;
+  --p-teal-950: #042f2e;
+  --p-yellow-50: #fefce8;
+  --p-yellow-100: #fef9c3;
+  --p-yellow-200: #fef08a;
+  --p-yellow-300: #fde047;
+  --p-yellow-400: #facc15;
+  --p-yellow-500: #eab308;
+  --p-yellow-600: #ca8a04;
+  --p-yellow-700: #a16207;
+  --p-yellow-800: #854d0e;
+  --p-yellow-900: #713f12;
+  --p-yellow-950: #422006;
+  --p-amber-50: #fffbeb;
+  --p-amber-100: #fef3c7;
+  --p-amber-200: #fde68a;
+  --p-amber-300: #fcd34d;
+  --p-amber-400: #fbbf24;
+  --p-amber-500: #f59e0b;
+  --p-amber-600: #d97706;
+  --p-amber-700: #b45309;
+  --p-amber-800: #92400e;
+  --p-amber-900: #78350f;
+  --p-amber-950: #451a03;
+  --p-orange-50: #fff7e0;
+  --p-orange-100: #ffedb8;
+  --p-orange-200: #ffe494;
+  --p-orange-300: #ffdc75;
+  --p-orange-400: #ffcf52;
+  --p-orange-500: #ffc13d;
+  --p-orange-600: #ffb22e;
+  --p-orange-700: #faa02e;
+  --p-orange-800: #e98c11;
+  --p-orange-900: #d97b02;
+  --p-orange-950: #d97b02;
+  --p-red-50: #fee;
+  --p-red-100: #ffd1d3;
+  --p-red-200: #fea9af;
+  --p-red-300: #fb8e95;
+  --p-red-400: #f6606b;
+  --p-red-500: #f04755;
+  --p-red-600: #e42636;
+  --p-red-700: #cc1f2f;
+  --p-red-800: #b71a29;
+  --p-red-900: #9f1825;
+  --p-red-950: #9f1825;
+  --p-lime-50: #f7fee7;
+  --p-lime-100: #ecfccb;
+  --p-lime-200: #d9f99d;
+  --p-lime-300: #bef264;
+  --p-lime-400: #a3e635;
+  --p-lime-500: #84cc16;
+  --p-lime-600: #65a30d;
+  --p-lime-700: #4d7c0f;
+  --p-lime-800: #3f6212;
+  --p-lime-900: #365314;
+  --p-lime-950: #1a2e05;
+  --p-green-50: #e7fff5;
+  --p-green-100: #b2f0d7;
+  --p-green-200: #7be5bb;
+  --p-green-300: #43d69b;
+  --p-green-400: #15c17c;
+  --p-green-500: #03ab67;
+  --p-green-600: #02975b;
+  --p-green-700: #028852;
+  --p-green-800: #027949;
+  --p-green-900: #02643d;
+  --p-green-950: #02643d;
+  --p-emerald-50: #ecfdf5;
+  --p-emerald-100: #d1fae5;
+  --p-emerald-200: #a7f3d0;
+  --p-emerald-300: #6ee7b7;
+  --p-emerald-400: #34d399;
+  --p-emerald-500: #10b981;
+  --p-emerald-600: #059669;
+  --p-emerald-700: #047857;
+  --p-emerald-800: #065f46;
+  --p-emerald-900: #064e3b;
+  --p-emerald-950: #022c22;
+  --p-border-radius-none: 0;
+  --p-border-radius-xs: 2px;
+  --p-border-radius-sm: 4px;
+  --p-border-radius-md: 6px;
+  --p-border-radius-lg: 8px;
+  --p-border-radius-xl: 12px;
+}
+
+:root,
+:host {
+  --body-background: #eff1f4;
+
+  --logo: url('./../images/logo.svg');
+
+  --snb-link-color: var(--p-gray-500);
+
+  --header-mo-title-color: var(--p-gray-800);
+  --header-mo-border-color: var(--p-gray-200);
+  --header-mo-background: var(--p-gray-00);
+
+  --snb-link-color: var(--p-gray-500);
+  --snb-link-menu-color: var(--p-gray-400);
+
+  --breadcrumb-color: var(--p-gray-500);
+
+  --title-color: var(--p-gray-900);
+  --contents-color: var(--p-gray-900);
+
+  --community-list-item-background: var(--p-gray-00);
+  --community-list-item-title-color: var(--p-primary-500);
+  --community-list-item-date-color: var(--p-gray-400);
+  --community-list-item-divider-color: var(--p-gray-300);
+  --community-view-background: var(--p-gray-00);
+
+  --comment-write-name-color: var(--p-slate-500);
+  --comment-write-background: var(--p-gray-00);
+  --comment-write-border-color: var(--p-gray-300);
+  --comment-write-length-color: var(--p-gray-400);
+  --comment-item-background: var(--p-gray-00);
+  --comment-reply-background: var(--p-gray-00);
+  --comment-item-name-color: var(--p-primary-500);
+  --comment-item-date-color: var(--p-gray-400);
+  --comment-write-mo-background: var(--p-gray-00);
+  --comment-write-mo-border-color: var(--p-gray-200);
+  --comment-write-mo-mention-color: var(--p-slate-500);
+  --comment-write-mo-button-disabled-color: #d1d6dd;
+  --comment-write-mo-text-border-color: var(--p-gray-300);
+  --comment-write-mo-text-background: var(--p-gray-200);
+  --comment-write-mo-text-color: var(--p-gray-600);
+
+  --caution-background: var(--p-gray-100);
+  --caution-contents-color: var(--p-gray-500);
+
+  --attachment-item-background: var(--p-gray-100);
+  --attachment-item-text-color: var(--p-gray-800);
+  --attachment-item-size-color: var(--p-gray-400);
+
+  --menu-layer-background: var(--p-gray-00);
+  --menu-layer-border-color: var(--p-gray-300);
+  --menu-layer-text-color: var(--p-gray-500);
+  --menu-layer-mo-background: var(--p-gray-00);
+  --menu-layer-mo-link-background: var(--p-gray-100);
+  --menu-layer-mo-text-color: var(--p-gray-500);
+  --menu-layer-mo-danger-background: var(--p-red-50);
+  --menu-layer-mo-danger-color: var(--p-red-500);
+
+  --social-reply-color: var(--p-gray-500);
+
+  --input-border-color: var(--p-gray-300);
+  --input-background: var(--p-gray-300);
+  --input-length-color: var(--p-gray-400);
+
+  --textarea-background: var(--p-gray-00);
+  --textarea-border-color: var(--p-gray-300);
+  --textarea-length-color: var(--p-gray-400);
+
+  --editor-background: var(--p-gray-00);
+  --editor-border-color: var(--p-gray-300);
+
+  --form-border-color: var(--p-gray-200);
+  --form-label-color: var(--p-gray-700);
+  --form-text-color: var(--p-gray-400);
+
+  --fileupload-text-color: var(--p-gray-400);
+
+  --ai-tooltip-background: #000;
+  --ai-tooltip-color: var(--p-gray-00);
+
+  --confirmdialog-content-color: var(--p-gray-900);
+
+  --searchbar-border-color: var(--p-gray-300);
+  --searchbar-hover-border-color: var(--p-gray-600);
+  --searchbar-background: var(--p-gray-00);
+  --searchbar-button-search-color: var(--p-gray-400);
+  --searchbar-button-hover-search-color: var(--p-primary-500);
+  --searchbar-button-disabled-border-color: var(--p-gray-300);
+  --searchbar-button-disabled-background: var(--p-gray-200);
+  --searchbar-button-disabled-color: var(--p-gray-400);
+  --searchbar-button-disabled-search-color: var(--p-gray-400);
+
+  --tab-button-color: var(--p-gray-400);
+  --tab-active-button-color: var(--p-primary-500);
+
+  --qna-view-date-color: var(--p-gray-400);
+  --qna-view-answer-background: var(--p-gray-50);
+  --qna-view-answer-author-color: var(--p-gray-600);
+  --qna-view-answer-content-color: var(--p-gray-500);
+
+  --notice-view-date-color: var(--p-gray-400);
+
+  --faq-view-q-background: var(--p-gray-600);
+  --faq-view-q-color: var(--p-gray-00);
+  --faq-view-a-background: var(--p-primary-500);
+  --faq-view-a-color: var(--p-gray-00);
+  --faq-view-text-background: var(--p-primary-50);
+  --faq-view-text-color: var(--p-gray-500);
+
+  --story-view-name-color: var(--p-primary-500);
+  --story-view-date-color: var(--p-gray-400);
+
+  --story-write-title-color: var(--p-primary-500);
+  --story-write-form-item-label-color: var(--p-gray-700);
+
+  --nodata-title-color: var(--p-gray-500);
+  --nodata-text-color: var(--p-gray-400);
+
+  &.p-dark {
+    --body-background: var(--p-gray-900);
+    --logo: url('./../images/logo-dark.svg');
+    --snb-link-color: var(--p-gray-400);
+
+    --header-mo-title-color: var(--p-gray-00);
+    --header-mo-border-color: var(--p-gray-800);
+    --header-mo-background: var(--p-gray-900);
+
+    --snb-link-color: var(--p-gray-400);
+    --snb-link-menu-color: var(--p-gray-500);
+
+    --breadcrumb-color: var(--p-gray-300);
+
+    --title-color: var(--p-gray-00);
+    --contents-color: var(--p-gray-00);
+
+    --community-list-item-background: var(--p-gray-700);
+    --community-list-item-title-color: var(--p-primary-300);
+    --community-list-item-date-color: var(--p-gray-400);
+    --community-list-item-divider-color: var(--p-gray-600);
+    --community-view-background: var(--p-gray-800);
+
+    --comment-write-name-color: var(--p-slate-300);
+    --comment-write-background: var(--p-gray-700);
+    --comment-write-border-color: var(--p-gray-600);
+    --comment-write-length-color: var(--p-gray-500);
+    --comment-item-background: var(--p-gray-800);
+    --comment-reply-background: var(--p-gray-700);
+    --comment-item-name-color: var(--p-primary-300);
+    --comment-item-date-color: var(--p-gray-400);
+    --comment-write-mo-background: var(--p-gray-700);
+    --comment-write-mo-border-color: var(--p-gray-600);
+    --comment-write-mo-mention-color: var(--p-slate-300);
+    --comment-write-mo-button-disabled-color: var(--p-gray-500);
+    --comment-write-mo-text-border-color: var(--p-gray-500);
+    --comment-write-mo-text-background: var(--p-gray-900);
+    --comment-write-mo-text-color: var(--p-gray-400);
+
+    --caution-background: var(--p-gray-700);
+    --caution-contents-color: var(--p-gray-400);
+
+    --attachment-item-background: var(--p-gray-700);
+    --attachment-item-text-color: var(--p-gray-100);
+    --attachment-item-size-color: var(--p-gray-500);
+
+    --menu-layer-background: var(--p-gray-700);
+    --menu-layer-border-color: var(--p-gray-500);
+    --menu-layer-text-color: var(--p-gray-300);
+    --menu-layer-mo-background: var(--p-gray-900);
+    --menu-layer-mo-link-background: var(--p-gray-700);
+    --menu-layer-mo-text-color: var(--p-gray-300);
+    --menu-layer-mo-danger-background: var(--p-red-100);
+    --menu-layer-mo-danger-color: var(--p-red-600);
+
+    --social-reply-color: var(--p-gray-300);
+
+    --input-border-color: var(--p-gray-600);
+    --input-background: var(--p-gray-800);
+    --input-length-color: var(--p-gray-400);
+
+    --textarea-background: var(--p-gray-900);
+    --textarea-border-color: var(--p-gray-600);
+    --textarea-length-color: var(--p-gray-500);
+
+    --editor-background: var(--p-gray-800);
+    --editor-border-color: var(--p-gray-600);
+
+    --form-border-color: var(--p-gray-600);
+    --form-label-color: var(--p-gray-200);
+    --form-text-color: var(--p-gray-500);
+
+    --fileupload-text-color: var(--p-gray-500);
+
+    --ai-tooltip-background: var(--p-gray-00);
+    --ai-tooltip-color: var(--p-gray-900);
+
+    --confirmdialog-content-color: var(--p-gray-00);
+
+    --searchbar-border-color: var(--p-gray-600);
+    --searchbar-hover-border-color: var(--p-gray-50);
+    --searchbar-background: transparent;
+    --searchbar-button-search-color: var(--p-gray-300);
+    --searchbar-button-hover-search-color: var(--p-primary-500);
+    --searchbar-button-disabled-border-color: var(--p-gray-600);
+    --searchbar-button-disabled-background: var(--p-gray-800);
+    --searchbar-button-disabled-color: var(--p-gray-500);
+    --searchbar-button-disabled-search-color: var(--p-gray-500);
+
+    --tab-button-color: var(--p-gray-500);
+    --tab-active-button-color: var(--p-primary-300);
+
+    --qna-view-answer-color: var(--p-gray-400);
+    --qna-view-answer-background: var(--p-gray-800);
+    --qna-view-answer-author-color: var(--p-gray-400);
+    --qna-view-answer-content-color: var(--p-gray-400);
+
+    --notice-view-date-color: var(--p-gray-400);
+
+    --faq-view-q-background: var(--p-gray-50);
+    --faq-view-q-color: var(--p-gray-900);
+    --faq-view-a-background: var(--p-primary-300);
+    --faq-view-a-color: var(--p-gray-900);
+    --faq-view-text-background: var(--p-gray-700);
+    --faq-view-text-color: var(--p-gray-100);
+
+    --story-view-name-color: var(--p-primary-300);
+    --story-view-date-color: var(--p-gray-400);
+
+    --story-write-title-color: var(--p-primary-300);
+    --story-write-form-item-label-color: var(--p-gray-200);
+
+    --nodata-title-color: var(--p-gray-500);
+    --nodata-text-color: var(--p-gray-500);
+  }
+}
+
+//badge
+:root,
+:host {
+  --badge-pending-bg: var(--p-gray-700);
+  --badge-pending-text: var(--p-gray-50);
+  --badge-completed-bg: var(--p-primary-50);
+  --badge-completed-text: var(--p-primary-600);
+
+  --badge-danger-bg: var(--p-red-100);
+  --badge-danger-text: var(--p-red-700);
+  --badge-important-bg: var(--p-primary-50);
+  --badge-important-text: var(--p-primary-600);
+  --badge-technical-bg: var(--p-gray-400);
+  --badge-technical-text: var(--p-gray-00);
+  --badge-default-bg: var(--p-gray-200);
+  --badge-default-text: var(--p-gray-700);
+  --badge-etc-bg: var(--p-gray-200);
+  --badge-etc-text: var(--p-gray-700);
+
+  --badge-signup-bg: var(--p-slate-50);
+  --badge-signup-text: var(--p-slate-500);
+  --badge-guide-bg: var(--p-orange-50);
+  --badge-guide-text: var(--p-orange-800);
+  --badge-feature-bg: var(--p-primary-50);
+  --badge-feature-text: var(--p-primary-600);
+  &.p-dark {
+    --badge-pending-bg: var(--p-gray-200);
+    --badge-pending-text: var(--p-gray-700);
+    --badge-completed-bg: var(--p-primary-300);
+    --badge-completed-text: var(--p-gray-900);
+
+    --badge-danger-bg: var(--p-red-200);
+    --badge-danger-text: var(--p-red-800);
+    --badge-important-bg: var(--p-primary-200);
+    --badge-important-text: var(--p-primary-700);
+    --badge-technical-bg: var(--p-gray-400);
+    --badge-technical-text: var(--p-gray-00);
+    --badge-default-bg: var(--p-gray-300);
+    --badge-default-text: var(--p-gray-800);
+    --badge-etc-bg: var(--p-gray-300);
+    --badge-etc-text: var(--p-gray-700);
+
+    --badge-signup-bg: var(--p-slate-100);
+    --badge-signup-text: var(--p-slate-600);
+    --badge-guide-bg: var(--p-orange-100);
+    --badge-guide-text: var(--p-orange-900);
+    --badge-feature-bg: var(--p-primary-100);
+    --badge-feature-text: var(--p-primary-700);
+  }
+}

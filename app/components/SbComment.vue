@@ -20,16 +20,25 @@
         />
       </div>
     </div>
-    <div class="sb-comment-write-mo">
-      <InputText />
+    <div class="sb-comment-write-mo-text">
+      <p>셀링부스터닉네임글자열다섯글자님에게 답글 남기는 중</p>
       <Button variant="text">
+        <Icon20commentDelete class="ico-20-comment-delete" />
+      </Button>
+    </div>
+    <div class="sb-comment-write-mo">
+      <div class="sb-comment-write-mo__mention">
+        @셀링부스터닉네임글자열다섯글자
+      </div>
+      <InputText placeholder="댓글을 입력하세요." v-model="newComment" />
+      <Button variant="text" :disabled="!newComment.trim()">
         <Icon24commentCheck class="ico-24-comment-check" />
       </Button>
     </div>
     <div class="sb-comment-item">
       <div class="sb-comment-item__head">
         <div class="sb-comment-item__thumb">
-          <img src="../assets/icons/profile/default.svg" alt="" />
+          <IconProfileDefault class="ico-profile-default" />
         </div>
         <div class="sb-comment-item__name">
           <p>셀링부스터</p>
@@ -58,7 +67,7 @@
           <div class="sb-comment-item__head">
             <Icon24reply class="ico-24-reply" />
             <div class="sb-comment-item__thumb">
-              <img src="../assets/icons/profile/default.svg" alt="" />
+              <IconProfileDefault class="ico-profile-default" />
             </div>
             <div class="sb-comment-item__name">
               <p>셀링부스터</p>
@@ -96,7 +105,7 @@
     <div class="sb-comment-item">
       <div class="sb-comment-item__head">
         <div class="sb-comment-item__thumb">
-          <img src="../assets/icons/profile/default.svg" alt="" />
+          <IconProfileDefault class="ico-profile-default" />
         </div>
         <div class="sb-comment-item__name">
           <p>셀링부스터</p>
@@ -125,7 +134,7 @@
           <div class="sb-comment-item__head">
             <Icon24reply class="ico-24-reply" />
             <div class="sb-comment-item__thumb">
-              <img src="../assets/icons/profile/default.svg" alt="" />
+              <IconProfileDefault class="ico-profile-default" />
             </div>
             <div class="sb-comment-item__name">
               <p>셀링부스터</p>
@@ -155,7 +164,7 @@
     <div class="sb-comment-item">
       <div class="sb-comment-item__head">
         <div class="sb-comment-item__thumb">
-          <img src="../assets/icons/profile/default.svg" alt="" />
+          <IconProfileDefault class="ico-profile-default" />
         </div>
         <div class="sb-comment-item__name">
           <p>행복마켓</p>
@@ -181,7 +190,7 @@
       </div>
 
       <div class="sb-comment-write">
-        <div class="sb-comment-write__name">행복마켓</div>
+        <div class="sb-comment-write__name">@슈퍼맨사랑</div>
         <div class="sb-comment-write__textarea">
           <Textarea
             v-model="replyComment"
@@ -215,10 +224,12 @@
 
 <script setup>
 import { ref } from 'vue';
-import StoryReport from './../pages/community/StoryReport.vue';
+import StoryReport from '../pages/community/story/report.vue';
 import Icon24reply from '@/assets/icons/24/reply.svg?component';
 import Icon20down from '@/assets/icons/20/down.svg?component';
 import Icon24commentCheck from '@/assets/icons/24/comment-check.svg?component';
+import Icon20commentDelete from '@/assets/icons/20/comment-delete.svg?component';
+import IconProfileDefault from '@/assets/icons/profile/default.svg?component';
 
 //dialog
 const dialogReport = ref(false);
@@ -247,10 +258,12 @@ const commentMenuItems02 = ref([
   {
     label: '차단',
     icon: 'ico-24-block',
+    class: 'p-tieredmenu-item-link-danger',
   },
   {
     label: '신고',
     icon: 'ico-24-report',
+    class: 'p-tieredmenu-item-link-danger',
     command: () => {
       reportOpen();
     },

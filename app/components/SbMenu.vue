@@ -1,6 +1,10 @@
 <template>
   <div class="sb-menu">
-    <Button variant="text" @click="menuToggle">
+    <Button
+      variant="text"
+      @click="menuToggle"
+      :class="{ 'p-focus': isMenuVisible }"
+    >
       <template #icon>
         <Icon32dotmenu class="ico-32-dotmenu" />
       </template>
@@ -9,10 +13,22 @@
       ref="menu"
       :model="items"
       popup
-      popupAlignment="right"
       class="sb-menu-layer"
+      @show="isMenuVisible = true"
+      @hide="isMenuVisible = false"
       @click="menuClose"
-    />
+    >
+      <template #item="{ item, props }">
+        <a v-bind="props.action" class="p-tieredmenu-item-link">
+          <component
+            :is="item.icon"
+            v-if="item.icon"
+            class="p-tieredmenu-item-icon"
+          />
+          <span class="p-tieredmenu-item-label">{{ item.label }}</span>
+        </a>
+      </template>
+    </TieredMenu>
   </div>
 </template>
 
@@ -29,7 +45,7 @@ const props = defineProps({
 });
 
 const menu = ref();
-
+const isMenuVisible = ref(false);
 const menuToggle = (event) => {
   menu.value.toggle(event);
 };

@@ -1,6 +1,7 @@
 <template>
   <header class="sb-header">
     <div class="sb-header-menu">
+      <Button label="다크모드" @click="toggleDarkMode()" />
       <div class="sb-header-search">
         <Button rounded severity="white">
           <template #icon>
@@ -24,7 +25,7 @@
       </div>
       <div class="sb-header-user">
         <div class="sb-header-user__thumb">
-          <img src="../assets/icons/48/lv1.svg" alt="" />
+          <img src="./../assets/icons/48/lv1.svg" alt="" />
           <strong>Lv.1</strong>
         </div>
         <div class="sb-header-user__text">
@@ -53,10 +54,9 @@
             v-bind="props.action"
             @click.prevent="handleLinkClick($event, item)"
           >
-            <span
-              v-if="item.icon"
-              :class="['p-menuitem-icon', item.icon]"
-            ></span>
+            <div class="p-menuitem-icon">
+              <component v-if="item.icon" :is="item.icon" />
+            </div>
             <span class="p-panelmenu-header-label">{{ item.label }}</span>
           </a>
 
@@ -66,10 +66,9 @@
             v-bind="props.action"
             @click.stop.prevent="item.id === 'toggle-btn' ? toggleMenu() : null"
           >
-            <span
-              v-if="item.icon"
-              :class="['p-menuitem-icon', getMenuIcon(item)]"
-            ></span>
+            <div class="p-menuitem-icon">
+              <component v-if="item.icon" :is="getMenuIcon(item)" />
+            </div>
             <span class="p-panelmenu-header-label">{{
               getMenuLabel(item)
             }}</span>
@@ -93,10 +92,9 @@
             v-bind="props.action"
             @click.prevent="handleLinkClick($event, item)"
           >
-            <span
-              v-if="item.icon"
-              :class="['p-menuitem-icon', item.icon]"
-            ></span>
+            <div class="p-menuitem-icon">
+              <component v-if="item.icon" :is="item.icon" />
+            </div>
             <span class="p-panelmenu-header-label">{{ item.label }}</span>
           </a>
 
@@ -106,10 +104,9 @@
             v-bind="props.action"
             @click.stop.prevent="item.id === 'toggle-btn' ? toggleMenu() : null"
           >
-            <span
-              v-if="item.icon"
-              :class="['p-menuitem-icon', getMenuIcon(item)]"
-            ></span>
+            <div class="p-menuitem-icon">
+              <component v-if="item.icon" :is="getMenuIcon(item)" />
+            </div>
             <span class="p-panelmenu-header-label">{{
               getMenuLabel(item)
             }}</span>
@@ -154,6 +151,16 @@ import Icon24bellOn from '@/assets/icons/24/bell-on.svg?component';
 
 import Icon24headerBack from '@/assets/icons/24/header-back.svg?component';
 import Icon24menu from '@/assets/icons/24/header-menu.svg?component';
+
+import IconSnbHome from '@/assets/icons/snb/home.svg?component';
+import IconSnbDocument from '@/assets/icons/snb/document.svg?component';
+import IconSnbStar from '@/assets/icons/snb/star.svg?component';
+import IconSnbChart from '@/assets/icons/snb/chart.svg?component';
+import IconSnbChat from '@/assets/icons/snb/chat.svg?component';
+
+import IconSnbSetting from '@/assets/icons/snb/setting.svg?component';
+import IconSnbLogout from '@/assets/icons/snb/logout.svg?component';
+import IconSnbMenuClose from '@/assets/icons/snb/menu-close.svg?component';
 
 const isFolded = useState('isFolded', () => false);
 const router = useRouter();
@@ -239,7 +246,8 @@ const toggleMenu = () => {
 
 const getMenuIcon = (item) => {
   if (item.id === 'toggle-btn') {
-    return isFolded.value ? 'sb-snb-menu-open' : 'sb-snb-menu-close';
+    // 문자열이 아닌 컴포넌트 객체를 반환
+    return isFolded.value ? IconSnbMenuOpen : IconSnbMenuClose;
   }
   return item.icon;
 };
@@ -255,41 +263,41 @@ const menu01 = ref([
   {
     key: 'dashboard',
     label: '대시보드',
-    icon: 'sb-snb-home',
+    icon: IconSnbHome,
     route: '/dashboard',
   },
   {
     key: 'opportunity',
     label: '기회 찾기',
-    icon: 'sb-snb-document',
+    icon: IconSnbDocument,
     route: '/1',
   },
   {
     key: 'execution',
     label: '바로 실행',
-    icon: 'sb-snb-star',
+    icon: IconSnbStar,
     route: '/2',
   },
-  { key: 'performance', label: '성과 보기', icon: 'sb-snb-chart', route: '/3' },
+  { key: 'performance', label: '성과 보기', icon: IconSnbChart, route: '/3' },
   {
     key: 'community',
     label: '커뮤니티',
-    icon: 'sb-snb-chat',
-    route: '/community/Qna',
+    icon: IconSnbChat,
+    route: '/community/qna',
     items: [
-      { label: 'Q&A', route: '/community/Qna' },
-      { label: '공지사항', route: '/community/Notice' },
-      { label: 'FAQ', route: '/community/Faq' },
-      { label: '성장스토리', route: '/community/Story' },
-      { label: '트랜드', route: '/community/Treand' },
+      { label: 'Q&A', route: '/community/qna/' },
+      { label: '공지사항', route: '/community/notice' },
+      { label: 'FAQ', route: '/community/faq' },
+      { label: '성장스토리', route: '/community/story' },
+      { label: '트랜드', route: '/community/treand' },
     ],
   },
 ]);
 
 const menu02 = ref([
-  { label: '설정/관리', icon: 'sb-snb-setting', route: '/setting' },
-  { label: '로그아웃', icon: 'sb-snb-logout', route: '/logout' },
-  { id: 'toggle-btn', label: '메뉴 닫기', icon: 'sb-snb-menu-close' },
+  { label: '설정/관리', icon: IconSnbSetting, route: '/setting' },
+  { label: '로그아웃', icon: IconSnbLogout, route: '/logout' },
+  { id: 'toggle-btn', label: '메뉴 닫기', icon: IconSnbMenuClose },
 ]);
 
 const updateTitle = (path) => {
@@ -322,4 +330,26 @@ watch(
   },
   { immediate: true },
 );
+
+function toggleDarkMode() {
+  document.documentElement.classList.toggle('p-dark');
+}
+// 키보드 핸들러 함수
+const handleKeyDown = (event) => {
+  // Ctrl + D (또는 Mac의 경우 Cmd + D) 감지
+  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'd') {
+    event.preventDefault(); // 브라우저 즐겨찾기 방지
+    toggleDarkMode();
+  }
+};
+
+onMounted(() => {
+  // 컴포넌트가 마운트될 때 전역 키 이벤트 등록
+  window.addEventListener('keydown', handleKeyDown);
+});
+
+onUnmounted(() => {
+  // 컴포넌트가 사라질 때 이벤트 리스너 제거 (중요!)
+  window.removeEventListener('keydown', handleKeyDown);
+});
 </script>

@@ -66,7 +66,7 @@
     min-width: 16px;
     width: 16px;
     height: 16px;
-    color: #9aa3af;
+    color: var(--p-gray-400);
   }
   &-16-login {
     min-width: 16px;
@@ -77,44 +77,58 @@
     min-width: 16px;
     width: 16px;
     height: 16px;
-    color: #9aa3af;
+    color: var(--p-gray-400);
   }
   &-16-profile {
     min-width: 16px;
     width: 16px;
     height: 16px;
-    color: #9aa3af;
+    color: var(--p-gray-400);
   }
   &-16-card {
     min-width: 16px;
     width: 16px;
     height: 16px;
-    color: #9aa3af;
+    color: var(--p-gray-400);
   }
   &-16-alert-circle {
     min-width: 16px;
     width: 16px;
     height: 16px;
-    color: #9aa3af;
+    color: var(--p-gray-400);
   }
   &-16-document {
     min-width: 16px;
     width: 16px;
     height: 16px;
-    color: #9aa3af;
+    color: var(--p-gray-400);
+  }
+
+  &-20-delete {
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+    --path-color-1: var(--p-gray-400);
+    --path-color-2: var(--p-gray-200);
+  }
+  &-20-comment-delete {
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+    color: var(--p-gray-600);
   }
   &-24-paperclip {
     min-width: 24px;
     width: 24px;
     height: 24px;
-    color: #9aa3af;
+    color: var(--p-gray-400);
   }
 
   &-24-download {
     min-width: 24px;
     width: 24px;
     height: 24px;
-    color: #9aa3af;
+    color: var(--p-gray-400);
     @media screen and (max-width: $BreakpointMd) {
       min-width: 16px;
       width: 16px;
@@ -143,7 +157,6 @@
     min-width: 24px;
     width: 24px;
     height: 24px;
-    color: #454f5b;
     @media screen and (max-width: $BreakpointMd) {
       min-width: 20px;
       width: 20px;
@@ -154,13 +167,23 @@
     min-width: 24px;
     width: 24px;
     height: 24px;
-    color: #9aa3af;
+    color: var(--p-gray-400);
   }
+
+  &-24-comment-check {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+
+    color: var(--primary-500_00B1BD, var(--primary-500_00B1BD, #00b1bd));
+  }
+
   &-100-smile {
     min-width: 100px;
     width: 100px;
     height: 100px;
-    color: #9aa3af;
+    --path-color-1: var(--p-gray-300);
+    --path-color-2: var(--p-gray-400);
     @media screen and (max-width: $BreakpointMd) {
       min-width: 80px;
       width: 80px;
@@ -171,7 +194,8 @@
     min-width: 100px;
     width: 100px;
     height: 100px;
-    color: #9aa3af;
+    --path-color-1: var(--p-gray-300);
+    --path-color-2: var(--p-gray-400);
     @media screen and (max-width: $BreakpointMd) {
       min-width: 80px;
       width: 80px;
@@ -185,7 +209,6 @@
     min-width: 24px;
     width: 24px;
     height: 24px;
-    color: #6a7381;
   }
   &-24-globe {
     min-width: 24px;
@@ -197,13 +220,25 @@
     min-width: 25px;
     width: 25px;
     height: 25px;
-    color: #6a7381;
+    color: var(--p-gray-500);
+  }
+  &-24-menu {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    color: var(--p-gray-500);
   }
   &-24-arrow-right {
     min-width: 24px;
     width: 24px;
     height: 24px;
     color: #454f5b;
+  }
+  &-24-header-back {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    color: var(--p-gray-800);
   }
   &-24-refresh {
     min-width: 24px;
@@ -222,7 +257,7 @@
     min-width: 32px;
     width: 32px;
     height: 32px;
-    color: #9aa3af;
+    color: var(--p-gray-400);
     &.active {
       color: #00b1bd;
     }
@@ -236,7 +271,7 @@
     min-width: 32px;
     width: 32px;
     height: 32px;
-    color: #9aa3af;
+    color: var(--p-gray-400);
     @media screen and (max-width: $BreakpointMd) {
       min-width: 24px;
       width: 24px;
@@ -247,7 +282,7 @@
     min-width: 32px;
     width: 32px;
     height: 32px;
-    color: #9aa3af;
+    color: var(--p-gray-400);
     @media screen and (max-width: $BreakpointMd) {
       min-width: 24px;
       width: 24px;
@@ -258,49 +293,129 @@
     min-width: 32px;
     width: 32px;
     height: 32px;
-    color: #9aa3af;
+    color: var(--p-gray-400);
     @media screen and (max-width: $BreakpointMd) {
       min-width: 24px;
       width: 24px;
       height: 24px;
     }
   }
+  &-profile-default {
+    width: 48px;
+    height: 48px;
+    --path-color-1: var(--p-gray-300);
+    --path-color-2: #eaecf1;
+  }
 }
 
 .ico {
   &-social-facebook {
-    display: block;
-    min-width: 58px;
-    width: 58px;
-    height: 58px;
-    background: url(../icons/social/facebook.svg) no-repeat 50% 50%;
+    svg {
+      display: block;
+      min-width: 58px;
+      width: 58px;
+      height: 58px;
+      --path-color-1: #38414f;
+      --path-color-2: #f4f5f7;
+    }
   }
   &-social-x {
-    display: block;
-    min-width: 58px;
-    width: 58px;
-    height: 58px;
-    background: url(../icons/social/x.svg) no-repeat 50% 50%;
+    svg {
+      display: block;
+      min-width: 58px;
+      width: 58px;
+      height: 58px;
+      --path-color-1: #38414f;
+      --path-color-2: #f4f5f7;
+    }
   }
   &-social-kakaotalk {
-    display: block;
-    min-width: 58px;
-    width: 58px;
-    height: 58px;
-    background: url(../icons/social/kakaotalk.svg) no-repeat 50% 50%;
+    svg {
+      display: block;
+      min-width: 58px;
+      width: 58px;
+      height: 58px;
+      --path-color-1: #38414f;
+      --path-color-2: #f4f5f7;
+    }
   }
   &-social-naverblog {
-    display: block;
-    min-width: 58px;
-    width: 58px;
-    height: 58px;
-    background: url(../icons/social/naverblog.svg) no-repeat 50% 50%;
+    svg {
+      display: block;
+      min-width: 58px;
+      width: 58px;
+      height: 58px;
+      --path-color-1: #38414f;
+      --path-color-2: #f4f5f7;
+    }
   }
   &-social-copy {
-    display: block;
-    min-width: 58px;
-    width: 58px;
-    height: 58px;
-    background: url(../icons/social/copy.svg) no-repeat 50% 50%;
+    svg {
+      display: block;
+      min-width: 58px;
+      width: 58px;
+      height: 58px;
+      --path-color-1: #38414f;
+      --path-color-2: #f4f5f7;
+    }
+  }
+}
+
+.p-dark {
+  .ico {
+    &-20-delete {
+      --path-color-1: var(--p-gray-400);
+      --path-color-2: var(--p-gray-800);
+    }
+    &-20-comment-delete {
+      color: var(--p-gray-400);
+    }
+    &-24-header-back {
+      color: var(--p-gray-00);
+    }
+    &-24-bell-on {
+      color: var(--p-gray-00);
+    }
+    &-24-menu {
+      color: var(--p-gray-00);
+    }
+    &-100-smile {
+      --path-color-1: var(--p-gray-600);
+      --path-color-2: var(--p-gray-600);
+    }
+    &-profile-default {
+      --path-color-1: var(--p-gray-600);
+      --path-color-2: #6a7381;
+    }
+    &-social-facebook {
+      svg {
+        --path-color-1: var(--p-gray-400);
+        --path-color-2: var(--p-gray-600);
+      }
+    }
+    &-social-x {
+      svg {
+        --path-color-1: var(--p-gray-400);
+        --path-color-2: var(--p-gray-600);
+      }
+    }
+    &-social-kakaotalk {
+      svg {
+        --path-color-1: var(--p-gray-400);
+        --path-color-2: var(--p-gray-600);
+      }
+    }
+    &-social-naverblog {
+      svg {
+        --path-color-1: var(--p-gray-400);
+        --path-color-2: var(--p-gray-600);
+      }
+    }
+    &-social-copy {
+      svg {
+        --path-color-1: var(--p-gray-400);
+        --path-color-2: var(--p-gray-600);
+      }
+    }
   }
 }

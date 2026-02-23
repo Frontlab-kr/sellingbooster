@@ -2,6 +2,34 @@
 
 $BreakpointMd: 1024px;
 
+:root,
+:host {
+  --scroll-thumb-color: var(--p-gray-300);
+  --scroll-hover-thumb-color: var(--p-gray-400);
+  &.p-dark {
+    --scroll-thumb-color: var(--p-gray-700);
+    --scroll-hover-thumb-color: var(--p-gray-600);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @mixin text-clamp($lines: 2, $line-height: false) {
   display: -webkit-box;
   overflow: hidden;
@@ -16,9 +44,9 @@ $BreakpointMd: 1024px;
 
 @mixin custom-scrollbar(
   $width: 12px,
-  $thumb-color: #c8c8c8,
-  $hover-color: #afafaf,
-  $bg-color: #fff
+  $thumb-color: var(--scroll-thumb-color),
+  $hover-color: var(--scroll-hover-thumb-color),
+  $bg-color: transparent
 ) {
   &::-webkit-scrollbar {
     width: $width;

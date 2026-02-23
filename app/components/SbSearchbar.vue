@@ -6,7 +6,9 @@
         :model-value="modelValue"
         @update:model-value="modelValue = $event"
       />
-      <button class="sb-searchbar__delete" @click="clearInput">삭제</button>
+      <button class="sb-searchbar__delete" @click="clearInput">
+        <Icon20delete class="ico-20-delete" />
+      </button>
     </div>
     <div class="sb-searchbar__button">
       <Button rounded severity="white">
@@ -20,6 +22,7 @@
 
 <script setup>
 import Icon24search from '@/assets/icons/24/search.svg?component';
+import Icon20delete from '@/assets/icons/20/delete.svg?component';
 
 const props = defineProps({
   placeholder: {

@@ -1,5 +1,25 @@
 @use '../mixins' as *;
 
+:root,
+:host {
+  --p-dialog-footer-padding: 0 24px 24px;
+  --p-dialog-footer-gap: 0.5rem;
+  --p-dialog-content-padding: 0 var(--p-overlay-modal-padding)
+    var(--p-overlay-modal-padding) var(--p-overlay-modal-padding);
+  --p-dialog-title-font-size: 1.25rem;
+  --p-dialog-title-font-weight: 600;
+  --p-dialog-header-padding: var(--p-overlay-modal-padding);
+  --p-dialog-header-gap: 0.5rem;
+  --p-dialog-background: var(--p-gray-00);
+  --p-dialog-border-color: var(--p-overlay-modal-border-color);
+  --p-dialog-color: var(--p-overlay-modal-color);
+  --p-dialog-border-radius: var(--p-overlay-modal-border-radius);
+  --p-dialog-shadow: var(--p-overlay-modal-shadow);
+  &.p-dark {
+    --p-dialog-background: var(--p-gray-900);
+  }
+}
+
 .p-dialog {
   max-height: 90%;
   min-width: 800px;
@@ -13,9 +33,7 @@
   }
   &-title {
     margin-bottom: 30px;
-    color: var(--Gray-900_1B1F27, var(--Gray-900_1B1F27, #1b1f27));
-    font-size: var(--Font-Heading-Large, 24px);
-    font-weight: 700;
+    color: var(--contents-color);
   }
   &-inner {
     overflow: auto;
@@ -47,7 +65,7 @@
     font-weight: 400;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.35px;
-    @include custom-scrollbar;
+    @include custom-scrollbar();
   }
 
   @media screen and (max-width: $BreakpointMd) {
@@ -59,7 +77,7 @@
       height: 100vh;
       max-height: 100%;
       width: 100%;
-      padding: 0 0 40px 0;
+      padding: 0;
       border: none;
       border-radius: 0;
       .p-dialog-header {
@@ -95,12 +113,6 @@
     }
     &-title {
       margin-bottom: 16px;
-      color: var(--Gray-900_1B1F27, var(--Gray-900_1B1F27, #1b1f27));
-      font-size: 18px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 130%; /* 23.4px */
-      letter-spacing: -0.45px;
     }
     &-inner {
       overflow: auto;
@@ -127,4 +139,54 @@
       letter-spacing: -0.5px;
     }
   }
+  &.p-confirmdialog {
+    min-width: 320px;
+    width: 320px;
+    padding: 0;
+    border-radius: 18px;
+    .p-dialog {
+      &-header {
+        padding: 32px 24px 8px;
+        justify-content: center;
+      }
+      &-title {
+        margin: 0;
+        font-size: var(--Font-Heading-Large, 24px);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%; /* 33.6px */
+        letter-spacing: -0.6px;
+      }
+      &-content {
+        padding: 0 0 32px 0;
+        color: var(--confirmdialog-content-color);
+        text-align: center;
+        font-size: var(--Font-Body-Large, 16px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%; /* 25.6px */
+        letter-spacing: -0.4px;
+      }
+      &-footer {
+        gap: 4px;
+        .p-button {
+          width: 100%;
+        }
+      }
+      &-close-button {
+        display: none;
+      }
+    }
+    .p-confirmdialog {
+      &-message {
+        width: 100%;
+        white-space: pre-line;
+      }
+    }
+  }
+}
+
+.p-dark .p-dialog-close-button::before {
+  background: url(../../icons/32/dialog-close-dark.svg) no-repeat 50% 50%;
+  background-size: cover;
 }

@@ -29,12 +29,24 @@
       <Icon32share class="ico-32-share" />
       <span class="p-button-label">{{ shareCount }}</span>
     </Button>
+
     <TieredMenu
       ref="menu"
       :model="socialMenuItems"
       popup
       class="sb-social-layer"
-    />
+    >
+      <template #item="{ item, props }">
+        <a v-bind="props.action" class="p-tieredmenu-item-link">
+          <component
+            :is="item.icon"
+            v-if="item.icon"
+            class="p-tieredmenu-item-icon"
+          />
+          <span class="p-tieredmenu-item-label">{{ item.label }}</span>
+        </a>
+      </template>
+    </TieredMenu>
     <Button
       size="small"
       variant="text"
@@ -47,9 +59,16 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import Icon32like from '@/assets/icons/32/like.svg?component';
 import Icon32message from '@/assets/icons/32/message.svg?component';
 import Icon32share from '@/assets/icons/32/share.svg?component';
+
+import IconSocialFacebook from '@/assets/icons/social/facebook.svg?component';
+import IconSocialX from '@/assets/icons/social/x.svg?component';
+import IconSocialKakaotalk from '@/assets/icons/social/kakaotalk.svg?component';
+import IconSocialNaverblog from '@/assets/icons/social/naverblog.svg?component';
+import IconSocialCopy from '@/assets/icons/social/copy.svg?component';
 
 const props = defineProps({
   likeCount: { type: [String, Number], default: '0' },
@@ -67,23 +86,28 @@ const show = (btnName) => props.visibleButtons.includes(btnName);
 const socialMenuItems = ref([
   {
     label: '페이스북',
-    icon: 'ico-social-facebook',
+    icon: IconSocialFacebook,
+    class: 'ico-social-facebook',
   },
   {
     label: '트위터',
-    icon: 'ico-social-x',
+    icon: IconSocialX,
+    class: 'ico-social-x',
   },
   {
     label: '카카오톡',
-    icon: 'ico-social-kakaotalk',
+    icon: IconSocialKakaotalk,
+    class: 'ico-social-kakaotalk',
   },
   {
     label: '네이버블로그',
-    icon: 'ico-social-naverblog',
+    icon: IconSocialNaverblog,
+    class: 'ico-social-naverblog',
   },
   {
     label: 'URL',
-    icon: 'ico-social-copy',
+    icon: IconSocialCopy,
+    class: 'ico-social-copy',
   },
 ]);
 

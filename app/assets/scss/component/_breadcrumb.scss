@@ -36,10 +36,7 @@
   }
   &-item {
     &-label {
-      color: var(--Gray-500_6A7381, var(--Gray-500_6A7381, #6a7381));
-
-      /* PC/Pretendard JP/Body/Small */
-
+      color: var(--breadcrumb-color);
       font-size: var(--Font-Body-Medium, 14px);
       font-style: normal;
       font-weight: 400;
@@ -47,4 +44,8 @@
       letter-spacing: -0.35px;
     }
   }
+}
+
+.p-dark .p-breadcrumb-separator::before {
+  background: url(../../icons/16/breadcrumb-dark.svg) no-repeat 50% 50%;
 }

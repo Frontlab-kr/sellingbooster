@@ -2,7 +2,7 @@
 
 :root,
 :host {
-  --p-radiobutton-icon-size: 0.75rem;
+  --p-radiobutton-icon-size: 18px;
   --p-radiobutton-icon-checked-color: var(--p-primary-contrast-color);
   --p-radiobutton-icon-checked-hover-color: var(--p-primary-contrast-color);
   --p-radiobutton-icon-disabled-color: var(--p-form-field-disabled-color);
@@ -10,7 +10,7 @@
   --p-radiobutton-icon-sm-size: 0.5rem;
   --p-radiobutton-width: 24px;
   --p-radiobutton-height: 24px;
-  --p-radiobutton-background: var(--p-form-field-background);
+  --p-radiobutton-background: none;
   --p-radiobutton-checked-background: var(--p-primary-color);
   --p-radiobutton-checked-hover-background: var(--p-primary-hover-color);
   --p-radiobutton-disabled-background: var(--p-form-field-disabled-background);
@@ -18,7 +18,7 @@
   --p-radiobutton-border-color: var(--p-form-field-border-color);
   --p-radiobutton-hover-border-color: var(--p-form-field-hover-border-color);
   --p-radiobutton-focus-border-color: var(--p-form-field-border-color);
-  --p-radiobutton-checked-border-color: var(--p-primary-color);
+  --p-radiobutton-checked-border-color: var(--p-primary-500);
   --p-radiobutton-checked-hover-border-color: var(--p-primary-hover-color);
   --p-radiobutton-checked-focus-border-color: var(--p-primary-color);
   --p-radiobutton-checked-disabled-border-color: var(
@@ -27,7 +27,7 @@
   --p-radiobutton-invalid-border-color: var(
     --p-form-field-invalid-border-color
   );
-  --p-radiobutton-shadow: var(--p-form-field-shadow);
+  --p-radiobutton-shadow: none;
   --p-radiobutton-transition-duration: var(--p-form-field-transition-duration);
   --p-radiobutton-lg-width: 1.5rem;
   --p-radiobutton-lg-height: 1.5rem;
@@ -38,6 +38,14 @@
   --p-radiobutton-focus-ring-color: var(--p-focus-ring-color);
   --p-radiobutton-focus-ring-offset: var(--p-focus-ring-offset);
   --p-radiobutton-focus-ring-shadow: var(--p-focus-ring-shadow);
+
+  --p-radiobutton-color: var(--p-gray-900);
+  --p-radiobutton-bolor-color: var(--p-gray-200);
+  &.p-dark {
+    --p-radiobutton-checked-border-color: var(--p-primary-300);
+    --p-radiobutton-color: var(--p-gray-00);
+    --p-radiobutton-bolor-color: var(--p-gray-400);
+  }
 }
 .p-radiobutton {
   position: relative;
@@ -46,14 +54,96 @@
   vertical-align: bottom;
   width: var(--p-radiobutton-width);
   height: var(--p-radiobutton-height);
-  label {
-    color: var(--Gray-900_1B1F27, var(--Gray-900_1B1F27, #1b1f27));
-    font-size: var(--Font-Body-Large, 16px);
+  &-input {
+    cursor: pointer;
+    appearance: none;
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    opacity: 0;
+    z-index: 1;
+    outline: 0 none;
+    border: 1px solid transparent;
+    border-radius: 50%;
+  }
+  &-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: none;
+    background: var(--p-radiobutton-background);
+    width: var(--p-radiobutton-width);
+    height: var(--p-radiobutton-height);
+    transition:
+      background var(--p-radiobutton-transition-duration),
+      color var(--p-radiobutton-transition-duration),
+      border-color var(--p-radiobutton-transition-duration),
+      box-shadow var(--p-radiobutton-transition-duration),
+      outline-color var(--p-radiobutton-transition-duration);
+    outline-color: transparent;
+    box-shadow: var(--p-radiobutton-shadow);
+  }
+  &-icon {
+    position: relative;
+    transition-duration: var(--p-radiobutton-transition-duration);
+    background: transparent;
+    font-size: 0;
+    width: var(--p-radiobutton-icon-size);
+    height: var(--p-radiobutton-icon-size);
+    border-radius: 100%;
+    border: 2px solid var(--p-radiobutton-bolor-color);
+    backface-visibility: hidden;
+    transform: none;
+    &::before {
+      content: '';
+      display: block;
+      width: 9px;
+      height: 9px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-color: var(--p-radiobutton-checked-border-color);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+    }
+  }
+}
+.p-radiobutton ~ label {
+  color: var(--p-radiobutton-color);
+  font-size: var(--Font-Body-Large, 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 22.4px */
+  letter-spacing: -0.4px;
+  cursor: pointer;
+}
+.p-radiobutton-checked:not(.p-disabled) .p-radiobutton-icon {
+  border-color: var(--p-radiobutton-checked-border-color);
+  background: none;
+  &::before {
+    opacity: 1;
+  }
+}
+.p-radiobutton-checked:not(.p-disabled):has(.p-radiobutton-input:hover)
+  .p-radiobutton-icon {
+  border-color: var(--p-radiobutton-checked-hover-border-color);
+  background: none;
+  &::before {
+    background-color: var(--p-radiobutton-checked-hover-border-color);
+  }
+}
+@media screen and (max-width: $BreakpointMd) {
+  .p-radiobutton ~ label {
+    font-size: 15px;
     font-style: normal;
     font-weight: 400;
-    line-height: 140%; /* 22.4px */
-    letter-spacing: -0.4px;
-  }
-  @media screen and (max-width: $BreakpointMd) {
+    line-height: 130%; /* 19.5px */
+    letter-spacing: -0.375px;
   }
 }

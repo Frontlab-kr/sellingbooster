@@ -30,28 +30,25 @@
       >
         <div v-if="files.length > 0">
           <div class="sb-attachment">
-            <div
+            <a
+              :href="file.objectURL"
               class="sb-attachment-item"
               v-for="(file, index) of files"
               :key="file.name + file.type + file.size"
             >
-              <a :href="file.objectURL">
-                <p>
-                  {{ file.name }}
-                </p>
+              <p>
+                {{ file.name }}
+              </p>
 
-                <div class="sb-attachment-item__size">
-                  <strong>{{ formatSize(file.size) }}</strong> / 50MB
-                </div>
-                <Icon
-                  name="sb:24-delete"
-                  class="ico-24-delete"
-                  @click="
-                    onRemoveTemplatingFile(file, removeFileCallback, index)
-                  "
-                />
-              </a>
-            </div>
+              <div class="sb-attachment-item__size">
+                <strong>{{ formatSize(file.size) }}</strong> / 50MB
+              </div>
+              <Icon
+                name="sb:24-delete"
+                class="ico-24-delete"
+                @click="onRemoveTemplatingFile(file, removeFileCallback, index)"
+              />
+            </a>
           </div>
         </div>
       </template>

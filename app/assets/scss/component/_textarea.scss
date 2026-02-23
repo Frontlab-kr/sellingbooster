@@ -37,6 +37,10 @@
   --p-textarea-focus-ring-color: var(--p-form-field-focus-ring-color);
   --p-textarea-focus-ring-offset: var(--p-form-field-focus-ring-offset);
   --p-textarea-focus-ring-shadow: var(--p-form-field-focus-ring-shadow);
+  &.p-dark {
+    --p-textarea-color: var(--p-gray-300);
+    --p-textarea-placeholder-color: var(--p-gray-300);
+  }
 }
 
 .p-textarea {
