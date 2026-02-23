@@ -13,16 +13,6 @@
         </button>
       </div>
     </div>
-    <div class="sb-community-sort">
-      <Select
-        v-model="selectedSort"
-        :options="selectedSortOption"
-        optionLabel="name"
-        size="small"
-        class="p-select-text"
-        panelClass="p-select-overlay--text"
-      />
-    </div>
     <div class="sb-nodata">
       <Icon100smile class="ico-100-smile" />
       <div class="sb-nodata__text">
@@ -33,11 +23,20 @@
       </div>
     </div>
   </div>
+
+  <Dialog v-model:visible="dialogWrite" modal class="p-dialog--full">
+    <div class="p-dialog-inner">
+      <h5 class="p-dialog-title">Q&A 작성하기</h5>
+      <Write />
+    </div>
+  </Dialog>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import Icon100smile from '@/assets/icons/100/smile.svg?component';
+
+import Write from './write.vue';
 
 //dialog
 const dialogWrite = ref(false);
@@ -50,17 +49,6 @@ const breadcrumb = ref([
   { label: 'Q&A' },
 ]);
 
-//sort
-const selectedSortOption = ref([
-  { name: '최신 작성순' },
-  { name: '답변 대기' },
-  { name: '답변 완료' },
-]);
-const selectedSort = ref(selectedSortOption.value[0]);
-
-const viewOpen = () => {
-  dialogView.value = true;
-};
 const writeOpen = () => {
   dialogWrite.value = true;
 };

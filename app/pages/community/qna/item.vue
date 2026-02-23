@@ -13,7 +13,7 @@
           />
         </div>
         <div class="sb-qna-list-item__menu">
-          <SbMenu :items="qnaMenuItems" />
+          <SbMenu :items="menuItems" />
         </div>
       </div>
     </div>
@@ -44,7 +44,7 @@ const props = defineProps({
 
 const emit = defineEmits(['item-click']);
 
-const qnaMenuItems = ref([
+const menuItems = ref([
   {
     label: '수정',
     icon: Icon24edit,
@@ -54,8 +54,4 @@ const qnaMenuItems = ref([
     icon: Icon24trash,
   },
 ]);
-
-const menuToggle = (event) => {
-  menu.value.toggle(event);
-};
 </script>

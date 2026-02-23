@@ -19,7 +19,7 @@
     <div class="sb-notice">
       <div class="sb-notice-list">
         <NoticeItem
-          v-for="(item, index) in noticeData"
+          v-for="(item, index) in list"
           :key="index"
           :item="item"
           :search-text="searchKeyword"
@@ -42,8 +42,8 @@ const breadcrumb = ref([
   { label: '공지사항' },
 ]);
 
-// 공지사항 데이터 리스트
-const noticeData = ref([
+// data
+const list = ref([
   {
     status: 'technical',
     title: '네이버 로그인 기능 오류 안내',

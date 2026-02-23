@@ -33,16 +33,16 @@
         }"
       />
     </div>
-    <div class="sb-story">
+    <div class="sb-board">
       <client-only>
         <masonry-wall
-          :items="faqList"
+          :items="list"
           :column-width="600"
           :gap="20"
-          class="sb-story-list"
+          class="sb-board-list"
         >
           <template #default="{ item }">
-            <StoryItem :item="item" @report="reportOpen" />
+            <Item :item="item" @report="reportOpen" />
           </template>
         </masonry-wall>
       </client-only>
@@ -53,7 +53,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import StoryItem from './item.vue';
+import Item from './item.vue';
 import MasonryWall from '@yeger/vue-masonry-wall';
 
 //breadcrumb
@@ -63,8 +63,17 @@ const breadcrumb = ref([
   { label: '성장스토리' },
 ]);
 
+//sort
+const selectRef = ref(null);
+const selectedSortOption = ref([
+  { name: '최신 작성순' },
+  { name: '댓글 수' },
+  { name: '좋아요 수' },
+]);
+const selectedSort = ref(selectedSortOption.value[0]);
+
 //data
-const faqList = ref([
+const list = ref([
   {
     author: '셀링부스터',
     date: '2026.02.14',
@@ -146,13 +155,4 @@ const faqList = ref([
     shareCount: '9,000',
   },
 ]);
-
-//sort
-const selectRef = ref(null);
-const selectedSortOption = ref([
-  { name: '최신 작성순' },
-  { name: '댓글 수' },
-  { name: '좋아요 수' },
-]);
-const selectedSort = ref(selectedSortOption.value[0]);
 </script>

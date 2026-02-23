@@ -11,7 +11,7 @@
       <div class="sb-qna-view__meta">
         <div class="sb-qna-view__date">2026.01.14</div>
         <div class="sb-qna-view__menu">
-          <SbMenu :items="qnaMenuItems" />
+          <SbMenu :items="menuItems" />
         </div>
       </div>
     </div>
@@ -67,7 +67,7 @@ const item = ref({
   status: 'completed',
 });
 
-const qnaMenuItems = ref([
+const menuItems = ref([
   {
     label: '수정',
     icon: Icon24edit,

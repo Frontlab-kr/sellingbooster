@@ -36,13 +36,13 @@
     <div class="sb-qna">
       <client-only>
         <masonry-wall
-          :items="qnaList"
+          :items="list"
           :column-width="600"
           :gap="20"
           class="sb-qna-list"
         >
           <template #default="{ item }">
-            <QnaItem :item="item" @item-click="viewOpen" />
+            <Item :item="item" @item-click="viewOpen" />
           </template>
         </masonry-wall>
       </client-only>
@@ -53,20 +53,20 @@
   <Dialog v-model:visible="dialogWrite" modal class="p-dialog--full">
     <div class="p-dialog-inner">
       <h5 class="p-dialog-title">Q&A 작성하기</h5>
-      <QnaWrite />
+      <Write />
     </div>
   </Dialog>
 
   <Dialog v-model:visible="dialogView" modal>
-    <QnaView />
+    <View />
   </Dialog>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import QnaItem from './item.vue';
-import QnaWrite from './write.vue';
-import QnaView from './view.vue';
+import Item from './item.vue';
+import Write from './write.vue';
+import View from './view.vue';
 
 import MasonryWall from '@yeger/vue-masonry-wall';
 
@@ -98,7 +98,7 @@ const writeOpen = () => {
 };
 
 //data
-const qnaList = ref([
+const list = ref([
   {
     id: 1,
     title: '서비스 이용 문의',

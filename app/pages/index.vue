@@ -34,6 +34,16 @@
               >성장스토리 쓰기/수정</NuxtLink
             >
             <NuxtLink to="/community/story/nodata">성장스토리 Nodata</NuxtLink>
+
+            <NuxtLink to="/community/board/">자유게시판</NuxtLink>
+            <NuxtLink to="/community/board/view">자유게시판 상세</NuxtLink>
+            <NuxtLink to="/community/board/write"
+              >자유게시판 쓰기/수정</NuxtLink
+            >
+            <NuxtLink to="/community/board/nodata">자유게시판 Nodata</NuxtLink>
+            <NuxtLink to="/community/board/empty"
+              >자유게시판 SearchEmpty</NuxtLink
+            >
           </div>
         </template>
       </Card>

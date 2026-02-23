@@ -18,7 +18,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
 import { useStatus } from '@/composables/useStatus';
 import Icon24upRight from '@/assets/icons/24/up-right.svg?component';
 

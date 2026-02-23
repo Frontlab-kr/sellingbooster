@@ -214,7 +214,7 @@
     </div>
   </div>
 
-  <Dialog v-model:visible="dialogReport" modal>
+  <Dialog v-model:visible="dialogReport" modal class="p-dialog-sm">
     <div class="p-dialog-inner">
       <h5 class="p-dialog-title">신고하기</h5>
       <StoryReport />
@@ -230,6 +230,11 @@ import Icon20down from '@/assets/icons/20/down.svg?component';
 import Icon24commentCheck from '@/assets/icons/24/comment-check.svg?component';
 import Icon20commentDelete from '@/assets/icons/20/comment-delete.svg?component';
 import IconProfileDefault from '@/assets/icons/profile/default.svg?component';
+
+import Icon24edit from '@/assets/icons/24/edit.svg?component';
+import Icon24trash from '@/assets/icons/24/trash.svg?component';
+import Icon24block from '@/assets/icons/24/block.svg?component';
+import Icon24report from '@/assets/icons/24/report.svg?component';
 
 //dialog
 const dialogReport = ref(false);
@@ -247,22 +252,22 @@ const replyComment = ref('');
 const commentMenuItems01 = ref([
   {
     label: '수정',
-    icon: 'ico-24-edit',
+    icon: Icon24edit,
   },
   {
     label: '삭제',
-    icon: 'ico-24-trash',
+    icon: Icon24trash,
   },
 ]);
 const commentMenuItems02 = ref([
   {
     label: '차단',
-    icon: 'ico-24-block',
+    icon: Icon24block,
     class: 'p-tieredmenu-item-link-danger',
   },
   {
     label: '신고',
-    icon: 'ico-24-report',
+    icon: Icon24report,
     class: 'p-tieredmenu-item-link-danger',
     command: () => {
       reportOpen();

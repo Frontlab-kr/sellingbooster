@@ -17,8 +17,8 @@
     </div>
     <div class="sb-faq">
       <div class="sb-faq-list">
-        <FaqItem
-          v-for="faq in faqList"
+        <Item
+          v-for="faq in list"
           :key="faq.id"
           :item="faq"
           @item-click="viewOpen"
@@ -34,14 +34,14 @@
   </div>
 
   <Dialog v-model:visible="dialogView" modal>
-    <FaqView />
+    <View />
   </Dialog>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import FaqItem from './item.vue';
-import FaqView from './view.vue';
+import Item from './item.vue';
+import View from './view.vue';
 
 import Icon24down from '@/assets/icons/24/down.svg?component';
 
@@ -56,7 +56,7 @@ const breadcrumb = ref([
 ]);
 
 //data
-const faqList = ref([
+const list = ref([
   {
     status: 'guide',
     title: '판매 데이터를 엑셀 파일로 한 번에 내려받으려면 어떻게 하나요?',

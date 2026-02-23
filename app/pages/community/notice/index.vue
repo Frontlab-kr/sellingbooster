@@ -18,8 +18,8 @@
     </div>
     <div class="sb-notice">
       <div class="sb-notice-list">
-        <NoticeItem
-          v-for="(item, index) in noticeData"
+        <Item
+          v-for="(item, index) in list"
           :key="index"
           :item="item"
           :search-text="searchKeyword"
@@ -37,8 +37,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import NoticeItem from './item.vue';
-
+import Item from './item.vue';
 import Icon24down from '@/assets/icons/24/down.svg?component';
 
 const searchKeyword = ref('');
@@ -50,8 +49,8 @@ const breadcrumb = ref([
   { label: '공지사항' },
 ]);
 
-// 공지사항 데이터 리스트
-const noticeData = ref([
+// list
+const list = ref([
   {
     status: 'danger',
     title: '셀링부스터 관계자 관련 피싱 주의 당부',

@@ -2,7 +2,7 @@
   <div class="sb-community">
     <div class="sb-community-head">
       <div class="sb-community-head__title">
-        <h4>성장스토리</h4>
+        <h4>자유게시판</h4>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>
@@ -20,20 +20,20 @@
         </div>
       </div>
 
-      <h4 class="sb-board-view__title">작은 시작에서, 꾸준한 성장까지</h4>
+      <h4 class="sb-board-view__title">
+        재고 운영 기준 다들 어떻게 잡고 계세요?
+      </h4>
       <div class="sb-board-view__contents">
         <p>
-          처음부터 모든 게 순조롭진 않았습니다. 상품 등록 하나에도 고민이
-          많았고, <br />
-          판매가 일어나지 않는 날엔 “내가 잘하고 있는 걸까?”라는 생각이 들기도
-          했어요. <br />
-          하지만 포기하지 않고 하나씩 배워가며 상품을 개선하고, 고객의 목소리에
-          귀 기울였습니다. <br />
-          작은 변화들이 쌓이자 조금씩 결과가 보이기 시작했고, 그 경험은 다시
-          도전할 수 있는 힘이 되었습니다.<br />
-          지금도 완성형은 아니지만,셀러로서 성장하는 과정 자체가 값진 자산이
-          되었다고 느낍니다.이 스토리가 같은 길을 걷고 있는 누군가에게 작은
-          용기가 되었으면 합니다.
+          잘 나가던 상품이 갑자기 멈추거나, 반대로 예상보다 빠르게 소진되는
+          상황이 반복되다 보니<br />
+          재고를 어느 선에서 운영하는 게 적절한지 늘 어렵게 느껴집니다.특히
+          시즌이나 트렌드 영향을 크게 받는 상품은 타이밍을 조금만 놓쳐도
+          애매하게 재고가 남거나, <br />
+          품절로 판매 흐름을 놓치는 경우가 생겨 기준 잡기가 쉽지 않네요.<br />
+          소량 테스트 후 반응을 보며 늘리는 방식이 안전할지, 아니면 초기부터
+          어느 정도 물량을 확보해두는 편이 나을지 실제 운영하시는 분들의 판단
+          기준이 궁금합니다.
         </p>
         <br />
         <img src="https://picsum.photos/id/1/800/800" alt="" />
@@ -60,7 +60,7 @@
       </div>
     </div>
     <div class="sb-board-view__button">
-      <NuxtLink to="/community/story/">
+      <NuxtLink to="/community/board/">
         <Button severity="primary" size="large">
           <Icon24back class="ico-24-back" />
           <span class="p-button-label">목록으로</span>
@@ -73,14 +73,14 @@
   <Dialog v-model:visible="dialogReport" modal class="p-dialog-sm">
     <div class="p-dialog-inner">
       <h5 class="p-dialog-title">신고하기</h5>
-      <StoryReport />
+      <Report />
     </div>
   </Dialog>
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import StoryReport from './report.vue';
+import Report from './report.vue';
 import Icon24back from '@/assets/icons/24/back.svg?component';
 import Icon24download from '@/assets/icons/24/download.svg?component';
 import Icon24edit from '@/assets/icons/24/edit.svg?component';
@@ -96,7 +96,7 @@ const dialogReport = ref(false);
 const breadcrumb = ref([
   { label: 'Home' },
   { label: '커뮤니티' },
-  { label: '성장스토리' },
+  { label: '자유게시판' },
 ]);
 
 const item = ref({

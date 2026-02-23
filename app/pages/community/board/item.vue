@@ -13,7 +13,7 @@
         <SbMenu :items="menuItems" />
       </div>
     </div>
-    <NuxtLink to="/community/story/view">
+    <NuxtLink to="/community/board/view">
       <h6 class="sb-board-list-item__title">{{ item.title }}</h6>
       <div class="sb-board-list-item__contents">
         {{ item.content }}
@@ -44,8 +44,8 @@
 
 <script setup>
 import { ref } from 'vue';
-import Report from './report.vue';
 import { useRouter } from 'vue-router';
+import Report from './report.vue';
 import Icon24edit from '@/assets/icons/24/edit.svg?component';
 import Icon24trash from '@/assets/icons/24/trash.svg?component';
 import Icon24block from '@/assets/icons/24/block.svg?component';

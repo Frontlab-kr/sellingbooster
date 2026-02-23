@@ -152,18 +152,14 @@
                   border-color: var(--primary-500_00B1BD, #00b1bd);
                   color: #fff;
                   opacity: 1;
-                  &:focus {
-                    box-shadow: var(--p-button-primary-focus-ring-shadow);
-                    outline: var(--p-button-focus-ring-width)
-                      var(--p-button-focus-ring-style)
-                      var(--p-button-primary-focus-ring-color);
-                    outline-offset: var(--p-button-focus-ring-offset);
-                  }
                 }
               }
               &-checked ~ label {
                 border-color: var(--primary-500_00B1BD, #00b1bd);
                 color: #fff;
+                svg {
+                  color: #fff;
+                }
               }
             }
             label {
@@ -822,7 +818,7 @@
       }
     }
   }
-  &-story {
+  &-board {
     &-list {
       &-item {
         padding: 30px;

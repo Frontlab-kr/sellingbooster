@@ -2,19 +2,18 @@
   <div class="sb-community">
     <div class="sb-community-head">
       <div class="sb-community-head__title">
-        <h4>성장스토리</h4>
+        <h4>자유게시판</h4>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>
     <div class="sb-board-write">
       <h5 class="sb-board-write__title">
-        오늘 셀러님의 하루는 어땠나요?<br />
-        작지만 소중한 기록을 남겨보세요
+        함께 공유 하고 싶은 이야기가 있나요?
       </h5>
       <div class="sb-board-write-form">
         <div class="sb-board-write-form-item">
           <label>제목</label>
-          <SbInput placeholder="성장스토리의 제목을 작성해 주세요." />
+          <SbInput placeholder="자유게시판의 제목을 작성해 주세요." />
         </div>
         <div class="sb-board-write-form-item">
           <label>내용</label>
@@ -51,7 +50,7 @@
       </div>
       <div class="sb-board-write__button">
         <Button severity="neutral" size="large" label="취소" />
-        <Button severity="primary" size="large" label="발행" disabled />
+        <Button severity="primary" size="large" label="등록" disabled />
       </div>
     </div>
   </div>
@@ -62,6 +61,6 @@
 const breadcrumb = ref([
   { label: 'Home' },
   { label: '커뮤니티' },
-  { label: '성장스토리' },
+  { label: '자유게시판' },
 ]);
 </script>

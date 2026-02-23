@@ -289,6 +289,7 @@ const menu01 = ref([
       { label: '공지사항', route: '/community/notice' },
       { label: 'FAQ', route: '/community/faq' },
       { label: '성장스토리', route: '/community/story' },
+      { label: '자유게시판', route: '/community/board' },
       { label: '트랜드', route: '/community/treand' },
     ],
   },

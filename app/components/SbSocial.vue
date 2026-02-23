@@ -30,12 +30,7 @@
       <span class="p-button-label">{{ shareCount }}</span>
     </Button>
 
-    <TieredMenu
-      ref="menu"
-      :model="socialMenuItems"
-      popup
-      class="sb-social-layer"
-    >
+    <TieredMenu ref="menu" :model="menuItems" popup class="sb-social-layer">
       <template #item="{ item, props }">
         <a v-bind="props.action" class="p-tieredmenu-item-link">
           <component
@@ -83,7 +78,7 @@ const props = defineProps({
 const isLiked = ref(false);
 const menu = ref();
 const show = (btnName) => props.visibleButtons.includes(btnName);
-const socialMenuItems = ref([
+const menuItems = ref([
   {
     label: '페이스북',
     icon: IconSocialFacebook,
