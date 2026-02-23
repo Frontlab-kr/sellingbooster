@@ -421,7 +421,16 @@
         background: none;
       }
       &.active {
-        border-bottom: 2px solid var(--tab-active-button-color);
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: var(--tab-active-button-color);
+        }
         .p-button-label {
           color: var(--tab-active-button-color);
         }
@@ -442,7 +451,9 @@
           letter-spacing: -0.375px;
         }
         &.active {
-          border-width: 3px;
+          &:after {
+            height: 3px;
+          }
         }
       }
     }
