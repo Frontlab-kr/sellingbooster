@@ -227,8 +227,9 @@
   border-radius: 60px;
   &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text):not(
       .p-button-link
-    ) {
+    ):not(.p-button-sm):not(.p-button-lg) {
     height: 48px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 700;
     letter-spacing: -0.4px;
@@ -360,8 +361,9 @@
     border-radius: 60px;
     &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text):not(
         .p-button-link
-      ) {
+      ):not(.p-button-sm):not(.p-button-lg) {
       height: 40px;
+      font-size: 14px;
       letter-spacing: -0.35px;
     }
 
