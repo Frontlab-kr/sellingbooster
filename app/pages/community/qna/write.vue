@@ -68,20 +68,20 @@
             <div class="sb-radio-item">
               <RadioButton
                 v-model="radioNotification"
-                inputId="radioNotificationYes"
-                name="radioNotification"
-                value="radioNotificationYes"
-              />
-              <label for="radioNotificationYes">알림 받지 않기</label>
-            </div>
-            <div class="sb-radio-item">
-              <RadioButton
-                v-model="radioNotification"
                 inputId="radioNotificationNo"
                 name="radioNotification"
                 value="radioNotificationNo"
               />
-              <label for="radioNotificationNo">알림 받기</label>
+              <label for="radioNotificationNo">알림 받지 않기</label>
+            </div>
+            <div class="sb-radio-item">
+              <RadioButton
+                v-model="radioNotification"
+                inputId="radioNotificationYes"
+                name="radioNotification"
+                value="radioNotificationYes"
+              />
+              <label for="radioNotificationYes">알림 받기</label>
             </div>
           </div>
           <div class="sb-form-item__text mt-2">

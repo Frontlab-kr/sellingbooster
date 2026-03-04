@@ -12,7 +12,7 @@
   --p-dialog-header-gap: 0.5rem;
   --p-dialog-background: var(--p-gray-00);
   --p-dialog-border-color: var(--p-overlay-modal-border-color);
-  --p-dialog-color: var(--p-overlay-modal-color);
+  --p-dialog-color: var(--p-gray-900);
   --p-dialog-border-radius: var(--p-overlay-modal-border-radius);
   --p-dialog-shadow: var(--p-overlay-modal-shadow);
   &.p-dark {
@@ -51,6 +51,9 @@
     svg {
       display: none;
     }
+    &:hover {
+      background: none;
+    }
   }
   &-header {
     display: flex;
@@ -59,12 +62,12 @@
   }
   &-content {
     padding: 0 40px;
-    color: var(--Gray-400_9AA3AF, var(--Gray-400_9AA3AF, #9aa3af));
-    font-size: var(--Font-Body-Medium, 14px);
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%; /* 19.6px */
-    letter-spacing: -0.35px;
+    // color: var(--Gray-400_9AA3AF, var(--Gray-400_9AA3AF, #9aa3af));
+    // font-size: var(--Font-Body-Medium, 14px);
+    // font-style: normal;
+    // font-weight: 400;
+    // line-height: 140%; /* 19.6px */
+    // letter-spacing: -0.35px;
     @include custom-scrollbar();
   }
 

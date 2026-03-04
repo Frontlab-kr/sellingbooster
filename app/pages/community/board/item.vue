@@ -46,6 +46,7 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import Report from './report.vue';
+import SbSocial from '@/pages/community/components/SbSocial.vue';
 import Icon24edit from '@/assets/icons/24/edit.svg?component';
 import Icon24trash from '@/assets/icons/24/trash.svg?component';
 import Icon24block from '@/assets/icons/24/block.svg?component';

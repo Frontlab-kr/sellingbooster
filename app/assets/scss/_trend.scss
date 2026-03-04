@@ -1,0 +1,88 @@
+@use './mixins' as *;
+
+.sb {
+  &-trend {
+    &-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      &__title {
+        margin-bottom: 40px;
+        h4 {
+          color: var(--title-color);
+        }
+      }
+    }
+    &-menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    &-sort {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+    }
+    @media screen and (max-width: $BreakpointMd) {
+      &-head {
+        justify-content: flex-end;
+        &__title {
+          display: none;
+        }
+      }
+      &-menu {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 24px;
+        .sb-searchbar {
+          width: 100%;
+        }
+      }
+      &-sort {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-top: 32px;
+        margin-bottom: 12px;
+      }
+    }
+  }
+  &-trend {
+    &-contents {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    &-search {
+      padding: 40px;
+      border-radius: 30px;
+      background: var(--trend--background);
+    }
+    &-table {
+      padding: 40px;
+      border-radius: 30px;
+      background: var(--trend--background);
+      &-head {
+        margin: 0 0 40px 0;
+        &__title {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          p {
+            margin: 0;
+            color: var(--Gray-400_9AA3AF, var(--Gray-400_9AA3AF, #9aa3af));
+            font-size: var(--Font-Body-Medium, 14px);
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 19.6px */
+            letter-spacing: -0.35px;
+          }
+        }
+      }
+    }
+  }
+}

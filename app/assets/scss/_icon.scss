@@ -210,6 +210,17 @@
     width: 24px;
     height: 24px;
   }
+  &-24-mode-light {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+  }
+  &-24-mode-dark {
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+  }
+
   &-24-globe {
     min-width: 24px;
     width: 24px;
@@ -299,6 +310,11 @@
       width: 24px;
       height: 24px;
     }
+  }
+  //64
+  &-64-check-circle {
+    width: 64px;
+    height: 64px;
   }
   &-profile-default {
     width: 48px;

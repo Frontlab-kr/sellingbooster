@@ -80,7 +80,9 @@
 
 <script setup>
 import { ref } from 'vue';
-import Report from './report.vue';
+import Report from '@/pages/community/board/report.vue';
+import SbSocial from '@/pages/community/components/SbSocial.vue';
+import SbComment from '@/pages/community/components/SbComment.vue';
 import Icon24back from '@/assets/icons/24/back.svg?component';
 import Icon24download from '@/assets/icons/24/download.svg?component';
 import Icon24edit from '@/assets/icons/24/edit.svg?component';

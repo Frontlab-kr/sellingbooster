@@ -12,12 +12,24 @@
     &-menu {
       display: flex;
       justify-content: flex-end;
-      gap: 10px;
+      gap: 12px;
     }
     &-search {
       > .p-button {
         width: 60px;
         height: 60px;
+        svg {
+          color: var(--p-gray-500);
+        }
+      }
+    }
+    &-mode {
+      > .p-button {
+        width: 60px;
+        height: 60px;
+        svg {
+          color: var(--p-gray-500);
+        }
       }
     }
     &-language {
@@ -30,6 +42,9 @@
       > .p-button {
         width: 60px;
         height: 60px;
+        svg {
+          color: var(--p-gray-500);
+        }
       }
     }
     &-user {
@@ -281,6 +296,12 @@
           svg {
             color: var(--snb-link-menu-color);
           }
+          &.p-panelmenu-header-active {
+            color: #fff;
+            svg {
+              color: #fff;
+            }
+          }
         }
 
         .p-panelmenu-header:not(.p-disabled):focus-visible
@@ -341,6 +362,20 @@
   &-header-mo {
     display: none;
   }
+  &--layout-auth {
+    overflow: hidden;
+    background: #eff1f4 url(./../images/login-bg.jpg) no-repeat 0 100%;
+  }
+  &--layout-auth & {
+    &-snb {
+      &-menu {
+        display: none;
+      }
+    }
+    &-contents {
+      padding: 20px 40px 70px 0;
+    }
+  }
   @media screen and (max-width: $BreakpointMd) {
     padding: 56px 0 0 0;
     &-header {
@@ -397,6 +432,19 @@
     }
     &-contents {
       padding: 24px 20px 40px 20px;
+    }
+    &--layout-auth {
+      background: #fff;
+    }
+    &--layout-auth & {
+      &-snb {
+        &-menu {
+          display: none;
+        }
+      }
+      &-contents {
+        padding: 0px;
+      }
     }
   }
 }

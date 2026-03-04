@@ -24,15 +24,15 @@
   --p-button-focus-ring-style: var(--p-focus-ring-style);
   --p-button-focus-ring-offset: var(--p-focus-ring-offset);
   --p-button-label-font-weight: 700;
-  --p-button-lg-font-size: var(--p-form-field-lg-font-size);
-  --p-button-lg-padding-x: 24px;
+  --p-button-lg-font-size: 18px;
+  --p-button-lg-padding-x: 20px;
   --p-button-lg-padding-y: 10px;
   --p-button-lg-icon-only-width: 60px;
   --p-button-sm-font-size: var(--p-form-field-sm-font-size);
   --p-button-sm-padding-x: 16px;
   --p-button-sm-padding-y: 10px;
   --p-button-sm-icon-only-width: auto;
-  --p-button-link-color: var(--p-primary-color);
+  --p-button-link-color: var(--p-gray-400);
   --p-button-link-hover-color: var(--p-primary-color);
   --p-button-link-active-color: var(--p-primary-color);
   --p-button-text-plain-hover-background: var(--p-surface-50);
@@ -77,6 +77,10 @@
   --p-button-outlined-primary-active-background: var(--p-primary-100);
   --p-button-outlined-primary-border-color: var(--p-primary-500);
   --p-button-outlined-primary-color: var(--p-primary-color);
+  --p-button-outlined-primary-hover-color: var(--p-gray-600);
+  --p-button-outlined-primary-disabled-border-color: var(--p-primary-600);
+  --p-button-outlined-primary-disabled-color: var(--p-primary-700);
+  --p-button-outlined-primary-icon-color: var(--p-gray-600);
 
   --p-button-contrast-background: var(--p-gray-800);
   --p-button-contrast-hover-background: var(--p-gray-500);
@@ -208,8 +212,8 @@
     --p-button-focus-ring-style: var(--p-focus-ring-style);
     --p-button-focus-ring-offset: var(--p-focus-ring-offset);
     --p-button-label-font-weight: 700;
-    --p-button-lg-font-size: var(--p-form-field-lg-font-size);
-    --p-button-lg-padding-x: var(--p-form-field-lg-padding-x);
+    --p-button-lg-font-size: 15px;
+    --p-button-lg-padding-x: 20px;
     --p-button-lg-padding-y: var(--p-form-field-lg-padding-y);
     --p-button-lg-icon-only-width: 60px;
     --p-button-sm-font-size: var(--p-form-field-sm-font-size);
@@ -221,36 +225,44 @@
 
 .p-button {
   border-radius: 60px;
-  &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text) {
-    min-height: 48px;
-    font-size: 16px;
+  &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text):not(
+      .p-button-link
+    ) {
+    height: 48px;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    white-space: noWrap;
   }
-
   &-sm {
-    &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text) {
-      min-height: 40px;
-      font-size: 14px;
+    &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text):not(
+        .p-button-link
+      ) {
+      height: 40px;
     }
   }
-
   &-lg {
-    &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text) {
-      min-height: 60px;
-      font-size: 18px;
+    &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text):not(
+        .p-button-link
+      ) {
+      height: 56px;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: -0.45px;
     }
   }
   &-primary {
     svg {
       color: var(--p-button-primary-icon-color);
     }
-    &:disabled {
+    &:disabled:not(.p-button-outlined) {
       border-color: var(--p-button-primary-disabled-border-color);
       background-color: var(--p-button-primary-disabled-background);
       color: var(--p-button-primary-disabled-color);
     }
   }
   &-contrast {
-    &:disabled {
+    &:disabled:not(.p-button-outlined) {
       border-color: var(--p-button-contrast-disabled-border-color);
       background-color: var(--p-button-contrast-disabled-background);
       color: var(--p-button-contrast-disabled-color);
@@ -265,7 +277,7 @@
       background-color: var(--p-button-neutral-hover-background);
       color: var(--p-button-neutral-hover-color);
     }
-    &:disabled {
+    &:disabled:not(.p-button-outlined) {
       border-color: var(--p-button-neutral-disabled-border-color);
       background-color: var(--p-button-neutral-disabled-background);
       color: var(--p-button-neutral-disabled-color);
@@ -281,6 +293,16 @@
   }
 
   &-outlined {
+    &.p-button-primary {
+      &:disabled {
+        border-color: var(--p-button-outlined-primary-disabled-border-color);
+        color: var(--p-button-outlined-primary-disabled-color);
+        opacity: 0.4;
+        svg {
+          color: var(--p-button-outlined-primary-disabled-color);
+        }
+      }
+    }
     &.p-button-contrast {
       svg {
         color: var(--p-button-outlined-contrast-icon-color);
@@ -318,33 +340,45 @@
 
       font-size: var(--Font-Button-Small, 14px);
       font-style: normal;
-      line-height: 140%; /* 19.6px */
       letter-spacing: -0.35px;
     }
     &.p-focus {
       background: var(--p-button-text-focus-background);
     }
   }
+  &-link {
+    padding: 0;
+    border-radius: 0 !important;
+    .p-button-label {
+      font-size: var(--Font-Heading-Xsmall, 14px);
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: -0.35px;
+    }
+  }
   @media screen and (max-width: $BreakpointMd) {
     border-radius: 60px;
-    &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text) {
-      min-height: 48px;
-      font-size: 15px;
-      letter-spacing: -0.375px;
+    &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text):not(
+        .p-button-link
+      ) {
+      height: 40px;
+      letter-spacing: -0.35px;
     }
 
     &-sm {
-      &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text) {
-        min-height: 44px;
+      &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text):not(
+          .p-button-link
+        ) {
+        height: 44px;
         padding: 0 20px;
-        font-size: 14px;
       }
     }
 
     &-lg {
-      &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text) {
-        min-height: 56px;
-        font-size: var(--Font-Button-Medium, 16px);
+      &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text):not(
+          .p-button-link
+        ) {
+        height: 48px;
       }
     }
   }

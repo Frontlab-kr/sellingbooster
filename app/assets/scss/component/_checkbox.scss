@@ -1,0 +1,65 @@
+@use '../mixins' as *;
+
+:root,
+:host {
+  --p-checkbox-icon-size: 0.875rem;
+  --p-checkbox-icon-color: var(--p-form-field-color);
+  --p-checkbox-icon-checked-color: var(--p-primary-contrast-color);
+  --p-checkbox-icon-checked-hover-color: var(--p-primary-contrast-color);
+  --p-checkbox-icon-disabled-color: var(--p-form-field-disabled-color);
+  --p-checkbox-icon-lg-size: 1rem;
+  --p-checkbox-icon-sm-size: 0.75rem;
+  --p-checkbox-border-radius: 0;
+  --p-checkbox-width: 24px;
+  --p-checkbox-height: 24px;
+  --p-checkbox-background: var(--p-form-field-background);
+  --p-checkbox-checked-background: var(--p-primary-color);
+  --p-checkbox-checked-hover-background: var(--p-primary-hover-color);
+  --p-checkbox-disabled-background: var(--p-form-field-disabled-background);
+  --p-checkbox-filled-background: var(--p-form-field-filled-background);
+  --p-checkbox-border-color: var(--p-gray-200);
+  --p-checkbox-hover-border-color: var(--p-form-field-hover-border-color);
+  --p-checkbox-focus-border-color: var(--p-form-field-border-color);
+  --p-checkbox-checked-border-color: var(--p-primary-color);
+  --p-checkbox-checked-hover-border-color: var(--p-primary-hover-color);
+  --p-checkbox-checked-focus-border-color: var(--p-primary-color);
+  --p-checkbox-checked-disabled-border-color: var(--p-form-field-border-color);
+  --p-checkbox-invalid-border-color: var(--p-form-field-invalid-border-color);
+  --p-checkbox-shadow: none;
+  --p-checkbox-transition-duration: var(--p-form-field-transition-duration);
+  --p-checkbox-lg-width: 1.5rem;
+  --p-checkbox-lg-height: 1.5rem;
+  --p-checkbox-sm-width: 1rem;
+  --p-checkbox-sm-height: 1rem;
+  --p-checkbox-focus-ring-width: var(--p-focus-ring-width);
+  --p-checkbox-focus-ring-style: var(--p-focus-ring-style);
+  --p-checkbox-focus-ring-color: var(--p-focus-ring-color);
+  --p-checkbox-focus-ring-offset: var(--p-focus-ring-offset);
+  --p-checkbox-focus-ring-shadow: var(--p-focus-ring-shadow);
+}
+
+.p-checkbox {
+  align-items: center;
+  justify-content: center;
+  width: var(--p-checkbox-width);
+  height: var(--p-checkbox-height);
+  &-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--p-checkbox-border-radius);
+    border: none;
+    background: url(./../../icons/24/checkbox.svg) no-repeat 50% 50%;
+    width: var(--p-checkbox-width);
+    height: var(--p-checkbox-height);
+    svg {
+      display: none;
+    }
+  }
+  &-checked .p-checkbox-box {
+    background: url(./../../icons/24/checkbox-active.svg) no-repeat 50% 50%;
+  }
+  &.p-disabled .p-checkbox-box {
+    background: url(./../../icons/24/checkbox-disabled.svg) no-repeat 50% 50%;
+  }
+}

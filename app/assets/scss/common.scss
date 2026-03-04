@@ -5,9 +5,18 @@
 @use './variables';
 @use './icon';
 @use './layout';
+@use './auth';
+@use './trend';
 @use './community';
-@use './component/component';
+@use './setting';
+@use './component';
+
+@use './component/message';
+@use './component/checkbox';
+@use './component/stepper';
+@use './component/datatable';
 @use './component/radiobutton';
+@use './component/password';
 @use './component/fileupload';
 @use './component/badge';
 @use './component/button';
@@ -85,7 +94,7 @@ h3 {
 h4 {
   font-size: var(--Font-Display-Xsmall, 32px);
   font-weight: 700;
-  line-height: 140%; /* 44.8px */
+  line-height: 130%; /* 41.6px */
   letter-spacing: -0.8px;
 }
 h5 {
@@ -112,10 +121,11 @@ h6 {
     font-size: var(--Font-Display-Small, 45px);
   }
   h4 {
-    font-size: var(--Font-Display-Xsmall, 32px);
+    font-size: 24px;
+    font-style: normal;
     font-weight: 700;
-    line-height: 140%; /* 44.8px */
-    letter-spacing: -0.8px;
+    line-height: 130%; /* 31.2px */
+    letter-spacing: -0.6px;
   }
   h5 {
     font-size: 20px;

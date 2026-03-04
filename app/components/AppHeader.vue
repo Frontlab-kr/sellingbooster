@@ -1,11 +1,18 @@
 <template>
   <header class="sb-header">
     <div class="sb-header-menu">
-      <Button label="다크모드" @click="toggleDarkMode()" />
       <div class="sb-header-search">
         <Button rounded severity="white">
           <template #icon>
             <Icon24search class="ico-24-search" />
+          </template>
+        </Button>
+      </div>
+      <div class="sb-header-mode">
+        <Button rounded severity="white" @click="toggleMode()">
+          <template #icon>
+            <Icon24modeLight v-if="isDark" class="ico-24-mode-light" />
+            <Icon24modeDark v-else class="ico-24-mode-dark" />
           </template>
         </Button>
       </div>
@@ -78,7 +85,7 @@
     </div>
 
     <div class="sb-snb-menu">
-      <PanelMenu :model="menu02">
+      <PanelMenu :model="menu02" v-model:expandedKeys="expandedKeys">
         <template #item="{ item, props }">
           <a
             v-if="item.route"
@@ -142,10 +149,12 @@
   </header>
 </template>
 <script setup>
-import { ref } from 'vue';
+import { ref, watch, onMounted, onUnmounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 
 import Icon24search from '@/assets/icons/24/search.svg?component';
+import Icon24modeDark from '@/assets/icons/24/mode-dark.svg?component';
+import Icon24modeLight from '@/assets/icons/24/mode-light.svg?component';
 import Icon24globe from '@/assets/icons/24/globe.svg?component';
 import Icon24bellOn from '@/assets/icons/24/bell-on.svg?component';
 
@@ -162,102 +171,14 @@ import IconSnbSetting from '@/assets/icons/snb/setting.svg?component';
 import IconSnbLogout from '@/assets/icons/snb/logout.svg?component';
 import IconSnbMenuClose from '@/assets/icons/snb/menu-close.svg?component';
 
+/** 1. 상태 정의 (State) */
 const isFolded = useState('isFolded', () => false);
+const pageTitle = useState('pageTitle', () => '');
+const isDark = ref(false);
+const isScrolled = ref(false);
+const expandedKeys = ref({});
 const router = useRouter();
 const route = useRoute();
-
-const pageTitle = useState('pageTitle', () => 'Selling Booster');
-
-const isScrolled = ref(false);
-
-const handleScroll = () => {
-  isScrolled.value = window.scrollY > 0;
-};
-
-const handleLinkClick = (event, item) => {
-  const hasChildren = item.items?.length > 0;
-
-  if (isFolded.value) {
-    event.preventDefault();
-    event.stopPropagation();
-    if (item.route) router.push(item.route);
-  } else {
-    if (hasChildren) {
-      event.preventDefault();
-    } else {
-      if (item.route) router.push(item.route);
-    }
-  }
-};
-
-const handleGlobalKeyDown = (event) => {
-  // 입력 중일 때는 무시
-  if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
-
-  // 1. Alt + B : 메뉴 접기/펴기
-  if (event.altKey && event.code === 'KeyB') {
-    event.preventDefault();
-    toggleMenu();
-  }
-};
-
-onMounted(() => {
-  window.addEventListener('keydown', handleGlobalKeyDown);
-  window.addEventListener('scroll', handleScroll);
-  if (!isFolded.value) {
-    openActiveMenu();
-  }
-});
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleGlobalKeyDown);
-  window.removeEventListener('scroll', handleScroll);
-});
-
-const expandedKeys = ref({});
-
-watch(isFolded, (newValue) => {
-  if (newValue === true) {
-    expandedKeys.value = {};
-  } else {
-    openActiveMenu();
-  }
-});
-
-const openActiveMenu = () => {
-  const activeParent = menu01.value.find(
-    (item) =>
-      item.items && item.items.some((sub) => route.path.startsWith(sub.route)),
-  );
-
-  if (activeParent && activeParent.key) {
-    expandedKeys.value = { [activeParent.key]: true };
-  }
-};
-
-const isActive = (itemRoute) => {
-  if (!itemRoute) return false;
-  return route.path.startsWith(itemRoute);
-};
-
-const toggleMenu = () => {
-  isFolded.value = !isFolded.value;
-};
-
-const getMenuIcon = (item) => {
-  if (item.id === 'toggle-btn') {
-    // 문자열이 아닌 컴포넌트 객체를 반환
-    return isFolded.value ? IconSnbMenuOpen : IconSnbMenuClose;
-  }
-  return item.icon;
-};
-
-const getMenuLabel = (item) => {
-  if (item.id === 'toggle-btn') {
-    return isFolded.value ? '메뉴 열기' : '메뉴 닫기';
-  }
-  return item.label;
-};
 
 const menu01 = ref([
   {
@@ -272,12 +193,7 @@ const menu01 = ref([
     icon: IconSnbDocument,
     route: '/1',
   },
-  {
-    key: 'execution',
-    label: '바로 실행',
-    icon: IconSnbStar,
-    route: '/2',
-  },
+  { key: 'execution', label: '바로 실행', icon: IconSnbStar, route: '/2' },
   { key: 'performance', label: '성과 보기', icon: IconSnbChart, route: '/3' },
   {
     key: 'community',
@@ -301,10 +217,36 @@ const menu02 = ref([
   { id: 'toggle-btn', label: '메뉴 닫기', icon: IconSnbMenuClose },
 ]);
 
+/** 2. 메뉴 및 네비게이션 로직 */
+const toggleMenu = () => {
+  isFolded.value = !isFolded.value;
+};
+
+const handleLinkClick = (event, item) => {
+  const hasChildren = item.items?.length > 0;
+  if (isFolded.value) {
+    event.preventDefault();
+    event.stopPropagation();
+    if (item.route) router.push(item.route);
+  } else {
+    if (hasChildren) event.preventDefault();
+    else if (item.route) router.push(item.route);
+  }
+};
+
+const openActiveMenu = () => {
+  const activeParent = menu01.value.find(
+    (item) =>
+      item.items && item.items.some((sub) => route.path.startsWith(sub.route)),
+  );
+  if (activeParent && activeParent.key) {
+    expandedKeys.value = { [activeParent.key]: true };
+  }
+};
+
 const updateTitle = (path) => {
   const allMenus = [...menu01.value, ...menu02.value];
   let targetLabel = '';
-
   for (const mainItem of allMenus) {
     if (mainItem.items) {
       const subItem = mainItem.items.find(
@@ -315,42 +257,71 @@ const updateTitle = (path) => {
         break;
       }
     }
-
-    if (mainItem.route && path.startsWith(mainItem.route)) {
+    if (mainItem.route && path.startsWith(mainItem.route))
       targetLabel = mainItem.label;
-    }
   }
-
-  pageTitle.value = targetLabel || 'Selling Booster';
+  pageTitle.value = targetLabel || '';
 };
+
+const getMenuIcon = (item) => {
+  if (item.id === 'toggle-btn')
+    return isFolded.value ? IconSnbMenuOpen : IconSnbMenuClose;
+  return item.icon;
+};
+
+const getMenuLabel = (item) => {
+  if (item.id === 'toggle-btn')
+    return isFolded.value ? '메뉴 열기' : '메뉴 닫기';
+  return item.label;
+};
+
+const isActive = (itemRoute) => itemRoute && route.path.startsWith(itemRoute);
+
+/** 3. UI 제어 및 테마 로직 */
+const toggleMode = () => {
+  isDark.value = !isDark.value;
+  updateTheme();
+};
+
+const updateTheme = () => {
+  if (isDark.value) {
+    document.documentElement.classList.add('p-dark');
+    localStorage.setItem('sb-theme', 'dark');
+  } else {
+    document.documentElement.classList.remove('p-dark');
+    localStorage.setItem('sb-theme', 'light');
+  }
+};
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 0;
+};
+
+/** 4. 감시자 및 생명주기 관리 */
+watch(isFolded, (newValue) => {
+  if (newValue === true) expandedKeys.value = {};
+  else openActiveMenu();
+});
 
 watch(
   () => route.path,
-  (newPath) => {
-    updateTitle(newPath);
-  },
+  (newPath) => updateTitle(newPath),
   { immediate: true },
 );
 
-function toggleDarkMode() {
-  document.documentElement.classList.toggle('p-dark');
-}
-// 키보드 핸들러 함수
-const handleKeyDown = (event) => {
-  // Ctrl + D (또는 Mac의 경우 Cmd + D) 감지
-  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'd') {
-    event.preventDefault(); // 브라우저 즐겨찾기 방지
-    toggleDarkMode();
-  }
-};
-
 onMounted(() => {
-  // 컴포넌트가 마운트될 때 전역 키 이벤트 등록
-  window.addEventListener('keydown', handleKeyDown);
+  const savedTheme = localStorage.getItem('sb-theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    isDark.value = true;
+    updateTheme();
+  }
+
+  window.addEventListener('scroll', handleScroll);
+  if (!isFolded.value) openActiveMenu();
 });
 
 onUnmounted(() => {
-  // 컴포넌트가 사라질 때 이벤트 리스너 제거 (중요!)
-  window.removeEventListener('keydown', handleKeyDown);
+  window.removeEventListener('scroll', handleScroll);
 });
 </script>

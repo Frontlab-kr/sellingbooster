@@ -69,6 +69,10 @@ export default defineNuxtConfig({
         'ConfirmDialog',
         'Toast',
         'Button',
+        'Datatable',
+        'Column',
+        'Stepper',
+        'Message',
       ],
     },
     options: {

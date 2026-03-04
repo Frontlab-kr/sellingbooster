@@ -1,0 +1,313 @@
+@use '../mixins' as *;
+
+:root,
+:host {
+  --p-stepper-steppanel-background: var(--p-content-background);
+  --p-stepper-steppanel-color: var(--p-gray-700);
+  --p-stepper-steppanel-padding: 0;
+  --p-stepper-steppanel-indent: 1rem;
+  --p-stepper-steppanels-padding: 32px 0 0 0;
+  --p-stepper-step-number-background: var(--p-content-background);
+  --p-stepper-step-number-active-background: var(--p-content-background);
+  --p-stepper-step-number-border-color: var(--p-gray-200);
+  --p-stepper-step-number-active-border-color: var(--p-content-border-color);
+  --p-stepper-step-number-color: var(--p-text-muted-color);
+  --p-stepper-step-number-active-color: var(--p-primary-color);
+  --p-stepper-step-number-size: 8px;
+  --p-stepper-step-number-font-size: 0;
+  --p-stepper-step-number-font-weight: 500;
+  --p-stepper-step-number-border-radius: 50%;
+  --p-stepper-step-number-shadow:
+    0px 0.5px 0px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
+  --p-stepper-step-title-color: var(--p-gray-500);
+  --p-stepper-step-title-active-color: var(--p-gray-700);
+  --p-stepper-step-title-font-weight: 500;
+  --p-stepper-step-header-padding: 0;
+  --p-stepper-step-header-border-radius: var(--p-content-border-radius);
+  --p-stepper-step-header-gap: 16px;
+  --p-stepper-step-header-focus-ring-width: var(--p-focus-ring-width);
+  --p-stepper-step-header-focus-ring-style: var(--p-focus-ring-style);
+  --p-stepper-step-header-focus-ring-color: var(--p-focus-ring-color);
+  --p-stepper-step-header-focus-ring-offset: var(--p-focus-ring-offset);
+  --p-stepper-step-header-focus-ring-shadow: var(--p-focus-ring-shadow);
+  --p-stepper-step-padding: 0;
+  --p-stepper-step-gap: 0;
+  --p-stepper-separator-background: var(--p-gray-200);
+  --p-stepper-separator-active-background: var(--p-primary-color);
+  --p-stepper-separator-margin: 0 0 0 1.625rem;
+  --p-stepper-separator-size: 2px;
+  --p-stepper-transition-duration: var(--p-transition-duration);
+}
+
+.p-steplist {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 10px 0 14px 0;
+  list-style-type: none;
+  overflow-x: auto;
+  @media screen and (max-width: $BreakpointMd) {
+    padding: 10px 0 0 0;
+  }
+}
+
+.p-step {
+  position: relative;
+  display: flex;
+  flex: auto;
+  align-items: center;
+  justify-content: center;
+  gap: var(--p-stepper-step-gap);
+  width: 100%;
+  padding: var(--p-stepper-step-padding);
+  &:before {
+    content: '';
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 24px;
+    height: 29px;
+    background: url(./../../icons/24/step01.svg) no-repeat 50% 50%;
+    transform: translate(-50%, -10px);
+    z-index: 20;
+  }
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    right: -52%;
+    height: 2px;
+    background: var(--p-stepper-step-number-border-color);
+  }
+  &[data-p='completed'] {
+    &:nth-child(1) {
+      &::after {
+        background: linear-gradient(15deg, #66d6fa 0%, #6573fa 100%);
+      }
+    }
+    &:nth-child(2) {
+      &::after {
+        background: linear-gradient(15deg, #6573fa 0%, #a064fa 100%);
+      }
+    }
+  }
+  &:nth-child(2) {
+    &:before {
+      background: url(./../../icons/24/step02.svg) no-repeat 50% 50%;
+    }
+  }
+  &:last-child {
+    &:before {
+      background: url(./../../icons/24/step03.svg) no-repeat 50% 50%;
+    }
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.p-step:last-of-type {
+  flex: auto;
+}
+
+.p-step-header {
+  border: 0 none;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background var(--p-stepper-transition-duration),
+    color var(--p-stepper-transition-duration),
+    border-color var(--p-stepper-transition-duration),
+    outline-color var(--p-stepper-transition-duration),
+    box-shadow var(--p-stepper-transition-duration);
+  border-radius: var(--p-stepper-step-header-border-radius);
+  outline-color: transparent;
+  background: transparent;
+  padding: var(--p-stepper-step-header-padding);
+  gap: var(--p-stepper-step-header-gap);
+  pointer-events: none;
+}
+
+.p-step-header:focus-visible {
+  box-shadow: var(--p-stepper-step-header-focus-ring-shadow);
+  outline: var(--p-stepper-step-header-focus-ring-width)
+    var(--p-stepper-step-header-focus-ring-style)
+    var(--p-stepper-step-header-focus-ring-color);
+  outline-offset: var(--p-stepper-step-header-focus-ring-offset);
+}
+
+.p-stepper.p-stepper-readonly .p-step {
+  cursor: auto;
+}
+
+.p-step-title {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  color: var(--p-stepper-step-title-color);
+  font-weight: var(--p-stepper-step-title-font-weight);
+  transition:
+    background var(--p-stepper-transition-duration),
+    color var(--p-stepper-transition-duration),
+    border-color var(--p-stepper-transition-duration),
+    box-shadow var(--p-stepper-transition-duration),
+    outline-color var(--p-stepper-transition-duration);
+  @media screen and (max-width: $BreakpointMd) {
+    font-size: var(--Font-Label-Large, 12px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%; /* 15.6px */
+    letter-spacing: -0.4px;
+  }
+}
+
+.p-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--p-stepper-step-number-color);
+  border: 2px solid var(--p-stepper-step-number-border-color);
+  background: var(--p-stepper-step-number-background);
+  min-width: var(--p-stepper-step-number-size);
+  height: var(--p-stepper-step-number-size);
+  line-height: var(--p-stepper-step-number-size);
+  font-size: var(--p-stepper-step-number-font-size);
+  z-index: 1;
+  border-radius: var(--p-stepper-step-number-border-radius);
+  position: relative;
+  font-weight: var(--p-stepper-step-number-font-weight);
+}
+.p-step {
+  &[data-p='completed'] {
+    &:nth-child(1) {
+      .p-step-number {
+        border-color: #66d6f5;
+      }
+    }
+    &:nth-child(2) {
+      .p-step-number {
+        border-color: #6874fb;
+      }
+    }
+  }
+}
+
+.p-step-number::after {
+  content: ' ';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--p-stepper-step-number-border-radius);
+  box-shadow: var(--p-stepper-step-number-shadow);
+}
+
+.p-step-active {
+  &::before {
+    display: block;
+  }
+}
+
+.p-step-active .p-step-header {
+  cursor: default;
+}
+
+.p-step-active .p-step-number {
+  background: var(--p-stepper-step-number-active-background);
+  border-color: var(--p-stepper-step-number-active-border-color);
+  color: var(--p-stepper-step-number-active-color);
+}
+
+.p-step-active .p-step-title {
+  font-weight: 700;
+  color: var(--p-stepper-step-title-active-color);
+}
+
+.p-step:not(.p-disabled):focus-visible {
+  outline: var(--p-focus-ring-width) var(--p-focus-ring-style)
+    var(--p-focus-ring-color);
+  outline-offset: var(--p-focus-ring-offset);
+}
+
+.p-step:has(~ .p-step-active) .p-stepper-separator {
+  background: var(--p-stepper-separator-active-background);
+}
+
+.p-stepper-separator {
+  display: none;
+}
+
+.p-steppanels {
+  padding: var(--p-stepper-steppanels-padding);
+}
+
+.p-steppanel {
+  background: var(--p-stepper-steppanel-background);
+  color: var(--p-stepper-steppanel-color);
+}
+
+.p-stepper:has(.p-stepitem) {
+  display: flex;
+  flex-direction: column;
+}
+
+.p-stepitem {
+  display: flex;
+  flex-direction: column;
+  flex: initial;
+}
+
+.p-stepitem.p-stepitem-active {
+  flex: 1 1 auto;
+}
+
+.p-stepitem .p-step {
+  flex: initial;
+}
+
+.p-stepitem .p-steppanel {
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+.p-stepitem .p-steppanel-content-wrapper {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.p-stepitem .p-steppanel-content {
+  width: 100%;
+  padding: var(--p-stepper-steppanel-padding);
+  margin-inline-start: 1rem;
+}
+
+.p-stepitem .p-stepper-separator {
+  flex: 0 0 auto;
+  width: var(--p-stepper-separator-size);
+  height: auto;
+  margin: var(--p-stepper-separator-margin);
+  position: relative;
+  left: calc(-1 * var(--p-stepper-separator-size));
+}
+
+.p-stepitem .p-stepper-separator:dir(rtl) {
+  left: calc(-9 * var(--p-stepper-separator-size));
+}
+
+.p-stepitem:has(~ .p-stepitem-active) .p-stepper-separator {
+  background: var(--p-stepper-separator-active-background);
+}
+
+.p-stepitem:last-of-type .p-steppanel {
+  padding-inline-start: var(--p-stepper-step-number-size);
+}

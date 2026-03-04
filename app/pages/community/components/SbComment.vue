@@ -224,7 +224,9 @@
 
 <script setup>
 import { ref } from 'vue';
-import StoryReport from '../pages/community/story/report.vue';
+import StoryReport from '@/pages/community/story/report.vue';
+import SbSocial from '@/pages/community/components/SbSocial.vue';
+
 import Icon24reply from '@/assets/icons/24/reply.svg?component';
 import Icon20down from '@/assets/icons/20/down.svg?component';
 import Icon24commentCheck from '@/assets/icons/24/comment-check.svg?component';
