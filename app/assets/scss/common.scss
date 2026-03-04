@@ -51,6 +51,10 @@ $font-family-global:
   }
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .pc {
   display: block;
 }
