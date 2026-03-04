@@ -101,7 +101,7 @@
               </div>
             </div>
 
-            <div class="sb-onboarding-form-item">
+            <div class="sb-onboarding-form-item" v-if="selectedLicense === 'Y'">
               <div class="sb-onboarding-form-item-head">
                 <h6>어떤 상품을 판매하나요?<strong>*</strong></h6>
                 <p>여러개 선택 가능해요.</p>
@@ -126,7 +126,7 @@
               </div>
             </div>
 
-            <div class="sb-onboarding-form-item">
+            <div class="sb-onboarding-form-item" v-if="selectedLicense === 'Y'">
               <div class="sb-onboarding-form-item-head">
                 <h6>현재 매출 규모는 어느 정도인가요?</h6>
                 <p>연 매출 기준으로 알려주세요.</p>
@@ -151,7 +151,7 @@
               </div>
             </div>
 
-            <div class="sb-onboarding-form-item">
+            <div class="sb-onboarding-form-item" v-if="selectedLicense === 'Y'">
               <div class="sb-onboarding-form-item-head">
                 <h6>어떤 분들이 주로 구매하시나요?</h6>
               </div>
@@ -175,7 +175,7 @@
               </div>
             </div>
 
-            <div class="sb-onboarding-form-item">
+            <div class="sb-onboarding-form-item" v-if="selectedLicense === 'Y'">
               <div class="sb-onboarding-form-item-head">
                 <h6>고객님들의 연령대가 궁금해요</h6>
                 <p>여러개 선택 가능해요.</p>
@@ -200,7 +200,7 @@
               </div>
             </div>
 
-            <div class="sb-onboarding-form-item">
+            <div class="sb-onboarding-form-item" v-if="selectedLicense === 'Y'">
               <div class="sb-onboarding-form-item-head">
                 <h6>어느 지역의 고객들과 만나고 계신가요?</h6>
                 <p>여러개 선택 가능해요.</p>
@@ -628,6 +628,37 @@ const overseasOptions = [
 watch(currentStep, () => {
   if (onboardingContainer.value) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+
+watch(selectedInterests, (newValue, oldValue) => {
+  const noneValue = 'none';
+
+  if (newValue.includes(noneValue) && !oldValue.includes(noneValue)) {
+    selectedInterests.value = [noneValue];
+  } else if (newValue.includes(noneValue) && newValue.length > 1) {
+    selectedInterests.value = newValue.filter((val) => val !== noneValue);
+  }
+});
+
+watch(selectedConcerns, (newValue, oldValue) => {
+  const customValue = 'custom';
+
+  if (newValue.includes(customValue) && !oldValue.includes(customValue)) {
+    selectedConcerns.value = [customValue];
+  } else if (newValue.includes(customValue) && newValue.length > 1) {
+    selectedConcerns.value = newValue.filter((val) => val !== customValue);
+    customConcernText.value = '';
+  }
+});
+
+watch(selectedRegions, (newValue, oldValue) => {
+  const koreaOnly = 'korea';
+
+  if (newValue.includes(koreaOnly) && !oldValue.includes(koreaOnly)) {
+    selectedRegions.value = [koreaOnly];
+  } else if (newValue.includes(koreaOnly) && newValue.length > 1) {
+    selectedRegions.value = newValue.filter((val) => val !== koreaOnly);
   }
 });
 </script>
