@@ -31,7 +31,7 @@
               v-model="selectedValue"
               :options="selectedOption"
               optionLabel="name"
-              placeholder="신고 사유를 선택해주세요."
+              placeholder="문의 유형을 선택해주세요."
               class="w-full"
             />
           </div>
