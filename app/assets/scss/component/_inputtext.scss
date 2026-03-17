@@ -132,6 +132,6 @@ input:-webkit-autofill:active {
     /* 배경색을 흰색(또는 원하는 색)으로 고정 */
     -webkit-box-shadow: 0 0 0 30px var(--p-gray-800) inset !important;
     /* 글자색을 검정색(또는 원하는 색)으로 고정 */
-    -webkit-text-fill-color: #000 !important;
+    -webkit-text-fill-color: #fff !important;
   }
 }
