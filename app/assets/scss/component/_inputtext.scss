@@ -129,9 +129,9 @@ input:-webkit-autofill:active {
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
-    /* 배경색 변경을 1000시간(사실상 영구적) 뒤로 지연 */
-    transition: background-color 5000000s ease-in-out 0s;
-    /* 글자색을 흰색(#fff)으로 유지 */
-    -webkit-text-fill-color: #fff !important;
+    /* 배경색을 흰색(또는 원하는 색)으로 고정 */
+    -webkit-box-shadow: 0 0 0 30px var(--p-gray-800) inset !important;
+    /* 글자색을 검정색(또는 원하는 색)으로 고정 */
+    -webkit-text-fill-color: #000 !important;
   }
 }
