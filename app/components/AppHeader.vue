@@ -173,6 +173,7 @@ import IconSnbPlanner from '@/assets/icons/snb/planner.svg?component';
 import IconSnbSetting from '@/assets/icons/snb/setting.svg?component';
 import IconSnbLogout from '@/assets/icons/snb/logout.svg?component';
 import IconSnbMenuClose from '@/assets/icons/snb/menu-close.svg?component';
+import IconSnbMenuOpen from '@/assets/icons/snb/menu-open.svg?component';
 
 /** 1. 상태 정의 (State) */
 const isFolded = useState('isFolded', () => false);
@@ -270,15 +271,20 @@ const updateTitle = (path) => {
   pageTitle.value = targetLabel || '';
 };
 
+/** 2. 메뉴 및 네비게이션 로직 */
 const getMenuIcon = (item) => {
-  if (item.id === 'toggle-btn')
+  if (item.id === 'toggle-btn') {
+    // 접혀있을 때(true)는 Open 아이콘, 펼쳐져있을 때(false)는 Close 아이콘
     return isFolded.value ? IconSnbMenuOpen : IconSnbMenuClose;
+  }
   return item.icon;
 };
 
 const getMenuLabel = (item) => {
-  if (item.id === 'toggle-btn')
+  if (item.id === 'toggle-btn') {
+    // 접혀있을 때(true)는 '메뉴 열기', 펼쳐져있을 때(false)는 '메뉴 닫기'
     return isFolded.value ? '메뉴 열기' : '메뉴 닫기';
+  }
   return item.label;
 };
 
