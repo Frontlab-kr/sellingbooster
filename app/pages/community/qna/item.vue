@@ -1,5 +1,5 @@
 <template>
-  <div class="sb-qna-list-item" v-if="item">
+  <div class="sb-qna-list-item" v-if="item" @click="$emit('item-click', item)">
     <div class="sb-qna-list-item__head">
       <div class="sb-qna-list-item__head-start">
         <h6 class="sb-qna-list-item__title">{{ item.title }}</h6>
@@ -9,17 +9,14 @@
         <div class="sb-qna-list-item__badge">
           <Badge v-bind="item.badge" />
         </div>
-        <div class="sb-qna-list-item__menu">
+        <div class="sb-qna-list-item__menu" @click.stop>
           <SbMenu :items="menuItems" />
         </div>
       </div>
     </div>
-    <button
-      class="sb-qna-list-item__content"
-      @click="$emit('item-click', item)"
-    >
+    <div class="sb-qna-list-item__content">
       {{ item.content }}
-    </button>
+    </div>
   </div>
 </template>
 

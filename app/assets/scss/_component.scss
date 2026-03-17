@@ -367,10 +367,10 @@
       padding-right: 120px;
     }
     &__length ~ .sb-input__button {
-      right: 88px;
+      display: none;
     }
     &__time ~ .sb-input__button {
-      right: 60px;
+      display: none;
     }
     &__search ~ .sb-input__button {
       right: 56px;
@@ -395,6 +395,9 @@
       }
     }
     @include breakpoint {
+      .p-inputtext {
+        padding-right: 40px;
+      }
       &__time {
         right: 16px;
       }
@@ -499,7 +502,7 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 5px;
-    min-width: 320px;
+    //min-width: 320px;
     width: 100%;
     min-height: 180px;
     padding: 20px;

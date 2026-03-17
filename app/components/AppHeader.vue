@@ -125,7 +125,7 @@
 
   <header class="sb-header-mo" :class="{ 'is-scrolled': isScrolled }">
     <div class="sb-header-mo-start">
-      <Button variant="text">
+      <Button variant="text" @click="goBack">
         <template #icon>
           <IconArrowAchevronLeft class="ico-arrow-achevron-left" />
         </template>
@@ -182,6 +182,9 @@ const isScrolled = ref(false);
 const expandedKeys = ref({});
 const router = useRouter();
 const route = useRoute();
+const goBack = () => {
+  router.back();
+};
 
 const menu01 = ref([
   {

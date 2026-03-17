@@ -52,13 +52,9 @@
 
 <script setup>
 import { ref } from 'vue';
-import { useStatus } from '@/composables/useStatus';
-
 import IconSystemDownload from '@/assets/icons/system/download.svg?component';
 import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
-
-const { getStatusDetail } = useStatus();
 
 const item = ref({
   status: 'completed',

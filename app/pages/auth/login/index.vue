@@ -24,24 +24,40 @@
         <NuxtLink to="/">회원가입</NuxtLink>
       </div>
       <div class="sb-login-form__social">
-        <Button rounded severity="white">
+        <Button rounded>
           <template #icon>
-            <IconEtcnaver class="ico-etc-naver" />
+            <img
+              src="./../../../assets/icons/etc/naver.png"
+              class="ico-etc-naver"
+              alt="네이버"
+            />
           </template>
         </Button>
-        <Button rounded severity="white">
+        <Button rounded>
           <template #icon>
-            <IconEtckakaotalk class="ico-etc-kakaotalk" />
+            <img
+              src="./../../../assets/icons/etc/kakaotalk.png"
+              class="ico-etc-kakaotalk"
+              alt="카카오톡"
+            />
           </template>
         </Button>
-        <Button rounded severity="white">
+        <Button rounded>
           <template #icon>
-            <IconEtcgoogle class="ico-etc-google" />
+            <img
+              src="./../../../assets/icons/etc/google.png"
+              class="ico-etc-google"
+              alt="구글"
+            />
           </template>
         </Button>
-        <Button rounded severity="white">
+        <Button rounded>
           <template #icon>
-            <IconEtcapple class="ico-etc-apple" />
+            <img
+              src="./../../../assets/icons/etc/apple.png"
+              class="ico-etc-apple"
+              alt="애플"
+            />
           </template>
         </Button>
       </div>
@@ -59,10 +75,6 @@ definePageMeta({
 });
 
 import { ref } from 'vue';
-import IconEtcnaver from '@/assets/icons/etc/naver.svg?component';
-import IconEtckakaotalk from '@/assets/icons/etc/kakaotalk.svg?component';
-import IconEtcgoogle from '@/assets/icons/etc/google.svg?component';
-import IconEtcapple from '@/assets/icons/etc/apple.svg?component';
 
 const isSaveId = ref(false);
 </script>

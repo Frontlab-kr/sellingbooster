@@ -286,10 +286,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import { useStatus } from '@/composables/useStatus';
 import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
-
-const { getStatusDetail } = useStatus();
 
 //breadcrumb
 const breadcrumb = ref([

@@ -93,7 +93,7 @@
 }
 
 .p-inputtext {
-  min-width: 420px;
+  //min-width: 420px;
   height: 48px;
   font-size: 16px;
   line-height: 1;
@@ -106,7 +106,7 @@
     border-color: var(--p-inputtext-hover-border-color);
   }
   @include breakpoint {
-    min-width: 320px;
+    //min-width: 320px;
     height: 40px;
     font-size: 14px;
     letter-spacing: -0.35px;
@@ -117,8 +117,8 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-text-fill-color: var(--p-inputtext-color);
-  -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+  -webkit-text-fill-color: none;
+  -webkit-box-shadow: none;
   transition: background-color 5000s ease-in-out 0s;
 }
 .p-dark {
@@ -126,7 +126,7 @@ input:-webkit-autofill:active {
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
-    -webkit-text-fill-color: var(--p-inputtext-color);
+    -webkit-text-fill-color: none;
     -webkit-box-shadow: none;
   }
 }
