@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="sb-nodata">
-      <Icon100smile class="ico-100-smile" />
+      <IconIllustrationSmile class="ico-illustration-smile" />
       <div class="sb-nodata__text">
         <p>
           사소한것도 좋아요.<br />
@@ -26,7 +26,7 @@
 
   <Dialog v-model:visible="dialogWrite" modal class="p-dialog--full">
     <div class="p-dialog-inner">
-      <h5 class="p-dialog-title">Q&A 작성하기</h5>
+      <h6 class="p-dialog-title">Q&A 작성하기</h6>
       <Write />
     </div>
   </Dialog>
@@ -34,7 +34,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import Icon100smile from '@/assets/icons/100/smile.svg?component';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 
 import Write from './write.vue';
 

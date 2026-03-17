@@ -15,10 +15,15 @@
     </div>
     <div class="sb-community-menu">
       <div></div>
-      <SbSearchbar v-model="searchKeyword" placeholder="자유게시판 검색" />
+      <SbInput
+        v-model="searchKeyword"
+        show-search
+        @search="onSearch"
+        placeholder="자유게시판 검색"
+      />
     </div>
     <div class="sb-nodata">
-      <Icon100smile class="ico-100-smile" />
+      <IconIllustrationSmile class="ico-illustration-smile" />
       <div class="sb-nodata__text">
         <p>
           텅 빈 게시판이 셀러님을 기다려요!<br />
@@ -31,7 +36,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import Icon100smile from '@/assets/icons/100/smile.svg?component';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 
 //breadcrumb
 const breadcrumb = ref([

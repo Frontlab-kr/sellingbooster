@@ -14,7 +14,7 @@
         <Button label="이벤트" variant="text" />
         <Button label="작업" variant="text" />
       </div>
-      <SbSearchbar v-model="searchKeyword" />
+      <SbInput v-model="searchKeyword" show-search @search="onSearch" />
     </div>
     <div class="sb-notice">
       <div class="sb-notice-list">
@@ -45,25 +45,25 @@ const breadcrumb = ref([
 // data
 const list = ref([
   {
-    status: 'technical',
+    badge: { value: '긴급', severity: 'danger' },
     title: '네이버 로그인 기능 오류 안내',
     date: '2026.01.14',
     attachment: true,
   },
   {
-    status: 'etc',
+    badge: { value: '기본', severity: 'secondary' },
     title: '알림 기능 오류 안내',
     date: '2026.01.14',
     attachment: false,
   },
   {
-    status: 'technical',
+    badge: { value: '중요', severity: 'warn' },
     title: '네이버 로그인 기능 오류 안내',
     date: '2026.01.14',
     attachment: true,
   },
   {
-    status: 'etc',
+    badge: { value: '기술', severity: 'success' },
     title: '알림 기능 오류 안내',
     date: '2026.01.14',
     attachment: false,

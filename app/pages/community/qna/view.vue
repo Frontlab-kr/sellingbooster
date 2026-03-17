@@ -2,11 +2,8 @@
   <div class="sb-qna-view">
     <div class="sb-qna-view__head">
       <div class="sb-qna-view__title">
-        <Badge
-          :value="getStatusDetail(item.status).label"
-          :style="getStatusDetail(item.status)"
-        />
-        <h5>회원 문의</h5>
+        <Badge value="답변 완료" severity="success"></Badge>
+        <h6>회원 문의</h6>
       </div>
       <div class="sb-qna-view__meta">
         <div class="sb-qna-view__date">2026.01.14</div>
@@ -32,7 +29,7 @@
           </p>
 
           <div class="sb-attachment-item__size">13MB</div>
-          <Icon24download class="ico-24-download" />
+          <IconSystemDownload class="ico-system-download" />
         </NuxtLink>
       </div>
     </div>
@@ -57,9 +54,9 @@
 import { ref } from 'vue';
 import { useStatus } from '@/composables/useStatus';
 
-import Icon24download from '@/assets/icons/24/download.svg?component';
-import Icon24edit from '@/assets/icons/24/edit.svg?component';
-import Icon24trash from '@/assets/icons/24/trash.svg?component';
+import IconSystemDownload from '@/assets/icons/system/download.svg?component';
+import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
+import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
 
 const { getStatusDetail } = useStatus();
 
@@ -70,11 +67,11 @@ const item = ref({
 const menuItems = ref([
   {
     label: '수정',
-    icon: Icon24edit,
+    icon: IconSystemEdit,
   },
   {
     label: '삭제',
-    icon: Icon24trash,
+    icon: IconSystemTrash,
   },
 ]);
 </script>

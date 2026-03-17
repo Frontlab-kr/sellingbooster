@@ -10,12 +10,14 @@
         <StepPanel v-slot="{ activateCallback }" value="1">
           <h5 class="sb-onboarding__title">
             셀러 성공의 시작<br />
-            맞춤형으로 든든하게 도와드릴게요
+            맞춤형으로 든든하게 도와드릴게요.
           </h5>
           <div class="sb-onboarding-form">
             <div class="sb-onboarding-form-item">
               <div class="sb-onboarding-form-item-head">
-                <h6>사업자 등록을 하셨나요?<strong>*</strong></h6>
+                <div class="sb-onboarding-form-item-head__title">
+                  사업자 등록을 하셨나요?<strong>*</strong>
+                </div>
               </div>
               <div class="sb-onboarding-form-item-body">
                 <div>
@@ -78,7 +80,9 @@
 
             <div class="sb-onboarding-form-item">
               <div class="sb-onboarding-form-item-head">
-                <h6>어떤 상품에 관심이 있나요?<strong>*</strong></h6>
+                <div class="sb-onboarding-form-item-head__title">
+                  어떤 상품에 관심이 있나요?<strong>*</strong>
+                </div>
                 <p>여러개 선택 가능해요.</p>
               </div>
               <div class="sb-onboarding-form-item-body">
@@ -103,7 +107,9 @@
 
             <div class="sb-onboarding-form-item" v-if="selectedLicense === 'Y'">
               <div class="sb-onboarding-form-item-head">
-                <h6>어떤 상품을 판매하나요?<strong>*</strong></h6>
+                <div class="sb-onboarding-form-item-head__title">
+                  어떤 상품을 판매하나요?<strong>*</strong>
+                </div>
                 <p>여러개 선택 가능해요.</p>
               </div>
               <div class="sb-onboarding-form-item-body">
@@ -128,7 +134,9 @@
 
             <div class="sb-onboarding-form-item" v-if="selectedLicense === 'Y'">
               <div class="sb-onboarding-form-item-head">
-                <h6>현재 매출 규모는 어느 정도인가요?</h6>
+                <div class="sb-onboarding-form-item-head__title">
+                  현재 매출 규모는 어느 정도인가요?
+                </div>
                 <p>연 매출 기준으로 알려주세요.</p>
               </div>
               <div class="sb-onboarding-form-item-body">
@@ -153,7 +161,9 @@
 
             <div class="sb-onboarding-form-item" v-if="selectedLicense === 'Y'">
               <div class="sb-onboarding-form-item-head">
-                <h6>어떤 분들이 주로 구매하시나요?</h6>
+                <div class="sb-onboarding-form-item-head__title">
+                  어떤 분들이 주로 구매하시나요?
+                </div>
               </div>
               <div class="sb-onboarding-form-item-body">
                 <div class="sb-chip">
@@ -177,7 +187,9 @@
 
             <div class="sb-onboarding-form-item" v-if="selectedLicense === 'Y'">
               <div class="sb-onboarding-form-item-head">
-                <h6>고객님들의 연령대가 궁금해요</h6>
+                <div class="sb-onboarding-form-item-head__title">
+                  고객님들의 연령대가 궁금해요
+                </div>
                 <p>여러개 선택 가능해요.</p>
               </div>
               <div class="sb-onboarding-form-item-body">
@@ -202,7 +214,9 @@
 
             <div class="sb-onboarding-form-item" v-if="selectedLicense === 'Y'">
               <div class="sb-onboarding-form-item-head">
-                <h6>어느 지역의 고객들과 만나고 계신가요?</h6>
+                <div class="sb-onboarding-form-item-head__title">
+                  어느 지역의 고객들과 만나고 계신가요?
+                </div>
                 <p>여러개 선택 가능해요.</p>
               </div>
               <div class="sb-onboarding-form-item-body">
@@ -227,7 +241,9 @@
 
             <div class="sb-onboarding-form-item">
               <div class="sb-onboarding-form-item-head">
-                <h6>요즘 어떤 고민이 있으신가요?<strong>*</strong></h6>
+                <div class="sb-onboarding-form-item-head__title">
+                  요즘 어떤 고민이 있으신가요?<strong>*</strong>
+                </div>
                 <p>여러개 선택 가능해요.</p>
               </div>
               <div class="sb-onboarding-form-item-body">
@@ -251,7 +267,7 @@
                   class="sb-onboarding-form-item__input"
                   v-if="selectedConcerns.includes('custom')"
                 >
-                  <InputText
+                  <SbInput
                     v-model="customConcernText"
                     placeholder="내용을 입력해주세요."
                   />
@@ -281,15 +297,17 @@
         <StepPanel v-slot="{ activateCallback }" value="2">
           <h5 class="sb-onboarding__title">
             셀러 성공의 시작<br />
-            맞춤형으로 든든하게 도와드릴게요
+            맞춤형으로 든든하게 도와드릴게요.
           </h5>
           <div class="sb-onboarding-form">
             <div class="sb-onboarding-form-item">
               <div class="sb-onboarding-form-item-head">
-                <h6>판매자 휴대폰 번호<strong>*</strong></h6>
+                <div class="sb-onboarding-form-item-head__title">
+                  판매자 휴대폰 번호<strong>*</strong>
+                </div>
               </div>
               <div class="sb-onboarding-form-item__input">
-                <InputText placeholder="휴대폰 번호를 입력해주세요." />
+                <SbInput placeholder="휴대폰 번호를 입력해주세요." />
                 <Button
                   label="인증 코드 발송"
                   severity="primary"
@@ -312,10 +330,12 @@
             </div>
             <div class="sb-onboarding-form-item">
               <div class="sb-onboarding-form-item-head">
-                <h6>판매자 이메일<strong>*</strong></h6>
+                <div class="sb-onboarding-form-item-head__title">
+                  판매자 이메일<strong>*</strong>
+                </div>
               </div>
               <div class="sb-onboarding-form-item__input">
-                <InputText placeholder="이메일 주소를 입력해주세요." />
+                <SbInput placeholder="이메일 주소를 입력해주세요." />
                 <Button
                   label="인증 코드 발송"
                   severity="primary"
@@ -338,7 +358,9 @@
             </div>
             <div class="sb-onboarding-form-item">
               <div class="sb-onboarding-form-item-head">
-                <h6>마케팅 정보 수신 동의<strong>*</strong></h6>
+                <div class="sb-onboarding-form-item-head__title">
+                  마케팅 정보 수신 동의<strong>*</strong>
+                </div>
               </div>
               <div class="sb-onboarding-form-item__text">
                 마케팅 정보를 수신하시면 사업에 도움이 되는 다양한 정보를 받아
@@ -435,14 +457,14 @@
         <StepPanel v-slot="{ activateCallback }" value="3">
           <h5 class="sb-onboarding__title">
             셀러 성공의 시작<br />
-            맞춤형으로 든든하게 도와드릴게요
+            맞춤형으로 든든하게 도와드릴게요.
           </h5>
           <div class="sb-onboarding-form">
             <div class="sb-onboarding-form-item">
               <div class="sb-onboarding-form-item-head">
-                <h6>
+                <div class="sb-onboarding-form-item-head__title">
                   현재 오픈마켓에 입점하여 사업 중이신 경우, 체크해주세요.
-                </h6>
+                </div>
                 <p>여러개 선택 가능해요.</p>
               </div>
               <div class="sb-onboarding-form-item-body">

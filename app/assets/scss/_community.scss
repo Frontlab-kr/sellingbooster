@@ -15,16 +15,24 @@
     }
     &-menu {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
       margin-bottom: 20px;
+      .sb-input {
+        min-width: 320px;
+        width: 320px;
+        margin-top: auto;
+      }
     }
     &-sort {
       display: flex;
       justify-content: flex-end;
       margin-bottom: 10px;
     }
-    @media screen and (max-width: $BreakpointMd) {
+    @include breakpoint {
+      &--view {
+        margin-bottom: -32px;
+      }
       &-head {
         justify-content: flex-end;
         &__title {
@@ -38,7 +46,7 @@
         justify-content: space-between;
         gap: 24px;
         margin-bottom: 24px;
-        .sb-searchbar {
+        .sb-input {
           width: 100%;
         }
       }
@@ -46,8 +54,8 @@
         display: flex;
         justify-content: flex-end;
         width: 100%;
-        margin-top: 32px;
-        margin-bottom: 12px;
+        margin-top: 29px;
+        margin-bottom: 10px;
       }
     }
   }
@@ -112,6 +120,7 @@
           line-height: 160%; /* 25.6px */
           letter-spacing: -0.4px;
           @include text-clamp(3, 25.6);
+          cursor: pointer;
         }
       }
     }
@@ -200,6 +209,9 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        h6 {
+          color: var(--qna-view-title-color);
+        }
       }
       &__meta {
         display: flex;
@@ -207,7 +219,7 @@
         gap: 8px;
       }
       &__date {
-        color: var(--qna-view-answer-color);
+        color: var(--qna-view-date-color);
         font-size: var(--Font-Body-Medium, 14px);
         font-style: normal;
         font-weight: 400;
@@ -236,8 +248,7 @@
           max-width: 100%;
         }
       }
-      &__attachment {
-      }
+
       &-answer {
         margin-top: 32px;
         padding: 32px;
@@ -276,7 +287,7 @@
         }
       }
     }
-    @media screen and (max-width: $BreakpointMd) {
+    @include breakpoint {
       &-list {
         .masonry-column {
           gap: 12px !important;
@@ -303,11 +314,11 @@
             align-items: center;
             gap: 8px;
             margin-left: 8px;
-            font-size: 13px;
+            font-size: 12px;
             font-style: normal;
             font-weight: 400;
-            line-height: 130%; /* 16.9px */
-            letter-spacing: -0.325px;
+            line-height: 140%; /* 16.8px */
+            letter-spacing: -0.3px;
             &::before {
               display: none;
             }
@@ -321,12 +332,12 @@
             padding: 0;
             background: none;
             border: none;
-            font-size: 15px;
+            font-size: 14px;
             font-style: normal;
             font-weight: 400;
-            line-height: 150%; /* 22.5px */
-            letter-spacing: -0.5px;
-            @include text-clamp(2, 22.5);
+            line-height: 160%; /* 22.4px */
+            letter-spacing: -0.35px;
+            @include text-clamp(2, 22.4);
           }
         }
       }
@@ -394,11 +405,11 @@
           gap: 8px;
         }
         &__date {
-          font-size: 13px;
+          font-size: 12px;
           font-style: normal;
           font-weight: 400;
-          line-height: 130%; /* 16.9px */
-          letter-spacing: -0.325px;
+          line-height: 140%; /* 16.8px */
+          letter-spacing: -0.3px;
         }
         &__menu {
           display: flex;
@@ -430,11 +441,11 @@
             letter-spacing: -0.4px;
           }
           &__date {
-            font-size: 13px;
+            font-size: 12px;
             font-style: normal;
             font-weight: 400;
-            line-height: 130%; /* 16.9px */
-            letter-spacing: -0.325px;
+            line-height: 140%; /* 16.8px */
+            letter-spacing: -0.3px;
           }
           &__content {
             font-size: 14px;
@@ -484,6 +495,7 @@
           margin-bottom: 8px;
           color: var(--contents-color);
           @include text-clamp(2, 28);
+          word-break: keep-all;
         }
         &__attachment {
           display: flex;
@@ -511,7 +523,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 32px;
-        h5 {
+        h6 {
           color: var(--contents-color);
         }
       }
@@ -525,11 +537,11 @@
       }
       &__contents {
         color: var(--contents-color);
-        font-size: 18px;
+        font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        line-height: 160%; /* 28.8px */
-        letter-spacing: -0.45px;
+        line-height: 160%; /* 25.6px */
+        letter-spacing: -0.4px;
         overflow: hidden;
         img {
           display: block;
@@ -543,9 +555,12 @@
         display: flex;
         justify-content: center;
         margin-top: 32px;
+        .p-button {
+          min-width: 160px;
+        }
       }
     }
-    @media screen and (max-width: $BreakpointMd) {
+    @include breakpoint {
       &-list {
         display: grid;
         grid-template-columns: 1fr;
@@ -568,11 +583,11 @@
           &__date {
             display: flex;
             align-items: center;
-            font-size: 13px;
+            font-size: 12px;
             font-style: normal;
             font-weight: 400;
-            line-height: 130%; /* 16.9px */
-            letter-spacing: -0.325px;
+            line-height: 140%; /* 16.8px */
+            letter-spacing: -0.3px;
           }
           &__title {
             height: auto;
@@ -608,18 +623,18 @@
           gap: 12px;
         }
         &__date {
-          font-size: 13px;
+          font-size: 12px;
           font-style: normal;
           font-weight: 400;
-          line-height: 130%; /* 16.9px */
-          letter-spacing: -0.325px;
+          line-height: 140%; /* 16.8px */
+          letter-spacing: -0.3px;
         }
         &__contents {
-          font-size: 15px;
+          font-size: 14px;
           font-style: normal;
           font-weight: 400;
-          line-height: 150%; /* 22.5px */
-          letter-spacing: -0.5px;
+          line-height: 160%; /* 22.4px */
+          letter-spacing: -0.35px;
         }
         .sb-attachment {
           margin-top: 24px;
@@ -667,7 +682,7 @@
     &-view {
       padding: 0;
       &__badge {
-        margin-bottom: 32px;
+        margin-bottom: 16px;
       }
       &__title {
         display: flex;
@@ -728,7 +743,7 @@
       }
     }
 
-    @media screen and (max-width: $BreakpointMd) {
+    @include breakpoint {
       &-list {
         display: grid;
         grid-template-columns: 1fr;
@@ -802,13 +817,13 @@
           display: flex;
           flex-direction: column;
           gap: 10px;
-          padding: 24px;
+          padding: 20px;
           border-radius: 16px;
-          font-size: 15px;
+          font-size: 14px;
           font-style: normal;
           font-weight: 400;
-          line-height: 150%; /* 22.5px */
-          letter-spacing: -0.5px;
+          line-height: 160%; /* 22.4px */
+          letter-spacing: -0.35px;
           ol,
           ul {
             margin: 0;
@@ -905,9 +920,6 @@
       }
     }
     &-view {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
       padding: 40px;
       border-radius: 32px;
       background: var(--community-view-background);
@@ -919,6 +931,7 @@
       }
       &__head {
         display: flex;
+        margin-bottom: 32px;
       }
       &__thumb {
         width: 48px;
@@ -961,15 +974,17 @@
         margin-left: auto;
       }
       &__title {
+        margin-bottom: 24px;
         color: var(--contents-color);
       }
       &__contents {
+        margin-bottom: 32px;
         color: var(--contents-color);
-        font-size: 18px;
+        font-size: 16px;
         font-style: normal;
         font-weight: 400;
-        line-height: 160%; /* 28.8px */
-        letter-spacing: -0.45px;
+        line-height: 160%; /* 25.6px */
+        letter-spacing: -0.4px;
         p {
           margin: 0;
         }
@@ -985,30 +1000,39 @@
       }
       &__foot {
         display: flex;
+        margin-top: 32px;
       }
       &__button {
         display: flex;
         align-items: center;
         justify-content: center;
         margin-top: 32px;
+        .p-button {
+          min-width: 160px;
+        }
       }
     }
     &-write {
-      padding: 40px;
+      padding: 32px 40px;
       border-radius: 32px;
       background: var(--community-view-background);
       &__title {
-        margin-bottom: 32px;
+        margin-bottom: 40px;
         color: var(--story-write-title-color);
       }
       &-form {
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
         &-item {
+          margin-bottom: 40px;
+          padding-bottom: 40px;
+          border-bottom: 1px dashed var(--story-write-form-item-border-color);
+          &:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+          }
           > label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
             color: var(--story-write-form-item-label-color);
 
             font-size: var(--Font-Heading-Small, 16px);
@@ -1019,6 +1043,9 @@
           }
         }
       }
+      .sb-caution {
+        margin-top: 40px;
+      }
       &__button {
         display: flex;
         align-items: center;
@@ -1026,7 +1053,7 @@
         gap: 8px;
         margin-top: 40px;
         .p-button {
-          min-width: 160px;
+          min-width: 326px;
         }
       }
     }
@@ -1043,7 +1070,7 @@
         }
       }
     }
-    @media screen and (max-width: $BreakpointMd) {
+    @include breakpoint {
       &-list {
         .masonry-column {
           gap: 12px !important;
@@ -1058,7 +1085,7 @@
           &__head {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 8px;
+            margin-bottom: 16px;
           }
           &__thumb {
             display: none;
@@ -1071,19 +1098,18 @@
             height: auto;
             p {
               margin: 0 0 4px 0;
-              text-align: center;
-              font-size: var(--Font-Body-Large, 16px);
+              font-size: 14px;
               font-style: normal;
               font-weight: 700;
-              line-height: 140%; /* 22.4px */
-              letter-spacing: -0.4px;
+              line-height: 140%; /* 19.6px */
+              letter-spacing: -0.35px;
             }
             span {
-              font-size: 13px;
+              font-size: 12px;
               font-style: normal;
               font-weight: 400;
-              line-height: 130%; /* 16.9px */
-              letter-spacing: -0.325px;
+              line-height: 140%; /* 16.8px */
+              letter-spacing: -0.3px;
             }
           }
           &__menu {
@@ -1095,14 +1121,12 @@
           }
           &__contents {
             margin: 0 0 16px 0;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-size: 15px;
+            font-size: 14px;
             font-style: normal;
             font-weight: 400;
-            line-height: 150%; /* 22.5px */
-            letter-spacing: -0.5px;
-            @include text-clamp(3, 22.5);
+            line-height: 160%; /* 22.4px */
+            letter-spacing: -0.35px;
+            @include text-clamp(3, 22.4);
           }
           &__image {
             display: flex;
@@ -1121,16 +1145,16 @@
         }
       }
       &-view {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
         margin: -80px -20px 0;
         padding: 80px 20px 28px 20px;
         border-radius: 0;
         overflow: hidden;
         &__head {
           display: flex;
-          margin-bottom: -12px;
+          margin-bottom: 24px;
+        }
+        &__title {
+          margin-bottom: 16px;
         }
         &__thumb {
           display: none;
@@ -1143,37 +1167,29 @@
           height: auto;
           p {
             margin: 0 0 4px 0;
-            text-align: center;
-            font-size: var(--Font-Body-Large, 16px);
+            font-size: 14px;
             font-style: normal;
             font-weight: 700;
-            line-height: 140%; /* 22.4px */
-            letter-spacing: -0.4px;
+            letter-spacing: -0.35px;
           }
           span {
-            font-size: 13px;
+            font-size: 12px;
             font-style: normal;
             font-weight: 400;
-            line-height: 130%; /* 16.9px */
-            letter-spacing: -0.325px;
+            line-height: 140%; /* 16.8px */
+            letter-spacing: -0.3px;
           }
         }
         &__menu {
           margin-left: auto;
         }
-        &__title {
-          font-size: 20px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: 130%; /* 26px */
-          letter-spacing: -0.5px;
-        }
         &__contents {
-          font-size: 15px;
+          margin-bottom: 24px;
+          font-size: 14px;
           font-style: normal;
           font-weight: 400;
-          line-height: 150%; /* 22.5px */
-          letter-spacing: -0.5px;
+          line-height: 160%; /* 22.4px */
+          letter-spacing: -0.35px;
           p {
             margin: 0;
           }
@@ -1189,6 +1205,7 @@
         }
         &__foot {
           display: flex;
+          margin-top: 60px;
         }
         &__button {
           display: none;
@@ -1196,27 +1213,22 @@
       }
       &-write {
         margin: -80px -20px -40px;
-        padding: 80px 20px 20px 20px;
+        padding: 80px 20px 32px 20px;
         border-radius: 0;
         overflow: hidden;
         &__title {
           margin-bottom: 32px;
         }
         &-form {
-          display: flex;
-          flex-direction: column;
-          gap: 32px;
           &-item {
+            margin-bottom: 28px;
+            padding-bottom: 28px;
             > label {
-              display: block;
-              margin-bottom: 12px;
-              font-size: var(--Font-Heading-Small, 16px);
-              font-style: normal;
-              font-weight: 700;
-              line-height: 140%; /* 22.4px */
-              letter-spacing: -0.4px;
             }
           }
+        }
+        .sb-caution {
+          margin-top: 32px;
         }
         &__button {
           display: flex;
@@ -1226,6 +1238,7 @@
           margin-top: 32px;
           .p-button {
             width: 100%;
+            min-width: auto;
           }
         }
       }
@@ -1238,7 +1251,7 @@
           justify-content: center;
           margin-top: 16px;
           .p-button {
-            min-width: auto;
+            min-width: 110px;
           }
         }
       }

@@ -13,7 +13,12 @@
       <div class="sb-board-write-form">
         <div class="sb-board-write-form-item">
           <label>제목</label>
-          <SbInput placeholder="자유게시판의 제목을 작성해 주세요." />
+          <SbInput
+            v-model="storyTitle"
+            placeholder="자유게시판의 제목을 작성해 주세요."
+            maxlength="300"
+            show-length
+          />
         </div>
         <div class="sb-board-write-form-item">
           <label>내용</label>
@@ -49,8 +54,8 @@
         </div>
       </div>
       <div class="sb-board-write__button">
-        <Button severity="neutral" size="large" label="취소" />
-        <Button severity="primary" size="large" label="등록" disabled />
+        <Button severity="contrast" size="large" label="취소" outlined />
+        <Button severity="primary" size="large" label="발행" />
       </div>
     </div>
   </div>

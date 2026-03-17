@@ -10,13 +10,10 @@
       <div class="sb-notice-view">
         <div class="sb-notice-view__head">
           <div class="sb-notice-view__badge">
-            <Badge
-              :value="getStatusDetail(item.status).label"
-              :style="getStatusDetail(item.status)"
-            />
+            <Badge value="기본" severity="secondary"></Badge>
           </div>
           <div class="sb-notice-view__title">
-            <h5>국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내</h5>
+            <h6>국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내</h6>
             <div class="sb-notice-view__date">2026.01.22</div>
           </div>
         </div>
@@ -53,14 +50,14 @@
             </p>
 
             <div class="sb-attachment-item__size">13MB</div>
-            <Icon24download class="ico-24-download" />
+            <IconSystemDownload class="ico-system-download" />
           </NuxtLink>
         </div>
       </div>
       <div class="sb-notice-view__button">
         <NuxtLink to="/community/notice/">
-          <Button severity="primary" size="large">
-            <Icon24back class="ico-24-back" />
+          <Button severity="primary" outlined>
+            <IconArrowLeft class="ico-arrow-left" />
             <span class="p-button-label">목록으로</span>
           </Button>
         </NuxtLink>
@@ -71,12 +68,8 @@
 
 <script setup>
 import { ref } from 'vue';
-import Icon24back from '@/assets/icons/24/back.svg?component';
-import Icon24download from '@/assets/icons/24/download.svg?component';
-
-import { useStatus } from '@/composables/useStatus';
-
-const { getStatusDetail } = useStatus();
+import IconArrowLeft from '@/assets/icons/arrow/left.svg?component';
+import IconSystemDownload from '@/assets/icons/system/download.svg?component';
 
 const item = ref({
   status: 'danger',

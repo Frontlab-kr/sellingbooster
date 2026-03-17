@@ -14,10 +14,10 @@
         <Button label="이벤트" variant="text" />
         <Button label="작업" variant="text" />
       </div>
-      <SbSearchbar />
+      <SbInput v-model="searchKeyword" show-search @search="onSearch" />
     </div>
     <div class="sb-nodata">
-      <Icon100frown class="ico-100-frown" />
+      <IconIllustrationFrown class="ico-illustration-frown" />
       <div class="sb-nodata__text">
         <p>
           앗, 검색된 내용이 없어요.<br />
@@ -26,7 +26,7 @@
       </div>
       <div class="sb-nodata__button">
         <Button severity="contrast" outlined>
-          <Icon24refresh class="ico-24-refresh" />
+          <IconSystemRefresh class="ico-system-refresh" />
           <span class="p-button-label">검색 재설정</span>
         </Button>
       </div>
@@ -36,8 +36,8 @@
 
 <script setup>
 import { ref } from 'vue';
-import Icon24refresh from '@/assets/icons/24/refresh.svg?component';
-import Icon100frown from '@/assets/icons/100/frown.svg?component';
+import IconSystemRefresh from '@/assets/icons/system/refresh.svg?component';
+import IconIllustrationFrown from '@/assets/icons/illustration/frown.svg?component';
 
 // breadcrumb
 const breadcrumb = ref([

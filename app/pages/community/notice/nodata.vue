@@ -14,10 +14,10 @@
         <Button label="이벤트" variant="text" />
         <Button label="작업" variant="text" />
       </div>
-      <SbSearchbar />
+      <SbInput v-model="searchKeyword" show-search @search="onSearch" />
     </div>
     <div class="sb-nodata">
-      <Icon100smile class="ico-100-smile" />
+      <IconIllustrationSmile class="ico-illustration-smile" />
       <div class="sb-nodata__text">
         <p>
           아직 준비된 소식이 없어요.<br />
@@ -30,7 +30,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import Icon100smile from '@/assets/icons/100/smile.svg?component';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 
 // breadcrumb
 const breadcrumb = ref([

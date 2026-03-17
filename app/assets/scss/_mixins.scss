@@ -30,6 +30,26 @@ $BreakpointMd: 1024px;
   }
 }
 
+@mixin breakpoint {
+  // 1. 미디어 쿼리는 언제나 가능
+  @media screen and (max-width: $BreakpointMd) {
+    @content;
+  }
+
+  // 2. 클래스 대응
+  @if & {
+    // 부모 선택자가 있는 경우 (ex: .sb 내부)
+    .breakpoint-mo & {
+      @content;
+    }
+  } @else {
+    // 부모 선택자가 없는 Top-level인 경우
+    .breakpoint-mo {
+      @content;
+    }
+  }
+}
+
 @mixin text-clamp($lines: 2, $line-height: false) {
   display: -webkit-box;
   overflow: hidden;

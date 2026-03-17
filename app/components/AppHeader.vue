@@ -4,42 +4,42 @@
       <div class="sb-header-search">
         <Button rounded severity="white">
           <template #icon>
-            <Icon24search class="ico-24-search" />
+            <IconSystemSearch class="ico-system-search" />
           </template>
         </Button>
       </div>
       <div class="sb-header-mode">
         <Button rounded severity="white" @click="toggleMode()">
           <template #icon>
-            <Icon24modeLight v-if="isDark" class="ico-24-mode-light" />
-            <Icon24modeDark v-else class="ico-24-mode-dark" />
+            <IconSystemModeLight v-if="isDark" class="ico-system-mode-light" />
+            <IconSystemModeDark v-else class="ico-system-mode-dark" />
           </template>
         </Button>
       </div>
       <div class="sb-header-language">
         <Button rounded severity="white">
           <template #icon>
-            <Icon24globe class="ico-24-globe" />
+            <IconSystemGlobe class="ico-system-globe" />
           </template>
         </Button>
       </div>
       <div class="sb-header-notification">
         <Button rounded severity="white">
           <template #icon>
-            <Icon24bellOn class="ico-24-bell-on" />
+            <IconSystemBellOn class="ico-system-bell-on" />
           </template>
         </Button>
       </div>
-      <div class="sb-header-user">
+      <NuxtLink to="/" class="sb-header-user">
         <div class="sb-header-user__thumb">
-          <img src="./../assets/icons/48/lv1.svg" alt="" />
+          <IconProfileLv1 class="ico-profile-lv1" />
           <strong>Lv.1</strong>
         </div>
         <div class="sb-header-user__text">
           <strong>셀링부스터</strong>
           <p>26.01.31 접속</p>
         </div>
-      </div>
+      </NuxtLink>
     </div>
   </header>
 
@@ -127,7 +127,7 @@
     <div class="sb-header-mo-start">
       <Button variant="text">
         <template #icon>
-          <Icon24headerBack class="ico-24-header-back" />
+          <IconArrowAchevronLeft class="ico-arrow-achevron-left" />
         </template>
       </Button>
     </div>
@@ -137,12 +137,12 @@
     <div class="sb-header-mo-end">
       <Button variant="text">
         <template #icon>
-          <Icon24bellOn class="ico-24-bell-on" />
+          <IconSystemBellOn class="ico-system-bell-on" />
         </template>
       </Button>
       <Button variant="text">
         <template #icon>
-          <Icon24menu class="ico-24-menu" />
+          <IconSystemMenu class="ico-system-menu" />
         </template>
       </Button>
     </div>
@@ -152,20 +152,23 @@
 import { ref, watch, onMounted, onUnmounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 
-import Icon24search from '@/assets/icons/24/search.svg?component';
-import Icon24modeDark from '@/assets/icons/24/mode-dark.svg?component';
-import Icon24modeLight from '@/assets/icons/24/mode-light.svg?component';
-import Icon24globe from '@/assets/icons/24/globe.svg?component';
-import Icon24bellOn from '@/assets/icons/24/bell-on.svg?component';
+import IconProfileLv1 from '@/assets/icons/profile/lv1.svg?component';
 
-import Icon24headerBack from '@/assets/icons/24/header-back.svg?component';
-import Icon24menu from '@/assets/icons/24/header-menu.svg?component';
+import IconSystemSearch from '@/assets/icons/system/search.svg?component';
+import IconSystemModeDark from '@/assets/icons/system/mode-dark.svg?component';
+import IconSystemModeLight from '@/assets/icons/system/mode-light.svg?component';
+import IconSystemGlobe from '@/assets/icons/system/globe.svg?component';
+import IconSystemBellOn from '@/assets/icons/system/bell-on.svg?component';
+
+import IconArrowAchevronLeft from '@/assets/icons/arrow/achevron-left.svg?component';
+import IconSystemMenu from '@/assets/icons/system/menu.svg?component';
 
 import IconSnbHome from '@/assets/icons/snb/home.svg?component';
 import IconSnbDocument from '@/assets/icons/snb/document.svg?component';
 import IconSnbStar from '@/assets/icons/snb/star.svg?component';
 import IconSnbChart from '@/assets/icons/snb/chart.svg?component';
 import IconSnbChat from '@/assets/icons/snb/chat.svg?component';
+import IconSnbPlanner from '@/assets/icons/snb/planner.svg?component';
 
 import IconSnbSetting from '@/assets/icons/snb/setting.svg?component';
 import IconSnbLogout from '@/assets/icons/snb/logout.svg?component';
@@ -189,12 +192,13 @@ const menu01 = ref([
   },
   {
     key: 'opportunity',
-    label: '기회 찾기',
+    label: '마켓 트렌드',
     icon: IconSnbDocument,
     route: '/1',
   },
-  { key: 'execution', label: '바로 실행', icon: IconSnbStar, route: '/2' },
-  { key: 'performance', label: '성과 보기', icon: IconSnbChart, route: '/3' },
+  { key: 'execution', label: '판매 가속', icon: IconSnbStar, route: '/2' },
+  { key: 'performance', label: '성장 리포트', icon: IconSnbChart, route: '/3' },
+  { key: 'planner', label: '셀링 플래너', icon: IconSnbPlanner, route: '/3' },
   {
     key: 'community',
     label: '커뮤니티',
@@ -292,7 +296,13 @@ const updateTheme = () => {
     localStorage.setItem('sb-theme', 'light');
   }
 };
-
+/** 단축키 핸들러: Ctrl + I */
+const handleKeyDown = (event) => {
+  if (event.ctrlKey && event.key.toLowerCase() === 'i') {
+    event.preventDefault(); // 브라우저 기본 동작 방지 (이동 등)
+    toggleMode();
+  }
+};
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 0;
 };
@@ -318,10 +328,12 @@ onMounted(() => {
   }
 
   window.addEventListener('scroll', handleScroll);
+  window.addEventListener('keydown', handleKeyDown);
   if (!isFolded.value) openActiveMenu();
 });
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
+  window.removeEventListener('keydown', handleKeyDown);
 });
 </script>

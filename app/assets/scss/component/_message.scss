@@ -101,7 +101,7 @@
   --p-message-success-color: var(--p-green-500);
   --p-message-success-shadow: 0px 4px 8px 0px
     color-mix(in srgb, var(--p-green-500), transparent 96%);
-  --p-message-success-simple-color: var(--p-green-600);
+  --p-message-success-simple-color: var(--p-green-500);
   --p-message-success-outlined-color: var(--p-green-600);
   --p-message-success-outlined-border-color: var(--p-green-600);
   --p-message-success-close-button-hover-background: var(--p-green-100);
@@ -122,13 +122,14 @@
   --p-message-info-close-button-hover-background: var(--p-blue-100);
   --p-message-info-close-button-focus-ring-color: var(--p-blue-600);
   --p-message-info-close-button-focus-ring-shadow: none;
-  &.p-dark {
+  &.p-dark,
+  .p-dark {
     --p-message-neutral-background: var(--p-surface-900);
     --p-message-neutral-border-color: var(--p-surface-950);
     --p-message-neutral-color: var(--p-surface-50);
     --p-message-neutral-shadow: 0px 4px 8px 0px
       color-mix(in srgb, var(--p-surface-950), transparent 96%);
-    --p-message-neutral-simple-color: var(--p-surface-950);
+    --p-message-neutral-simple-color: var(--p-gray-400);
     --p-message-neutral-outlined-color: var(--p-surface-950);
     --p-message-neutral-outlined-border-color: var(--p-surface-950);
     --p-message-neutral-close-button-hover-background: var(--p-surface-800);
@@ -208,7 +209,7 @@
     --p-message-success-color: var(--p-green-500);
     --p-message-success-shadow: 0px 4px 8px 0px
       color-mix(in srgb, var(--p-green-500), transparent 96%);
-    --p-message-success-simple-color: var(--p-green-500);
+    --p-message-success-simple-color: var(--p-green-400);
     --p-message-success-outlined-color: var(--p-green-500);
     --p-message-success-outlined-border-color: var(--p-green-500);
     --p-message-success-close-button-hover-background: rgba(
@@ -239,7 +240,7 @@
     --p-message-info-close-button-focus-ring-color: var(--p-blue-500);
     --p-message-info-close-button-focus-ring-shadow: none;
   }
-  @media screen and (max-width: $BreakpointMd) {
+  @include breakpoint {
     --p-message-simple-content-padding: 0;
     --p-message-outlined-border-width: 1px;
     --p-message-close-icon-size: 1rem;
@@ -265,101 +266,6 @@
     --p-message-border-radius: var(--p-content-border-radius);
     --p-message-border-width: 1px;
     --p-message-transition-duration: var(--p-transition-duration);
-
-    --p-message-neutral-background: var(--p-surface-900);
-    --p-message-neutral-border-color: var(--p-surface-950);
-    --p-message-neutral-color: var(--p-surface-50);
-    --p-message-neutral-shadow: 0px 4px 8px 0px
-      color-mix(in srgb, var(--p-surface-950), transparent 96%);
-    --p-message-neutral-simple-color: var(--p-gray-400);
-    --p-message-neutral-outlined-color: var(--p-surface-950);
-    --p-message-neutral-outlined-border-color: var(--p-surface-950);
-    --p-message-neutral-close-button-hover-background: var(--p-surface-800);
-    --p-message-neutral-close-button-focus-ring-color: var(--p-surface-50);
-    --p-message-neutral-close-button-focus-ring-shadow: none;
-
-    --p-message-contrast-background: var(--p-surface-900);
-    --p-message-contrast-border-color: var(--p-surface-950);
-    --p-message-contrast-color: var(--p-surface-50);
-    --p-message-contrast-shadow: 0px 4px 8px 0px
-      color-mix(in srgb, var(--p-surface-950), transparent 96%);
-    --p-message-contrast-simple-color: var(--p-surface-950);
-    --p-message-contrast-outlined-color: var(--p-surface-950);
-    --p-message-contrast-outlined-border-color: var(--p-surface-950);
-    --p-message-contrast-close-button-hover-background: var(--p-surface-800);
-    --p-message-contrast-close-button-focus-ring-color: var(--p-surface-50);
-    --p-message-contrast-close-button-focus-ring-shadow: none;
-    --p-message-secondary-background: var(--p-surface-100);
-    --p-message-secondary-border-color: var(--p-surface-200);
-    --p-message-secondary-color: var(--p-surface-600);
-    --p-message-secondary-shadow: 0px 4px 8px 0px
-      color-mix(in srgb, var(--p-surface-500), transparent 96%);
-    --p-message-secondary-simple-color: var(--p-surface-500);
-    --p-message-secondary-outlined-color: var(--p-surface-500);
-    --p-message-secondary-outlined-border-color: var(--p-surface-500);
-    --p-message-secondary-close-button-hover-background: var(--p-surface-200);
-    --p-message-secondary-close-button-focus-ring-color: var(--p-surface-600);
-    --p-message-secondary-close-button-focus-ring-shadow: none;
-    --p-message-error-background: color-mix(
-      in srgb,
-      var(--p-red-50),
-      transparent 5%
-    );
-    --p-message-error-border-color: var(--p-red-200);
-    --p-message-error-color: var(--p-red-600);
-    --p-message-error-shadow: 0px 4px 8px 0px
-      color-mix(in srgb, var(--p-red-500), transparent 96%);
-    --p-message-error-simple-color: var(--p-red-600);
-    --p-message-error-outlined-color: var(--p-red-600);
-    --p-message-error-outlined-border-color: var(--p-red-600);
-    --p-message-error-close-button-hover-background: var(--p-red-100);
-    --p-message-error-close-button-focus-ring-color: var(--p-red-600);
-    --p-message-error-close-button-focus-ring-shadow: none;
-    --p-message-warn-background: color-mix(
-      in srgb,
-      var(--p-yellow-50),
-      transparent 5%
-    );
-    --p-message-warn-border-color: var(--p-yellow-200);
-    --p-message-warn-color: var(--p-yellow-600);
-    --p-message-warn-shadow: 0px 4px 8px 0px
-      color-mix(in srgb, var(--p-yellow-500), transparent 96%);
-    --p-message-warn-simple-color: var(--p-yellow-600);
-    --p-message-warn-outlined-color: var(--p-yellow-600);
-    --p-message-warn-outlined-border-color: var(--p-yellow-600);
-    --p-message-warn-close-button-hover-background: var(--p-yellow-100);
-    --p-message-warn-close-button-focus-ring-color: var(--p-yellow-600);
-    --p-message-warn-close-button-focus-ring-shadow: none;
-    --p-message-success-background: color-mix(
-      in srgb,
-      var(--p-green-50),
-      transparent 5%
-    );
-    --p-message-success-border-color: var(--p-green-200);
-    --p-message-success-color: var(--p-green-500);
-    --p-message-success-shadow: 0px 4px 8px 0px
-      color-mix(in srgb, var(--p-green-500), transparent 96%);
-    --p-message-success-simple-color: var(--p-green-600);
-    --p-message-success-outlined-color: var(--p-green-600);
-    --p-message-success-outlined-border-color: var(--p-green-600);
-    --p-message-success-close-button-hover-background: var(--p-green-100);
-    --p-message-success-close-button-focus-ring-color: var(--p-green-600);
-    --p-message-success-close-button-focus-ring-shadow: none;
-    --p-message-info-background: color-mix(
-      in srgb,
-      var(--p-blue-50),
-      transparent 5%
-    );
-    --p-message-info-border-color: var(--p-blue-200);
-    --p-message-info-color: var(--p-blue-600);
-    --p-message-info-shadow: 0px 4px 8px 0px
-      color-mix(in srgb, var(--p-blue-500), transparent 96%);
-    --p-message-info-simple-color: var(--p-blue-600);
-    --p-message-info-outlined-color: var(--p-blue-600);
-    --p-message-info-outlined-border-color: var(--p-blue-600);
-    --p-message-info-close-button-hover-background: var(--p-blue-100);
-    --p-message-info-close-button-focus-ring-color: var(--p-blue-600);
-    --p-message-info-close-button-focus-ring-shadow: none;
   }
 }
 
@@ -369,6 +275,7 @@
   border-radius: var(--p-message-border-radius);
   outline-width: var(--p-message-border-width);
   outline-style: solid;
+  margin-top: 4px;
 }
 
 .p-message-content-wrapper {
@@ -606,9 +513,6 @@
   letter-spacing: -0.3px;
   a {
     color: inherit;
-  }
-  @media screen and (max-width: $BreakpointMd) {
-    letter-spacing: -0.4px;
   }
 }
 

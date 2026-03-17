@@ -1,17 +1,31 @@
 <template>
-  <div class="flex flex-column gap-5">
+  <div class="sb-url">
     <div>
-      <h5 class="mb-2">가이드</h5>
+      <h5>가이드</h5>
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
-            <NuxtLink to="/guide/common">common</NuxtLink>
+            <NuxtLink to="/guide/GuideTypography">Typography</NuxtLink>
+            <NuxtLink to="/guide/GuideColorLight">Color Light</NuxtLink>
+            <NuxtLink to="/guide/GuideShadow">Shadow</NuxtLink>
+            <NuxtLink to="/guide/GuideIcon">01 Icon</NuxtLink>
+            <NuxtLink to="/guide/GuideButton">02 Button</NuxtLink>
+            <NuxtLink to="/guide/GuideSelectControl"
+              >03 Select Control</NuxtLink
+            >
+            <NuxtLink to="/guide/GuideSelectBox">04 Select box</NuxtLink>
+            <NuxtLink to="/guide/GuideTextInput">05 Text input</NuxtLink>
+            <NuxtLink to="/guide/GuideTab">06 Tab</NuxtLink>
+            <NuxtLink to="/guide/GuideBadge">07 Badge</NuxtLink>
+            <NuxtLink to="/guide/GuideTooltip">08 Tool tip</NuxtLink>
+            <NuxtLink to="/guide/GuideHeader">09 Header</NuxtLink>
+            <NuxtLink to="/guide/GuideAlert">10 Alert</NuxtLink>
           </div>
         </template>
       </Card>
     </div>
     <div>
-      <h5 class="mb-2">로그인</h5>
+      <h5>로그인</h5>
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
@@ -30,7 +44,7 @@
       </Card>
     </div>
     <div>
-      <h5 class="mb-2">커뮤니티</h5>
+      <h5>커뮤니티</h5>
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
@@ -68,10 +82,16 @@
       </Card>
     </div>
     <!-- <div>
-      <h5 class="mb-2">마켓 트렌드</h5>
+      <h5 >마켓 트렌드</h5>
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
+            <NuxtLink to="/trend/trend">마켓 트렌드</NuxtLink>
+            <NuxtLink to="/trend/keyword">키워드</NuxtLink>
+            <NuxtLink to="/trend/keyword/result">키워드 결과</NuxtLink>
+            <NuxtLink to="/trend/product">상품 분석 리스트</NuxtLink>
+            <NuxtLink to="/trend/product/detail">상품 분석 상세</NuxtLink>
+            <NuxtLink to="/trend/product/write">상품 분석 쓰기</NuxtLink>
             <NuxtLink to="/trend/keyword">키워드</NuxtLink>
           </div>
         </template>

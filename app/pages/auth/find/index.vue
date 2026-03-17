@@ -8,7 +8,7 @@
       <div class="sb-auth-form-item">
         <label>이메일<strong>*</strong></label>
         <div class="sb-auth-form-item__input">
-          <InputText placeholder="이메일 주소를 입력해주세요." />
+          <SbInput placeholder="이메일 주소를 입력해주세요." />
           <Button label="인증 코드 발송" severity="primary" outlined disabled />
         </div>
         <div class="sb-auth-form-item__message">

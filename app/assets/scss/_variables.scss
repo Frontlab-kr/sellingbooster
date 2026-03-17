@@ -1,3 +1,5 @@
+@use './mixins' as *;
+
 :root,
 :host {
   --p-stone-50: #fafaf9;
@@ -34,17 +36,18 @@
   --p-zinc-900: #18181b;
   --p-zinc-950: #09090b;
   --p-gray-00: #ffffff;
-  --p-gray-50: #f9fafb;
-  --p-gray-100: #f3f4f6;
-  --p-gray-200: #e5e7eb;
-  --p-gray-300: #d1d5db;
-  --p-gray-400: #9ca3af;
-  --p-gray-500: #6b7280;
-  --p-gray-600: #4b5563;
-  --p-gray-700: #374151;
-  --p-gray-800: #1f2937;
-  --p-gray-900: #111827;
+  --p-gray-50: #f9fbfc;
+  --p-gray-100: #f4f5f7;
+  --p-gray-200: #eaecf1;
+  --p-gray-300: #d1d6dd;
+  --p-gray-400: #9aa3af;
+  --p-gray-500: #6a7381;
+  --p-gray-600: #454f5b;
+  --p-gray-700: #38414f;
+  --p-gray-800: #262f38;
+  --p-gray-900: #1b1f27;
   --p-gray-950: #030712;
+  --p-gray-1000: #000000;
   --p-slate-50: #eff0ff;
   --p-slate-100: #cfd0ff;
   --p-slate-200: #b8b9fe;
@@ -254,13 +257,22 @@
 
 :root,
 :host {
+  --url-title-color: var(--p-gray-900);
+  --url-text-color: var(--p-gray-600);
+  --url-card-background: var(--p-gray-00);
+
   --body-background: #eff1f4;
 
   --logo: url('./../images/logo.svg');
 
   --snb-link-color: var(--p-gray-500);
 
+  --header-menu-icon-background: var(--p-gray-00);
+  --header-menu-icon-color: var(--p-gray-500);
+  --header-menu-user-name-color: var(--p-gray-900);
+  --header-menu-user-date-color: var(--p-gray-400);
   --header-mo-title-color: var(--p-gray-800);
+  --header-mo-menu-color: var(--p-gray-500);
   --header-mo-border-color: var(--p-gray-200);
   --header-mo-background: var(--p-gray-00);
 
@@ -269,7 +281,7 @@
 
   --breadcrumb-color: var(--p-gray-500);
 
-  --required-color: var(--p-red-600);
+  --loading-url: url(./../icons/etc/loading.svg) no-repeat 50% 50%;
 
   --title-color: var(--p-gray-900);
   --contents-color: var(--p-gray-900);
@@ -285,18 +297,21 @@
   --comment-write-border-color: var(--p-gray-300);
   --comment-write-length-color: var(--p-gray-400);
   --comment-item-background: var(--p-gray-00);
-  --comment-reply-background: var(--p-gray-00);
+  --comment-item-border-color: var(--p-gray-300);
+  --comment-reply-background: var(--p-gray-50);
   --comment-item-name-color: var(--p-primary-500);
   --comment-item-date-color: var(--p-gray-400);
+  --comment-item-replay-icon-color: var(--p-gray-400);
   --comment-write-mo-background: var(--p-gray-00);
   --comment-write-mo-border-color: var(--p-gray-200);
+  --comment-write-mo-shadow: 0 -4px 20px 0 rgba(0, 0, 0, 0.1);
   --comment-write-mo-mention-color: var(--p-slate-500);
   --comment-write-mo-button-disabled-color: #d1d6dd;
-  --comment-write-mo-text-border-color: var(--p-gray-300);
-  --comment-write-mo-text-background: var(--p-gray-200);
-  --comment-write-mo-text-color: var(--p-gray-600);
+  --comment-write-mo-mention-border-color: var(--p-gray-300);
+  --comment-write-mo-mention-background: var(--p-gray-100);
+  --comment-write-mo-mention-color: var(--p-gray-600);
 
-  --caution-background: var(--p-gray-100);
+  --caution-background: var(--p-gray-50);
   --caution-contents-color: var(--p-gray-500);
 
   --attachment-item-background: var(--p-gray-100);
@@ -310,17 +325,46 @@
   --menu-layer-mo-link-background: var(--p-gray-100);
   --menu-layer-mo-text-color: var(--p-gray-500);
   --menu-layer-mo-danger-background: var(--p-red-50);
-  --required-color: var(--p-red-500);
+
+  --required-color: var(--p-red-600);
 
   --social-reply-color: var(--p-gray-500);
 
   --input-border-color: var(--p-gray-300);
   --input-background: var(--p-gray-00);
   --input-length-color: var(--p-gray-400);
+  --input-delete-color: var(--p-gray-200);
+  --input-time-color: var(--p-red-600);
 
+  //checkbox
+  --checkbox-url: url(./../icons/etc/checkbox.svg) no-repeat 50% 50%;
+  --checkbox-url-active: url(./../icons/etc/checkbox-active.svg) no-repeat 50%
+    50%;
+  --checkbox-url-disabled: url(./../icons/etc/checkbox-disabled.svg) no-repeat
+    50% 50%;
+  --checkbox-label-color: var(--p-gray-900);
+
+  //radio
+  --radio-label-color: var(--p-gray-900);
+
+  //chip
+  --chip-color: var(--p-gray-400);
+  --chip-border-color: var(--p-gray-300);
+  --chip-active-color: var(--p-primary-500);
+  --chip-active-border-color: var(--p-primary-500);
+  --chip-disabled-color: var(--p-gray-300);
+  --chip-disabled-border-color: var(--p-gray-300);
+
+  //textarea
   --textarea-background: var(--p-gray-00);
   --textarea-border-color: var(--p-gray-300);
+  --textarea-border-hover-color: var(--p-gray-600);
+  --textarea-name-color: var(--p-gray-500);
+  --textarea-textarea-color: var(--p-gray-500);
   --textarea-length-color: var(--p-gray-400);
+  --textarea--disabled-background: var(--p-gray-200);
+  --textarea--disabled-color: var(--p-gray-400);
+  --textarea-error-border-color: var(--p-red-600);
 
   --editor-background: var(--p-gray-00);
   --editor-border-color: var(--p-gray-300);
@@ -344,7 +388,7 @@
   --searchbar-button-disabled-border-color: var(--p-gray-300);
   --searchbar-button-disabled-background: var(--p-gray-200);
   --searchbar-button-disabled-color: var(--p-gray-400);
-  --searchbar-button-disabled-search-color: var(--p-gray-400);
+  --searchbar-button-disabled-search-color: var(--p-gray-300);
 
   --tab-button-color: var(--p-gray-400);
   --tab-active-button-color: var(--p-primary-500);
@@ -352,10 +396,12 @@
   --nodata-title-color: var(--p-gray-500);
   --nodata-text-color: var(--p-gray-400);
 
+  --qna-view-title-color: var(--p-gray-900);
   --qna-view-date-color: var(--p-gray-400);
   --qna-view-answer-background: var(--p-gray-50);
   --qna-view-answer-author-color: var(--p-gray-600);
   --qna-view-answer-content-color: var(--p-gray-500);
+  --qna-view-answer-date-color: var(--p-gray-400);
 
   --notice-view-date-color: var(--p-gray-400);
 
@@ -369,28 +415,33 @@
   --story-view-name-color: var(--p-primary-500);
   --story-view-date-color: var(--p-gray-400);
 
-  --story-write-title-color: var(--p-primary-500);
+  --story-write-title-color: var(--p-gray-900);
   --story-write-form-item-label-color: var(--p-gray-700);
+  --story-write-form-item-border-color: var(--p-gray-300);
 
   //trend
   --trend--background: var(--p-gray-00);
 
   //auth
+  --auth-background-image: #eff1f4 url(./../images/login-bg.jpg) no-repeat 0
+    100%;
+
   --login-background: var(--p-gray-00);
   --login-background-mo: #eff1f4;
-  --login-title-color: #000;
+  --login-title-color: var(--p-gray-900);
   --login-link-border-color: var(--p-gray-300);
   --login-link-color: var(--p-gray-400);
   --login-divider-color: var(--p-gray-300);
   --login-text-color: var(--p-gray-400);
 
   --auth-background: var(--p-gray-00);
-  --auth-form-item-label-color: var(--p-gray-700);
+  --auth-title-color: var(--p-gray-900);
+  --auth-form-item-border-color: var(--p-gray-300);
+  --auth-form-item-label-color: var(--p-gray-600);
   --auth-form-item-checkbox-background: var(--p-gray-100);
-  --auth-agree-border-color: var(--p-gray-300);
 
   --auth-complete-background: var(--p-gray-00);
-  --auth-complete-title-color: #000;
+  --auth-complete-title-color: var(--p-gray-900);
   --auth-complete-text-color: var(--p-gray-900);
 
   //policy
@@ -400,34 +451,47 @@
   --policy-contents-title-color: var(--p-gray-600);
   --policy-contents-text-color: var(--p-gray-500);
 
-  //
+  //onboarding
   --onboarding-background: var(--p-gray-00);
-  --onboarding-title-color: #000;
+  --onboarding-title-color: var(--p-gray-900);
   --onboarding-form-item-border-color: var(--p-gray-300);
   --onboarding-form-item-head-text-color: var(--p-gray-400);
   --onboarding-form-item-body-title-color: var(--p-gray-900);
   --onboarding-form-item-text-color: var(--p-gray-400);
-  --onboarding-complete-title-color: #000;
+  --onboarding-complete-title-color: var(--p-gray-900);
   --onboarding-complete-text-color: var(--p-gray-900);
   --onboarding-complete-info-background: var(--p-gray-50);
   --onboarding-complete-info-title-color: var(--p-gray-700);
+  --onboarding-complete-info-icon-color: var(--p-gray-500);
   --onboarding-complete-info-icon-border-color: var(--p-gray-200);
   --onboarding-complete-info-icon-background: var(--p-gray-00);
   --onboarding-complete-info-text-color: var(--p-gray-700);
 
-  &.p-dark {
+  &.p-dark,
+  .p-dark {
+    --url-title-color: var(--p-gray-00);
+    --url-text-color: var(--p-gray-00);
+    --url-card-background: var(--p-gray-800);
+
     --body-background: var(--p-gray-900);
     --logo: url('./../images/logo-dark.svg');
     --snb-link-color: var(--p-gray-400);
 
+    --header-menu-icon-background: var(--p-gray-800);
+    --header-menu-icon-color: var(--p-gray-300);
+    --header-menu-user-name-color: var(--p-gray-00);
+    --header-menu-user-date-color: var(--p-gray-300);
     --header-mo-title-color: var(--p-gray-00);
-    --header-mo-border-color: var(--p-gray-800);
-    --header-mo-background: var(--p-gray-900);
+    --header-mo-menu-color: var(--p-gray-300);
+    --header-mo-border-color: var(--p-gray-600);
+    --header-mo-background: var(--p-gray-800);
 
     --snb-link-color: var(--p-gray-400);
     --snb-link-menu-color: var(--p-gray-500);
 
     --breadcrumb-color: var(--p-gray-300);
+
+    --loading-url: url(./../icons/etc/loading-dark.svg) no-repeat 50% 50%;
 
     --title-color: var(--p-gray-00);
     --contents-color: var(--p-gray-00);
@@ -443,18 +507,20 @@
     --comment-write-border-color: var(--p-gray-600);
     --comment-write-length-color: var(--p-gray-500);
     --comment-item-background: var(--p-gray-800);
+    --comment-item-border-color: var(--p-gray-600);
     --comment-reply-background: var(--p-gray-700);
     --comment-item-name-color: var(--p-primary-300);
     --comment-item-date-color: var(--p-gray-400);
+    --comment-item-replay-icon-color: var(--p-gray-400);
     --comment-write-mo-background: var(--p-gray-700);
     --comment-write-mo-border-color: var(--p-gray-600);
     --comment-write-mo-mention-color: var(--p-slate-300);
     --comment-write-mo-button-disabled-color: var(--p-gray-500);
-    --comment-write-mo-text-border-color: var(--p-gray-500);
-    --comment-write-mo-text-background: var(--p-gray-900);
-    --comment-write-mo-text-color: var(--p-gray-400);
+    --comment-write-mo-mention-border-color: var(--p-gray-500);
+    --comment-write-mo-mention-background: var(--p-gray-900);
+    --comment-write-mo-mention-color: var(--p-gray-400);
 
-    --caution-background: var(--p-gray-700);
+    --caution-background: var(--p-gray-900);
     --caution-contents-color: var(--p-gray-400);
 
     --attachment-item-background: var(--p-gray-700);
@@ -474,10 +540,38 @@
     --input-border-color: var(--p-gray-600);
     --input-background: var(--p-gray-800);
     --input-length-color: var(--p-gray-400);
+    --input-delete-color: var(--p-gray-800);
+    --input-time-color: var(--p-red-400);
 
-    --textarea-background: var(--p-gray-900);
-    --textarea-border-color: var(--p-gray-600);
+    //checkbox
+    --checkbox-url: url(./../icons/etc/checkbox-dark.svg) no-repeat 50% 50%;
+    --checkbox-url-active: url(./../icons/etc/checkbox-active-dark.svg)
+      no-repeat 50% 50%;
+    --checkbox-url-disabled: url(./../icons/etc/checkbox-disabled-dark.svg)
+      no-repeat 50% 50%;
+    --checkbox-label-color: var(--p-gray-00);
+
+    //radio
+    --radio-label-color: var(--p-gray-00);
+
+    //chip
+    --chip-color: var(--p-gray-400);
+    --chip-border-color: var(--p-gray-500);
+    --chip-active-color: var(--p-primary-300);
+    --chip-active-border-color: var(--p-primary-300);
+    --chip-disabled-color: var(--p-gray-500);
+    --chip-disabled-border-color: var(--p-gray-600);
+
+    //textarea
+    --textarea-background: none;
+    --textarea-border-color: var(--p-gray-500);
+    --textarea-border-hover-color: var(--p-gray-200);
+    --textarea-name-color: var(--p-gray-300);
+    --textarea-textarea-color: var(--p-gray-500);
     --textarea-length-color: var(--p-gray-500);
+    --textarea--disabled-background: var(--p-gray-800);
+    --textarea--disabled-color: var(--p-gray-500);
+    --textarea-error-border-color: var(--p-red-400);
 
     --editor-background: var(--p-gray-800);
     --editor-border-color: var(--p-gray-600);
@@ -486,7 +580,7 @@
     --form-label-color: var(--p-gray-200);
     --form-text-color: var(--p-gray-500);
 
-    --fileupload-text-color: var(--p-gray-500);
+    --fileupload-text-color: var(--p-gray-400);
 
     --ai-tooltip-background: var(--p-gray-00);
     --ai-tooltip-color: var(--p-gray-900);
@@ -509,10 +603,12 @@
     --nodata-title-color: var(--p-gray-500);
     --nodata-text-color: var(--p-gray-500);
 
-    --qna-view-answer-color: var(--p-gray-400);
-    --qna-view-answer-background: var(--p-gray-800);
+    --qna-view-title-color: var(--p-gray-00);
+    --qna-view-date-color: var(--p-gray-400);
+    --qna-view-answer-background: var(--p-gray-900);
     --qna-view-answer-author-color: var(--p-gray-400);
     --qna-view-answer-content-color: var(--p-gray-400);
+    --qna-view-answer-date-color: var(--p-gray-400);
 
     --notice-view-date-color: var(--p-gray-400);
 
@@ -520,14 +616,65 @@
     --faq-view-q-color: var(--p-gray-900);
     --faq-view-a-background: var(--p-primary-300);
     --faq-view-a-color: var(--p-gray-900);
-    --faq-view-text-background: var(--p-gray-700);
+    --faq-view-text-background: var(--p-gray-900);
     --faq-view-text-color: var(--p-gray-100);
 
     --story-view-name-color: var(--p-primary-300);
     --story-view-date-color: var(--p-gray-400);
 
-    --story-write-title-color: var(--p-primary-300);
+    --story-write-title-color: var(--p-gray-00);
     --story-write-form-item-label-color: var(--p-gray-200);
+    --story-write-form-item-border-color: var(--p-gray-600);
+
+    //auth
+    --auth-background-image: var(--p-gray-900);
+
+    --login-background: var(--p-gray-800);
+    --login-background-mo: var(--p-gray-800);
+    --login-title-color: var(--p-gray-00);
+    --login-link-border-color: var(--p-gray-500);
+    --login-link-color: var(--p-gray-00);
+    --login-divider-color: var(--p-gray-500);
+    --login-text-color: var(--p-gray-400);
+
+    --auth-background: var(--p-gray-800);
+    --auth-title-color: var(--p-gray-00);
+    --auth-form-item-border-color: var(--p-gray-600);
+    --auth-form-item-label-color: var(--p-gray-00);
+    --auth-form-item-checkbox-background: var(--p-gray-700);
+
+    --auth-complete-background: var(--p-gray-800);
+    --auth-complete-title-color: var(--p-gray-00);
+    --auth-complete-text-color: var(--p-gray-00);
+
+    //policy
+    --policy-head-title-color: var(--p-gray-00);
+    --policy-head-text-color: var(--p-gray-00);
+    --policy-contents-background: var(--p-gray-900);
+    --policy-contents-title-color: var(--p-gray-400);
+    --policy-contents-text-color: var(--p-gray-400);
+
+    //onboarding
+    --onboarding-background: var(--p-gray-800);
+    --onboarding-title-color: var(--p-gray-00);
+    --onboarding-form-item-border-color: var(--p-gray-600);
+    --onboarding-form-item-head-text-color: var(--p-gray-400);
+    --onboarding-form-item-body-title-color: var(--p-gray-00);
+    --onboarding-form-item-text-color: var(--p-gray-400);
+    --onboarding-complete-title-color: var(--p-gray-00);
+    --onboarding-complete-text-color: var(--p-gray-00);
+    --onboarding-complete-info-background: var(--p-gray-700);
+    --onboarding-complete-info-title-color: var(--p-gray-00);
+    --onboarding-complete-info-icon-color: var(--p-gray-400);
+    --onboarding-complete-info-icon-border-color: var(--p-gray-800);
+    --onboarding-complete-info-icon-background: var(--p-gray-800);
+    --onboarding-complete-info-text-color: var(--p-gray-00);
+  }
+  @include breakpoint {
+    &.p-dark,
+    .p-dark {
+      --auth-background-image: var(--p-gray-800);
+    }
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="sb-community">
+  <div class="sb-community sb-community--view">
     <div class="sb-community-head">
       <div class="sb-community-head__title">
         <h4>성장스토리</h4>
@@ -13,14 +13,14 @@
         </div>
         <div class="sb-board-view__name">
           <p>셀링부스터</p>
-          <span>2026.02.14</span>
+          <span>2026.01.14</span>
         </div>
         <div class="sb-board-view__menu">
           <SbMenu :items="menuItems" />
         </div>
       </div>
 
-      <h4 class="sb-board-view__title">작은 시작에서, 꾸준한 성장까지</h4>
+      <h6 class="sb-board-view__title">작은 시작에서, 꾸준한 성장까지</h6>
       <div class="sb-board-view__contents">
         <p>
           처음부터 모든 게 순조롭진 않았습니다. 상품 등록 하나에도 고민이
@@ -47,7 +47,7 @@
           </p>
 
           <div class="sb-attachment-item__size">13MB</div>
-          <Icon24download class="ico-24-download" />
+          <IconSystemDownload class="ico-system-download" />
         </NuxtLink>
       </div>
       <div class="sb-board-view__foot">
@@ -61,8 +61,8 @@
     </div>
     <div class="sb-board-view__button">
       <NuxtLink to="/community/story/">
-        <Button severity="primary" size="large">
-          <Icon24back class="ico-24-back" />
+        <Button severity="primary" outlined>
+          <IconArrowLeft class="ico-arrow-left" />
           <span class="p-button-label">목록으로</span>
         </Button>
       </NuxtLink>
@@ -72,7 +72,7 @@
 
   <Dialog v-model:visible="dialogReport" modal class="p-dialog-sm">
     <div class="p-dialog-inner">
-      <h5 class="p-dialog-title">신고하기</h5>
+      <h6 class="p-dialog-title">신고하기</h6>
       <StoryReport />
     </div>
   </Dialog>
@@ -83,12 +83,12 @@ import { ref } from 'vue';
 import StoryReport from './report.vue';
 import SbSocial from '@/pages/community/components/SbSocial.vue';
 import SbComment from '@/pages/community/components/SbComment.vue';
-import Icon24back from '@/assets/icons/24/back.svg?component';
-import Icon24download from '@/assets/icons/24/download.svg?component';
-import Icon24edit from '@/assets/icons/24/edit.svg?component';
-import Icon24trash from '@/assets/icons/24/trash.svg?component';
-import Icon24block from '@/assets/icons/24/block.svg?component';
-import Icon24report from '@/assets/icons/24/report.svg?component';
+import IconArrowLeft from '@/assets/icons/arrow/left.svg?component';
+import IconSystemDownload from '@/assets/icons/system/download.svg?component';
+import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
+import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
+import IconSystemBlock from '@/assets/icons/system/block.svg?component';
+import IconSystemReport from '@/assets/icons/system/report.svg?component';
 import IconProfileDefault from '@/assets/icons/profile/default.svg?component';
 
 //dialog
@@ -110,12 +110,12 @@ const item = ref({
 const menuItems = ref([
   {
     label: '차단',
-    icon: Icon24block,
+    icon: IconSystemBlock,
     class: 'p-tieredmenu-item-link-danger',
   },
   {
     label: '신고',
-    icon: Icon24report,
+    icon: IconSystemReport,
     class: 'p-tieredmenu-item-link-danger',
     command: () => {
       reportOpen();
@@ -123,11 +123,11 @@ const menuItems = ref([
   },
   {
     label: '수정',
-    icon: Icon24edit,
+    icon: IconSystemEdit,
   },
   {
     label: '삭제',
-    icon: Icon24trash,
+    icon: IconSystemTrash,
   },
 ]);
 

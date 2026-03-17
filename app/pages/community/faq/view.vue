@@ -1,15 +1,12 @@
 <template>
   <div class="sb-faq-view">
     <div class="sb-faq-view__badge">
-      <Badge
-        :value="getStatusDetail(item.status).label"
-        :style="getStatusDetail(item.status)"
-      />
+      <Badge value="사용방법" severity="success"></Badge>
     </div>
-    <h5 class="sb-faq-view__title">
+    <h6 class="sb-faq-view__title">
       <div class="sb-faq-view__q">Q</div>
       판매 데이터를 엑셀 파일로 한 번에 내려받으려면 어떻게 하나요?
-    </h5>
+    </h6>
 
     <div class="sb-faq-view__text">
       <div class="sb-faq-view__a">A</div>
@@ -28,11 +25,4 @@
 
 <script setup>
 import { ref } from 'vue';
-import { useStatus } from '@/composables/useStatus';
-
-const { getStatusDetail } = useStatus();
-
-const item = ref({
-  status: 'guide',
-});
 </script>

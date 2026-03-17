@@ -2,11 +2,12 @@
   <div class="sb-menu">
     <Button
       variant="text"
+      rounded
       @click="menuToggle"
       :class="{ 'p-focus': isMenuVisible }"
     >
       <template #icon>
-        <Icon32dotmenu class="ico-32-dotmenu" />
+        <IconSystemDotmenu class="ico-system-dotmenu" />
       </template>
     </Button>
     <TieredMenu
@@ -34,7 +35,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import Icon32dotmenu from '@/assets/icons/32/dotmenu.svg?component';
+import IconSystemDotmenu from '@/assets/icons/system/dotmenu.svg?component';
 
 const props = defineProps({
   items: {

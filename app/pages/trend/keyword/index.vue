@@ -7,16 +7,86 @@
       </div>
     </div>
     <div class="sb-trend-contents">
-      <div class="sb-chart-pie sb-chart-pie--medium">
-        <SbChartPie :score="75" />
-        <div class="sb-chart-pie__text">
-          <strong>좋음</strong>
-          <p><span>61점</span>/100점</p>
-        </div>
-      </div>
       <div class="sb-trend-search">
         <h5>클릭을 매출로 바꾸는 키워드 분석과 마켓 인사이트</h5>
-        <div class="sb-trend-search-form"></div>
+        <div class="sb-trend-search-form">
+          <div
+            class="sb-trend-search-form-item sb-trend-search-form-item--half"
+          >
+            <div class="sb-trend-search-form-item__head">
+              <label>카테고리 검색</label>
+            </div>
+            <div class="sb-trend-search-form-item__body">
+              <Select
+                v-model="selectedValue"
+                :options="selectedOption"
+                optionLabel="name"
+                placeholder="1차 카테고리"
+                class="w-full"
+              />
+              <Select
+                v-model="selectedValue"
+                :options="selectedOption"
+                optionLabel="name"
+                placeholder="2차 카테고리"
+                class="w-full"
+              />
+              <Select
+                v-model="selectedValue"
+                :options="selectedOption"
+                optionLabel="name"
+                placeholder="3차 카테고리"
+                class="w-full"
+              />
+              <Select
+                v-model="selectedValue"
+                :options="selectedOption"
+                optionLabel="name"
+                placeholder="4차 카테고리"
+                class="w-full"
+              />
+            </div>
+          </div>
+          <div
+            class="sb-trend-search-form-item sb-trend-search-form-item--half"
+          >
+            <div class="sb-trend-search-form-item__head">
+              <label>키워드 검색</label>
+            </div>
+            <div class="sb-trend-search-form-item__body">
+              <SbInput
+                v-model="searchKeyword"
+                show-search
+                @search="onSearch"
+                placeholder="마음에 드는 키워드를 입력해주세요"
+              />
+            </div>
+          </div>
+          <div class="sb-trend-search-form-item">
+            <div class="sb-trend-search-form-item__head">
+              <label>최근 검색어</label>
+              <Button
+                label="전체삭제"
+                severity="contrast"
+                variant="link"
+                @click="dialogPolicy = true"
+              />
+            </div>
+            <div class="sb-trend-search-form-item__body">
+              <div class="sb-chip">
+                <div class="sb-chip-list">
+                  <Chip
+                    v-for="item in keywords"
+                    :key="item.id"
+                    :label="item.label"
+                    removable
+                    @remove="removeKeyword(item.id)"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="sb-trend-table">
         <div class="sb-trend-table-head">
@@ -134,7 +204,7 @@
             </DataTable>
           </ClientOnly>
           <div class="sb-nodata">
-            <Icon100smile class="ico-100-smile" />
+            <IconIllustrationSmile class="ico-illustration-smile" />
             <div class="sb-nodata__text">
               <p>
                 궁금한 카테고리가 있다면 지금 검색해보세요<br />
@@ -266,10 +336,35 @@
 
 <script setup>
 import { ref } from 'vue';
-import Icon100smile from '@/assets/icons/100/smile.svg?component';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 
 //breadcrumb
 const breadcrumb = ref([{ label: '마켓 트렌드' }, { label: '키워드 랭킹' }]);
+
+const searchKeyword = ref('');
+
+const selectedValue = ref();
+const selectedOption = ref([
+  { name: '스팸홍보/도배글입니다.' },
+  { name: '음란물입니다.' },
+  { name: '불법정보를 포함하고 있습니다.' },
+  { name: '청소년에게 유해한 내용입니다.' },
+  { name: '욕설/혐오/차별적 표현입니다.' },
+  { name: '개인정보 노출 게시물입니다.' },
+  { name: '블퀘한 표현이 있습니다.' },
+  { name: '기타 (기타 사유를 입력해주세요.)' },
+]);
+
+const keywords = ref([
+  { id: 1, label: '유니클로' },
+  { id: 2, label: '텀블러' },
+  { id: 3, label: '두쫀쿠' },
+  { id: 4, label: '카다이프' },
+  { id: 5, label: '피스타치오' },
+  { id: 6, label: '피스타치오스프레드' },
+  { id: 7, label: '카다이프' },
+  { id: 8, label: '케이스티파이' },
+]);
 
 const products = ref([
   {

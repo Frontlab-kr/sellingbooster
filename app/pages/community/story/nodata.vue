@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="sb-nodata">
-      <Icon100smile class="ico-100-smile" />
+      <IconIllustrationSmile class="ico-illustration-smile" />
       <div class="sb-nodata__text">
         <h6>나만의 노하우를 들려주세요.</h6>
         <p>
@@ -28,7 +28,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import Icon100smile from '@/assets/icons/100/smile.svg?component';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 
 //breadcrumb
 const breadcrumb = ref([

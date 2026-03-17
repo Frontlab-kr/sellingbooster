@@ -2,7 +2,7 @@
   <div class="sb-policy">
     <div class="sb-policy-head">
       <div class="sb-policy-head__title">
-        <h5>개인정보 처리방침</h5>
+        <h6>개인정보 처리방침</h6>
         <Select
           ref="selectRef"
           v-model="selectedSort"
@@ -57,12 +57,12 @@
             2) 서비스 제공<br />
             <p>
               유료 서비스 이용 시 콘텐츠 등의 요금 결제 및 정산, 서비스 이용현황
-            통계 분석 및 활용, 콘텐츠 제공, 맞춤형 서비스 제공, 서비스 개선
+              통계 분석 및 활용, 콘텐츠 제공, 맞춤형 서비스 제공, 서비스 개선
             </p>
           </li>
         </ol>
       </div>
-       <div class="sb-policy-contents__title">제 1 조 개인 정보의 처리 목적</div>
+      <div class="sb-policy-contents__title">제 1 조 개인 정보의 처리 목적</div>
       <div class="sb-policy-contents__text">
         회사는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는
         개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이
@@ -87,12 +87,12 @@
             2) 서비스 제공<br />
             <p>
               유료 서비스 이용 시 콘텐츠 등의 요금 결제 및 정산, 서비스 이용현황
-            통계 분석 및 활용, 콘텐츠 제공, 맞춤형 서비스 제공, 서비스 개선
+              통계 분석 및 활용, 콘텐츠 제공, 맞춤형 서비스 제공, 서비스 개선
             </p>
           </li>
         </ol>
       </div>
-       <div class="sb-policy-contents__title">제 1 조 개인 정보의 처리 목적</div>
+      <div class="sb-policy-contents__title">제 1 조 개인 정보의 처리 목적</div>
       <div class="sb-policy-contents__text">
         회사는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는
         개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이
@@ -117,7 +117,7 @@
             2) 서비스 제공<br />
             <p>
               유료 서비스 이용 시 콘텐츠 등의 요금 결제 및 정산, 서비스 이용현황
-            통계 분석 및 활용, 콘텐츠 제공, 맞춤형 서비스 제공, 서비스 개선
+              통계 분석 및 활용, 콘텐츠 제공, 맞춤형 서비스 제공, 서비스 개선
             </p>
           </li>
         </ol>

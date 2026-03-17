@@ -14,7 +14,12 @@
       <div class="sb-board-write-form">
         <div class="sb-board-write-form-item">
           <label>제목</label>
-          <SbInput placeholder="성장스토리의 제목을 작성해 주세요." />
+          <SbInput
+            v-model="storyTitle"
+            placeholder="성장스토리의 제목을 작성해 주세요."
+            maxlength="300"
+            show-length
+          />
         </div>
         <div class="sb-board-write-form-item">
           <label>내용</label>
@@ -32,26 +37,24 @@
             </ul>
           </div>
         </div>
-        <div class="sb-board-write-form-item">
-          <div class="sb-caution">
-            <div class="sb-caution__title">작성시 주의 사항</div>
-            <ul>
-              <li>
-                서비스와 관련이 없는 비방/욕설/명예훼손성 게시글 및 광고글 등
-                부적절한 게시글 등록 시 글쓰기 제한 및 게시글이 삭제 조치 될 수
-                있습니다.
-              </li>
-              <li>
-                전화번호, 이메일 등 개인정보가 포함된 글 작성이 필요한 경우
-                노출에 주의 하시기 바랍니다.
-              </li>
-            </ul>
-          </div>
-        </div>
+      </div>
+      <div class="sb-caution">
+        <div class="sb-caution__title">작성시 주의 사항</div>
+        <ul>
+          <li>
+            서비스와 관련이 없는 비방/욕설/명예훼손성 게시글 및 광고글 등
+            부적절한 게시글 등록 시 글쓰기 제한 및 게시글이 삭제 조치 될 수
+            있습니다.
+          </li>
+          <li>
+            전화번호, 이메일 등 개인정보가 포함된 글 작성이 필요한 경우 노출에
+            주의 하시기 바랍니다.
+          </li>
+        </ul>
       </div>
       <div class="sb-board-write__button">
-        <Button severity="neutral" size="large" label="취소" />
-        <Button severity="primary" size="large" label="발행" disabled />
+        <Button severity="contrast" size="large" label="취소" outlined />
+        <Button severity="primary" size="large" label="발행" />
       </div>
     </div>
   </div>
@@ -64,4 +67,6 @@ const breadcrumb = ref([
   { label: '커뮤니티' },
   { label: '성장스토리' },
 ]);
+
+const storyTitle = ref('');
 </script>

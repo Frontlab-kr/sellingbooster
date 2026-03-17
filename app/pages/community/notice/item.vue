@@ -2,26 +2,19 @@
   <NuxtLink to="/community/notice/view" class="sb-notice-list-item" v-if="item">
     <div class="sb-notice-list-item__head">
       <div class="sb-notice-list-item__badge">
-        <Badge
-          :value="getStatusDetail(item.status).label"
-          :style="getStatusDetail(item.status)"
-        />
+        <Badge v-bind="item.badge" />
       </div>
       <div class="sb-notice-list-item__date">{{ item.date }}</div>
     </div>
     <h6 class="sb-notice-list-item__title" v-html="noticeTitle"></h6>
     <div v-if="item.attachment" class="sb-notice-list-item__attachment">
-      <Icon24paperclip class="ico-24-paperclip" />
+      <IconSystemPaperclip class="ico-system-paperclip" />
     </div>
   </NuxtLink>
 </template>
 
 <script setup>
-import { useStatus } from '@/composables/useStatus';
-
-import Icon24paperclip from '@/assets/icons/24/paperclip.svg?component';
-
-const { getStatusDetail } = useStatus();
+import IconSystemPaperclip from '@/assets/icons/system/paperclip.svg?component';
 
 // props 정의
 const props = defineProps({

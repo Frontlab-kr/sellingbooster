@@ -5,7 +5,7 @@
         <label>문의 유형</label>
         <div class="sb-form-item-content">
           <div class="pc">
-            <div class="sb-qna-write-category">
+            <div class="sb-chip sb-chip--sm">
               <div class="sb-radio">
                 <div
                   v-for="item in categories"
@@ -44,6 +44,7 @@
             v-model="textarea01"
             maxlength="1000"
             placeholder="최대 1,000자 이내로 문의 하실 내용을 입력해주세요."
+            class="sb-textarea--simple"
           />
         </div>
       </div>
@@ -96,8 +97,8 @@
     </div>
     <div class="pc">
       <div class="sb-form-button">
-        <Button label="취소" size="large" severity="neutral" />
-        <Button label="등록" size="large" />
+        <Button label="취소" severity="contrast" outlined />
+        <Button label="등록" />
       </div>
     </div>
     <div class="sb-caution">
@@ -115,7 +116,7 @@
     </div>
     <div class="mo">
       <div class="sb-form-button">
-        <Button label="취소" size="large" severity="neutral" />
+        <Button label="취소" size="large" severity="contrast" outlined />
         <Button label="등록" size="large" />
       </div>
     </div>
@@ -125,50 +126,50 @@
 <script setup>
 import { ref, markRaw } from 'vue';
 
-import Icon16login from '@/assets/icons/16/login.svg?component';
-import Icon16smile from '@/assets/icons/16/smile.svg?component';
-import Icon16profile from '@/assets/icons/16/profile.svg?component';
-import Icon16card from '@/assets/icons/16/card.svg?component';
-import Icon16alertCircle from '@/assets/icons/16/alert-circle.svg?component';
-import Icon16document from '@/assets/icons/16/document.svg?component';
+import IconEtcLogin from '@/assets/icons/etc/login.svg?component';
+import IconEtcSmile from '@/assets/icons/etc/smile.svg?component';
+import IconEtcProfile from '@/assets/icons/etc/profile.svg?component';
+import IconEtcCard from '@/assets/icons/etc/card.svg?component';
+import IconEtcAlertCircle from '@/assets/icons/etc/alert-circle.svg?component';
+import IconEtcDocument from '@/assets/icons/etc/document.svg?component';
 
 const radioCategory = ref('radioCategory01');
 const categories = [
   {
     id: 'radioCategory01',
     label: '로그인 문의',
-    icon: markRaw(Icon16login),
-    iconClass: 'ico-16-login',
+    icon: markRaw(IconEtcLogin),
+    iconClass: 'ico-etc-login',
   },
   {
     id: 'radioCategory02',
     label: '서비스 이용 문의',
-    icon: markRaw(Icon16smile),
-    iconClass: 'ico-16-smile',
+    icon: markRaw(IconEtcSmile),
+    iconClass: 'ico-etc-smile',
   },
   {
     id: 'radioCategory03',
     label: '회원 문의',
-    icon: markRaw(Icon16profile),
-    iconClass: 'ico-16-profile',
+    icon: markRaw(IconEtcProfile),
+    iconClass: 'ico-etc-profile',
   },
   {
     id: 'radioCategory04',
     label: '결제/환불 문의',
-    icon: markRaw(Icon16card),
-    iconClass: 'ico-16-card',
+    icon: markRaw(IconEtcCard),
+    iconClass: 'ico-etc-card',
   },
   {
     id: 'radioCategory05',
     label: '서비스 탈퇴 문의',
-    icon: markRaw(Icon16alertCircle),
-    iconClass: 'ico-16-alert-circle',
+    icon: markRaw(IconEtcAlertCircle),
+    iconClass: 'ico-etc-alert-circle',
   },
   {
     id: 'radioCategory06',
     label: '기타 문의',
-    icon: markRaw(Icon16document),
-    iconClass: 'ico-16-document',
+    icon: markRaw(IconEtcDocument),
+    iconClass: 'ico-etc-document',
   },
 ];
 

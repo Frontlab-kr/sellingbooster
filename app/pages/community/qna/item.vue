@@ -7,10 +7,7 @@
       </div>
       <div class="sb-qna-list-item__head-end">
         <div class="sb-qna-list-item__badge">
-          <Badge
-            :value="getStatusDetail(item.status).label"
-            :style="getStatusDetail(item.status)"
-          />
+          <Badge v-bind="item.badge" />
         </div>
         <div class="sb-qna-list-item__menu">
           <SbMenu :items="menuItems" />
@@ -28,12 +25,9 @@
 
 <script setup>
 import { ref } from 'vue';
-import { useStatus } from '@/composables/useStatus';
 
-import Icon24edit from '@/assets/icons/24/edit.svg?component';
-import Icon24trash from '@/assets/icons/24/trash.svg?component';
-
-const { getStatusDetail } = useStatus();
+import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
+import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
 
 const props = defineProps({
   item: {
@@ -47,11 +41,11 @@ const emit = defineEmits(['item-click']);
 const menuItems = ref([
   {
     label: '수정',
-    icon: Icon24edit,
+    icon: IconSystemEdit,
   },
   {
     label: '삭제',
-    icon: Icon24trash,
+    icon: IconSystemTrash,
   },
 ]);
 </script>

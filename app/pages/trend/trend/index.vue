@@ -1,0 +1,417 @@
+<template>
+  <div class="sb-trend">
+    <div class="sb-trend-head">
+      <div class="sb-trend-head__title">
+        <h4>마켓 트렌드</h4>
+        <Breadcrumb :model="breadcrumb" />
+      </div>
+    </div>
+    <div class="sb-trend-contents">
+      <div class="sb-trend-search">
+        <h5>인기 키워드 분석으로 알아보는 요즘 셀러들의 관심 트렌드</h5>
+        <div class="sb-trend-search-form">
+          <div class="sb-trend-search-form-item">
+            <div class="sb-trend-search-form-item__head">
+              <label>카테고리 검색</label>
+            </div>
+            <div class="sb-trend-search-form-item__body">
+              <Select
+                v-model="selectedValue"
+                :options="selectedOption"
+                optionLabel="name"
+                placeholder="1차 카테고리"
+                class="w-full"
+              />
+              <Select
+                v-model="selectedValue"
+                :options="selectedOption"
+                optionLabel="name"
+                placeholder="2차 카테고리"
+                class="w-full"
+              />
+              <Select
+                v-model="selectedValue"
+                :options="selectedOption"
+                optionLabel="name"
+                placeholder="3차 카테고리"
+                class="w-full"
+              />
+              <Select
+                v-model="selectedValue"
+                :options="selectedOption"
+                optionLabel="name"
+                placeholder="4차 카테고리"
+                class="w-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sb-trend-table">
+        <div class="sb-trend-table-head">
+          <div class="sb-trend-table-head__title">
+            <h5>TOP 30</h5>
+            <p>※ 네이버 쇼핑 기준 데이터 입니다.</p>
+          </div>
+          <div class="sb-tab">
+            <Button label="일간" variant="text" class="active" />
+            <Button label="주간" variant="text" />
+            <Button label="월간" variant="text" />
+          </div>
+        </div>
+        <div class="sb-table">
+          <ClientOnly>
+            <DataTable :value="products" responsiveLayout="scroll">
+              <Column
+                field="ranking"
+                header="랭킹"
+                style="width: 300px"
+                headerClass="text-center"
+                bodyClass="text-center"
+              >
+                <template #body="slotProps">
+                  {{ slotProps.data.ranking }}
+                </template>
+              </Column>
+
+              <Column
+                field="keyword"
+                header="키워드"
+                sortable
+                style="width: 300px"
+              >
+                <template #body="slotProps">
+                  <span v-html="slotProps.data.keyword"></span>
+                </template>
+              </Column>
+
+              <Column
+                field="influence"
+                header="영향력"
+                sortable
+                headerClass="text-center"
+                bodyClass="text-center"
+                style="width: 300px"
+              >
+                <template #body="slotProps">
+                  <span>{{ slotProps.data.influence }}</span>
+                </template>
+              </Column>
+
+              <Column
+                field="productCount"
+                header="상품수"
+                sortable
+                headerClass="text-right"
+                bodyClass="text-right"
+                style="width: 300px"
+              >
+                <template #body="slotProps">
+                  {{ slotProps.data.productCount.toLocaleString() }}개
+                </template>
+              </Column>
+
+              <Column
+                field="competition"
+                sortable
+                headerClass="text-right"
+                bodyClass="text-right"
+                style="width: 300px"
+              >
+                <template #header>
+                  <div
+                    class="inline-flex align-items-center gap-1"
+                    @mouseenter="togglePopover"
+                    @mouseleave="togglePopover"
+                  >
+                    경쟁강도
+                    <!-- <Icon16information /> -->
+                  </div>
+                </template>
+                <template #body="slotProps">
+                  <div class="flex items-center justify-content-end gap-2">
+                    <span>{{ slotProps.data.competition.toFixed(2) }}</span>
+                    <span
+                      class="sb-legend-item"
+                      :class="
+                        slotProps.data.competition >= 0.8
+                          ? 'text-indigo-500'
+                          : slotProps.data.competition >= 0.6
+                            ? 'text-green-500'
+                            : slotProps.data.competition >= 0.4
+                              ? 'text-slate-600'
+                              : slotProps.data.competition >= 0.2
+                                ? 'text-orange-700'
+                                : 'text-red-600'
+                      "
+                    >
+                      {{
+                        slotProps.data.competition >= 0.8
+                          ? '최고'
+                          : slotProps.data.competition >= 0.6
+                            ? '좋음'
+                            : slotProps.data.competition >= 0.4
+                              ? '보통'
+                              : slotProps.data.competition >= 0.2
+                                ? '낮음'
+                                : '최저'
+                      }}
+                    </span>
+                  </div>
+                </template>
+              </Column>
+            </DataTable>
+          </ClientOnly>
+          <Popover ref="op">
+            <div class="sb-legend">
+              <span class="sb-legend-item text-indigo-500">최고</span>
+              <span class="sb-legend-item text-green-500">좋음</span>
+              <span class="sb-legend-item text-slate-600">보통</span>
+              <span class="sb-legend-item text-orange-700">낮음</span>
+              <span class="sb-legend-item text-red-600">최저</span>
+            </div>
+          </Popover>
+        </div>
+      </div>
+      <div class="sb-trend-top">
+        <div class="sb-trend-top__title">
+          <h5>카테고리 연관 상품 TOP 30</h5>
+          <p>※ 네이버 쇼핑 기준</p>
+        </div>
+        <div class="sb-trend-top-list">
+          <NuxtLink
+            v-for="item in tumblerList"
+            :key="item.rank"
+            :to="`/product/${item.rank}`"
+            class="sb-trend-top-list-item"
+          >
+            <div class="sb-trend-top-list-item__thumb">
+              <strong>{{ item.rank }}</strong>
+              <img :src="item.imgSrc" :alt="item.title" />
+            </div>
+            <div class="sb-trend-top-list-item__contents">
+              <div class="sb-trend-top-list-item__category">
+                <span>{{ item.brand }}</span>
+                <span>{{ item.mall }}</span>
+              </div>
+              <div class="sb-trend-top-list-item__title">
+                {{ item.title }}
+              </div>
+              <div class="sb-trend-top-list-item__price">
+                {{ item.price.toLocaleString() }}원
+              </div>
+            </div>
+          </NuxtLink>
+        </div>
+      </div>
+      <div class="sb-banner"></div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+
+const op = ref();
+
+const togglePopover = (event) => {
+  // toggle 대신 show/hide를 사용하여 마우스 오버에 정확히 반응하게 함
+  if (event.type === 'mouseenter') {
+    op.value.show(event);
+  } else {
+    op.value.hide();
+  }
+};
+
+//breadcrumb
+const breadcrumb = ref([{ label: 'Home' }, { label: '마켓 트렌드' }]);
+
+const selectedValue = ref();
+const selectedOption = ref([
+  { name: '스팸홍보/도배글입니다.' },
+  { name: '음란물입니다.' },
+  { name: '불법정보를 포함하고 있습니다.' },
+  { name: '청소년에게 유해한 내용입니다.' },
+  { name: '욕설/혐오/차별적 표현입니다.' },
+  { name: '개인정보 노출 게시물입니다.' },
+  { name: '블퀘한 표현이 있습니다.' },
+  { name: '기타 (기타 사유를 입력해주세요.)' },
+]);
+
+const products = ref([
+  {
+    ranking: 19,
+    keyword: '오메가3',
+    influence: '높음',
+    productCount: 19327,
+    competition: 6.05,
+    statusColor: '#10b981', // 녹색
+  },
+  {
+    ranking: 14,
+    keyword: '정관장',
+    influence: '높음',
+    productCount: 1671,
+    competition: 0.41,
+    statusColor: '#10b981', // 녹색
+  },
+  {
+    ranking: 18,
+    keyword: '유산균',
+    influence: '높음',
+    productCount: 1412,
+    competition: 0.26,
+    statusColor: '#10b981', // 녹색
+  },
+  {
+    ranking: 5,
+    keyword: '마그네슘',
+    influence: '높음',
+    productCount: 121,
+    competition: 0.02,
+    statusColor: '#ef4444', // 적색
+  },
+  {
+    ranking: 19,
+    keyword: '오메가3',
+    influence: '높음',
+    productCount: 19327,
+    competition: 6.05,
+    statusColor: '#10b981',
+  },
+  {
+    ranking: 14,
+    keyword: '정관장',
+    influence: '높음',
+    productCount: 1671,
+    competition: 0.41,
+    statusColor: '#10b981',
+  },
+  {
+    ranking: 18,
+    keyword: '유산균',
+    influence: '높음',
+    productCount: 1412,
+    competition: 0.26,
+    statusColor: '#10b981',
+  },
+  {
+    ranking: 5,
+    keyword: '마그네슘',
+    influence: '높음',
+    productCount: 121,
+    competition: 0.02,
+    statusColor: '#ef4444',
+  },
+  {
+    ranking: 5,
+    keyword: '마그네슘',
+    influence: '높음',
+    productCount: 121,
+    competition: 0.02,
+    statusColor: '#ef4444',
+  },
+  {
+    ranking: 19,
+    keyword: '오메가3',
+    influence: '높음',
+    productCount: 19327,
+    competition: 6.05,
+    statusColor: '#10b981',
+  },
+]);
+
+const tumblerList = ref([
+  {
+    id: 'stanley-h20-28',
+    rank: 1,
+    imgSrc: '/temp/top1.png',
+    brand: '스텐리1913',
+    mall: '네이버쇼핑',
+    title: '스텐리 스텐리1913 젠처 H2.0 플로우스테이트 텀블러',
+    price: 28000,
+    to: '/product/stanley-h20-28',
+  },
+  {
+    id: 'stanley-flip-22',
+    rank: 2,
+    imgSrc: '/temp/top2.png',
+    brand: '스텐리1913',
+    mall: '네이버쇼핑',
+    title: '스텐리 스텐리1913 젠처 프로듀어 플립 스트로 텀블러 887ml 크림',
+    price: 22580,
+    to: '/product/stanley-flip-22',
+  },
+  {
+    id: 'locknlock-metro-23',
+    rank: 3,
+    imgSrc: '/temp/top3.png',
+    brand: '락앤락',
+    mall: '네이버쇼핑',
+    title:
+      '락앤락 텀블러 손잡이 스텐 텀블러 메트로 머그 475ml 보온 보냉 컵 커피 티',
+    price: 23200,
+    to: '/product/locknlock-metro-23',
+  },
+  {
+    id: 'stanley-quencher-38',
+    rank: 4,
+    imgSrc: '/temp/top4.png',
+    brand: '스텐리1913',
+    mall: '네이버쇼핑',
+    title: '스텐리 퀜처 플로우 스테이트 텀블러 H2.0',
+    price: 38630,
+    to: '/product/stanley-quencher-38',
+  },
+  {
+    id: 'stanley-shaker-57',
+    rank: 5,
+    imgSrc: '/temp/top5.png',
+    brand: '스텐리1913',
+    mall: '네이버쇼핑',
+    title: '스텐리 바이탈라이즈 쉐이커 텀블러 591ml + 컨테이너 103ml 세트',
+    price: 57660,
+    to: '/product/stanley-shaker-57',
+  },
+  {
+    id: 'boare-two-way-22',
+    rank: 6,
+    imgSrc: '/temp/top6.png',
+    brand: '보아르',
+    mall: '네이버쇼핑',
+    title: '보아르 투웨이 대용량 손잡이 스텐 보온 보냉 텀블러...',
+    price: 22700,
+    to: '/product/boare-two-way-22',
+  },
+  {
+    id: 'locknlock-mog-24',
+    rank: 7,
+    imgSrc: '/temp/top7.png',
+    brand: '락앤락',
+    mall: '네이버쇼핑',
+    title: '락앤락 모그 스텐 머그컵 텀블러',
+    price: 24790,
+    to: '/product/locknlock-mog-24',
+  },
+  {
+    id: 'stanley-aerolight-33',
+    rank: 8,
+    imgSrc: '/temp/top8.png',
+    brand: '스텐리',
+    mall: '네이버쇼핑',
+    title: '스텐리 아이스플로우 에어로라이트 패스트플로우 텀블러',
+    price: 33490,
+    to: '/product/stanley-aerolight-33',
+  },
+  {
+    id: 'locknlock-cafe-24',
+    rank: 9,
+    imgSrc: '/temp/top9.png',
+    brand: '락앤락',
+    mall: '네이버쇼핑',
+    title: '락앤락 메트로카페 세라믹 텀블러 바닐라라떼 650ml',
+    price: 24570,
+    to: '/product/locknlock-cafe-24',
+  },
+]);
+</script>

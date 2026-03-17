@@ -31,7 +31,7 @@
       display: block;
       width: 16px;
       height: 16px;
-      background: url(../../icons/16/breadcrumb.svg) no-repeat 50% 50%;
+      background: url(../../icons/etc/breadcrumb.svg) no-repeat 50% 50%;
     }
   }
   &-item {
@@ -47,5 +47,5 @@
 }
 
 .p-dark .p-breadcrumb-separator::before {
-  background: url(../../icons/16/breadcrumb-dark.svg) no-repeat 50% 50%;
+  background: url(../../icons/etc/breadcrumb-dark.svg) no-repeat 50% 50%;
 }

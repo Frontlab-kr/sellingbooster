@@ -15,7 +15,12 @@
     </div>
     <div class="sb-community-menu">
       <div></div>
-      <SbSearchbar v-model="searchKeyword" placeholder="자유게시판 검색" />
+      <SbInput
+        v-model="searchKeyword"
+        show-search
+        @search="onSearch"
+        placeholder="자유게시판 검색"
+      />
     </div>
     <div class="sb-community-sort">
       <Select

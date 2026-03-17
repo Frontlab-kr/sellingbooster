@@ -11,8 +11,8 @@
 :host {
   --p-button-border-radius: var(--p-form-field-border-radius);
   --p-button-rounded-border-radius: 2rem;
-  --p-button-gap: 8px;
-  --p-button-padding-x: 24px;
+  --p-button-gap: 4px;
+  --p-button-padding-x: 20px;
   --p-button-padding-y: 10px;
   --p-button-icon-only-width: auto;
   --p-button-raised-shadow:
@@ -25,7 +25,7 @@
   --p-button-focus-ring-offset: var(--p-focus-ring-offset);
   --p-button-label-font-weight: 700;
   --p-button-lg-font-size: 18px;
-  --p-button-lg-padding-x: 20px;
+  --p-button-lg-padding-x: 24px;
   --p-button-lg-padding-y: 10px;
   --p-button-lg-icon-only-width: 60px;
   --p-button-sm-font-size: var(--p-form-field-sm-font-size);
@@ -38,6 +38,8 @@
   --p-button-text-plain-hover-background: var(--p-surface-50);
   --p-button-text-plain-active-background: var(--p-surface-100);
   --p-button-text-plain-color: var(--p-gray-500);
+  --p-button-text-plain-hover-color: var(--p-gray-800);
+  --p-button-text-plain-disabled-color: var(--p-gray-300);
   --p-button-text-contrast-hover-background: var(--p-surface-50);
   --p-button-text-contrast-active-background: var(--p-surface-100);
   --p-button-text-contrast-color: var(--p-surface-950);
@@ -59,37 +61,37 @@
   --p-button-text-secondary-hover-background: var(--p-surface-50);
   --p-button-text-secondary-active-background: var(--p-surface-100);
   --p-button-text-secondary-color: var(--p-surface-500);
-  --p-button-text-primary-hover-background: var(--p-gray-100);
+  --p-button-text-primary-hover-background: none;
   --p-button-text-primary-active-background: var(--p-gray-200);
   --p-button-text-primary-color: var(--p-primary-color);
 
   --p-button-outlined-contrast-hover-background: transparent;
   --p-button-outlined-contrast-active-background: transparent;
   --p-button-outlined-contrast-border-color: var(--p-gray-600);
-  --p-button-outlined-contrast-border-hover-color: var(--p-gray-500);
   --p-button-outlined-contrast-color: var(--p-gray-900);
-  --p-button-outlined-contrast-hover-color: var(--p-gray-600);
+  --p-button-outlined-contrast-hover-color: var(--p-gray-900);
+  --p-button-outlined-contrast-hover-border-color: var(--p-gray-400);
   --p-button-outlined-contrast-disabled-border-color: var(--p-gray-300);
   --p-button-outlined-contrast-disabled-color: var(--p-gray-400);
-  --p-button-outlined-contrast-icon-color: var(--p-gray-600);
 
-  --p-button-outlined-primary-hover-background: var(--p-primary-0);
+  --p-button-outlined-primary-background: var(--p-gray-00);
+  --p-button-outlined-primary-hover-background: var(--p-gray-00);
   --p-button-outlined-primary-active-background: var(--p-primary-100);
   --p-button-outlined-primary-border-color: var(--p-primary-500);
-  --p-button-outlined-primary-color: var(--p-primary-color);
-  --p-button-outlined-primary-hover-color: var(--p-gray-600);
+  --p-button-outlined-primary-color: var(--p-primary-700);
+  --p-button-outlined-primary-hover-color: var(--p-primary-700);
+  --p-button-outlined-primary-hover-border-color: var(--p-primary-800);
   --p-button-outlined-primary-disabled-border-color: var(--p-primary-600);
   --p-button-outlined-primary-disabled-color: var(--p-primary-700);
-  --p-button-outlined-primary-icon-color: var(--p-gray-600);
 
+  --p-button-contrast-color: var(--p-gray-00);
+  --p-button-contrast-border-color: var(--p-gray-800);
   --p-button-contrast-background: var(--p-gray-800);
+  --p-button-contrast-hover-color: var(--p-gray-00);
+  --p-button-contrast-hover-border-color: var(--p-gray-500);
   --p-button-contrast-hover-background: var(--p-gray-500);
   --p-button-contrast-active-background: var(--p-gray-400);
-  --p-button-contrast-border-color: var(--p-gray-800);
-  --p-button-contrast-hover-border-color: var(--p-gray-500);
   --p-button-contrast-active-border-color: var(--p-gray-400);
-  --p-button-contrast-color: var(--p-gray-00);
-  --p-button-contrast-hover-color: var(--p-gray-00);
   --p-button-contrast-active-color: var(--p-gray-00);
   --p-button-contrast-disabled-background: var(--p-gray-300);
   --p-button-contrast-disabled-border-color: var(--p-gray-300);
@@ -111,7 +113,6 @@
   --p-button-primary-disabled-color: var(--p-gray-00);
   --p-button-primary-focus-ring-color: var(--p-primary-color);
   --p-button-primary-focus-ring-shadow: none;
-  --p-button-primary-icon-color: var(--p-gray-00);
 
   --p-button-neutral-background: var(--p-gray-100);
   --p-button-neutral-hover-background: var(--p-gray-200);
@@ -126,39 +127,45 @@
   --p-button-neutral-disabled-border-color: var(--p-gray-300);
   --p-button-neutral-disabled-color: var(--p-gray-400);
   --p-button-text-focus-background: var(--p-gray-100);
-  &.p-dark {
-    --p-button-text-plain-color: var(--p-gray-300);
-
-    --p-button-text-primary-hover-background: var(--p-gray-700);
+  &.p-dark,
+  .p-dark {
+    --p-button-text-plain-color: var(--p-gray-200);
+    --p-button-text-plain-hover-color: var(--p-gray-300);
+    --p-button-text-plain-disabled-color: var(--p-gray-500);
+    --p-button-text-primary-hover-background: none;
     --p-button-text-primary-active-background: var(--p-gray-600);
     --p-button-text-focus-background: var(--p-gray-700);
 
     --p-button-outlined-contrast-hover-background: transparent;
     --p-button-outlined-contrast-active-background: transparent;
-    --p-button-outlined-contrast-border-color: var(--p-gray-00);
-    --p-button-outlined-contrast-border-hover-color: var(--p-gray-400);
+    --p-button-outlined-contrast-border-color: var(--p-gray-400);
     --p-button-outlined-contrast-color: var(--p-gray-00);
     --p-button-outlined-contrast-hover-color: var(--p-gray-200);
+    --p-button-outlined-contrast-hover-border-color: var(--p-gray-500);
     --p-button-outlined-contrast-disabled-border-color: var(--p-gray-600);
     --p-button-outlined-contrast-disabled-color: var(--p-gray-600);
-    --p-button-outlined-contrast-icon-color: var(--p-gray-00);
 
+    --p-button-outlined-primary-background: none;
     --p-button-outlined-primary-hover-background: var(--p-primary-0);
     --p-button-outlined-primary-active-background: var(--p-primary-100);
-    --p-button-outlined-primary-border-color: var(--p-primary-500);
-    --p-button-outlined-primary-color: var(--p-primary-color);
+    --p-button-outlined-primary-border-color: var(--p-primary-700);
+    --p-button-outlined-primary-color: var(--p-primary-200);
+    --p-button-outlined-primary-hover-color: var(--p-primary-200);
+    --p-button-outlined-primary-hover-border-color: var(--p-primary-900);
+    --p-button-outlined-primary-disabled-border-color: var(--p-primary-700);
+    --p-button-outlined-primary-disabled-color: var(--p-primary-200);
 
-    --p-button-contrast-background: var(--p-gray-00);
-    --p-button-contrast-hover-background: var(--p-gray-300);
-    --p-button-contrast-active-background: var(--p-gray-400);
-    --p-button-contrast-border-color: var(--p-gray-00);
-    --p-button-contrast-hover-border-color: var(--p-gray-300);
-    --p-button-contrast-active-border-color: var(--p-gray-400);
-    --p-button-contrast-color: var(--p-gray-900);
-    --p-button-contrast-hover-color: var(--p-gray-900);
-    --p-button-contrast-active-color: var(--p-gray-900);
-    --p-button-contrast-disabled-background: var(--p-gray-600);
-    --p-button-contrast-disabled-border-color: var(--p-gray-600);
+    --p-button-contrast-color: var(--p-gray-00);
+    --p-button-contrast-background: var(--p-gray-500);
+    --p-button-contrast-border-color: var(--p-gray-500);
+    --p-button-contrast-hover-color: var(--p-gray-00);
+    --p-button-contrast-hover-border-color: var(--p-gray-600);
+    --p-button-contrast-hover-background: var(--p-gray-600);
+    --p-button-contrast-active-border-color: var(--p-gray-700);
+    --p-button-contrast-active-background: var(--p-gray-700);
+    --p-button-contrast-active-color: var(--p-gray-00);
+    --p-button-contrast-disabled-background: var(--p-gray-700);
+    --p-button-contrast-disabled-border-color: var(--p-gray-700);
     --p-button-contrast-disabled-color: var(--p-gray-500);
     --p-button-contrast-focus-ring-color: var(--p-surface-950);
     --p-button-contrast-focus-ring-shadow: none;
@@ -177,7 +184,6 @@
     --p-button-primary-disabled-color: var(--p-gray-500);
     --p-button-primary-focus-ring-color: var(--p-primary-color);
     --p-button-primary-focus-ring-shadow: none;
-    --p-button-primary-icon-color: var(--p-gray-900);
 
     --p-button-neutral-background: var(--p-gray-500);
     --p-button-neutral-hover-background: var(--p-gray-700);
@@ -194,12 +200,12 @@
     --p-button-text-focus-background: var(--p-gray-700);
   }
 }
-@media screen and (max-width: $BreakpointMd) {
+@include breakpoint {
   :root,
   :host {
     --p-button-border-radius: var(--p-form-field-border-radius);
     --p-button-rounded-border-radius: 2rem;
-    --p-button-gap: 8px;
+    --p-button-gap: 4px;
     --p-button-padding-x: 20px;
     --p-button-padding-y: 10px;
     --p-button-icon-only-width: auto;
@@ -212,7 +218,7 @@
     --p-button-focus-ring-style: var(--p-focus-ring-style);
     --p-button-focus-ring-offset: var(--p-focus-ring-offset);
     --p-button-label-font-weight: 700;
-    --p-button-lg-font-size: 15px;
+    --p-button-lg-font-size: 16px;
     --p-button-lg-padding-x: 20px;
     --p-button-lg-padding-y: var(--p-form-field-lg-padding-y);
     --p-button-lg-icon-only-width: 60px;
@@ -224,7 +230,21 @@
 }
 
 .p-button {
-  border-radius: 60px;
+  &:not(.p-button-text):not(.p-button-icon-only) {
+    border-radius: 60px;
+  }
+  svg {
+    margin: 0 0 0 -8px;
+  }
+  .p-button-label ~ svg {
+    margin: 0 -8px 0 0;
+  }
+  &.ico-right {
+    flex-direction: row-reverse;
+    svg {
+      margin: 0 -8px 0 0;
+    }
+  }
   &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text):not(
       .p-button-link
     ):not(.p-button-sm):not(.p-button-lg) {
@@ -254,19 +274,38 @@
   }
   &-primary {
     svg {
-      color: var(--p-button-primary-icon-color);
+      color: var(--p-button-primary-color);
     }
     &:disabled:not(.p-button-outlined) {
       border-color: var(--p-button-primary-disabled-border-color);
       background-color: var(--p-button-primary-disabled-background);
       color: var(--p-button-primary-disabled-color);
+      svg {
+        color: var(--p-button-primary-disabled-color);
+      }
+    }
+    &.hover:not(.p-button-outlined) {
+      background: var(--p-button-primary-hover-background);
+      border: 1px solid var(--p-button-primary-hover-border-color);
+      color: var(--p-button-primary-hover-color);
     }
   }
   &-contrast {
+    svg {
+      color: var(--p-button-contrast-color);
+    }
     &:disabled:not(.p-button-outlined) {
       border-color: var(--p-button-contrast-disabled-border-color);
       background-color: var(--p-button-contrast-disabled-background);
       color: var(--p-button-contrast-disabled-color);
+      svg {
+        color: var(--p-button-contrast-disabled-color);
+      }
+    }
+    &.hover:not(.p-button-outlined) {
+      border-color: var(--p-button-contrast-hover-border-color);
+      background-color: var(--p-button-contrast-hover-background);
+      color: var(--p-button-contrast-hover-color);
     }
   }
   &-neutral {
@@ -295,6 +334,10 @@
 
   &-outlined {
     &.p-button-primary {
+      background: var(--p-button-outlined-primary-background);
+      svg {
+        color: var(--p-button-outlined-primary-color);
+      }
       &:disabled {
         border-color: var(--p-button-outlined-primary-disabled-border-color);
         color: var(--p-button-outlined-primary-disabled-color);
@@ -303,12 +346,22 @@
           color: var(--p-button-outlined-primary-disabled-color);
         }
       }
+      &:not(:disabled):hover,
+      &.hover {
+        background: var(--p-button-outlined-primary-hover-background);
+        border: 1px solid var(--p-button-outlined-primary-hover-border-color);
+        color: var(--p-button-outlined-primary-hover-color);
+        svg {
+          color: var(--p-button-outlined-primary-disabled-color);
+        }
+      }
     }
     &.p-button-contrast {
       svg {
-        color: var(--p-button-outlined-contrast-icon-color);
+        color: var(--p-button-outlined-contrast-color);
       }
-      &:not(:disabled):hover {
+      &:not(:disabled):hover,
+      &.hover {
         border-color: var(--p-button-outlined-contrast-hover-border-color);
         color: var(--p-button-outlined-contrast-hover-color);
         svg {
@@ -330,21 +383,51 @@
   }
 
   &-icon-only {
-    width: auto;
-    height: auto;
+    // width: 40px;
+    // height: 40px;
     padding: 0;
     border: none !important;
+    svg {
+      margin: 0;
+    }
   }
   &-text {
-    .p-button-label {
+    padding: 0;
+    border: none;
+    color: var(--p-button-text-plain-color);
+    svg {
+      margin: 0 !important;
       color: var(--p-button-text-plain-color);
-
+    }
+    .p-button-label {
+      font-weight: 400;
       font-size: var(--Font-Button-Small, 14px);
       font-style: normal;
       letter-spacing: -0.35px;
     }
     &.p-focus {
       background: var(--p-button-text-focus-background);
+    }
+    &:not(:disabled):hover,
+    &.hover {
+      background: var(--p-button-text-primary-hover-background);
+      border-color: transparent;
+      color: var(--p-button-text-plain-hover-color);
+      svg {
+        color: var(--p-button-text-plain-hover-color);
+      }
+    }
+    &:disabled {
+      color: var(--p-button-text-plain-disabled-color);
+      svg {
+        color: var(--p-button-text-plain-disabled-color);
+      }
+    }
+    @include breakpoint {
+      .p-button-label {
+        font-size: 14px;
+        letter-spacing: -0.35px;
+      }
     }
   }
   &-link {
@@ -353,12 +436,11 @@
     .p-button-label {
       font-size: var(--Font-Heading-Xsmall, 14px);
       font-style: normal;
-      font-weight: 700;
+      font-weight: 400;
       letter-spacing: -0.35px;
     }
   }
-  @media screen and (max-width: $BreakpointMd) {
-    border-radius: 60px;
+  @include breakpoint {
     &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text):not(
         .p-button-link
       ):not(.p-button-sm):not(.p-button-lg) {
@@ -371,7 +453,6 @@
       &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text):not(
           .p-button-link
         ) {
-        height: 44px;
         padding: 0 20px;
       }
     }

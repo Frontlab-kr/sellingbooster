@@ -1,330 +1,565 @@
 @use './mixins' as *;
 
 .ico {
-  &-24-block {
-    display: block;
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    background: url(../icons/24/block.svg) no-repeat 50% 50%;
-    background-size: cover;
-    @media screen and (max-width: $BreakpointMd) {
-      min-width: 20px;
-      width: 20px;
-      height: 20px;
+  //snb
+  &-snb {
+    &-home {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
     }
-  }
-  &-24-report {
-    display: block;
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    background: url(../icons/24/report.svg) no-repeat 50% 50%;
-    background-size: cover;
-    @media screen and (max-width: $BreakpointMd) {
-      min-width: 20px;
-      width: 20px;
-      height: 20px;
+    &-menu-close {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
     }
-  }
-  &-24-edit {
-    display: block;
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    background: url(../icons/24/edit.svg) no-repeat 50% 50%;
-    background-size: cover;
-    @media screen and (max-width: $BreakpointMd) {
-      min-width: 20px;
-      width: 20px;
-      height: 20px;
+    &-menu-open {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
     }
-  }
-  &-24-trash {
-    display: block;
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    background: url(../icons/24/trash.svg) no-repeat 50% 50%;
-    background-size: cover;
-    @media screen and (max-width: $BreakpointMd) {
-      min-width: 20px;
-      width: 20px;
-      height: 20px;
+    &-logout {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
     }
-  }
-  &-24-delete {
-    display: block;
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    background: url(../icons/24/delete.svg) no-repeat 50% 50%;
+    &-document {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-chart {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-chat {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
   }
 
-  //nuxt icon
-  &-16-paperclip {
-    min-width: 16px;
-    width: 16px;
-    height: 16px;
-    color: var(--p-gray-400);
-  }
-  &-16-login {
-    min-width: 16px;
-    width: 16px;
-    height: 16px;
-  }
-  &-16-smile {
-    min-width: 16px;
-    width: 16px;
-    height: 16px;
-    color: var(--p-gray-400);
-  }
-  &-16-profile {
-    min-width: 16px;
-    width: 16px;
-    height: 16px;
-    color: var(--p-gray-400);
-  }
-  &-16-card {
-    min-width: 16px;
-    width: 16px;
-    height: 16px;
-    color: var(--p-gray-400);
-  }
-  &-16-alert-circle {
-    min-width: 16px;
-    width: 16px;
-    height: 16px;
-    color: var(--p-gray-400);
-  }
-  &-16-document {
-    min-width: 16px;
-    width: 16px;
-    height: 16px;
-    color: var(--p-gray-400);
+  //arrow
+  &-arrow {
+    &-small-up {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-small-down {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-small-right {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-small-left {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-small-up-left {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-small-up-right {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-small-down-right {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-small-down-left {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-achevron-down {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-achevron-left {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-achevron-right {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-achevron-up {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-up {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-down {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-right {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-600);
+    }
+    &-left {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-600);
+    }
+    &-up-left {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-up-right {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-down-right {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-down-left {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-bent-arrow {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-600);
+    }
   }
 
-  &-20-delete {
-    min-width: 20px;
-    width: 20px;
-    height: 20px;
-    --path-color-1: var(--p-gray-400);
-    --path-color-2: var(--p-gray-200);
-  }
-  &-20-comment-delete {
-    min-width: 20px;
-    width: 20px;
-    height: 20px;
-    color: var(--p-gray-600);
-  }
-  &-24-paperclip {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    color: var(--p-gray-400);
-  }
-
-  &-24-download {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    color: var(--p-gray-400);
-    @media screen and (max-width: $BreakpointMd) {
+  //system
+  &-system {
+    &-delete {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-200);
+    }
+    &-close {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-900);
+    }
+    &-plus {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-dotmenu {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-download {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+      @include breakpoint {
+        min-width: 16px;
+        width: 16px;
+        height: 16px;
+      }
+    }
+    &-setting {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-refresh {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-600);
+      @include breakpoint {
+        min-width: 20px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &-check {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-edit {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      @include breakpoint {
+        min-width: 20px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &-paperclip {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-bell-on {
+      min-width: 25px;
+      width: 25px;
+      height: 25px;
+      color: var(--p-gray-500);
+    }
+    &-bell-off {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-star {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-trash {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+      @include breakpoint {
+        min-width: 20px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    &-filecheck {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-search {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-user {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-link {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-globe {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-mode-dark {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-mode-light {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-calendar {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-eye-open {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-eye-closed {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-report {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-like {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-message {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-share {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-message-circle {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-clock {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-300);
+    }
+    &-umbrella {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-cloud {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-sun {
+      min-width: 25px;
+      width: 25px;
+      height: 25px;
+      color: var(--p-gray-400);
+    }
+    &-information-circle {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-600);
+    }
+    &-alert-circle {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-600);
+    }
+    &-block {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-face-happy {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-900);
+    }
+    &-face-neutral {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-900);
+    }
+    &-face-sad {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-900);
+    }
+    &-face-wink {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-900);
+    }
+    &-smile {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-300);
+    }
+    &-profile {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-card {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-document {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-login {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-menu {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-500);
+    }
+    &-trend-up {
+      min-width: 16px;
+      width: 16px;
+      height: 16px;
+    }
+    &-trend-down {
       min-width: 16px;
       width: 16px;
       height: 16px;
     }
   }
 
-  &-24-back {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    color: #454f5b;
-    @media screen and (max-width: $BreakpointMd) {
-      min-width: 20px;
-      width: 20px;
-      height: 20px;
+  //etc
+  &-etc-comment-delete {
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+    color: var(--p-gray-600);
+  }
+
+  //illustration
+  &-illustration {
+    &-check-circle {
+      width: 64px;
+      height: 64px;
+      --path-color-1: var(--p-green-600);
+      --path-color-2: var(--p-green-300);
     }
-  }
-  &-24-plus {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    color: #6a7381;
-  }
-  &-24-down {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    @media screen and (max-width: $BreakpointMd) {
-      min-width: 20px;
-      width: 20px;
-      height: 20px;
-    }
-  }
-  &-24-up-right {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    color: var(--p-gray-400);
-  }
-
-  &-24-comment-check {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-
-    color: var(--primary-500_00B1BD, var(--primary-500_00B1BD, #00b1bd));
-  }
-
-  &-100-smile {
-    min-width: 100px;
-    width: 100px;
-    height: 100px;
-    --path-color-1: var(--p-gray-300);
-    --path-color-2: var(--p-gray-400);
-    @media screen and (max-width: $BreakpointMd) {
+    &-smile {
       min-width: 80px;
       width: 80px;
       height: 80px;
+      --path-color-1: var(--p-gray-300);
+      --path-color-2: var(--p-gray-400);
     }
-  }
-  &-100-frown {
-    min-width: 100px;
-    width: 100px;
-    height: 100px;
-    --path-color-1: var(--p-gray-300);
-    --path-color-2: var(--p-gray-400);
-    @media screen and (max-width: $BreakpointMd) {
+    &-frown {
       min-width: 80px;
       width: 80px;
       height: 80px;
+      --path-color-1: var(--p-gray-300);
+      --path-color-2: var(--p-gray-400);
     }
   }
 
-  //
-  //여기서부터 새로
-  &-24-search {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-  }
-  &-24-mode-light {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-  }
-  &-24-mode-dark {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-  }
-
-  &-24-globe {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    color: #6a7381;
-  }
-  &-24-bell-on {
-    min-width: 25px;
-    width: 25px;
-    height: 25px;
-    color: var(--p-gray-500);
-  }
-  &-24-menu {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    color: var(--p-gray-500);
-  }
-  &-24-arrow-right {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    color: #454f5b;
-  }
-  &-24-header-back {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    color: var(--p-gray-800);
-  }
-  &-24-refresh {
-    min-width: 24px;
-    width: 24px;
-    height: 24px;
-    color: #454f5b;
-    @media screen and (max-width: $BreakpointMd) {
-      min-width: 20px;
-      width: 20px;
-      height: 20px;
-    }
-  }
-
-  //32
-  &-32-like {
-    min-width: 32px;
-    width: 32px;
-    height: 32px;
-    color: var(--p-gray-400);
-    &.active {
-      color: #00b1bd;
-    }
-    @media screen and (max-width: $BreakpointMd) {
-      min-width: 24px;
-      width: 24px;
-      height: 24px;
-    }
-  }
-  &-32-message {
-    min-width: 32px;
-    width: 32px;
-    height: 32px;
-    color: var(--p-gray-400);
-    @media screen and (max-width: $BreakpointMd) {
-      min-width: 24px;
-      width: 24px;
-      height: 24px;
-    }
-  }
-  &-32-share {
-    min-width: 32px;
-    width: 32px;
-    height: 32px;
-    color: var(--p-gray-400);
-    @media screen and (max-width: $BreakpointMd) {
-      min-width: 24px;
-      width: 24px;
-      height: 24px;
-    }
-  }
-  &-32-dotmenu {
-    min-width: 32px;
-    width: 32px;
-    height: 32px;
-    color: var(--p-gray-400);
-    @media screen and (max-width: $BreakpointMd) {
-      min-width: 24px;
-      width: 24px;
-      height: 24px;
-    }
-  }
-  //64
-  &-64-check-circle {
-    width: 64px;
-    height: 64px;
-  }
+  //profile
   &-profile-default {
     width: 48px;
     height: 48px;
     --path-color-1: var(--p-gray-300);
     --path-color-2: #eaecf1;
   }
-}
 
-.ico {
+  //social
   &-social-facebook {
     svg {
       display: block;
@@ -379,30 +614,22 @@
 
 .p-dark {
   .ico {
-    &-20-delete {
-      --path-color-1: var(--p-gray-400);
-      --path-color-2: var(--p-gray-800);
-    }
-    &-20-comment-delete {
-      color: var(--p-gray-400);
-    }
-    &-24-header-back {
+    //system
+    &-system-bell-on {
       color: var(--p-gray-00);
     }
-    &-24-bell-on {
-      color: var(--p-gray-00);
-    }
-    &-24-menu {
-      color: var(--p-gray-00);
-    }
-    &-100-smile {
-      --path-color-1: var(--p-gray-600);
-      --path-color-2: var(--p-gray-600);
+
+    //profile
+    &-profile-lv1 {
+      width: 48px;
+      height: 48px;
     }
     &-profile-default {
       --path-color-1: var(--p-gray-600);
       --path-color-2: #6a7381;
     }
+
+    //social
     &-social-facebook {
       svg {
         --path-color-1: var(--p-gray-400);
@@ -430,6 +657,22 @@
     &-social-copy {
       svg {
         --path-color-1: var(--p-gray-400);
+        --path-color-2: var(--p-gray-600);
+      }
+    }
+
+    //illustration
+    &-illustration {
+      &-check-circle {
+        --path-color-1: var(--p-green-600);
+        --path-color-2: var(--p-green-300);
+      }
+      &-smile {
+        --path-color-1: var(--p-gray-600);
+        --path-color-2: var(--p-gray-600);
+      }
+      &-frown {
+        --path-color-1: var(--p-gray-600);
         --path-color-2: var(--p-gray-600);
       }
     }

@@ -8,7 +8,7 @@
     </div>
     <div class="sb-login-form">
       <div class="sb-login-form__input">
-        <InputText placeholder="이메일" />
+        <InputText placeholder="아이디" />
         <Password toggleMask :feedback="false" placeholder="비밀번호" />
       </div>
       <div class="sb-checkbox">
@@ -26,22 +26,22 @@
       <div class="sb-login-form__social">
         <Button rounded severity="white">
           <template #icon>
-            <Icon48naver class="ico-48-naver" />
+            <IconEtcnaver class="ico-etc-naver" />
           </template>
         </Button>
         <Button rounded severity="white">
           <template #icon>
-            <Icon48kakaotalk class="ico-48-kakaotalk" />
+            <IconEtckakaotalk class="ico-etc-kakaotalk" />
           </template>
         </Button>
         <Button rounded severity="white">
           <template #icon>
-            <Icon48google class="ico-48-google" />
+            <IconEtcgoogle class="ico-etc-google" />
           </template>
         </Button>
         <Button rounded severity="white">
           <template #icon>
-            <Icon48apple class="ico-48-apple" />
+            <IconEtcapple class="ico-etc-apple" />
           </template>
         </Button>
       </div>
@@ -59,10 +59,10 @@ definePageMeta({
 });
 
 import { ref } from 'vue';
-import Icon48naver from '@/assets/icons/48/naver.svg?component';
-import Icon48kakaotalk from '@/assets/icons/48/kakaotalk.svg?component';
-import Icon48google from '@/assets/icons/48/google.svg?component';
-import Icon48apple from '@/assets/icons/48/apple.svg?component';
+import IconEtcnaver from '@/assets/icons/etc/naver.svg?component';
+import IconEtckakaotalk from '@/assets/icons/etc/kakaotalk.svg?component';
+import IconEtcgoogle from '@/assets/icons/etc/google.svg?component';
+import IconEtcapple from '@/assets/icons/etc/apple.svg?component';
 
 const isSaveId = ref(false);
 </script>

@@ -73,6 +73,8 @@ export default defineNuxtConfig({
         'Column',
         'Stepper',
         'Message',
+        'Chip',
+        'Popover',
       ],
     },
     options: {

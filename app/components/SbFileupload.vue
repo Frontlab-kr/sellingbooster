@@ -27,29 +27,27 @@
           removeUploadedFileCallback,
           removeFileCallback,
         }"
+        v-if="files.length > 0"
       >
-        <div v-if="files.length > 0">
-          <div class="sb-attachment">
-            <a
-              :href="file.objectURL"
-              class="sb-attachment-item"
-              v-for="(file, index) of files"
-              :key="file.name + file.type + file.size"
-            >
-              <p>
-                {{ file.name }}
-              </p>
+        <div class="sb-attachment">
+          <a
+            :href="file.objectURL"
+            class="sb-attachment-item"
+            v-for="(file, index) of files"
+            :key="file.name + file.type + file.size"
+          >
+            <p>
+              {{ file.name }}
+            </p>
 
-              <div class="sb-attachment-item__size">
-                <strong>{{ formatSize(file.size) }}</strong> / 50MB
-              </div>
-              <Icon
-                name="sb:24-delete"
-                class="ico-24-delete"
-                @click="onRemoveTemplatingFile(file, removeFileCallback, index)"
-              />
-            </a>
-          </div>
+            <div class="sb-attachment-item__size">
+              <strong>{{ formatSize(file.size) }}</strong> / 50MB
+            </div>
+            <IconSystemDelete
+              class="ico-system-delete"
+              @click="onRemoveTemplatingFile(file, removeFileCallback, index)"
+            />
+          </a>
         </div>
       </template>
       <template #empty> </template>
@@ -60,6 +58,8 @@
 <script setup>
 import { ref } from 'vue';
 import { usePrimeVue } from 'primevue/config';
+
+import IconSystemDelete from '@/assets/icons/system/delete.svg?component';
 
 const $primevue = usePrimeVue();
 

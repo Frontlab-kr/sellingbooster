@@ -8,7 +8,7 @@
       <div class="sb-auth-form-item">
         <label>이메일<strong>*</strong></label>
         <div class="sb-auth-form-item__input">
-          <InputText placeholder="이메일 주소를 입력해주세요." />
+          <SbInput placeholder="이메일 주소를 입력해주세요." />
           <Button label="메일 재발송" severity="primary" outlined />
         </div>
         <div class="sb-auth-form-item__message">
@@ -17,10 +17,11 @@
           >
         </div>
         <div class="sb-auth-form-item__input">
-          <div class="sb-input">
-            <InputNumber placeholder="인증코드 입력를 입력해주세요." />
-            <div class="sb-input__time">03:59</div>
-          </div>
+          <SbInput
+            v-model="authCode"
+            placeholder="인증번호를 입력하세요"
+            time="03:59"
+          />
           <Button label="코드 인증" severity="primary" outlined />
         </div>
       </div>
@@ -222,6 +223,8 @@ definePageMeta({
 
 import { reactive, computed } from 'vue';
 import Policy from '@/pages/auth/signup/policy.vue';
+
+const authCode = ref('');
 
 //dialog
 const dialogPolicy = ref(false);

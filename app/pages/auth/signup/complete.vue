@@ -1,12 +1,12 @@
 <template>
   <div class="sb-auth-complete">
     <div class="sb-auth-complete__icon">
-      <Icon64checkCircle class="ico-64-check-circle" />
+      <IconIllustrationCheckCircle class="ico-illustration-check-circle" />
     </div>
     <div class="sb-auth-complete__title">
       <h4>
         <strong>반가워요, 셀러님</strong><br />
-        설레는 시작을 도와드릴게요
+        설레는 시작을 도와드릴게요.
       </h4>
     </div>
     <div class="sb-auth-complete__text">
@@ -48,29 +48,5 @@
 definePageMeta({
   layout: 'auth',
 });
-
-import { reactive, computed } from 'vue';
-
-import Icon64checkCircle from '@/assets/icons/64/check-circle.svg?component';
-
-// 1. 개별 체크박스 상태 관리
-const agreements = reactive({
-  agree01: false,
-  agree02: false,
-  agree03: false,
-});
-
-// 2. 전체 동의 계산 및 조작 로직
-const allSelected = computed({
-  // 모든 항목이 true일 때만 전체 동의 체크박스가 체크됨
-  get() {
-    return Object.values(agreements).every((status) => status === true);
-  },
-  // 전체 동의 체크박스를 클릭했을 때 모든 항목을 해당 값(true/false)으로 변경
-  set(value) {
-    agreements.agree01 = value;
-    agreements.agree02 = value;
-    agreements.agree03 = value;
-  },
-});
+import IconIllustrationCheckCircle from '@/assets/icons/illustration/check-circle.svg?component';
 </script>

@@ -13,7 +13,7 @@
       margin-bottom: 40px;
     }
     &-form {
-      margin-bottom: 48px;
+      margin-bottom: 40px;
       padding: 0 16px;
       &-item {
         margin-bottom: 40px;
@@ -29,6 +29,15 @@
           align-items: center;
           gap: 16px;
           margin-bottom: 16px;
+          &__title {
+            color: var(--onboarding-form-item-body-title-color);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 22.4px */
+            letter-spacing: -0.4px;
+            word-break: keep-all;
+          }
           strong {
             color: var(--required-color);
           }
@@ -37,7 +46,7 @@
             color: var(--onboarding-form-item-head-text-color);
             font-size: 12px;
             font-style: normal;
-            font-weight: 700;
+            font-weight: 400;
             line-height: 140%; /* 16.8px */
             letter-spacing: -0.3px;
           }
@@ -116,6 +125,10 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 20px;
+        .ico-illustration-check-circle {
+          --path-color-1: var(--p-green-500);
+          --path-color-2: var(--p-green-400);
+        }
       }
       &__title {
         margin-bottom: 40px;
@@ -143,10 +156,13 @@
         padding: 24px;
         border-radius: 16px;
         background: var(--onboarding-complete-info-background);
-        h6 {
+        > strong {
+          display: block;
           margin-bottom: 16px;
           color: var(--onboarding-complete-info-title-color);
-          text-align: center;
+          font-size: 16px;
+          line-height: 140%; /* 22.4px */
+          letter-spacing: -0.4px;
         }
         ul {
           display: flex;
@@ -172,6 +188,9 @@
               border: 1px solid
                 var(--onboarding-complete-info-icon-border-color);
               background: var(--onboarding-complete-info-icon-background);
+              svg {
+                color: var(--onboarding-complete-info-icon-color);
+              }
             }
             p {
               margin: 0;
@@ -197,7 +216,7 @@
         }
       }
     }
-    @media screen and (max-width: $BreakpointMd) {
+    @include breakpoint {
       min-width: 100%;
       width: auto;
       min-height: 100vh;
@@ -232,8 +251,13 @@
             align-items: flex-start;
             gap: 4px;
             margin-bottom: 12px;
-            h6 {
+            &__title {
+              color: var(--onboarding-form-item-body-title-color);
               font-size: 16px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 140%; /* 22.4px */
+              letter-spacing: -0.4px;
               word-break: keep-all;
             }
             p {
@@ -313,14 +337,14 @@
         min-height: 100vh;
         margin: 0 auto;
         margin: -80px -20px -40px -20px;
-        padding: 80px 20px 0;
+        padding: 104px 20px 0;
         border-radius: 0;
         &__icon {
           display: flex;
           align-items: center;
           justify-content: center;
           margin-bottom: 20px;
-          .ico-64-check-circle {
+          .ico-illustration-check-circle {
             width: 48px;
             height: 48px;
           }
@@ -331,11 +355,10 @@
           font-weight: 400;
           p {
             margin: 12px 0 0 0;
-            font-size: 15px;
-            font-style: normal;
+            font-size: 14px;
             font-weight: 400;
-            line-height: 130%; /* 19.5px */
-            letter-spacing: -0.375px;
+            line-height: 140%; /* 19.6px */
+            letter-spacing: -0.35px;
           }
         }
         &__info {
@@ -345,13 +368,12 @@
           align-items: center;
           padding: 24px;
           border-radius: 16px;
-          h6 {
+          > strong {
             margin-bottom: 20px;
-            font-size: var(--Font-Heading-Small, 16px);
-            font-style: normal;
+            font-size: 14px;
             font-weight: 700;
-            line-height: 130%; /* 20.8px */
-            letter-spacing: -0.4px;
+            line-height: 140%; /* 19.6px */
+            letter-spacing: -0.35px;
           }
           ul {
             display: flex;
@@ -391,7 +413,7 @@
           align-items: center;
           justify-content: center;
           gap: 8px;
-          margin: 48px 0 32px 0;
+          margin: 48px 0 48px 0;
           .p-button {
             width: auto;
           }

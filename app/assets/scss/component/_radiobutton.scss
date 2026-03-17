@@ -113,6 +113,11 @@
       opacity: 0;
     }
   }
+  &.p-disabled {
+    .p-radiobutton-icon {
+      background-color: var(--p-gray-100);
+    }
+  }
 }
 .p-radiobutton-checked:not(.p-disabled) .p-radiobutton-icon {
   border-color: var(--p-radiobutton-checked-border-color);
@@ -129,5 +134,5 @@
     background-color: var(--p-radiobutton-checked-hover-border-color);
   }
 }
-@media screen and (max-width: $BreakpointMd) {
+@include breakpoint {
 }

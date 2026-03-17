@@ -14,7 +14,12 @@
         <Button label="이벤트" variant="text" />
         <Button label="작업" variant="text" />
       </div>
-      <SbSearchbar v-model="searchKeyword" placeholder="공지사항 검색" />
+      <SbInput
+        v-model="searchKeyword"
+        show-search
+        @search="onSearch"
+        placeholder="공지사항 검색"
+      />
     </div>
     <div class="sb-notice">
       <div class="sb-notice-list">
@@ -28,7 +33,7 @@
       <div class="sb-notice-list-button">
         <Button severity="contrast" outlined>
           <span class="p-button-label">더보기(16/83)</span>
-          <Icon24down class="ico-24-down" />
+          <IconArrowAchevronDown class="ico-arrow-achevron-down" />
         </Button>
       </div>
     </div>
@@ -38,7 +43,7 @@
 <script setup>
 import { ref } from 'vue';
 import Item from './item.vue';
-import Icon24down from '@/assets/icons/24/down.svg?component';
+import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
 
 const searchKeyword = ref('');
 
@@ -52,73 +57,73 @@ const breadcrumb = ref([
 // list
 const list = ref([
   {
-    status: 'danger',
+    badge: { value: '긴급', severity: 'danger' },
     title: '셀링부스터 관계자 관련 피싱 주의 당부',
     date: '2026.01.14',
     attachment: false,
   },
   {
-    status: 'default',
+    badge: { value: '기본', severity: 'secondary' },
     title: '국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내',
     date: '2026.01.14',
     attachment: true,
   },
   {
-    status: 'important',
+    badge: { value: '중요', severity: 'warn' },
     title: '셀링부스터 사칭 사이트에 대한 주의 안내',
     date: '2026.01.14',
     attachment: true,
   },
   {
-    status: 'technical',
+    badge: { value: '기술', severity: 'success' },
     title: '네이버 로그인 기능 오류 안내',
     date: '2026.01.14',
     attachment: true,
   },
   {
-    status: 'etc',
+    badge: { value: '기타', severity: 'contrast' },
     title: '알림 기능 오류 안내',
     date: '2026.01.14',
     attachment: false,
   },
   {
-    status: 'danger',
+    badge: { value: '긴급', severity: 'danger' },
     title: '셀링부스터 관계자 관련 피싱 주의 당부',
     date: '2026.01.14',
     attachment: false,
   },
   {
-    status: 'important',
+    badge: { value: '중요', severity: 'warn' },
     title: '셀링부스터 사칭 사이트에 대한 주의 안내',
     date: '2026.01.14',
     attachment: true,
   },
   {
-    status: 'technical',
+    badge: { value: '기술', severity: 'success' },
     title: '네이버 로그인 기능 오류 안내',
     date: '2026.01.14',
     attachment: true,
   },
   {
-    status: 'etc',
+    badge: { value: '기타', severity: 'contrast' },
     title: '알림 기능 오류 안내',
     date: '2026.01.14',
     attachment: false,
   },
   {
-    status: 'danger',
+    badge: { value: '긴급', severity: 'danger' },
     title: '셀링부스터 관계자 관련 피싱 주의 당부',
     date: '2026.01.14',
     attachment: false,
   },
   {
-    status: 'default',
+    badge: { value: '기본', severity: 'secondary' },
     title: '국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내',
     date: '2026.01.14',
     attachment: true,
   },
   {
-    status: 'important',
+    badge: { value: '중요', severity: 'warn' },
     title: '셀링부스터 사칭 사이트에 대한 주의 안내',
     date: '2026.01.14',
     attachment: true,

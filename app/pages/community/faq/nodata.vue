@@ -13,10 +13,15 @@
         <Button label="가입방법" variant="text" />
         <Button label="기능소개" variant="text" />
       </div>
-      <SbSearchbar v-model="searchKeyword" placeholder="FAQ 검색" />
+      <SbInput
+        v-model="searchKeyword"
+        show-search
+        @search="onSearch"
+        placeholder="FAQ 검색"
+      />
     </div>
     <div class="sb-nodata">
-      <Icon100smile class="ico-100-smile" />
+      <IconIllustrationSmile class="ico-illustration-smile" />
       <div class="sb-nodata__text">
         <p>
           궁금하신 내용을<br class="mo" />
@@ -26,7 +31,7 @@
       <div class="sb-nodata__button">
         <Button severity="contrast" outlined>
           <span class="p-button-label">문의하기</span>
-          <Icon24arrowRight class="ico-24-arrow-right" />
+          <IconArrowUpRight class="ico-arrow-up-right" />
         </Button>
       </div>
     </div>
@@ -35,8 +40,8 @@
 
 <script setup>
 import { ref } from 'vue';
-import Icon100smile from '@/assets/icons/100/smile.svg?component';
-import Icon24arrowRight from '@/assets/icons/24/arrow-right.svg?component';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
+import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 
 // breadcrumb
 const breadcrumb = ref([

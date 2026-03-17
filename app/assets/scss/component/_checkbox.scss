@@ -49,7 +49,7 @@
     align-items: center;
     border-radius: var(--p-checkbox-border-radius);
     border: none;
-    background: url(./../../icons/24/checkbox.svg) no-repeat 50% 50%;
+    background: var(--checkbox-url);
     width: var(--p-checkbox-width);
     height: var(--p-checkbox-height);
     svg {
@@ -57,9 +57,9 @@
     }
   }
   &-checked .p-checkbox-box {
-    background: url(./../../icons/24/checkbox-active.svg) no-repeat 50% 50%;
+    background: var(--checkbox-url-active);
   }
   &.p-disabled .p-checkbox-box {
-    background: url(./../../icons/24/checkbox-disabled.svg) no-repeat 50% 50%;
+    background: var(--checkbox-url-disabled);
   }
 }
