@@ -22,6 +22,9 @@ const MyPreset = definePreset(Aura, {
 });
 
 export default defineNuxtConfig({
+  routeRules: {
+    '/trend/trend': { prerender: false },
+  },
   app: {
     baseURL: '/sellingbooster/',
     buildAssetsDir: 'assets',

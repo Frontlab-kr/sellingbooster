@@ -57,9 +57,6 @@
 
 <script setup>
 import { ref } from 'vue';
-import Icon24favorite from '@/assets/icons/24/favorite.svg?component';
-import Icon24favoriteActive from '@/assets/icons/24/favorite-active.svg?component';
-import Icon24delete from '@/assets/icons/24/delete.svg?component';
 
 //breadcrumb
 const breadcrumb = ref([
