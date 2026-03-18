@@ -11,6 +11,7 @@
   --p-radiobutton-width: 24px;
   --p-radiobutton-height: 24px;
   --p-radiobutton-background: none;
+  --p-radiobutton-icon-background: #fff;
   --p-radiobutton-checked-background: var(--p-primary-color);
   --p-radiobutton-checked-hover-background: var(--p-primary-hover-color);
   --p-radiobutton-disabled-background: var(--p-form-field-disabled-background);
@@ -45,6 +46,7 @@
     --p-radiobutton-checked-border-color: var(--p-primary-300);
     --p-radiobutton-color: var(--p-gray-00);
     --p-radiobutton-bolor-color: var(--p-gray-400);
+    --p-radiobutton-icon-background: none;
   }
 }
 .p-radiobutton {
@@ -91,7 +93,7 @@
   &-icon {
     position: relative;
     transition-duration: var(--p-radiobutton-transition-duration);
-    background: transparent;
+    background: var(--p-radiobutton-icon-background);
     font-size: 0;
     width: var(--p-radiobutton-icon-size);
     height: var(--p-radiobutton-icon-size);

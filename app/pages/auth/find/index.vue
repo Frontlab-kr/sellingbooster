@@ -17,10 +17,11 @@
           >
         </div>
         <div class="sb-auth-form-item__input">
-          <div class="sb-input">
-            <InputNumber placeholder="인증코드 입력를 입력해주세요." />
-            <div class="sb-input__time">03:59</div>
-          </div>
+          <SbInput
+            v-model="authCode"
+            placeholder="인증번호를 입력하세요"
+            time="03:59"
+          />
           <Button label="코드 인증" severity="primary" outlined disabled />
         </div>
       </div>

@@ -96,7 +96,7 @@
                     <h4 class="font-normal">Display 4-Regular</h4>
                   </td>
                   <td>Pretendard JP</td>
-                  <td>Bold (700)</td>
+                  <td>Regular (400)</td>
                   <td>32</td>
                   <td>130%</td>
                   <td>-2.5%</td>
@@ -175,7 +175,7 @@
                     <h4 class="font-normal">Display 4-Regular</h4>
                   </td>
                   <td>Pretendard JP</td>
-                  <td>Bold (700)</td>
+                  <td>Regular (400)</td>
                   <td>24</td>
                   <td>130%</td>
                   <td>-2.5%</td>
@@ -319,7 +319,7 @@
                   <td>Pretendard JP</td>
                   <td>Bold (700)</td>
                   <td>20</td>
-                  <td>130%</td>
+                  <td>140%</td>
                   <td>-2.5%</td>
                 </tr>
                 <tr>
@@ -329,7 +329,7 @@
                   <td>Pretendard JP</td>
                   <td>Bold (700)</td>
                   <td>18</td>
-                  <td>130%</td>
+                  <td>140%</td>
                   <td>-2.5%</td>
                 </tr>
                 <tr>
@@ -347,7 +347,7 @@
                   <td>Pretendard JP</td>
                   <td>Bold (700)</td>
                   <td>16</td>
-                  <td>130%</td>
+                  <td>140%</td>
                   <td>-2.5%</td>
                 </tr>
                 <tr>
@@ -365,7 +365,7 @@
                   <td>Pretendard JP</td>
                   <td>Bold (700)</td>
                   <td>14</td>
-                  <td>130%</td>
+                  <td>140%</td>
                   <td>-2.5%</td>
                 </tr>
               </tbody>

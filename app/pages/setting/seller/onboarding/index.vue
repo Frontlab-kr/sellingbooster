@@ -4,7 +4,7 @@
       <StepList>
         <Step value="1">기본 정보</Step>
         <Step value="2">판매자 정보</Step>
-        <Step value="3">오픈마켓 연동</Step>
+        <Step value="3">오픈마켓 정보</Step>
       </StepList>
       <StepPanels>
         <StepPanel v-slot="{ activateCallback }" value="1">
@@ -45,9 +45,9 @@
                     class="sb-auth-form-item__checkbox"
                     v-if="selectedLicense === 'Y'"
                   >
-                    <div class="sb-checkbox">
-                      <div class="sb-checkbox-item">
-                        <Checkbox
+                    <div class="sb-radio">
+                      <div class="sb-radio-item">
+                        <RadioButton
                           v-model="userTypes"
                           inputId="user-individual"
                           value="individual"
@@ -55,8 +55,8 @@
                         <label for="user-individual"> 개인 </label>
                       </div>
 
-                      <div class="sb-checkbox-item">
-                        <Checkbox
+                      <div class="sb-radio-item">
+                        <RadioButton
                           v-model="userTypes"
                           inputId="user-corporate"
                           value="corporate"
@@ -64,8 +64,8 @@
                         <label for="user-corporate"> 법인 </label>
                       </div>
 
-                      <div class="sb-checkbox-item">
-                        <Checkbox
+                      <div class="sb-radio-item">
+                        <RadioButton
                           v-model="userTypes"
                           inputId="user-overseas"
                           value="overseas"
@@ -553,7 +553,7 @@ const selectedConcerns = ref([]);
 const customConcernText = ref('');
 const selectedPlatforms = ref([]);
 
-const userTypes = ref([]);
+const userTypes = ref('individual');
 const marketingConsent = ref('N');
 const consentMethods = ref([]);
 

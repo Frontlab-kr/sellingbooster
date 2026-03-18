@@ -24,7 +24,7 @@
         </template>
       </Button>
     </div>
-    <div class="sb-input__button">
+    <div class="sb-input__button" v-if="model">
       <Button variant="text" rounded @click="clearText">
         <template #icon>
           <IconSystemDelete class="ico-system-delete" />

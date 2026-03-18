@@ -1,0 +1,79 @@
+<template>
+  <div class="sb-community">
+    <div class="sb-community-head">
+      <div class="sb-community-head__title">
+        <h4>FAQ</h4>
+        <Breadcrumb :model="breadcrumb" />
+      </div>
+    </div>
+    <div class="sb-community-menu">
+      <div class="sb-tab">
+        <Button label="전체(999)" variant="text" class="active" />
+        <Button label="사용방법" variant="text" />
+        <Button label="가입방법" variant="text" />
+        <Button label="기능소개" variant="text" />
+      </div>
+      <SbInput
+        v-model="searchKeyword"
+        show-search
+        @search="onSearch"
+        placeholder="FAQ 검색"
+      />
+    </div>
+    <div class="sb-faq">
+      <div class="sb-faq-list">
+        <Item
+          v-for="faq in list"
+          :key="faq.id"
+          :item="faq"
+          @item-click="viewOpen"
+          :search-text="searchKeyword"
+        />
+      </div>
+    </div>
+  </div>
+
+  <Dialog v-model:visible="dialogView" modal>
+    <View />
+  </Dialog>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import Item from './item.vue';
+import View from './view.vue';
+
+import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
+
+const searchKeyword = ref('실시간');
+
+//dialog
+const dialogView = ref(false);
+
+// breadcrumb
+const breadcrumb = ref([
+  { label: 'Home' },
+  { label: '커뮤니티' },
+  { label: 'FAQ' },
+]);
+
+//data
+const list = ref([
+  {
+    badge: { value: '사용방법', severity: 'success' },
+    title: '실시간 데이터를 엑셀 파일로 한 번에 내려받으려면 어떻게 하나요?',
+  },
+  {
+    badge: { value: '기능소개', severity: 'warn' },
+    title: '실시간 매출 현황은 얼마나 자주 업데이트되나요?',
+  },
+  {
+    badge: { value: '사용방법', severity: 'success' },
+    title: '실시간 메인 화면의 위젯 위치를 제 취향대로 바꿀 수 있나요?',
+  },
+]);
+
+const viewOpen = () => {
+  dialogView.value = true;
+};
+</script>

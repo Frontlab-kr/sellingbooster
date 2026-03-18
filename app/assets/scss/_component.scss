@@ -111,6 +111,7 @@
             border: none;
             &__contents {
               margin: 0 0 0 104px;
+              color: var(--comment-reply-text-color);
             }
             &__foot {
               margin: 8px 0 0 104px;
@@ -118,7 +119,6 @@
           }
           .ico-arrow-bent-arrow {
             margin: 0 12px 0 4px;
-            color: #f60;
             color: var(--comment-item-replay-icon-color);
           }
         }
@@ -338,7 +338,7 @@
       top: 50%;
       right: 20px;
       transform: translateY(-50%);
-      opacity: 0;
+
       .ico-system-delete {
         color: var(--input-delete-color);
       }
@@ -375,15 +375,15 @@
     &__search ~ .sb-input__button {
       right: 56px;
     }
-    &:focus-within &,
-    &:focus & {
-      &__button {
-        opacity: 1;
-      }
-    }
-    .focus ~ .sb-input__button {
-      opacity: 1;
-    }
+    // &:focus-within &,
+    // &:focus & {
+    //   &__button {
+    //     opacity: 1;
+    //   }
+    // }
+    // .focus ~ .sb-input__button {
+    //   opacity: 1;
+    // }
     &--disabled {
       pointer-events: none;
     }

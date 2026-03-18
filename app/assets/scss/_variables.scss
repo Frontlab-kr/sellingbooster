@@ -299,6 +299,7 @@
   --comment-item-background: var(--p-gray-00);
   --comment-item-border-color: var(--p-gray-300);
   --comment-reply-background: var(--p-gray-50);
+  --comment-reply-text-color: var(--p-gray-0);
   --comment-item-name-color: var(--p-primary-500);
   --comment-item-date-color: var(--p-gray-400);
   --comment-item-replay-icon-color: var(--p-gray-400);
@@ -430,7 +431,7 @@
   --login-background-mo: #eff1f4;
   --login-title-color: var(--p-gray-900);
   --login-link-border-color: var(--p-gray-300);
-  --login-link-color: var(--p-gray-400);
+  --login-link-color: var(--p-gray-500);
   --login-divider-color: var(--p-gray-300);
   --login-text-color: var(--p-gray-400);
 
@@ -508,7 +509,8 @@
     --comment-write-length-color: var(--p-gray-500);
     --comment-item-background: var(--p-gray-800);
     --comment-item-border-color: var(--p-gray-600);
-    --comment-reply-background: var(--p-gray-700);
+    --comment-reply-background: var(--p-gray-900);
+    --comment-reply-text-color: var(--p-gray-400);
     --comment-item-name-color: var(--p-primary-300);
     --comment-item-date-color: var(--p-gray-400);
     --comment-item-replay-icon-color: var(--p-gray-400);
@@ -617,7 +619,7 @@
     --faq-view-a-background: var(--p-primary-300);
     --faq-view-a-color: var(--p-gray-900);
     --faq-view-text-background: var(--p-gray-900);
-    --faq-view-text-color: var(--p-gray-100);
+    --faq-view-text-color: var(--p-gray-400);
 
     --story-view-name-color: var(--p-primary-300);
     --story-view-date-color: var(--p-gray-400);

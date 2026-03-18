@@ -61,6 +61,7 @@
             >
             <NuxtLink to="/community/faq/">Faq</NuxtLink>
             <NuxtLink to="/community/faq/nodata">Faq Nodata</NuxtLink>
+            <NuxtLink to="/community/faq/hasdata">Faq HasData</NuxtLink>
             <NuxtLink to="/community/story/">성장스토리</NuxtLink>
             <NuxtLink to="/community/story/view">성장스토리 상세</NuxtLink>
             <NuxtLink to="/community/story/write"

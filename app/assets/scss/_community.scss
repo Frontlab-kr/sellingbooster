@@ -702,6 +702,7 @@
         background: var(--faq-view-q-background);
         color: var(--faq-view-q-color);
         font-size: var(--Font-Heading-Medium, 20px);
+        font-weight: 700;
       }
       &__a {
         display: flex;
@@ -714,6 +715,7 @@
         background: var(--faq-view-a-background);
         color: var(--faq-view-a-color);
         font-size: var(--Font-Heading-Medium, 20px);
+        font-weight: 700;
       }
       &__text {
         display: flex;
