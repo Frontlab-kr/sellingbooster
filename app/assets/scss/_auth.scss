@@ -245,6 +245,7 @@
     &__button {
       display: flex;
       justify-content: center;
+      gap: 8px;
       padding-top: 40px;
       .p-button {
         width: 100%;
@@ -331,12 +332,33 @@
         }
       }
     }
+    &-survey {
+      &__title {
+        margin-bottom: 16px;
+        color: var(--auth-survey-title-color);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%; /* 22.4px */
+        letter-spacing: -0.4px;
+      }
+      .sb-checkbox {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
+    &-checkbox {
+      margin: 40px 0 0 0;
+    }
+    &-link {
+      margin: 40px 16px 0;
+    }
     @include breakpoint {
       min-width: 100%;
       width: 100%;
       min-height: 100vh;
       margin: -56px 0 0 0;
-      padding: 80px 20px 40px;
+      padding: 80px 20px 32px;
       border-radius: 0;
       &__title {
         margin-bottom: 32px;
@@ -375,6 +397,7 @@
             }
             .sb-radio,
             .sb-checkbox {
+              flex-direction: row;
               column-gap: 20px;
             }
           }
@@ -473,6 +496,17 @@
             min-width: auto;
           }
         }
+      }
+      &-survey {
+        &__title {
+          margin-bottom: 20px;
+        }
+      }
+      &-checkbox {
+        margin: 20px 0 0 0;
+      }
+      &-link {
+        margin: 32px 0 0;
       }
     }
   }

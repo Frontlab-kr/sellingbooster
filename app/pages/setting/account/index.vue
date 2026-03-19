@@ -1,23 +1,18 @@
 <template>
   <div class="sb-auth">
     <h5 class="sb-auth__title">
-      셀러가 되는 첫 순간,<br />
-      셀링부스터와 함께라면 든든합니다.
+      소중한 개인 정보<br />
+      언제든지 수정하고 관리하실 수 있어요.
     </h5>
     <div class="sb-auth-form">
       <div class="sb-auth-form-item">
         <label>이메일<strong>*</strong></label>
         <div class="sb-auth-form-item__input">
-          <SbInput placeholder="이메일 주소를 입력해주세요." />
-          <Button label="인증 코드 발송" severity="primary" outlined disabled />
-        </div>
-        <div class="sb-auth-form-item__input">
           <SbInput
-            placeholder="인증코드 입력를 입력해주세요."
-            time="03:00"
-            number
+            placeholder="이메일 주소를 입력해주세요."
+            :model-value="'email@mail.com'"
+            disabled
           />
-          <Button label="코드 인증" severity="primary" outlined disabled />
         </div>
       </div>
       <div class="sb-auth-form-item">
@@ -28,6 +23,7 @@
             :feedback="false"
             placeholder="비밀번호를 입력해주세요."
           />
+          <Button label="비밀번호 변경" severity="primary" outlined />
         </div>
         <div class="sb-auth-form-item__message">
           <Message size="small" severity="neutral" variant="simple"
@@ -43,6 +39,22 @@
             :feedback="false"
             placeholder="비밀번호를 한 번 더 입력해 주세요."
           />
+        </div>
+      </div>
+      <div class="sb-auth-form-item">
+        <label>닉네임<strong>*</strong></label>
+        <div class="sb-auth-form-item__input">
+          <SbInput
+            placeholder="이메일 주소를 입력해주세요."
+            :model-value="'몰지각한오렌지주스'"
+            disabled
+          />
+          <Button label="추천 변경" severity="primary" outlined />
+        </div>
+        <div class="sb-auth-form-item__message">
+          <Message size="small" severity="neutral" variant="simple"
+            >닉네임 변경을 원하시면 [추천 변경 버튼]을 클릭 해주세요.</Message
+          >
         </div>
       </div>
       <div class="sb-auth-form-item">
@@ -109,11 +121,6 @@
         <div class="sb-auth-form-item__text">
           <Message size="small" severity="neutral" variant="simple"
             >※ 중요 알림 사항은 수신 동의 여부 상관 없이 발송 됩니다.</Message
-          >
-          <Message size="small" severity="neutral" variant="simple"
-            >※ 알림 수신 여부는 [환경설정 >
-            <NuxtLink to="/">알림 설정</NuxtLink>] 메뉴에서도 변경
-            가능합니다.</Message
           >
         </div>
       </div>
@@ -196,8 +203,19 @@
         </dd>
       </dl>
     </div>
+    <div class="sb-auth-link">
+      <NuxtLink to="/setting/account/delete">
+        <Button variant="text" label="Text button">
+          <span class="p-button-label" data-pc-section="label" data-p=""
+            >회원탈퇴</span
+          >
+          <IconArrowAchevronRight class="ico-arrow-achevron-right" />
+        </Button>
+      </NuxtLink>
+    </div>
     <div class="sb-auth__button">
-      <Button label="가입하기" severity="primary" size="large" disabled />
+      <Button label="취소" severity="contrast" size="large" outlined />
+      <Button label="저장하기" severity="primary" size="large" disabled />
     </div>
   </div>
 
@@ -207,12 +225,10 @@
 </template>
 
 <script setup>
-definePageMeta({
-  layout: 'auth',
-});
-
 import { reactive, computed } from 'vue';
 import Policy from '@/pages/auth/signup/policy.vue';
+
+import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 
 //dialog
 const dialogPolicy = ref(false);

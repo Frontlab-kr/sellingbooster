@@ -13,7 +13,6 @@
     </div>
     <div class="sb-textarea-contents">
       <Textarea
-        autoResize
         v-model="internalValue"
         :maxlength="maxlength"
         :placeholder="placeholder"

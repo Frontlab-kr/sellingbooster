@@ -6,6 +6,22 @@
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>
+
+    <!-- <SbChartPie
+      :score="85"
+      :total-score="100"
+      status-text="매우 좋음"
+      main-color="#00B1BD"
+      sub-color="#00B1BD"
+      pointer-border-color="rgba(0, 177, 189, 0.2)"
+    /> -->
+    <div class="flex">
+      <SbChartPie :score="95" label="상품 등록" status="high" />
+
+      <SbChartPie :score="60" label="판매 관리" status="normal" />
+
+      <SbChartPie :score="30" label="정산 현황" status="low" />
+    </div>
     <div class="sb-trend-contents">
       <div class="sb-trend-detail">
         <div class="grid">
@@ -31,7 +47,6 @@
                   </div>
                 </div>
                 <div class="sb-chart-pie sb-chart-pie--medium">
-                  <SbChartPie :score="75" />
                   <div class="sb-chart-pie__text">
                     <strong>좋음</strong>
                     <p><span>61점</span>/100점</p>
@@ -221,10 +236,7 @@
                     :key="index"
                     :item="item"
                   >
-                    <Badge
-                      :value="getStatusDetail(item.status).label"
-                      :style="getStatusDetail(item.status)"
-                    />
+                    <Badge value="사용방법" severity="success"></Badge>
                     <p>
                       <strong>{{ item.title }}</strong>
                       <span>{{ item.text }}</span>
@@ -243,10 +255,7 @@
                     :key="index"
                     :item="item"
                   >
-                    <Badge
-                      :value="getStatusDetail(item.status).label"
-                      :style="getStatusDetail(item.status)"
-                    />
+                    <Badge value="사용방법" severity="success"></Badge>
                     <p>
                       <strong>{{ item.title }}</strong>
                       <span>{{ item.text }}</span>
@@ -265,10 +274,7 @@
                     :key="index"
                     :item="item"
                   >
-                    <Badge
-                      :value="getStatusDetail(item.status).label"
-                      :style="getStatusDetail(item.status)"
-                    />
+                    <Badge value="사용방법" severity="success"></Badge>
                     <p>
                       <strong>{{ item.title }}</strong>
                       <span>{{ item.text }}</span>

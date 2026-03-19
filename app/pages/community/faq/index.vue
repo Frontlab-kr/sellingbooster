@@ -26,6 +26,7 @@
           v-for="faq in list"
           :key="faq.id"
           :item="faq"
+          :search-text="searchKeyword"
           @item-click="viewOpen"
         />
       </div>
@@ -49,6 +50,8 @@ import Item from './item.vue';
 import View from './view.vue';
 
 import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
+
+const searchKeyword = ref('');
 
 //dialog
 const dialogView = ref(false);

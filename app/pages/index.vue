@@ -83,7 +83,7 @@
       </Card>
     </div>
     <!-- <div>
-      <h5 >마켓 트렌드</h5>
+      <h5>마켓 트렌드</h5>
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
@@ -94,6 +94,19 @@
             <NuxtLink to="/trend/product/detail">상품 분석 상세</NuxtLink>
             <NuxtLink to="/trend/product/write">상품 분석 쓰기</NuxtLink>
             <NuxtLink to="/trend/keyword">키워드</NuxtLink>
+          </div>
+        </template>
+      </Card>
+    </div>
+    <div>
+      <h5>환경설정</h5>
+      <Card>
+        <template #content>
+          <div class="flex flex-column gap-2">
+            <NuxtLink to="/setting/account/">개인정보</NuxtLink>
+            <NuxtLink to="/setting/account/delete">회원탈퇴</NuxtLink>
+            <NuxtLink to="/setting/seller/channel">채널연동</NuxtLink>
+            <NuxtLink to="/setting/seller/alarm">알림 설정</NuxtLink>
           </div>
         </template>
       </Card>

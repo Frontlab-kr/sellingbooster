@@ -21,6 +21,7 @@
             v-model="authCode"
             placeholder="인증번호를 입력하세요"
             time="03:59"
+            number
           />
           <Button label="코드 인증" severity="primary" outlined />
         </div>

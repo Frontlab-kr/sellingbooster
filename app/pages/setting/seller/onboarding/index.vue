@@ -307,7 +307,12 @@
                 </div>
               </div>
               <div class="sb-onboarding-form-item__input">
-                <SbInput placeholder="휴대폰 번호를 입력해주세요." />
+                <SbInput
+                  placeholder="휴대폰 번호를 입력해주세요."
+                  time="03:00"
+                  number
+                  phone
+                />
                 <Button
                   label="인증 코드 발송"
                   severity="primary"
@@ -316,10 +321,11 @@
                 />
               </div>
               <div class="sb-onboarding-form-item__input">
-                <div class="sb-input">
-                  <InputNumber placeholder="인증코드 입력를 입력해주세요." />
-                  <div class="sb-input__time">03:59</div>
-                </div>
+                <SbInput
+                  placeholder="인증코드 입력를 입력해주세요."
+                  time="03:59"
+                  number
+                />
                 <Button
                   label="코드 인증"
                   severity="primary"
@@ -344,10 +350,11 @@
                 />
               </div>
               <div class="sb-onboarding-form-item__input">
-                <div class="sb-input">
-                  <InputNumber placeholder="인증코드 입력를 입력해주세요." />
-                  <div class="sb-input__time">03:59</div>
-                </div>
+                <SbInput
+                  placeholder="인증코드 입력를 입력해주세요."
+                  time="03:59"
+                  number
+                />
                 <Button
                   label="코드 인증"
                   severity="primary"

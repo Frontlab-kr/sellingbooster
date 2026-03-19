@@ -7,7 +7,7 @@
     <div class="sb-faq-list-item__badge">
       <Badge v-bind="item.badge" />
     </div>
-    <h6 class="sb-faq-list-item__title" v-html="noticeTitle"></h6>
+    <h6 class="sb-faq-list-item__title" v-html="faqTitle"></h6>
     <div class="sb-faq-list-item__foot">
       <IconArrowUpRight class="ico-arrow-up-right" />
     </div>
@@ -28,7 +28,7 @@ const props = defineProps({
   },
 });
 
-const noticeTitle = computed(() => {
+const faqTitle = computed(() => {
   const title = props.item.title;
   const target = props.searchText;
 

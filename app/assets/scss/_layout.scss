@@ -453,6 +453,7 @@
     }
     &-contents {
       padding: 24px 20px 32px 20px;
+      padding: 0;
     }
     &--layout-auth {
       background: var(--auth-background-image);
@@ -464,7 +465,7 @@
         }
       }
       &-contents {
-        padding: 0px;
+        padding: 0;
       }
     }
   }

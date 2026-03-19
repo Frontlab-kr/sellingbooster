@@ -440,6 +440,7 @@
   --auth-form-item-border-color: var(--p-gray-300);
   --auth-form-item-label-color: var(--p-gray-600);
   --auth-form-item-checkbox-background: var(--p-gray-100);
+  --auth-survey-title-color: var(--p-gray-600);
 
   --auth-complete-background: var(--p-gray-00);
   --auth-complete-title-color: var(--p-gray-900);
@@ -467,6 +468,20 @@
   --onboarding-complete-info-icon-border-color: var(--p-gray-200);
   --onboarding-complete-info-icon-background: var(--p-gray-00);
   --onboarding-complete-info-text-color: var(--p-gray-700);
+
+  //alarm
+  --alarm-background-image: #eff1f4 url(./../images/login-bg.jpg) no-repeat 0
+    100%;
+
+  --alarm-background: var(--p-gray-00);
+  --alarm-title-color: var(--p-gray-900);
+  --alarm-form-item-border-color: var(--p-gray-300);
+  --alarm-form-item-label-color: var(--p-gray-600);
+  --alarm-form-item-checkbox-background: var(--p-gray-100);
+
+  --alarm-complete-background: var(--p-gray-00);
+  --alarm-complete-title-color: var(--p-gray-900);
+  --alarm-complete-text-color: var(--p-gray-900);
 
   &.p-dark,
   .p-dark {
@@ -644,6 +659,7 @@
     --auth-form-item-border-color: var(--p-gray-600);
     --auth-form-item-label-color: var(--p-gray-00);
     --auth-form-item-checkbox-background: var(--p-gray-700);
+    --auth-survey-title-color: var(--p-gray-00);
 
     --auth-complete-background: var(--p-gray-800);
     --auth-complete-title-color: var(--p-gray-00);

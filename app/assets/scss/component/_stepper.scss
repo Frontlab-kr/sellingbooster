@@ -75,6 +75,9 @@
     --p-stepper-separator-size: 2px;
     --p-stepper-transition-duration: var(--p-transition-duration);
   }
+  @include breakpoint {
+    --p-stepper-step-header-gap: 10px;
+  }
 }
 
 .p-steplist {

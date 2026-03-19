@@ -1,5 +1,5 @@
 <template>
-  <div class="sb-chart-pie__chart">
+  <div class="sb-chart-pie" :style="{ width: size, height: size }">
     <v-chart class="chart" :option="chartOption" autoresize />
   </div>
 </template>
@@ -8,71 +8,131 @@
 import { computed } from 'vue';
 import { use } from 'echarts/core';
 import { CanvasRenderer } from 'echarts/renderers';
-import { PieChart, CustomChart } from 'echarts/charts';
-import { TitleComponent, TooltipComponent } from 'echarts/components';
+import { GaugeChart } from 'echarts/charts';
 import VChart from 'vue-echarts';
 
-use([CanvasRenderer, PieChart, CustomChart, TitleComponent, TooltipComponent]);
+// SVG 아이콘 Import
+import DotHigh from '@/assets/icons/chart/dot-high.svg';
+import DotNormal from '@/assets/icons/chart/dot-normal.svg';
+import DotLow from '@/assets/icons/chart/dot-low.svg';
 
-// 1. 부모 컴포넌트에서 props로 score 받아오기
+use([CanvasRenderer, GaugeChart]);
+
 const props = defineProps({
-  score: {
-    type: Number,
-    required: true,
-    default: 0,
-  },
+  score: { type: Number, default: 0 },
+  label: { type: String, default: '' },
+  status: { type: String, default: 'normal' }, // high, normal, low
+  size: { type: String, default: '400px' },
+  totalScore: { type: Number, default: 100 },
 });
 
-// 2. 받아온 props 사용
-const TOTAL_SEGMENTS = 15;
-const UNFILLED_COLOR = '#EAECF1';
-const GAP_ANGLE = 1.5;
-
-// 점수에 따른 그래프 색상 계산
-const chartColor = computed(() => {
-  if (props.score >= 80) return '#00B1BD'; // 좋음: 초록
-  if (props.score >= 40) return '#F2C94C'; // 보통: 노랑
-  return '#EB5757'; // 나쁨: 빨강
+// 상태별 설정 매핑
+const statusConfig = computed(() => {
+  const configs = {
+    high: {
+      color: '#03AB67',
+      text: '최고',
+      icon: DotHigh,
+    },
+    normal: {
+      color: '#52A3F5',
+      text: '보통',
+      icon: DotNormal,
+    },
+    low: {
+      color: '#FFB22E',
+      text: '낮음',
+      icon: DotLow,
+    },
+  };
+  return configs[props.status] || configs.normal;
 });
 
 const chartOption = computed(() => {
-  const data = [];
-  const totalAngle = 180;
-
-  const segmentAngle =
-    (totalAngle - GAP_ANGLE * (TOTAL_SEGMENTS - 1)) / TOTAL_SEGMENTS;
-
-  // 3. props.score를 사용하여 계산
-  const filledSegments = Math.floor((props.score / 100) * TOTAL_SEGMENTS);
-
-  for (let i = 0; i < TOTAL_SEGMENTS; i++) {
-    const isFilled = i < filledSegments;
-    data.push({
-      itemStyle: {
-        color: isFilled ? chartColor.value : UNFILLED_COLOR,
-      },
-    });
-  }
+  const { color, text, icon } = statusConfig.value;
 
   return {
     series: [
+      // 1. 메인 게이지 및 중앙 텍스트
       {
-        type: 'pie',
+        type: 'gauge',
         startAngle: 180,
         endAngle: 0,
-        clockwise: true,
-        center: ['50%', '50%'],
-        radius: ['60%', '100%'],
-        label: { show: false },
-        itemStyle: {
-          borderRadius: 5,
-          borderColor: '#fff',
-          borderWidth: 3,
+        center: ['50%', '65%'],
+        radius: '100%',
+        z: 2,
+        max: props.totalScore,
+        pointer: { show: false },
+        axisLine: {
+          lineStyle: {
+            width: 14,
+            color: [[1, '#EAECF1']],
+          },
         },
-        data: data.map((item) => ({
-          value: segmentAngle,
-          itemStyle: item.itemStyle,
-        })),
+        progress: {
+          show: true,
+          roundCap: true,
+          width: 14,
+          itemStyle: { color: color },
+        },
+        axisTick: { show: false },
+        splitLine: { show: false },
+        axisLabel: { show: false },
+        data: [{ value: props.score }],
+        detail: {
+          offsetCenter: [0, '-20%'],
+          formatter: () => {
+            return `{label|${props.label}} {status|${text}}\n{score|${props.score}}{unit|점}`;
+          },
+          rich: {
+            label: {
+              fontSize: 26,
+              color: '#666',
+              fontWeight: '500',
+              padding: [0, 5, 0, 0],
+            },
+            status: {
+              fontSize: 26,
+              color: color,
+              fontWeight: 'bold',
+            },
+            score: {
+              fontSize: 54,
+              color: '#1A1A1A',
+              fontWeight: 'bold',
+              padding: [20, 0, 0, 0],
+            },
+            unit: {
+              fontSize: 26,
+              color: '#1A1A1A',
+              fontWeight: 'bold',
+              padding: [20, 0, 0, 2],
+            },
+          },
+        },
+      },
+      // 2. 이모지(상태 도트) 포인터
+      {
+        type: 'gauge',
+        startAngle: 180,
+        endAngle: 0,
+        center: ['50%', '65%'],
+        radius: '100%',
+        z: 3,
+        pointer: {
+          show: true,
+          icon: `image://${icon}`,
+          length: '100%',
+          width: 22,
+          offsetCenter: [0, 0],
+        },
+        progress: { show: false },
+        axisLine: { show: false },
+        axisTick: { show: false },
+        splitLine: { show: false },
+        axisLabel: { show: false },
+        detail: { show: false },
+        data: [{ value: props.score }],
       },
     ],
   };
