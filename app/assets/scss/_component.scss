@@ -128,12 +128,13 @@
       }
     }
     @include breakpoint {
-      margin: 8px 0 0 0;
+      margin: 0 0 0 0;
       &-write {
         display: none;
       }
       &-write-mo {
         display: none;
+        display: flex;
         &__bg {
           position: fixed;
           top: 0;

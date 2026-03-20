@@ -1152,8 +1152,9 @@
       }
       &-view {
         margin: -80px -20px 0;
-        padding: 80px 20px 32px 20px;
+        padding: 80px 20px 24px 20px;
         border-radius: 0;
+        border-bottom: 8px solid var(--body-background);
         overflow: hidden;
         &__head {
           display: flex;
