@@ -81,7 +81,7 @@
                 <div class="sb-guide-item-subbox-item-contents">
                   <Badge value="긴급" severity="danger"></Badge>
                   <Badge value="중요" severity="warn"></Badge>
-                  <Badge value="기술" severity="success"></Badge>
+                  <Badge value="기술" severity="info"></Badge>
                   <Badge value="기본" severity="secondary"></Badge>
                   <Badge value="기타" severity="contrast"></Badge>
                 </div>
@@ -90,7 +90,7 @@
                 <div class="sb-guide-item-subbox-item-contents">
                   <Badge value="긴급" severity="danger"></Badge>
                   <Badge value="중요" severity="warn"></Badge>
-                  <Badge value="기술" severity="success"></Badge>
+                  <Badge value="기술" severity="info"></Badge>
                   <Badge value="기본" severity="secondary"></Badge>
                   <Badge value="기타" severity="contrast"></Badge>
                 </div>

@@ -39,7 +39,11 @@
         <img src="https://picsum.photos/id/1/800/800" alt="" />
       </div>
       <div class="sb-attachment">
-        <NuxtLink to="" class="sb-attachment-item">
+        <NuxtLink
+          to="https://picsum.photos/id/1/800/800"
+          target="_blank"
+          class="sb-attachment-item"
+        >
           <p>
             파일 첨부했을 경우 첨부파일 정보가 노출.jpg파일 첨부했을 경우
             첨부파일 정보가 노출.jpg파일 첨부했을 경우 첨부파일 정보가

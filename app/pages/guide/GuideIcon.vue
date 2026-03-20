@@ -45,6 +45,16 @@
               </div>
               <p>24x24</p>
             </div>
+            <div class="sb-guide-icon-example-item">
+              <div class="sb-guide-icon-example-item__icon">
+                <span
+                  ><IconSystemDocument
+                    class="ico-system-document"
+                    style="min-width: 32px; width: 32px; height: 32px"
+                /></span>
+              </div>
+              <p>32x32</p>
+            </div>
           </div>
         </div>
         <div class="sb-guide-item">

@@ -51,7 +51,10 @@
       <div class="sb-form-item">
         <label>파일 첨부</label>
         <div class="sb-form-item-content">
-          <SbFileupload />
+          <SbFileupload
+            :limit="1"
+            accept=".jpg,.jpeg,.png,.gif,.webp,.tiff,.bmp,.svg,.mp4,.avi,.mov,.wmv"
+          />
           <div class="sb-fileupload__text">
             <p>※ 첨부파일은 50MB 이내 1개만 등록 가능합니다.</p>
             <p class="mb-0">※ 아래에 안내된 파일 형식만 첨부가 가능합니다.</p>

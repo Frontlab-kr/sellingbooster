@@ -4,8 +4,10 @@
       name="demo[]"
       url="/api/upload"
       @upload="onTemplatedUpload($event)"
-      :multiple="true"
+      :multiple="false"
       :maxFileSize="50000000"
+      :fileLimit="limit"
+      :accept="accept"
       @select="onSelectedFiles"
     >
       <template
@@ -17,6 +19,7 @@
             severity="contrast"
             label="파일 찾기"
             size="small"
+            :disabled="files.length >= limit"
           />
         </div>
       </template>
@@ -30,24 +33,28 @@
         v-if="files.length > 0"
       >
         <div class="sb-attachment">
-          <a
-            :href="file.objectURL"
+          <div
+            target="_blank"
             class="sb-attachment-item"
             v-for="(file, index) of files"
             :key="file.name + file.type + file.size"
           >
-            <p>
+            <a :href="file.objectURL">
               {{ file.name }}
-            </p>
+            </a>
 
             <div class="sb-attachment-item__size">
               <strong>{{ formatSize(file.size) }}</strong> / 50MB
             </div>
-            <IconSystemDelete
-              class="ico-system-delete"
+            <Button
+              variant="text"
               @click="onRemoveTemplatingFile(file, removeFileCallback, index)"
-            />
-          </a>
+            >
+              <template #icon>
+                <IconSystemDelete class="ico-system-delete" />
+              </template>
+            </Button>
+          </div>
         </div>
       </template>
       <template #empty> </template>
@@ -56,10 +63,20 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, defineProps } from 'vue';
 import { usePrimeVue } from 'primevue/config';
-
 import IconSystemDelete from '@/assets/icons/system/delete.svg?component';
+
+const props = defineProps({
+  accept: {
+    type: String,
+    default: '*',
+  },
+  limit: {
+    type: Number,
+    default: 5,
+  },
+});
 
 const $primevue = usePrimeVue();
 

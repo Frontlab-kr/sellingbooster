@@ -10,7 +10,7 @@
       </p>
     </div>
     <div class="sb-guide-body">
-      <div class="sb-guide-light">
+      <div class="sb-guide-dark">
         <div class="sb-guide-item">
           <div class="sb-guide-item-head">
             <h2>Main Color</h2>
@@ -66,7 +66,9 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-indigo-300"></div>
+              <div class="sb-guide-color-item__bg bg-indigo-300">
+                <p>Main</p>
+              </div>
               <div class="sb-guide-color-item__text">
                 <p>Primary-300</p>
                 <strong>#3adde9</strong>
@@ -80,9 +82,7 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-indigo-500">
-                <p>Main</p>
-              </div>
+              <div class="sb-guide-color-item__bg bg-indigo-500"></div>
               <div class="sb-guide-color-item__text">
                 <p>Primary-500</p>
                 <strong>#00b1bd</strong>
@@ -156,16 +156,16 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-slate-400"></div>
+              <div class="sb-guide-color-item__bg bg-slate-400">
+                <p>Main</p>
+              </div>
               <div class="sb-guide-color-item__text">
                 <p>secondary-400</p>
                 <strong>#8385fc</strong>
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-slate-500">
-                <p>Main</p>
-              </div>
+              <div class="sb-guide-color-item__bg bg-slate-500"></div>
               <div class="sb-guide-color-item__text">
                 <p>secondary-500</p>
                 <strong>#6466fa</strong>
@@ -246,9 +246,7 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-gray-100">
-                <p>Backgraound</p>
-              </div>
+              <div class="sb-guide-color-item__bg bg-gray-100"></div>
               <div class="sb-guide-color-item__text">
                 <p>gray-100</p>
                 <strong>#f4f5f7</strong>
@@ -262,9 +260,7 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-gray-300">
-                <p>Line</p>
-              </div>
+              <div class="sb-guide-color-item__bg bg-gray-300"></div>
               <div class="sb-guide-color-item__text">
                 <p>gray-300</p>
                 <strong>#d1d6dd</strong>
@@ -285,7 +281,7 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-gray-600"></div>
+              <div class="sb-guide-color-item__bg bg-gray-600"><p>Line</p></div>
               <div class="sb-guide-color-item__text">
                 <p>gray-600</p>
                 <strong>#454f5b</strong>
@@ -306,7 +302,12 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-gray-900"></div>
+              <div
+                class="sb-guide-color-item__bg bg-gray-900"
+                style="border: 1px solid var(--p-gray-700)"
+              >
+                <p>Backgraound</p>
+              </div>
               <div class="sb-guide-color-item__text">
                 <p>gray-900</p>
                 <strong>#1b1f27</strong>
@@ -323,17 +324,17 @@
           </div>
           <div class="sb-guide-color">
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-gray-900"></div>
+              <div class="sb-guide-color-item__bg bg-gray-00"></div>
               <div class="sb-guide-color-item__text">
                 <p>Text-main</p>
-                <strong>gray-900 #1B1F27</strong>
+                <strong>White #ffffff</strong>
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-gray-500"></div>
+              <div class="sb-guide-color-item__bg bg-gray-300"></div>
               <div class="sb-guide-color-item__text">
                 <p>Text-Sub</p>
-                <strong>gray-500 #6A7381</strong>
+                <strong>gray-300 #d1d6dd</strong>
               </div>
             </div>
             <div class="sb-guide-color-item">
@@ -344,10 +345,10 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-gray-300"></div>
+              <div class="sb-guide-color-item__bg bg-gray-600"></div>
               <div class="sb-guide-color-item__text">
                 <p>Text-disabled</p>
-                <strong>gray-300 #D1D6DD</strong>
+                <strong>gray-600 #495666</strong>
               </div>
             </div>
           </div>
@@ -355,55 +356,52 @@
         <div class="sb-guide-item">
           <div class="sb-guide-item-head">
             <h2>Bg Color</h2>
-            <h5>
-              Text에 사용되는 컬러는 Shade, Neutral 컬러에서 가져와 사용한다.
-            </h5>
           </div>
           <div class="sb-guide-color">
             <div class="sb-guide-color-item">
               <div
                 class="sb-guide-color-item__bg"
                 style="
-                  background-color: var(--body-background);
-                  border: 1px solid var(--Gray-300_D1D6DD, #d1d6dd);
+                  background-color: var(--p-gray-900);
+                  border: 1px solid var(--p-gray-700);
                 "
               ></div>
               <div class="sb-guide-color-item__text">
                 <p>Bg-01 / 페이지 기본</p>
-                <strong>#EFF1F4</strong>
+                <strong>gray-900 #1B1F27</strong>
               </div>
             </div>
             <div class="sb-guide-color-item">
               <div
                 class="sb-guide-color-item__bg"
                 style="
-                  background-color: var(--gray-00);
-                  border: 1px solid var(--Gray-300_D1D6DD, #d1d6dd);
+                  background-color: var(--p-gray-800);
+                  border: 1px solid var(--p-gray-700);
                 "
               ></div>
               <div class="sb-guide-color-item__text">
                 <p>Bg-02 / 팝업, 화면 박스</p>
-                <strong>#Ffffff</strong>
+                <strong>gray-800 #262F38</strong>
               </div>
             </div>
             <div class="sb-guide-color-item">
               <div
                 class="sb-guide-color-item__bg"
-                style="background-color: var(--p-gray-50)"
+                style="background-color: var(--p-gray-700)"
               ></div>
               <div class="sb-guide-color-item__text">
-                <p>Bg-03 / 설명 박스</p>
-                <strong>gray-50 #F9FBFC</strong>
+                <p>Bg-03 / 선택 요소 (첨부파일 등)</p>
+                <strong>gray-700 #38414F</strong>
               </div>
             </div>
             <div class="sb-guide-color-item">
               <div
                 class="sb-guide-color-item__bg"
-                style="background-color: var(--p-gray-100)"
+                style="background-color: var(--p-gray-600)"
               ></div>
               <div class="sb-guide-color-item__text">
-                <p>Bg-04 / 선택 요소 (첨부파일 등)</p>
-                <strong>gray-100 #F4F5F7</strong>
+                <p>Bg-04 / 드롭다운, 상위 레이어</p>
+                <strong>gray-600 #495666</strong>
               </div>
             </div>
           </div>
@@ -446,7 +444,7 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-red-400"></div>
+              <div class="sb-guide-color-item__bg bg-red-400"><p>Main</p></div>
               <div class="sb-guide-color-item__text">
                 <p>destructive-400</p>
                 <strong>#f6606b</strong>
@@ -460,7 +458,7 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-red-600"><p>Main</p></div>
+              <div class="sb-guide-color-item__bg bg-red-600"></div>
               <div class="sb-guide-color-item__text">
                 <p>destructive-600</p>
                 <strong>#e42636</strong>
@@ -518,7 +516,9 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-orange-400"></div>
+              <div class="sb-guide-color-item__bg bg-orange-400">
+                <p>Main</p>
+              </div>
               <div class="sb-guide-color-item__text">
                 <p>warning-400</p>
                 <strong>#ffcf52</strong>
@@ -532,9 +532,7 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-orange-600">
-                <p>Main</p>
-              </div>
+              <div class="sb-guide-color-item__bg bg-orange-600"></div>
               <div class="sb-guide-color-item__text">
                 <p>warning-600</p>
                 <strong>#ffb22e</strong>
@@ -592,16 +590,16 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-green-400"></div>
+              <div class="sb-guide-color-item__bg bg-green-400">
+                <p>Main</p>
+              </div>
               <div class="sb-guide-color-item__text">
                 <p>success-400</p>
                 <strong>#15c17c</strong>
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div class="sb-guide-color-item__bg bg-green-500">
-                <p>Main</p>
-              </div>
+              <div class="sb-guide-color-item__bg bg-green-500"></div>
               <div class="sb-guide-color-item__text">
                 <p>success-500</p>
                 <strong>#03ab67</strong>
