@@ -1,5 +1,8 @@
 <template>
-  <div :class="['sb-comment', { 'sb-comment--write': isReplyMode }]">
+  <div
+    ref="commentRef"
+    :class="['sb-comment', { 'sb-comment--write': isReplyMode }]"
+  >
     <div class="sb-comment-write">
       <SbTextarea
         v-model="textarea01"
@@ -7,14 +10,20 @@
         placeholder="댓글을 남겨보세요"
       />
     </div>
-    <div class="sb-comment-write-mo-mention" v-if="isReplyMode && mention">
+    <div class="sb-comment-write-mo-mention" v-if="isReplyTo && mention">
       <p>{{ mention }}님에게 답글 남기는 중</p>
-      <Button variant="text" @click="closeReplyMode">
+      <Button variant="text" @click="closeReplyTo">
         <IconEtcCommentDelete class="ico-etc-comment-delete" />
       </Button>
     </div>
     <div class="sb-comment-write-mo">
-      <div class="sb-comment-write-mo__bg" @click="closeReplyMode"></div>
+      <!-- <div
+        class="sb-comment-write-mo__bg"
+        @click="
+          closeReplyMode();
+          closeReplyTo();
+        "
+      ></div> -->
       <div class="sb-comment-write-mo__form">
         <InputText
           :placeholder="mention ? `@${mention}` : '댓글을 입력하세요.'"
@@ -53,7 +62,10 @@
             :like-count="item.likeCount"
             :comment-count="item.commentCount"
             :share-count="item.shareCount"
-            @reply="toggleReplyMode"
+            @reply="
+              openReplyMode();
+              openReplyTo();
+            "
           />
         </div>
         <div class="sb-comment-list-item-reply">
@@ -79,10 +91,14 @@
             </div>
             <div class="sb-comment-list-item__foot">
               <SbSocial
-                :visible-buttons="['like', 'reply']"
+                :visible-buttons="['like', 'comment', 'reply']"
                 :like-count="item.likeCount"
                 :comment-count="item.commentCount"
                 :share-count="item.shareCount"
+                @reply="
+                  openReplyMode();
+                  openReplyTo();
+                "
               />
             </div>
           </div>
@@ -113,7 +129,10 @@
             :like-count="item.likeCount"
             :comment-count="item.commentCount"
             :share-count="item.shareCount"
-            @reply="toggleReplyMode"
+            @reply="
+              openReplyMode();
+              openReplyTo();
+            "
           />
         </div>
         <div class="sb-comment-list-item-reply">
@@ -139,11 +158,14 @@
             </div>
             <div class="sb-comment-list-item__foot">
               <SbSocial
-                :visible-buttons="['like', 'reply']"
+                :visible-buttons="['like', 'comment', 'reply']"
                 :like-count="item.likeCount"
                 :comment-count="item.commentCount"
                 :share-count="item.shareCount"
-                @reply="toggleReplyMode"
+                @reply="
+                  openReplyMode();
+                  openReplyTo();
+                "
               />
             </div>
           </div>
@@ -184,11 +206,14 @@
             </div>
             <div class="sb-comment-list-item__foot">
               <SbSocial
-                :visible-buttons="['like', 'reply']"
+                :visible-buttons="['like', 'comment', 'reply']"
                 :like-count="item.likeCount"
                 :comment-count="item.commentCount"
                 :share-count="item.shareCount"
-                @reply="toggleReplyMode"
+                @reply="
+                  openReplyMode();
+                  openReplyTo();
+                "
               />
             </div>
           </div>
@@ -219,7 +244,10 @@
             :like-count="item.likeCount"
             :comment-count="item.commentCount"
             :share-count="item.shareCount"
-            @reply="toggleReplyMode"
+            @reply="
+              openReplyMode();
+              openReplyTo();
+            "
           />
         </div>
         <div class="sb-comment-list-item__write">
@@ -242,7 +270,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import StoryReport from '@/pages/community/story/report.vue';
 import SbSocial from '@/pages/community/components/SbSocial.vue';
 
@@ -260,22 +288,62 @@ import IconSystemReport from '@/assets/icons/system/report.svg?component';
 const textarea01 = ref('');
 const isReplyMode = ref(false);
 const isReplyVisible = ref(false);
-
+const isReplyTo = ref(false);
 const isMobile = ref(false);
 
+const commentRef = ref(null);
+let observer = null;
+
 onMounted(() => {
+  // 모바일 체크 로직
   isMobile.value = window.innerWidth <= 1024;
-  window.addEventListener('resize', () => {
+  const handleResize = () => {
     isMobile.value = window.innerWidth <= 1024;
-  });
+  };
+  window.addEventListener('resize', handleResize);
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // 화면에 보일 때
+          isReplyMode.value = true;
+        } else {
+          // 화면에서 완전히 벗어났을 때
+          isReplyMode.value = false;
+        }
+      });
+    },
+    {
+      // 요소가 조금이라도(0.1) 보이면 true, 아예 안 보이면 false가 됩니다.
+      threshold: 0.1,
+    },
+  );
+
+  if (commentRef.value) {
+    observer.observe(commentRef.value);
+  }
 });
 
-const toggleReplyMode = () => {
+onUnmounted(() => {
+  if (observer) observer.disconnect();
+  window.removeEventListener('resize', handleResize);
+});
+
+const openReplyMode = () => {
   isReplyMode.value = true;
 };
 
 const closeReplyMode = () => {
   isReplyMode.value = false;
+};
+
+const openReplyTo = () => {
+  isReplyTo.value = true;
+};
+
+const closeReplyTo = () => {
+  isReplyTo.value = false;
 };
 
 //dialog

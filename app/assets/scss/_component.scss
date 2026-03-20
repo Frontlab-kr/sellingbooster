@@ -134,7 +134,6 @@
       }
       &-write-mo {
         display: none;
-        display: flex;
         &__bg {
           position: fixed;
           top: 0;
@@ -193,9 +192,10 @@
           @include text-clamp(1);
         }
         .p-button {
-          min-width: 48px;
-          width: 48px;
-          height: 100%;
+          min-width: 24px;
+          width: 24px;
+          height: 24px;
+          margin-right: 12px;
           padding: 0;
         }
       }
