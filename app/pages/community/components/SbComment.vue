@@ -294,12 +294,13 @@ const isMobile = ref(false);
 const commentRef = ref(null);
 let observer = null;
 
+const handleResize = () => {
+  isMobile.value = window.innerWidth <= 1024;
+};
+
 onMounted(() => {
   // 모바일 체크 로직
   isMobile.value = window.innerWidth <= 1024;
-  const handleResize = () => {
-    isMobile.value = window.innerWidth <= 1024;
-  };
   window.addEventListener('resize', handleResize);
 
   observer = new IntersectionObserver(
