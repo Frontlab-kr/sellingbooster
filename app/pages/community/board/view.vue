@@ -20,9 +20,9 @@
         </div>
       </div>
 
-      <h4 class="sb-board-view__title">
+      <h6 class="sb-board-view__title">
         재고 운영 기준 다들 어떻게 잡고 계세요?
-      </h4>
+      </h6>
       <div class="sb-board-view__contents">
         <p>
           잘 나가던 상품이 갑자기 멈추거나, 반대로 예상보다 빠르게 소진되는
@@ -76,7 +76,7 @@
 
   <Dialog v-model:visible="dialogReport" modal class="p-dialog-sm">
     <div class="p-dialog-inner">
-      <h5 class="p-dialog-title">신고하기</h5>
+      <h6 class="p-dialog-title">신고하기</h6>
       <Report />
     </div>
   </Dialog>

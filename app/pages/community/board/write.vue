@@ -39,22 +39,20 @@
             </ul>
           </div>
         </div>
-        <div class="sb-board-write-form-item">
-          <div class="sb-caution">
-            <div class="sb-caution__title">작성시 주의 사항</div>
-            <ul>
-              <li>
-                서비스와 관련이 없는 비방/욕설/명예훼손성 게시글 및 광고글 등
-                부적절한 게시글 등록 시 글쓰기 제한 및 게시글이 삭제 조치 될 수
-                있습니다.
-              </li>
-              <li>
-                전화번호, 이메일 등 개인정보가 포함된 글 작성이 필요한 경우
-                노출에 주의 하시기 바랍니다.
-              </li>
-            </ul>
-          </div>
-        </div>
+      </div>
+      <div class="sb-caution">
+        <div class="sb-caution__title">작성시 주의 사항</div>
+        <ul>
+          <li>
+            서비스와 관련이 없는 비방/욕설/명예훼손성 게시글 및 광고글 등
+            부적절한 게시글 등록 시 글쓰기 제한 및 게시글이 삭제 조치 될 수
+            있습니다.
+          </li>
+          <li>
+            전화번호, 이메일 등 개인정보가 포함된 글 작성이 필요한 경우 노출에
+            주의 하시기 바랍니다.
+          </li>
+        </ul>
       </div>
       <div class="sb-board-write__button">
         <Button severity="contrast" size="large" label="취소" outlined />

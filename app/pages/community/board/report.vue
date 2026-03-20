@@ -11,12 +11,12 @@
       v-model="textarea01"
       maxlength="1000"
       placeholder="기타 사유는 필수 입력 항목입니다."
+      class="sb-textarea--simple"
     />
     <div class="sb-board-report__button">
       <Button
         severity="primary"
         label="신고하기"
-        size="large"
         :disabled="!textarea01.trim()"
       />
     </div>
