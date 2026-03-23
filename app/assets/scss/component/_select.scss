@@ -180,19 +180,11 @@
 
         //transform: translateX(-100%);
         .p-select-list {
-          padding: 12px 0;
+          padding: 10px 0;
         }
         .p-select-option {
           height: auto;
-          padding: 3px 15px;
-          &-label {
-            width: 100%;
-            text-align: center;
-            font-size: var(--Font-Body-Medium, 14px);
-            font-style: normal;
-            line-height: 140%; /* 19.6px */
-            letter-spacing: -0.35px;
-          }
+          padding: 6px 15px;
         }
       }
     }
