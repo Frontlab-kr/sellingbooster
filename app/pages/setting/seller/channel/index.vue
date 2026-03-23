@@ -1,4 +1,5 @@
 <template>
+  <SbMobileInfo />
   <div class="sb-auth">
     <h5 class="sb-auth__title">
       예비 셀러를 위한 채널 연동<br />
@@ -45,7 +46,7 @@
       <div class="sb-auth-form-item">
         <label>네이버 쇼핑 사전 준비 체크 사항</label>
         <div class="sb-caution">
-          <div class="sb-caution__title">1. 준비물</div>
+          <div class="sb-caution__subtitle">1. 준비물</div>
           <ul>
             <li>
               개인 (사업자 아님) : 본인 명의 휴대폰 / 인증 가능한 은행 계좌
@@ -57,7 +58,7 @@
           </ul>
         </div>
         <div class="sb-caution">
-          <div class="sb-caution__title">2. 등록 절차</div>
+          <div class="sb-caution__subtitle">2. 등록 절차</div>
           <ul>
             <li>
               가입 신청 : 스마트스토어센터 접속 >'가입하기'> 판매자
@@ -79,8 +80,8 @@
       <div class="sb-auth-form-item">
         <label>네이버쇼핑 신청 / 심사 체크 리스트</label>
         <div class="sb-caution">
-          <div class="sb-caution__title">1. 준비물</div>
-          <ul>
+          <div class="sb-caution__subtitle">1. 준비물</div>
+          <ul class="flex-row">
             <li>사업자등록증</li>
             <li>통신판매업신고증</li>
             <li>인감/서명</li>
@@ -89,17 +90,22 @@
           </ul>
         </div>
         <div class="sb-caution">
-          <div class="sb-caution__title">
+          <div class="sb-caution__subtitle">
             2. 미구비 서류 발급처 (관련 서류를 준비해주세요.)
           </div>
-          <ul>
+          <ul class="flex-row">
             <li>
               <Button variant="text">
                 <span class="p-button-label">사업자등록증</span>
                 <IconSystemLinkNew class="ico-system-link-new" />
               </Button>
             </li>
-            <li>통신판매업신고증</li>
+            <li>
+              <Button variant="text">
+                <span class="p-button-label">통신판매업신고증</span>
+                <IconSystemLinkNew class="ico-system-link-new" />
+              </Button>
+            </li>
             <li>인감/서명(주민센터 확인)</li>
             <li>대표지 명의 통장(은행 개설)</li>
           </ul>
@@ -110,8 +116,20 @@
         <div class="sb-auth-form-item__input">
           <SbInput
             placeholder="입점 승인이 완료 되셨다면 스토어의 URL을 입력 해주세요."
+            invalid="false"
           />
           <Button label="입점 여부 체크" severity="primary" outlined disabled />
+        </div>
+        <!-- <div class="sb-auth-form-item__message">
+          <Message size="small" severity="error" variant="simple"
+            >닉네임 변경을 원하시면 [추천 변경 버튼]을 클릭 해주세요.</Message
+          >
+        </div> -->
+        <div class="sb-auth-form-chip">
+          <div class="sb-auth-form-chip__title">스토어명</div>
+          <div class="sb-auth-form-chip__list">
+            <Chip label="한입멜로디" removable class="p-chip-text" />
+          </div>
         </div>
       </div>
     </div>
@@ -140,7 +158,7 @@
         </div>
       </div>
       <div class="sb-auth-form-item">
-        <label>네이버쇼핑 마켓 연동 수집 정보 가이드</label>
+        <label>네이버 쇼핑 마켓 연동 수집 정보 가이드</label>
         <div class="sb-caution">
           <ol>
             <li>
@@ -168,13 +186,18 @@
           />
           <Button label="ID 체크" severity="primary" outlined disabled />
         </div>
+        <div class="sb-auth-form-item__message">
+          <Message size="small" severity="success" variant="simple"
+            >API 연동용 판매자 ID가 확인 되었습니다. 저장해 주세요.</Message
+          >
+        </div>
       </div>
     </div>
 
     <div class="sb-auth__button">
       <Button
         :label="
-          currentTab === 'apply' ? '오픈마켓 신청하기' : '마켓 신청 추가하기'
+          currentTab === 'apply' ? '오픈마켓 연동하기' : '마켓 신청 추가하기'
         "
         severity="contrast"
         size="large"
@@ -193,4 +216,5 @@ const currentTab = ref('apply');
 const selectedMarket = ref('naver');
 
 import IconSystemLinkNew from '@/assets/icons/system/link-new.svg?component';
+const url = ref('https://snxbest.naver.com/home');
 </script>

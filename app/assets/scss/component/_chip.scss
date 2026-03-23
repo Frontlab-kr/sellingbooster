@@ -47,6 +47,22 @@
     font-size: 16px;
     letter-spacing: -0.4px;
   }
+  &.p-chip-text {
+    height: auto;
+    border: none;
+    padding: 0;
+    color: var(--Gray-500, #6a7381);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 19.6px */
+    letter-spacing: -0.35px;
+    .p-chip-remove-icon {
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
 }
 
 .p-chip-remove-icon {
@@ -60,7 +76,7 @@
     outline-color var(--p-chip-transition-duration),
     box-shadow var(--p-chip-transition-duration);
   outline-color: transparent;
-  background: url(./../../icons/20/chip-delete.svg);
+  background: url(./../../icons/etc/chip-delete.svg);
   path {
     display: none;
   }

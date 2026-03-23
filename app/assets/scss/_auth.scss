@@ -173,7 +173,7 @@
       color: var(--auth-title-color);
     }
     .sb-tab {
-      margin-bottom: 40px;
+      margin: 0 16px 32px;
     }
     &-form {
       display: flex;
@@ -248,6 +248,22 @@
         }
         .sb-radio {
           margin-top: 16px;
+        }
+      }
+      &-chip {
+        display: flex;
+        gap: 8px;
+        margin-top: 16px;
+        &__title {
+          color: var(--Text_Light-600--1, #454f5b);
+
+          /* Heading PC/Header 3 */
+          font-family: 'Pretendard JP';
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 140%; /* 22.4px */
+          letter-spacing: -0.4px;
         }
       }
     }
@@ -365,6 +381,7 @@
     .sb-caution ~ .sb-caution {
       margin-top: 16px;
     }
+
     @include breakpoint {
       min-width: 100%;
       width: 100%;
