@@ -401,17 +401,7 @@ const editor = useEditor({
     }),
   ],
   content: `
-    <h1>Getting started</h1>
-    <p>Welcome to the <em><mark>Simple Editor</mark></em> template! This template integrates <strong>open source</strong> UI components and Tiptap extensions licensed under <strong>MIT</strong>.</p>
-    <h2>Features</h2>
-    <blockquote><p><em>A fully responsive rich text editor with built-in support for common formatting and layout tools.</em></p></blockquote>
-    <p>Add images, customize alignment, and apply <mark>advanced formatting</mark> to make your writing more engaging and professional.</p>
-    <ul>
-      <li><p>Rich text editing with <strong>bold</strong>, <em>italic</em>, <s>strikethrough</s>, and <u>underline</u></p></li>
-      <li><p>Headings (H1–H4), blockquotes, and code blocks</p></li>
-      <li><p>Ordered, unordered, and task lists</p></li>
-      <li><p>Text alignment options</p></li>
-    </ul>
+   
   `,
 });
 
