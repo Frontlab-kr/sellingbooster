@@ -111,8 +111,7 @@ const uploadEvent = (callback) => {
 const onTemplatedUpload = () => {};
 
 const formatSize = (bytes) => {
-  const k = 10240;
-  const dm = 3;
+  const k = 1024;
   const sizes = $primevue.config.locale.fileSizeTypes;
 
   if (bytes === 0) {
@@ -120,7 +119,7 @@ const formatSize = (bytes) => {
   }
 
   const i = Math.floor(Math.log(bytes) / Math.log(k));
-  const formattedSize = parseFloat((bytes / Math.pow(k, i)).toFixed(dm));
+  const formattedSize = Math.ceil(bytes / Math.pow(k, i));
 
   return `${formattedSize}${sizes[i]}`;
 };
