@@ -81,7 +81,7 @@
         </template>
       </Card>
     </div>
-    <!-- <div>
+    <div>
       <h5>마켓 트렌드</h5>
       <Card>
         <template #content>
@@ -96,7 +96,7 @@
           </div>
         </template>
       </Card>
-    </div> -->
+    </div>
     <div>
       <h5>환경설정</h5>
       <Card>

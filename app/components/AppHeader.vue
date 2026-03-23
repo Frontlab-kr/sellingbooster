@@ -1,12 +1,20 @@
 <template>
-  <header class="sb-header">
+  <header class="sb-header" :class="{ 'sb-header--search': isSearchOpen }">
     <div class="sb-header-menu">
       <div class="sb-header-search">
-        <Button rounded severity="white">
-          <template #icon>
-            <IconSystemSearch class="ico-system-search" />
-          </template>
-        </Button>
+        <SbInput
+          show-search
+          @search="onSearch"
+          placeholder="검색어를 입력하세요."
+          size="large"
+        />
+        <div class="sb-header-search__toggle">
+          <Button rounded severity="white" @click="toggleSearch">
+            <template #icon>
+              <IconSystemSearch class="ico-system-search" />
+            </template>
+          </Button>
+        </div>
       </div>
       <div class="sb-header-mode">
         <Button rounded severity="white" @click="toggleMode()">
@@ -226,6 +234,8 @@ const menu02 = ref([
   { id: 'toggle-btn', label: '메뉴 닫기', icon: IconSnbMenuClose },
 ]);
 
+const isSearchOpen = ref(false);
+
 /** 2. 메뉴 및 네비게이션 로직 */
 const toggleMenu = () => {
   isFolded.value = !isFolded.value;
@@ -272,7 +282,6 @@ const updateTitle = (path) => {
   pageTitle.value = targetLabel || '';
 };
 
-/** 2. 메뉴 및 네비게이션 로직 */
 const getMenuIcon = (item) => {
   if (item.id === 'toggle-btn') {
     // 접혀있을 때(true)는 Open 아이콘, 펼쳐져있을 때(false)는 Close 아이콘
@@ -290,6 +299,16 @@ const getMenuLabel = (item) => {
 };
 
 const isActive = (itemRoute) => itemRoute && route.path.startsWith(itemRoute);
+
+const toggleSearch = () => {
+  isSearchOpen.value = !isSearchOpen.value;
+};
+
+// 검색 실행 시 검색창을 닫고 싶다면 handleSearch에 추가
+const onSearch = (value) => {
+  console.log('Search:', value);
+  isSearchOpen.value = false; // 검색 후 닫기 (선택 사항)
+};
 
 /** 3. UI 제어 및 테마 로직 */
 const toggleMode = () => {
