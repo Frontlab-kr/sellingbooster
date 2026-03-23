@@ -93,7 +93,12 @@
             2. 미구비 서류 발급처 (관련 서류를 준비해주세요.)
           </div>
           <ul>
-            <li>사업자등록증</li>
+            <li>
+              <Button variant="text">
+                <span class="p-button-label">사업자등록증</span>
+                <IconSystemLinkNew class="ico-system-link-new" />
+              </Button>
+            </li>
             <li>통신판매업신고증</li>
             <li>인감/서명(주민센터 확인)</li>
             <li>대표지 명의 통장(은행 개설)</li>
@@ -186,4 +191,6 @@ const currentTab = ref('apply');
 
 // 선택된 마켓
 const selectedMarket = ref('naver');
+
+import IconSystemLinkNew from '@/assets/icons/system/link-new.svg?component';
 </script>

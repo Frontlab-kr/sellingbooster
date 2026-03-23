@@ -64,6 +64,9 @@
   }
   &-qna {
     &-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
       &-item {
         width: 100%;
         padding: 40px;
@@ -123,6 +126,7 @@
           font-weight: 400;
           line-height: 160%; /* 25.6px */
           letter-spacing: -0.4px;
+          height: 76.8px;
           @include text-clamp(3, 25.6);
           cursor: pointer;
         }
@@ -293,9 +297,9 @@
     }
     @include breakpoint {
       &-list {
-        .masonry-column {
-          gap: 12px !important;
-        }
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
         &-item {
           padding: 20px;
           border-radius: 24px;
@@ -341,6 +345,7 @@
             font-weight: 400;
             line-height: 160%; /* 22.4px */
             letter-spacing: -0.35px;
+            height: 44px;
             @include text-clamp(2, 22.4);
           }
         }
@@ -674,6 +679,9 @@
           align-items: center;
           justify-content: flex-end;
           margin-top: 8px;
+          .ico-arrow-up-right {
+            color: var(--p-gray-400);
+          }
         }
       }
       &-button {

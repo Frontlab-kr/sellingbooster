@@ -34,18 +34,14 @@
       />
     </div>
     <div class="sb-qna">
-      <client-only>
-        <masonry-wall
-          :items="list"
-          :column-width="600"
-          :gap="20"
-          class="sb-qna-list"
-        >
-          <template #default="{ item }">
-            <Item :item="item" @item-click="viewOpen" />
-          </template>
-        </masonry-wall>
-      </client-only>
+      <div class="sb-qna-list">
+        <Item
+          v-for="item in list"
+          :key="item.id"
+          :item="item"
+          @item-click="viewOpen"
+        />
+      </div>
       <SbLoading />
     </div>
   </div>
@@ -67,8 +63,6 @@ import { ref } from 'vue';
 import Item from './item.vue';
 import Write from './write.vue';
 import View from './view.vue';
-
-import MasonryWall from '@yeger/vue-masonry-wall';
 
 //dialog
 const dialogWrite = ref(false);

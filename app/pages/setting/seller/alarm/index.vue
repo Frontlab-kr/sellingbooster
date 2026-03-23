@@ -85,15 +85,13 @@
           />
         </div>
       </div>
-      <div class="sb-alarm-tab">
-        <div class="sb-tab">
-          <Button label="전체(82개)" variant="text" class="active" />
-          <Button label="시스템" variant="text" />
-          <Button label="공지" variant="text" />
-          <Button label="서비스" variant="text" />
-          <Button label="긴급" variant="text" />
-          <Button label="중요" variant="text" />
-        </div>
+      <div class="sb-tab">
+        <Button label="전체(82개)" variant="text" class="active" />
+        <Button label="시스템" variant="text" />
+        <Button label="공지" variant="text" />
+        <Button label="서비스" variant="text" />
+        <Button label="긴급" variant="text" />
+        <Button label="중요" variant="text" />
       </div>
       <div class="sb-alarm-sort">
         <Select

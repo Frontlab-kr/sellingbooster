@@ -59,7 +59,7 @@
         </div>
         <div class="sb-guide-item">
           <div class="sb-guide-item-head">
-            <h2>Arrow icon</h2>
+            <h4>Arrow icon</h4>
           </div>
           <div class="sb-guide-icon">
             <IconArrowSmallUp class="ico-arrow-small-up" />
@@ -87,7 +87,7 @@
         </div>
         <div class="sb-guide-item">
           <div class="sb-guide-item-head">
-            <h2>System icon</h2>
+            <h4>System icon</h4>
           </div>
           <div class="sb-guide-icon">
             <IconSystemDelete class="ico-system-delete" />
@@ -149,30 +149,95 @@
         </div>
         <div class="sb-guide-item">
           <div class="sb-guide-item-head">
-            <h2>Action icon</h2>
+            <h4>Action icon</h4>
           </div>
           <div class="sb-guide-icon">
-            <IconArrowSmallUp class="ico-arrow-small-up" />
-            <IconArrowSmallDown class="ico-arrow-small-down" />
-            <IconArrowSmallRight class="ico-arrow-small-right" />
-            <IconArrowSmallLeft class="ico-arrow-small-left" />
-            <IconArrowSmallUpLeft class="ico-arrow-small-up-left" />
-            <IconArrowSmallUpRight class="ico-arrow-small-up-right" />
-            <IconArrowSmallDownRight class="ico-arrow-small-down-right" />
-            <IconArrowSmallDownLeft class="ico-arrow-small-down-left" />
-            <IconArrowAchevronDown class="ico-arrow-achevron-down" />
-            <IconArrowAchevronLeft class="ico-arrow-achevron-left" />
-            <IconArrowAchevronRight class="ico-arrow-achevron-right" />
-            <IconArrowAchevronUp class="ico-arrow-achevron-up" />
-            <IconArrowUp class="ico-arrow-up" />
-            <IconArrowDown class="ico-arrow-down" />
-            <IconArrowRight class="ico-arrow-right" />
-            <IconArrowLeft class="ico-arrow-left" />
-            <IconArrowUpLeft class="ico-arrow-up-left" />
-            <IconArrowUpRight class="ico-arrow-up-right" />
-            <IconArrowDownRight class="ico-arrow-down-right" />
-            <IconArrowDownLeft class="ico-arrow-down-left" />
-            <IconArrowBentArrow class="ico-arrow-bent-arrow" />
+            <div class="sb-guide-icon-group">
+              <IconActionScore class="ico-action-score" />
+              <IconActionScoreHalf class="ico-action-score-half" />
+              <IconActionScoreFull class="ico-action-score-full" />
+            </div>
+            <div class="sb-guide-icon-group">
+              <IconActionFavorite class="ico-action-favorite" />
+              <IconActionFavoriteFull class="ico-action-favorite-full" />
+            </div>
+            <div class="sb-guide-icon-group">
+              <IconActionSwitch class="ico-action-switch" />
+              <IconActionSwitchUp class="ico-action-switch-up" />
+              <IconActionSwitchDown class="ico-action-switch-down" />
+            </div>
+          </div>
+        </div>
+        <div class="sb-guide-item">
+          <div class="sb-guide-item-head">
+            <h4>Gonfalon icon</h4>
+          </div>
+          <div class="sb-guide-icon">
+            <IconGonfalonJp class="ico-gonfalon-jp" />
+            <IconGonfalonUs class="ico-gonfalon-us" />
+            <IconGonfalonCn class="ico-gonfalon-cs" />
+            <IconGonfalonKr class="ico-gonfalon-kr" />
+          </div>
+        </div>
+        <div class="sb-guide-item">
+          <div class="sb-guide-item-head">
+            <h2>일러스트 아이콘 사이즈</h2>
+            <h5>
+              기본 일러스트 그리드는 80×80 픽셀이며, 필요에 따라 크기를 조절해
+              사용합니다.
+            </h5>
+          </div>
+          <div class="sb-guide-icon-example">
+            <div class="sb-guide-icon-example-item">
+              <div class="sb-guide-icon-example-item__icon">
+                <span
+                  ><IconIllustrationSmile
+                    class="ico-illustration-smile"
+                    style="min-width: 48px; width: 48px; height: 48px"
+                /></span>
+              </div>
+              <p>48x48</p>
+            </div>
+            <div class="sb-guide-icon-example-item">
+              <div class="sb-guide-icon-example-item__icon">
+                <span
+                  ><IconIllustrationSmile
+                    class="ico-illustration-smile"
+                    style="min-width: 64px; width: 64px; height: 64px"
+                /></span>
+              </div>
+              <p>64x64</p>
+            </div>
+            <div class="sb-guide-icon-example-item">
+              <div class="sb-guide-icon-example-item__icon">
+                <span>
+                  <IconIllustrationSmile class="ico-illustration-smile" />
+                </span>
+              </div>
+              <p>80x80</p>
+            </div>
+          </div>
+        </div>
+        <div class="sb-guide-item">
+          <div class="sb-guide-item-head">
+            <h4>illustration icon</h4>
+          </div>
+          <div class="sb-guide-icon">
+            <IconIllustrationFrown class="ico-illustration-frown" />
+            <IconIllustrationSmile class="ico-illustration-smile" />
+            <IconIllustrationCheckCircle
+              class="ico-illustration-check-circle"
+              style="min-width: 80px; width: 80px; height: 80px"
+            />
+          </div>
+        </div>
+        <div class="sb-guide-item">
+          <div class="sb-guide-item-head">
+            <h4>AI icon</h4>
+          </div>
+          <div class="sb-guide-icon">
+            <IconAiPc class="ico-ai-pc" />
+            <IconAiMo class="ico-ai-mo" />
           </div>
         </div>
       </div>
@@ -258,4 +323,25 @@ import IconSystemLogin from '@/assets/icons/system/login.svg?component';
 import IconSystemMenu from '@/assets/icons/system/menu.svg?component';
 import IconSystemTrendUp from '@/assets/icons/system/trend-up.svg?component';
 import IconSystemTrendDown from '@/assets/icons/system/trend-down.svg?component';
+
+import IconActionScore from '@/assets/icons/action/score.svg?component';
+import IconActionScoreHalf from '@/assets/icons/action/score-half.svg?component';
+import IconActionScoreFull from '@/assets/icons/action/score-full.svg?component';
+import IconActionFavorite from '@/assets/icons/action/favorite.svg?component';
+import IconActionFavoriteFull from '@/assets/icons/action/favorite-full.svg?component';
+import IconActionSwitch from '@/assets/icons/action/switch.svg?component';
+import IconActionSwitchUp from '@/assets/icons/action/switch-up.svg?component';
+import IconActionSwitchDown from '@/assets/icons/action/switch-down.svg?component';
+
+import IconGonfalonJp from '@/assets/icons/gonfalon/jp.png';
+import IconGonfalonUs from '@/assets/icons/gonfalon/us.png';
+import IconGonfalonCn from '@/assets/icons/gonfalon/cn.png';
+import IconGonfalonKr from '@/assets/icons/gonfalon/kr.png';
+
+import IconIllustrationFrown from '@/assets/icons/illustration/frown.svg?component';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
+import IconIllustrationCheckCircle from '@/assets/icons/illustration/check-circle.svg?component';
+
+import IconAiPc from '@/assets/icons/ai/ai-pc.svg?component';
+import IconAiMo from '@/assets/icons/ai/ai-mo.svg?component';
 </script>

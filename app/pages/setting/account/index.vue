@@ -119,6 +119,9 @@
           </div>
         </div>
         <div class="sb-auth-form-item__text">
+          <Message size="small" severity="error" variant="simple"
+            >※ 수신 받으실 항목을 체크해 주세요.</Message
+          >
           <Message size="small" severity="neutral" variant="simple"
             >※ 중요 알림 사항은 수신 동의 여부 상관 없이 발송 됩니다.</Message
           >

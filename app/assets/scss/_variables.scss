@@ -276,6 +276,11 @@
   --header-mo-border-color: var(--p-gray-200);
   --header-mo-background: var(--p-gray-00);
 
+  --header-search-icon-color: var(--p-gray-500);
+  --header-mode-icon-color: var(--p-gray-500);
+  --header-language-icon-color: var(--p-gray-500);
+  --header-notification-icon-color: var(--p-gray-500);
+
   --snb-link-color: var(--p-gray-500);
   --snb-link-menu-color: var(--p-gray-400);
 
@@ -485,6 +490,14 @@
   --alarm-complete-title-color: var(--p-gray-900);
   --alarm-complete-text-color: var(--p-gray-900);
 
+  --alarm-agree-border-color: var(--p-gray-300);
+  --alarm-list-item-background: var(--p-gray-50);
+  --alarm-list-item-data-color: var(--p-gray-400);
+  --alarm-list-item-title-color: var(--p-gray-900);
+  --alarm-view-title-color: var(--p-gray-900);
+  --alarm-view-data-color: var(--p-gray-400);
+  --alarm-view-contents-color: var(--p-gray-900);
+
   &.p-dark,
   .p-dark {
     --url-title-color: var(--p-gray-00);
@@ -503,6 +516,11 @@
     --header-mo-menu-color: var(--p-gray-300);
     --header-mo-border-color: var(--p-gray-600);
     --header-mo-background: var(--p-gray-800);
+
+    --header-search-icon-color: var(--p-gray-300);
+    --header-mode-icon-color: var(--p-gray-300);
+    --header-language-icon-color: var(--p-gray-300);
+    --header-notification-icon-color: var(--p-gray-300);
 
     --snb-link-color: var(--p-gray-400);
     --snb-link-menu-color: var(--p-gray-500);
@@ -691,6 +709,28 @@
     --onboarding-complete-info-icon-border-color: var(--p-gray-800);
     --onboarding-complete-info-icon-background: var(--p-gray-800);
     --onboarding-complete-info-text-color: var(--p-gray-00);
+
+    //alarm
+    --alarm-background-image: #eff1f4 url(./../images/login-bg.jpg) no-repeat 0
+      100%;
+
+    --alarm-background: var(--p-gray-800);
+    --alarm-title-color: var(--p-gray-00);
+    --alarm-form-item-border-color: var(--p-gray-300);
+    --alarm-form-item-label-color: var(--p-gray-600);
+    --alarm-form-item-checkbox-background: var(--p-gray-100);
+
+    --alarm-complete-background: var(--p-gray-00);
+    --alarm-complete-title-color: var(--p-gray-900);
+    --alarm-complete-text-color: var(--p-gray-900);
+
+    --alarm-agree-border-color: var(--p-gray-600);
+    --alarm-list-item-background: var(--p-gray-700);
+    --alarm-list-item-data-color: var(--p-gray-400);
+    --alarm-list-item-title-color: var(--p-gray-00);
+    --alarm-view-title-color: var(--p-gray-00);
+    --alarm-view-data-color: var(--p-gray-400);
+    --alarm-view-contents-color: var(--p-gray-00);
   }
   @include breakpoint {
     &.p-dark,

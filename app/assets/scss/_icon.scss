@@ -219,14 +219,14 @@
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-900);
+      color: var(--p-gray-400);
     }
     &-plus {
       display: block;
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-500);
+      color: var(--p-gray-400);
     }
     &-dotmenu {
       min-width: 24px;
@@ -255,7 +255,7 @@
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-600);
+      color: var(--p-gray-400);
       @include breakpoint {
         min-width: 20px;
         width: 20px;
@@ -273,6 +273,7 @@
       min-width: 24px;
       width: 24px;
       height: 24px;
+      color: var(--p-gray-400);
       @include breakpoint {
         min-width: 20px;
         width: 20px;
@@ -289,13 +290,13 @@
       min-width: 25px;
       width: 25px;
       height: 25px;
-      color: var(--p-gray-500);
+      color: var(--p-gray-400);
     }
     &-bell-off {
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-500);
+      color: var(--p-gray-400);
     }
     &-star {
       min-width: 24px;
@@ -343,19 +344,19 @@
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-500);
+      color: var(--p-gray-400);
     }
     &-mode-dark {
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-500);
+      color: var(--p-gray-400);
     }
     &-mode-light {
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-500);
+      color: var(--p-gray-400);
     }
     &-calendar {
       min-width: 24px;
@@ -409,7 +410,7 @@
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-300);
+      color: var(--p-gray-400);
     }
     &-umbrella {
       min-width: 24px;
@@ -433,13 +434,13 @@
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-600);
+      color: var(--p-gray-400);
     }
     &-alert-circle {
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-600);
+      color: var(--p-gray-400);
     }
     &-block {
       min-width: 24px;
@@ -451,31 +452,31 @@
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-900);
+      color: var(--p-gray-400);
     }
     &-face-neutral {
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-900);
+      color: var(--p-gray-400);
     }
     &-face-sad {
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-900);
+      color: var(--p-gray-400);
     }
     &-face-wink {
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-900);
+      color: var(--p-gray-400);
     }
     &-smile {
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-300);
+      color: var(--p-gray-400);
     }
     &-profile {
       min-width: 24px;
@@ -505,26 +506,93 @@
       min-width: 24px;
       width: 24px;
       height: 24px;
-      color: var(--p-gray-500);
+      color: var(--p-gray-400);
     }
     &-trend-up {
       min-width: 16px;
       width: 16px;
       height: 16px;
+      color: var(--p-gray-400);
     }
     &-trend-down {
       min-width: 16px;
       width: 16px;
       height: 16px;
+      color: var(--p-gray-400);
     }
   }
 
-  //etc
-  &-etc-comment-delete {
-    min-width: 20px;
-    width: 20px;
-    height: 20px;
-    color: var(--p-gray-600);
+  //action
+  &-action {
+    &-score {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-200);
+    }
+    &-score-half {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-orange-500);
+    }
+    &-score-full {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-orange-500);
+    }
+    &-favorite {
+      display: block;
+      min-width: 16px;
+      width: 16px;
+      height: 16px;
+      color: var(--p-gray-400);
+    }
+    &-favorite-full {
+      display: block;
+      min-width: 16px;
+      width: 16px;
+      height: 16px;
+      color: var(--p-primary-500);
+    }
+    &-swich {
+      display: block;
+      min-width: 16px;
+      width: 16px;
+      height: 16px;
+      color: var(--p-gray-400);
+    }
+    &-switch-up {
+      display: block;
+      min-width: 16px;
+      width: 16px;
+      height: 16px;
+      color: var(--p-primary-500);
+    }
+    &-switch-down {
+      display: block;
+      min-width: 16px;
+      width: 16px;
+      height: 16px;
+      color: var(--p-primary-500);
+    }
+  }
+
+  //gonfalon
+  &-gonfalon {
+    &-jp,
+    &-us,
+    &-cn,
+    &-kr {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+    }
   }
 
   //illustration
@@ -551,6 +619,76 @@
     }
   }
 
+  //ai
+  &-ai {
+    &-pc {
+      display: block;
+      min-width: 72px;
+      width: 72px;
+      height: 69px;
+    }
+    &-mo {
+      display: block;
+      min-width: 49px;
+      width: 49px;
+      height: 51px;
+    }
+  }
+
+  //social
+  &-social {
+    &-facebook {
+      svg {
+        display: block;
+        min-width: 58px;
+        width: 58px;
+        height: 58px;
+        --path-color-1: #38414f;
+        --path-color-2: #f4f5f7;
+      }
+    }
+    &-x {
+      svg {
+        display: block;
+        min-width: 58px;
+        width: 58px;
+        height: 58px;
+        --path-color-1: #38414f;
+        --path-color-2: #f4f5f7;
+      }
+    }
+    &-kakaotalk {
+      svg {
+        display: block;
+        min-width: 58px;
+        width: 58px;
+        height: 58px;
+        --path-color-1: #38414f;
+        --path-color-2: #f4f5f7;
+      }
+    }
+    &-naverblog {
+      svg {
+        display: block;
+        min-width: 58px;
+        width: 58px;
+        height: 58px;
+        --path-color-1: #38414f;
+        --path-color-2: #f4f5f7;
+      }
+    }
+    &-copy {
+      svg {
+        display: block;
+        min-width: 58px;
+        width: 58px;
+        height: 58px;
+        --path-color-1: #38414f;
+        --path-color-2: #f4f5f7;
+      }
+    }
+  }
+
   //profile
   &-profile-default {
     width: 48px;
@@ -559,66 +697,17 @@
     --path-color-2: #eaecf1;
   }
 
-  //social
-  &-social-facebook {
-    svg {
-      display: block;
-      min-width: 58px;
-      width: 58px;
-      height: 58px;
-      --path-color-1: #38414f;
-      --path-color-2: #f4f5f7;
-    }
-  }
-  &-social-x {
-    svg {
-      display: block;
-      min-width: 58px;
-      width: 58px;
-      height: 58px;
-      --path-color-1: #38414f;
-      --path-color-2: #f4f5f7;
-    }
-  }
-  &-social-kakaotalk {
-    svg {
-      display: block;
-      min-width: 58px;
-      width: 58px;
-      height: 58px;
-      --path-color-1: #38414f;
-      --path-color-2: #f4f5f7;
-    }
-  }
-  &-social-naverblog {
-    svg {
-      display: block;
-      min-width: 58px;
-      width: 58px;
-      height: 58px;
-      --path-color-1: #38414f;
-      --path-color-2: #f4f5f7;
-    }
-  }
-  &-social-copy {
-    svg {
-      display: block;
-      min-width: 58px;
-      width: 58px;
-      height: 58px;
-      --path-color-1: #38414f;
-      --path-color-2: #f4f5f7;
-    }
+  //etc
+  &-etc-comment-delete {
+    min-width: 20px;
+    width: 20px;
+    height: 20px;
+    color: var(--p-gray-600);
   }
 }
 
 .p-dark {
   .ico {
-    //system
-    &-system-bell-on {
-      color: var(--p-gray-00);
-    }
-
     //profile
     &-profile-lv1 {
       width: 48px;
@@ -627,38 +716,6 @@
     &-profile-default {
       --path-color-1: var(--p-gray-600);
       --path-color-2: #6a7381;
-    }
-
-    //social
-    &-social-facebook {
-      svg {
-        --path-color-1: var(--p-gray-400);
-        --path-color-2: var(--p-gray-600);
-      }
-    }
-    &-social-x {
-      svg {
-        --path-color-1: var(--p-gray-400);
-        --path-color-2: var(--p-gray-600);
-      }
-    }
-    &-social-kakaotalk {
-      svg {
-        --path-color-1: var(--p-gray-400);
-        --path-color-2: var(--p-gray-600);
-      }
-    }
-    &-social-naverblog {
-      svg {
-        --path-color-1: var(--p-gray-400);
-        --path-color-2: var(--p-gray-600);
-      }
-    }
-    &-social-copy {
-      svg {
-        --path-color-1: var(--p-gray-400);
-        --path-color-2: var(--p-gray-600);
-      }
     }
 
     //illustration
@@ -674,6 +731,40 @@
       &-frown {
         --path-color-1: var(--p-gray-600);
         --path-color-2: var(--p-gray-600);
+      }
+    }
+
+    //social
+    &-social {
+      &-facebook {
+        svg {
+          --path-color-1: var(--p-gray-400);
+          --path-color-2: var(--p-gray-600);
+        }
+      }
+      &-x {
+        svg {
+          --path-color-1: var(--p-gray-400);
+          --path-color-2: var(--p-gray-600);
+        }
+      }
+      &-kakaotalk {
+        svg {
+          --path-color-1: var(--p-gray-400);
+          --path-color-2: var(--p-gray-600);
+        }
+      }
+      &-naverblog {
+        svg {
+          --path-color-1: var(--p-gray-400);
+          --path-color-2: var(--p-gray-600);
+        }
+      }
+      &-copy {
+        svg {
+          --path-color-1: var(--p-gray-400);
+          --path-color-2: var(--p-gray-600);
+        }
       }
     }
   }

@@ -359,13 +359,13 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 15px;
+          gap: 10px;
           &__icon {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 24px;
-            height: 24px;
+            // width: 24px;
+            // height: 24px;
             span {
               display: flex;
               align-items: center;
@@ -383,6 +383,15 @@
             line-height: 150%; /* 24px */
           }
         }
+      }
+      &-group {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-height: 70px;
+        padding: 20px;
+        border-radius: 5px;
+        border: 1px dashed var(--p-gray-300);
       }
     }
   }

@@ -166,6 +166,9 @@
       margin-bottom: 40px;
       color: var(--auth-title-color);
     }
+    .sb-tab {
+      margin-bottom: 40px;
+    }
     &-form {
       display: flex;
       flex-direction: column;
@@ -352,6 +355,9 @@
     }
     &-link {
       margin: 40px 16px 0;
+    }
+    .sb-caution ~ .sb-caution {
+      margin-top: 16px;
     }
     @include breakpoint {
       min-width: 100%;

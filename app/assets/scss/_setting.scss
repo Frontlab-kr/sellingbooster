@@ -441,12 +441,10 @@
       margin: 0 0 40px;
       padding: 24px;
       border-radius: 16px;
-      border: 1px solid var(--Gray-300, #d1d6dd);
-      background: var(--Gray-00, #fff);
-
+      border: 1px solid var(--alarm-agree-border-color);
       > label {
         display: block;
-        margin-bottom: 16px;
+        margin-bottom: 8px;
         color: var(--auth-form-item-label-color);
         font-size: 16px;
         font-style: normal;
@@ -491,7 +489,7 @@
         display: flex;
         flex-direction: column;
         gap: 2px;
-        margin-top: 16px;
+        margin-top: 8px;
         .p-message {
           margin: 0;
         }
@@ -503,7 +501,7 @@
         margin-top: 12px;
       }
       .sb-radio {
-        margin-top: 16px;
+        margin-top: 24px;
       }
       &__button {
         display: flex;
@@ -515,13 +513,13 @@
         }
       }
     }
-    &-tab {
+    .sb-tab {
       margin-bottom: 16px;
-      border-bottom: 1px solid var(--p-gray-300);
     }
     &-sort {
       display: flex;
       justify-content: flex-end;
+      margin-bottom: 12px;
     }
     &-list {
       display: grid;
@@ -532,7 +530,7 @@
         text-decoration: none;
         padding: 32px;
         border-radius: 32px;
-        background: var(--Gray-50, #f9fbfc);
+        background: var(--alarm-list-item-background);
         &-head {
           display: flex;
           align-items: center;
@@ -540,7 +538,7 @@
           margin-bottom: 8px;
           p {
             margin: 0;
-            color: var(--Gray-400_9AA3AF, var(--Gray-400_9AA3AF, #9aa3af));
+            color: var(--alarm-list-item-data-color);
             text-align: right;
             font-size: 14px;
             font-style: normal;
@@ -552,13 +550,14 @@
         &-title {
           p {
             margin: 0;
-            color: var(--Text_Light-900---mian, #1b1f27);
+            height: 56px;
+            color: var(--alarm-list-item-title-color);
             font-size: 16px;
             font-style: normal;
             font-weight: 700;
             line-height: 140%; /* 22.4px */
             letter-spacing: -0.4px;
-            @include text-clamp(2, 22.4);
+            @include text-clamp(3, 22.4);
           }
         }
       }
@@ -569,6 +568,7 @@
       }
     }
     &-view {
+      margin: 0 16px;
       &-head {
         display: flex;
         flex-direction: column;
@@ -578,9 +578,12 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          h6 {
+            color: var(--alarm-view-title-color);
+          }
           p {
             margin: 0;
-            color: var(--Text_Light-400---eaplanation, #9aa3af);
+            color: var(--alarm-view-data-color);
             font-size: 14px;
             font-style: normal;
             font-weight: 400;
@@ -590,7 +593,7 @@
         }
       }
       &-contents {
-        color: var(--Text_Light-900---mian, #1b1f27);
+        color: var(--alarm-view-contents-color);
         font-size: 16px;
         font-style: normal;
         font-weight: 400;
@@ -603,6 +606,167 @@
         margin-top: 40px;
         .p-button {
           min-width: 160px;
+        }
+      }
+    }
+    @include breakpoint {
+      min-width: 100%;
+      width: 100%;
+      min-height: 100vh;
+      margin: -56px 0 0 0;
+      padding: 80px 20px 32px;
+      border-radius: 0;
+      &__title {
+        margin-bottom: 32px;
+      }
+      &__contents {
+        padding: 0 0;
+      }
+      &-agree {
+        margin: 0 -20px 32px;
+        padding: 0 20px 32px;
+        border-radius: 0;
+        border: none;
+        border-bottom: 8px solid var(--body-background);
+        > label {
+          display: block;
+          margin-bottom: 4px;
+          color: var(--auth-form-item-label-color);
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 140%; /* 22.4px */
+          letter-spacing: -0.4px;
+          strong {
+            color: var(--required-color);
+          }
+        }
+        &__input {
+          display: flex;
+          gap: 8px;
+          .p-inputtext,
+          .p-inputnumber,
+          .p-password,
+          .sb-input {
+            width: 100%;
+          }
+          > .p-button {
+            min-width: 160px;
+          }
+        }
+        &__input ~ &__input {
+          margin-top: 16px;
+        }
+        &__checkbox {
+          display: flex;
+          margin-top: 12px;
+          padding: 12px;
+          border-radius: 8px;
+          .sb-checkbox-item {
+            gap: 4px;
+          }
+          .sb-radio,
+          .sb-checkbox {
+            flex-direction: row;
+            column-gap: 20px;
+          }
+        }
+        &__text {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          margin-top: 4px;
+          .p-message {
+            margin: 0;
+          }
+        }
+        &__message {
+          padding: 0 4px;
+        }
+        &__message ~ &__input {
+          margin-top: 12px;
+        }
+        .sb-radio {
+          margin-top: 20px;
+        }
+        &__button {
+          margin-top: 20px;
+          .p-button {
+            min-width: 110px;
+          }
+        }
+      }
+      .sb-tab {
+        margin-bottom: 8px;
+      }
+      &-sort {
+        margin-bottom: 10px;
+      }
+      &-list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        &-item {
+          padding: 20px 20px 28px 20px;
+          border-radius: 24px;
+          &-head {
+            margin-bottom: 12px;
+            p {
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 140%; /* 16.8px */
+              letter-spacing: -0.3px;
+            }
+          }
+          &-title {
+            p {
+              margin: 0;
+              height: auto;
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 140%; /* 25.2px */
+              letter-spacing: -0.45px;
+              @include text-clamp(2, 25.2);
+            }
+          }
+        }
+        &-button {
+          margin-top: 24px;
+        }
+      }
+      &-view {
+        margin: 0;
+        &-head {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          margin-bottom: 24px;
+          &__title {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 12px;
+            p {
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 140%; /* 16.8px */
+              letter-spacing: -0.3px;
+            }
+          }
+        }
+        &-contents {
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 160%; /* 22.4px */
+          letter-spacing: -0.35px;
+        }
+        &-button {
+          display: none;
         }
       }
     }
