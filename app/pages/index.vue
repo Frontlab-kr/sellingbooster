@@ -36,10 +36,8 @@
             <NuxtLink to="/auth/signup/error">회원가입 에러</NuxtLink>
             <NuxtLink to="/auth/signup/complete">회원가입 완료</NuxtLink>
             <NuxtLink to="/auth/find">비밀번호찾기</NuxtLink>
-            <NuxtLink to="/setting/seller/onboarding/">온보딩</NuxtLink>
-            <NuxtLink to="/setting/seller/onboarding/complete"
-              >온보딩 완료</NuxtLink
-            >
+            <NuxtLink to="/auth/onboarding/">온보딩</NuxtLink>
+            <NuxtLink to="/auth/onboarding/complete">온보딩 완료</NuxtLink>
           </div>
         </template>
       </Card>
@@ -105,6 +103,10 @@
         <template #content>
           <div class="flex flex-column gap-2">
             <NuxtLink to="/setting/account/">개인정보</NuxtLink>
+            <NuxtLink to="/setting/seller/onboarding/">온보딩</NuxtLink>
+            <NuxtLink to="/setting/seller/onboarding/complete"
+              >온보딩 완료</NuxtLink
+            >
             <NuxtLink to="/setting/account/delete">회원탈퇴</NuxtLink>
             <NuxtLink to="/setting/seller/channel">채널연동</NuxtLink>
             <NuxtLink to="/setting/seller/alarm">알림 설정</NuxtLink>

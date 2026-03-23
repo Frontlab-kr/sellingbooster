@@ -34,20 +34,15 @@
       </ul>
     </div>
     <div class="sb-onboarding-complete__button">
-      <Button
-        severity="contrast"
-        outlined
-        label="온보딩 2단계 작성하기"
-        size="large"
-      />
       <Button label="셀러님의 대시보드 보러 가실까요?" size="large" />
     </div>
     <div class="sb-caution">
       <ul>
         <li>
-          입력하신 정보는 추천 정확도를 높이기 위해서만 사용되어, 언제든지
-          설정에서 변경 할 수 있습니다.
+          셀러 정보 등록은 [환경 설정 > 셀러 정보 관리 > 셀러 정보] 메뉴를
+          통해서도 등록이 가능합니다.
         </li>
+        <li>궁금하신 사항은 FAQ에서 확인해주세요.</li>
       </ul>
     </div>
   </div>
