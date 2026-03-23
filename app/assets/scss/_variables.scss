@@ -733,6 +733,7 @@
     --alarm-view-contents-color: var(--p-gray-00);
   }
   @include breakpoint {
+    --auth-background-image: var(--p-gray-00);
     &.p-dark,
     .p-dark {
       --auth-background-image: var(--p-gray-800);

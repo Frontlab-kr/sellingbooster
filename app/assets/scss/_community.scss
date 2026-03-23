@@ -51,6 +51,9 @@
         margin-bottom: 24px;
         .sb-input {
           width: 100%;
+          .p-inputtext {
+            height: 48px;
+          }
         }
       }
       &-sort {
