@@ -3,7 +3,11 @@
     <div class="sb-qna-view__head">
       <div class="sb-qna-view__title">
         <Badge value="답변 완료" severity="success"></Badge>
-        <h6>회원 문의</h6>
+        <h6>
+          회원 문의 회원 문의 회원 문의 회원 문의 회원 문의 회원 문의 회원 문의
+          회원 문의 회원 문의 회원 문의 회원 문의 회원 문의 회원 문의 회원 문의
+          회원 문의
+        </h6>
       </div>
       <div class="sb-qna-view__meta">
         <div class="sb-qna-view__date">2026.01.14</div>

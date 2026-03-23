@@ -47,7 +47,7 @@
         <masonry-wall
           :items="list"
           :max-columns="2"
-          :column-width="600"
+          :column-width="500"
           :gap="20"
           class="sb-board-list"
         >

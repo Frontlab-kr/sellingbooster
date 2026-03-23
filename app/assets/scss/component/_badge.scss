@@ -82,6 +82,8 @@
   min-width: var(--p-badge-min-width);
   height: var(--p-badge-height);
   letter-spacing: -0.3px;
+  white-space: noWrap;
+  flex-shrink: 0;
 }
 .p-badge-dot {
   width: var(--p-badge-dot-size);

@@ -95,7 +95,8 @@ const writeOpen = () => {
 const list = ref([
   {
     id: 1,
-    title: '서비스 이용 문의',
+    title:
+      '서비스 이용 문의 서비스 이용 문의 서비스 이용 문의 서비스 이용 문의 서비스 이용 문의 서비스 이용 문의 서비스 이용 문의 서비스 이용 문의 서비스 이용 문의',
     date: '2026.01.14',
     badge: { value: '답변 대기', severity: 'danger' },
     content:
