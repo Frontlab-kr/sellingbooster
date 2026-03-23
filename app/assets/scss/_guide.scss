@@ -25,6 +25,9 @@
       overflow: hidden;
     }
     &-table {
+      &-background {
+        background-color: #f2f7f9;
+      }
       table {
         width: 100%;
         border-collapse: collapse;
@@ -415,6 +418,9 @@
       }
     }
   }
+}
+.sb-guide-dark .sb-guide-table-background {
+  background: none;
 }
 
 .sb-url {

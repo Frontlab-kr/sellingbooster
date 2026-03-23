@@ -690,11 +690,17 @@
   }
 
   //profile
-  &-profile-default {
-    width: 48px;
-    height: 48px;
-    --path-color-1: var(--p-gray-300);
-    --path-color-2: #eaecf1;
+  &-profile {
+    &-lv {
+      width: 48px;
+      height: 48px;
+    }
+    &-default {
+      width: 48px;
+      height: 48px;
+      --path-color-1: var(--p-gray-300);
+      --path-color-2: #eaecf1;
+    }
   }
 
   //etc
@@ -708,16 +714,6 @@
 
 .p-dark {
   .ico {
-    //profile
-    &-profile-lv1 {
-      width: 48px;
-      height: 48px;
-    }
-    &-profile-default {
-      --path-color-1: var(--p-gray-600);
-      --path-color-2: #6a7381;
-    }
-
     //illustration
     &-illustration {
       &-check-circle {
@@ -766,6 +762,12 @@
           --path-color-2: var(--p-gray-600);
         }
       }
+    }
+
+    //profile
+    &-profile-default {
+      --path-color-1: var(--p-gray-600);
+      --path-color-2: #6a7381;
     }
   }
 }

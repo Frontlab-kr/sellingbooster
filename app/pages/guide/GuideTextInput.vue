@@ -80,13 +80,21 @@
                     <h6>OnFocus</h6>
                   </td>
                   <td>
-                    <SbInput placeholder="Text" class="focus" />
+                    <SbInput
+                      v-model="Filled"
+                      placeholder="Text"
+                      class="focus"
+                    />
                     <Message size="small" severity="neutral" variant="simple">
                       Help text
                     </Message>
                   </td>
                   <td class="breakpoint-mo">
-                    <SbInput placeholder="Text" class="focus" />
+                    <SbInput
+                      v-model="Filled"
+                      placeholder="Text"
+                      class="focus"
+                    />
                     <Message size="small" severity="neutral" variant="simple">
                       Help text
                     </Message>
@@ -343,13 +351,21 @@
                     <h6>OnFocus</h6>
                   </td>
                   <td>
-                    <SbInput placeholder="Text" class="focus" />
+                    <SbInput
+                      v-model="Filled"
+                      placeholder="Text"
+                      class="focus"
+                    />
                     <Message size="small" severity="neutral" variant="simple">
                       Help text
                     </Message>
                   </td>
                   <td class="breakpoint-mo">
-                    <SbInput placeholder="Text" class="focus" />
+                    <SbInput
+                      v-model="Filled"
+                      placeholder="Text"
+                      class="focus"
+                    />
                     <Message size="small" severity="neutral" variant="simple">
                       Help text
                     </Message>
@@ -570,30 +586,7 @@
             <h2>Search bar (메인 검색)</h2>
             <h5>메인에 사용되는 키워드, 상품 검색 시 사용되는 Search bar</h5>
           </div>
-          <div class="sb-guide-table">
-            <table>
-              <colgroup>
-                <col style="width: 200px" />
-                <col style="width: 1000px" />
-              </colgroup>
-
-              <tbody>
-                <tr>
-                  <td>
-                    <h6>Default</h6>
-                  </td>
-                  <td></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="sb-guide-item">
-          <div class="sb-guide-item-head">
-            <h2>Search bar</h2>
-            <h5>서브 페이지에서 게시물 검색 등에 사용되는 Search bar</h5>
-          </div>
-          <div class="sb-guide-table">
+          <div class="sb-guide-table sb-guide-table-background">
             <table>
               <colgroup>
                 <col style="width: 200px" />
@@ -607,7 +600,93 @@
                   </td>
                   <td>
                     <SbInput
-                      v-model="searchKeyword"
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      size="large"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h6>OnFocus</h6>
+                  </td>
+                  <td>
+                    <SbInput
+                      v-model="Filled"
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      size="large"
+                      class="focus"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h6>Filled</h6>
+                  </td>
+                  <td>
+                    <SbInput
+                      v-model="Filled"
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      size="large"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h6>Disabled</h6>
+                  </td>
+                  <td>
+                    <SbInput
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      size="large"
+                      disabled
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="sb-guide-item">
+          <div class="sb-guide-item-head">
+            <h2>Search bar</h2>
+            <h5>서브 페이지에서 게시물 검색 등에 사용되는 Search bar</h5>
+          </div>
+          <div class="sb-guide-table sb-guide-table-background">
+            <table>
+              <colgroup>
+                <col style="width: 345px" />
+                <col style="width: 700px" />
+                <col style="width: 700px" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Large (폰트 사이즈 : 16pt)</th>
+                  <th>Medium (폰트 사이즈 :14pt)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <h6>Default</h6>
+                  </td>
+                  <td>
+                    <SbInput
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                    />
+                  </td>
+                  <td class="breakpoint-mo">
+                    <SbInput
                       show-search
                       @search="onSearch"
                       placeholder="Text"
@@ -620,7 +699,16 @@
                   </td>
                   <td>
                     <SbInput
-                      v-model="searchKeyword"
+                      v-model="Filled"
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      class="focus"
+                    />
+                  </td>
+                  <td class="breakpoint-mo">
+                    <SbInput
+                      v-model="Filled"
                       show-search
                       @search="onSearch"
                       placeholder="Text"
@@ -634,7 +722,15 @@
                   </td>
                   <td>
                     <SbInput
-                      :modelValue="'Text'"
+                      v-model="Filled"
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                    />
+                  </td>
+                  <td class="breakpoint-mo">
+                    <SbInput
+                      v-model="Filled"
                       show-search
                       @search="onSearch"
                       placeholder="Text"
@@ -647,7 +743,197 @@
                   </td>
                   <td>
                     <SbInput
-                      :modelValue="'Text'"
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      disabled
+                    />
+                  </td>
+                  <td class="breakpoint-mo">
+                    <SbInput
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      disabled
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="sb-guide-dark p-dark">
+        <div class="sb-guide-item">
+          <div class="sb-guide-item-head">
+            <h2>Search bar (메인 검색)</h2>
+            <h5>메인에 사용되는 키워드, 상품 검색 시 사용되는 Search bar</h5>
+          </div>
+          <div class="sb-guide-table sb-guide-table-background">
+            <table>
+              <colgroup>
+                <col style="width: 200px" />
+                <col style="width: 1000px" />
+              </colgroup>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <h6>Default</h6>
+                  </td>
+                  <td>
+                    <SbInput
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      size="large"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h6>OnFocus</h6>
+                  </td>
+                  <td>
+                    <SbInput
+                      v-model="Filled"
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      size="large"
+                      class="focus"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h6>Filled</h6>
+                  </td>
+                  <td>
+                    <SbInput
+                      v-model="Filled"
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      size="large"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h6>Disabled</h6>
+                  </td>
+                  <td>
+                    <SbInput
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      size="large"
+                      disabled
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="sb-guide-item">
+          <div class="sb-guide-item-head">
+            <h2>Search bar</h2>
+            <h5>서브 페이지에서 게시물 검색 등에 사용되는 Search bar</h5>
+          </div>
+          <div class="sb-guide-table sb-guide-table-background">
+            <table>
+              <colgroup>
+                <col style="width: 345px" />
+                <col style="width: 700px" />
+                <col style="width: 700px" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Large (폰트 사이즈 : 16pt)</th>
+                  <th>Medium (폰트 사이즈 :14pt)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <h6>Default</h6>
+                  </td>
+                  <td>
+                    <SbInput
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                    />
+                  </td>
+                  <td class="breakpoint-mo">
+                    <SbInput
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h6>OnFocus</h6>
+                  </td>
+                  <td>
+                    <SbInput
+                      v-model="Filled"
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      class="focus"
+                    />
+                  </td>
+                  <td class="breakpoint-mo">
+                    <SbInput
+                      v-model="Filled"
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      class="focus"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h6>Filled</h6>
+                  </td>
+                  <td>
+                    <SbInput
+                      v-model="Filled"
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                    />
+                  </td>
+                  <td class="breakpoint-mo">
+                    <SbInput
+                      v-model="Filled"
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h6>Disabled</h6>
+                  </td>
+                  <td>
+                    <SbInput
+                      show-search
+                      @search="onSearch"
+                      placeholder="Text"
+                      disabled
+                    />
+                  </td>
+                  <td class="breakpoint-mo">
+                    <SbInput
                       show-search
                       @search="onSearch"
                       placeholder="Text"

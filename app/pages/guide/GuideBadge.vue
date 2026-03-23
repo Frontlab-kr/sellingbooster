@@ -229,6 +229,93 @@
             </table>
           </div>
         </div>
+        <div class="sb-guide-item">
+          <div class="sb-guide-item-head">
+            <h2>Level Text Badge</h2>
+            <h5>
+              회원 레벨을 표기할 때 사용되는 뱃지로, 라이트 모드와 다크 모드
+              모두 같은 컬러 값을 사용한다.
+            </h5>
+          </div>
+          <div class="sb-guide-table">
+            <table>
+              <colgroup>
+                <col style="width: 180px" />
+                <col style="width: 336px" />
+                <col style="width: 1000px" />
+              </colgroup>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <h6>item</h6>
+                  </td>
+                  <td>
+                    <div class="flex gap-3">
+                      <Badge value="Level 1" severity="level1"></Badge>
+                      <Badge value="Level 2" severity="level2"></Badge>
+                      <Badge value="Level 3" severity="level3"></Badge>
+                      <Badge value="Level 4" severity="level4"></Badge>
+                    </div>
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="sb-guide-item">
+          <div class="sb-guide-item-head">
+            <h2>Level GNB Badge</h2>
+            <h5>
+              회원 레벨을 표기할 때 사용되는 뱃지로, 라이트 모드와 다크 모드
+              모두 같은 컬러 값을 사용한다.<br />
+              PC 상단 GNB에서 사용된다.
+            </h5>
+          </div>
+          <div class="sb-guide-table">
+            <table>
+              <colgroup>
+                <col style="width: 180px" />
+                <col style="width: 336px" />
+                <col style="width: 1000px" />
+              </colgroup>
+
+              <tbody>
+                <tr>
+                  <td>
+                    <h6>item</h6>
+                  </td>
+                  <td>
+                    <div class="flex gap-3">
+                      <img
+                        src="./../../assets/icons/profile/lv1.png"
+                        alt=""
+                        class="ico-profile-lv"
+                      />
+                      <img
+                        src="./../../assets/icons/profile/lv2.png"
+                        alt=""
+                        class="ico-profile-lv"
+                      />
+                      <img
+                        src="./../../assets/icons/profile/lv3.png"
+                        alt=""
+                        class="ico-profile-lv"
+                      />
+                      <img
+                        src="./../../assets/icons/profile/lv4.png"
+                        alt=""
+                        class="ico-profile-lv"
+                      />
+                    </div>
+                  </td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -341,6 +341,11 @@
   --input-length-color: var(--p-gray-400);
   --input-delete-color: var(--p-gray-200);
   --input-time-color: var(--p-red-600);
+  --input-search-color: var(--p-primary-500);
+  --input-lg-search-color: var(--p-primary-500);
+  --input-lg-search-disabled-background: var(--p-gray-00);
+  --input-lg-border-hover-color: var(--p-primary-300);
+  --input--search-border-color: var(--p-gray-300);
 
   //checkbox
   --checkbox-url: url(./../icons/etc/checkbox.svg) no-repeat 50% 50%;
@@ -580,6 +585,11 @@
     --input-length-color: var(--p-gray-400);
     --input-delete-color: var(--p-gray-800);
     --input-time-color: var(--p-red-400);
+    --input-search-color: var(--p-primary-500);
+    --input-lg-search-color: var(--p-primary-500);
+    --input-lg-search-disabled-background: var(--p-gray-800);
+    --input-lg-border-hover-color: var(--p-primary-300);
+    --input--search-border-color: var(--p-gray-50);
 
     //checkbox
     --checkbox-url: url(./../icons/etc/checkbox-dark.svg) no-repeat 50% 50%;
@@ -602,8 +612,8 @@
 
     //textarea
     --textarea-background: none;
-    --textarea-border-color: var(--p-gray-500);
-    --textarea-border-hover-color: var(--p-gray-200);
+    --textarea-border-color: var(--p-gray-600);
+    --textarea-border-hover-color: var(--p-gray-600);
     --textarea-name-color: var(--p-gray-300);
     --textarea-textarea-color: var(--p-gray-500);
     --textarea-length-color: var(--p-gray-500);

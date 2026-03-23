@@ -25,8 +25,11 @@
   --p-inputtext-border-radius: 48px;
   --p-inputtext-transition-duration: var(--p-form-field-transition-duration);
   --p-inputtext-lg-font-size: var(--p-form-field-lg-font-size);
-  --p-inputtext-lg-padding-x: 20px;
+  --p-inputtext-lg-padding-x: 24px;
   --p-inputtext-lg-padding-y: 0;
+  --p-inputtext-lg-background: var(--p-gray-00);
+  --p-inputtext-lg-border-color: var(--p-gray-00);
+  --p-inputtext-lg-delete-color: var(--p-gray-200);
   --p-inputtext-sm-font-size: var(--p-form-field-sm-font-size);
   --p-inputtext-sm-padding-x: var(--p-form-field-sm-padding-x);
   --p-inputtext-sm-padding-y: var(--p-form-field-sm-padding-y);
@@ -61,8 +64,11 @@
     --p-inputtext-border-radius: 48px;
     --p-inputtext-transition-duration: var(--p-form-field-transition-duration);
     --p-inputtext-lg-font-size: var(--p-form-field-lg-font-size);
-    --p-inputtext-lg-padding-x: 20px;
+
     --p-inputtext-lg-padding-y: 0;
+    --p-inputtext-lg-background: var(--p-gray-800);
+    --p-inputtext-lg-border-color: var(--p-primary-300);
+    --p-inputtext-lg-delete-color: var(--p-gray-600);
     --p-inputtext-sm-font-size: var(--p-form-field-sm-font-size);
     --p-inputtext-sm-padding-x: var(--p-form-field-sm-padding-x);
     --p-inputtext-sm-padding-y: var(--p-form-field-sm-padding-y);
@@ -101,7 +107,14 @@
   // &.p-invalid {
   //   border: 1px solid var(--p-inputtext-invalid-border-color);
   // }
-
+  &-lg {
+    height: 60px;
+    background-color: var(--p-inputtext-lg-background);
+    border-color: var(--p-inputtext-lg-border-color);
+  }
+  &-lg ~ .sb-input__button .ico-system-delete {
+    color: var(--p-inputtext-lg-delete-color);
+  }
   &.focus {
     border-color: var(--p-inputtext-hover-border-color);
   }

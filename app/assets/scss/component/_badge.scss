@@ -84,6 +84,18 @@
   letter-spacing: -0.3px;
   white-space: noWrap;
   flex-shrink: 0;
+  &[data-p='level1'] {
+    background-color: var(--p-orange-500);
+  }
+  &[data-p='level2'] {
+    background-color: #fb7310;
+  }
+  &[data-p='level3'] {
+    background-color: var(--p-red-500);
+  }
+  &[data-p='level4'] {
+    background-color: var(--p-slate-500);
+  }
 }
 .p-badge-dot {
   width: var(--p-badge-dot-size);

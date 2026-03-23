@@ -4,6 +4,8 @@
     :class="{
       'sb-input--search': showSearch,
       'sb-input--disabled': disabled,
+      'sb-input--clear': model,
+      [`sb-input--${size}`]: size,
     }"
   >
     <div class="sb-input__length" v-if="showLength">
@@ -34,6 +36,7 @@
       :placeholder="placeholder"
       :disabled="disabled"
       :inputmode="number ? 'numeric' : 'text'"
+      :size="size"
       @input="handleInput"
       @keypress="restrictToDigits"
     />
@@ -45,7 +48,7 @@
         </template>
       </Button>
     </div>
-    <div class="sb-input__button" v-if="model">
+    <div class="sb-input__button">
       <Button variant="text" rounded @click="clearText">
         <template #icon>
           <IconSystemDelete class="ico-system-delete" />
@@ -69,6 +72,7 @@ const props = defineProps({
   showSearch: { type: Boolean, default: false },
   disabled: { type: Boolean, default: false },
   time: { type: String, default: '' },
+  size: { type: String, default: '' },
 });
 
 const emit = defineEmits(['search']);

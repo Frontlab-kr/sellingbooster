@@ -32,8 +32,11 @@
       </div>
       <NuxtLink to="/" class="sb-header-user">
         <div class="sb-header-user__thumb">
-          <IconProfileLv1 class="ico-profile-lv1" />
-          <strong>Lv.1</strong>
+          <img
+            src="./../assets/icons/profile/lv1.png"
+            alt=""
+            class="ico-profile-lv"
+          />
         </div>
         <div class="sb-header-user__text">
           <strong>셀링부스터</strong>
@@ -151,8 +154,6 @@
 <script setup>
 import { ref, watch, onMounted, onUnmounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
-
-import IconProfileLv1 from '@/assets/icons/profile/lv1.svg?component';
 
 import IconSystemSearch from '@/assets/icons/system/search.svg?component';
 import IconSystemModeDark from '@/assets/icons/system/mode-dark.svg?component';
@@ -305,10 +306,11 @@ const updateTheme = () => {
     localStorage.setItem('sb-theme', 'light');
   }
 };
-/** 단축키 핸들러: Ctrl + I */
+/** 단축키 핸들러: F8 */
 const handleKeyDown = (event) => {
-  if (event.ctrlKey && event.key.toLowerCase() === 'i') {
-    event.preventDefault(); // 브라우저 기본 동작 방지 (이동 등)
+  // F8 키를 눌렀을 때
+  if (event.key === 'F8') {
+    event.preventDefault(); // 기본 동작 방지 (대부분의 브라우저에서 비어있음)
     toggleMode();
   }
 };
