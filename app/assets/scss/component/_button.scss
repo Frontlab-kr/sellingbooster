@@ -237,6 +237,7 @@ button {
 
 .p-button {
   white-space: noWrap;
+
   &:not(.p-button-text):not(.p-button-icon-only) {
     border-radius: 60px;
   }
@@ -416,6 +417,7 @@ button {
       height: 20px;
     }
     .p-button-label {
+      margin: 0;
       font-weight: 400;
       font-size: var(--Font-Button-Small, 14px);
       font-style: normal;
