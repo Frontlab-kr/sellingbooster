@@ -410,12 +410,13 @@
         }
         &__button {
           display: flex;
+          flex-direction: column-reverse;
           align-items: center;
           justify-content: center;
           gap: 8px;
           margin: 48px 0 48px 0;
           .p-button {
-            width: auto;
+            width: 100%;
           }
         }
       }

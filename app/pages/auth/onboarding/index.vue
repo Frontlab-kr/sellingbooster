@@ -673,10 +673,7 @@ watch(selectedInterests, (newValue, oldValue) => {
 watch(selectedConcerns, (newValue, oldValue) => {
   const customValue = 'custom';
 
-  if (newValue.includes(customValue) && !oldValue.includes(customValue)) {
-    selectedConcerns.value = [customValue];
-  } else if (newValue.includes(customValue) && newValue.length > 1) {
-    selectedConcerns.value = newValue.filter((val) => val !== customValue);
+  if (oldValue.includes(customValue) && !newValue.includes(customValue)) {
     customConcernText.value = '';
   }
 });
