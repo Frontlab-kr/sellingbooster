@@ -270,6 +270,7 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
+          gap: 32px;
           margin-bottom: 8px;
         }
         &__author {
@@ -410,8 +411,9 @@
       &-view {
         &__head {
           display: flex;
-          align-items: flex-end;
+          align-items: flex-start;
           justify-content: space-between;
+          gap: 24px;
           margin-bottom: 16px;
         }
         &__title {
@@ -424,6 +426,7 @@
           display: flex;
           align-items: center;
           gap: 8px;
+          margin-top: 38px;
         }
         &__date {
           font-size: 12px;
@@ -452,6 +455,7 @@
           margin-top: 24px;
           padding: 20px;
           &__head {
+            gap: 24px;
             margin-bottom: 12px;
           }
           &__author {
