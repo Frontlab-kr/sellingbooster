@@ -165,7 +165,7 @@
           <NuxtLink
             v-for="item in tumblerList"
             :key="item.rank"
-            :to="`/product/${item.rank}`"
+            to="/"
             class="sb-trend-top-list-item"
           >
             <div class="sb-trend-top-list-item__thumb">
