@@ -2,17 +2,6 @@
   $gutter: 10px
 );
 @use './mixins' as *;
-@use './variables';
-@use './icon';
-@use './layout';
-@use './auth';
-@use './trend';
-@use './community';
-@use './setting';
-@use './guide';
-@use './component';
-
-@use './colors';
 @use './component/popover';
 @use './component/message';
 @use './component/checkbox';
@@ -30,6 +19,17 @@
 @use './component/textarea';
 @use './component/select';
 @use './component/tieredmenu';
+
+@use './variables';
+@use './icon';
+@use './layout';
+@use './auth';
+@use './trend';
+@use './community';
+@use './setting';
+@use './guide';
+@use './component';
+@use './colors';
 
 // Pretendard JP (Dynamic Subset - 용량 최적화 버전)
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-jp-dynamic-subset.min.css');

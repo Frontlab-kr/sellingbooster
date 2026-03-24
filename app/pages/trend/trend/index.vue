@@ -8,12 +8,12 @@
     </div>
     <div class="sb-trend-contents">
       <div class="sb-trend-search">
-        <h5>인기 키워드 분석으로 알아보는 요즘 셀러들의 관심 트렌드</h5>
+        <h4>
+          요즘 셀러들이 주목하는 키워드는 뭘까요?<br />
+          관심 키워드를 저장하고 판매 가능성을 확인해보세요.
+        </h4>
         <div class="sb-trend-search-form">
           <div class="sb-trend-search-form-item">
-            <div class="sb-trend-search-form-item__head">
-              <label>카테고리 검색</label>
-            </div>
             <div class="sb-trend-search-form-item__body">
               <Select
                 v-model="selectedValue"
@@ -28,6 +28,7 @@
                 optionLabel="name"
                 placeholder="2차 카테고리"
                 class="w-full"
+                disabled
               />
               <Select
                 v-model="selectedValue"
@@ -35,6 +36,7 @@
                 optionLabel="name"
                 placeholder="3차 카테고리"
                 class="w-full"
+                disabled
               />
               <Select
                 v-model="selectedValue"
@@ -42,6 +44,7 @@
                 optionLabel="name"
                 placeholder="4차 카테고리"
                 class="w-full"
+                disabled
               />
             </div>
           </div>
@@ -62,24 +65,13 @@
         <div class="sb-table">
           <ClientOnly>
             <DataTable :value="products" responsiveLayout="scroll">
-              <Column
-                field="ranking"
-                header="랭킹"
-                style="width: 300px"
-                headerClass="text-center"
-                bodyClass="text-center"
-              >
+              <Column field="ranking" header="랭킹" style="width: 80px">
                 <template #body="slotProps">
                   {{ slotProps.data.ranking }}
                 </template>
               </Column>
 
-              <Column
-                field="keyword"
-                header="키워드"
-                sortable
-                style="width: 300px"
-              >
+              <Column field="keyword" header="키워드" style="width: 600px">
                 <template #body="slotProps">
                   <span v-html="slotProps.data.keyword"></span>
                 </template>
@@ -89,9 +81,9 @@
                 field="influence"
                 header="영향력"
                 sortable
-                headerClass="text-center"
-                bodyClass="text-center"
-                style="width: 300px"
+                headerClass="text-right"
+                bodyClass="text-right"
+                style="width: 310px"
               >
                 <template #body="slotProps">
                   <span>{{ slotProps.data.influence }}</span>
@@ -104,7 +96,7 @@
                 sortable
                 headerClass="text-right"
                 bodyClass="text-right"
-                style="width: 300px"
+                style="width: 310px"
               >
                 <template #body="slotProps">
                   {{ slotProps.data.productCount.toLocaleString() }}개
@@ -116,7 +108,7 @@
                 sortable
                 headerClass="text-right"
                 bodyClass="text-right"
-                style="width: 300px"
+                style="width: 200px"
               >
                 <template #header>
                   <div
@@ -125,37 +117,28 @@
                     @mouseleave="togglePopover"
                   >
                     경쟁강도
-                    <!-- <Icon16information /> -->
+                    <IconSystemInformationCircle
+                      class="ico-system-information-circle"
+                    />
                   </div>
                 </template>
                 <template #body="slotProps">
-                  <div class="flex items-center justify-content-end gap-2">
-                    <span>{{ slotProps.data.competition.toFixed(2) }}</span>
+                  <div class="sb-legend">
                     <span
                       class="sb-legend-item"
                       :class="
                         slotProps.data.competition >= 0.8
-                          ? 'text-indigo-500'
+                          ? 'status-highest'
                           : slotProps.data.competition >= 0.6
-                            ? 'text-green-500'
+                            ? 'status-good'
                             : slotProps.data.competition >= 0.4
-                              ? 'text-slate-600'
+                              ? 'status-normal'
                               : slotProps.data.competition >= 0.2
-                                ? 'text-orange-700'
-                                : 'text-red-600'
+                                ? 'status-low'
+                                : 'status-lowest'
                       "
                     >
-                      {{
-                        slotProps.data.competition >= 0.8
-                          ? '최고'
-                          : slotProps.data.competition >= 0.6
-                            ? '좋음'
-                            : slotProps.data.competition >= 0.4
-                              ? '보통'
-                              : slotProps.data.competition >= 0.2
-                                ? '낮음'
-                                : '최저'
-                      }}
+                      {{ slotProps.data.competition.toFixed(2) }}
                     </span>
                   </div>
                 </template>
@@ -186,7 +169,12 @@
             class="sb-trend-top-list-item"
           >
             <div class="sb-trend-top-list-item__thumb">
-              <strong>{{ item.rank }}</strong>
+              <Badge
+                :value="item.rank"
+                size="small"
+                class="p-badge-circle"
+                :severity="item.rank > 3 ? 'contrast' : undefined"
+              ></Badge>
               <img :src="item.imgSrc" :alt="item.title" />
             </div>
             <div class="sb-trend-top-list-item__contents">
@@ -204,13 +192,16 @@
           </NuxtLink>
         </div>
       </div>
-      <div class="sb-banner"></div>
+      <div class="sb-banner">
+        <img src="/temp/banner.png" alt="" />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
 
 const op = ref();
 
@@ -224,7 +215,11 @@ const togglePopover = (event) => {
 };
 
 //breadcrumb
-const breadcrumb = ref([{ label: 'Home' }, { label: '마켓 트렌드' }]);
+const breadcrumb = ref([
+  { label: 'Home' },
+  { label: '마켓 트렌드' },
+  { label: '추천기회' },
+]);
 
 const selectedValue = ref();
 const selectedOption = ref([
@@ -253,7 +248,6 @@ const products = ref([
     influence: '높음',
     productCount: 1671,
     competition: 0.41,
-    statusColor: '#10b981', // 녹색
   },
   {
     ranking: 18,
@@ -261,7 +255,6 @@ const products = ref([
     influence: '높음',
     productCount: 1412,
     competition: 0.26,
-    statusColor: '#10b981', // 녹색
   },
   {
     ranking: 5,
@@ -269,7 +262,6 @@ const products = ref([
     influence: '높음',
     productCount: 121,
     competition: 0.02,
-    statusColor: '#ef4444', // 적색
   },
   {
     ranking: 19,
@@ -277,7 +269,6 @@ const products = ref([
     influence: '높음',
     productCount: 19327,
     competition: 6.05,
-    statusColor: '#10b981',
   },
   {
     ranking: 14,
@@ -285,7 +276,6 @@ const products = ref([
     influence: '높음',
     productCount: 1671,
     competition: 0.41,
-    statusColor: '#10b981',
   },
   {
     ranking: 18,
@@ -293,7 +283,6 @@ const products = ref([
     influence: '높음',
     productCount: 1412,
     competition: 0.26,
-    statusColor: '#10b981',
   },
   {
     ranking: 5,
@@ -301,7 +290,6 @@ const products = ref([
     influence: '높음',
     productCount: 121,
     competition: 0.02,
-    statusColor: '#ef4444',
   },
   {
     ranking: 5,
@@ -309,7 +297,6 @@ const products = ref([
     influence: '높음',
     productCount: 121,
     competition: 0.02,
-    statusColor: '#ef4444',
   },
   {
     ranking: 19,
@@ -317,7 +304,6 @@ const products = ref([
     influence: '높음',
     productCount: 19327,
     competition: 6.05,
-    statusColor: '#10b981',
   },
 ]);
 

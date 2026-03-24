@@ -146,6 +146,12 @@
       <div class="sb-header-mo__title">{{ pageTitle }}</div>
     </div>
     <div class="sb-header-mo-end">
+      <Button rounded severity="white" @click="toggleMode()">
+        <template #icon>
+          <IconSystemModeLight v-if="isDark" class="ico-system-mode-light" />
+          <IconSystemModeDark v-else class="ico-system-mode-dark" />
+        </template>
+      </Button>
       <Button variant="text">
         <template #icon>
           <IconSystemBellOn class="ico-system-bell-on" />

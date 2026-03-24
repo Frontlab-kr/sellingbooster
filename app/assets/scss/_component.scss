@@ -653,7 +653,7 @@
   }
 
   &-legend {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 20px;
     margin: 0;
@@ -674,29 +674,34 @@
         height: 8px;
         border-radius: 8px;
       }
-      &.text-indigo-500 {
+      &.status-highest {
+        color: var(--status-highest);
         &:after {
-          background-color: #00b1bd;
+          background-color: var(--status-highest);
         }
       }
-      &.text-green-500 {
+      &.status-good {
+        color: var(--status-good);
         &:after {
-          background-color: #03ab67;
+          background-color: var(--status-good);
         }
       }
-      &.text-slate-600 {
+      &.status-normal {
+        color: var(--status-normal);
         &:after {
-          background-color: #5b5de4;
+          background-color: var(--status-normal);
         }
       }
-      &.text-orange-700 {
+      &.status-low {
+        color: var(--status-low);
         &:after {
-          background-color: #faa02e;
+          background-color: var(--status-low);
         }
       }
-      &.text-red-600 {
+      &.status-lowest {
+        color: var(--status-lowest);
         &:after {
-          background-color: #e42636;
+          background-color: var(--status-lowest);
         }
       }
     }
@@ -816,6 +821,20 @@
         width: 80px;
         height: 80px;
       }
+    }
+    .sb-legend-item {
+      font-size: 16px;
+    }
+    .ico-system-information-circle {
+      min-width: 16px;
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  &-banner {
+    img {
+      max-width: 100%;
     }
   }
 

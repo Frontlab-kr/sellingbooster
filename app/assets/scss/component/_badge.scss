@@ -106,6 +106,7 @@
 }
 .p-badge-circle {
   padding: var(--p-badge-padding);
+  padding: 0 6px;
   border-radius: 100px;
   &.p-badge-contrast {
     border: 1px solid var(--p-badge-contrast-filled-border-color);
