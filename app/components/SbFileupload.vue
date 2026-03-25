@@ -124,7 +124,11 @@ const formatSize = (bytes) => {
 
   const i = Math.floor(Math.log(bytes) / Math.log(k));
 
-  const formattedSize = parseFloat((bytes / Math.pow(k, i)).toFixed(1));
+  // i가 2 이상이면 MB, GB, TB 단위임
+  const isLargeSize = i >= 2;
+  const formattedSize = isLargeSize
+    ? parseFloat((bytes / Math.pow(k, i)).toFixed(1)) // MB 이상: 소수점 1자리
+    : Math.floor(bytes / Math.pow(k, i)); // KB 이하: 정수
 
   return `${formattedSize}${sizes[i]}`;
 };
