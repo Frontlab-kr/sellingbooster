@@ -953,6 +953,81 @@
             </table>
           </div>
         </div>
+        <div class="sb-guide-item">
+          <div class="sb-guide-item-head">
+            <h2>Input Chip_light</h2>
+            <h5>선택, 입력된 값이 보여지고 값을 삭제할 수 있습니다.</h5>
+          </div>
+          <div class="sb-guide-table">
+            <table>
+              <colgroup>
+                <col style="width: 496px" />
+                <col style="width: 788px" />
+                <col style="width: 394px" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Default</th>
+                  <th>No close</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <h6>Default</h6>
+                  </td>
+                  <td>
+                    <div class="sb-chip">
+                      <div class="sb-chip-list">
+                        <Chip label="Chip" removable />
+                      </div>
+                    </div>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <h6>Color label</h6>
+                  </td>
+                  <td>
+                    <div class="sb-chip">
+                      <div class="sb-chip-list">
+                        <Chip
+                          label="Chip"
+                          removable
+                          size="large"
+                          severity="success"
+                        />
+                        <Chip
+                          label="Chip"
+                          removable
+                          size="large"
+                          severity="info"
+                        />
+                        <Chip
+                          label="Chip"
+                          removable
+                          size="large"
+                          severity="warn"
+                        />
+                        <Chip
+                          label="Chip"
+                          removable
+                          size="large"
+                          severity="danger"
+                        />
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <Chip label="Chip" size="large" severity="primary" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
       <div class="sb-guide-dark p-dark">
         <div class="sb-guide-item">
@@ -1143,6 +1218,81 @@
                         </div>
                       </div>
                     </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="sb-guide-item">
+          <div class="sb-guide-item-head">
+            <h2>Input Chip_light</h2>
+            <h5>선택, 입력된 값이 보여지고 값을 삭제할 수 있습니다.</h5>
+          </div>
+          <div class="sb-guide-table">
+            <table>
+              <colgroup>
+                <col style="width: 496px" />
+                <col style="width: 788px" />
+                <col style="width: 394px" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Default</th>
+                  <th>No close</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <h6>Default</h6>
+                  </td>
+                  <td>
+                    <div class="sb-chip">
+                      <div class="sb-chip-list">
+                        <Chip label="Chip" removable />
+                      </div>
+                    </div>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <h6>Color label</h6>
+                  </td>
+                  <td>
+                    <div class="sb-chip">
+                      <div class="sb-chip-list">
+                        <Chip
+                          label="Chip"
+                          removable
+                          size="large"
+                          severity="success"
+                        />
+                        <Chip
+                          label="Chip"
+                          removable
+                          size="large"
+                          severity="info"
+                        />
+                        <Chip
+                          label="Chip"
+                          removable
+                          size="large"
+                          severity="warn"
+                        />
+                        <Chip
+                          label="Chip"
+                          removable
+                          size="large"
+                          severity="danger"
+                        />
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <Chip label="Chip" size="large" severity="primary" />
                   </td>
                 </tr>
               </tbody>

@@ -1,12 +1,15 @@
 <template>
   <div
     class="sb-input"
-    :class="{
-      'sb-input--search': showSearch,
-      'sb-input--disabled': disabled,
-      'sb-input--clear': model,
-      [`sb-input--${size}`]: size,
-    }"
+    :class="[
+      $attrs.class,
+      {
+        'sb-input--search': showSearch,
+        'sb-input--disabled': disabled,
+        'sb-input--clear': model,
+        [`sb-input--${size}`]: size,
+      },
+    ]"
   >
     <div class="sb-input__length" v-if="showLength">
       <strong>{{ currentLength }}</strong> / {{ maxlength }}

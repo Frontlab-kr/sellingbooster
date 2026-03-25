@@ -65,11 +65,7 @@
         </div>
         <div class="sb-table">
           <ClientOnly>
-            <DataTable
-              :value="products"
-              responsiveLayout="scroll"
-              removableSort
-            >
+            <DataTable :value="top30" responsiveLayout="scroll" removableSort>
               <Column field="ranking" header="랭킹" style="width: 80px">
                 <template #body="slotProps">
                   {{ slotProps.data.ranking }}
@@ -168,7 +164,7 @@
         </div>
         <div class="sb-trend-top-list">
           <NuxtLink
-            v-for="item in tumblerList"
+            v-for="item in categoryTop30"
             :key="item.rank"
             to="/"
             class="sb-trend-top-list-item"
@@ -226,6 +222,7 @@ const breadcrumb = ref([
   { label: '추천기회' },
 ]);
 
+//select
 const selectedValue = ref();
 const selectedOption = ref([
   { name: '스팸홍보/도배글입니다.' },
@@ -238,7 +235,7 @@ const selectedOption = ref([
   { name: '기타 (기타 사유를 입력해주세요.)' },
 ]);
 
-const products = ref([
+const top30 = ref([
   {
     ranking: 19,
     keyword: '오메가3',
@@ -312,7 +309,7 @@ const products = ref([
   },
 ]);
 
-const tumblerList = ref([
+const categoryTop30 = ref([
   {
     rank: 1,
     imgSrc: '/temp/top1.png',

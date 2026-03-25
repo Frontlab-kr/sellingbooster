@@ -115,11 +115,12 @@
   --p-datatable-column-title-font-weight: 600;
   --p-datatable-header-cell-background: var(--p-content-background);
   --p-datatable-header-cell-hover-background: transparent;
-  --p-datatable-header-cell-selected-background: transparent;
+  --p-datatable-header-cell-selected-background: var(--p-gray-50);
+  --p-datatable-header-cell-selected-border-color: var(--p-primary-500);
   --p-datatable-header-cell-border-color: var(--p-gray-200);
   --p-datatable-header-cell-color: var(--p-gray-600);
-  --p-datatable-header-cell-hover-color: var(--p-content-hover-color);
-  --p-datatable-header-cell-selected-color: var(--p-highlight-color);
+  --p-datatable-header-cell-hover-color: var(--p-primary-500);
+  --p-datatable-header-cell-selected-color: var(--p-gray-600);
   --p-datatable-header-cell-gap: 8px;
   --p-datatable-header-cell-padding: 0 10px 18px 10px;
   --p-datatable-header-cell-lg-padding: 1rem 1.25rem;
@@ -487,9 +488,6 @@
         z-index: 10;
       }
     }
-    &.p-datatable-empty-message {
-      display: none;
-    }
   }
   .p-datatable-tbody > tr > td {
     position: relative;
@@ -559,16 +557,16 @@
     width: var(--p-datatable-sort-icon-size);
     height: var(--p-datatable-sort-icon-size);
     transition: color var(--p-datatable-transition-duration);
-    background: url(./../../icons/etc/sort-switch.svg) no-repeat 50% 50%;
+    background: url(./../../icons/action/switch.svg) no-repeat 50% 50%;
     path {
       display: none;
     }
   }
   [aria-sort='descending'] .p-datatable-sort-icon {
-    background: url(./../../icons/etc/sort-down.svg) no-repeat 50% 50%;
+    background: url(./../../icons/action/switch-down.svg) no-repeat 50% 50%;
   }
   [aria-sort='ascending'] .p-datatable-sort-icon {
-    background: url(./../../icons/etc/sort-up.svg) no-repeat 50% 50%;
+    background: url(./../../icons/action/switch-up.svg) no-repeat 50% 50%;
   }
 
   .p-datatable-sortable-column:not(.p-datatable-column-sorted):hover {
@@ -580,6 +578,8 @@
     color: var(--p-datatable-sort-icon-hover-color);
   }
   .p-datatable-column-sorted {
+    border-bottom: 1px solid
+      var(--p-datatable-header-cell-selected-border-color);
     background: var(--p-datatable-header-cell-selected-background);
     color: var(--p-datatable-header-cell-selected-color);
   }

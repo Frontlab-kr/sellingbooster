@@ -86,13 +86,18 @@
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
-            <NuxtLink to="/trend/trend">마켓 트렌드</NuxtLink>
-            <NuxtLink to="/trend/keyword">키워드</NuxtLink>
-            <NuxtLink to="/trend/keyword/result">키워드 결과</NuxtLink>
-            <NuxtLink to="/trend/product">상품 분석 리스트</NuxtLink>
+            <NuxtLink to="/trend/recommend/">추천기회</NuxtLink>
+            <NuxtLink to="/trend/recommend/nodata">추천기회 Nodata</NuxtLink>
+            <NuxtLink to="/trend/keyword/">키워드 분석</NuxtLink>
+            <NuxtLink to="/trend/keyword/nodata">키워드 분석 Nodata</NuxtLink>
+            <NuxtLink to="/trend/keyword/detail">키워드 분석 상세</NuxtLink>
+            <NuxtLink to="/trend/keyword/detail02"
+              >키워드 분석 상세 - FAQ 없는 케이스</NuxtLink
+            >
+            <NuxtLink to="/trend/product/">상품 분석</NuxtLink>
+            <NuxtLink to="/trend/product/nodata">상품 분석 Nodata</NuxtLink>
             <NuxtLink to="/trend/product/detail">상품 분석 상세</NuxtLink>
-            <NuxtLink to="/trend/product/write">상품 분석 쓰기</NuxtLink>
-            <NuxtLink to="/trend/keyword">키워드</NuxtLink>
+            <NuxtLink to="/trend/analysis/">분석 결과</NuxtLink>
           </div>
         </template>
       </Card>

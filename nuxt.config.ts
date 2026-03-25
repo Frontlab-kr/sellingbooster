@@ -64,6 +64,7 @@ export default defineNuxtConfig({
     //성능 저하 이슈로 필요한 컴포넌트만 불러옴
     components: {
       include: [
+        'Accordion',
         'Button',
         'Dialog',
         'InputText',

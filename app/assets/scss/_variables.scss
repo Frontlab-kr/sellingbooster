@@ -257,11 +257,11 @@
 
 :root,
 :host {
-  --status-highest: var(--p-green-500);
-  --status-good: var(--p-slate-500);
-  --status-normal: var(--p-blue-400);
-  --status-low: var(--p-orange-600);
-  --status-lowest: var(--p-red-600);
+  --color-primary: var(--p-green-500);
+  --color-success: var(--p-slate-500);
+  --color-info: var(--p-blue-400);
+  --color-warn: var(--p-orange-600);
+  --color-danger: var(--p-red-600);
 
   --url-title-color: var(--p-gray-900);
   --url-text-color: var(--p-gray-600);
@@ -371,6 +371,20 @@
   --chip-active-border-color: var(--p-primary-500);
   --chip-disabled-color: var(--p-gray-300);
   --chip-disabled-border-color: var(--p-gray-300);
+  --chip-primary-dot-background: var(--p-indigo-500);
+  --chip-primary-border-color: var(--p-indigo-500);
+  --chip-primary-background: var(--p-gray-00);
+  --chip-success-dot-background: var(--p-slate-200);
+  --chip-success-background: var(--p-gray-00);
+
+  --chip-info-dot-background: var(--p-blue-200);
+  --chip-info-background: var(--p-gray-00);
+
+  --chip-warn-dot-background: var(--p-orange-200);
+  --chip-warn-background: var(--p-gray-00);
+
+  --chip-danger-dot-background: var(--p-red-200);
+  --chip-danger-background: var(--p-gray-00);
 
   //textarea
   --textarea-background: var(--p-gray-00);
@@ -411,6 +425,10 @@
 
   --tab-button-color: var(--p-gray-400);
   --tab-active-button-color: var(--p-primary-500);
+  --tab-circle-button-color: var(--p-gray-400);
+  --tab-circle-active-button-color: var(--p-primary-500);
+  --tab-circle-background: var(--p-gray-100);
+  --tab-circle-active-background: var(--p-gray-00);
 
   --nodata-title-color: var(--p-gray-500);
   --nodata-text-color: var(--p-gray-400);
@@ -516,6 +534,12 @@
 
   &.p-dark,
   .p-dark {
+    --color-primary: var(--p-indigo-300);
+    --color-success: var(--p-slate-400);
+    --color-info: var(--p-blue-400);
+    --color-warn: var(--p-orange-400);
+    --color-danger: var(--p-red-400);
+
     --url-title-color: var(--p-gray-00);
     --url-text-color: var(--p-gray-00);
     --url-card-background: var(--p-gray-800);
@@ -613,12 +637,24 @@
     --radio-label-color: var(--p-gray-00);
 
     //chip
+    --chip-title-color: var(--p-gray-900);
     --chip-color: var(--p-gray-400);
     --chip-border-color: var(--p-gray-500);
     --chip-active-color: var(--p-primary-300);
     --chip-active-border-color: var(--p-primary-300);
     --chip-disabled-color: var(--p-gray-500);
     --chip-disabled-border-color: var(--p-gray-600);
+    --chip-primary-dot-background: var(--p-indigo-300);
+    --chip-primary-border-color: var(--p-indigo-300);
+    --chip-primary-background: none;
+    --chip-success-dot-background: var(--p-slate-600);
+    --chip-success-background: none;
+    --chip-info-dot-background: var(--p-blue-700);
+    --chip-info-background: none;
+    --chip-warn-dot-background: var(--p-orange-900);
+    --chip-warn-background: none;
+    --chip-danger-dot-background: var(--p-red-900);
+    --chip-danger-background: none;
 
     //textarea
     --textarea-background: none;
@@ -659,6 +695,10 @@
 
     --tab-button-color: var(--p-gray-500);
     --tab-active-button-color: var(--p-primary-300);
+    --tab-circle-button-color: var(--p-gray-400);
+    --tab-circle-active-button-color: var(--p-primary-300);
+    --tab-circle-background: var(--p-gray-600);
+    --tab-circle-active-background: #000;
 
     --nodata-title-color: var(--p-gray-500);
     --nodata-text-color: var(--p-gray-500);

@@ -23,7 +23,13 @@
             :feedback="false"
             placeholder="비밀번호를 입력해주세요."
           />
-          <Button label="비밀번호 변경" severity="primary" outlined />
+          <Button
+            label="비밀번호 변경"
+            severity="primary"
+            outlined
+            :disabled="isChangingPassword"
+            @click="isChangingPassword = true"
+          />
         </div>
         <div class="sb-auth-form-item__message">
           <Message size="small" severity="neutral" variant="simple"
@@ -31,7 +37,7 @@
           >
         </div>
       </div>
-      <div class="sb-auth-form-item">
+      <div class="sb-auth-form-item" v-if="isChangingPassword">
         <label>비밀번호 확인<strong>*</strong></label>
         <div class="sb-auth-form-item__input">
           <Password
@@ -232,6 +238,9 @@ import { reactive, computed } from 'vue';
 import Policy from '@/pages/auth/signup/policy.vue';
 
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
+
+// 비밀번호 변경 모드 상태 관리
+const isChangingPassword = ref(false);
 
 //dialog
 const dialogPolicy = ref(false);

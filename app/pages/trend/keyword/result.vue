@@ -19,7 +19,11 @@
         </div>
         <div class="sb-table">
           <ClientOnly>
-            <DataTable :value="productsNodata" responsiveLayout="scroll">
+            <DataTable
+              :value="productsNodata"
+              responsiveLayout="scroll"
+              removableSort
+            >
               <Column
                 field="keyword"
                 header="키워드"

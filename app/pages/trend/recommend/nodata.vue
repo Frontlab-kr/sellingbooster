@@ -1,0 +1,229 @@
+<template>
+  <SbMobileInfo />
+  <div class="sb-trend">
+    <div class="sb-trend-head">
+      <div class="sb-trend-head__title">
+        <h4>마켓 트렌드</h4>
+        <Breadcrumb :model="breadcrumb" />
+      </div>
+    </div>
+    <div class="sb-trend-contents">
+      <div class="sb-trend-search">
+        <h4>
+          요즘 셀러들이 주목하는 키워드는 뭘까요?<br />
+          관심 키워드를 저장하고 판매 가능성을 확인해보세요.
+        </h4>
+        <div class="sb-trend-search-form">
+          <div class="sb-trend-search-form-item">
+            <div class="sb-trend-search-form-item__body">
+              <Select
+                v-model="selectedValue"
+                :options="selectedOption"
+                optionLabel="name"
+                placeholder="1차 카테고리"
+                class="w-full"
+              />
+              <Select
+                v-model="selectedValue"
+                :options="selectedOption"
+                optionLabel="name"
+                placeholder="2차 카테고리"
+                class="w-full"
+                disabled
+              />
+              <Select
+                v-model="selectedValue"
+                :options="selectedOption"
+                optionLabel="name"
+                placeholder="3차 카테고리"
+                class="w-full"
+                disabled
+              />
+              <Select
+                v-model="selectedValue"
+                :options="selectedOption"
+                optionLabel="name"
+                placeholder="4차 카테고리"
+                class="w-full"
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sb-trend-table">
+        <div class="sb-trend-table-head">
+          <div class="sb-trend-table-head__title">
+            <h5>TOP 30</h5>
+            <p>※ 네이버 쇼핑 기준 데이터 입니다.</p>
+          </div>
+          <div class="sb-tab">
+            <Button label="일간" variant="text" class="active" />
+            <Button label="주간" variant="text" />
+            <Button label="월간" variant="text" />
+          </div>
+        </div>
+        <div class="sb-table">
+          <DataTable :value="top30" responsiveLayout="scroll" removableSort>
+            <Column field="ranking" header="랭킹" style="width: 80px">
+              <template #body="slotProps">
+                {{ slotProps.data.ranking }}
+              </template>
+            </Column>
+
+            <Column field="keyword" header="키워드" style="width: 600px">
+              <template #body="slotProps">
+                <span v-html="slotProps.data.keyword"></span>
+              </template>
+            </Column>
+
+            <Column
+              field="influence"
+              header="영향력"
+              sortable
+              headerClass="text-right"
+              bodyClass="text-right"
+              style="width: 310px"
+            >
+              <template #body="slotProps">
+                <span>{{ slotProps.data.influence }}</span>
+              </template>
+            </Column>
+
+            <Column
+              field="productCount"
+              header="상품수"
+              sortable
+              headerClass="text-right"
+              bodyClass="text-right"
+              style="width: 310px"
+            >
+              <template #body="slotProps">
+                {{ slotProps.data.productCount.toLocaleString() }}개
+              </template>
+            </Column>
+
+            <Column
+              field="competition"
+              sortable
+              headerClass="text-right"
+              bodyClass="text-right"
+              style="width: 200px"
+            >
+              <template #header>
+                <div
+                  class="inline-flex align-items-center gap-1"
+                  @mouseenter="togglePopover"
+                  @mouseleave="togglePopover"
+                >
+                  경쟁강도
+                  <IconSystemInformationCircle
+                    class="ico-system-information-circle"
+                  />
+                </div>
+              </template>
+              <template #body="slotProps">
+                <div class="sb-legend">
+                  <span
+                    class="sb-legend-item"
+                    :class="
+                      slotProps.data.competition >= 0.8
+                        ? 'status-highest'
+                        : slotProps.data.competition >= 0.6
+                          ? 'status-good'
+                          : slotProps.data.competition >= 0.4
+                            ? 'status-normal'
+                            : slotProps.data.competition >= 0.2
+                              ? 'status-low'
+                              : 'status-lowest'
+                    "
+                  >
+                    {{ slotProps.data.competition.toFixed(2) }}
+                  </span>
+                </div>
+              </template>
+            </Column>
+            <template #empty>
+              <div class="sb-nodata">
+                <IconIllustrationSmile class="ico-illustration-smile" />
+                <div class="sb-nodata__text">
+                  <p>
+                    텅 빈 게시판이 셀러님을 기다려요!<br />
+                    첫 글의 주인공이 되어 이곳을 활기차게 채워주실래요?
+                  </p>
+                </div>
+              </div>
+            </template>
+          </DataTable>
+
+          <Popover ref="op">
+            <div class="sb-legend">
+              <span class="sb-legend-item text-indigo-500">최고</span>
+              <span class="sb-legend-item text-green-500">좋음</span>
+              <span class="sb-legend-item text-slate-600">보통</span>
+              <span class="sb-legend-item text-orange-700">낮음</span>
+              <span class="sb-legend-item text-red-600">최저</span>
+            </div>
+          </Popover>
+        </div>
+      </div>
+      <div class="sb-trend-top">
+        <div class="sb-trend-top__title">
+          <h5>카테고리 연관 상품 TOP 30</h5>
+          <p>※ 네이버 쇼핑 기준</p>
+        </div>
+        <div class="sb-nodata">
+          <IconIllustrationSmile class="ico-illustration-smile" />
+          <div class="sb-nodata__text">
+            <p>
+              궁금한 카테고리가 있다면 지금 검색해보세요<br />
+              정확한 분석 데이터가 기다리고 있어요.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="sb-banner">
+        <img src="/temp/banner.png" alt="" />
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
+
+const op = ref();
+
+const togglePopover = (event) => {
+  // toggle 대신 show/hide를 사용하여 마우스 오버에 정확히 반응하게 함
+  if (event.type === 'mouseenter') {
+    op.value.show(event);
+  } else {
+    op.value.hide();
+  }
+};
+
+//breadcrumb
+const breadcrumb = ref([
+  { label: 'Home' },
+  { label: '마켓 트렌드' },
+  { label: '추천기회' },
+]);
+
+//select
+const selectedValue = ref();
+const selectedOption = ref([
+  { name: '스팸홍보/도배글입니다.' },
+  { name: '음란물입니다.' },
+  { name: '불법정보를 포함하고 있습니다.' },
+  { name: '청소년에게 유해한 내용입니다.' },
+  { name: '욕설/혐오/차별적 표현입니다.' },
+  { name: '개인정보 노출 게시물입니다.' },
+  { name: '블퀘한 표현이 있습니다.' },
+  { name: '기타 (기타 사유를 입력해주세요.)' },
+]);
+
+const top30 = ref([]);
+</script>

@@ -520,6 +520,48 @@
       height: 16px;
       color: var(--p-gray-400);
     }
+    &-sent {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-website-check {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-edit-message {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-delivery-box {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-kakaotalk {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-mail {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-copy {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
   }
 
   //action
@@ -607,8 +649,8 @@
       min-width: 80px;
       width: 80px;
       height: 80px;
-      --path-color-1: var(--p-gray-300);
-      --path-color-2: var(--p-gray-400);
+      --path-color-1: var(--p-gray-200);
+      --path-color-2: var(--p-gray-300);
     }
     &-frown {
       min-width: 80px;
@@ -721,7 +763,7 @@
         --path-color-2: var(--p-green-300);
       }
       &-smile {
-        --path-color-1: var(--p-gray-600);
+        --path-color-1: var(--p-gray-500);
         --path-color-2: var(--p-gray-600);
       }
       &-frown {

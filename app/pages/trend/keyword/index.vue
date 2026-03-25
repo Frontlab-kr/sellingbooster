@@ -8,14 +8,12 @@
     </div>
     <div class="sb-trend-contents">
       <div class="sb-trend-search">
-        <h5>클릭을 매출로 바꾸는 키워드 분석과 마켓 인사이트</h5>
+        <h4>
+          요즘 셀러들이 주목하는 키워드는 뭘까요?<br />
+          관심 키워드를 저장하고 판매 가능성을 확인해보세요.
+        </h4>
         <div class="sb-trend-search-form">
-          <div
-            class="sb-trend-search-form-item sb-trend-search-form-item--half"
-          >
-            <div class="sb-trend-search-form-item__head">
-              <label>카테고리 검색</label>
-            </div>
+          <div class="sb-trend-search-form-item">
             <div class="sb-trend-search-form-item__body">
               <Select
                 v-model="selectedValue"
@@ -30,6 +28,7 @@
                 optionLabel="name"
                 placeholder="2차 카테고리"
                 class="w-full"
+                disabled
               />
               <Select
                 v-model="selectedValue"
@@ -37,6 +36,7 @@
                 optionLabel="name"
                 placeholder="3차 카테고리"
                 class="w-full"
+                disabled
               />
               <Select
                 v-model="selectedValue"
@@ -44,45 +44,34 @@
                 optionLabel="name"
                 placeholder="4차 카테고리"
                 class="w-full"
-              />
-            </div>
-          </div>
-          <div
-            class="sb-trend-search-form-item sb-trend-search-form-item--half"
-          >
-            <div class="sb-trend-search-form-item__head">
-              <label>키워드 검색</label>
-            </div>
-            <div class="sb-trend-search-form-item__body">
-              <SbInput
-                v-model="searchKeyword"
-                show-search
-                @search="onSearch"
-                placeholder="마음에 드는 키워드를 입력해주세요"
+                disabled
               />
             </div>
           </div>
           <div class="sb-trend-search-form-item">
-            <div class="sb-trend-search-form-item__head">
-              <label>최근 검색어</label>
-              <Button
-                label="전체삭제"
-                severity="contrast"
-                variant="link"
-                @click="dialogPolicy = true"
-              />
-            </div>
-            <div class="sb-trend-search-form-item__body">
-              <div class="sb-chip">
-                <div class="sb-chip-list">
-                  <Chip
-                    v-for="item in keywords"
-                    :key="item.id"
-                    :label="item.label"
-                    removable
-                    @remove="removeKeyword(item.id)"
-                  />
-                </div>
+            <SbInput
+              v-model="searchKeyword"
+              show-search
+              @search="onSearch"
+              placeholder="검색하실 키워드를 입력하세요."
+              size="large"
+            />
+            <div class="sb-chip">
+              <div class="sb-chip__title">최근 검색어</div>
+              <div class="sb-chip-list">
+                <Chip
+                  v-for="item in keywords"
+                  :key="item.id"
+                  :label="item.label"
+                  removable
+                  @remove="removeKeyword(item.id)"
+                />
+              </div>
+              <div class="sb-chip__button">
+                <Button variant="text" @click="clearAllKeywords">
+                  <IconSystemTrash class="ico-system-trash" />
+                  <span class="p-button-label">전체삭제</span>
+                </Button>
               </div>
             </div>
           </div>
@@ -97,7 +86,11 @@
         </div>
         <div class="sb-table">
           <ClientOnly>
-            <DataTable :value="productsNodata" responsiveLayout="scroll">
+            <DataTable
+              :value="productsNodata"
+              responsiveLayout="scroll"
+              removableSort
+            >
               <Column
                 field="keyword"
                 header="키워드"
@@ -222,7 +215,11 @@
         </div>
         <div class="sb-table">
           <ClientOnly>
-            <DataTable :value="products" responsiveLayout="scroll">
+            <DataTable
+              :value="products"
+              responsiveLayout="scroll"
+              removableSort
+            >
               <Column
                 field="keyword"
                 header="키워드"
@@ -337,12 +334,15 @@
 <script setup>
 import { ref } from 'vue';
 import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
+import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
 
 //breadcrumb
 const breadcrumb = ref([{ label: '마켓 트렌드' }, { label: '키워드 랭킹' }]);
 
+//
 const searchKeyword = ref('');
 
+//
 const selectedValue = ref();
 const selectedOption = ref([
   { name: '스팸홍보/도배글입니다.' },
@@ -355,17 +355,27 @@ const selectedOption = ref([
   { name: '기타 (기타 사유를 입력해주세요.)' },
 ]);
 
+//
 const keywords = ref([
-  { id: 1, label: '유니클로' },
-  { id: 2, label: '텀블러' },
+  { id: 1, label: '스텐리' },
+  { id: 2, label: '유니클로' },
   { id: 3, label: '두쫀쿠' },
   { id: 4, label: '카다이프' },
   { id: 5, label: '피스타치오' },
   { id: 6, label: '피스타치오스프레드' },
-  { id: 7, label: '카다이프' },
-  { id: 8, label: '케이스티파이' },
 ]);
 
+// 검색어 개별 삭제
+const removeKeyword = (id) => {
+  keywords.value = keywords.value.filter((item) => item.id !== id);
+};
+
+// 검색어 전체 삭제
+const clearAllKeywords = () => {
+  keywords.value = [];
+};
+
+//
 const products = ref([
   {
     keyword: '무선 키보드',

@@ -145,6 +145,14 @@
             <IconSystemMenu class="ico-system-menu" />
             <IconSystemTrendUp class="ico-system-trend-up" />
             <IconSystemTrendDown class="ico-system-trend-down" />
+            <IconSystemLinkNew class="ico-system-link-new" />
+            <IconSystemSent class="ico-system-sent" />
+            <IconSystemWebsiteCheck class="ico-system-website-check" />
+            <IconSystemEditMessage class="ico-system-edit-message" />
+            <IconSystemDeliveryBox class="ico-system-delivery-box" />
+            <IconSystemKakaotalk class="ico-system-kakaotalk" />
+            <IconSystemMail class="ico-system-mail" />
+            <IconSystemCopy class="ico-system-copy" />
           </div>
         </div>
         <div class="sb-guide-item">
@@ -173,10 +181,10 @@
             <h4>Gonfalon icon</h4>
           </div>
           <div class="sb-guide-icon">
-            <IconGonfalonJp class="ico-gonfalon-jp" />
+            <!-- <IconGonfalonJp class="ico-gonfalon-jp" />
             <IconGonfalonUs class="ico-gonfalon-us" />
             <IconGonfalonCn class="ico-gonfalon-cs" />
-            <IconGonfalonKr class="ico-gonfalon-kr" />
+            <IconGonfalonKr class="ico-gonfalon-kr" /> -->
           </div>
         </div>
         <div class="sb-guide-item">
@@ -323,6 +331,14 @@ import IconSystemLogin from '@/assets/icons/system/login.svg?component';
 import IconSystemMenu from '@/assets/icons/system/menu.svg?component';
 import IconSystemTrendUp from '@/assets/icons/system/trend-up.svg?component';
 import IconSystemTrendDown from '@/assets/icons/system/trend-down.svg?component';
+import IconSystemLinkNew from '@/assets/icons/system/link-new.svg?component';
+import IconSystemSent from '@/assets/icons/system/sent.svg?component';
+import IconSystemWebsiteCheck from '@/assets/icons/system/website-check.svg?component';
+import IconSystemEditMessage from '@/assets/icons/system/edit-message.svg?component';
+import IconSystemDeliveryBox from '@/assets/icons/system/delivery-box.svg?component';
+import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg?component';
+import IconSystemMail from '@/assets/icons/system/mail.svg?component';
+import IconSystemCopy from '@/assets/icons/system/copy.svg?component';
 
 import IconActionScore from '@/assets/icons/action/score.svg?component';
 import IconActionScoreHalf from '@/assets/icons/action/score-half.svg?component';
@@ -333,10 +349,10 @@ import IconActionSwitch from '@/assets/icons/action/switch.svg?component';
 import IconActionSwitchUp from '@/assets/icons/action/switch-up.svg?component';
 import IconActionSwitchDown from '@/assets/icons/action/switch-down.svg?component';
 
-import IconGonfalonJp from '@/assets/icons/gonfalon/jp.png';
-import IconGonfalonUs from '@/assets/icons/gonfalon/us.png';
-import IconGonfalonCn from '@/assets/icons/gonfalon/cn.png';
-import IconGonfalonKr from '@/assets/icons/gonfalon/kr.png';
+// import IconGonfalonJp from '@/assets/icons/gonfalon/jp.png';
+// import IconGonfalonUs from '@/assets/icons/gonfalon/us.png';
+// import IconGonfalonCn from '@/assets/icons/gonfalon/cn.png';
+// import IconGonfalonKr from '@/assets/icons/gonfalon/kr.png';
 
 import IconIllustrationFrown from '@/assets/icons/illustration/frown.svg?component';
 import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';

@@ -2,7 +2,7 @@
 
 :root,
 :host {
-  --p-chip-remove-icon-size: 20px;
+  --p-chip-remove-icon-size: 16px;
   --p-chip-remove-icon-focus-ring-width: var(--p-focus-ring-width);
   --p-chip-remove-icon-focus-ring-style: var(--p-focus-ring-style);
   --p-chip-remove-icon-focus-ring-color: var(--p-focus-ring-color);
@@ -12,15 +12,23 @@
   --p-chip-image-width: 2rem;
   --p-chip-image-height: 2rem;
   --p-chip-border-radius: 999px;
-  --p-chip-padding-x: 16px;
-  --p-chip-padding-y: 0.5rem;
-  --p-chip-gap: 4px;
+  --p-chip-padding-x: 16px 16px;
+  --p-chip-padding-y: 4px;
+  --p-chip-gap: 8px;
   --p-chip-transition-duration: none;
   --p-chip-remove-icon-color: var(--p-surface-800);
   --p-chip-icon-color: var(--p-surface-800);
-  --p-chip-background: none;
-  --p-chip-border-color: var(--p-primary-500);
-  --p-chip-color: var(--p-primary-500);
+  --p-chip-background: var(--p-gray-00);
+  --p-chip-border-color: var(--p-gray-200);
+  --p-chip-color: var(--p-gray-500);
+  &.p-dark,
+  .p-dark {
+    --p-chip-remove-icon-color: var(--p-surface-800);
+    --p-chip-icon-color: var(--p-surface-800);
+    --p-chip-background: var(--p-gray-700);
+    --p-chip-border-color: var(--p-gray-600);
+    --p-chip-color: var(--p-gray-300);
+  }
 }
 
 .p-chip {
@@ -36,18 +44,25 @@
   gap: var(--p-chip-gap);
   font-size: 14px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 1;
   letter-spacing: -0.35px;
-  svg {
-    color: var(--p-chip-color);
-  }
-  &-lg {
+  white-space: noWrap;
+  &[size='large'] {
     height: 40px;
     font-size: 16px;
     letter-spacing: -0.4px;
+    .p-chip-remove-icon {
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  svg {
+    color: var(--p-chip-color);
   }
   &.p-chip-text {
+    gap: 4px;
     height: auto;
     border: none;
     padding: 0;
@@ -57,6 +72,89 @@
     font-weight: 400;
     line-height: 1;
     letter-spacing: -0.35px;
+    .p-chip-remove-icon {
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+      background: url(./../../icons/etc/chip-text-delete.svg);
+    }
+  }
+  &[severity='primary'] {
+    color: var(--color-primary);
+    border-color: var(--chip-primary-border-color);
+    background-color: var(--chip-primary-background);
+    font-weight: 700;
+    &::before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      margin-right: -4px;
+      border-radius: 8px;
+      background-color: var(--chip-primary-dot-background);
+    }
+  }
+  &[severity='success'] {
+    color: var(--color-success);
+    background-color: var(--chip-success-background);
+    font-weight: 700;
+    &::before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      margin-right: -4px;
+      border-radius: 8px;
+      background-color: var(--chip-success-dot-background);
+    }
+  }
+  &[severity='info'] {
+    color: var(--color-info);
+    background-color: var(--chip-info-background);
+    font-weight: 700;
+    &::before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      margin-right: -4px;
+      border-radius: 8px;
+      background-color: var(--chip-info-dot-background);
+    }
+  }
+  &[severity='warn'] {
+    color: var(--color-warn);
+    background-color: var(--chip-warn-background);
+    font-weight: 700;
+    &::before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      margin-right: -4px;
+      border-radius: 8px;
+      background-color: var(--chip-warn-dot-background);
+    }
+  }
+  &[severity='danger'] {
+    color: var(--color-danger);
+    background-color: var(--chip-danger-background);
+    font-weight: 700;
+    &::before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      margin-right: -4px;
+      border-radius: 8px;
+      background-color: var(--chip-danger-dot-background);
+    }
+  }
+  &[severity='primary'],
+  &[severity='success'],
+  &[severity='info'],
+  &[severity='warn'],
+  &[severity='danger'] {
     .p-chip-remove-icon {
       min-width: 20px;
       width: 20px;
@@ -71,17 +169,28 @@
   width: var(--p-chip-remove-icon-size);
   height: var(--p-chip-remove-icon-size);
   color: var(--p-chip-remove-icon-color);
+  margin-right: -5px;
   border-radius: 50%;
   transition:
     outline-color var(--p-chip-transition-duration),
     box-shadow var(--p-chip-transition-duration);
   outline-color: transparent;
   background: url(./../../icons/etc/chip-delete.svg);
+  background-size: cover;
   path {
     display: none;
   }
 }
-
 .p-dark .p-chip-remove-icon {
   background: url(./../../icons/etc/chip-delete-dark.svg);
+}
+.p-dark .p-chip-text .p-chip-remove-icon {
+  background: url(./../../icons/etc/chip-text-delete-dark.svg);
+}
+.p-dark .p-chip[severity='primary'] .p-chip-remove-icon,
+.p-dark .p-chip[severity='success'] .p-chip-remove-icon,
+.p-dark .p-chip[severity='info'] .p-chip-remove-icon,
+.p-dark .p-chip[severity='warn'] .p-chip-remove-icon,
+.p-dark .p-chip[severity='danger'] .p-chip-remove-icon {
+  background: url(./../../icons/etc/chip-delete-dark-circle.svg);
 }
