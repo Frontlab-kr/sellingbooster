@@ -217,6 +217,9 @@
                   성장 추세를 보이고 있습니다.
                 </p>
               </div>
+              <div>
+                <SbChartBar :percent="0" />
+              </div>
             </div>
           </div>
         </div>
@@ -227,8 +230,9 @@
                 <h5>키워드 분석</h5>
               </div>
               <div class="sb-keyword-analyze-chart">
+                <SbChartWave :percent="85" />
                 <div class="sb-keyword-analyze-chart__text">
-                  <h6>좋아요!</h6>
+                  <h6 class="text-primary">좋아요!</h6>
                   <p>
                     경잴률이 매우 높고<br />
                     잘파는 사람들도 있어요.
@@ -259,7 +263,41 @@
             </div>
           </div>
           <div class="col-6">
-            <div class="sb-keyword-analyze"></div>
+            <div class="sb-keyword-analyze">
+              <div class="sb-keyword-analyze__title">
+                <h5>상품 분석</h5>
+              </div>
+              <div class="sb-keyword-analyze-chart">
+                <SbChartWave :percent="39" />
+                <div class="sb-keyword-analyze-chart__text">
+                  <h6 class="text-warn">좋아요!</h6>
+                  <p>
+                    경잴률이 매우 높고<br />
+                    잘파는 사람들도 있어요.
+                  </p>
+                </div>
+              </div>
+              <div class="sb-keyword-analyze-state">
+                <dl>
+                  <dt>상품 평균가</dt>
+                  <dd>
+                    <p>9,999원</p>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>TOP10 평균가</dt>
+                  <dd>
+                    <p>14,599원</p>
+                  </dd>
+                </dl>
+                <dl>
+                  <dt>전체 상품 수</dt>
+                  <dd>
+                    <p>9,999건</p>
+                  </dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </div>
         <div class="grid">
@@ -321,21 +359,44 @@
 
                     <Column
                       field="competition"
-                      header="경쟁강도"
-                      style="width: 20%"
-                      headerClass="text-center"
-                      bodyClass="text-center"
+                      sortable
+                      headerClass="text-right"
+                      bodyClass="text-right"
+                      style="width: 150px"
                     >
-                      <template #body="slotProps">
-                        <div class="flex items-center justify-center gap-2">
-                          <span>{{
-                            slotProps.data.competition.toFixed(2)
-                          }}</span>
+                      <template #header>
+                        <div
+                          class="sb-table-header-title"
+                          @mouseenter="togglePopover"
+                          @mouseleave="togglePopover"
+                        >
                           <span
-                            v-if="slotProps.data.status"
-                            class="status-badge"
+                            class="p-datatable-column-title"
+                            data-pc-section="columntitle"
+                            >경쟁강도</span
                           >
-                            {{ slotProps.data.status }}
+                          <IconSystemInformationCircle
+                            class="ico-system-information-circle"
+                          />
+                        </div>
+                      </template>
+                      <template #body="slotProps">
+                        <div class="sb-legend">
+                          <span
+                            class="sb-legend-item"
+                            :class="
+                              slotProps.data.competition >= 0.8
+                                ? 'text-primary'
+                                : slotProps.data.competition >= 0.6
+                                  ? 'text-success'
+                                  : slotProps.data.competition >= 0.4
+                                    ? 'text-info'
+                                    : slotProps.data.competition >= 0.2
+                                      ? 'text-warn'
+                                      : 'text-danger'
+                            "
+                          >
+                            {{ slotProps.data.competition.toFixed(2) }}
                           </span>
                         </div>
                       </template>

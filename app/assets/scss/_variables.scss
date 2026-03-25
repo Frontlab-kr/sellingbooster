@@ -257,11 +257,15 @@
 
 :root,
 :host {
+  --p-mask-background: rgba(0, 0, 0, 0.7);
   --color-primary: var(--p-green-500);
   --color-success: var(--p-slate-500);
   --color-info: var(--p-blue-400);
   --color-warn: var(--p-orange-600);
   --color-danger: var(--p-red-600);
+
+  --chart-wave-background01: var(--p-gray-100);
+  --chart-wave-background02: var(--p-gray-800);
 
   --url-title-color: var(--p-gray-900);
   --url-text-color: var(--p-gray-600);
@@ -539,6 +543,9 @@
     --color-info: var(--p-blue-400);
     --color-warn: var(--p-orange-400);
     --color-danger: var(--p-red-400);
+
+    --chart-wave-background01: var(--p-gray-100);
+    --chart-wave-background02: var(--p-gray-800);
 
     --url-title-color: var(--p-gray-00);
     --url-text-color: var(--p-gray-00);

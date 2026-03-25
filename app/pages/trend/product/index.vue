@@ -320,7 +320,7 @@ import IconSystemDelete from '@/assets/icons/system/delete.svg?component';
 const breadcrumb = ref([
   { label: 'Home' },
   { label: '마켓 트렌드' },
-  { label: '키워드 분석' },
+  { label: '상품 분석' },
 ]);
 
 const searchKeyword = ref('');

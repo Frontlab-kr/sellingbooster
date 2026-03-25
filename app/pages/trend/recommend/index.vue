@@ -64,88 +64,87 @@
           </div>
         </div>
         <div class="sb-table">
-          <ClientOnly>
-            <DataTable :value="top30" responsiveLayout="scroll" removableSort>
-              <Column field="ranking" header="랭킹" style="width: 80px">
-                <template #body="slotProps">
-                  {{ slotProps.data.ranking }}
-                </template>
-              </Column>
+          <DataTable :value="top30" responsiveLayout="scroll" removableSort>
+            <Column field="ranking" header="랭킹" style="width: 80px">
+              <template #body="slotProps">
+                {{ slotProps.data.ranking }}
+              </template>
+            </Column>
 
-              <Column field="keyword" header="키워드" style="width: 600px">
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.keyword"></span>
-                </template>
-              </Column>
+            <Column field="keyword" header="키워드" style="width: 600px">
+              <template #body="slotProps">
+                <span v-html="slotProps.data.keyword"></span>
+              </template>
+            </Column>
 
-              <Column
-                field="influence"
-                header="영향력"
-                sortable
-                headerClass="text-right"
-                bodyClass="text-right"
-                style="width: 310px"
-              >
-                <template #body="slotProps">
-                  <span>{{ slotProps.data.influence }}</span>
-                </template>
-              </Column>
+            <Column
+              field="influence"
+              header="영향력"
+              sortable
+              headerClass="text-right"
+              bodyClass="text-right"
+              style="width: 310px"
+            >
+              <template #body="slotProps">
+                <span>{{ slotProps.data.influence }}</span>
+              </template>
+            </Column>
 
-              <Column
-                field="productCount"
-                header="상품수"
-                sortable
-                headerClass="text-right"
-                bodyClass="text-right"
-                style="width: 310px"
-              >
-                <template #body="slotProps">
-                  {{ slotProps.data.productCount.toLocaleString() }}개
-                </template>
-              </Column>
+            <Column
+              field="productCount"
+              header="상품수"
+              sortable
+              headerClass="text-right"
+              bodyClass="text-right"
+              style="width: 310px"
+            >
+              <template #body="slotProps">
+                {{ slotProps.data.productCount.toLocaleString() }}개
+              </template>
+            </Column>
 
-              <Column
-                field="competition"
-                sortable
-                headerClass="text-right"
-                bodyClass="text-right"
-                style="width: 200px"
-              >
-                <template #header>
-                  <div
-                    class="inline-flex align-items-center gap-1"
-                    @mouseenter="togglePopover"
-                    @mouseleave="togglePopover"
+            <Column
+              field="competition"
+              sortable
+              headerClass="text-right"
+              bodyClass="text-right"
+              style="width: 200px"
+            >
+              <template #header>
+                <div
+                  class="inline-flex align-items-center gap-1"
+                  @mouseenter="togglePopover"
+                  @mouseleave="togglePopover"
+                >
+                  경쟁강도
+                  <IconSystemInformationCircle
+                    class="ico-system-information-circle"
+                  />
+                </div>
+              </template>
+              <template #body="slotProps">
+                <div class="sb-legend">
+                  <span
+                    class="sb-legend-item"
+                    :class="
+                      slotProps.data.competition >= 0.8
+                        ? 'text-primary'
+                        : slotProps.data.competition >= 0.6
+                          ? 'text-success'
+                          : slotProps.data.competition >= 0.4
+                            ? 'text-info'
+                            : slotProps.data.competition >= 0.2
+                              ? 'text-warn'
+                              : 'text-danger'
+                    "
                   >
-                    경쟁강도
-                    <IconSystemInformationCircle
-                      class="ico-system-information-circle"
-                    />
-                  </div>
-                </template>
-                <template #body="slotProps">
-                  <div class="sb-legend">
-                    <span
-                      class="sb-legend-item"
-                      :class="
-                        slotProps.data.competition >= 0.8
-                          ? 'status-highest'
-                          : slotProps.data.competition >= 0.6
-                            ? 'status-good'
-                            : slotProps.data.competition >= 0.4
-                              ? 'status-normal'
-                              : slotProps.data.competition >= 0.2
-                                ? 'status-low'
-                                : 'status-lowest'
-                      "
-                    >
-                      {{ slotProps.data.competition.toFixed(2) }}
-                    </span>
-                  </div>
-                </template>
-              </Column>
-            </DataTable>
-          </ClientOnly>
+                    {{ slotProps.data.competition.toFixed(2) }}
+                  </span>
+                </div>
+              </template>
+            </Column>
+          </DataTable>
+
           <Popover ref="op">
             <div class="sb-legend">
               <span class="sb-legend-item text-indigo-500">최고</span>

@@ -85,126 +85,154 @@
           </div>
         </div>
         <div class="sb-table">
-          <ClientOnly>
-            <DataTable
-              :value="productsNodata"
-              responsiveLayout="scroll"
-              removableSort
+          <DataTable
+            :value="keywordList"
+            responsiveLayout="scroll"
+            removableSort
+          >
+            <Column field="ranking" header="랭킹" style="width: 80px">
+              <template #body="slotProps">
+                <span v-html="slotProps.data.ranking"></span>
+              </template>
+            </Column>
+            <Column field="keyword" header="키워드" style="width: 205px">
+              <template #body="slotProps">
+                <div class="sb-table-body-title">
+                  <Button
+                    variant="text"
+                    @click="
+                      slotProps.data.isFavorite = !slotProps.data.isFavorite
+                    "
+                  >
+                    <template #icon>
+                      <IconActionFavoriteFull
+                        v-if="slotProps.data.isFavorite"
+                        class="ico-action-favorite-full"
+                      />
+                      <IconActionFavorite v-else class="ico-action-favorite" />
+                    </template>
+                  </Button>
+                  <strong>{{ slotProps.data.keyword }}</strong>
+                </div>
+              </template>
+            </Column>
+            <Column
+              field="influence"
+              header="영향력"
+              sortable
+              headerClass="text-right"
+              bodyClass="text-right"
+              style="width: 150px"
             >
-              <Column
-                field="keyword"
-                header="키워드"
-                sortable
-                style="width: 160px"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.keyword"></span>
-                </template>
-              </Column>
-              <Column
-                field="category"
-                header="카테고리"
-                sortable
-                style="width: 160px"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.category"></span>
-                </template>
-              </Column>
-              <Column
-                field="influence"
-                header="영향력"
-                sortable
-                headerClass="text-center"
-                bodyClass="text-center"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.influence"></span>
-                </template>
-              </Column>
-              <Column
-                field="avgPrice"
-                header="평균가"
-                sortable
-                style="width: 160px"
-                headerClass="text-center"
-                bodyClass="text-center"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.avgPrice"></span>
-                </template>
-              </Column>
-              <Column
-                field="productCount"
-                header="상품수"
-                sortable
-                style="width: 160px"
-                headerClass="text-right"
-                bodyClass="text-right"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.productCount"></span>
-                </template>
-              </Column>
-              <Column
-                field="pcSearchVol"
-                header="PC 월 검색량"
-                sortable
-                style="width: 160px"
-                headerClass="text-right"
-                bodyClass="text-right"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.pcSearchVol"></span>
-                </template>
-              </Column>
-              <Column
-                field="moSearchVol"
-                header="MO 월 검색량"
-                sortable
-                style="width: 160px"
-                headerClass="text-right"
-                bodyClass="text-right"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.moSearchVol"></span>
-                </template>
-              </Column>
-              <Column
-                field="avgClick"
-                header="평균 클릭 수"
-                sortable
-                style="width: 160px"
-                headerClass="text-right"
-                bodyClass="text-right"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.avgClick"></span>
-                </template>
-              </Column>
-              <Column
-                field="competition"
-                header="경쟁강도"
-                sortable
-                style="width: 160px"
-                headerClass="text-center"
-                bodyClass="text-center"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.competition"></span>
-                </template>
-              </Column>
-            </DataTable>
-          </ClientOnly>
-          <div class="sb-nodata">
-            <IconIllustrationSmile class="ico-illustration-smile" />
-            <div class="sb-nodata__text">
-              <p>
-                궁금한 카테고리가 있다면 지금 검색해보세요<br />
-                정확한 분석 데이터가 기다리고 있어요
-              </p>
-            </div>
-          </div>
+              <template #body="slotProps">
+                <span v-html="slotProps.data.influence"></span>
+              </template>
+            </Column>
+            <Column
+              field="avgPrice"
+              header="평균가"
+              sortable
+              style="width: 150px"
+              headerClass="text-right"
+              bodyClass="text-right"
+            >
+              <template #body="slotProps">
+                <span v-html="slotProps.data.avgPrice"></span>
+              </template>
+            </Column>
+            <Column
+              field="productCount"
+              header="상품수"
+              sortable
+              style="width: 205px"
+              headerClass="text-right"
+              bodyClass="text-right"
+            >
+              <template #body="slotProps">
+                <span v-html="slotProps.data.productCount"></span>
+              </template>
+            </Column>
+            <Column
+              field="pcSearchVol"
+              header="PC 월 검색량"
+              sortable
+              style="width: 205px"
+              headerClass="text-right"
+              bodyClass="text-right"
+            >
+              <template #body="slotProps">
+                <span v-html="slotProps.data.pcSearchVol"></span>
+              </template>
+            </Column>
+            <Column
+              field="moSearchVol"
+              header="MO 월 검색량"
+              sortable
+              style="width: 205px"
+              headerClass="text-right"
+              bodyClass="text-right"
+            >
+              <template #body="slotProps">
+                <span v-html="slotProps.data.moSearchVol"></span>
+              </template>
+            </Column>
+            <Column
+              field="avgClick"
+              header="평균 클릭 수"
+              sortable
+              style="width: 150px"
+              headerClass="text-right"
+              bodyClass="text-right"
+            >
+              <template #body="slotProps">
+                <span v-html="slotProps.data.avgClick"></span>
+              </template>
+            </Column>
+            <Column
+              field="competition"
+              sortable
+              headerClass="text-right"
+              bodyClass="text-right"
+              style="width: 150px"
+            >
+              <template #header>
+                <div
+                  class="sb-table-header-title"
+                  @mouseenter="togglePopover"
+                  @mouseleave="togglePopover"
+                >
+                  <span
+                    class="p-datatable-column-title"
+                    data-pc-section="columntitle"
+                    >경쟁강도</span
+                  >
+                  <IconSystemInformationCircle
+                    class="ico-system-information-circle"
+                  />
+                </div>
+              </template>
+              <template #body="slotProps">
+                <div class="sb-legend">
+                  <span
+                    class="sb-legend-item"
+                    :class="
+                      slotProps.data.competition >= 0.8
+                        ? 'text-primary'
+                        : slotProps.data.competition >= 0.6
+                          ? 'text-success'
+                          : slotProps.data.competition >= 0.4
+                            ? 'text-info'
+                            : slotProps.data.competition >= 0.2
+                              ? 'text-warn'
+                              : 'text-danger'
+                    "
+                  >
+                    {{ slotProps.data.competition.toFixed(2) }}
+                  </span>
+                </div>
+              </template>
+            </Column>
+          </DataTable>
         </div>
       </div>
       <div class="sb-trend-table">
@@ -214,117 +242,163 @@
           </div>
         </div>
         <div class="sb-table">
-          <ClientOnly>
-            <DataTable
-              :value="products"
-              responsiveLayout="scroll"
-              removableSort
+          <DataTable
+            :value="productsList"
+            responsiveLayout="scroll"
+            removableSort
+          >
+            <Column
+              field="keyword"
+              header="키워드"
+              sortable
+              style="width: 160px"
             >
-              <Column
-                field="keyword"
-                header="키워드"
-                sortable
-                style="width: 160px"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.keyword"></span>
-                </template>
-              </Column>
-              <Column
-                field="category"
-                header="카테고리"
-                sortable
-                style="width: 160px"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.category"></span>
-                </template>
-              </Column>
-              <Column
-                field="influence"
-                header="영향력"
-                sortable
-                headerClass="text-center"
-                bodyClass="text-center"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.influence"></span>
-                </template>
-              </Column>
-              <Column
-                field="avgPrice"
-                header="평균가"
-                sortable
-                style="width: 160px"
-                headerClass="text-center"
-                bodyClass="text-center"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.avgPrice"></span>
-                </template>
-              </Column>
-              <Column
-                field="productCount"
-                header="상품수"
-                sortable
-                style="width: 160px"
-                headerClass="text-right"
-                bodyClass="text-right"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.productCount"></span>
-                </template>
-              </Column>
-              <Column
-                field="pcSearchVol"
-                header="PC 월 검색량"
-                sortable
-                style="width: 160px"
-                headerClass="text-right"
-                bodyClass="text-right"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.pcSearchVol"></span>
-                </template>
-              </Column>
-              <Column
-                field="moSearchVol"
-                header="MO 월 검색량"
-                sortable
-                style="width: 160px"
-                headerClass="text-right"
-                bodyClass="text-right"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.moSearchVol"></span>
-                </template>
-              </Column>
-              <Column
-                field="avgClick"
-                header="평균 클릭 수"
-                sortable
-                style="width: 160px"
-                headerClass="text-right"
-                bodyClass="text-right"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.avgClick"></span>
-                </template>
-              </Column>
-              <Column
-                field="competition"
-                header="경쟁강도"
-                sortable
-                style="width: 160px"
-                headerClass="text-center"
-                bodyClass="text-center"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.competition"></span>
-                </template>
-              </Column>
-            </DataTable>
-          </ClientOnly>
+              <template #body="slotProps">
+                <div class="sb-table-body-title">
+                  <Button
+                    variant="text"
+                    @click="
+                      slotProps.data.isFavorite = !slotProps.data.isFavorite
+                    "
+                  >
+                    <template #icon>
+                      <IconActionFavoriteFull
+                        v-if="slotProps.data.isFavorite"
+                        class="ico-action-favorite-full"
+                      />
+                      <IconActionFavorite v-else class="ico-action-favorite" />
+                    </template>
+                  </Button>
+                  <strong>{{ slotProps.data.keyword }}</strong>
+                </div>
+              </template>
+            </Column>
+            <Column
+              field="category"
+              header="카테고리"
+              sortable
+              style="width: 160px"
+            >
+              <template #body="slotProps">
+                <span v-html="slotProps.data.category"></span>
+              </template>
+            </Column>
+            <Column
+              field="influence"
+              header="영향력"
+              sortable
+              headerClass="text-center"
+              bodyClass="text-center"
+            >
+              <template #body="slotProps">
+                <span v-html="slotProps.data.influence"></span>
+              </template>
+            </Column>
+            <Column
+              field="avgPrice"
+              header="평균가"
+              sortable
+              style="width: 160px"
+              headerClass="text-center"
+              bodyClass="text-center"
+            >
+              <template #body="slotProps">
+                <span v-html="slotProps.data.avgPrice"></span>
+              </template>
+            </Column>
+            <Column
+              field="productCount"
+              header="상품수"
+              sortable
+              style="width: 160px"
+              headerClass="text-right"
+              bodyClass="text-right"
+            >
+              <template #body="slotProps">
+                <span v-html="slotProps.data.productCount"></span>
+              </template>
+            </Column>
+            <Column
+              field="pcSearchVol"
+              header="PC 월 검색량"
+              sortable
+              style="width: 160px"
+              headerClass="text-right"
+              bodyClass="text-right"
+            >
+              <template #body="slotProps">
+                <span v-html="slotProps.data.pcSearchVol"></span>
+              </template>
+            </Column>
+            <Column
+              field="moSearchVol"
+              header="MO 월 검색량"
+              sortable
+              style="width: 160px"
+              headerClass="text-right"
+              bodyClass="text-right"
+            >
+              <template #body="slotProps">
+                <span v-html="slotProps.data.moSearchVol"></span>
+              </template>
+            </Column>
+            <Column
+              field="avgClick"
+              header="평균 클릭 수"
+              sortable
+              style="width: 160px"
+              headerClass="text-right"
+              bodyClass="text-right"
+            >
+              <template #body="slotProps">
+                <span v-html="slotProps.data.avgClick"></span>
+              </template>
+            </Column>
+            <Column
+              field="competition"
+              sortable
+              headerClass="text-right"
+              bodyClass="text-right"
+              style="width: 150px"
+            >
+              <template #header>
+                <div
+                  class="sb-table-header-title"
+                  @mouseenter="togglePopover"
+                  @mouseleave="togglePopover"
+                >
+                  <span
+                    class="p-datatable-column-title"
+                    data-pc-section="columntitle"
+                    >경쟁강도</span
+                  >
+                  <IconSystemInformationCircle
+                    class="ico-system-information-circle"
+                  />
+                </div>
+              </template>
+              <template #body="slotProps">
+                <div class="sb-legend">
+                  <span
+                    class="sb-legend-item"
+                    :class="
+                      slotProps.data.competition >= 0.8
+                        ? 'text-primary'
+                        : slotProps.data.competition >= 0.6
+                          ? 'text-success'
+                          : slotProps.data.competition >= 0.4
+                            ? 'text-info'
+                            : slotProps.data.competition >= 0.2
+                              ? 'text-warn'
+                              : 'text-danger'
+                    "
+                  >
+                    {{ slotProps.data.competition.toFixed(2) }}
+                  </span>
+                </div>
+              </template>
+            </Column>
+          </DataTable>
         </div>
       </div>
     </div>
@@ -333,11 +407,18 @@
 
 <script setup>
 import { ref } from 'vue';
+import IconActionFavorite from '@/assets/icons/action/favorite.svg?component';
+import IconActionFavoriteFull from '@/assets/icons/action/favorite-full.svg?component';
 import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
+import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
 
 //breadcrumb
-const breadcrumb = ref([{ label: '마켓 트렌드' }, { label: '키워드 랭킹' }]);
+const breadcrumb = ref([
+  { label: 'Home' },
+  { label: '마켓 트렌드' },
+  { label: '키워드 분석' },
+]);
 
 //
 const searchKeyword = ref('');
@@ -365,6 +446,254 @@ const keywords = ref([
   { id: 6, label: '피스타치오스프레드' },
 ]);
 
+//
+const keywordList = ref([
+  {
+    ranking: 14,
+    isFavorite: true,
+    keyword: '도브센시티브바',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '1,671개',
+    pcSearchVol: '449,700건',
+    moSearchVol: '449,700건',
+    avgClick: '4163.3',
+    competition: 0.41,
+  },
+  {
+    ranking: 18,
+    isFavorite: false,
+    keyword: '디올립글로우',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '1,412개',
+    pcSearchVol: '113,700건',
+    moSearchVol: '113,700건',
+    avgClick: '449.4',
+    competition: 0.26,
+  },
+  {
+    ranking: 5,
+    isFavorite: true,
+    keyword: '록시땅핸드크림',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '121개',
+    pcSearchVol: '102,580건',
+    moSearchVol: '102,580건',
+    avgClick: '1259.7',
+    competition: 0.02,
+  },
+  {
+    ranking: 12,
+    isFavorite: false,
+    keyword: '립밤',
+    influence: '중간',
+    avgPrice: '중간',
+    productCount: '63,231개',
+    pcSearchVol: '51,520건',
+    moSearchVol: '51,520건',
+    avgClick: '1207.6',
+    competition: 0.07,
+  },
+  {
+    ranking: 9,
+    isFavorite: false,
+    keyword: '마데카크림',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '576개',
+    pcSearchVol: '51,500건',
+    moSearchVol: '51,500건',
+    avgClick: '519.5',
+    competition: 0.02,
+  },
+  {
+    ranking: 10,
+    isFavorite: false,
+    keyword: '바디로션',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '33,309개',
+    pcSearchVol: '46,600건',
+    moSearchVol: '46,600건',
+    avgClick: '1794.9',
+    competition: 0.6,
+  },
+  {
+    ranking: 5,
+    isFavorite: true,
+    keyword: '록시땅핸드크림',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '121개',
+    pcSearchVol: '102,580건',
+    moSearchVol: '102,580건',
+    avgClick: '1259.7',
+    competition: 0.02,
+  },
+  {
+    ranking: 12,
+    isFavorite: false,
+    keyword: '립밤',
+    influence: '중간',
+    avgPrice: '중간',
+    productCount: '63,231개',
+    pcSearchVol: '51,520건',
+    moSearchVol: '51,520건',
+    avgClick: '1207.6',
+    competition: 0.07,
+  },
+  {
+    ranking: 9,
+    isFavorite: false,
+    keyword: '마데카크림',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '576개',
+    pcSearchVol: '51,500건',
+    moSearchVol: '51,500건',
+    avgClick: '519.5',
+    competition: 0.02,
+  },
+  {
+    ranking: 10,
+    isFavorite: false,
+    keyword: '바디로션',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '33,309개',
+    pcSearchVol: '46,600건',
+    moSearchVol: '46,600건',
+    avgClick: '1794.9',
+    competition: 0.6,
+  },
+]);
+
+//
+const productsList = ref([
+  {
+    isFavorite: true,
+    keyword: '유니클로',
+    category: '의류',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '19,327개',
+    pcSearchVol: '896,000건',
+    moSearchVol: '896,000건',
+    avgClick: '877.4',
+    competition: 6.05,
+  },
+  {
+    isFavorite: true,
+    keyword: '카다이프',
+    category: '라면/면류',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '1,671개',
+    pcSearchVol: '449,700건',
+    moSearchVol: '449,700건',
+    avgClick: '984.5',
+    competition: 0.41,
+  },
+  {
+    isFavorite: false,
+    keyword: '케이스티파이',
+    category: '휴대폰악세서리',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '1,412개',
+    pcSearchVol: '113,700건',
+    moSearchVol: '113,700건',
+    avgClick: '304.4',
+    competition: 0.26,
+  },
+  {
+    isFavorite: false,
+    keyword: '루이비통',
+    category: '여성가방',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '121개',
+    pcSearchVol: '102,580건',
+    moSearchVol: '102,580건',
+    avgClick: '865.5',
+    competition: 0.02,
+  },
+  {
+    isFavorite: false,
+    keyword: '히카마',
+    category: '농산물',
+    influence: '중간',
+    avgPrice: '중간',
+    productCount: '63,231개',
+    pcSearchVol: '51,520건',
+    moSearchVol: '51,520건',
+    avgClick: '450.3',
+    competition: 0.07,
+  },
+  {
+    isFavorite: false,
+    keyword: '아이폰17',
+    category: '휴대폰',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '576개',
+    pcSearchVol: '51,500건',
+    moSearchVol: '51,500건',
+    avgClick: '917.3',
+    competition: 0.02,
+  },
+  {
+    isFavorite: true,
+    keyword: '카다이프',
+    category: '라면/면류',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '1,671개',
+    pcSearchVol: '449,700건',
+    moSearchVol: '449,700건',
+    avgClick: '984.5',
+    competition: 0.41,
+  },
+  {
+    isFavorite: false,
+    keyword: '루이비통',
+    category: '여성가방',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '121개',
+    pcSearchVol: '102,580건',
+    moSearchVol: '102,580건',
+    avgClick: '865.5',
+    competition: 0.02,
+  },
+  {
+    isFavorite: false,
+    keyword: '히카마',
+    category: '농산물',
+    influence: '중간',
+    avgPrice: '중간',
+    productCount: '63,231개',
+    pcSearchVol: '51,520건',
+    moSearchVol: '51,520건',
+    avgClick: '450.3',
+    competition: 0.07,
+  },
+  {
+    isFavorite: false,
+    keyword: '아이폰17',
+    category: '휴대폰',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '576개',
+    pcSearchVol: '51,500건',
+    moSearchVol: '51,500건',
+    avgClick: '917.3',
+    competition: 0.02,
+  },
+]);
+
 // 검색어 개별 삭제
 const removeKeyword = (id) => {
   keywords.value = keywords.value.filter((item) => item.id !== id);
@@ -374,53 +703,4 @@ const removeKeyword = (id) => {
 const clearAllKeywords = () => {
   keywords.value = [];
 };
-
-//
-const products = ref([
-  {
-    keyword: '무선 키보드',
-    category: '컴퓨터 주변기기',
-    influence: '상',
-    avgPrice: 45000,
-    productCount: 12500,
-    pcSearchVol: 5200,
-    moSearchVol: 18000,
-    avgClick: 450,
-    competition: '높음',
-  },
-  {
-    keyword: '친환경 텀블러',
-    category: '주방용품',
-    influence: '중',
-    avgPrice: 18900,
-    productCount: 3400,
-    pcSearchVol: 1200,
-    moSearchVol: 5400,
-    avgClick: 210,
-    competition: '보통',
-  },
-  {
-    keyword: '캠핑용 의자',
-    category: '스포츠/레저',
-    influence: '상',
-    avgPrice: 32000,
-    productCount: 8900,
-    pcSearchVol: 3100,
-    moSearchVol: 12500,
-    avgClick: 380,
-    competition: '치열',
-  },
-  {
-    keyword: '가습기 살균제 <i class="ico-24-back">ss</i>',
-    category: '생활용품',
-    influence: '하',
-    avgPrice: 8500,
-    productCount: 120,
-    pcSearchVol: 450,
-    moSearchVol: 900,
-    avgClick: 45,
-    competition: '낮음',
-  },
-]);
-const productsNodata = ref(null);
 </script>

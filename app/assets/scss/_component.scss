@@ -717,31 +717,31 @@
         height: 8px;
         border-radius: 8px;
       }
-      &.status-highest {
+      &.text-primary {
         color: var(--color-primary);
         &:after {
           background-color: var(--color-primary);
         }
       }
-      &.status-good {
+      &.text-success {
         color: var(--color-success);
         &:after {
           background-color: var(--color-success);
         }
       }
-      &.status-normal {
+      &.text-info {
         color: var(--color-info);
         &:after {
           background-color: var(--color-info);
         }
       }
-      &.status-low {
+      &.text-warn {
         color: var(--color-warn);
         &:after {
           background-color: var(--color-warn);
         }
       }
-      &.status-lowest {
+      &.text-danger {
         color: var(--color-danger);
         &:after {
           background-color: var(--color-danger);
@@ -858,6 +858,20 @@
   }
 
   &-table {
+    &-header {
+      &-title {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+    }
+    &-body {
+      &-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+    }
     .sb-nodata {
       padding: 40px 0;
       svg {

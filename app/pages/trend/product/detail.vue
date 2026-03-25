@@ -142,14 +142,46 @@
                     </Column>
                     <Column
                       field="competition"
-                      header="경쟁강도"
                       sortable
-                      style="width: 160px"
-                      headerClass="text-center"
-                      bodyClass="text-center"
+                      headerClass="text-right"
+                      bodyClass="text-right"
+                      style="width: 150px"
                     >
+                      <template #header>
+                        <div
+                          class="sb-table-header-title"
+                          @mouseenter="togglePopover"
+                          @mouseleave="togglePopover"
+                        >
+                          <span
+                            class="p-datatable-column-title"
+                            data-pc-section="columntitle"
+                            >경쟁강도</span
+                          >
+                          <IconSystemInformationCircle
+                            class="ico-system-information-circle"
+                          />
+                        </div>
+                      </template>
                       <template #body="slotProps">
-                        <span v-html="slotProps.data.competition"></span>
+                        <div class="sb-legend">
+                          <span
+                            class="sb-legend-item"
+                            :class="
+                              slotProps.data.competition >= 0.8
+                                ? 'text-primary'
+                                : slotProps.data.competition >= 0.6
+                                  ? 'text-success'
+                                  : slotProps.data.competition >= 0.4
+                                    ? 'text-info'
+                                    : slotProps.data.competition >= 0.2
+                                      ? 'text-warn'
+                                      : 'text-danger'
+                            "
+                          >
+                            {{ slotProps.data.competition.toFixed(2) }}
+                          </span>
+                        </div>
                       </template>
                     </Column>
                   </DataTable>

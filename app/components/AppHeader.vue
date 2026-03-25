@@ -213,7 +213,13 @@ const menu01 = ref([
     key: 'opportunity',
     label: '마켓 트렌드',
     icon: IconSnbDocument,
-    route: '/1',
+    route: '/trend/recommend',
+    items: [
+      { label: '추천 기회', route: '/trend/recommend' },
+      { label: '키워드 분석', route: '/trend/keyword' },
+      { label: '상품 분석', route: '/trend/product' },
+      { label: '분석 결과', route: '/trend/analysis' },
+    ],
   },
   { key: 'execution', label: '판매 가속', icon: IconSnbStar, route: '/2' },
   { key: 'performance', label: '성장 리포트', icon: IconSnbChart, route: '/3' },
@@ -224,7 +230,7 @@ const menu01 = ref([
     icon: IconSnbChat,
     route: '/community/qna',
     items: [
-      { label: 'Q&A', route: '/community/qna/' },
+      { label: 'Q&A', route: '/community/qna' },
       { label: '공지사항', route: '/community/notice' },
       { label: 'FAQ', route: '/community/faq' },
       { label: '성장스토리', route: '/community/story' },

@@ -128,14 +128,14 @@
                     class="sb-legend-item"
                     :class="
                       slotProps.data.competition >= 0.8
-                        ? 'status-highest'
+                        ? 'text-primary'
                         : slotProps.data.competition >= 0.6
-                          ? 'status-good'
+                          ? 'text-success'
                           : slotProps.data.competition >= 0.4
-                            ? 'status-normal'
+                            ? 'text-info'
                             : slotProps.data.competition >= 0.2
-                              ? 'status-low'
-                              : 'status-lowest'
+                              ? 'text-warn'
+                              : 'text-danger'
                     "
                   >
                     {{ slotProps.data.competition.toFixed(2) }}
@@ -148,8 +148,8 @@
                 <IconIllustrationSmile class="ico-illustration-smile" />
                 <div class="sb-nodata__text">
                   <p>
-                    텅 빈 게시판이 셀러님을 기다려요!<br />
-                    첫 글의 주인공이 되어 이곳을 활기차게 채워주실래요?
+                    궁금한 카테고리가 있다면 지금 검색해보세요<br />
+                    정확한 분석 데이터가 기다리고 있어요.
                   </p>
                 </div>
               </div>

@@ -592,14 +592,14 @@
       min-width: 16px;
       width: 16px;
       height: 16px;
-      color: var(--p-gray-400);
+      color: var(--p-gray-400) !important;
     }
     &-favorite-full {
       display: block;
       min-width: 16px;
       width: 16px;
       height: 16px;
-      color: var(--p-primary-500);
+      color: var(--p-primary-500) !important;
     }
     &-swich {
       display: block;
@@ -756,6 +756,34 @@
 
 .p-dark {
   .ico {
+    //action
+    &-action {
+      &-score {
+        color: var(--p-gray-200);
+      }
+      &-score-half {
+        color: var(--p-orange-500);
+      }
+      &-score-full {
+        color: var(--p-orange-500);
+      }
+      &-favorite {
+        color: var(--p-gray-400) !important;
+      }
+      &-favorite-full {
+        color: var(--p-primary-300) !important;
+      }
+      &-swich {
+        color: var(--p-gray-400);
+      }
+      &-switch-up {
+        color: var(--p-primary-500);
+      }
+      &-switch-down {
+        color: var(--p-primary-500);
+      }
+    }
+
     //illustration
     &-illustration {
       &-check-circle {
