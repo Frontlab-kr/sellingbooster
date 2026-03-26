@@ -134,6 +134,11 @@
       }
       &-write-mo {
         display: none;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 20;
         &__bg {
           position: fixed;
           top: 0;
@@ -144,15 +149,10 @@
           z-index: 10;
         }
         &__form {
-          position: fixed;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          z-index: 100;
-          z-index: 20;
           display: flex;
           align-items: center;
           gap: 8px;
+          width: 100%;
           padding: 20px 20px 32px 20px;
           border-top: 1px solid var(--comment-write-mo-border-color);
           background: var(--comment-write-mo-background);
@@ -161,6 +161,37 @@
         .p-inputtext {
           width: 100%;
         }
+        .p-textarea {
+          box-sizing: border-box;
+          min-height: 40px;
+          max-height: 79px;
+          font-family: inherit;
+          font-feature-settings: inherit;
+          font-size: 14px;
+          color: var(--p-inputtext-color);
+          background: var(--p-inputtext-background);
+          padding-block: 8px;
+          padding-inline: var(--p-inputtext-padding-x);
+          border: 1px solid var(--p-inputtext-border-color);
+          transition:
+            background var(--p-inputtext-transition-duration),
+            color var(--p-inputtext-transition-duration),
+            border-color var(--p-inputtext-transition-duration),
+            outline-color var(--p-inputtext-transition-duration),
+            box-shadow var(--p-inputtext-transition-duration);
+          appearance: none;
+          border-radius: 20px;
+          outline-color: transparent;
+          box-shadow: var(--p-inputtext-shadow);
+          letter-spacing: -0.35px;
+          line-height: 1.5;
+          &::placeholder {
+            color: var(--p-inputtext-placeholder-color);
+          }
+          &.p-inputtext:enabled:hover {
+            border-color: var(--p-inputtext-hover-border-color);
+          }
+        }
         .p-button {
           min-width: 40px;
           width: 40px;
@@ -168,10 +199,10 @@
         }
       }
       &-write-mo-mention {
-        position: fixed;
-        right: 0;
-        bottom: 92px;
+        position: absolute;
+        top: -48px;
         left: 0;
+        right: 0;
         z-index: 100;
         display: flex;
         align-items: center;

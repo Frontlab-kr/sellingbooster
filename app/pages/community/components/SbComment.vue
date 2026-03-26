@@ -10,12 +10,6 @@
         placeholder="댓글을 남겨보세요"
       />
     </div>
-    <div class="sb-comment-write-mo-mention" v-if="isReplyTo && mention">
-      <p>{{ mention }}님에게 답글 남기는 중</p>
-      <Button variant="text" @click="closeReplyTo">
-        <IconEtcCommentDelete class="ico-etc-comment-delete" />
-      </Button>
-    </div>
     <div class="sb-comment-write-mo">
       <!-- <div
         class="sb-comment-write-mo__bg"
@@ -24,10 +18,22 @@
           closeReplyTo();
         "
       ></div> -->
+      <div class="sb-comment-write-mo-mention" v-if="isReplyTo && mention">
+        <p>{{ mention }}님에게 답글 남기는 중</p>
+        <Button variant="text" @click="closeReplyTo">
+          <IconEtcCommentDelete class="ico-etc-comment-delete" />
+        </Button>
+      </div>
       <div class="sb-comment-write-mo__form">
-        <InputText
+        <!-- <InputText
           :placeholder="mention ? `@${mention}` : '댓글을 입력하세요.'"
           v-model="newComment"
+        /> -->
+        <Textarea
+          autoResize
+          v-model="newComment"
+          :placeholder="mention ? `@${mention}` : '댓글을 입력하세요.'"
+          class="p-inputtext"
         />
         <Button severity="primary" :disabled="!newComment.trim()" rounded="">
           <template #icon>
