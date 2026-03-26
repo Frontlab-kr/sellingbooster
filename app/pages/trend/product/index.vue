@@ -2,7 +2,7 @@
   <div class="sb-trend">
     <div class="sb-trend-head">
       <div class="sb-trend-head__title">
-        <h4>마켓 트렌드</h4>
+        <h5>마켓 트렌드</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>

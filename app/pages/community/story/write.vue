@@ -15,7 +15,7 @@
         <div class="sb-board-write-form-item">
           <label>제목</label>
           <SbInput
-            v-model="storyTitle"
+            v-model="title"
             placeholder="성장스토리의 제목을 작성해 주세요."
             maxlength="300"
             show-length
@@ -71,5 +71,5 @@ const breadcrumb = ref([
   { label: '성장스토리' },
 ]);
 
-const storyTitle = ref('');
+const title = ref('');
 </script>

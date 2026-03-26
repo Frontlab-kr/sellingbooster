@@ -6,8 +6,9 @@
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
+      padding: 0 40px;
       &__title {
-        margin-bottom: 40px;
+        margin-bottom: 16px;
         h4 {
           color: var(--title-color);
         }
@@ -232,6 +233,9 @@
         &-list {
           grid-template-columns: 1fr 1fr;
         }
+      }
+      .sb-nodata {
+        padding: 40px 0 40px 0;
       }
     }
     &-detail {
@@ -808,6 +812,7 @@
         }
         &-chart {
           display: flex;
+          gap: 100px;
           margin-top: 40px;
           dl {
             width: 100%;
@@ -828,7 +833,14 @@
             }
           }
           &-col {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
             width: 100%;
+            min-width: 400px;
+            &:last-child {
+              width: 400px;
+            }
           }
           &-row {
             display: flex;
@@ -837,10 +849,35 @@
       }
     }
     &-history {
+      display: flex;
+      justify-content: space-between;
       height: 100%;
       padding: 40px;
       border-radius: 32px;
       background: var(--trend--background);
+      &__title {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        p {
+          margin: 0;
+          color: var(--Gray-600_495666, #454f5b);
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 140%; /* 22.4px */
+          letter-spacing: -0.4px;
+        }
+      }
+      &__contents {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      &__chart {
+        width: 304px;
+        height: 154px;
+      }
     }
     &-analyze {
       height: 100%;
@@ -936,18 +973,39 @@
       border-radius: 32px;
       background: var(--trend--background);
       .sb-trend-top {
+        position: relative;
         border-radius: 0;
-        overflow: auto;
-        @include custom-scrollbar();
+
+        .sb-trend-top-list {
+          overflow: auto;
+          height: 400px;
+          padding-bottom: 50px;
+          @include custom-scrollbar();
+        }
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 50px;
+          background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0) 0%,
+            #fff 100%
+          );
+          backdrop-filter: blur(0.5px);
+        }
       }
     }
     &-faq {
       height: 100%;
-      padding: 40px;
+      padding: 40px 40px 16px;
       border-radius: 32px;
       background: var(--trend--background);
       &__title {
-        margin-bottom: 40px;
+        margin-bottom: 16px;
       }
       &-list {
         &__title {
@@ -958,18 +1016,24 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 32px;
-            width: 32px;
-            height: 32px;
+            min-width: 24px;
+            width: 24px;
+            height: 24px;
             border-radius: 999px;
             background: var(--faq-view-q-background);
             color: var(--faq-view-q-color);
-            font-size: var(--Font-Heading-Medium, 20px);
+            font-size: 16px;
             font-weight: 700;
           }
 
           p {
             margin: 0;
+            color: var(--Text_Light-900---mian, #1b1f27);
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 28px */
+            letter-spacing: -0.5px;
           }
         }
         &__contents {
@@ -983,17 +1047,23 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 32px;
-            width: 32px;
-            height: 32px;
+            min-width: 24px;
+            width: 24px;
+            height: 24px;
             border-radius: 999px;
             background: var(--faq-view-a-background);
             color: var(--faq-view-a-color);
-            font-size: var(--Font-Heading-Medium, 20px);
+            font-size: 16px;
             font-weight: 700;
           }
           p {
             margin: 0;
+            color: var(--Text_Light-500---sub, #6a7381);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 160%; /* 25.6px */
+            letter-spacing: -0.4px;
           }
         }
       }
@@ -1008,6 +1078,9 @@
       }
       &-list {
         margin-top: 32px;
+        max-height: 592px;
+        overflow: auto;
+        @include custom-scrollbar();
         &-item {
           display: block;
           margin-bottom: 20px;
@@ -1089,6 +1162,9 @@
       }
       &-list {
         margin-top: 32px;
+        max-height: 592px;
+        overflow: auto;
+        @include custom-scrollbar();
         &-item {
           display: flex;
           align-items: center;
@@ -1164,5 +1240,8 @@
         }
       }
     }
+  }
+  .sb-banner {
+    margin-top: 20px;
   }
 }

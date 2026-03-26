@@ -515,6 +515,9 @@
       border-radius: 0 8px 8px 0;
     }
   }
+  .p-datatable-tbody > tr.p-datatable-empty-message > td {
+    padding: 0;
+  }
   .p-datatable-hoverable
     .p-datatable-tbody
     > tr:not(.p-datatable-row-selected):hover {

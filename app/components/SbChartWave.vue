@@ -92,15 +92,15 @@ const waveStyle = computed(() => ({
 
 @keyframes wave-movement {
   0% {
-    translate: -5px 0;
+    translate: -8px 0;
     scale: 1 1;
   }
   50% {
-    translate: 5px 0;
+    translate: 8px 0;
     scale: 1.05 0.95; /* 약간의 수축/이완 효과 */
   }
   100% {
-    translate: -5px 0;
+    translate: -8px 0;
     scale: 1 1;
   }
 }

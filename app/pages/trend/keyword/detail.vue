@@ -2,7 +2,7 @@
   <div class="sb-trend">
     <div class="sb-trend-head">
       <div class="sb-trend-head__title">
-        <h4>마켓 트렌드</h4>
+        <h5>마켓 트렌드</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>
@@ -181,24 +181,32 @@
                   <div class="sb-keyword-report-trend-chart-col">
                     <dl>
                       <dt>광고클릭량</dt>
-                      <dd></dd>
+                      <dd>
+                        <SbChartLine />
+                      </dd>
                     </dl>
                   </div>
                   <div class="sb-keyword-report-trend-chart-col">
                     <div class="sb-keyword-report-trend-chart-row">
                       <dl>
                         <dt>디바이스</dt>
-                        <dd></dd>
+                        <dd>
+                          <SbChartDoughnut :chart-data="deviceStats" />
+                        </dd>
                       </dl>
                       <dl>
                         <dt>성별</dt>
-                        <dd></dd>
+                        <dd>
+                          <SbChartDoughnut :chart-data="genderStats" />
+                        </dd>
                       </dl>
                     </div>
                     <div class="sb-keyword-report-trend-chart-row">
                       <dl>
                         <dt>연령</dt>
-                        <dd></dd>
+                        <dd>
+                          <SbChartStackedBar :chart-data="ageStats" />
+                        </dd>
                       </dl>
                     </div>
                   </div>
@@ -210,14 +218,26 @@
         <div class="grid">
           <div class="col">
             <div class="sb-keyword-history">
-              <div class="sb-keyword-history__title">
-                <h5>최근 3개월 검색 추이</h5>
-                <p>
-                  최근 3개월 검색량이 12% 증가하여<br />
-                  성장 추세를 보이고 있습니다.
-                </p>
+              <div class="sb-keyword-relation__contents">
+                <div class="sb-keyword-relation__title">
+                  <h5>최근 3개월 검색 추이</h5>
+                  <p>
+                    최근 3개월 검색량이 12% 증가하여<br />
+                    성장 추세를 보이고 있습니다.
+                  </p>
+                </div>
+                <div class="sb-chip sb-chip--large">
+                  <div class="sb-chip__title">예상원인</div>
+                  <div class="sb-chip-list">
+                    <Chip label="어린이 유산균" size="large" />
+                    <Chip label="가루 유산균" size="large" />
+                    <Chip label="고함량 유산균" size="large" />
+                    <Chip label="임산부 유산균" size="large" />
+                    <Chip label="건강기능식품" size="large" />
+                  </div>
+                </div>
               </div>
-              <div>
+              <div class="sb-keyword-history__chart">
                 <SbChartBar :percent="0" />
               </div>
             </div>
@@ -310,7 +330,7 @@
               <div class="sb-table">
                 <ClientOnly>
                   <DataTable
-                    :value="products"
+                    :value="keywordList"
                     responsiveLayout="scroll"
                     removableSort
                     class="p-datatable-custom"
@@ -429,7 +449,7 @@
               <div class="sb-trend-top sb-trend-top--small">
                 <div class="sb-trend-top-list">
                   <NuxtLink
-                    v-for="item in tumblerList"
+                    v-for="item in top20List"
                     :key="item.rank"
                     to="/"
                     class="sb-trend-top-list-item"
@@ -468,99 +488,23 @@
                 <h5>‘유산균’ 시장 자주 묻는 질문</h5>
               </div>
               <div class="sb-keyword-faq-list">
-                <Accordion value="0">
-                  <AccordionPanel value="0">
+                <Accordion :value="0">
+                  <AccordionPanel
+                    v-for="(item, index) in faqItems"
+                    :key="index"
+                    :value="index"
+                  >
                     <AccordionHeader>
                       <div class="sb-keyword-faq-list__title">
                         <strong>Q</strong>
-                        <p>유산균 시장의 경쟁은 심한 편인가요?</p>
+                        <p>{{ item.question }}</p>
                       </div>
                     </AccordionHeader>
+
                     <AccordionContent>
                       <div class="sb-keyword-faq-list__contents">
                         <strong>A</strong>
-                        <p>
-                          현재 유산균 키워드의 경쟁 강도는 0.53으로 동일
-                          카테고리 내에서 '보통' 수준입니다. <br />
-                          상품 공급량은 많으나 광고 침투율이 상대적으로 낮아
-                          틈새 전략이 가능합니다.
-                        </p>
-                      </div>
-                    </AccordionContent>
-                  </AccordionPanel>
-                  <AccordionPanel value="1">
-                    <AccordionHeader>
-                      <div class="sb-keyword-faq-list__title">
-                        <strong>Q</strong>
-                        <p>유산균 광고비는 어느 정도 예상해야 하나요?</p>
-                      </div>
-                    </AccordionHeader>
-                    <AccordionContent>
-                      <div class="sb-keyword-faq-list__contents">
-                        <strong>A</strong>
-                        <p>
-                          현재 유산균 키워드의 경쟁 강도는 0.53으로 동일
-                          카테고리 내에서 '보통' 수준입니다. <br />
-                          상품 공급량은 많으나 광고 침투율이 상대적으로 낮아
-                          틈새 전략이 가능합니다.
-                        </p>
-                      </div>
-                    </AccordionContent>
-                  </AccordionPanel>
-                  <AccordionPanel value="2">
-                    <AccordionHeader>
-                      <div class="sb-keyword-faq-list__title">
-                        <strong>Q</strong>
-                        <p>유산균 시장의 최근 수요 트렌드는 어떤가요?</p>
-                      </div>
-                    </AccordionHeader>
-                    <AccordionContent>
-                      <div class="sb-keyword-faq-list__contents">
-                        <strong>A</strong>
-                        <p>
-                          현재 유산균 키워드의 경쟁 강도는 0.53으로 동일
-                          카테고리 내에서 '보통' 수준입니다. <br />
-                          상품 공급량은 많으나 광고 침투율이 상대적으로 낮아
-                          틈새 전략이 가능합니다.
-                        </p>
-                      </div>
-                    </AccordionContent>
-                  </AccordionPanel>
-                  <AccordionPanel value="3">
-                    <AccordionHeader>
-                      <div class="sb-keyword-faq-list__title">
-                        <strong>Q</strong>
-                        <p>상위 노출을 위한 적정 판매 가격은 얼마인가요?</p>
-                      </div>
-                    </AccordionHeader>
-                    <AccordionContent>
-                      <div class="sb-keyword-faq-list__contents">
-                        <strong>A</strong>
-                        <p>
-                          현재 유산균 키워드의 경쟁 강도는 0.53으로 동일
-                          카테고리 내에서 '보통' 수준입니다. <br />
-                          상품 공급량은 많으나 광고 침투율이 상대적으로 낮아
-                          틈새 전략이 가능합니다.
-                        </p>
-                      </div>
-                    </AccordionContent>
-                  </AccordionPanel>
-                  <AccordionPanel value="4">
-                    <AccordionHeader>
-                      <div class="sb-keyword-faq-list__title">
-                        <strong>Q</strong>
-                        <p>상위 노출을 위한 적정 판매 가격은 얼마인가요?</p>
-                      </div>
-                    </AccordionHeader>
-                    <AccordionContent>
-                      <div class="sb-keyword-faq-list__contents">
-                        <strong>A</strong>
-                        <p>
-                          현재 유산균 키워드의 경쟁 강도는 0.53으로 동일
-                          카테고리 내에서 '보통' 수준입니다. <br />
-                          상품 공급량은 많으나 광고 침투율이 상대적으로 낮아
-                          틈새 전략이 가능합니다.
-                        </p>
+                        <p v-html="item.answer"></p>
                       </div>
                     </AccordionContent>
                   </AccordionPanel>
@@ -581,53 +525,21 @@
                 <Button label="뉴스" variant="text" />
               </div>
               <div class="sb-keyword-ktrend-list">
-                <NuxtLink to="/" class="sb-keyword-ktrend-list-item">
-                  <h6>두바이 쫀득쿠키 GS25 말차초코 두쫀볼 편의점 디저트</h6>
+                <NuxtLink
+                  v-for="(item, index) in ktrendList"
+                  :key="index"
+                  :to="item.link"
+                  class="sb-keyword-ktrend-list-item"
+                >
+                  <h6>{{ item.title }}</h6>
+
                   <div class="sb-keyword-ktrend-list-item__text">
-                    2026년에 가장 핫한 디저트하면 단연 두바이 쫀득쿠키잖아요.
-                    씨유 두바이 쫀득 찹쌀떡 후기 현시점 편의점 두바이 쫀득쿠키
-                    중 원탑, 이건 찹쌀떡 버전이라 겉부분이 코코아 파우더가 아닌
-                    초코 코팅으로 되어있어요. 가격 3,100원으로 판매되고 있어요
+                    {{ item.description }}
                   </div>
+
                   <div class="sb-keyword-ktrend-list-item__meta">
-                    <span>2026-01-11</span>
-                    <span>망디의먹로그</span>
-                  </div>
-                </NuxtLink>
-                <NuxtLink to="/" class="sb-keyword-ktrend-list-item">
-                  <h6>두바이 쫀득쿠키 만들기 피스타치오 스프레드 레시피</h6>
-                  <div class="sb-keyword-ktrend-list-item__text">
-                    두바이 쫀득쿠키 만들기 두바이 쫀득쿠키
-                  </div>
-                  <div class="sb-keyword-ktrend-list-item__meta">
-                    <span>2026-01-08</span>
-                    <span>축복받은 유전자 완소남매의 엄마표 먹거리</span>
-                  </div>
-                </NuxtLink>
-                <NuxtLink to="/" class="sb-keyword-ktrend-list-item">
-                  <h6>두바이 쫀득쿠키 만들기 피스타치오 스프레드 레시피</h6>
-                  <div class="sb-keyword-ktrend-list-item__text">
-                    두바이 쫀득쿠키 만들기 두바이 쫀득쿠키 레시피 피스타치오
-                    스프레드 이게 뭐길래 그렇게 한한가....?? 한동안 초콜릿안에
-                    피스타치오 크림과 카타이프를 같이 넣어서 만들어 낸 고급진
-                    디저트를 기억하실겁니다.
-                  </div>
-                  <div class="sb-keyword-ktrend-list-item__meta">
-                    <span>2026-01-08</span>
-                    <span>축복받은 유전자 완소남매의 엄마표 먹거리</span>
-                  </div>
-                </NuxtLink>
-                <NuxtLink to="/" class="sb-keyword-ktrend-list-item">
-                  <h6>두바이 쫀득쿠키 만들기 피스타치오 스프레드 레시피</h6>
-                  <div class="sb-keyword-ktrend-list-item__text">
-                    두바이 쫀득쿠키 만들기 두바이 쫀득쿠키 레시피 피스타치오
-                    스프레드 이게 뭐길래 그렇게 한한가....?? 한동안 초콜릿안에
-                    피스타치오 크림과 카타이프를 같이 넣어서 만들어 낸 고급진
-                    디저트를 기억하실겁니다.
-                  </div>
-                  <div class="sb-keyword-ktrend-list-item__meta">
-                    <span>2026-01-08</span>
-                    <span>축복받은 유전자 완소남매의 엄마표 먹거리</span>
+                    <span>{{ item.date }}</span>
+                    <span>{{ item.author }}</span>
                   </div>
                 </NuxtLink>
               </div>
@@ -653,50 +565,18 @@
                 <Button label="K컬처" variant="text" />
               </div>
               <div class="sb-keyword-ksnapp-list">
-                <NuxtLink to="/" class="sb-keyword-ksnapp-list-item">
+                <NuxtLink
+                  v-for="(item, index) in ksnappList"
+                  :key="index"
+                  :to="item.link"
+                  class="sb-keyword-ksnapp-list-item"
+                >
                   <div class="sb-keyword-ksnapp-list-item__thumb">
-                    <img src="https://picsum.photos/200/300" alt="" />
+                    <img :src="item.thumbnail" :alt="item.title" />
                   </div>
+
                   <div class="sb-keyword-ksnapp-list-item__title">
-                    <h6>
-                      장원영이 쏘아올린 '두쫀쿠' 열풍, 한국 강타…냉면집에서도
-                      판다
-                    </h6>
-                  </div>
-                </NuxtLink>
-                <NuxtLink to="/" class="sb-keyword-ksnapp-list-item">
-                  <div class="sb-keyword-ksnapp-list-item__thumb">
-                    <img src="https://picsum.photos/200/300" alt="" />
-                  </div>
-                  <div class="sb-keyword-ksnapp-list-item__title">
-                    <h6>
-                      안성재 셰프도 쩔쩔매더니... 안성재도 무릎 꿇린 음식 전국은
-                      ‘두쫀쿠’ 열풍안성재 셰프도 쩔쩔매더니... 안성재도 무릎
-                      꿇린 음식 전국은 ‘두쫀쿠’ 열풍
-                    </h6>
-                  </div>
-                </NuxtLink>
-                <NuxtLink to="/" class="sb-keyword-ksnapp-list-item">
-                  <div class="sb-keyword-ksnapp-list-item__thumb">
-                    <img src="https://picsum.photos/200/300" alt="" />
-                  </div>
-                  <div class="sb-keyword-ksnapp-list-item__title">
-                    <h6>
-                      장원영이 쏘아올린 '두쫀쿠' 열풍, 한국 강타…냉면집에서도
-                      판다
-                    </h6>
-                  </div>
-                </NuxtLink>
-                <NuxtLink to="/" class="sb-keyword-ksnapp-list-item">
-                  <div class="sb-keyword-ksnapp-list-item__thumb">
-                    <img src="https://picsum.photos/200/300" alt="" />
-                  </div>
-                  <div class="sb-keyword-ksnapp-list-item__title">
-                    <h6>
-                      안성재 셰프도 쩔쩔매더니... 안성재도 무릎 꿇린 음식 전국은
-                      ‘두쫀쿠’ 열풍안성재 셰프도 쩔쩔매더니... 안성재도 무릎
-                      꿇린 음식 전국은 ‘두쫀쿠’ 열풍
-                    </h6>
+                    <h6>{{ item.title }}</h6>
                   </div>
                 </NuxtLink>
               </div>
@@ -719,11 +599,21 @@
                 </div>
                 <div class="sb-chip sb-chip--large">
                   <div class="sb-chip-list">
-                    <Chip label="어린이 유산균" size="large" />
-                    <Chip label="가루 유산균" size="large" />
-                    <Chip label="고함량 유산균" size="large" />
-                    <Chip label="임산부 유산균" size="large" />
-                    <Chip label="건강기능식품" size="large" />
+                    <NuxtLink to="/">
+                      <Chip label="어린이 유산균" size="large" />
+                    </NuxtLink>
+                    <NuxtLink to="/">
+                      <Chip label="가루 유산균" size="large" />
+                    </NuxtLink>
+                    <NuxtLink to="/">
+                      <Chip label="고함량 유산균" size="large" />
+                    </NuxtLink>
+                    <NuxtLink to="/">
+                      <Chip label="임산부 유산균" size="large" />
+                    </NuxtLink>
+                    <NuxtLink to="/">
+                      <Chip label="건강기능식품" size="large" />
+                    </NuxtLink>
                   </div>
                 </div>
               </div>
@@ -760,7 +650,7 @@ const breadcrumb = ref([
   { label: '키워드 분석' },
 ]);
 
-//
+//menu
 const menuItems = ref([
   {
     label: '수정',
@@ -772,8 +662,25 @@ const menuItems = ref([
   },
 ]);
 
-//
-const products = ref([
+//chart
+const deviceStats = ref([
+  { value: 70, name: '모바일', color: 'primaryColor' },
+  { value: 30, name: 'PC', color: 'successColor' },
+]);
+const genderStats = ref([
+  { value: 50, name: '여성', color: 'primaryColor' },
+  { value: 50, name: '남성', color: 'dangerColor' },
+]);
+const ageStats = ref([
+  { name: '10', value: 3, color: '#C2F4F8' },
+  { name: '20', value: 12, color: '#3ADDE9' },
+  { name: '30', value: 26, color: '#00B1BD' },
+  { name: '40', value: 35, color: '#23858C' },
+  { name: '50', value: 24, color: '#1A6369' },
+]);
+
+//data
+const keywordList = ref([
   {
     ranking: 1,
     keyword: '어린이 유산균',
@@ -856,7 +763,7 @@ const products = ref([
   },
 ]);
 
-const tumblerList = ref([
+const top20List = ref([
   {
     rank: 1,
     imgSrc: '/temp/top1.png',
@@ -933,4 +840,112 @@ const tumblerList = ref([
     price: 24570,
   },
 ]);
+
+const faqItems = [
+  {
+    question: '유산균 시장의 경쟁은 심한 편인가요?',
+    answer:
+      "현재 유산균 키워드의 경쟁 강도는 0.53으로 동일 카테고리 내에서 '보통' 수준입니다. <br /> 상품 공급량은 많으나 광고 침투율이 상대적으로 낮아 틈새 전략이 가능합니다.",
+  },
+  {
+    question: '유산균 광고비는 어느 정도 예상해야 하나요?',
+    answer:
+      "현재 유산균 키워드의 경쟁 강도는 0.53으로 동일 카테고리 내에서 '보통' 수준입니다. <br /> 상품 공급량은 많으나 광고 침투율이 상대적으로 낮아 틈새 전략이 가능합니다.",
+  },
+  {
+    question: '유산균 시장의 최근 수요 트렌드는 어떤가요?',
+    answer:
+      "현재 유산균 키워드의 경쟁 강도는 0.53으로 동일 카테고리 내에서 '보통' 수준입니다. <br /> 상품 공급량은 많으나 광고 침투율이 상대적으로 낮아 틈새 전략이 가능합니다.",
+  },
+  {
+    question: '상위 노출을 위한 적정 판매 가격은 얼마인가요?',
+    answer:
+      "현재 유산균 키워드의 경쟁 강도는 0.53으로 동일 카테고리 내에서 '보통' 수준입니다. <br /> 상품 공급량은 많으나 광고 침투율이 상대적으로 낮아 틈새 전략이 가능합니다.",
+  },
+  {
+    question: '지금 유산균 시장에 진입하기에 광고 효율이 괜찮을까요?',
+    answer:
+      "현재 유산균 키워드의 경쟁 강도는 0.53으로 동일 카테고리 내에서 '보통' 수준입니다. <br /> 상품 공급량은 많으나 광고 침투율이 상대적으로 낮아 틈새 전략이 가능합니다.",
+  },
+];
+
+const ktrendList = [
+  {
+    title: '두바이 쫀득쿠키 GS25 말차초코 두쫀볼 편의점 디저트',
+    description:
+      '2026년에 가장 핫한 디저트하면 단연 두바이 쫀득쿠키잖아요. 씨유 두바이 쫀득 찹쌀떡 후기 현시점 편의점 두바이 쫀득쿠키 중 원탑, 이건 찹쌀떡 버전이라 겉부분이 코코아 파우더가 아닌 초코 코팅으로 되어있어요. 가격 3,100원으로 판매되고 있어요',
+    date: '2026-01-11',
+    author: '망디의먹로그',
+    link: '/',
+  },
+  {
+    title: '두바이 쫀득쿠키 만들기 피스타치오 스프레드 레시피',
+    description: '두바이 쫀득쿠키 만들기 두바이 쫀득쿠키',
+    date: '2026-01-08',
+    author: '축복받은 유전자 완소남매의 엄마표 먹거리',
+    link: '/',
+  },
+  {
+    title: '두바이 쫀득쿠키 만들기 피스타치오 스프레드 레시피',
+    description:
+      '두바이 쫀득쿠키 만들기 두바이 쫀득쿠키 레시피 피스타치오 스프레드 이게 뭐길래 그렇게 한한가....?? 한동안 초콜릿안에 피스타치오 크림과 카타이프를 같이 넣어서 만들어 낸 고급진 디저트를 기억하실겁니다.',
+    date: '2026-01-08',
+    author: '축복받은 유전자 완소남매의 엄마표 먹거리',
+    link: '/',
+  },
+  {
+    title: '두바이 쫀득쿠키 만들기 피스타치오 스프레드 레시피',
+    description:
+      '두바이 쫀득쿠키 만들기 두바이 쫀득쿠키 레시피 피스타치오 스프레드 이게 뭐길래 그렇게 한한가....?? 한동안 초콜릿안에 피스타치오 크림과 카타이프를 같이 넣어서 만들어 낸 고급진 디저트를 기억하실겁니다.',
+    date: '2026-01-08',
+    author: '축복받은 유전자 완소남매의 엄마표 먹거리',
+    link: '/',
+  },
+  {
+    title: '두바이 쫀득쿠키 만들기 피스타치오 스프레드 레시피',
+    description:
+      '두바이 쫀득쿠키 만들기 두바이 쫀득쿠키 레시피 피스타치오 스프레드 이게 뭐길래 그렇게 한한가....?? 한동안 초콜릿안에 피스타치오 크림과 카타이프를 같이 넣어서 만들어 낸 고급진 디저트를 기억하실겁니다.',
+    date: '2026-01-08',
+    author: '축복받은 유전자 완소남매의 엄마표 먹거리',
+    link: '/',
+  },
+];
+
+const ksnappList = [
+  {
+    title: "장원영이 쏘아올린 '두쫀쿠' 열풍, 한국 강타…냉면집에서도 판다",
+    thumbnail: 'https://picsum.photos/200/300',
+    link: '/',
+  },
+  {
+    title:
+      '안성재 셰프도 쩔쩔매더니... 안성재도 무릎 꿇린 음식 전국은 ‘두쫀쿠’ 열풍',
+    thumbnail: 'https://picsum.photos/200/300',
+    link: '/',
+  },
+  {
+    title:
+      '안성재 셰프도 쩔쩔매더니... 안성재도 무릎 꿇린 음식 전국은 ‘두쫀쿠’ 열풍',
+    thumbnail: 'https://picsum.photos/200/300',
+    link: '/',
+  },
+  {
+    title:
+      '안성재 셰프도 쩔쩔매더니... 안성재도 무릎 꿇린 음식 전국은 ‘두쫀쿠’ 열풍',
+    thumbnail: 'https://picsum.photos/200/300',
+    link: '/',
+  },
+  {
+    title:
+      '안성재 셰프도 쩔쩔매더니... 안성재도 무릎 꿇린 음식 전국은 ‘두쫀쿠’ 열풍',
+    thumbnail: 'https://picsum.photos/200/300',
+    link: '/',
+  },
+  {
+    title:
+      '안성재 셰프도 쩔쩔매더니... 안성재도 무릎 꿇린 음식 전국은 ‘두쫀쿠’ 열풍',
+    thumbnail: 'https://picsum.photos/200/300',
+    link: '/',
+  },
+];
 </script>

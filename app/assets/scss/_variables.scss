@@ -258,14 +258,35 @@
 :root,
 :host {
   --p-mask-background: rgba(0, 0, 0, 0.7);
-  --color-primary: var(--p-green-500);
+  --color-primary: var(--p-primary-500);
   --color-success: var(--p-slate-500);
   --color-info: var(--p-blue-400);
   --color-warn: var(--p-orange-600);
   --color-danger: var(--p-red-600);
 
+  --chart-background: var(--p-gray-00);
+  --chart-primary: var(--p-primary-500);
+  --chart-success: var(--p-slate-200);
+  --chart-info: var(--p-blue-200);
+  --chart-warn: var(--p-orange-200);
+  --chart-danger: var(--p-red-200);
+
   --chart-wave-background01: var(--p-gray-100);
   --chart-wave-background02: var(--p-gray-800);
+
+  --chart-line-tooltip-color: var(--p-gray-00);
+  --chart-line-tooltip-background: var(--p-gray-900);
+  --chart-line-tooltip-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+  --chart-line-yAxis-color: var(--p-gray-400);
+  --chart-line-border-color: var(--p-gray-300);
+  --chart-line-xAxis-color: var(--p-gray-500);
+  --chart-line-main-gradient-start: rgba(0, 177, 189, 0.3);
+  --chart-line-main-gradient-end: rgba(0, 177, 189, 0);
+  --chart-line-bg-gradient-start: rgba(58, 221, 233, 0.3);
+  --chart-line-bg-gradient-end: rgba(58, 221, 233, 0);
+
+  --chart-label-color01: var(--p-gray-500);
+  --chart-label-color02: var(--p-gray-900);
 
   --url-title-color: var(--p-gray-900);
   --url-text-color: var(--p-gray-600);
@@ -544,8 +565,26 @@
     --color-warn: var(--p-orange-400);
     --color-danger: var(--p-red-400);
 
+    --chart-background: var(--p-gray-800);
+    --chart-primary: var(--p-primary-300);
+    --chart-success: var(--p-slate-600);
+    --chart-info: var(--p-blue-600);
+    --chart-warn: var(--p-orange-900);
+    --chart-danger: var(--p-red-600);
+
     --chart-wave-background01: var(--p-gray-100);
     --chart-wave-background02: var(--p-gray-800);
+
+    --chart-line-tooltip-color: var(--p-gray-900);
+    --chart-line-tooltip-background: var(--p-gray-00);
+    --chart-line-tooltip-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+    --chart-line-yAxis-color: var(--p-gray-400);
+    --chart-line-border-color: var(--p-gray-600);
+    --chart-line-xAxis-color: var(--p-gray-300);
+    --chart-line-main-gradient-start: rgba(58, 221, 233, 0.3);
+    --chart-line-main-gradient-end: rgba(58, 221, 233, 0);
+    --chart-line-bg-gradient-start: rgba(58, 221, 233, 0.3);
+    --chart-line-bg-gradient-end: rgba(58, 221, 233, 0);
 
     --url-title-color: var(--p-gray-00);
     --url-text-color: var(--p-gray-00);

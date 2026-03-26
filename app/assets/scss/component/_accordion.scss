@@ -11,7 +11,7 @@
   --p-accordion-header-hover-color: var(--p-gray-900);
   --p-accordion-header-active-color: var(--p-gray-900);
   --p-accordion-header-active-hover-color: var(--p-gray-900);
-  --p-accordion-header-padding: 1.125rem;
+  --p-accordion-header-padding: 24px 0;
   --p-accordion-header-font-weight: 600;
   --p-accordion-header-border-radius: 0;
   --p-accordion-header-border-width: 0;
@@ -46,6 +46,9 @@
   border-style: dashed;
   border-width: var(--p-accordion-panel-border-width);
   border-color: var(--p-accordion-panel-border-color);
+  &:last-child {
+    border: none;
+  }
 }
 
 .p-accordionheader {
@@ -92,6 +95,13 @@
 
 .p-accordionheader-toggle-icon {
   color: var(--p-accordion-header-toggle-icon-color);
+  width: 24px;
+  height: 24px;
+  background: url(../../icons/etc/faq.svg) no-repeat 50% 50%;
+  transition: all 0.2s ease;
+  path {
+    display: none;
+  }
 }
 
 .p-accordionpanel:not(.p-disabled) .p-accordionheader:focus-visible {
@@ -116,6 +126,7 @@
 
 .p-accordionpanel:not(.p-disabled).p-accordionpanel-active
   > .p-accordionheader {
+  padding-bottom: 12px;
   background: var(--p-accordion-header-active-background);
   color: var(--p-accordion-header-active-color);
 }
@@ -124,6 +135,7 @@
   > .p-accordionheader
   .p-accordionheader-toggle-icon {
   color: var(--p-accordion-header-toggle-icon-active-color);
+  transform: rotate(180deg);
 }
 
 .p-accordionpanel:not(.p-disabled).p-accordionpanel-active

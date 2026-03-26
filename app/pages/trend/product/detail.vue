@@ -2,19 +2,19 @@
   <div class="sb-trend">
     <div class="sb-trend-head">
       <div class="sb-trend-head__title">
-        <h4>마켓 트렌드</h4>
+        <h5>마켓 트렌드</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>
 
-    <!-- <SbChartPie
+    <SbChartPie2
       :score="85"
       :total-score="100"
       status-text="매우 좋음"
       main-color="#00B1BD"
       sub-color="#00B1BD"
       pointer-border-color="rgba(0, 177, 189, 0.2)"
-    /> -->
+    />
     <div class="flex">
       <SbChartPie :score="95" label="상품 등록" status="high" />
 
@@ -100,92 +100,91 @@
                 </div>
               </div>
               <div class="sb-table">
-                <ClientOnly>
-                  <DataTable
-                    :value="productsNodata"
-                    responsiveLayout="scroll"
-                    removableSort
+                <DataTable
+                  :value="productsNodata"
+                  responsiveLayout="scroll"
+                  removableSort
+                >
+                  <Column
+                    field="keyword"
+                    header="키워드"
+                    sortable
+                    style="width: 160px"
                   >
-                    <Column
-                      field="keyword"
-                      header="키워드"
-                      sortable
-                      style="width: 160px"
-                    >
-                      <template #body="slotProps">
-                        <span v-html="slotProps.data.keyword"></span>
-                      </template>
-                    </Column>
-                    <Column
-                      field="pcSearchVol"
-                      header="월 검색량"
-                      sortable
-                      style="width: 160px"
-                      headerClass="text-right"
-                      bodyClass="text-right"
-                    >
-                      <template #body="slotProps">
-                        <span v-html="slotProps.data.pcSearchVol"></span>
-                      </template>
-                    </Column>
-                    <Column
-                      field="avgClick"
-                      header="상품 수"
-                      sortable
-                      style="width: 160px"
-                      headerClass="text-right"
-                      bodyClass="text-right"
-                    >
-                      <template #body="slotProps">
-                        <span v-html="slotProps.data.avgClick"></span>
-                      </template>
-                    </Column>
-                    <Column
-                      field="competition"
-                      sortable
-                      headerClass="text-right"
-                      bodyClass="text-right"
-                      style="width: 150px"
-                    >
-                      <template #header>
-                        <div
-                          class="sb-table-header-title"
-                          @mouseenter="togglePopover"
-                          @mouseleave="togglePopover"
+                    <template #body="slotProps">
+                      <span v-html="slotProps.data.keyword"></span>
+                    </template>
+                  </Column>
+                  <Column
+                    field="pcSearchVol"
+                    header="월 검색량"
+                    sortable
+                    style="width: 160px"
+                    headerClass="text-right"
+                    bodyClass="text-right"
+                  >
+                    <template #body="slotProps">
+                      <span v-html="slotProps.data.pcSearchVol"></span>
+                    </template>
+                  </Column>
+                  <Column
+                    field="avgClick"
+                    header="상품 수"
+                    sortable
+                    style="width: 160px"
+                    headerClass="text-right"
+                    bodyClass="text-right"
+                  >
+                    <template #body="slotProps">
+                      <span v-html="slotProps.data.avgClick"></span>
+                    </template>
+                  </Column>
+                  <Column
+                    field="competition"
+                    sortable
+                    headerClass="text-right"
+                    bodyClass="text-right"
+                    style="width: 150px"
+                  >
+                    <template #header>
+                      <div
+                        class="sb-table-header-title"
+                        @mouseenter="togglePopover"
+                        @mouseleave="togglePopover"
+                      >
+                        <span
+                          class="p-datatable-column-title"
+                          data-pc-section="columntitle"
+                          >경쟁강도</span
                         >
-                          <span
-                            class="p-datatable-column-title"
-                            data-pc-section="columntitle"
-                            >경쟁강도</span
-                          >
-                          <IconSystemInformationCircle
-                            class="ico-system-information-circle"
-                          />
-                        </div>
-                      </template>
-                      <template #body="slotProps">
-                        <div class="sb-legend">
-                          <span
-                            class="sb-legend-item"
-                            :class="
-                              slotProps.data.competition >= 0.8
-                                ? 'text-primary'
-                                : slotProps.data.competition >= 0.6
-                                  ? 'text-success'
-                                  : slotProps.data.competition >= 0.4
-                                    ? 'text-info'
-                                    : slotProps.data.competition >= 0.2
-                                      ? 'text-warn'
-                                      : 'text-danger'
-                            "
-                          >
-                            {{ slotProps.data.competition.toFixed(2) }}
-                          </span>
-                        </div>
-                      </template>
-                    </Column>
-                  </DataTable>
-                </ClientOnly>
+                        <IconSystemInformationCircle
+                          class="ico-system-information-circle"
+                        />
+                      </div>
+                    </template>
+                    <template #body="slotProps">
+                      <div class="sb-legend">
+                        <span
+                          class="sb-legend-item"
+                          :class="
+                            slotProps.data.competition >= 0.8
+                              ? 'text-primary'
+                              : slotProps.data.competition >= 0.6
+                                ? 'text-success'
+                                : slotProps.data.competition >= 0.4
+                                  ? 'text-info'
+                                  : slotProps.data.competition >= 0.2
+                                    ? 'text-warn'
+                                    : 'text-danger'
+                          "
+                        >
+                          {{ slotProps.data.competition.toFixed(2) }}
+                        </span>
+                      </div>
+                    </template>
+                  </Column>
+                </DataTable>
+
                 <div class="sb-nodata">
                   <IconIllustrationSmile class="ico-illustration-smile" />
                   <div class="sb-nodata__text">
