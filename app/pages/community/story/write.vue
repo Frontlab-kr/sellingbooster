@@ -2,7 +2,7 @@
   <div class="sb-community">
     <div class="sb-community-head">
       <div class="sb-community-head__title">
-        <h4>성장스토리</h4>
+        <h5>성장스토리</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>

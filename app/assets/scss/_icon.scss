@@ -649,15 +649,15 @@
       min-width: 80px;
       width: 80px;
       height: 80px;
-      --path-color-1: var(--p-gray-200);
-      --path-color-2: var(--p-gray-300);
+      --path-color-1: var(--ico-illustration-smile-color1);
+      --path-color-2: var(--ico-illustration-smile-color2);
     }
     &-frown {
       min-width: 80px;
       width: 80px;
       height: 80px;
-      --path-color-1: var(--p-gray-300);
-      --path-color-2: var(--p-gray-400);
+      --path-color-1: var(--ico-illustration-frown-color1);
+      --path-color-2: var(--ico-illustration-frown-color2);
     }
   }
 
@@ -789,14 +789,6 @@
       &-check-circle {
         --path-color-1: var(--p-green-600);
         --path-color-2: var(--p-green-300);
-      }
-      &-smile {
-        --path-color-1: var(--p-gray-500);
-        --path-color-2: var(--p-gray-600);
-      }
-      &-frown {
-        --path-color-1: var(--p-gray-600);
-        --path-color-2: var(--p-gray-600);
       }
     }
 

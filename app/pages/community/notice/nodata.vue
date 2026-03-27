@@ -2,7 +2,7 @@
   <div class="sb-community">
     <div class="sb-community-head">
       <div class="sb-community-head__title">
-        <h4>공지사항</h4>
+        <h5>공지사항</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>

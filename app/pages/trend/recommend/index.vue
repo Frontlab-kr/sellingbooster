@@ -111,15 +111,21 @@
               style="width: 200px"
             >
               <template #header>
-                <div
-                  class="inline-flex align-items-center gap-1"
-                  @mouseenter="togglePopover"
-                  @mouseleave="togglePopover"
-                >
-                  경쟁강도
-                  <IconSystemInformationCircle
-                    class="ico-system-information-circle"
-                  />
+                <div class="sb-table-header-title">
+                  <span
+                    class="p-datatable-column-title"
+                    data-pc-section="columntitle"
+                    >경쟁강도</span
+                  >
+                  <div
+                    class="sb-table-header-title__icon"
+                    @mouseenter="togglePopover"
+                    @mouseleave="togglePopover"
+                  >
+                    <IconSystemInformationCircle
+                      class="ico-system-information-circle"
+                    />
+                  </div>
                 </div>
               </template>
               <template #body="slotProps">
@@ -147,11 +153,11 @@
 
           <Popover ref="op">
             <div class="sb-legend">
-              <span class="sb-legend-item text-indigo-500">최고</span>
-              <span class="sb-legend-item text-green-500">좋음</span>
-              <span class="sb-legend-item text-slate-600">보통</span>
-              <span class="sb-legend-item text-orange-700">낮음</span>
-              <span class="sb-legend-item text-red-600">최저</span>
+              <span class="sb-legend-item text-primary">최고</span>
+              <span class="sb-legend-item text-success">좋음</span>
+              <span class="sb-legend-item text-info">보통</span>
+              <span class="sb-legend-item text-warn">낮음</span>
+              <span class="sb-legend-item text-danger">최저</span>
             </div>
           </Popover>
         </div>

@@ -22,7 +22,6 @@
     "@tiptap/extension-underline": "^3.19.0",
     "@tiptap/extension-youtube": "^3.19.0",
     "@yeger/vue-masonry-wall": "^5.1.5",
-    "better-sqlite3": "^12.6.2",
     "build": "^0.1.4",
     "echarts": "^6.0.0",
     "lodash.throttle": "^4.1.1",

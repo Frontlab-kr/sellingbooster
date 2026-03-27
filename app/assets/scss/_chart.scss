@@ -96,5 +96,15 @@
         height: 72px;
       }
     }
+    &-gauge {
+      width: 100%;
+      height: 120px;
+
+      overflow: hidden;
+      .echart {
+        width: 100%;
+        height: 240px;
+      }
+    }
   }
 }

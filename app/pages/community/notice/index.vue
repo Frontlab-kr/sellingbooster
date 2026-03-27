@@ -2,7 +2,7 @@
   <div class="sb-community">
     <div class="sb-community-head">
       <div class="sb-community-head__title">
-        <h4>공지사항</h4>
+        <h5>공지사항</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>
@@ -64,7 +64,8 @@ const list = ref([
   },
   {
     badge: { value: '기본', severity: 'secondary' },
-    title: '국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내',
+    title:
+      '국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내',
     date: '2026.01.14',
     attachment: true,
   },

@@ -2,7 +2,7 @@
   <div class="sb-community">
     <div class="sb-community-head">
       <div class="sb-community-head__title">
-        <h4>FAQ</h4>
+        <h5>FAQ</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>

@@ -1,0 +1,57 @@
+@use './mixins' as *;
+
+.sb {
+  &-planner {
+    &-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 0 40px;
+      &__title {
+        margin-bottom: 16px;
+        h5 {
+          color: var(--title-color);
+        }
+      }
+    }
+    &-menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    &-sort {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 10px;
+    }
+    @include breakpoint {
+      &-head {
+        justify-content: flex-end;
+        &__title {
+          display: none;
+        }
+      }
+      &-menu {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 24px;
+        .sb-searchbar {
+          width: 100%;
+        }
+      }
+      &-sort {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+        margin-top: 32px;
+        margin-bottom: 12px;
+      }
+    }
+  }
+  &-planner {
+  }
+}

@@ -31,6 +31,7 @@
         /> -->
         <Textarea
           autoResize
+          rows="1"
           v-model="newComment"
           :placeholder="mention ? `@${mention}` : '댓글을 입력하세요.'"
           class="p-inputtext"

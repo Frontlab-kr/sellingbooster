@@ -2,7 +2,7 @@
   <div class="sb-community">
     <div class="sb-community-head">
       <div class="sb-community-head__title">
-        <h4>Q&A</h4>
+        <h5>Q&A</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
       <div class="sb-community-head__button">

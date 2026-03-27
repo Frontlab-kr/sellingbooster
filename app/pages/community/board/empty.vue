@@ -2,7 +2,7 @@
   <div class="sb-community">
     <div class="sb-community-head">
       <div class="sb-community-head__title">
-        <h4>자유게시판</h4>
+        <h5>자유게시판</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
       <div class="sb-community-head__button">

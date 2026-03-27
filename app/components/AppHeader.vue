@@ -221,9 +221,24 @@ const menu01 = ref([
       { label: '분석 결과', route: '/trend/analysis' },
     ],
   },
-  { key: 'execution', label: '판매 가속', icon: IconSnbStar, route: '/2' },
-  { key: 'performance', label: '성장 리포트', icon: IconSnbChart, route: '/3' },
-  { key: 'planner', label: '셀링 플래너', icon: IconSnbPlanner, route: '/3' },
+  { key: 'execution', label: '판매 가속', icon: IconSnbStar, route: '/sales' },
+  {
+    key: 'performance',
+    label: '성장 리포트',
+    icon: IconSnbChart,
+    route: '/report',
+  },
+  {
+    key: 'planner',
+    label: '셀링 플래너',
+    icon: IconSnbPlanner,
+    route: '/planner/timeline',
+    items: [
+      { label: '타임라인', route: '/planner/timeline' },
+      { label: '캘린더', route: '/planner/calender' },
+      { label: '메모', route: '/planner/memo' },
+    ],
+  },
   {
     key: 'community',
     label: '커뮤니티',

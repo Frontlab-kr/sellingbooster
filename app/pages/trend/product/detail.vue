@@ -7,21 +7,6 @@
       </div>
     </div>
 
-    <SbChartPie2
-      :score="85"
-      :total-score="100"
-      status-text="매우 좋음"
-      main-color="#00B1BD"
-      sub-color="#00B1BD"
-      pointer-border-color="rgba(0, 177, 189, 0.2)"
-    />
-    <div class="flex">
-      <SbChartPie :score="95" label="상품 등록" status="high" />
-
-      <SbChartPie :score="60" label="판매 관리" status="normal" />
-
-      <SbChartPie :score="30" label="정산 현황" status="low" />
-    </div>
     <div class="sb-trend-contents">
       <div class="sb-trend-detail">
         <div class="grid">
@@ -46,11 +31,8 @@
                     </div>
                   </div>
                 </div>
-                <div class="sb-chart-pie sb-chart-pie--medium">
-                  <div class="sb-chart-pie__text">
-                    <strong>좋음</strong>
-                    <p><span>61점</span>/100점</p>
-                  </div>
+                <div class="sb-trend-summary-head-chart">
+                  <SbChartGauge :score="61" />
                 </div>
               </div>
               <div class="sb-trend-summary-list">
@@ -258,6 +240,17 @@
                     상품 등록부터 판매 관리, 키워드 경쟁력까지 한 번에 수익으로
                     연결할 수 있는 방법을 분석 및 추천해드릴께요.
                   </p>
+                </div>
+                <div class="sb-trend-evaluation-chart">
+                  <div class="sb-trend-evaluation-chart-item">
+                    <SbChartGaugeFace :score="95" label="상품 등록" />
+                  </div>
+                  <div class="sb-trend-evaluation-chart-item">
+                    <SbChartGaugeFace :score="60" label="판매 관리" />
+                  </div>
+                  <div class="sb-trend-evaluation-chart-item">
+                    <SbChartGaugeFace :score="10" label="정산 현황" />
+                  </div>
                 </div>
               </div>
               <div class="sb-trend-evaluation-item">

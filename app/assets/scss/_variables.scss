@@ -258,7 +258,7 @@
 :root,
 :host {
   --p-mask-background: rgba(0, 0, 0, 0.7);
-  --color-primary: var(--p-primary-500);
+  --color-primary: var(--p-green-500);
   --color-success: var(--p-slate-500);
   --color-info: var(--p-blue-400);
   --color-warn: var(--p-orange-600);
@@ -284,6 +284,16 @@
   --chart-line-main-gradient-end: rgba(0, 177, 189, 0);
   --chart-line-bg-gradient-start: rgba(58, 221, 233, 0.3);
   --chart-line-bg-gradient-end: rgba(58, 221, 233, 0);
+
+  --chart-gauge-track-color: var(--p-gray-200);
+  --chart-gauge-label-color01: var(--p-gray-300);
+  --chart-gauge-label-color02: var(--p-gray-900);
+
+  --chart-gauge-face-primary: url('/assets/icons/chart/face-primary.svg');
+  --chart-gauge-face-secondary: url('/assets/icons/chart/face-secondary.svg');
+  --chart-gauge-face-info: url('/assets/icons/chart/face-info.svg');
+  --chart-gauge-face-warn: url('/assets/icons/chart/face-warn.svg');
+  --chart-gauge-face-danger: url('/assets/icons/chart/face-danger.svg');
 
   --chart-label-color01: var(--p-gray-500);
   --chart-label-color02: var(--p-gray-900);
@@ -323,7 +333,7 @@
   --contents-color: var(--p-gray-900);
 
   --community-list-item-background: var(--p-gray-00);
-  --community-list-item-title-color: var(--p-gray-900);
+  --community-list-item-title-color: var(--p-primary-500);
   --community-list-item-date-color: var(--p-gray-400);
   --community-list-item-divider-color: var(--p-gray-300);
   --community-view-background: var(--p-gray-00);
@@ -432,6 +442,9 @@
   --fileupload-text-color: var(--p-gray-400);
   --fileupload-icon-color: var(--p-gray-200);
   --fileupload-icon-hover-color: var(--p-gray-300);
+
+  //table
+  --table-ico-system-information-circle: var(--p-gray-900);
 
   --ai-tooltip-background: #000;
   --ai-tooltip-color: var(--p-gray-00);
@@ -557,9 +570,19 @@
   --alarm-view-data-color: var(--p-gray-400);
   --alarm-view-contents-color: var(--p-gray-900);
 
+  //ico
+  --ico-illustration-smile-color1: var(--p-gray-300);
+  --ico-illustration-smile-color2: var(--p-gray-400);
+  --ico-illustration-smile-color3: var(--p-gray-200);
+  --ico-illustration-smile-color4: var(--p-gray-300);
+  --ico-illustration-frown-color1: var(--p-gray-300);
+  --ico-illustration-frown-color2: var(--p-gray-400);
+  --ico-illustration-frown-color3: var(--p-gray-200);
+  --ico-illustration-frown-color4: var(--p-gray-300);
+
   &.p-dark,
   .p-dark {
-    --color-primary: var(--p-indigo-300);
+    --color-primary: var(--p-green-300);
     --color-success: var(--p-slate-400);
     --color-info: var(--p-blue-400);
     --color-warn: var(--p-orange-400);
@@ -585,6 +608,10 @@
     --chart-line-main-gradient-end: rgba(58, 221, 233, 0);
     --chart-line-bg-gradient-start: rgba(58, 221, 233, 0.3);
     --chart-line-bg-gradient-end: rgba(58, 221, 233, 0);
+
+    --chart-gauge-track-color: var(--p-gray-500);
+    --chart-gauge-label-color01: var(--p-gray-600);
+    --chart-gauge-label-color02: var(--p-gray-00);
 
     --url-title-color: var(--p-gray-00);
     --url-text-color: var(--p-gray-00);
@@ -619,7 +646,7 @@
     --contents-color: var(--p-gray-00);
 
     --community-list-item-background: var(--p-gray-700);
-    --community-list-item-title-color: var(--p-gray-00);
+    --community-list-item-title-color: var(--p-primary-300);
     --community-list-item-date-color: var(--p-gray-400);
     --community-list-item-divider-color: var(--p-gray-600);
     --community-view-background: var(--p-gray-800);
@@ -723,6 +750,9 @@
     --fileupload-text-color: var(--p-gray-400);
     --fileupload-icon-color: var(--p-gray-800);
     --fileupload-icon-hover-color: var(--p-gray-900);
+
+    //table
+    --table-ico-system-information-circle: var(--p-gray-00);
 
     --ai-tooltip-background: var(--p-gray-00);
     --ai-tooltip-color: var(--p-gray-900);
@@ -839,6 +869,16 @@
     --alarm-view-title-color: var(--p-gray-00);
     --alarm-view-data-color: var(--p-gray-400);
     --alarm-view-contents-color: var(--p-gray-00);
+
+    //ico
+    --ico-illustration-smile-color1: var(--p-gray-600);
+    --ico-illustration-smile-color2: var(--p-gray-500);
+    --ico-illustration-smile-color3: var(--p-gray-600);
+    --ico-illustration-smile-color4: var(--p-gray-500);
+    --ico-illustration-frown-color1: var(--p-gray-600);
+    --ico-illustration-frown-color2: var(--p-gray-500);
+    --ico-illustration-frown-color3: var(--p-gray-600);
+    --ico-illustration-frown-color4: var(--p-gray-500);
   }
   @include breakpoint {
     --auth-background-image: var(--p-gray-00);

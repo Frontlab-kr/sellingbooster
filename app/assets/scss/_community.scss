@@ -6,9 +6,11 @@
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
+      padding: 0 0 0 40px;
       &__title {
+        min-height: 70px;
         margin-bottom: 40px;
-        h4 {
+        h5 {
           color: var(--title-color);
         }
       }
@@ -19,7 +21,7 @@
       justify-content: space-between;
       margin-bottom: 20px;
       .sb-input {
-        //min-width: 320px;
+        min-width: 320px;
         width: 320px;
         margin-top: auto;
       }
@@ -51,6 +53,7 @@
         margin-bottom: 24px;
         .sb-input {
           width: 100%;
+          min-width: auto;
           .p-inputtext {
             height: 48px;
           }
@@ -882,9 +885,11 @@
   &-board {
     &-list {
       &-item {
+        display: block;
         padding: 30px;
         border-radius: 32px;
         background: var(--community-list-item-background);
+        text-decoration: none;
         a {
           display: block;
           text-decoration: none;

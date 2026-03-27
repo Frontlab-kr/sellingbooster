@@ -68,7 +68,7 @@
   --p-select-focus-ring-offset: var(--p-form-field-focus-ring-offset);
   --p-select-focus-ring-shadow: var(--p-form-field-focus-ring-shadow);
 
-  --p-select-text-color: var(--p-gray-600);
+  --p-select-text-color: var(--p-gray-500);
   --p-select-arrow-url: url('./../../icons/etc/select.svg');
   --p-select-arrow-url-disabled: url('./../../icons/etc/select-disabled.svg');
 
@@ -76,7 +76,7 @@
   .p-dark {
     --p-select-color: var(--p-gray-00);
     --p-select-placeholder-color: var(--p-gray-300);
-    --p-select-text-color: var(--p-gray-300);
+    --p-select-text-color: var(--p-gray-00);
     --p-select-background: var(--p-gray-800);
     --p-select-disabled-background: var(--p-gray-800);
     --p-select-border-color: var(--p-gray-600);

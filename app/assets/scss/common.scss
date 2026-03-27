@@ -29,8 +29,12 @@
 @use './guide';
 @use './icon';
 @use './layout';
+@use './planner';
+@use './report';
+@use './sales';
 @use './setting';
 @use './trend';
+
 @use './variables';
 
 // Pretendard JP (Dynamic Subset - 용량 최적화 버전)

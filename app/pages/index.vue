@@ -25,6 +25,16 @@
         </template>
       </Card>
     </div>
+    <!-- <div>
+      <h5>대시보드</h5>
+      <Card>
+        <template #content>
+          <div class="flex flex-column gap-2">
+            <NuxtLink to="/dashboard">대시보드</NuxtLink>
+          </div>
+        </template>
+      </Card>
+    </div> -->
     <div>
       <h5>로그인</h5>
       <Card>
@@ -42,6 +52,53 @@
         </template>
       </Card>
     </div>
+
+    <!-- <div>
+      <h5>마켓 트렌드</h5>
+      <Card>
+        <template #content>
+          <div class="flex flex-column gap-2">
+            <NuxtLink to="/trend/recommend/">추천기회</NuxtLink>
+            <NuxtLink to="/trend/recommend/nodata">추천기회 Nodata</NuxtLink>
+            <NuxtLink to="/trend/keyword/">키워드 분석</NuxtLink>
+            <NuxtLink to="/trend/keyword/nodata">키워드 분석 Nodata</NuxtLink>
+            <NuxtLink to="/trend/keyword/detail">키워드 분석 상세</NuxtLink>
+            <NuxtLink to="/trend/keyword/detail02"
+              >키워드 분석 상세 - FAQ 없는 케이스</NuxtLink
+            >
+            <NuxtLink to="/trend/product/">상품 분석</NuxtLink>
+            <NuxtLink to="/trend/product/nodata">상품 분석 Nodata</NuxtLink>
+            <NuxtLink to="/trend/product/detail">상품 분석 상세</NuxtLink>
+            <NuxtLink to="/trend/analysis/">분석 결과</NuxtLink>
+          </div>
+        </template>
+      </Card>
+    </div>
+
+    <div>
+      <h5>판매 가속</h5>
+      <Card>
+        <template #content>
+          <div class="flex flex-column gap-2">
+            <NuxtLink to="/sales/detail">가격실행</NuxtLink>
+          </div>
+        </template>
+      </Card>
+    </div>
+
+    <div>
+      <h5>셀링 플래너</h5>
+      <Card>
+        <template #content>
+          <div class="flex flex-column gap-2">
+            <NuxtLink to="/planner/timeline">타임라인</NuxtLink>
+            <NuxtLink to="/planner/calender">캘린더</NuxtLink>
+            <NuxtLink to="/planner/memo">메모</NuxtLink>
+          </div>
+        </template>
+      </Card>
+    </div> -->
+
     <div>
       <h5>커뮤니티</h5>
       <Card>
@@ -81,27 +138,7 @@
         </template>
       </Card>
     </div>
-    <!-- <div>
-      <h5>마켓 트렌드</h5>
-      <Card>
-        <template #content>
-          <div class="flex flex-column gap-2">
-            <NuxtLink to="/trend/recommend/">추천기회</NuxtLink>
-            <NuxtLink to="/trend/recommend/nodata">추천기회 Nodata</NuxtLink>
-            <NuxtLink to="/trend/keyword/">키워드 분석</NuxtLink>
-            <NuxtLink to="/trend/keyword/nodata">키워드 분석 Nodata</NuxtLink>
-            <NuxtLink to="/trend/keyword/detail">키워드 분석 상세</NuxtLink>
-            <NuxtLink to="/trend/keyword/detail02"
-              >키워드 분석 상세 - FAQ 없는 케이스</NuxtLink
-            >
-            <NuxtLink to="/trend/product/">상품 분석</NuxtLink>
-            <NuxtLink to="/trend/product/nodata">상품 분석 Nodata</NuxtLink>
-            <NuxtLink to="/trend/product/detail">상품 분석 상세</NuxtLink>
-            <NuxtLink to="/trend/analysis/">분석 결과</NuxtLink>
-          </div>
-        </template>
-      </Card>
-    </div> -->
+
     <div>
       <h5>환경설정</h5>
       <Card>
