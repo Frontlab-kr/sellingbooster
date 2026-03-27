@@ -333,7 +333,8 @@
   --contents-color: var(--p-gray-900);
 
   --community-list-item-background: var(--p-gray-00);
-  --community-list-item-title-color: var(--p-primary-500);
+  --community-list-item-title-color: var(--p-gray-900);
+  --community-list-item-name-color: var(--p-primary-500);
   --community-list-item-date-color: var(--p-gray-400);
   --community-list-item-divider-color: var(--p-gray-300);
   --community-view-background: var(--p-gray-00);
@@ -646,7 +647,8 @@
     --contents-color: var(--p-gray-00);
 
     --community-list-item-background: var(--p-gray-700);
-    --community-list-item-title-color: var(--p-primary-300);
+    --community-list-item-title-color: var(--p-gray-00);
+    --community-list-item-name-color: var(--p-primary-300);
     --community-list-item-date-color: var(--p-gray-400);
     --community-list-item-divider-color: var(--p-gray-600);
     --community-view-background: var(--p-gray-800);
