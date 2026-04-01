@@ -63,9 +63,9 @@
             <NuxtLink to="/trend/keyword/">키워드 분석</NuxtLink>
             <NuxtLink to="/trend/keyword/nodata">키워드 분석 Nodata</NuxtLink>
             <NuxtLink to="/trend/keyword/detail">키워드 분석 상세</NuxtLink>
-            <NuxtLink to="/trend/keyword/detail02"
+            <!-- <NuxtLink to="/trend/keyword/detail02"
               >키워드 분석 상세 - FAQ 없는 케이스</NuxtLink
-            >
+            > -->
             <NuxtLink to="/trend/product/">상품 분석</NuxtLink>
             <NuxtLink to="/trend/product/nodata">상품 분석 Nodata</NuxtLink>
             <NuxtLink to="/trend/product/detail">상품 분석 상세</NuxtLink>
