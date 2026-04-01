@@ -1,5 +1,5 @@
 <template>
-  <div class="sb-chart-doughnut">
+  <div :class="['sb-chart-doughnut', className]">
     <div ref="chartRef" class="echart"></div>
   </div>
 </template>
@@ -13,6 +13,14 @@ const props = defineProps({
     type: Array,
     required: true,
     default: () => [],
+  },
+  className: {
+    type: String,
+    default: '',
+  },
+  chartBorderColor: {
+    type: String,
+    default: '',
   },
 });
 
@@ -41,15 +49,17 @@ const initChart = () => {
   chart = echarts.init(chartRef.value);
 
   const colorMap = {
-    primaryColor: getCssVar('--chart-primary'),
-    successColor: getCssVar('--chart-success'),
-    infoColor: getCssVar('--chart-info'),
-    warnColor: getCssVar('--chart-warn'),
-    dangerColor: getCssVar('--chart-danger'),
+    primaryColor: getCssVar('--chart-doughnut-primary'),
+    successColor: getCssVar('--chart-doughnut-success'),
+    infoColor: getCssVar('--chart-doughnut-info'),
+    warnColor: getCssVar('--chart-doughnut-warn'),
+    dangerColor: getCssVar('--chart-doughnut-danger'),
   };
   const chartBackground = getCssVar('--chart-background');
   const chartLabelColor01 = getCssVar('--chart-label-color01');
   const chartLabelColor02 = getCssVar('--chart-label-color02');
+  const finalBorderColor =
+    props.chartBorderColor || getCssVar('--chart-doughnut-border-color');
 
   const processedData = props.chartData.map((item) => ({
     ...item,
@@ -62,6 +72,14 @@ const initChart = () => {
   const mainPercent = props.chartData[0]?.value || 0;
   const mainTitleColor =
     colorMap[props.chartData[0]?.color] || colorMap.primaryColor;
+
+  const clientWidth = chartRef.value.clientWidth;
+  const clientHeight = chartRef.value.clientHeight;
+  const outerRadius = Math.min(clientWidth, clientHeight) * 0.38; // 전체 크기의 약 76% 지점 (0.76 / 2)
+
+  // 2. 고정하고 싶은 두께를 설정합니다. (예: 20px)
+  const strokeWidth = 12;
+  const innerRadius = outerRadius - strokeWidth;
 
   const option = {
     backgroundColor: chartBackground,
@@ -105,13 +123,13 @@ const initChart = () => {
     series: [
       {
         type: 'pie',
-        radius: ['60%', '76%'],
+        radius: [innerRadius, outerRadius],
         center: ['50%', '38%'],
         avoidLabelOverlap: false,
         itemStyle: {
           borderRadius: 10,
-          borderColor: chartBackground || '#fff', // 다크모드 시 조각 사이 선 색상 대응
-          borderWidth: 2,
+          borderColor: finalBorderColor,
+          borderWidth: 3,
         },
         label: { show: false },
         emphasis: { scale: false },

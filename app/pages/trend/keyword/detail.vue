@@ -1,15 +1,9 @@
 <template>
+  <SbMobileInfo />
   <div class="sb-trend">
-    <div class="sb-trend-head">
-      <div class="sb-trend-head__title">
-        <h5>마켓 트렌드</h5>
-        <Breadcrumb :model="breadcrumb" />
-      </div>
-    </div>
-
     <div class="sb-trend-contents">
       <div class="sb-keyword-detail">
-        <div class="sb-keyword-detail-head">
+        <div class="sb-keyword-detail-head pt-0">
           <div class="sb-keyword-detail-head__title">
             <h4><span>유산균</span> 시장 분석 리포트</h4>
             <p>2026년 04월 기준</p>
@@ -30,7 +24,27 @@
                   <div class="sb-keyword-report-product__contents">
                     <h5>뉴오리진 이너플로라 UREX 프로바이오틱스 170mg</h5>
                     <div class="sb-keyword-report-product__category">
-                      <Breadcrumb :model="breadcrumb" />
+                      <p>
+                        <span>식품</span>
+                        <span>건강식품</span>
+                        <span>영양제</span>
+                        <span>유산균</span>
+                        <strong>(비율 90%)</strong>
+                      </p>
+                      <p>
+                        <span>식품</span>
+                        <span>건강식품</span>
+                        <span>영양제</span>
+                        <span>건강보조식품</span>
+                        <strong>(비율 6%)</strong>
+                      </p>
+                      <p>
+                        <span>식품</span>
+                        <span>건강식품</span>
+                        <span>영양제</span>
+                        <span>헬스케어</span>
+                        <strong>(비율 4%)</strong>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -59,158 +73,262 @@
                 </div>
               </div>
               <div class="sb-keyword-report-body">
-                <h6>‘유산균’</h6>
-                <p>
-                  키워드는 최근 3개월 평균 대비 약 12% 상승하며 꾸준한 수요
-                  증가세를 보이고 있습니다. 현재 유산균 시장의 경쟁 강도는 동일
-                  카테고리 내 상품 수와 광고 침투율을 고려했을 때 '보통'
-                  수준으로 분류됩니다. <br />
-                  평균 CPC는 1,850원으로 카테고리 평균 대비 낮은 편에 속하여
-                  광고 효율이 상대적으로 유리한 구간입니다. <br />
-                  상위 노출 상품들의 가격은 주로 2~3만원대에 집중되어 있어, 해당
-                  가격 구간에서의 시장 진입 및 경쟁이 가장 치열할 것으로
-                  분석됩니다.
-                </p>
-                <h6>‘유산균’ 광고 경쟁 및 CPC 분석</h6>
-                <ul>
-                  <li>
-                    <strong>경쟁 강도: 보통 (0.53)</strong><br />
-                    동일 카테고리 내 등록 상품 수와 1페이지 내 광고 비중을
-                    종합한 결과, 과열 상태는 아니나 중위권 경쟁이 지속되고
-                    있습니다.
-                  </li>
-                  <li>
-                    <strong>광고 효율성: 높음</strong><br />
-                    동일 카테고리 평균 CPC(2,200원) 대비 약 15% 저렴한 비용으로
-                    노출이 가능하여, 동일 예산 대비 노출 효율이 유리합니다.
-                  </li>
-                </ul>
-              </div>
-              <div class="sb-keyword-report-status">
-                <dl>
-                  <dt>월 검색량</dt>
-                  <dd>
-                    <h6>39,800회</h6>
-                  </dd>
-                </dl>
-                <dl>
-                  <dt>광고 클릭 수</dt>
-                  <dd>
-                    <h6>9,999건</h6>
-                  </dd>
-                </dl>
-                <dl>
-                  <dt>경쟁강도</dt>
-                  <dd>
-                    <h6>9,999.0</h6>
-                    <Badge value="매우 높음" severity="danger"></Badge>
-                  </dd>
-                </dl>
-                <dl>
-                  <dt>월 평균 노출 광고 수</dt>
-                  <dd>
-                    <h6>9,999건</h6>
-                  </dd>
-                </dl>
-                <dl>
-                  <dt>예상 광고비</dt>
-                  <dd>
-                    <h6>9,999,999원</h6>
-                  </dd>
-                </dl>
-                <dl>
-                  <dt>평균 CPC</dt>
-                  <dd>
-                    <h6>9,999,999원</h6>
-                  </dd>
-                </dl>
-              </div>
-              <div class="sb-keyword-report-button">
-                <Button severity="contrast" outlined>
-                  <span class="p-button-label">상세 지표 접기</span>
-                  <IconArrowAchevronDown class="ico-arrow-achevron-down" />
-                </Button>
-              </div>
-              <div class="sb-keyword-report-trend">
-                <div class="sb-keyword-report-trend__title">
-                  <h6>최근 3개월 검색 추이</h6>
+                <div class="sb-keyword-report-body-contents">
+                  <h5 class="text-primary">유산균</h5>
                   <p>
-                    최근 3개월 검색량이 12% 증가하여 성장 추세를 보이고
-                    있습니다.
+                    키워드는 최근 3개월 평균 대비 약 12% 상승하며 꾸준한 수요
+                    증가세를 보이고 있습니다. 현재 유산균 시장의 경쟁 강도는
+                    동일 카테고리 내 상품 수와 광고 침투율을 고려했을 때 '보통'
+                    수준으로 분류됩니다. 평균 CPC는 1,850원으로 카테고리 평균
+                    대비 낮은 편에 속하여 광고 효율이 상대적으로 유리한
+                    구간입니다. 상위 노출 상품들의 가격은 주로 2~3만원대에
+                    집중되어 있어, 해당 가격 구간에서의 시장 진입 및 경쟁이 가장
+                    치열할 것으로 분석됩니다.
                   </p>
                 </div>
-                <div class="sb-keyword-report-trend-search">
-                  <div class="sb-keyword-report-trend-search__form">
-                    <SbInput placeholder="비교 키워드" />
-                    <Button label="추가" severity="primary" outlined />
+                <div class="sb-keyword-report-body-analysis">
+                  <h6>
+                    <span class="text-primary">‘유산균’</span> 광고 경쟁 및 CPC
+                    분석
+                  </h6>
+                  <div class="sb-keyword-report-body-analysis__text">
+                    <dl>
+                      <dt>
+                        경쟁 강도 : <span class="text-warn">낮음(0.53)</span>
+                      </dt>
+                      <dd>
+                        주로 제품의 충전 문제와 배송 문제를 지적하고 있습니다.
+                        충전 시간이 짧다는 불만과 충전이 아예 되지 않는 문제가
+                        있었습니다. 주로 제품의 충전 문 제와 배송 문제를
+                        지적하고 있습니다. 충전 시간이 짧다는 불만과 충전이 아예
+                        되지 않는 문제가 있었습니다.
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>
+                        광고 효율성 : <span class="text-success">높음</span>
+                      </dt>
+                      <dd>
+                        동일 카테고리 평균 CPC(2,200원) 대비 약 15% 저렴한
+                        비용으로 노출이 가능하여, 동일 예산 대비 노출 효율이
+                        유리합니다.
+                      </dd>
+                    </dl>
                   </div>
-                  <div class="sb-keyword-report-trend-search__chip">
-                    <div class="sb-chip">
-                      <div class="sb-chip-list">
-                        <Chip label="유산균" size="large" severity="primary" />
+                </div>
+              </div>
+              <div class="sb-keyword-report-status">
+                <div class="sb-keyword-report-status__button">
+                  <Button variant="text" @click="dialogEdit = true">
+                    <span class="p-button-label">항목 편집하기</span>
+                    <IconSystemEdit class="ico-system-edit" />
+                  </Button>
+                </div>
+                <draggable
+                  v-model="reportData"
+                  item-key="id"
+                  tag="div"
+                  class="drag-container"
+                  ghost-class="ghost"
+                >
+                  <template #item="{ element }">
+                    <dl
+                      class="drag-item"
+                      v-tooltip.top="{
+                        value:
+                          '데이터가 부족하거나 경쟁이 과도해 판단이 어렵습니다.',
+                      }"
+                    >
+                      <dt>{{ element.title }}</dt>
+                      <dd>
+                        <h6>{{ element.value }}</h6>
+                        <Badge
+                          v-if="element.badge"
+                          :value="element.badge.text"
+                          :severity="element.badge.severity"
+                        />
+                      </dd>
+                    </dl>
+                  </template>
+                </draggable>
+              </div>
 
-                        <Chip
-                          label="가루 유산균"
-                          removable
-                          size="large"
-                          severity="success"
-                        />
-                        <Chip
-                          label="어린이 유산균 "
-                          removable
-                          size="large"
-                          severity="info"
-                        />
-                        <Chip
-                          label="고함량 유산균"
-                          removable
-                          size="large"
-                          severity="warn"
-                        />
-                        <Chip
-                          label="임산부 유산균"
-                          removable
-                          size="large"
-                          severity="danger"
-                        />
+              <div class="sb-keyword-report-trend" v-if="showTrend">
+                <div class="sb-tab">
+                  <Button
+                    label="검색량"
+                    variant="text"
+                    :class="{ active: activeTabIndex === 0 }"
+                    @click="changeTab(0)"
+                  />
+                  <Button
+                    label="광고클릭량"
+                    variant="text"
+                    :class="{ active: activeTabIndex === 1 }"
+                    @click="changeTab(1)"
+                  />
+                </div>
+                <div v-if="activeTabIndex === 0">
+                  <div class="sb-keyword-report-trend__title">
+                    <p>
+                      지난 30일간의 PC•모바일 검색 데이터 를 분석해 산출한 하루
+                      평균 검색량입니다.
+                    </p>
+                  </div>
+                  <div class="sb-keyword-report-trend-search">
+                    <div class="sb-keyword-report-trend-search__form">
+                      <SbInput placeholder="비교 키워드" />
+                      <Button label="추가" severity="primary" outlined />
+                    </div>
+                    <div class="sb-keyword-report-trend-search__chip">
+                      <div class="sb-chip">
+                        <div class="sb-chip-list">
+                          <Chip
+                            label="유산균"
+                            size="large"
+                            severity="primary"
+                          />
+
+                          <Chip
+                            label="가루 유산균"
+                            removable
+                            size="large"
+                            severity="success"
+                          />
+                          <Chip
+                            label="어린이 유산균 "
+                            removable
+                            size="large"
+                            severity="info"
+                          />
+                          <Chip
+                            label="고함량 유산균"
+                            removable
+                            size="large"
+                            severity="warn"
+                          />
+                          <Chip
+                            label="임산부 유산균"
+                            removable
+                            size="large"
+                            severity="danger"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sb-keyword-report-trend-search-result">
+                    <div class="sb-keyword-report-trend-search-result-col">
+                      <dl>
+                        <dt>검색량</dt>
+                        <dd>
+                          <SbChartLine />
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="sb-keyword-report-trend-search-result-col">
+                      <div class="sb-keyword-report-trend-search-result-row">
+                        <dl>
+                          <dt>디바이스</dt>
+                          <dd>
+                            <SbChartDoughnut :chart-data="deviceStats" />
+                          </dd>
+                        </dl>
+                        <dl>
+                          <dt>성별</dt>
+                          <dd>
+                            <SbChartDoughnut :chart-data="genderStats" />
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="sb-keyword-report-trend-search-result-row">
+                        <dl>
+                          <dt>연령</dt>
+                          <dd>
+                            <SbChartStackedBar :chart-data="ageStats" />
+                          </dd>
+                        </dl>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="sb-keyword-report-trend-chart">
-                  <div class="sb-keyword-report-trend-chart-col">
-                    <dl>
-                      <dt>광고클릭량</dt>
-                      <dd>
-                        <SbChartLine />
-                      </dd>
-                    </dl>
+                <div v-if="activeTabIndex === 1">
+                  <div class="sb-keyword-report-trend__title">
+                    <p>
+                      지난 30일간의 광고 집행 데이터를 분석해 산출한 매체별 평균
+                      클릭량과 예상 비용입니다.
+                    </p>
                   </div>
-                  <div class="sb-keyword-report-trend-chart-col">
-                    <div class="sb-keyword-report-trend-chart-row">
+                  <div class="sb-keyword-report-trend-chart__button">
+                    <Button variant="text">
+                      <IconArrowAchevronLeft class="ico-arrow-achevron-left" />
+                      <span class="p-button-label">이전 달</span>
+                    </Button>
+                    <Button variant="text">
+                      <span class="p-button-label">다음 달</span>
+                      <IconArrowAchevronRight
+                        class="ico-arrow-achevron-right"
+                      />
+                    </Button>
+                  </div>
+                  <div class="sb-keyword-report-trend-chart">
+                    <div class="sb-keyword-report-trend-chart-item">
                       <dl>
-                        <dt>디바이스</dt>
+                        <dt>월 평균 클릭량</dt>
                         <dd>
-                          <SbChartDoughnut :chart-data="deviceStats" />
-                        </dd>
-                      </dl>
-                      <dl>
-                        <dt>성별</dt>
-                        <dd>
-                          <SbChartDoughnut :chart-data="genderStats" />
+                          <SbChartSegmentBar
+                            :chart-data="clickCountStats"
+                            :maxValue="500"
+                            unit-text="건"
+                          />
                         </dd>
                       </dl>
                     </div>
-                    <div class="sb-keyword-report-trend-chart-row">
+                    <div class="sb-keyword-report-trend-chart-item">
                       <dl>
-                        <dt>연령</dt>
+                        <dt>월 평균 클릭률</dt>
                         <dd>
-                          <SbChartStackedBar :chart-data="ageStats" />
+                          <SbChartDoughnut
+                            :chart-data="clickPercentStats"
+                            class-name="sb-chart-doughnut--lg"
+                            :chart-border-color="
+                              isDarkMode ? '#1B1F27' : '#F9FBFC'
+                            "
+                          />
                         </dd>
                       </dl>
+                    </div>
+                    <div class="sb-keyword-report-trend-chart-item">
+                      <p>
+                        <span>월 평균 노출 광고 수</span>
+                        <strong>120,368건</strong>
+                      </p>
+                      <p>
+                        <span>예상 광고비(PC)</span>
+                        <strong>123,070원</strong>
+                      </p>
+                      <p>
+                        <span>예상 광고비(Mobile)</span>
+                        <strong>80,790원</strong>
+                      </p>
                     </div>
                   </div>
                 </div>
+              </div>
+
+              <div class="sb-keyword-report-button">
+                <Button
+                  severity="contrast"
+                  outlined
+                  size="small"
+                  :class="{ 'is-toggle': showTrend }"
+                  @click="showTrend = !showTrend"
+                >
+                  <span class="p-button-label">{{
+                    showTrend ? '상세 지표 닫기' : '상세 지표 열기'
+                  }}</span>
+                  <IconArrowAchevronDown class="ico-arrow-achevron-down" />
+                </Button>
               </div>
             </div>
           </div>
@@ -222,11 +340,11 @@
                 <div class="sb-keyword-relation__title">
                   <h5>최근 3개월 검색 추이</h5>
                   <p>
-                    최근 3개월 검색량이 12% 증가하여<br />
-                    성장 추세를 보이고 있습니다.
+                    최근 3개월 검색량이 12% 증가하여 성장 추세를 보이고
+                    있습니다.
                   </p>
                 </div>
-                <div class="sb-chip sb-chip--large">
+                <div class="sb-chip">
                   <div class="sb-chip__title">예상원인</div>
                   <div class="sb-chip-list">
                     <Chip label="어린이 유산균" size="large" />
@@ -238,7 +356,8 @@
                 </div>
               </div>
               <div class="sb-keyword-history__chart">
-                <SbChartBar :percent="0" />
+                <strong>최근 3개월</strong>
+                <SbChartBar :chart-data="trendData" />
               </div>
             </div>
           </div>
@@ -252,7 +371,7 @@
               <div class="sb-keyword-analyze-chart">
                 <SbChartWave :percent="85" />
                 <div class="sb-keyword-analyze-chart__text">
-                  <h6 class="text-primary">좋아요!</h6>
+                  <h6 class="text-success">좋아요!</h6>
                   <p>
                     경잴률이 매우 높고<br />
                     잘파는 사람들도 있어요.
@@ -288,7 +407,7 @@
                 <h5>상품 분석</h5>
               </div>
               <div class="sb-keyword-analyze-chart">
-                <SbChartWave :percent="39" />
+                <SbChartWave :percent="33" />
                 <div class="sb-keyword-analyze-chart__text">
                   <h6 class="text-warn">좋아요!</h6>
                   <p>
@@ -328,101 +447,81 @@
                 <p>※ 2026년 04월 기준</p>
               </div>
               <div class="sb-table">
-                <ClientOnly>
-                  <DataTable
-                    :value="keywordList"
-                    responsiveLayout="scroll"
-                    removableSort
-                    class="p-datatable-custom"
+                <DataTable
+                  v-scroll-end
+                  :value="keywordList"
+                  responsiveLayout="scroll"
+                  removableSort
+                  scrollable
+                >
+                  <Column
+                    field="ranking"
+                    header="랭킹"
+                    style="width: 80px"
+                    headerClass="text-center"
+                    bodyClass="text-center"
                   >
-                    <Column field="ranking" header="랭킹" style="width: 10%">
-                      <template #body="slotProps">
-                        <span class="font-medium">{{
-                          slotProps.data.ranking
+                    <template #body="slotProps">
+                      <span v-html="slotProps.data.ranking"></span>
+                    </template>
+                  </Column>
+                  <Column field="keyword" header="키워드" style="width: 155x">
+                    <template #body="slotProps">
+                      <span v-html="slotProps.data.keyword"></span>
+                    </template>
+                  </Column>
+                  <Column
+                    field="category"
+                    header="카테고리"
+                    headerClass="text-center"
+                    bodyClass="text-center"
+                    style="width: 155px"
+                  >
+                    <template #body="slotProps">
+                      <span v-html="slotProps.data.category"></span>
+                    </template>
+                  </Column>
+
+                  <Column
+                    field="searchVol"
+                    header="월 검색량"
+                    headerClass="text-right"
+                    bodyClass="text-right"
+                    style="width: 155px"
+                  >
+                    <template #body="slotProps">
+                      <span v-html="slotProps.data.searchVol"></span>
+                    </template>
+                  </Column>
+                  <Column
+                    field="competition"
+                    header="경쟁강도"
+                    headerClass="text-right"
+                    bodyClass="text-right"
+                    style="width: 155px"
+                  >
+                    <template #body="slotProps">
+                      <div class="flex align-items-center justify-content-end">
+                        <span class="mr-2">{{
+                          slotProps.data.competition
                         }}</span>
-                      </template>
-                    </Column>
+                        <Badge
+                          :value="slotProps.data.status"
+                          severity="success"
+                        ></Badge>
+                      </div>
+                    </template>
+                  </Column>
 
-                    <Column field="keyword" header="키워드" style="width: 25%">
-                      <template #body="slotProps">
-                        <span class="text-gray-800 font-semibold">{{
-                          slotProps.data.keyword
-                        }}</span>
-                      </template>
-                    </Column>
-
-                    <Column
-                      field="category"
-                      header="카테고리"
-                      style="width: 25%"
-                      headerClass="text-center"
-                      bodyClass="text-center"
-                    >
-                      <template #body="slotProps">
-                        <span class="text-gray-600">{{
-                          slotProps.data.category
-                        }}</span>
-                      </template>
-                    </Column>
-
-                    <Column
-                      field="searchVolume"
-                      header="월 검색량"
-                      style="width: 20%"
-                      headerClass="text-center"
-                      bodyClass="text-center"
-                    >
-                      <template #body="slotProps">
-                        {{ slotProps.data.searchVolume.toLocaleString() }}건
-                      </template>
-                    </Column>
-
-                    <Column
-                      field="competition"
-                      sortable
-                      headerClass="text-right"
-                      bodyClass="text-right"
-                      style="width: 150px"
-                    >
-                      <template #header>
-                        <div
-                          class="sb-table-header-title"
-                          @mouseenter="togglePopover"
-                          @mouseleave="togglePopover"
-                        >
-                          <span
-                            class="p-datatable-column-title"
-                            data-pc-section="columntitle"
-                            >경쟁강도</span
-                          >
-                          <IconSystemInformationCircle
-                            class="ico-system-information-circle"
-                          />
-                        </div>
-                      </template>
-                      <template #body="slotProps">
-                        <div class="sb-legend">
-                          <span
-                            class="sb-legend-item"
-                            :class="
-                              slotProps.data.competition >= 0.8
-                                ? 'text-primary'
-                                : slotProps.data.competition >= 0.6
-                                  ? 'text-success'
-                                  : slotProps.data.competition >= 0.4
-                                    ? 'text-info'
-                                    : slotProps.data.competition >= 0.2
-                                      ? 'text-warn'
-                                      : 'text-danger'
-                            "
-                          >
-                            {{ slotProps.data.competition.toFixed(2) }}
-                          </span>
-                        </div>
-                      </template>
-                    </Column>
-                  </DataTable>
-                </ClientOnly>
+                  <template #empty>
+                    <div class="sb-nodata">
+                      <IconIllustrationSmile class="ico-illustration-smile" />
+                      <div class="sb-nodata__text">
+                        <p></p>
+                      </div>
+                    </div>
+                  </template>
+                </DataTable>
               </div>
             </div>
           </div>
@@ -431,22 +530,34 @@
               <div class="sb-keyword-ranking__title">
                 <h5>연관 상품 랭킹 TOP20</h5>
               </div>
-              <div class="sb-tab">
-                <Button label="스마트스토어" variant="text" class="active" />
-                <Button label="쿠팡" variant="text" />
-                <Button label="11번가" variant="text" />
-                <Button label="G마켓" variant="text" />
-              </div>
-              <div>
-                <div class="sb-tab-circle">
-                  <Button label="Top20" variant="text" class="active" />
+              <div class="sb-keyword-ranking__tab">
+                <div class="sb-tab">
+                  <Button label="ALL" variant="text" class="active" />
                   <Button label="5천원" variant="text" />
                   <Button label="1만원" variant="text" />
                   <Button label="3만원" variant="text" />
-                  <Button label="5만원 이상 " variant="text" />
+                  <Button label="5만원 이상" variant="text" />
                 </div>
+                <Select
+                  ref="selectRef"
+                  v-model="selectedTop20"
+                  :options="selectedTop20Option"
+                  optionLabel="name"
+                  size="small"
+                  class="p-select-text"
+                  panelClass="p-select-overlay--text"
+                  :pt="{
+                    overlay: {
+                      onclick: (event) => {
+                        if (event.target === event.currentTarget) {
+                          selectRef.hide();
+                        }
+                      },
+                    },
+                  }"
+                />
               </div>
-              <div class="sb-trend-top sb-trend-top--small">
+              <div class="sb-trend-top sb-trend-top--small" v-scroll-end>
                 <div class="sb-trend-top-list">
                   <NuxtLink
                     v-for="item in top20List"
@@ -524,24 +635,26 @@
                 <Button label="카페" variant="text" />
                 <Button label="뉴스" variant="text" />
               </div>
-              <div class="sb-keyword-ktrend-list">
-                <NuxtLink
-                  v-for="(item, index) in ktrendList"
-                  :key="index"
-                  :to="item.link"
-                  class="sb-keyword-ktrend-list-item"
-                >
-                  <h6>{{ item.title }}</h6>
+              <div class="sb-keyword-ktrend-list" v-scroll-end>
+                <div class="sb-keyword-ktrend-list-scroll">
+                  <NuxtLink
+                    v-for="(item, index) in ktrendList"
+                    :key="index"
+                    :to="item.link"
+                    class="sb-keyword-ktrend-list-item"
+                  >
+                    <h6>{{ item.title }}</h6>
 
-                  <div class="sb-keyword-ktrend-list-item__text">
-                    {{ item.description }}
-                  </div>
+                    <div class="sb-keyword-ktrend-list-item__text">
+                      {{ item.description }}
+                    </div>
 
-                  <div class="sb-keyword-ktrend-list-item__meta">
-                    <span>{{ item.date }}</span>
-                    <span>{{ item.author }}</span>
-                  </div>
-                </NuxtLink>
+                    <div class="sb-keyword-ktrend-list-item__meta">
+                      <span>{{ item.date }}</span>
+                      <span>{{ item.author }}</span>
+                    </div>
+                  </NuxtLink>
+                </div>
               </div>
             </div>
           </div>
@@ -554,38 +667,39 @@
                 <div class="sb-keyword-ksnapp__menu">
                   <Button rounded severity="white">
                     <template #icon>
-                      <IconSystemLinkNew class="ico-system-link-new" />
+                      <IconArrowUpRight class="ico-arrow-up-right" />
                     </template>
                   </Button>
-                  <SbMenu :items="menuItems" />
                 </div>
               </div>
               <div class="sb-tab">
                 <Button label="인기기사" variant="text" class="active" />
                 <Button label="K컬처" variant="text" />
               </div>
-              <div class="sb-keyword-ksnapp-list">
-                <NuxtLink
-                  v-for="(item, index) in ksnappList"
-                  :key="index"
-                  :to="item.link"
-                  class="sb-keyword-ksnapp-list-item"
-                >
-                  <div class="sb-keyword-ksnapp-list-item__thumb">
-                    <img :src="item.thumbnail" :alt="item.title" />
-                  </div>
+              <div class="sb-keyword-ksnapp-list" v-scroll-end>
+                <div class="sb-keyword-ksnapp-list-scroll">
+                  <NuxtLink
+                    v-for="(item, index) in ksnappList"
+                    :key="index"
+                    :to="item.link"
+                    class="sb-keyword-ksnapp-list-item"
+                  >
+                    <div class="sb-keyword-ksnapp-list-item__thumb">
+                      <img :src="item.thumbnail" :alt="item.title" />
+                    </div>
 
-                  <div class="sb-keyword-ksnapp-list-item__title">
-                    <h6>{{ item.title }}</h6>
-                  </div>
-                </NuxtLink>
+                    <div class="sb-keyword-ksnapp-list-item__title">
+                      <h6>{{ item.title }}</h6>
+                    </div>
+                  </NuxtLink>
+                </div>
               </div>
-              <div class="sb-keyword-ksnapp-banner">
+              <!-- <div class="sb-keyword-ksnapp-banner">
                 <h5>
                   전 세계가 주목하는 K-트렌드 <br />
                   <strong>KSNAP</strong> 에서 확인하세요
                 </h5>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -597,7 +711,7 @@
                   <h5>연관 시장 분석 리포트</h5>
                   <p>‘유산균’과 연관된 시장 분석 리포트를 추천해드릴게요!</p>
                 </div>
-                <div class="sb-chip sb-chip--large">
+                <div class="sb-chip">
                   <div class="sb-chip-list">
                     <NuxtLink to="/">
                       <Chip label="어린이 유산균" size="large" />
@@ -629,47 +743,136 @@
       </div>
     </div>
   </div>
+
+  <Dialog v-model:visible="dialogEdit" modal>
+    <div class="p-dialog-inner">
+      <div class="sb-trend-edit">
+        <div class="sb-trend-edit__title">
+          <h6>키워드 요약 정보 항목 편집</h6>
+        </div>
+        <div class="sb-caution">
+          <ul>
+            <li>
+              키워드에 대한 관심 정보 항목을 선택하세요. (최소 5개 / 최대 8개)
+            </li>
+            <li>
+              노출 순서는 저장 후 상세 화면에서 드래그를 통해 변경하실 수
+              있습니다.
+            </li>
+          </ul>
+        </div>
+        <div class="sb-checkbox">
+          <div
+            class="sb-checkbox-item"
+            v-for="item in keywordInterestItems"
+            :key="item.value"
+          >
+            <Checkbox
+              v-model="selectedInterests"
+              :inputId="item.id"
+              :value="item.value"
+            />
+            <label :for="item.id">{{ item.label }}</label>
+          </div>
+        </div>
+        <div class="sb-trend-edit__button">
+          <Button severity="primary" label="저장" />
+        </div>
+      </div>
+    </div>
+  </Dialog>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import draggable from 'vuedraggable';
 import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg?component';
 import IconSystemMail from '@/assets/icons/system/mail.svg?component';
 import IconSystemCopy from '@/assets/icons/system/copy.svg?component';
 import IconActionFavorite from '@/assets/icons/action/favorite.svg?component';
 import IconActionFavoriteFull from '@/assets/icons/action/favorite-full.svg?component';
 import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
-import IconSystemLinkNew from '@/assets/icons/system/link-new.svg?component';
 import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
-import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
+import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
+import IconArrowAchevronLeft from '@/assets/icons/arrow/achevron-left.svg?component';
+import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 
-//breadcrumb
-const breadcrumb = ref([
-  { label: 'Home' },
-  { label: '마켓 트렌드' },
-  { label: '키워드 분석' },
+// 탭
+const activeTabIndex = ref(0);
+const changeTab = (index) => {
+  activeTabIndex.value = index;
+};
+
+//dialog
+const dialogEdit = ref(false);
+const selectedInterests = ref([
+  'monthly_search',
+  'avg_views',
+  'product_count',
+  'competition',
+  'avg_price',
+]);
+const keywordInterestItems = ref([
+  { id: 'interest-01', label: '월 검색량', value: 'monthly_search' },
+  { id: 'interest-02', label: '상품수', value: 'product_count' },
+  { id: 'interest-03', label: '광고 클릭수', value: 'ad_clicks' },
+  { id: 'interest-04', label: '전체 게시글수', value: 'total_posts' },
+  { id: 'interest-05', label: '평균 조회수', value: 'avg_views' },
+  { id: 'interest-06', label: '경쟁강도', value: 'competition' },
+  { id: 'interest-07', label: '6개월 시장 규모', value: 'market_size_6m' },
+  { id: 'interest-08', label: '상품 평균가 (이전 6개월)', value: 'avg_price' },
 ]);
 
-//menu
-const menuItems = ref([
+//항목
+const reportData = ref([
+  { id: 1, title: '월 검색량', value: '39,800회' },
+  { id: 2, title: '광고 클릭 수', value: '9,999건' },
   {
-    label: '수정',
-    icon: IconSystemEdit,
+    id: 3,
+    title: '경쟁강도',
+    value: '9,999.0',
+    badge: { text: '매우 높음', severity: 'danger' },
   },
-  {
-    label: '삭제',
-    icon: IconSystemTrash,
-  },
+  { id: 4, title: '월 평균 노출 광고 수', value: '9,999건' },
+  { id: 5, title: '예상 광고비', value: '9,999,999원' },
+  { id: 6, title: '평균 CPC', value: '9,999,999원' },
 ]);
+
+//sort
+const selectRef = ref(null);
+const selectedTop20Option = ref([
+  { name: '스마트스토어' },
+  { name: '쿠팡' },
+  { name: '11번가' },
+  { name: 'G마켓' },
+]);
+const selectedTop20 = ref(selectedTop20Option.value[0]);
+
+// 상세 지표 열기 토글 상태
+const showTrend = ref(false);
 
 //chart
 const deviceStats = ref([
-  { value: 70, name: '모바일', color: 'primaryColor' },
-  { value: 30, name: 'PC', color: 'successColor' },
+  { value: 91, name: '모바일', color: 'primaryColor' },
+  { value: 9, name: 'PC', color: 'warnColor' },
 ]);
 const genderStats = ref([
-  { value: 50, name: '여성', color: 'primaryColor' },
-  { value: 50, name: '남성', color: 'dangerColor' },
+  { value: 74, name: '여성', color: 'dangerColor' },
+  { value: 26, name: '남성', color: 'successColor' },
+]);
+const clickCountStats = ref([
+  { value: 58.5, name: 'PC', color: 'secondaryColor' },
+  { value: 382.7, name: '모바일', color: 'primaryColor' },
+]);
+const clickPercentStats = ref([
+  { value: 57, name: '모바일', color: 'primaryColor' },
+  { value: 43, name: 'PC', color: 'warnColor' },
+]);
+const trendData = ref([
+  { value: 15, name: '1월' },
+  { value: 15, name: '2월' },
+  { value: 18, name: '3월' },
+  { value: 12, name: '4월' },
 ]);
 const ageStats = ref([
   { name: '10', value: 3, color: '#C2F4F8' },
@@ -685,80 +888,160 @@ const keywordList = ref([
     ranking: 1,
     keyword: '어린이 유산균',
     category: '건강기능식품',
-    searchVolume: 896000,
-    competition: 6.05,
+    searchVol: '896,000건', // 필드명을 template과 일치시킴
+    competition: '6.05',
     status: '최적',
   },
   {
     ranking: 2,
     keyword: '가루 유산균',
     category: '건강기능식품',
-    searchVolume: 449700,
-    competition: 0.41,
+    searchVol: '449,700건',
+    competition: '0.41',
     status: '최적',
   },
   {
     ranking: 3,
     keyword: '임산부 유산균',
     category: '건강기능식품',
-    searchVolume: 449700,
-    competition: 0.41,
+    searchVol: '449,700건',
+    competition: '0.41',
     status: '최적',
   },
   {
     ranking: 4,
     keyword: '멀티 비타민',
     category: '건강기능식품',
-    searchVolume: 449700,
-    competition: 0.41,
+    searchVol: '449,700건',
+    competition: '0.41',
     status: '최적',
   },
   {
     ranking: 5,
     keyword: '고함량 유산균',
     category: '헬스케어',
-    searchVolume: 449700,
-    competition: 0.41,
+    searchVol: '449,700건',
+    competition: '0.41',
     status: '최적',
   },
   {
     ranking: 6,
     keyword: '락토핏',
     category: '헬스케어',
-    searchVolume: 449700,
-    competition: 0.41,
+    searchVol: '449,700건',
+    competition: '0.41',
     status: '최적',
   },
   {
     ranking: 7,
     keyword: '임산부 유산균',
     category: '건강기능식품',
-    searchVolume: 449700,
-    competition: 0.41,
+    searchVol: '449,700건',
+    competition: '0.41',
     status: '최적',
   },
   {
     ranking: 8,
     keyword: '멀티 비타민',
     category: '건강기능식품',
-    searchVolume: 449700,
-    competition: 0.41,
+    searchVol: '449,700건',
+    competition: '0.41',
     status: '최적',
   },
   {
     ranking: 9,
     keyword: '고함량 유산균',
     category: '헬스케어',
-    searchVolume: 449700,
-    competition: 0.41,
+    searchVol: '449,700건',
+    competition: '0.41',
     status: '최적',
   },
   {
     ranking: 10,
     keyword: '락토핏',
     category: '헬스케어',
-    searchVolume: 449700,
-    competition: 0.41,
+    searchVol: '449,700건',
+    competition: '0.41',
+    status: '최적',
+  },
+  {
+    ranking: 1,
+    keyword: '어린이 유산균',
+    category: '건강기능식품',
+    searchVol: '896,000건', // 필드명을 template과 일치시킴
+    competition: '6.05',
+    status: '최적',
+  },
+  {
+    ranking: 2,
+    keyword: '가루 유산균',
+    category: '건강기능식품',
+    searchVol: '449,700건',
+    competition: '0.41',
+    status: '최적',
+  },
+  {
+    ranking: 3,
+    keyword: '임산부 유산균',
+    category: '건강기능식품',
+    searchVol: '449,700건',
+    competition: '0.41',
+    status: '최적',
+  },
+  {
+    ranking: 4,
+    keyword: '멀티 비타민',
+    category: '건강기능식품',
+    searchVol: '449,700건',
+    competition: '0.41',
+    status: '최적',
+  },
+  {
+    ranking: 5,
+    keyword: '고함량 유산균',
+    category: '헬스케어',
+    searchVol: '449,700건',
+    competition: '0.41',
+    status: '최적',
+  },
+  {
+    ranking: 6,
+    keyword: '락토핏',
+    category: '헬스케어',
+    searchVol: '449,700건',
+    competition: '0.41',
+    status: '최적',
+  },
+  {
+    ranking: 7,
+    keyword: '임산부 유산균',
+    category: '건강기능식품',
+    searchVol: '449,700건',
+    competition: '0.41',
+    status: '최적',
+  },
+  {
+    ranking: 8,
+    keyword: '멀티 비타민',
+    category: '건강기능식품',
+    searchVol: '449,700건',
+    competition: '0.41',
+    status: '최적',
+  },
+  {
+    ranking: 9,
+    keyword: '고함량 유산균',
+    category: '헬스케어',
+    searchVol: '449,700건',
+    competition: '0.41',
+    status: '최적',
+  },
+  {
+    ranking: 10,
+    keyword: '락토핏',
+    category: '헬스케어',
+    searchVol: '449,700건',
+    competition: '0.41',
     status: '최적',
   },
 ]);
@@ -767,77 +1050,82 @@ const top20List = ref([
   {
     rank: 1,
     imgSrc: '/temp/top1.png',
-    brand: '스텐리1913',
+    brand: '덴프스',
     mall: '네이버쇼핑',
-    title: '스텐리 스텐리1913 젠처 H2.0 플로우스테이트 텀블러',
-    price: 28000,
+    title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
+    price: 79410,
   },
   {
     rank: 2,
     imgSrc: '/temp/top2.png',
-    brand: '스텐리1913',
+    brand: '덴프스',
     mall: '네이버쇼핑',
-    title: '스텐리 스텐리1913 젠처 프로듀어 플립 스트로 텀블러 887ml 크림',
-    price: 22580,
+    title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
+    price: 79410,
   },
   {
     rank: 3,
     imgSrc: '/temp/top3.png',
-    brand: '락앤락',
+    brand: '덴프스',
     mall: '네이버쇼핑',
-    title:
-      '락앤락 텀블러 손잡이 스텐 텀블러 메트로 머그 475ml 보온 보냉 컵 커피 티',
-    price: 23200,
+    title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
+    price: 79410,
   },
   {
     rank: 4,
     imgSrc: '/temp/top4.png',
-    brand: '스텐리1913',
+    brand: '덴프스',
     mall: '네이버쇼핑',
-    title: '스텐리 퀜처 플로우 스테이트 텀블러 H2.0',
-    price: 38630,
+    title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
+    price: 79410,
   },
   {
     rank: 5,
     imgSrc: '/temp/top5.png',
-    brand: '스텐리1913',
+    brand: '덴프스',
     mall: '네이버쇼핑',
-    title: '스텐리 바이탈라이즈 쉐이커 텀블러 591ml + 컨테이너 103ml 세트',
-    price: 57660,
+    title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
+    price: 79410,
   },
   {
     rank: 6,
     imgSrc: '/temp/top6.png',
-    brand: '보아르',
+    brand: '덴프스',
     mall: '네이버쇼핑',
-    title: '보아르 투웨이 대용량 손잡이 스텐 보온 보냉 텀블러...',
-    price: 22700,
+    title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
+    price: 79410,
   },
   {
     rank: 7,
     imgSrc: '/temp/top7.png',
-    brand: '락앤락',
+    brand: '덴프스',
     mall: '네이버쇼핑',
-    title: '락앤락 모그 스텐 머그컵 텀블러',
-    price: 24790,
+    title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
+    price: 79410,
   },
   {
-    id: 'stanley-aerolight-33',
     rank: 8,
     imgSrc: '/temp/top8.png',
-    brand: '스텐리',
+    brand: '덴프스',
     mall: '네이버쇼핑',
-    title: '스텐리 아이스플로우 에어로라이트 패스트플로우 텀블러',
-    price: 33490,
-    to: '/product/stanley-aerolight-33',
+    title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
+    price: 79410,
   },
   {
     rank: 9,
     imgSrc: '/temp/top9.png',
-    brand: '락앤락',
+    brand: '덴프스',
     mall: '네이버쇼핑',
-    title: '락앤락 메트로카페 세라믹 텀블러 바닐라라떼 650ml',
-    price: 24570,
+    title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
+    price: 79410,
+  },
+  {
+    rank: 10,
+    imgSrc: '/temp/top9.png',
+    brand: '덴프스',
+    mall: '네이버쇼핑',
+    title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
+    price: 79410,
   },
 ]);
 
@@ -930,8 +1218,7 @@ const ksnappList = [
     link: '/',
   },
   {
-    title:
-      '안성재 셰프도 쩔쩔매더니... 안성재도 무릎 꿇린 음식 전국은 ‘두쫀쿠’ 열풍',
+    title: "장원영이 쏘아올린 '두쫀쿠' 열풍, 한국 강타…냉면집에서도 판다",
     thumbnail: 'https://picsum.photos/200/300',
     link: '/',
   },

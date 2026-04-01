@@ -3,7 +3,7 @@
   <div class="sb-trend">
     <div class="sb-trend-head">
       <div class="sb-trend-head__title">
-        <h5>마켓 트렌드</h5>
+        <h5>추천기회</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>
@@ -150,18 +150,18 @@
               </template>
             </Column>
           </DataTable>
-
-          <Popover ref="op">
-            <div class="sb-legend">
-              <span class="sb-legend-item text-primary">최고</span>
-              <span class="sb-legend-item text-success">좋음</span>
-              <span class="sb-legend-item text-info">보통</span>
-              <span class="sb-legend-item text-warn">낮음</span>
-              <span class="sb-legend-item text-danger">최저</span>
-            </div>
-          </Popover>
         </div>
       </div>
+      <Popover
+        ref="popoverScore"
+        :pt="{
+          root: {
+            class: 'p-popover-flipped sb-table-popover',
+          },
+        }"
+      >
+        <SbLegend />
+      </Popover>
       <div class="sb-trend-top">
         <div class="sb-trend-top__title">
           <h5>카테고리 연관 상품 TOP 30</h5>
@@ -199,24 +199,25 @@
         </div>
       </div>
       <div class="sb-banner">
-        <img src="/temp/banner.png" alt="" />
+        <NuxtLink to="/">
+          <img src="/temp/banner.png" alt="" />
+        </NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
 
-const op = ref();
-
+//popover
+const popoverScore = ref();
 const togglePopover = (event) => {
-  // toggle 대신 show/hide를 사용하여 마우스 오버에 정확히 반응하게 함
   if (event.type === 'mouseenter') {
-    op.value.show(event);
+    popoverScore.value.show(event);
   } else {
-    op.value.hide();
+    popoverScore.value.hide();
   }
 };
 

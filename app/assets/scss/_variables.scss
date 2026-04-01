@@ -258,21 +258,38 @@
 :root,
 :host {
   --p-mask-background: rgba(0, 0, 0, 0.7);
-  --color-primary: var(--p-green-500);
-  --color-success: var(--p-slate-500);
+
+  --color-primary: var(--p-indigo-500);
+  --color-success: var(--p-green-500);
+  --color-secondary: var(--p-slate-500);
   --color-info: var(--p-blue-400);
   --color-warn: var(--p-orange-600);
   --color-danger: var(--p-red-600);
 
-  --chart-background: var(--p-gray-00);
-  --chart-primary: var(--p-primary-500);
-  --chart-success: var(--p-slate-200);
-  --chart-info: var(--p-blue-200);
-  --chart-warn: var(--p-orange-200);
-  --chart-danger: var(--p-red-200);
+  --chart-background: transparent;
 
   --chart-wave-background01: var(--p-gray-100);
   --chart-wave-background02: var(--p-gray-800);
+
+  --chart-bar-color01-start: var(--p-primary-500);
+  --chart-bar-color01-end: rgba(0, 177, 189, 0);
+  --chart-bar-color02-start: var(--p-primary-200);
+  --chart-bar-color02-end: rgba(194, 244, 248, 0);
+  --chart-bar-border-color: var(--p-gray-00);
+
+  --chart-doughnut-primary: var(--p-primary-500);
+  --chart-doughnut-success: var(--p-slate-400);
+  --chart-doughnut-info: var(--p-blue-200);
+  --chart-doughnut-warn: var(--p-orange-200);
+  --chart-doughnut-danger: var(--p-red-400);
+  --chart-doughnut-border-color: var(--p-gray-00);
+
+  --chart-line-background: var(--p-gray-00);
+  --chart-line-primary: var(--p-primary-500);
+  --chart-line-success: var(--p-slate-200);
+  --chart-line-info: var(--p-blue-200);
+  --chart-line-warn: var(--p-orange-200);
+  --chart-line-danger: var(--p-red-200);
 
   --chart-line-tooltip-color: var(--p-gray-00);
   --chart-line-tooltip-background: var(--p-gray-900);
@@ -294,6 +311,11 @@
   --chart-gauge-face-info: url('/assets/icons/chart/face-info.svg');
   --chart-gauge-face-warn: url('/assets/icons/chart/face-warn.svg');
   --chart-gauge-face-danger: url('/assets/icons/chart/face-danger.svg');
+  --chart-gauge-face-label-color01: var(--p-gray-500);
+  --chart-gauge-face-label-color02: var(--p-gray-900);
+
+  --chart-segment-segments-color: var(--p-gray-200);
+  --chart-segment-legend-color: var(--p-gray-500);
 
   --chart-label-color01: var(--p-gray-500);
   --chart-label-color02: var(--p-gray-900);
@@ -410,15 +432,12 @@
   --chip-primary-dot-background: var(--p-indigo-500);
   --chip-primary-border-color: var(--p-indigo-500);
   --chip-primary-background: var(--p-gray-00);
-  --chip-success-dot-background: var(--p-slate-200);
-  --chip-success-background: var(--p-gray-00);
-
+  --chip-secondary-dot-background: var(--p-slate-200);
+  --chip-secondary-background: var(--p-gray-00);
   --chip-info-dot-background: var(--p-blue-200);
   --chip-info-background: var(--p-gray-00);
-
   --chip-warn-dot-background: var(--p-orange-200);
   --chip-warn-background: var(--p-gray-00);
-
   --chip-danger-dot-background: var(--p-red-200);
   --chip-danger-background: var(--p-gray-00);
 
@@ -583,22 +602,36 @@
 
   &.p-dark,
   .p-dark {
-    --color-primary: var(--p-green-300);
-    --color-success: var(--p-slate-400);
+    --color-primary: var(--p-indigo-300);
+    --color-success: var(--p-green-400);
+    --color-secondary: var(--p-slate-400);
     --color-info: var(--p-blue-400);
     --color-warn: var(--p-orange-400);
     --color-danger: var(--p-red-400);
 
     --chart-background: var(--p-gray-800);
-    --chart-primary: var(--p-primary-300);
-    --chart-success: var(--p-slate-600);
-    --chart-info: var(--p-blue-600);
-    --chart-warn: var(--p-orange-900);
-    --chart-danger: var(--p-red-600);
 
     --chart-wave-background01: var(--p-gray-100);
     --chart-wave-background02: var(--p-gray-800);
 
+    --chart-bar-color01-start: var(--p-primary-300);
+    --chart-bar-color01-end: rgba(58, 221, 233, 0);
+    --chart-bar-color02-start: var(--p-primary-700);
+    --chart-bar-color02-end: rgba(194, 244, 248, 0);
+    --chart-bar-border-color: var(--p-gray-00);
+
+    --chart-doughnut-background: var(--p-gray-800);
+    --chart-doughnut-primary: var(--p-primary-400);
+    --chart-doughnut-success: var(--p-slate-400);
+    --chart-doughnut-info: var(--p-blue-600);
+    --chart-doughnut-warn: var(--p-orange-400);
+    --chart-doughnut-danger: var(--p-red-300);
+
+    --chart-line-primary: var(--p-primary-300);
+    --chart-line-success: var(--p-slate-600);
+    --chart-line-info: var(--p-blue-600);
+    --chart-line-warn: var(--p-orange-900);
+    --chart-danger: var(--p-red-600);
     --chart-line-tooltip-color: var(--p-gray-900);
     --chart-line-tooltip-background: var(--p-gray-00);
     --chart-line-tooltip-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
@@ -613,6 +646,12 @@
     --chart-gauge-track-color: var(--p-gray-500);
     --chart-gauge-label-color01: var(--p-gray-600);
     --chart-gauge-label-color02: var(--p-gray-00);
+
+    --chart-segment-segments-color: var(--p-gray-700);
+    --chart-segment-legend-color: var(--p-gray-300);
+
+    --chart-label-color01: var(--p-gray-300);
+    --chart-label-color02: var(--p-gray-900);
 
     --url-title-color: var(--p-gray-00);
     --url-text-color: var(--p-gray-00);
@@ -722,8 +761,8 @@
     --chip-primary-dot-background: var(--p-indigo-300);
     --chip-primary-border-color: var(--p-indigo-300);
     --chip-primary-background: none;
-    --chip-success-dot-background: var(--p-slate-600);
-    --chip-success-background: none;
+    --chip-secondary-dot-background: var(--p-slate-600);
+    --chip-secondary-background: none;
     --chip-info-dot-background: var(--p-blue-700);
     --chip-info-background: none;
     --chip-warn-dot-background: var(--p-orange-900);
@@ -803,6 +842,13 @@
     --story-write-title-color: var(--p-gray-00);
     --story-write-form-item-label-color: var(--p-gray-200);
     --story-write-form-item-border-color: var(--p-gray-600);
+
+    //trend
+    --trend--background: var(--p-gray-800);
+    --trend-top-list-item-category-color: var(--p-gray-400);
+    --trend-top-list-item-category-divider: var(--p-gray-300);
+    --trend-top-list-item-title-color: var(--p-gray-900);
+    --trend-top-list-item-price-color: var(--p-gray-900);
 
     //auth
     --auth-background-image: var(--p-gray-900);

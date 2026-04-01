@@ -11,6 +11,10 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.17",
+    "@fullcalendar/core": "^6.1.20",
+    "@fullcalendar/daygrid": "^6.1.20",
+    "@fullcalendar/interaction": "^6.1.20",
+    "@fullcalendar/vue3": "^6.1.20",
     "@nuxt/content": "^3.11.2",
     "@primeuix/themes": "^2.0.3",
     "@tiptap/extension-highlight": "^3.19.0",
@@ -28,6 +32,7 @@
     "lowlight": "^3.3.0",
     "lucide-vue-next": "^0.563.0",
     "nuxt": "^4.3.0",
+    "nuxt-swiper": "^2.0.1",
     "nuxt-tiptap-editor": "^3.2.0",
     "primeflex": "^4.0.0",
     "primevue": "^4.5.4",
@@ -35,8 +40,10 @@
     "react-plock": "^3.6.1",
     "remixicon": "^4.9.1",
     "vue": "^3.5.27",
+    "vue-draggable-next": "^2.3.0",
     "vue-echarts": "^8.0.1",
-    "vue-router": "^4.6.4"
+    "vue-router": "^4.6.4",
+    "vuedraggable": "^4.1.0"
   },
   "devDependencies": {
     "@primevue/nuxt-module": "^4.5.4",

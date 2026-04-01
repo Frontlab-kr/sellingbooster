@@ -83,9 +83,6 @@
           .sb-input {
             width: 100%;
           }
-          > .p-button {
-            min-width: 160px;
-          }
         }
         &__input ~ &__input {
           margin-top: 16px;
@@ -212,7 +209,6 @@
         margin: 56px 0 40px 0;
         .p-button {
           width: 100%;
-          max-width: 326px;
         }
       }
     }
@@ -465,9 +461,6 @@
         .sb-input {
           width: 100%;
         }
-        > .p-button {
-          min-width: 160px;
-        }
       }
       &__input ~ &__input {
         margin-top: 16px;
@@ -509,9 +502,6 @@
         align-items: center;
         justify-content: center;
         margin-top: 32px;
-        .p-button {
-          min-width: 160px;
-        }
       }
     }
     .sb-tab {
@@ -605,9 +595,6 @@
         display: flex;
         justify-content: center;
         margin-top: 40px;
-        .p-button {
-          min-width: 160px;
-        }
       }
     }
     @include breakpoint {
@@ -651,9 +638,6 @@
           .sb-input {
             width: 100%;
           }
-          > .p-button {
-            min-width: 160px;
-          }
         }
         &__input ~ &__input {
           margin-top: 16px;
@@ -692,9 +676,6 @@
         }
         &__button {
           margin-top: 20px;
-          .p-button {
-            min-width: 110px;
-          }
         }
       }
       .sb-tab {

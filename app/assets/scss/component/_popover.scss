@@ -2,14 +2,14 @@
 
 :root,
 :host {
-  --p-popover-content-padding: 12px 20px;
+  --p-popover-content-padding: 9px 20px 11px 20px;
   --p-popover-background: var(--p-gray-00);
   --p-popover-border-color: var(--p-gray-300);
   --p-popover-color: var(--p-gray-700);
   --p-popover-border-radius: 50px;
-  --p-popover-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.15);
-  --p-popover-gutter: 10px;
-  --p-popover-arrow-offset: 1.25rem;
+  --p-popover-shadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
+  --p-popover-gutter: 12px;
+  --p-popover-arrow-offset: 17px;
 }
 
 .p-popover {
@@ -19,7 +19,7 @@
   border: 1px solid var(--p-popover-border-color);
   border-radius: var(--p-popover-border-radius);
   box-shadow: var(--p-popover-shadow);
-  will-change: transform;
+  //will-change: transform;
 }
 
 .p-popover-content {
@@ -35,6 +35,8 @@
 .p-popover:before {
   bottom: 100%;
   left: calc(var(--p-popover-arrow-offset) + var(--p-popover-arrow-left));
+  left: auto;
+  right: 22px;
   content: ' ';
   height: 0;
   width: 0;
@@ -45,6 +47,8 @@
 .p-popover:after {
   border-width: calc(var(--p-popover-gutter) - 2px);
   margin-left: calc(-1 * (var(--p-popover-gutter) - 2px));
+  margin: 0;
+  right: 24px;
   border-style: solid;
   border-color: transparent;
   border-bottom-color: var(--p-popover-background);

@@ -64,8 +64,8 @@ const props = defineProps({
 
 const waveColor = computed(() => {
   const p = props.percent;
-  if (p >= 80) return 'var(--color-primary)';
-  if (p >= 60) return 'var(--color-success)';
+  if (p >= 80) return 'var(--color-success)';
+  if (p >= 60) return 'var(--color-secondary)';
   if (p >= 40) return 'var(--color-info)';
   if (p >= 20) return 'var(--color-warn)';
   return 'var(--color-danger)';

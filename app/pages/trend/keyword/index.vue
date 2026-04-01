@@ -1,8 +1,9 @@
 <template>
+  <SbMobileInfo />
   <div class="sb-trend">
     <div class="sb-trend-head">
       <div class="sb-trend-head__title">
-        <h5>마켓 트렌드</h5>
+        <h5>키워드 분석</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>
@@ -70,7 +71,7 @@
               <div class="sb-chip__button">
                 <Button variant="text" @click="clearAllKeywords">
                   <IconSystemTrash class="ico-system-trash" />
-                  <span class="p-button-label">전체삭제</span>
+                  <span class="p-button-label">전체 삭제</span>
                 </Button>
               </div>
             </div>
@@ -86,11 +87,19 @@
         </div>
         <div class="sb-table">
           <DataTable
+            v-scroll-end
             :value="keywordList"
             responsiveLayout="scroll"
             removableSort
+            scrollable
           >
-            <Column field="ranking" header="랭킹" style="width: 80px">
+            <Column
+              field="ranking"
+              header="랭킹"
+              style="width: 80px"
+              headerClass="text-center"
+              bodyClass="text-center"
+            >
               <template #body="slotProps">
                 <span v-html="slotProps.data.ranking"></span>
               </template>
@@ -120,8 +129,8 @@
               field="influence"
               header="영향력"
               sortable
-              headerClass="text-right"
-              bodyClass="text-right"
+              headerClass="text-center"
+              bodyClass="text-center"
               style="width: 150px"
             >
               <template #body="slotProps">
@@ -133,8 +142,8 @@
               header="평균가"
               sortable
               style="width: 150px"
-              headerClass="text-right"
-              bodyClass="text-right"
+              headerClass="text-center"
+              bodyClass="text-center"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.avgPrice"></span>
@@ -196,19 +205,21 @@
               style="width: 150px"
             >
               <template #header>
-                <div
-                  class="sb-table-header-title"
-                  @mouseenter="togglePopover"
-                  @mouseleave="togglePopover"
-                >
+                <div class="sb-table-header-title">
                   <span
                     class="p-datatable-column-title"
                     data-pc-section="columntitle"
                     >경쟁강도</span
                   >
-                  <IconSystemInformationCircle
-                    class="ico-system-information-circle"
-                  />
+                  <div
+                    class="sb-table-header-title__icon"
+                    @mouseenter="togglePopover"
+                    @mouseleave="togglePopover"
+                  >
+                    <IconSystemInformationCircle
+                      class="ico-system-information-circle"
+                    />
+                  </div>
                 </div>
               </template>
               <template #body="slotProps">
@@ -254,9 +265,11 @@
         </div>
         <div class="sb-table">
           <DataTable
+            v-scroll-end
             :value="favoriteList"
             responsiveLayout="scroll"
             removableSort
+            scrollable
           >
             <Column field="keyword" header="키워드" style="width: 160px">
               <template #body="slotProps">
@@ -284,6 +297,8 @@
               header="카테고리"
               sortable
               style="width: 160px"
+              headerClass="text-center"
+              bodyClass="text-center"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.category"></span>
@@ -368,19 +383,21 @@
               style="width: 150px"
             >
               <template #header>
-                <div
-                  class="sb-table-header-title"
-                  @mouseenter="togglePopover"
-                  @mouseleave="togglePopover"
-                >
+                <div class="sb-table-header-title">
                   <span
                     class="p-datatable-column-title"
                     data-pc-section="columntitle"
                     >경쟁강도</span
                   >
-                  <IconSystemInformationCircle
-                    class="ico-system-information-circle"
-                  />
+                  <div
+                    class="sb-table-header-title__icon"
+                    @mouseenter="togglePopover"
+                    @mouseleave="togglePopover"
+                  >
+                    <IconSystemInformationCircle
+                      class="ico-system-information-circle"
+                    />
+                  </div>
                 </div>
               </template>
               <template #body="slotProps">
@@ -418,6 +435,21 @@
           </DataTable>
         </div>
       </div>
+      <Popover
+        ref="popoverScore"
+        :pt="{
+          root: {
+            class: 'p-popover-flipped sb-table-popover',
+          },
+        }"
+      >
+        <SbLegend />
+      </Popover>
+      <div class="sb-banner">
+        <NuxtLink to="/">
+          <img src="/temp/banner.png" alt="" />
+        </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
@@ -437,23 +469,28 @@ const breadcrumb = ref([
   { label: '키워드 분석' },
 ]);
 
-//
-const searchKeyword = ref('');
+//popover
+const popoverScore = ref();
+const togglePopover = (event) => {
+  if (event.type === 'mouseenter') {
+    popoverScore.value.show(event);
+  } else {
+    popoverScore.value.hide();
+  }
+};
 
-//
+//검색
+const searchKeyword = ref('');
 const selectedValue = ref();
 const selectedOption = ref([
-  { name: '스팸홍보/도배글입니다.' },
-  { name: '음란물입니다.' },
-  { name: '불법정보를 포함하고 있습니다.' },
-  { name: '청소년에게 유해한 내용입니다.' },
-  { name: '욕설/혐오/차별적 표현입니다.' },
-  { name: '개인정보 노출 게시물입니다.' },
-  { name: '블퀘한 표현이 있습니다.' },
-  { name: '기타 (기타 사유를 입력해주세요.)' },
+  { name: '패션의류' },
+  { name: '화장품/미용' },
+  { name: '가구/인테리어' },
+  { name: '식품' },
+  { name: '생활/건강' },
 ]);
 
-//
+//최근 검색어
 const keywords = ref([
   { id: 1, label: '스텐리' },
   { id: 2, label: '유니클로' },
@@ -463,8 +500,128 @@ const keywords = ref([
   { id: 6, label: '피스타치오스프레드' },
 ]);
 
-//
+//키워드 목록
 const keywordList = ref([
+  {
+    ranking: 14,
+    isFavorite: true,
+    keyword: '도브센시티브바',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '1,671개',
+    pcSearchVol: '449,700건',
+    moSearchVol: '449,700건',
+    avgClick: '4163.3',
+    competition: 0.41,
+  },
+  {
+    ranking: 18,
+    isFavorite: false,
+    keyword: '디올립글로우',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '1,412개',
+    pcSearchVol: '113,700건',
+    moSearchVol: '113,700건',
+    avgClick: '449.4',
+    competition: 0.26,
+  },
+  {
+    ranking: 5,
+    isFavorite: true,
+    keyword: '록시땅핸드크림',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '121개',
+    pcSearchVol: '102,580건',
+    moSearchVol: '102,580건',
+    avgClick: '1259.7',
+    competition: 0.02,
+  },
+  {
+    ranking: 12,
+    isFavorite: false,
+    keyword: '립밤',
+    influence: '중간',
+    avgPrice: '중간',
+    productCount: '63,231개',
+    pcSearchVol: '51,520건',
+    moSearchVol: '51,520건',
+    avgClick: '1207.6',
+    competition: 0.07,
+  },
+  {
+    ranking: 9,
+    isFavorite: false,
+    keyword: '마데카크림',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '576개',
+    pcSearchVol: '51,500건',
+    moSearchVol: '51,500건',
+    avgClick: '519.5',
+    competition: 0.02,
+  },
+  {
+    ranking: 10,
+    isFavorite: false,
+    keyword: '바디로션',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '33,309개',
+    pcSearchVol: '46,600건',
+    moSearchVol: '46,600건',
+    avgClick: '1794.9',
+    competition: 0.6,
+  },
+  {
+    ranking: 5,
+    isFavorite: true,
+    keyword: '록시땅핸드크림',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '121개',
+    pcSearchVol: '102,580건',
+    moSearchVol: '102,580건',
+    avgClick: '1259.7',
+    competition: 0.02,
+  },
+  {
+    ranking: 12,
+    isFavorite: false,
+    keyword: '립밤',
+    influence: '중간',
+    avgPrice: '중간',
+    productCount: '63,231개',
+    pcSearchVol: '51,520건',
+    moSearchVol: '51,520건',
+    avgClick: '1207.6',
+    competition: 0.07,
+  },
+  {
+    ranking: 9,
+    isFavorite: false,
+    keyword: '마데카크림',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '576개',
+    pcSearchVol: '51,500건',
+    moSearchVol: '51,500건',
+    avgClick: '519.5',
+    competition: 0.02,
+  },
+  {
+    ranking: 10,
+    isFavorite: false,
+    keyword: '바디로션',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '33,309개',
+    pcSearchVol: '46,600건',
+    moSearchVol: '46,600건',
+    avgClick: '1794.9',
+    competition: 0.6,
+  },
   {
     ranking: 14,
     isFavorite: true,
@@ -587,8 +744,128 @@ const keywordList = ref([
   },
 ]);
 
-//
+//나의 관심 키워드
 const favoriteList = ref([
+  {
+    isFavorite: true,
+    keyword: '유니클로',
+    category: '의류',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '19,327개',
+    pcSearchVol: '896,000건',
+    moSearchVol: '896,000건',
+    avgClick: '877.4',
+    competition: 6.05,
+  },
+  {
+    isFavorite: true,
+    keyword: '카다이프',
+    category: '라면/면류',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '1,671개',
+    pcSearchVol: '449,700건',
+    moSearchVol: '449,700건',
+    avgClick: '984.5',
+    competition: 0.41,
+  },
+  {
+    isFavorite: false,
+    keyword: '케이스티파이',
+    category: '휴대폰악세서리',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '1,412개',
+    pcSearchVol: '113,700건',
+    moSearchVol: '113,700건',
+    avgClick: '304.4',
+    competition: 0.26,
+  },
+  {
+    isFavorite: false,
+    keyword: '루이비통',
+    category: '여성가방',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '121개',
+    pcSearchVol: '102,580건',
+    moSearchVol: '102,580건',
+    avgClick: '865.5',
+    competition: 0.02,
+  },
+  {
+    isFavorite: false,
+    keyword: '히카마',
+    category: '농산물',
+    influence: '중간',
+    avgPrice: '중간',
+    productCount: '63,231개',
+    pcSearchVol: '51,520건',
+    moSearchVol: '51,520건',
+    avgClick: '450.3',
+    competition: 0.07,
+  },
+  {
+    isFavorite: false,
+    keyword: '아이폰17',
+    category: '휴대폰',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '576개',
+    pcSearchVol: '51,500건',
+    moSearchVol: '51,500건',
+    avgClick: '917.3',
+    competition: 0.02,
+  },
+  {
+    isFavorite: true,
+    keyword: '카다이프',
+    category: '라면/면류',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '1,671개',
+    pcSearchVol: '449,700건',
+    moSearchVol: '449,700건',
+    avgClick: '984.5',
+    competition: 0.41,
+  },
+  {
+    isFavorite: false,
+    keyword: '루이비통',
+    category: '여성가방',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '121개',
+    pcSearchVol: '102,580건',
+    moSearchVol: '102,580건',
+    avgClick: '865.5',
+    competition: 0.02,
+  },
+  {
+    isFavorite: false,
+    keyword: '히카마',
+    category: '농산물',
+    influence: '중간',
+    avgPrice: '중간',
+    productCount: '63,231개',
+    pcSearchVol: '51,520건',
+    moSearchVol: '51,520건',
+    avgClick: '450.3',
+    competition: 0.07,
+  },
+  {
+    isFavorite: false,
+    keyword: '아이폰17',
+    category: '휴대폰',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '576개',
+    pcSearchVol: '51,500건',
+    moSearchVol: '51,500건',
+    avgClick: '917.3',
+    competition: 0.02,
+  },
   {
     isFavorite: true,
     keyword: '유니클로',

@@ -3,7 +3,7 @@
   <div class="sb-trend">
     <div class="sb-trend-head">
       <div class="sb-trend-head__title">
-        <h5>마켓 트렌드</h5>
+        <h5>추천기회</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>
@@ -155,16 +155,6 @@
               </div>
             </template>
           </DataTable>
-
-          <Popover ref="op">
-            <div class="sb-legend">
-              <span class="sb-legend-item text-indigo-500">최고</span>
-              <span class="sb-legend-item text-green-500">좋음</span>
-              <span class="sb-legend-item text-slate-600">보통</span>
-              <span class="sb-legend-item text-orange-700">낮음</span>
-              <span class="sb-legend-item text-red-600">최저</span>
-            </div>
-          </Popover>
         </div>
       </div>
       <div class="sb-trend-top">
@@ -183,7 +173,9 @@
         </div>
       </div>
       <div class="sb-banner">
-        <img src="/temp/banner.png" alt="" />
+        <NuxtLink to="/">
+          <img src="/temp/banner.png" alt="" />
+        </NuxtLink>
       </div>
     </div>
   </div>

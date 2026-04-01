@@ -53,7 +53,7 @@
       </Card>
     </div>
 
-    <!-- <div>
+    <div>
       <h5>마켓 트렌드</h5>
       <Card>
         <template #content>
@@ -74,7 +74,7 @@
         </template>
       </Card>
     </div>
-
+    <!-- 
     <div>
       <h5>판매 가속</h5>
       <Card>

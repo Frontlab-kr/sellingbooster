@@ -8,13 +8,13 @@
 import { ref, onMounted, onBeforeUnmount, nextTick, watch } from 'vue';
 import * as echarts from 'echarts';
 
-import facePrimary from '@/assets/icons/chart/face-primary.svg?url';
+import faceSuccess from '@/assets/icons/chart/face-success.svg?url';
 import faceSecondary from '@/assets/icons/chart/face-secondary.svg?url';
 import faceInfo from '@/assets/icons/chart/face-info.svg?url';
 import faceWarn from '@/assets/icons/chart/face-warn.svg?url';
 import faceDanger from '@/assets/icons/chart/face-danger.svg?url';
 
-import facePrimaryDark from '@/assets/icons/chart/face-primary-dark.svg?url';
+import faceSuccessDark from '@/assets/icons/chart/face-success-dark.svg?url';
 import faceSecondaryDark from '@/assets/icons/chart/face-secondary-dark.svg?url';
 import faceInfoDark from '@/assets/icons/chart/face-info-dark.svg?url';
 import faceWarnDark from '@/assets/icons/chart/face-warn-dark.svg?url';
@@ -64,14 +64,14 @@ const getScoreStatus = (p) => {
 
   const icons = isDarkMode.value
     ? {
-        primary: facePrimaryDark,
+        success: faceSuccessDark,
         secondary: faceSecondaryDark,
         info: faceInfoDark,
         warn: faceWarnDark,
         danger: faceDangerDark,
       }
     : {
-        primary: facePrimary,
+        success: faceSuccess,
         secondary: faceSecondary,
         info: faceInfo,
         warn: faceWarn,
@@ -80,14 +80,14 @@ const getScoreStatus = (p) => {
 
   if (p >= 80)
     return {
-      text: '매우 좋음',
-      colorVar: '--color-primary',
-      face: icons.primary,
+      text: '최고',
+      colorVar: '--color-success',
+      face: icons.success,
     };
   if (p >= 60)
     return {
       text: '좋음',
-      colorVar: '--color-success',
+      colorVar: '--color-secondary',
       face: icons.secondary,
     };
   if (p >= 40)
@@ -98,12 +98,12 @@ const getScoreStatus = (p) => {
     };
   if (p >= 20)
     return {
-      text: '나쁨',
+      text: '낮음',
       colorVar: '--color-warn',
       face: icons.warn,
     };
   return {
-    text: '매우 나쁨',
+    text: '최저',
     colorVar: '--color-danger',
     face: icons.danger,
   };
@@ -126,8 +126,8 @@ const initChart = () => {
   const trackColor = getCssVar('--chart-gauge-track-color');
   const activeColor = getCssVar(statusInfo.colorVar);
   const facePath = statusInfo.face;
-  const labelColor01 = getCssVar('--chart-gauge-label-color01');
-  const labelColor02 = getCssVar('--chart-gauge-label-color02');
+  const labelColor01 = getCssVar('--chart-gauge-face-label-color01');
+  const labelColor02 = getCssVar('--chart-gauge-face-label-color02');
 
   const option = {
     backgroundColor: chartBackground,
@@ -164,31 +164,33 @@ const initChart = () => {
         axisLabel: { show: false },
         data: [{ value: props.score }],
         detail: {
-          offsetCenter: [0, '-33%'],
+          offsetCenter: [0, '-35%'],
           formatter: (value) => {
-            return `{label|${props.label}} {status|${statusInfo.text}}\n{score|${value}}{unit|${props.unitText}}`;
+            return `{label|${props.label}}{status|${statusInfo.text}}\n{score|${value}}{unit|${props.unitText}}`;
           },
           rich: {
             label: {
-              fontSize: 14,
+              fontSize: 16,
               color: labelColor01,
-              fontWeight: 'normal',
+              fontWeight: 'bold',
             },
             status: {
-              fontSize: 14,
+              fontSize: 16,
               color: activeColor,
               fontWeight: 'bold',
-              padding: [0, 0, 8, 0],
+              padding: [0, 0, 0, 3],
             },
             score: {
-              fontSize: 16,
+              fontSize: 24,
               color: labelColor02,
               fontWeight: 'bold',
+              padding: [6, 0, 0, 0],
             },
             unit: {
-              fontSize: 16,
+              fontSize: 24,
               color: labelColor02,
-              padding: [0, 0, 0, 2],
+              fontWeight: 'bold',
+              padding: [6, 0, 0, 0],
             },
           },
         },
@@ -204,59 +206,55 @@ const initChart = () => {
 };
 
 const updateMarker = (facePath) => {
-  console.log('=== updateMarker ===');
-  console.log('isDarkMode:', isDarkMode.value);
-  console.log(
-    'facePath preview:',
-    facePath ? facePath.substring(0, 80) + '...' : 'null',
-  );
-
-  if (!chart || !facePath) {
-    console.warn('chart or facePath is missing');
-    return;
-  }
+  if (!chart || !facePath) return;
 
   const width = chart.getWidth();
   const height = chart.getHeight();
 
+  // 1. ECharts의 가상 좌표계를 실제 픽셀 좌표로 변환하기 위해
+  // 중심점과 반지름 계산 방식을 series 설정과 동기화합니다.
   const centerX = width * 0.5;
-  const centerY = height * 0.45;
-  const baseRadius = Math.min(width, height) * 0.9 * 0.5;
+  const centerY = height * 0.45; // series.center와 동일하게 유지
 
+  // series.radius: '90%'는 전체 캔버스 높이/너비 중 작은 쪽의 90%가 아니라
+  // 캔버스 크기 자체에 대한 비율이므로 아래와 같이 계산하는 것이 정확합니다.
+  const viewSize = Math.min(width, height);
+  const baseRadius = (viewSize * 0.86) / 2;
+
+  // 2. 각도 계산 (ECharts Gauge는 180도에서 0도로 흐름)
   const ratio = Math.max(0, Math.min(props.score / (props.totalScore || 1), 1));
   const angleDeg = 180 - ratio * 180;
   const angleRad = (angleDeg * Math.PI) / 180;
 
-  const posX = centerX + baseRadius * Math.cos(angleRad);
-  const posY = centerY - baseRadius * Math.sin(angleRad);
+  // 3. 선의 두께(width: 7)를 고려하여 마커를 선 위에 안착시킴
+  // 만약 아이콘이 선보다 너무 안쪽에 있다면 + 2~3 정도를 더해주세요.
+  const offsetRadius = baseRadius;
+
+  const posX = centerX + offsetRadius * Math.cos(angleRad);
+  const posY = centerY - offsetRadius * Math.sin(angleRad);
 
   const markerSize = 24;
 
-  // ★★★ 핵심: 기존 graphic 완전 제거 + 강제 refresh ★★★
-  chart.setOption({ graphic: [] }, false);
-
-  // 약간의 딜레이를 주어 ECharts 내부 캐시가 해제되도록 함
-  nextTick(() => {
-    chart.setOption(
-      {
-        graphic: [
-          {
-            type: 'image',
-            id: 'score-marker',
-            z: 100,
-            x: posX - markerSize / 2,
-            y: posY - markerSize / 2,
-            style: {
-              image: facePath,
-              width: markerSize,
-              height: markerSize,
-            },
+  chart.setOption(
+    {
+      graphic: [
+        {
+          id: 'score-marker',
+          type: 'image',
+          z: 100,
+          // x, y는 이미지의 좌상단 기준이므로 markerSize의 절반을 빼서 중앙 정렬
+          x: posX - markerSize / 2,
+          y: posY - markerSize / 2,
+          style: {
+            image: facePath,
+            width: markerSize,
+            height: markerSize,
           },
-        ],
-      },
-      false,
-    );
-  });
+        },
+      ],
+    },
+    false,
+  );
 };
 
 watch(

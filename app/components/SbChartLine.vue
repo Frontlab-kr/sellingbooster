@@ -23,7 +23,7 @@ const getRuntimeOption = () => {
 
   // 변수 추출 및 기본값(Fallback) 설정
   const chartBackground = style.getPropertyValue('--chart-background').trim();
-  const chartPrimary = style.getPropertyValue('--chart-primary').trim();
+  const chartPrimary = style.getPropertyValue('--chart-line-primary').trim();
   const chartLineTooltipBackground = style
     .getPropertyValue('--chart-line-tooltip-background')
     .trim();
@@ -55,10 +55,10 @@ const getRuntimeOption = () => {
     backgroundColor: chartBackground,
     color: [
       chartPrimary,
-      style.getPropertyValue('--chart-success').trim(),
-      style.getPropertyValue('--chart-info').trim(),
-      style.getPropertyValue('--chart-warn').trim(),
-      style.getPropertyValue('--chart-danger').trim(),
+      style.getPropertyValue('--chart-line-success').trim(),
+      style.getPropertyValue('--chart-line-info').trim(),
+      style.getPropertyValue('--chart-line-warn').trim(),
+      style.getPropertyValue('--chart-line-danger').trim(),
     ],
     tooltip: {
       backgroundColor: chartLineTooltipBackground,

@@ -1,8 +1,9 @@
 <template>
+  <SbMobileInfo />
   <div class="sb-trend">
     <div class="sb-trend-head">
       <div class="sb-trend-head__title">
-        <h5>마켓 트렌드</h5>
+        <h5>상품 분석</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>
@@ -79,71 +80,69 @@
               <div class="sb-trend-table-head">
                 <div class="sb-trend-table-head__title">
                   <h5>상위 키워드</h5>
+                  <div
+                    class="sb-trend-table-head__popover"
+                    @mouseenter="togglePopover"
+                    @mouseleave="togglePopover"
+                  >
+                    <IconSystemInformationCircle
+                      class="ico-system-information-circle"
+                    />
+                    <Popover
+                      ref="popoverScore"
+                      :pt="{
+                        root: {
+                          class: 'p-popover-flipped sb-popover-score',
+                        },
+                      }"
+                    >
+                      <SbLegend />
+                    </Popover>
+                  </div>
                 </div>
               </div>
               <div class="sb-table">
                 <DataTable
-                  :value="productsNodata"
+                  v-scroll-end
+                  :value="keywordList"
                   responsiveLayout="scroll"
                   removableSort
+                  scrollable
                 >
-                  <Column
-                    field="keyword"
-                    header="키워드"
-                    sortable
-                    style="width: 160px"
-                  >
+                  <Column field="keyword" header="키워드" style="width: 108px">
                     <template #body="slotProps">
                       <span v-html="slotProps.data.keyword"></span>
                     </template>
                   </Column>
                   <Column
-                    field="pcSearchVol"
+                    field="searchVol"
                     header="월 검색량"
-                    sortable
-                    style="width: 160px"
                     headerClass="text-right"
                     bodyClass="text-right"
+                    style="width: 108px"
                   >
                     <template #body="slotProps">
-                      <span v-html="slotProps.data.pcSearchVol"></span>
+                      <span v-html="slotProps.data.searchVol"></span>
                     </template>
                   </Column>
                   <Column
-                    field="avgClick"
+                    field="productCount"
                     header="상품 수"
-                    sortable
-                    style="width: 160px"
                     headerClass="text-right"
                     bodyClass="text-right"
+                    style="width: 108px"
                   >
                     <template #body="slotProps">
-                      <span v-html="slotProps.data.avgClick"></span>
+                      <span v-html="slotProps.data.productCount"></span>
                     </template>
                   </Column>
                   <Column
                     field="competition"
-                    sortable
+                    header="경쟁강도"
                     headerClass="text-right"
                     bodyClass="text-right"
-                    style="width: 150px"
+                    style="width: 108px"
                   >
-                    <template #header>
-                      <div
-                        class="sb-table-header-title"
-                        @mouseenter="togglePopover"
-                        @mouseleave="togglePopover"
-                      >
-                        <span
-                          class="p-datatable-column-title"
-                          data-pc-section="columntitle"
-                          >경쟁강도</span
-                        >
-                        <IconSystemInformationCircle
-                          class="ico-system-information-circle"
-                        />
-                      </div>
-                    </template>
                     <template #body="slotProps">
                       <div class="sb-legend">
                         <span
@@ -166,16 +165,6 @@
                     </template>
                   </Column>
                 </DataTable>
-
-                <div class="sb-nodata">
-                  <IconIllustrationSmile class="ico-illustration-smile" />
-                  <div class="sb-nodata__text">
-                    <p>
-                      궁금한 카테고리가 있다면 지금 검색해보세요<br />
-                      정확한 분석 데이터가 기다리고 있어요
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -184,7 +173,7 @@
           <div class="col-8">
             <div class="sb-trend-review">
               <div class="sb-trend-review-head">
-                <h5>상위 키워드</h5>
+                <h5>리뷰 분석</h5>
                 <div class="sb-trend-review-summary">
                   <div class="sb-trend-review-summary-item">
                     <span>총 평점</span>
@@ -198,7 +187,8 @@
               </div>
               <div class="sb-trend-review-list">
                 <div class="sb-trend-review-list-item">
-                  <div class="sb-trend-review-list-item__title">
+                  <div class="sb-trend-review-list-item__title text-success">
+                    <IconEtcFaceSuccess class="ico-etc-face-success" />
                     <h6>긍정 리뷰 요약</h6>
                   </div>
                   <p>
@@ -207,6 +197,32 @@
                     편리한 무게대부분의 고 객들이 이 제품을 선물로 구매하였으며,
                     수신자들이 만족했다는 리뷰가 많습니다. 그리고 제품의 귀여움,
                     이동이 편리한 무게도 장점입니다.
+                  </p>
+                </div>
+                <div class="sb-trend-review-list-item">
+                  <div class="sb-trend-review-list-item__title text-danger">
+                    <IconEtcFaceDanger class="ico-etc-face-danger" />
+                    <h6>부정 리뷰 요약</h6>
+                  </div>
+                  <p>
+                    주로 제품의 충전 문제와 배송 문제를 지적하고 있습니다. 충전
+                    시간이 짧다는 불만과 충전이 아예 되지 않는 문제가
+                    있었습니다. 주로 제품의 충전 문 제와 배송 문제를 지적하고
+                    있습니다. 충전 시간이 짧다는 불만과 충전이 아예 되지 않는
+                    문제가 있었습니다.
+                  </p>
+                </div>
+                <div class="sb-trend-review-list-item">
+                  <div class="sb-trend-review-list-item__title text-warn">
+                    <IconEtcFaceWarn class="ico-etc-face-warn" />
+                    <h6>이런 점을 개선하면 더 좋을 것 같아요.</h6>
+                  </div>
+                  <p>
+                    우선 제품의 품질에 관한 문제를 개선하시는 점이 중요합니다.
+                    충전 시간과 충전 문제 등이 이 제품의 큰 하자로 지적되고
+                    있습니다. 우선 제품의 품질 에 관한 문제를 개선하시는 점이
+                    중요합니다. 충전 시간과 충전 문제 등이 이 제품의 큰 하자로
+                    지적되고 있습니다.
                   </p>
                 </div>
               </div>
@@ -218,17 +234,22 @@
                 <h5>추천 키워드</h5>
               </div>
               <div class="sb-trend-keyword-list">
-                <div
+                <NuxtLink
+                  to="/"
                   v-for="item in keywords"
                   :key="item.id"
                   class="sb-trend-keyword-list-item"
                 >
                   <p>{{ item.name }}</p>
                   <span>{{ item.category }}</span>
-                </div>
+                </NuxtLink>
               </div>
             </div>
           </div>
+        </div>
+        <div class="sb-trend-detail__info-text">
+          상품 등록부터 판매 관리, 키워드 경쟁력까지 한 번에 수익으로 연결할 수
+          있는 방법을 분석 및 추천해드릴께요.
         </div>
         <div class="grid">
           <div class="col">
@@ -236,20 +257,16 @@
               <div class="sb-trend-evaluation-item">
                 <div class="sb-trend-evaluation-head">
                   <h5>상품 분석 평가</h5>
-                  <p>
-                    상품 등록부터 판매 관리, 키워드 경쟁력까지 한 번에 수익으로
-                    연결할 수 있는 방법을 분석 및 추천해드릴께요.
-                  </p>
                 </div>
                 <div class="sb-trend-evaluation-chart">
                   <div class="sb-trend-evaluation-chart-item">
                     <SbChartGaugeFace :score="95" label="상품 등록" />
                   </div>
                   <div class="sb-trend-evaluation-chart-item">
-                    <SbChartGaugeFace :score="60" label="판매 관리" />
+                    <SbChartGaugeFace :score="50" label="판매 관리" />
                   </div>
                   <div class="sb-trend-evaluation-chart-item">
-                    <SbChartGaugeFace :score="10" label="정산 현황" />
+                    <SbChartGaugeFace :score="30" label="키워드" />
                   </div>
                 </div>
               </div>
@@ -264,11 +281,16 @@
                     :key="index"
                     :item="item"
                   >
-                    <Badge value="사용방법" severity="success"></Badge>
-                    <p>
-                      <strong>{{ item.title }}</strong>
-                      <span>{{ item.text }}</span>
-                    </p>
+                    <Badge
+                      :value="item.badge.value"
+                      :severity="item.badge.severity"
+                    ></Badge>
+                    <dl>
+                      <dt>{{ item.title }}</dt>
+                      <dd>
+                        {{ item.text }}
+                      </dd>
+                    </dl>
                   </div>
                 </div>
               </div>
@@ -283,11 +305,16 @@
                     :key="index"
                     :item="item"
                   >
-                    <Badge value="사용방법" severity="success"></Badge>
-                    <p>
-                      <strong>{{ item.title }}</strong>
-                      <span>{{ item.text }}</span>
-                    </p>
+                    <Badge
+                      :value="item.badge.value"
+                      :severity="item.badge.severity"
+                    ></Badge>
+                    <dl>
+                      <dt>{{ item.title }}</dt>
+                      <dd>
+                        {{ item.text }}
+                      </dd>
+                    </dl>
                   </div>
                 </div>
               </div>
@@ -302,16 +329,27 @@
                     :key="index"
                     :item="item"
                   >
-                    <Badge value="사용방법" severity="success"></Badge>
-                    <p>
-                      <strong>{{ item.title }}</strong>
-                      <span>{{ item.text }}</span>
-                    </p>
+                    <Badge
+                      :value="item.badge.value"
+                      :severity="item.badge.severity"
+                    ></Badge>
+                    <dl>
+                      <dt>{{ item.title }}</dt>
+                      <dd>
+                        {{ item.text }}
+                      </dd>
+                    </dl>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="sb-banner">
+          <NuxtLink to="/">
+            <img src="/temp/banner.png" alt="" />
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -320,7 +358,10 @@
 
 <script setup>
 import { ref } from 'vue';
-import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
+import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
+import IconEtcFaceSuccess from '@/assets/icons/etc/face-success.svg?component';
+import IconEtcFaceWarn from '@/assets/icons/etc/face-warn.svg?component';
+import IconEtcFaceDanger from '@/assets/icons/etc/face-danger.svg?component';
 
 //breadcrumb
 const breadcrumb = ref([
@@ -328,6 +369,16 @@ const breadcrumb = ref([
   { label: '마켓 트렌드' },
   { label: '상품 분석' },
 ]);
+
+//popover
+const popoverScore = ref();
+const togglePopover = (event) => {
+  if (event.type === 'mouseenter') {
+    popoverScore.value.show(event);
+  } else {
+    popoverScore.value.hide();
+  }
+};
 
 const searchKeyword = ref('');
 
@@ -392,6 +443,38 @@ const products = ref([
 const productsNodata = ref(null);
 
 //
+const keywordList = [
+  {
+    keyword: '두존쿠',
+    searchVol: '896,000건',
+    productCount: '19,327개',
+    competition: 6.05,
+  },
+  {
+    keyword: '카다이프',
+    searchVol: '449,700건',
+    productCount: '1,671개',
+    competition: 0.41,
+  },
+  {
+    keyword: '피스타치오',
+    searchVol: '113,700건',
+    productCount: '1,412개',
+    competition: 0.26,
+  },
+  {
+    keyword: '몬트쿠키',
+    searchVol: '102,580건',
+    productCount: '121개',
+    competition: 0.02,
+  },
+  {
+    keyword: '몬트쿠키', // 이미지 최하단에 중복 혹은 유사 키워드로 살짝 걸쳐 있는 데이터
+    searchVol: '51,580건',
+    productCount: '62,221개',
+    competition: 0.07,
+  },
+];
 const keywords = [
   { id: 1, name: '위스키테이스팅잔', category: '유리컵' },
   { id: 2, name: '싱글몰트잔', category: '도구' },
@@ -403,25 +486,25 @@ const keywords = [
 ];
 const list01 = ref([
   {
-    status: 'danger',
+    badge: { value: '위험', severity: 'danger' },
     title:
       '상품정보 제공고시에 미입력으로 자동입력된 "상세페이지 참조" 등을 5개 이상 수정하여 실제 정보를 입력해주세요.',
     text: '네이버쇼핑 1페이지 판매 상위 상품들의 65.44%는 상세 미표기를 5개 이하로 가지고 있습니다.특히 브랜드/제조사는 상품노출에 중요한 데이터입니다.',
   },
   {
-    status: 'danger',
+    badge: { value: '위험', severity: 'danger' },
     title:
       '상세페이지의 이미지 개수가 3개 이하 입니다. 이미지를 분할하여 느린 로딩화면을 방지해주세요.',
     text: '인테리어소품 카테고리의 네이버쇼핑 1페이지 판매 상위 상품의 평균 상세페이지 이미지 분할 수는 33.3개입니다.',
   },
   {
-    status: 'danger',
+    badge: { value: '위험', severity: 'danger' },
     title:
       '상품 할인율에 20%이 적용되어 있습니다. 기본가가 고정된 상품이 아니라면 고객이 메리트를 느낄 수 있는 기본가/할인가를 구성하세요.',
     text: '인테리어소품 카테고리의 네이버쇼핑 1페이지 판매 상위 상품들의 평균 할인율은 58.5% 입니다.',
   },
   {
-    status: 'danger',
+    badge: { value: '위험', severity: 'danger' },
     title:
       '상세페이지의 각 이미지 사이 설명 문구가 3개 이하 입니다. 이미지를 설명할 간단한 설명구를 추가하세요.',
     text: '인테리어소품 카테고리의 네이버쇼핑 1페이지 판매 상위 상품들은 각 이미지 사이 평균 13.4구간 설명문구를 작성했습니다.',
@@ -429,7 +512,7 @@ const list01 = ref([
 ]);
 const list02 = ref([
   {
-    status: 'danger',
+    badge: { value: '위험', severity: 'danger' },
     title:
       '최근 리뷰 5개 중 판매자 답변이 없습니다. 이 항목은 리뷰 답변이 하나라도 있는지만을 구분합니다.',
     text: '판매자답변은 재구매와 브랜드 신뢰성, 바이럴 마케팅에 좋은 영향을 줄 수 있습니다.',
@@ -437,13 +520,13 @@ const list02 = ref([
 ]);
 const list03 = ref([
   {
-    status: 'danger',
+    badge: { value: '위험', severity: 'danger' },
     title:
       '제목 키워드와 태그에서 3개 이상의 동일한 키워드를 발견했습니다. 태그에는 상품의 소재, 연관 키워드를 사용하여 추가로 검색될 확률을 높이세요.',
     text: '네이버쇼핑 1페이지 상위 상품들의 중복 키워드는 평균 0.64개로 1개이상 겹치지 않습니다.',
   },
   {
-    status: 'danger',
+    badge: { value: '위험', severity: 'danger' },
     title:
       '제목에 키워드가 12개 배치되어 있습니다. 최근 플랫폼의 상품명 간소화 지향으로 50자 이하, 키워드 7개 이하가 노출에 유리합니다.',
     text: '판매자답변은 재구매와 브랜드 신뢰성, 바이럴 마케팅에 좋은 영향을 줄 수 있습니다.',

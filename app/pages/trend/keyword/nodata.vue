@@ -1,8 +1,9 @@
 <template>
+  <SbMobileInfo />
   <div class="sb-trend">
     <div class="sb-trend-head">
       <div class="sb-trend-head__title">
-        <h5>마켓 트렌드</h5>
+        <h5>키워드 분석</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>
@@ -86,11 +87,19 @@
         </div>
         <div class="sb-table">
           <DataTable
+            v-scroll-end
             :value="keywordList"
             responsiveLayout="scroll"
             removableSort
+            scrollable
           >
-            <Column field="ranking" header="랭킹" style="width: 80px">
+            <Column
+              field="ranking"
+              header="랭킹"
+              style="width: 80px"
+              headerClass="text-center"
+              bodyClass="text-center"
+            >
               <template #body="slotProps">
                 <span v-html="slotProps.data.ranking"></span>
               </template>
@@ -120,8 +129,8 @@
               field="influence"
               header="영향력"
               sortable
-              headerClass="text-right"
-              bodyClass="text-right"
+              headerClass="text-center"
+              bodyClass="text-center"
               style="width: 150px"
             >
               <template #body="slotProps">
@@ -133,8 +142,8 @@
               header="평균가"
               sortable
               style="width: 150px"
-              headerClass="text-right"
-              bodyClass="text-right"
+              headerClass="text-center"
+              bodyClass="text-center"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.avgPrice"></span>
@@ -196,19 +205,21 @@
               style="width: 150px"
             >
               <template #header>
-                <div
-                  class="sb-table-header-title"
-                  @mouseenter="togglePopover"
-                  @mouseleave="togglePopover"
-                >
+                <div class="sb-table-header-title">
                   <span
                     class="p-datatable-column-title"
                     data-pc-section="columntitle"
                     >경쟁강도</span
                   >
-                  <IconSystemInformationCircle
-                    class="ico-system-information-circle"
-                  />
+                  <div
+                    class="sb-table-header-title__icon"
+                    @mouseenter="togglePopover"
+                    @mouseleave="togglePopover"
+                  >
+                    <IconSystemInformationCircle
+                      class="ico-system-information-circle"
+                    />
+                  </div>
                 </div>
               </template>
               <template #body="slotProps">
@@ -254,9 +265,11 @@
         </div>
         <div class="sb-table">
           <DataTable
+            v-scroll-end
             :value="favoriteList"
             responsiveLayout="scroll"
             removableSort
+            scrollable
           >
             <Column field="keyword" header="키워드" style="width: 160px">
               <template #body="slotProps">
@@ -284,6 +297,8 @@
               header="카테고리"
               sortable
               style="width: 160px"
+              headerClass="text-center"
+              bodyClass="text-center"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.category"></span>
@@ -368,19 +383,21 @@
               style="width: 150px"
             >
               <template #header>
-                <div
-                  class="sb-table-header-title"
-                  @mouseenter="togglePopover"
-                  @mouseleave="togglePopover"
-                >
+                <div class="sb-table-header-title">
                   <span
                     class="p-datatable-column-title"
                     data-pc-section="columntitle"
                     >경쟁강도</span
                   >
-                  <IconSystemInformationCircle
-                    class="ico-system-information-circle"
-                  />
+                  <div
+                    class="sb-table-header-title__icon"
+                    @mouseenter="togglePopover"
+                    @mouseleave="togglePopover"
+                  >
+                    <IconSystemInformationCircle
+                      class="ico-system-information-circle"
+                    />
+                  </div>
                 </div>
               </template>
               <template #body="slotProps">
@@ -418,6 +435,21 @@
           </DataTable>
         </div>
       </div>
+      <Popover
+        ref="popoverScore"
+        :pt="{
+          root: {
+            class: 'p-popover-flipped sb-table-popover',
+          },
+        }"
+      >
+        <SbLegend />
+      </Popover>
+      <div class="sb-banner">
+        <NuxtLink to="/">
+          <img src="/temp/banner.png" alt="" />
+        </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
@@ -437,23 +469,28 @@ const breadcrumb = ref([
   { label: '키워드 분석' },
 ]);
 
-//
-const searchKeyword = ref('');
+//popover
+const popoverScore = ref();
+const togglePopover = (event) => {
+  if (event.type === 'mouseenter') {
+    popoverScore.value.show(event);
+  } else {
+    popoverScore.value.hide();
+  }
+};
 
-//
+//검색
+const searchKeyword = ref('');
 const selectedValue = ref();
 const selectedOption = ref([
-  { name: '스팸홍보/도배글입니다.' },
-  { name: '음란물입니다.' },
-  { name: '불법정보를 포함하고 있습니다.' },
-  { name: '청소년에게 유해한 내용입니다.' },
-  { name: '욕설/혐오/차별적 표현입니다.' },
-  { name: '개인정보 노출 게시물입니다.' },
-  { name: '블퀘한 표현이 있습니다.' },
-  { name: '기타 (기타 사유를 입력해주세요.)' },
+  { name: '패션의류' },
+  { name: '화장품/미용' },
+  { name: '가구/인테리어' },
+  { name: '식품' },
+  { name: '생활/건강' },
 ]);
 
-//
+//최근 검색어
 const keywords = ref([
   { id: 1, label: '스텐리' },
   { id: 2, label: '유니클로' },
@@ -463,10 +500,10 @@ const keywords = ref([
   { id: 6, label: '피스타치오스프레드' },
 ]);
 
-//
+//키워드 목록
 const keywordList = ref([]);
 
-//
+//나의 관심 키워드
 const favoriteList = ref([]);
 
 // 검색어 개별 삭제

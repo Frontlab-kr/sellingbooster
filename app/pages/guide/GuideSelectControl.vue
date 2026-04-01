@@ -997,7 +997,7 @@
                           label="Chip"
                           removable
                           size="large"
-                          severity="success"
+                          severity="secondary"
                         />
                         <Chip
                           label="Chip"
@@ -1226,7 +1226,7 @@
         </div>
         <div class="sb-guide-item">
           <div class="sb-guide-item-head">
-            <h2>Input Chip_light</h2>
+            <h2>Input Chip_dark</h2>
             <h5>선택, 입력된 값이 보여지고 값을 삭제할 수 있습니다.</h5>
           </div>
           <div class="sb-guide-table">
@@ -1268,7 +1268,7 @@
                           label="Chip"
                           removable
                           size="large"
-                          severity="success"
+                          severity="secondary"
                         />
                         <Chip
                           label="Chip"

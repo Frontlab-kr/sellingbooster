@@ -90,3 +90,29 @@ $BreakpointMd: 1024px;
     background-color: $hover-color;
   }
 }
+
+@mixin custom-scrollbar-blur($height: 50px, $bg-color: #ffffff) {
+  position: relative; // 부모 요소에 position 기준점 설정
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: $height;
+
+    // 그라데이션: 투명도 0에서 설정한 배경색으로 변함
+    background: linear-gradient(180deg, rgba($bg-color, 0) 0%, $bg-color 100%);
+
+    // 블러 효과
+    backdrop-filter: blur(0.5px);
+
+    // 클릭 이벤트가 하단 요소에 전달되도록 설정 (필요 시)
+    pointer-events: none;
+    z-index: 50;
+
+    //transition: all 0.2s ease;
+  }
+}
