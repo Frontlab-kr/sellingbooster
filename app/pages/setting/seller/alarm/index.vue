@@ -186,7 +186,7 @@ const alarmItems = ref([
   {
     id: 2,
     category: '서비스',
-    severity: 'info',
+    severity: 'secondary',
     date: '2026.01.14',
     title: '2026.03.071(월) 시스템 정기 점검 안내',
   },
@@ -200,14 +200,14 @@ const alarmItems = ref([
   {
     id: 4,
     category: '서비스',
-    severity: 'info',
+    severity: 'secondary',
     date: '2026.01.14',
     title: '이용제한 게시물 유형 안내',
   },
   {
     id: 5,
     category: '서비스',
-    severity: 'info',
+    severity: 'secondary',
     date: '2026.01.14',
     title: '셀링부스터 멤버십 혜택 업그레이드 방법 및 가격 안내',
   },
@@ -242,7 +242,7 @@ const alarmItems = ref([
   {
     id: 10,
     category: '서비스',
-    severity: 'info',
+    severity: 'secondary',
     date: '2026.01.14',
     title: '[긴급] 이용제한 게시물 유형 안내',
   },

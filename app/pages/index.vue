@@ -60,6 +60,17 @@
           <div class="flex flex-column gap-2">
             <NuxtLink to="/trend/recommend/">추천기회</NuxtLink>
             <NuxtLink to="/trend/recommend/nodata">추천기회 Nodata</NuxtLink>
+            <NuxtLink to="/trend/recommend/write"
+              >추천기회 상품명 생성하기</NuxtLink
+            >
+            <NuxtLink to="/trend/recommend/ranking">나의 랭킹 찾기</NuxtLink>
+            <NuxtLink to="/trend/recommend/ranking/result"
+              >나의 랭킹 찾기 결과</NuxtLink
+            >
+            <NuxtLink to="/trend/recommend/ranking/nodata"
+              >나의 랭킹 찾기 Nodata</NuxtLink
+            >
+
             <NuxtLink to="/trend/keyword/">키워드 분석</NuxtLink>
             <NuxtLink to="/trend/keyword/nodata">키워드 분석 Nodata</NuxtLink>
             <NuxtLink to="/trend/keyword/detail">키워드 분석 상세</NuxtLink>
@@ -74,13 +85,13 @@
         </template>
       </Card>
     </div>
-    <!-- 
+
     <div>
       <h5>판매 가속</h5>
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
-            <NuxtLink to="/sales/detail">가격실행</NuxtLink>
+            <NuxtLink to="/sales/price">가격실행</NuxtLink>
           </div>
         </template>
       </Card>
@@ -97,7 +108,7 @@
           </div>
         </template>
       </Card>
-    </div> -->
+    </div>
 
     <div>
       <h5>커뮤니티</h5>
@@ -134,6 +145,11 @@
             <NuxtLink to="/community/board/empty"
               >자유게시판 SearchEmpty</NuxtLink
             >
+
+            <NuxtLink to="/community/blog/">블로그</NuxtLink>
+            <NuxtLink to="/community/blog/view">블로그 상세</NuxtLink>
+
+            <NuxtLink to="/community/ktrend">K-trend</NuxtLink>
           </div>
         </template>
       </Card>

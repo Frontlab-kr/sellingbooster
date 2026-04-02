@@ -9,7 +9,7 @@
     <div class="sb-notice-view">
       <div class="sb-notice-view__head">
         <div class="sb-notice-view__badge">
-          <Badge value="기본" severity="secondary"></Badge>
+          <Badge value="기본" severity="neutral"></Badge>
         </div>
         <div class="sb-notice-view__title">
           <h6>국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내</h6>

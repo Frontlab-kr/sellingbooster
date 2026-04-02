@@ -78,7 +78,7 @@ const list = ref([
     title: '대시보드 메인 화면의 위젯 위치를 제 취향대로 바꿀 수 있나요?',
   },
   {
-    badge: { value: '가입방법', severity: 'info' },
+    badge: { value: '가입방법', severity: 'secondary' },
     title: '개인 사업자에서 법인 사업자로 전환할 때 필요한 서류는 무엇인가요?',
   },
   {
@@ -86,7 +86,7 @@ const list = ref([
     title: "'성장스토리'는 어떤 데이터를 기반으로 분석해주나요?",
   },
   {
-    badge: { value: '가입방법', severity: 'info' },
+    badge: { value: '가입방법', severity: 'secondary' },
     title: '하나의 계정으로 여러 개의 쇼핑몰을 연동해서 관리할 수 있나요?',
   },
   {
@@ -98,7 +98,7 @@ const list = ref([
     title: '정산 예정 금액과 실제 입금액이 다른데 어디서 상세 내역을 보나요?',
   },
   {
-    badge: { value: '가입방법', severity: 'info' },
+    badge: { value: '가입방법', severity: 'secondary' },
     title:
       '회원 가입 시 휴대폰 본인 인증이 자꾸 실패하는데 해결 방법이 있을까요?',
   },
@@ -107,7 +107,7 @@ const list = ref([
     title: '모바일 웹에서도 PC와 동일한 모든 기능을 사용할 수 있나요?',
   },
   {
-    badge: { value: '가입방법', severity: 'info' },
+    badge: { value: '가입방법', severity: 'secondary' },
     title: '개인 사업자에서 법인 사업자로 전환할 때 필요한 서류는 무엇인가요?',
   },
   {

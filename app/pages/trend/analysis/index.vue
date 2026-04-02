@@ -366,15 +366,6 @@
         </div>
       </div>
 
-      <div class="sb-trend-button" v-if="currentTab === 'category'">
-        <NuxtLink to="/">
-          <Button severity="primary" outlined>
-            <IconArrowLeft class="ico-arrow-left" />
-            <span class="p-button-label">목록으로</span>
-          </Button>
-        </NuxtLink>
-      </div>
-
       <Popover
         ref="popoverScore"
         :pt="{
@@ -386,11 +377,7 @@
         <SbLegend />
       </Popover>
 
-      <div class="sb-banner">
-        <NuxtLink to="/">
-          <img src="/temp/banner.png" alt="" />
-        </NuxtLink>
-      </div>
+      <SbBanner />
     </div>
   </div>
 </template>

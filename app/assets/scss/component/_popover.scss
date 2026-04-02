@@ -2,14 +2,14 @@
 
 :root,
 :host {
-  --p-popover-content-padding: 9px 20px 11px 20px;
-  --p-popover-background: var(--p-gray-00);
+  --p-popover-content-padding: 12px 16px;
+  --p-popover-background: var(--p-overlay-popover-background);
   --p-popover-border-color: var(--p-gray-300);
-  --p-popover-color: var(--p-gray-700);
-  --p-popover-border-radius: 50px;
-  --p-popover-shadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
-  --p-popover-gutter: 12px;
-  --p-popover-arrow-offset: 17px;
+  --p-popover-color: var(--p-overlay-popover-color);
+  --p-popover-border-radius: 16px;
+  --p-popover-shadow: none;
+  --p-popover-gutter: 10px;
+  --p-popover-arrow-offset: 1.25rem;
 }
 
 .p-popover {
@@ -19,11 +19,19 @@
   border: 1px solid var(--p-popover-border-color);
   border-radius: var(--p-popover-border-radius);
   box-shadow: var(--p-popover-shadow);
-  //will-change: transform;
+  will-change: transform;
 }
 
 .p-popover-content {
   padding: var(--p-popover-content-padding);
+
+  color: var(--Text_Light-900---mian, #1b1f27);
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%; /* 16.8px */
+  letter-spacing: -0.3px;
 }
 
 .p-popover-flipped {
@@ -35,8 +43,6 @@
 .p-popover:before {
   bottom: 100%;
   left: calc(var(--p-popover-arrow-offset) + var(--p-popover-arrow-left));
-  left: auto;
-  right: 22px;
   content: ' ';
   height: 0;
   width: 0;
@@ -47,8 +53,6 @@
 .p-popover:after {
   border-width: calc(var(--p-popover-gutter) - 2px);
   margin-left: calc(-1 * (var(--p-popover-gutter) - 2px));
-  margin: 0;
-  right: 24px;
   border-style: solid;
   border-color: transparent;
   border-bottom-color: var(--p-popover-background);

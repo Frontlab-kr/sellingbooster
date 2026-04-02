@@ -63,7 +63,7 @@ const list = ref([
     attachment: true,
   },
   {
-    badge: { value: '기술', severity: 'info' },
+    badge: { value: '기술', severity: 'secondary' },
     title: '알림 기능 오류 안내',
     date: '2026.01.14',
     attachment: false,

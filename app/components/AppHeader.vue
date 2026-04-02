@@ -221,7 +221,17 @@ const menu01 = ref([
       { label: '분석 결과', route: '/trend/analysis' },
     ],
   },
-  { key: 'execution', label: '판매 가속', icon: IconSnbStar, route: '/sales' },
+  {
+    key: 'execution',
+    label: '판매 가속',
+    icon: IconSnbStar,
+    route: '/sales',
+    items: [
+      { label: '가격 실행', route: '/sales/price' },
+      { label: 'CS 센터', route: '/sales/cs' },
+      { label: '상품명 점검', route: '/sales/product' },
+    ],
+  },
   {
     key: 'performance',
     label: '성장 리포트',

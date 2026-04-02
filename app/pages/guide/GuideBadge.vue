@@ -41,9 +41,10 @@
                 <Badge value="Badge" severity="danger"></Badge>
                 <Badge value="Badge" severity="warn"></Badge>
                 <Badge value="Badge" severity="success"></Badge>
-                <Badge value="Badge" severity="info"></Badge>
                 <Badge value="Badge" severity="secondary"></Badge>
+                <Badge value="Badge" severity="neutral"></Badge>
                 <Badge value="Badge" severity="contrast"></Badge>
+                <Badge value="Badge" severity="info"></Badge>
               </div>
             </div>
             <div class="sb-guide-item-subbox-item p-dark">
@@ -51,9 +52,10 @@
                 <Badge value="Badge" severity="danger"></Badge>
                 <Badge value="Badge" severity="warn"></Badge>
                 <Badge value="Badge" severity="success"></Badge>
-                <Badge value="Badge" severity="info"></Badge>
                 <Badge value="Badge" severity="secondary"></Badge>
+                <Badge value="Badge" severity="neutral"></Badge>
                 <Badge value="Badge" severity="contrast"></Badge>
+                <Badge value="Badge" severity="info"></Badge>
               </div>
             </div>
           </div>
@@ -81,8 +83,8 @@
                 <div class="sb-guide-item-subbox-item-contents">
                   <Badge value="긴급" severity="danger"></Badge>
                   <Badge value="중요" severity="warn"></Badge>
-                  <Badge value="기술" severity="info"></Badge>
-                  <Badge value="기본" severity="secondary"></Badge>
+                  <Badge value="기술" severity="secondary"></Badge>
+                  <Badge value="기본" severity="neutral"></Badge>
                   <Badge value="기타" severity="contrast"></Badge>
                 </div>
               </div>
@@ -90,8 +92,8 @@
                 <div class="sb-guide-item-subbox-item-contents">
                   <Badge value="긴급" severity="danger"></Badge>
                   <Badge value="중요" severity="warn"></Badge>
-                  <Badge value="기술" severity="info"></Badge>
-                  <Badge value="기본" severity="secondary"></Badge>
+                  <Badge value="기술" severity="secondary"></Badge>
+                  <Badge value="기본" severity="neutral"></Badge>
                   <Badge value="기타" severity="contrast"></Badge>
                 </div>
               </div>
@@ -102,16 +104,58 @@
             <div class="sb-guide-item-subbox">
               <div class="sb-guide-item-subbox-item">
                 <div class="sb-guide-item-subbox-item-contents">
-                  <Badge value="가입방법" severity="info"></Badge>
+                  <Badge value="가입방법" severity="secondary"></Badge>
                   <Badge value="기능소개" severity="warn"></Badge>
                   <Badge value="사용방법" severity="success"></Badge>
                 </div>
               </div>
               <div class="sb-guide-item-subbox-item p-dark">
                 <div class="sb-guide-item-subbox-item-contents">
-                  <Badge value="가입방법" severity="info"></Badge>
+                  <Badge value="가입방법" severity="secondary"></Badge>
                   <Badge value="기능소개" severity="warn"></Badge>
                   <Badge value="사용방법" severity="success"></Badge>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sb-guide-item-sub">
+            <h6>적용 범위_환경설정 알림 관리</h6>
+            <div class="sb-guide-item-subbox">
+              <div class="sb-guide-item-subbox-item">
+                <div class="sb-guide-item-subbox-item-contents">
+                  <Badge value="공지" severity="warn"></Badge>
+                  <Badge value="서비스" severity="secondary"></Badge>
+                  <Badge value="시스템" severity="contrast"></Badge>
+                </div>
+              </div>
+              <div class="sb-guide-item-subbox-item p-dark">
+                <div class="sb-guide-item-subbox-item-contents">
+                  <Badge value="공지" severity="warn"></Badge>
+                  <Badge value="서비스" severity="secondary"></Badge>
+                  <Badge value="시스템" severity="contrast"></Badge>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sb-guide-item-sub">
+            <h6>적용 범위_경쟁강도</h6>
+            <div class="sb-guide-item-subbox">
+              <div class="sb-guide-item-subbox-item">
+                <div class="sb-guide-item-subbox-item-contents">
+                  <Badge value="최고" severity="success"></Badge>
+                  <Badge value="좋음" severity="secondary"></Badge>
+                  <Badge value="보통" severity="info"></Badge>
+                  <Badge value="낮음" severity="warn"></Badge>
+                  <Badge value="최저" severity="danger"></Badge>
+                </div>
+              </div>
+              <div class="sb-guide-item-subbox-item p-dark">
+                <div class="sb-guide-item-subbox-item-contents">
+                  <Badge value="최고" severity="success"></Badge>
+                  <Badge value="좋음" severity="secondary"></Badge>
+                  <Badge value="보통" severity="info"></Badge>
+                  <Badge value="낮음" severity="warn"></Badge>
+                  <Badge value="최저" severity="danger"></Badge>
                 </div>
               </div>
             </div>

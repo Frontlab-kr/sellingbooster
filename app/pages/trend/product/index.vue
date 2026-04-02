@@ -341,11 +341,7 @@
       >
         <SbLegend />
       </Popover>
-      <div class="sb-banner">
-        <NuxtLink to="/">
-          <img src="/temp/banner.png" alt="" />
-        </NuxtLink>
-      </div>
+      <SbBanner />
     </div>
   </div>
 </template>

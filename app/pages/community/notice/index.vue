@@ -63,7 +63,7 @@ const list = ref([
     attachment: false,
   },
   {
-    badge: { value: '기본', severity: 'secondary' },
+    badge: { value: '기본', severity: 'neutral' },
     title:
       '국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내',
     date: '2026.01.14',
@@ -76,7 +76,7 @@ const list = ref([
     attachment: true,
   },
   {
-    badge: { value: '기술', severity: 'info' },
+    badge: { value: '기술', severity: 'secondary' },
     title: '네이버 로그인 기능 오류 안내',
     date: '2026.01.14',
     attachment: true,
@@ -100,7 +100,7 @@ const list = ref([
     attachment: true,
   },
   {
-    badge: { value: '기술', severity: 'info' },
+    badge: { value: '기술', severity: 'secondary' },
     title: '네이버 로그인 기능 오류 안내',
     date: '2026.01.14',
     attachment: true,
@@ -118,7 +118,7 @@ const list = ref([
     attachment: false,
   },
   {
-    badge: { value: '기본', severity: 'secondary' },
+    badge: { value: '기본', severity: 'neutral' },
     title: '국가정보자원관리원 화재로 인한 일부 서비스 복구 완료 안내',
     date: '2026.01.14',
     attachment: true,

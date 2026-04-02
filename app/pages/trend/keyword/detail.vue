@@ -737,9 +737,7 @@
             </div>
           </div>
         </div>
-        <div class="sb-banner">
-          <img src="/temp/banner.png" alt="" />
-        </div>
+        <SbBanner />
       </div>
     </div>
   </div>
@@ -1049,7 +1047,7 @@ const keywordList = ref([
 const top20List = ref([
   {
     rank: 1,
-    imgSrc: '/temp/top1.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '덴프스',
     mall: '네이버쇼핑',
     title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
@@ -1057,7 +1055,7 @@ const top20List = ref([
   },
   {
     rank: 2,
-    imgSrc: '/temp/top2.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '덴프스',
     mall: '네이버쇼핑',
     title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
@@ -1065,7 +1063,7 @@ const top20List = ref([
   },
   {
     rank: 3,
-    imgSrc: '/temp/top3.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '덴프스',
     mall: '네이버쇼핑',
     title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
@@ -1073,7 +1071,7 @@ const top20List = ref([
   },
   {
     rank: 4,
-    imgSrc: '/temp/top4.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '덴프스',
     mall: '네이버쇼핑',
     title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
@@ -1081,7 +1079,7 @@ const top20List = ref([
   },
   {
     rank: 5,
-    imgSrc: '/temp/top5.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '덴프스',
     mall: '네이버쇼핑',
     title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
@@ -1089,7 +1087,7 @@ const top20List = ref([
   },
   {
     rank: 6,
-    imgSrc: '/temp/top6.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '덴프스',
     mall: '네이버쇼핑',
     title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
@@ -1097,7 +1095,7 @@ const top20List = ref([
   },
   {
     rank: 7,
-    imgSrc: '/temp/top7.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '덴프스',
     mall: '네이버쇼핑',
     title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
@@ -1105,7 +1103,7 @@ const top20List = ref([
   },
   {
     rank: 8,
-    imgSrc: '/temp/top8.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '덴프스',
     mall: '네이버쇼핑',
     title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
@@ -1113,7 +1111,7 @@ const top20List = ref([
   },
   {
     rank: 9,
-    imgSrc: '/temp/top9.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '덴프스',
     mall: '네이버쇼핑',
     title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
@@ -1121,7 +1119,7 @@ const top20List = ref([
   },
   {
     rank: 10,
-    imgSrc: '/temp/top9.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '덴프스',
     mall: '네이버쇼핑',
     title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',

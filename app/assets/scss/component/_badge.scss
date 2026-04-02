@@ -18,54 +18,61 @@
   --p-badge-font-weight: 700;
   --p-badge-min-width: 1.5rem;
   --p-badge-height: 24px;
-  --p-badge-contrast-border-color: var(--p-gray-300);
-  --p-badge-contrast-background: var(--p-gray-100);
-  --p-badge-contrast-color: var(--p-gray-500);
-  --p-badge-contrast-filled-border-color: var(--p-gray-400);
-  --p-badge-contrast-filled-background: var(--p-gray-400);
-  --p-badge-contrast-filled-color: var(--p-gray-00);
   --p-badge-danger-border-color: var(--p-red-100);
   --p-badge-danger-background: var(--p-red-50);
   --p-badge-danger-color: var(--p-red-500);
   --p-badge-warn-border-color: var(--p-orange-200);
   --p-badge-warn-background: var(--p-orange-50);
   --p-badge-warn-color: var(--p-orange-900);
-  --p-badge-info-border-color: var(--p-slate-100);
-  --p-badge-info-background: var(--p-slate-50);
-  --p-badge-info-color: var(--p-slate-500);
   --p-badge-success-border-color: var(--p-green-100);
   --p-badge-success-background: var(--p-green-50);
   --p-badge-success-color: var(--p-green-500);
-  --p-badge-secondary-border-color: var(--p-gray-300);
-  --p-badge-secondary-background: var(--p-gray-00);
-  --p-badge-secondary-color: var(--p-gray-500);
+  --p-badge-secondary-border-color: var(--p-slate-100);
+  --p-badge-secondary-background: var(--p-slate-50);
+  --p-badge-secondary-color: var(--p-slate-500);
+  --p-badge-neutral-border-color: var(--p-gray-300);
+  --p-badge-neutral-background: var(--p-gray-00);
+  --p-badge-neutral-color: var(--p-gray-500);
+  --p-badge-contrast-border-color: var(--p-gray-300);
+  --p-badge-contrast-background: var(--p-gray-100);
+  --p-badge-contrast-color: var(--p-gray-500);
+  --p-badge-contrast-filled-border-color: var(--p-gray-400);
+  --p-badge-contrast-filled-background: var(--p-gray-400);
+  --p-badge-contrast-filled-color: var(--p-gray-00);
+  --p-badge-info-border-color: var(--p-blue-100);
+  --p-badge-info-background: var(--p-blue-50);
+  --p-badge-info-color: var(--p-blue-500);
   --p-badge-primary-background: var(--p-primary-500);
   --p-badge-primary-color: var(--p-gray-00);
   &.p-dark,
   .p-dark {
-    --p-badge-contrast-border-color: var(--p-gray-400);
-    --p-badge-contrast-background: var(--p-gray-400);
-    --p-badge-contrast-color: var(--p-gray-700);
-    --p-badge-contrast-filled-border-color: var(--p-gray-600);
-    --p-badge-contrast-filled-background: var(--p-gray-600);
-    --p-badge-contrast-filled-color: var(--p-gray-00);
     --p-badge-danger-border-color: var(--p-red-100);
     --p-badge-danger-background: var(--p-red-100);
     --p-badge-danger-color: var(--p-red-700);
     --p-badge-warn-border-color: var(--p-orange-200);
     --p-badge-warn-background: var(--p-orange-100);
     --p-badge-warn-color: var(--p-orange-900);
-    --p-badge-info-border-color: var(--p-slate-100);
-    --p-badge-info-background: var(--p-slate-100);
-    --p-badge-info-color: var(--p-slate-900);
     --p-badge-success-border-color: var(--p-green-100);
     --p-badge-success-background: var(--p-green-100);
     --p-badge-success-color: var(--p-green-900);
-    --p-badge-secondary-border-color: var(--p-gray-200);
-    --p-badge-secondary-background: var(--p-gray-200);
-    --p-badge-secondary-color: var(--p-gray-700);
+    --p-badge-secondary-border-color: var(--p-slate-100);
+    --p-badge-secondary-background: var(--p-slate-100);
+    --p-badge-secondary-color: var(--p-slate-900);
+    --p-badge-neutral-border-color: var(--p-gray-200);
+    --p-badge-neutral-background: var(--p-gray-200);
+    --p-badge-neutral-color: var(--p-gray-700);
+    --p-badge-contrast-border-color: var(--p-gray-400);
+    --p-badge-contrast-background: var(--p-gray-400);
+    --p-badge-contrast-color: var(--p-gray-700);
+    --p-badge-contrast-filled-border-color: var(--p-gray-600);
+    --p-badge-contrast-filled-background: var(--p-gray-600);
+    --p-badge-contrast-filled-color: var(--p-gray-00);
+
     --p-badge-primary-background: var(--p-primary-300);
     --p-badge-primary-color: var(--p-gray-900);
+    --p-badge-info-border-color: var(--p-blue-100);
+    --p-badge-info-background: var(--p-blue-100);
+    --p-badge-info-color: var(--p-blue-900);
   }
 }
 
@@ -114,35 +121,40 @@
     color: var(--p-badge-contrast-filled-color);
   }
 }
-.p-badge-secondary {
-  border: 1px solid var(--p-badge-secondary-border-color);
-  background: var(--p-badge-secondary-background);
-  color: var(--p-badge-secondary-color);
-}
-.p-badge-success {
-  border: 1px solid var(--p-badge-success-border-color);
-  background: var(--p-badge-success-background);
-  color: var(--p-badge-success-color);
-}
-.p-badge-info {
-  border: 1px solid var(--p-badge-info-border-color);
-  background: var(--p-badge-info-background);
-  color: var(--p-badge-info-color);
+.p-badge-danger {
+  border: 1px solid var(--p-badge-danger-border-color);
+  background: var(--p-badge-danger-background);
+  color: var(--p-badge-danger-color);
 }
 .p-badge-warn {
   border: 1px solid var(--p-badge-warn-border-color);
   background: var(--p-badge-warn-background);
   color: var(--p-badge-warn-color);
 }
-.p-badge-danger {
-  border: 1px solid var(--p-badge-danger-border-color);
-  background: var(--p-badge-danger-background);
-  color: var(--p-badge-danger-color);
+.p-badge-success {
+  border: 1px solid var(--p-badge-success-border-color);
+  background: var(--p-badge-success-background);
+  color: var(--p-badge-success-color);
+}
+.p-badge-secondary {
+  border: 1px solid var(--p-badge-secondary-border-color);
+  background: var(--p-badge-secondary-background);
+  color: var(--p-badge-secondary-color);
+}
+.p-badge[data-p='neutral'] {
+  border: 1px solid var(--p-badge-neutral-border-color);
+  background: var(--p-badge-neutral-background);
+  color: var(--p-badge-neutral-color);
 }
 .p-badge-contrast {
   border: 1px solid var(--p-badge-contrast-border-color);
   background: var(--p-badge-contrast-background);
   color: var(--p-badge-contrast-color);
+}
+.p-badge-info {
+  border: 1px solid var(--p-badge-info-border-color);
+  background: var(--p-badge-info-background);
+  color: var(--p-badge-info-color);
 }
 .p-badge-sm {
   font-size: var(--p-badge-sm-font-size);

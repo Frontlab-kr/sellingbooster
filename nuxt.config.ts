@@ -41,7 +41,7 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'github-pages',
   },
-  modules: ['@primevue/nuxt-module', '@nuxt/content', 'nuxt-tiptap-editor'],
+  modules: ['@primevue/nuxt-module', '@nuxt/content', 'nuxt-tiptap-editor', 'nuxt-swiper'],
 
   css: ['@/assets/scss/common.scss', 'remixicon/fonts/remixicon.css'],
 

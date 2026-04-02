@@ -346,11 +346,7 @@
           </div>
         </div>
 
-        <div class="sb-banner">
-          <NuxtLink to="/">
-            <img src="/temp/banner.png" alt="" />
-          </NuxtLink>
-        </div>
+        <SbBanner />
       </div>
     </div>
   </div>
@@ -492,13 +488,13 @@ const list01 = ref([
     text: '네이버쇼핑 1페이지 판매 상위 상품들의 65.44%는 상세 미표기를 5개 이하로 가지고 있습니다.특히 브랜드/제조사는 상품노출에 중요한 데이터입니다.',
   },
   {
-    badge: { value: '위험', severity: 'danger' },
+    badge: { value: '판매', severity: 'success' },
     title:
       '상세페이지의 이미지 개수가 3개 이하 입니다. 이미지를 분할하여 느린 로딩화면을 방지해주세요.',
     text: '인테리어소품 카테고리의 네이버쇼핑 1페이지 판매 상위 상품의 평균 상세페이지 이미지 분할 수는 33.3개입니다.',
   },
   {
-    badge: { value: '위험', severity: 'danger' },
+    badge: { value: '노출', severity: 'secondary' },
     title:
       '상품 할인율에 20%이 적용되어 있습니다. 기본가가 고정된 상품이 아니라면 고객이 메리트를 느낄 수 있는 기본가/할인가를 구성하세요.',
     text: '인테리어소품 카테고리의 네이버쇼핑 1페이지 판매 상위 상품들의 평균 할인율은 58.5% 입니다.',

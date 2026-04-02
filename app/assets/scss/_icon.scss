@@ -562,6 +562,16 @@
       height: 24px;
       color: var(--p-gray-400);
     }
+    &-up {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+    }
+    &-down {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+    }
   }
 
   //action

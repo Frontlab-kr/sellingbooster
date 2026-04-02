@@ -153,6 +153,11 @@
             <IconSystemKakaotalk class="ico-system-kakaotalk" />
             <IconSystemMail class="ico-system-mail" />
             <IconSystemCopy class="ico-system-copy" />
+            <IconSystemThema class="ico-system-thema" />
+            <IconSystemDot class="ico-system-dot" />
+            <IconSystemSmartstore class="ico-system-smartstore" />
+            <IconSystemUp class="ico-system-up" />
+            <IconSystemDown class="ico-system-down" />
           </div>
         </div>
         <div class="sb-guide-item">
@@ -339,6 +344,11 @@ import IconSystemDeliveryBox from '@/assets/icons/system/delivery-box.svg?compon
 import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg?component';
 import IconSystemMail from '@/assets/icons/system/mail.svg?component';
 import IconSystemCopy from '@/assets/icons/system/copy.svg?component';
+import IconSystemThema from '@/assets/icons/system/thema.svg?component';
+import IconSystemDot from '@/assets/icons/system/dot.svg?component';
+import IconSystemSmartstore from '@/assets/icons/system/smartstore.svg?component';
+import IconSystemUp from '@/assets/icons/system/up.svg?component';
+import IconSystemDown from '@/assets/icons/system/down.svg?component';
 
 import IconActionScore from '@/assets/icons/action/score.svg?component';
 import IconActionScoreHalf from '@/assets/icons/action/score-half.svg?component';
