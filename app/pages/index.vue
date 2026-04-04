@@ -58,25 +58,31 @@
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
-            <NuxtLink to="/trend/recommend/">추천기회</NuxtLink>
+            <!-- <NuxtLink to="/trend/recommend/">추천기회</NuxtLink>
             <NuxtLink to="/trend/recommend/nodata">추천기회 Nodata</NuxtLink>
             <NuxtLink to="/trend/recommend/write"
               >추천기회 상품명 생성하기</NuxtLink
             >
-            <NuxtLink to="/trend/recommend/ranking">나의 랭킹 찾기</NuxtLink>
+            <NuxtLink to="/trend/recommend/item">추천기회 아이템 소싱</NuxtLink>
+            <NuxtLink to="/trend/recommend/ranking"
+              >추천기회 나의 랭킹 찾기</NuxtLink
+            >
             <NuxtLink to="/trend/recommend/ranking/result"
-              >나의 랭킹 찾기 결과</NuxtLink
+              >추천기회 나의 랭킹 찾기 결과</NuxtLink
             >
             <NuxtLink to="/trend/recommend/ranking/nodata"
-              >나의 랭킹 찾기 Nodata</NuxtLink
-            >
+              >추천기회 나의 랭킹 찾기 Nodata</NuxtLink
+            > -->
 
             <NuxtLink to="/trend/keyword/">키워드 분석</NuxtLink>
             <NuxtLink to="/trend/keyword/nodata">키워드 분석 Nodata</NuxtLink>
             <NuxtLink to="/trend/keyword/detail">키워드 분석 상세</NuxtLink>
-            <!-- <NuxtLink to="/trend/keyword/detail02"
-              >키워드 분석 상세 - FAQ 없는 케이스</NuxtLink
-            > -->
+            <NuxtLink to="/trend/keyword/detail02"
+              >키워드 분석 상세 미로그인</NuxtLink
+            >
+            <NuxtLink to="/trend/keyword/detail03"
+              >키워드 분석 상세 FAQ Nodata</NuxtLink
+            >
             <NuxtLink to="/trend/product/">상품 분석</NuxtLink>
             <NuxtLink to="/trend/product/nodata">상품 분석 Nodata</NuxtLink>
             <NuxtLink to="/trend/product/detail">상품 분석 상세</NuxtLink>
@@ -85,7 +91,7 @@
         </template>
       </Card>
     </div>
-
+    <!-- 
     <div>
       <h5>판매 가속</h5>
       <Card>
@@ -108,7 +114,7 @@
           </div>
         </template>
       </Card>
-    </div>
+    </div> -->
 
     <div>
       <h5>커뮤니티</h5>
@@ -145,11 +151,11 @@
             <NuxtLink to="/community/board/empty"
               >자유게시판 SearchEmpty</NuxtLink
             >
-
+            <!-- 
             <NuxtLink to="/community/blog/">블로그</NuxtLink>
             <NuxtLink to="/community/blog/view">블로그 상세</NuxtLink>
 
-            <NuxtLink to="/community/ktrend">K-trend</NuxtLink>
+            <NuxtLink to="/community/ktrend">K-trend</NuxtLink> -->
           </div>
         </template>
       </Card>

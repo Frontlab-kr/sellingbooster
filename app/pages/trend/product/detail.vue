@@ -80,25 +80,25 @@
               <div class="sb-trend-table-head">
                 <div class="sb-trend-table-head__title">
                   <h5>상위 키워드</h5>
-                  <div
-                    class="sb-trend-table-head__popover"
-                    @mouseenter="togglePopover"
-                    @mouseleave="togglePopover"
+                </div>
+                <div
+                  class="sb-trend-table-head__popover"
+                  @mouseenter="togglePopover"
+                  @mouseleave="togglePopover"
+                >
+                  <IconSystemInformationCircle
+                    class="ico-system-information-circle"
+                  />
+                  <Popover
+                    ref="popoverScore"
+                    :pt="{
+                      root: {
+                        class: 'p-popover-flipped sb-popover-score',
+                      },
+                    }"
                   >
-                    <IconSystemInformationCircle
-                      class="ico-system-information-circle"
-                    />
-                    <Popover
-                      ref="popoverScore"
-                      :pt="{
-                        root: {
-                          class: 'p-popover-flipped sb-popover-score',
-                        },
-                      }"
-                    >
-                      <SbLegend />
-                    </Popover>
-                  </div>
+                    <SbLegend />
+                  </Popover>
                 </div>
               </div>
               <div class="sb-table">
@@ -149,9 +149,9 @@
                           class="sb-legend-item"
                           :class="
                             slotProps.data.competition >= 0.8
-                              ? 'text-primary'
+                              ? 'text-success'
                               : slotProps.data.competition >= 0.6
-                                ? 'text-success'
+                                ? 'text-secondary'
                                 : slotProps.data.competition >= 0.4
                                   ? 'text-info'
                                   : slotProps.data.competition >= 0.2
@@ -247,16 +247,16 @@
             </div>
           </div>
         </div>
-        <div class="sb-trend-detail__info-text">
-          상품 등록부터 판매 관리, 키워드 경쟁력까지 한 번에 수익으로 연결할 수
-          있는 방법을 분석 및 추천해드릴께요.
-        </div>
         <div class="grid">
           <div class="col">
             <div class="sb-trend-evaluation">
               <div class="sb-trend-evaluation-item">
                 <div class="sb-trend-evaluation-head">
                   <h5>상품 분석 평가</h5>
+                  <p>
+                    상품 등록부터 판매 관리, 키워드 경쟁력까지 한 번에 수익으로
+                    연결할 수 있는 방법을 분석 및 추천해드릴께요.
+                  </p>
                 </div>
                 <div class="sb-trend-evaluation-chart">
                   <div class="sb-trend-evaluation-chart-item">

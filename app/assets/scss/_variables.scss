@@ -280,9 +280,10 @@
   --chart-doughnut-primary: var(--p-primary-500);
   --chart-doughnut-success: var(--p-slate-400);
   --chart-doughnut-info: var(--p-blue-200);
-  --chart-doughnut-warn: var(--p-orange-200);
+  --chart-doughnut-warn: var(--p-orange-500);
   --chart-doughnut-danger: var(--p-red-400);
   --chart-doughnut-border-color: var(--p-gray-00);
+  --chart-doughnut-border-color02: var(--p-gray-50);
 
   --chart-line-background: var(--p-gray-00);
   --chart-line-primary: var(--p-primary-500);
@@ -423,6 +424,7 @@
   --radio-label-color: var(--p-gray-900);
 
   //chip
+  --chip-title-color: var(--p-gray-900);
   --chip-color: var(--p-gray-400);
   --chip-border-color: var(--p-gray-300);
   --chip-active-color: var(--p-primary-500);
@@ -432,6 +434,8 @@
   --chip-primary-dot-background: var(--p-indigo-500);
   --chip-primary-border-color: var(--p-indigo-500);
   --chip-primary-background: var(--p-gray-00);
+  --chip-success-dot-background: var(--p-green-200);
+  --chip-success-background: var(--p-gray-00);
   --chip-secondary-dot-background: var(--p-slate-200);
   --chip-secondary-background: var(--p-gray-00);
   --chip-info-dot-background: var(--p-blue-200);
@@ -462,6 +466,8 @@
   --fileupload-text-color: var(--p-gray-400);
   --fileupload-icon-color: var(--p-gray-200);
   --fileupload-icon-hover-color: var(--p-gray-300);
+
+  --scroll-blur-background: var(--p-gray-00);
 
   //table
   --table-ico-system-information-circle: var(--p-gray-900);
@@ -515,11 +521,98 @@
   --story-write-form-item-border-color: var(--p-gray-300);
 
   //trend
-  --trend--background: var(--p-gray-00);
+  --trend-background: var(--p-gray-00);
+
+  --trend-category-background: var(--p-gray-50);
+
+  --trend-table-head-title-color: var(--p-gray-900);
+  --trend-table-head-text-color: var(--p-gray-400);
+
   --trend-top-list-item-category-color: var(--p-gray-400);
   --trend-top-list-item-category-divider: var(--p-gray-300);
   --trend-top-list-item-title-color: var(--p-gray-900);
   --trend-top-list-item-price-color: var(--p-gray-900);
+
+  --trend-category-background: var(--p-gray-50);
+  --trend-category-text-color: var(--p-gray-900);
+
+  --trend-product-head-text-color: var(--p-gray-400);
+  --trend-product-list-item-border-color: var(--p-gray-300);
+  --trend-product-list-item-platform-color: var(--p-gray-600);
+  --trend-product-list-item-platform-border-color: var(--p-gray-300);
+  --trend-product-list-item-category-title-color: var(--p-gray-500);
+  --trend-product-list-item-category-text-color: var(--p-gray-400);
+  --trend-product-list-item-score-text-color: var(--p-gray-400);
+  --trend-product-list-item-delete-color: var(--p-gray-200);
+  --trend-summary-product-platform-color: var(--p-gray-600);
+  --trend-summary-product-platform-border-color: var(--p-gray-300);
+  --trend-summary-product-category-color: var(--p-gray-400);
+  --trend-summary-list-item-background: var(--p-gray-50);
+  --trend-summary-list-item-text-color: var(--p-gray-400);
+  --trend-summary-list-item-title-color: var(--p-gray-900);
+  --trend-summary-text-color: var(--p-gray-400);
+  --trend-review-summary-background: var(--p-gray-50);
+  --trend-review-summary-title-color: var(--p-gray-600);
+  --trend-review-summary-text-color: var(--p-gray-400);
+  --trend-review-summary-strong-color: var(--p-gray-900);
+  --trend-review-list-item-text-color: var(--p-gray-500);
+  --trend-keyword-list-title-color: var(--p-gray-600);
+  --trend-keyword-list-text-color: var(--p-gray-400);
+  --trend-evaluation-item-border-color: var(--p-gray-300);
+  --trend-evaluation-head-text-color: var(--p-gray-400);
+  --trend-evaluation-list-item-title-color: var(--p-gray-900);
+  --trend-evaluation-list-item-text-color: var(--p-gray-500);
+
+  //keyword
+  --keyword-detail-head-title-color: var(--p-gray-900);
+  --keyword-detail-head-text-color: var(--p-gray-500);
+  --keyword-report-head-border-color: var(--p-gray-300);
+  --keyword-report-product-category-color: var(--p-gray-500);
+  --keyword-report-product-category-percent-color: var(--p-gray-900);
+  --keyword-report-menu-button-background: var(--p-gray-100);
+  --keyword-report-menu-button-icon-color: var(--p-gray-600);
+  --keyword-report-body-border-color: var(--p-gray-300);
+  --keyword-report-body-contents-text-color: var(--p-gray-500);
+  --keyword-report-body-analysis-border-color: var(--p-gray-300);
+  --keyword-report-body-analysis-title-color: var(--p-gray-900);
+  --keyword-report-body-analysis-text-border-color: var(--p-gray-200);
+  --keyword-report-body-analysis-text-title-color: var(--p-gray-600);
+  --keyword-report-body-analysis-text-text-color: var(--p-gray-500);
+  --keyword-report-status-button-icon-color: var(--p-gray-500);
+  --keyword-report-status-item-background: var(--p-gray-50);
+  --keyword-report-status-item-title-color: var(--p-gray-400);
+  --keyword-report-status-item-text-color: var(--p-gray-900);
+  --keyword-report-trend-border-color: var(--p-gray-300);
+  --keyword-report-trend-title-color: var(--p-gray-500);
+  --keyword-report-trend-result-item-title-color: var(--p-gray-900);
+  --keyword-report-trend-chart-item-background: var(--p-gray-50);
+  --keyword-report-trend-chart-item-title-color: var(--p-gray-900);
+  --keyword-report-trend-chart-item-subtitle-color: var(--p-gray-400);
+  --keyword-report-trend-chart-item-text-color: var(--p-gray-900);
+  --keyword-history-text-color: var(--p-gray-600);
+  --keyword-history-border-color: var(--p-gray-200);
+  --keyword-analyze-chart-color: var(--p-gray-500);
+  --keyword-analyze-state-background: var(--p-gray-50);
+  --keyword-analyze-state-title-color: var(--p-gray-400);
+  --keyword-analyze-state-text-color: var(--p-gray-900);
+  --keyword-table-title-text-color: var(--p-gray-400);
+  --keyword-faq-q-background: var(--p-gray-600);
+  --keyword-faq-q-color: var(--p-gray-00);
+  --keyword-faq-a-background: var(--p-primary-500);
+  --keyword-faq-a-color: var(--p-gray-00);
+  --keyword-faq-list-title-color: var(--p-gray-900);
+  --keyword-faq-list-contents-background: var(--p-gray-50);
+  --keyword-faq-list-contents-text-color: var(--p-gray-500);
+  --keyword-ktrend-title-background: url(./../images/ksnapp.png) no-repeat 50%
+    50%;
+  --keyword-ktrend-menu-ico-color: var(--p-gray-400);
+  --keyword-ktrend-list-item-border-color: var(--p-gray-300);
+  --keyword-ktrend-list-item-title-color: var(--p-gray-900);
+  --keyword-ktrend-list-item-text-color: var(--p-gray-500);
+  --keyword-ktrend-list-item-meta-color: var(--p-gray-400);
+  --keyword-ksnapp-list-item-border-color: var(--p-gray-300);
+  --keyword-ksnapp-list-item-title-color: var(--p-gray-900);
+  --keyword-relation-title-text-color: var(--p-gray-600);
 
   //auth
   --auth-background-image: #eff1f4 url(./../images/login-bg.jpg) no-repeat 0
@@ -609,7 +702,7 @@
     --color-warn: var(--p-orange-400);
     --color-danger: var(--p-red-400);
 
-    --chart-background: var(--p-gray-800);
+    --chart-background: transparent;
 
     --chart-wave-background01: var(--p-gray-100);
     --chart-wave-background02: var(--p-gray-800);
@@ -626,6 +719,8 @@
     --chart-doughnut-info: var(--p-blue-600);
     --chart-doughnut-warn: var(--p-orange-400);
     --chart-doughnut-danger: var(--p-red-300);
+    --chart-doughnut-border-color: var(--p-gray-800);
+    --chart-doughnut-border-color02: var(--p-gray-800);
 
     --chart-line-primary: var(--p-primary-300);
     --chart-line-success: var(--p-slate-600);
@@ -647,11 +742,19 @@
     --chart-gauge-label-color01: var(--p-gray-600);
     --chart-gauge-label-color02: var(--p-gray-00);
 
+    --chart-gauge-face-primary: url('/assets/icons/chart/face-primary.svg');
+    --chart-gauge-face-secondary: url('/assets/icons/chart/face-secondary.svg');
+    --chart-gauge-face-info: url('/assets/icons/chart/face-info.svg');
+    --chart-gauge-face-warn: url('/assets/icons/chart/face-warn.svg');
+    --chart-gauge-face-danger: url('/assets/icons/chart/face-danger.svg');
+    --chart-gauge-face-label-color01: var(--p-gray-300);
+    --chart-gauge-face-label-color02: var(--p-gray-00);
+
     --chart-segment-segments-color: var(--p-gray-700);
     --chart-segment-legend-color: var(--p-gray-300);
 
     --chart-label-color01: var(--p-gray-300);
-    --chart-label-color02: var(--p-gray-900);
+    --chart-label-color02: var(--p-gray-00);
 
     --url-title-color: var(--p-gray-00);
     --url-text-color: var(--p-gray-00);
@@ -751,7 +854,7 @@
     --radio-label-color: var(--p-gray-00);
 
     //chip
-    --chip-title-color: var(--p-gray-900);
+    --chip-title-color: var(--p-gray-00);
     --chip-color: var(--p-gray-400);
     --chip-border-color: var(--p-gray-500);
     --chip-active-color: var(--p-primary-300);
@@ -761,6 +864,8 @@
     --chip-primary-dot-background: var(--p-indigo-300);
     --chip-primary-border-color: var(--p-indigo-300);
     --chip-primary-background: none;
+    --chip-success-dot-background: var(--p-green-600);
+    --chip-success-background: none;
     --chip-secondary-dot-background: var(--p-slate-600);
     --chip-secondary-background: none;
     --chip-info-dot-background: var(--p-blue-700);
@@ -791,6 +896,8 @@
     --fileupload-text-color: var(--p-gray-400);
     --fileupload-icon-color: var(--p-gray-800);
     --fileupload-icon-hover-color: var(--p-gray-900);
+
+    --scroll-blur-background: var(--p-gray-800);
 
     //table
     --table-ico-system-information-circle: var(--p-gray-00);
@@ -844,11 +951,97 @@
     --story-write-form-item-border-color: var(--p-gray-600);
 
     //trend
-    --trend--background: var(--p-gray-800);
+    --trend-background: var(--p-gray-800);
+    --trend-table-head-title-color: var(--p-gray-00);
+    --trend-table-head-text-color: var(--p-gray-400);
+
     --trend-top-list-item-category-color: var(--p-gray-400);
-    --trend-top-list-item-category-divider: var(--p-gray-300);
-    --trend-top-list-item-title-color: var(--p-gray-900);
-    --trend-top-list-item-price-color: var(--p-gray-900);
+    --trend-top-list-item-category-divider: var(--p-gray-600);
+    --trend-top-list-item-title-color: var(--p-gray-00);
+    --trend-top-list-item-price-color: var(--p-gray-00);
+
+    --trend-category-background: var(--p-gray-900);
+    --trend-category-text-color: var(--p-gray-300);
+
+    --trend-product-head-text-color: var(--p-gray-400);
+    --trend-product-list-item-border-color: var(--p-gray-600);
+    --trend-product-list-item-platform-color: var(--p-gray-300);
+    --trend-product-list-item-platform-border-color: var(--p-gray-600);
+    --trend-product-list-item-category-title-color: var(--p-gray-300);
+    --trend-product-list-item-category-text-color: var(--p-gray-400);
+    --trend-product-list-item-score-text-color: var(--p-gray-400);
+    --trend-product-list-item-delete-color: var(--p-gray-600);
+
+    --trend-summary-product-platform-color: var(--p-gray-300);
+    --trend-summary-product-platform-border-color: var(--p-gray-600);
+    --trend-summary-product-category-color: var(--p-gray-400);
+    --trend-summary-list-item-background: var(--p-gray-900);
+    --trend-summary-list-item-text-color: var(--p-gray-400);
+    --trend-summary-list-item-title-color: var(--p-gray-300);
+    --trend-summary-text-color: var(--p-gray-400);
+    --trend-review-summary-background: var(--p-gray-900);
+    --trend-review-summary-title-color: var(--p-gray-00);
+    --trend-review-summary-text-color: var(--p-gray-400);
+    --trend-review-summary-strong-color: var(--p-gray-00);
+    --trend-review-list-item-text-color: var(--p-gray-300);
+    --trend-keyword-list-title-color: var(--p-gray-00);
+    --trend-keyword-list-text-color: var(--p-gray-400);
+    --trend-evaluation-item-border-color: var(--p-gray-600);
+    --trend-evaluation-head-text-color: var(--p-gray-400);
+    --trend-evaluation-list-item-title-color: var(--p-gray-00);
+    --trend-evaluation-list-item-text-color: var(--p-gray-300);
+
+    //keyword
+    --keyword-detail-head-title-color: var(--p-gray-00);
+    --keyword-detail-head-text-color: var(--p-gray-300);
+    --keyword-report-head-border-color: var(--p-gray-600);
+    --keyword-report-product-category-color: var(--p-gray-300);
+    --keyword-report-product-category-percent-color: var(--p-gray-00);
+    --keyword-report-menu-button-background: var(--p-gray-600);
+    --keyword-report-menu-button-icon-color: var(--p-gray-50);
+    --keyword-report-body-border-color: var(--p-gray-600);
+    --keyword-report-body-contents-text-color: var(--p-gray-300);
+    --keyword-report-body-analysis-border-color: var(--p-gray-600);
+    --keyword-report-body-analysis-title-color: var(--p-gray-300);
+    --keyword-report-body-analysis-text-border-color: var(--p-gray-600);
+    --keyword-report-body-analysis-text-title-color: var(--p-gray-300);
+    --keyword-report-body-analysis-text-text-color: var(--p-gray-300);
+    --keyword-report-status-button-icon-color: var(--p-gray-500);
+    --keyword-report-status-item-background: var(--p-gray-900);
+    --keyword-report-status-item-title-color: var(--p-gray-400);
+    --keyword-report-status-item-text-color: var(--p-gray-300);
+    --keyword-report-trend-border-color: var(--p-gray-600);
+    --keyword-report-trend-title-color: var(--p-gray-300);
+    --keyword-report-trend-result-item-title-color: var(--p-gray-00);
+    --keyword-report-trend-chart-item-background: var(--p-gray-900);
+    --keyword-report-trend-chart-item-title-color: var(--p-gray-00);
+    --keyword-report-trend-chart-item-subtitle-color: var(--p-gray-400);
+    --keyword-report-trend-chart-item-text-color: var(--p-gray-300);
+    --keyword-history-text-color: var(--p-gray-300);
+    --keyword-history-border-color: var(--p-gray-600);
+    --keyword-analyze-chart-color: var(--p-gray-300);
+    --keyword-analyze-state-background: var(--p-gray-900);
+    --keyword-analyze-state-title-color: var(--p-gray-400);
+    --keyword-analyze-state-text-color: var(--p-gray-300);
+    --keyword-table-title-text-color: var(--p-gray-400);
+
+    --keyword-faq-q-background: var(--p-gray-00);
+    --keyword-faq-q-color: var(--p-gray-600);
+    --keyword-faq-a-background: var(--p-primary-300);
+    --keyword-faq-a-color: var(--p-gray-900);
+    --keyword-faq-list-title-color: var(--p-gray-00);
+    --keyword-faq-list-contents-background: var(--p-gray-900);
+    --keyword-faq-list-contents-text-color: var(--p-gray-300);
+    --keyword-ktrend-title-background: url(./../images/ksnapp-dark.png)
+      no-repeat 50% 50%;
+    --keyword-ktrend-menu-ico-color: var(--p-gray-400);
+    --keyword-ktrend-list-item-border-color: var(--p-gray-600);
+    --keyword-ktrend-list-item-title-color: var(--p-gray-00);
+    --keyword-ktrend-list-item-text-color: var(--p-gray-300);
+    --keyword-ktrend-list-item-meta-color: var(--p-gray-400);
+    --keyword-ksnapp-list-item-border-color: var(--p-gray-600);
+    --keyword-ksnapp-list-item-title-color: var(--p-gray-00);
+    --keyword-relation-title-text-color: var(--p-gray-300);
 
     //auth
     --auth-background-image: var(--p-gray-900);

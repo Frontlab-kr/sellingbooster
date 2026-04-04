@@ -9,8 +9,21 @@
             <p>2026년 04월 기준</p>
           </div>
           <div class="sb-keyword-detail-head__button">
-            <Button label="연관 리포트" severity="contrast" outlined />
-            <Button label="비교하기" severity="primary" />
+            <div class="sb-keyword-detail-head__text">
+              <p>무료 열람 횟수를 모두 사용했어요</p>
+
+              <div
+                class="sb-keyword-detail-head__icon"
+                v-tooltip.top="{
+                  value: '로그인하면 무제한으로 이용할 수 있어요!',
+                }"
+              >
+                <IconSystemInformationCircle
+                  class="ico-system-information-circle"
+                />
+              </div>
+            </div>
+            <Button label="로그인 하기" severity="primary" />
           </div>
         </div>
         <div class="grid">
@@ -606,28 +619,14 @@
               <div class="sb-keyword-faq__title">
                 <h5>‘유산균’ 시장 자주 묻는 질문</h5>
               </div>
-              <div class="sb-keyword-faq-list">
-                <Accordion :value="0">
-                  <AccordionPanel
-                    v-for="(item, index) in faqItems"
-                    :key="index"
-                    :value="index"
-                  >
-                    <AccordionHeader>
-                      <div class="sb-keyword-faq-list__title">
-                        <strong>Q</strong>
-                        <p>{{ item.question }}</p>
-                      </div>
-                    </AccordionHeader>
-
-                    <AccordionContent>
-                      <div class="sb-keyword-faq-list__contents">
-                        <strong>A</strong>
-                        <p v-html="item.answer"></p>
-                      </div>
-                    </AccordionContent>
-                  </AccordionPanel>
-                </Accordion>
+              <div class="sb-nodata">
+                <IconIllustrationSmile class="ico-illustration-smile" />
+                <div class="sb-nodata__text">
+                  <p>아직 질문이 없어요. 지금 남겨 보세요!</p>
+                </div>
+                <div class="sb-nodata__button">
+                  <Button severity="primary" label="질문 남기기" />
+                </div>
               </div>
             </div>
           </div>
@@ -800,7 +799,8 @@ import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 import IconArrowAchevronLeft from '@/assets/icons/arrow/achevron-left.svg?component';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
-import IconEtcKsnapp from '@/assets/icons/etc/ksnapp.svg?component';
+import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 
 // 탭
 const activeTabIndex = ref(0);

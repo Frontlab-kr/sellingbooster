@@ -3,8 +3,8 @@
 :root,
 :host {
   --p-accordion-content-border-width: 0;
-  --p-accordion-content-border-color: var(--p-content-border-color);
-  --p-accordion-content-background: var(--p-content-background);
+  --p-accordion-content-border-color: var(--p-gray-300);
+  --p-accordion-content-background: none;
   --p-accordion-content-color: var(--p-gray-500);
   --p-accordion-content-padding: 0 0 24px 0;
   --p-accordion-header-color: var(--p-gray-900);
@@ -16,10 +16,10 @@
   --p-accordion-header-border-radius: 0;
   --p-accordion-header-border-width: 0;
   --p-accordion-header-border-color: var(--p-gray-300);
-  --p-accordion-header-background: var(--p-content-background);
-  --p-accordion-header-hover-background: var(--p-content-background);
-  --p-accordion-header-active-background: var(--p-content-background);
-  --p-accordion-header-active-hover-background: var(--p-content-background);
+  --p-accordion-header-background: none;
+  --p-accordion-header-hover-background: none;
+  --p-accordion-header-active-background: none;
+  --p-accordion-header-active-hover-background: none;
   --p-accordion-header-last-bottom-border-radius: var(
     --p-content-border-radius
   );
@@ -27,6 +27,8 @@
   --p-accordion-header-first-top-border-radius: var(--p-content-border-radius);
   --p-accordion-header-first-border-width: 0;
   --p-accordion-header-toggle-icon-color: var(--p-text-muted-color);
+  --p-accordion-header-toggle-icon-background: url(../../icons/etc/faq.svg)
+    no-repeat 50% 50%;
   --p-accordion-header-toggle-icon-hover-color: var(--p-text-color);
   --p-accordion-header-toggle-icon-active-color: var(--p-text-color);
   --p-accordion-header-toggle-icon-active-hover-color: var(--p-text-color);
@@ -38,6 +40,12 @@
   --p-accordion-panel-border-width: 0 0 1px 0;
   --p-accordion-panel-border-color: var(--p-gray-300);
   --p-accordion-transition-duration: var(--p-transition-duration);
+  &.p-dark,
+  .p-dark {
+    --p-accordion-panel-border-color: var(--p-gray-600);
+    --p-accordion-header-toggle-icon-background: url(../../icons/etc/faq-dark.svg)
+      no-repeat 50% 50%;
+  }
 }
 
 .p-accordionpanel {
@@ -57,6 +65,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 32px;
   padding: var(--p-accordion-header-padding);
   color: var(--p-accordion-header-color);
   background: var(--p-accordion-header-background);
@@ -97,7 +106,7 @@
   color: var(--p-accordion-header-toggle-icon-color);
   width: 24px;
   height: 24px;
-  background: url(../../icons/etc/faq.svg) no-repeat 50% 50%;
+  background: var(--p-accordion-header-toggle-icon-background);
   transition: all 0.2s ease;
   path {
     display: none;

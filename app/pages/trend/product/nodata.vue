@@ -22,15 +22,14 @@
           </div>
         </div>
       </div>
-      <div class="sb-trend-product__info-text">
-        네이버 쇼핑 기준 데이터 입니다.
-      </div>
+
       <div class="sb-trend-product">
         <div class="sb-trend-product-head">
           <div class="sb-trend-product-head__title">
             <h5>
               분석 가능한 월 횟수<span><strong>0</strong>/3</span>
             </h5>
+            <p>※ 네이버 쇼핑 기준 데이터 입니다.</p>
           </div>
           <div
             class="sb-trend-table-head__popover"
@@ -76,15 +75,13 @@
           </div>
         </div>
       </div>
-      <div class="sb-trend-product__info-text">
-        네이버 쇼핑 기준 데이터 입니다.
-      </div>
       <div class="sb-trend-product">
         <div class="sb-trend-product-head">
           <div class="sb-trend-product-head__title">
             <h5>
               나의 관심 상품<span><strong>0</strong>/5</span>
             </h5>
+            <p>※ 네이버 쇼핑 기준 데이터 입니다.</p>
           </div>
           <div
             class="sb-trend-table-head__popover"

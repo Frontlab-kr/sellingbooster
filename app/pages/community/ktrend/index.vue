@@ -232,6 +232,7 @@ import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?compon
 import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 import IconSystemUp from '@/assets/icons/system/up.svg?component';
 import IconSystemDown from '@/assets/icons/system/down.svg?component';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 
 const searchKeyword = ref('');
 

@@ -71,7 +71,7 @@
               <div class="sb-chip__button">
                 <Button variant="text" @click="clearAllKeywords">
                   <IconSystemTrash class="ico-system-trash" />
-                  <span class="p-button-label">전체삭제</span>
+                  <span class="p-button-label">전체 삭제</span>
                 </Button>
               </div>
             </div>
@@ -96,9 +96,9 @@
             <Column
               field="ranking"
               header="랭킹"
-              style="width: 80px"
               headerClass="text-center"
               bodyClass="text-center"
+              style="width: 80px"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.ranking"></span>
@@ -141,9 +141,9 @@
               field="avgPrice"
               header="평균가"
               sortable
-              style="width: 150px"
               headerClass="text-center"
               bodyClass="text-center"
+              style="width: 150px"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.avgPrice"></span>
@@ -153,9 +153,9 @@
               field="productCount"
               header="상품수"
               sortable
-              style="width: 205px"
               headerClass="text-right"
               bodyClass="text-right"
+              style="width: 205px"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.productCount"></span>
@@ -165,9 +165,9 @@
               field="pcSearchVol"
               header="PC 월 검색량"
               sortable
-              style="width: 205px"
               headerClass="text-right"
               bodyClass="text-right"
+              style="width: 205px"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.pcSearchVol"></span>
@@ -177,9 +177,9 @@
               field="moSearchVol"
               header="MO 월 검색량"
               sortable
-              style="width: 205px"
               headerClass="text-right"
               bodyClass="text-right"
+              style="width: 205px"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.moSearchVol"></span>
@@ -189,9 +189,9 @@
               field="avgClick"
               header="평균 클릭 수"
               sortable
-              style="width: 150px"
               headerClass="text-right"
               bodyClass="text-right"
+              style="width: 150px"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.avgClick"></span>
@@ -228,9 +228,9 @@
                     class="sb-legend-item"
                     :class="
                       slotProps.data.competition >= 0.8
-                        ? 'text-primary'
+                        ? 'text-success'
                         : slotProps.data.competition >= 0.6
-                          ? 'text-success'
+                          ? 'text-secondary'
                           : slotProps.data.competition >= 0.4
                             ? 'text-info'
                             : slotProps.data.competition >= 0.2
@@ -271,7 +271,7 @@
             removableSort
             scrollable
           >
-            <Column field="keyword" header="키워드" style="width: 160px">
+            <Column field="keyword" header="키워드" style="width: 180px">
               <template #body="slotProps">
                 <div class="sb-table-body-title">
                   <Button
@@ -296,9 +296,9 @@
               field="category"
               header="카테고리"
               sortable
-              style="width: 160px"
               headerClass="text-center"
               bodyClass="text-center"
+              style="width: 180px"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.category"></span>
@@ -310,6 +310,7 @@
               sortable
               headerClass="text-center"
               bodyClass="text-center"
+              style="width: 150px"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.influence"></span>
@@ -319,9 +320,9 @@
               field="avgPrice"
               header="평균가"
               sortable
-              style="width: 160px"
               headerClass="text-center"
               bodyClass="text-center"
+              style="width: 150px"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.avgPrice"></span>
@@ -331,9 +332,9 @@
               field="productCount"
               header="상품수"
               sortable
-              style="width: 160px"
               headerClass="text-right"
               bodyClass="text-right"
+              style="width: 180px"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.productCount"></span>
@@ -343,9 +344,9 @@
               field="pcSearchVol"
               header="PC 월 검색량"
               sortable
-              style="width: 160px"
               headerClass="text-right"
               bodyClass="text-right"
+              style="width: 180px"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.pcSearchVol"></span>
@@ -355,9 +356,9 @@
               field="moSearchVol"
               header="MO 월 검색량"
               sortable
-              style="width: 160px"
               headerClass="text-right"
               bodyClass="text-right"
+              style="width: 180px"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.moSearchVol"></span>
@@ -367,9 +368,9 @@
               field="avgClick"
               header="평균 클릭 수"
               sortable
-              style="width: 160px"
               headerClass="text-right"
               bodyClass="text-right"
+              style="width: 150px"
             >
               <template #body="slotProps">
                 <span v-html="slotProps.data.avgClick"></span>
@@ -406,9 +407,9 @@
                     class="sb-legend-item"
                     :class="
                       slotProps.data.competition >= 0.8
-                        ? 'text-primary'
+                        ? 'text-success'
                         : slotProps.data.competition >= 0.6
-                          ? 'text-success'
+                          ? 'text-secondary'
                           : slotProps.data.competition >= 0.4
                             ? 'text-info'
                             : slotProps.data.competition >= 0.2

@@ -59,7 +59,8 @@ const initChart = () => {
   const chartLabelColor01 = getCssVar('--chart-label-color01');
   const chartLabelColor02 = getCssVar('--chart-label-color02');
   const finalBorderColor =
-    props.chartBorderColor || getCssVar('--chart-doughnut-border-color');
+    getCssVar(props.chartBorderColor) ||
+    getCssVar('--chart-doughnut-border-color');
 
   const processedData = props.chartData.map((item) => ({
     ...item,

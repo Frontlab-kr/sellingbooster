@@ -981,6 +981,8 @@
   &-popover-score {
     margin-left: 15px;
     margin-top: -92px;
+    padding: 0 4px;
+    border-radius: 999px;
   }
   &-table {
     &-header {
@@ -1007,6 +1009,8 @@
     &-popover {
       margin-left: 27px;
       margin-top: -72px;
+      padding: 0 4px;
+      border-radius: 999px;
     }
     .sb-nodata {
       padding: 80px 0 40px 0;
@@ -1056,6 +1060,8 @@
     }
   }
   &-banner {
+    border-radius: 32px;
+    overflow: hidden;
     a {
       display: block;
     }
@@ -1366,6 +1372,15 @@
     &__button {
       margin-left: auto;
       padding: 5px 16px 0 32px;
+    }
+    &--column {
+      flex-direction: column;
+      gap: 12px;
+    }
+    &--column & {
+      &__title {
+        padding: 0;
+      }
     }
 
     .sb-radio,

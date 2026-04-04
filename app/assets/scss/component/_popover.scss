@@ -3,13 +3,20 @@
 :root,
 :host {
   --p-popover-content-padding: 12px 16px;
-  --p-popover-background: var(--p-overlay-popover-background);
+  --p-popover-background: var(--p-gray-00);
   --p-popover-border-color: var(--p-gray-300);
-  --p-popover-color: var(--p-overlay-popover-color);
+  --p-popover-color: var(--p-gray-900);
   --p-popover-border-radius: 16px;
-  --p-popover-shadow: none;
+  --p-popover-shadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
   --p-popover-gutter: 10px;
   --p-popover-arrow-offset: 1.25rem;
+  &.p-dark,
+  .p-dark {
+    --p-popover-background: var(--p-gray-600);
+    --p-popover-border-color: var(--p-gray-500);
+    --p-popover-color: var(--p-gray-00);
+    --p-popover-shadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
+  }
 }
 
 .p-popover {

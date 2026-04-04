@@ -94,6 +94,20 @@
       background-color: var(--chip-primary-dot-background);
     }
   }
+  &[severity='success'] {
+    color: var(--color-success);
+    background-color: var(--chip-success-background);
+    font-weight: 700;
+    &::before {
+      content: '';
+      display: block;
+      width: 8px;
+      height: 8px;
+      margin-right: -4px;
+      border-radius: 8px;
+      background-color: var(--chip-success-dot-background);
+    }
+  }
   &[severity='secondary'] {
     color: var(--color-secondary);
     background-color: var(--chip-secondary-background);

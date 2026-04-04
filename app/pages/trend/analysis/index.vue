@@ -75,9 +75,9 @@
                 field="avgPrice"
                 header="평균가"
                 sortable
-                style="width: 150px"
                 headerClass="text-center"
                 bodyClass="text-center"
+                style="width: 150px"
               >
                 <template #body="slotProps">
                   <span v-html="slotProps.data.avgPrice"></span>
@@ -87,9 +87,9 @@
                 field="productCount"
                 header="상품수"
                 sortable
-                style="width: 225px"
                 headerClass="text-right"
                 bodyClass="text-right"
+                style="width: 225px"
               >
                 <template #body="slotProps">
                   <span v-html="slotProps.data.productCount"></span>
@@ -99,9 +99,9 @@
                 field="pcSearchVol"
                 header="PC 월 검색량"
                 sortable
-                style="width: 225px"
                 headerClass="text-right"
                 bodyClass="text-right"
+                style="width: 225px"
               >
                 <template #body="slotProps">
                   <span v-html="slotProps.data.pcSearchVol"></span>
@@ -111,9 +111,9 @@
                 field="moSearchVol"
                 header="MO 월 검색량"
                 sortable
-                style="width: 225px"
                 headerClass="text-right"
                 bodyClass="text-right"
+                style="width: 225px"
               >
                 <template #body="slotProps">
                   <span v-html="slotProps.data.moSearchVol"></span>
@@ -123,9 +123,9 @@
                 field="avgClick"
                 header="평균 클릭 수"
                 sortable
-                style="width: 150px"
                 headerClass="text-right"
                 bodyClass="text-right"
+                style="width: 150px"
               >
                 <template #body="slotProps">
                   <span v-html="slotProps.data.avgClick"></span>
@@ -162,9 +162,9 @@
                       class="sb-legend-item"
                       :class="
                         slotProps.data.competition >= 0.8
-                          ? 'text-primary'
+                          ? 'text-success'
                           : slotProps.data.competition >= 0.6
-                            ? 'text-success'
+                            ? 'text-secondary'
                             : slotProps.data.competition >= 0.4
                               ? 'text-info'
                               : slotProps.data.competition >= 0.2
@@ -335,9 +335,9 @@
                       class="sb-legend-item"
                       :class="
                         slotProps.data.competition >= 0.8
-                          ? 'text-primary'
+                          ? 'text-success'
                           : slotProps.data.competition >= 0.6
-                            ? 'text-success'
+                            ? 'text-secondary'
                             : slotProps.data.competition >= 0.4
                               ? 'text-info'
                               : slotProps.data.competition >= 0.2

@@ -9,8 +9,20 @@
             <p>2026년 04월 기준</p>
           </div>
           <div class="sb-keyword-detail-head__button">
-            <Button label="연관 리포트" severity="contrast" outlined />
-            <Button label="비교하기" severity="primary" />
+            <div class="sb-keyword-detail-head__text">
+              <p>무료 열람 <span class="text-primary">1/3회</span> 사용</p>
+              <div
+                class="sb-keyword-detail-head__icon"
+                v-tooltip.top="{
+                  value: '로그인하면 무제한으로 이용할 수 있어요!',
+                }"
+              >
+                <IconSystemInformationCircle
+                  class="ico-system-information-circle"
+                />
+              </div>
+            </div>
+            <Button label="로그인 하기" severity="primary" />
           </div>
         </div>
         <div class="grid">
@@ -800,7 +812,7 @@ import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 import IconArrowAchevronLeft from '@/assets/icons/arrow/achevron-left.svg?component';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
-import IconEtcKsnapp from '@/assets/icons/etc/ksnapp.svg?component';
+import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
 
 // 탭
 const activeTabIndex = ref(0);

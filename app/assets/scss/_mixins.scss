@@ -91,9 +91,11 @@ $BreakpointMd: 1024px;
   }
 }
 
-@mixin custom-scrollbar-blur($height: 50px, $bg-color: #ffffff) {
-  position: relative; // 부모 요소에 position 기준점 설정
-
+@mixin custom-scrollbar-blur(
+  $height: 50px,
+  $bg-color: var(--scroll-blur-background)
+) {
+  position: relative;
   &::after {
     content: '';
     display: block;
@@ -103,16 +105,9 @@ $BreakpointMd: 1024px;
     right: 0;
     height: $height;
 
-    // 그라데이션: 투명도 0에서 설정한 배경색으로 변함
-    background: linear-gradient(180deg, rgba($bg-color, 0) 0%, $bg-color 100%);
-
-    // 블러 효과
+    background: linear-gradient(180deg, transparent 0%, #{$bg-color} 100%);
     backdrop-filter: blur(0.5px);
-
-    // 클릭 이벤트가 하단 요소에 전달되도록 설정 (필요 시)
     pointer-events: none;
     z-index: 50;
-
-    //transition: all 0.2s ease;
   }
 }

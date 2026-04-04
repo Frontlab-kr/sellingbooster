@@ -128,9 +128,9 @@
                     class="sb-legend-item"
                     :class="
                       slotProps.data.competition >= 0.8
-                        ? 'text-primary'
+                        ? 'text-success'
                         : slotProps.data.competition >= 0.6
-                          ? 'text-success'
+                          ? 'text-secondary'
                           : slotProps.data.competition >= 0.4
                             ? 'text-info'
                             : slotProps.data.competition >= 0.2
