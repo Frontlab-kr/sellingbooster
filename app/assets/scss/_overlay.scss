@@ -3,8 +3,64 @@
 .sb {
   &-popover {
     &-search-history {
-      width: 260px;
-      padding: 4px 0;
+      position: relative;
+      &-layer {
+        position: absolute;
+        top: 24px;
+        right: 0;
+        z-index: 50;
+        background: var(--p-popover-background);
+        border: 1px solid var(--p-popover-border-color);
+        border-radius: var(--p-popover-border-radius);
+        box-shadow: var(--p-popover-shadow);
+        color: var(--p-popover-color);
+        margin-block-start: var(--p-popover-gutter);
+        will-change: transform;
+        color: var(--p-popover-color);
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: -0.3px;
+        line-height: 140%;
+        padding: 16px;
+
+        width: 292px;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transform: translateY(-6px) scale(0.98);
+        transform-origin: top left;
+
+        transition:
+          opacity 0.18s ease,
+          transform 0.18s ease,
+          visibility 0.18s step-end;
+
+        will-change: opacity, transform;
+      }
+      &.active {
+        > .p-button {
+          .ico-arrow-achevron-down {
+            transform: rotate(180deg);
+          }
+        }
+      }
+      &.active & {
+        &-layer {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+
+          transform: translateY(0) scale(1);
+
+          transition:
+            opacity 0.18s ease,
+            transform 0.18s ease,
+            visibility 0s step-start;
+        }
+      }
+
       &-layer {
         &::before,
         &::after {

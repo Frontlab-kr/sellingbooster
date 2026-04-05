@@ -1,10 +1,14 @@
 <template>
-  <Button variant="text" @click="toggleOverlaySearchHistory">
-    <span class="p-button-label">최근 검색 내역</span>
-    <IconArrowAchevronDown class="ico-arrow-achevron-down" />
-  </Button>
-  <Popover ref="overlaySearchHistory" class="sb-popover-search-history-layer">
-    <div class="sb-popover-search-history">
+  <div
+    ref="searchHistoryRef"
+    class="sb-popover-search-history"
+    :class="{ active: isSearchHistoryOpen }"
+  >
+    <Button variant="text" @click="toggleOverlaySearchHistory">
+      <span class="p-button-label">최근 검색 내역</span>
+      <IconArrowAchevronDown class="ico-arrow-achevron-down" />
+    </Button>
+    <div class="sb-popover-search-history-layer">
       <div class="sb-popover-search-history-head">
         <strong>최근 검색 내역</strong>
         <Button
@@ -73,7 +77,7 @@
         최근 검색 내역이 없습니다.
       </div>
     </div>
-  </Popover>
+  </div>
 </template>
 
 <script setup>
@@ -84,17 +88,32 @@ import IconSystemClose from '@/assets/icons/system/close.svg?component';
 import IconSystemSmartstore from '@/assets/icons/system/smartstore.svg?component';
 
 //popover
-const overlaySearchHistory = ref();
+const searchHistoryRef = ref(null);
+const isSearchHistoryOpen = ref(false);
 
-const toggleOverlaySearchHistory = (event) => {
-  overlaySearchHistory.value.toggle(event);
+const toggleOverlaySearchHistory = async () => {
+  isSearchHistoryOpen.value = !isSearchHistoryOpen.value;
 
-  // Popover가 완전히 나타난 후 높이를 계산해야 정확합니다.
-  // nextTick 이후에도 transition 효과 때문에 높이가 즉시 잡히지 않을 수 있으므로
-  // setTimeout을 사용하거나 Popover의 @show 이벤트를 활용하는 것이 좋습니다.
-  nextTick(() => {
-    setTimeout(handleScroll, 50);
-  });
+  // 열릴 때만 DOM 렌더 후 스크롤 상태 재계산
+  if (isSearchHistoryOpen.value) {
+    await nextTick();
+    setTimeout(() => {
+      handleScroll();
+    }, 0);
+  }
+};
+
+// 바깥 클릭 시 닫기
+const handleClickOutside = (event) => {
+  if (!isSearchHistoryOpen.value) return;
+
+  const wrapEl = searchHistoryRef.value;
+  if (!wrapEl) return;
+
+  // wrapper 바깥 클릭이면 닫기
+  if (!wrapEl.contains(event.target)) {
+    isSearchHistoryOpen.value = false;
+  }
 };
 
 const props = defineProps({
@@ -147,8 +166,13 @@ const scrollHistory = (direction) => {
 };
 
 onMounted(() => {
-  // 컴포넌트가 마운트될 때 리스트가 짧아서 스크롤이 아예 없는 경우 처리
   handleScroll();
+
+  document.addEventListener('click', handleClickOutside);
+});
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleClickOutside);
 });
 
 watch(
@@ -160,22 +184,3 @@ watch(
   { deep: true },
 );
 </script>
-
-<style scoped>
-/* 팝오버가 버튼 위로 올라가지 않도록 강제 설정 */
-:deep(.sb-popover-search-history-layer) {
-  /* 라이브러리가 계산한 top 값을 무시하고 싶을 때 사용 */
-  /* 단, 버튼의 위치가 고정적일 때 유용합니다. */
-  margin-top: 8px !important;
-}
-
-/* 팝오버의 화살표(꼬리표) 방향 고정 */
-:deep(.p-popover:before),
-:deep(.p-popover:after) {
-  content: '';
-  position: absolute;
-  bottom: 100% !important; /* 항상 위쪽에 화살표가 오도록 (아래로 열림) */
-  top: auto !important;
-  border-bottom-color: var(--p-popover-background) !important; /* 화살표 색상 */
-}
-</style>
