@@ -1911,6 +1911,9 @@
       padding: 40px 40px 16px;
       border-radius: 32px;
       background: var(--trend-background);
+      .p-ink {
+        display: none;
+      }
       &__title {
         margin-bottom: 16px;
         h5 {

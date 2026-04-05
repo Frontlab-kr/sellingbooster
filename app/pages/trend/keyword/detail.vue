@@ -855,7 +855,7 @@
         </div>
         <div class="sb-compare-list">
           <div class="sb-compare-list-head">
-            <h5>봄동비빔밥</h5>
+            <h5>버터떡</h5>
             <Button variant="text">
               <template #icon>
                 <IconSystemClose class="ico-system-close" />
