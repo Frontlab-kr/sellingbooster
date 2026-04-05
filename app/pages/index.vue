@@ -58,12 +58,12 @@
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
-            <!-- <NuxtLink to="/trend/recommend/">추천기회</NuxtLink>
+            <NuxtLink to="/trend/recommend/">추천기회</NuxtLink>
             <NuxtLink to="/trend/recommend/nodata">추천기회 Nodata</NuxtLink>
             <NuxtLink to="/trend/recommend/write"
               >추천기회 상품명 생성하기</NuxtLink
             >
-            <NuxtLink to="/trend/recommend/item">추천기회 아이템 소싱</NuxtLink>
+            <!-- <NuxtLink to="/trend/recommend/item">추천기회 아이템 소싱</NuxtLink> -->
             <NuxtLink to="/trend/recommend/ranking"
               >추천기회 나의 랭킹 찾기</NuxtLink
             >
@@ -72,7 +72,7 @@
             >
             <NuxtLink to="/trend/recommend/ranking/nodata"
               >추천기회 나의 랭킹 찾기 Nodata</NuxtLink
-            > -->
+            >
 
             <NuxtLink to="/trend/keyword/">키워드 분석</NuxtLink>
             <NuxtLink to="/trend/keyword/nodata">키워드 분석 Nodata</NuxtLink>

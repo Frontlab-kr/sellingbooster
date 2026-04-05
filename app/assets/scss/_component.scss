@@ -1,6 +1,77 @@
 @use './mixins' as *;
 
 .sb {
+  &-compare {
+    display: flex;
+    gap: 8px;
+
+    &-wrap {
+      width: 1200px;
+    }
+    &-list {
+      width: 100%;
+      padding: 20px;
+      border-radius: 16px;
+      background: var(--compare-background);
+      &-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 20px;
+        min-height: 68px;
+        margin-bottom: 20px;
+        h5 {
+          color: var(--title-color);
+        }
+      }
+      &-body {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        dl {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          margin: 0;
+          padding: 20px;
+          border-radius: 16px;
+          background: var(--compare-item-background);
+          dt {
+            margin: 0;
+            padding: 0;
+            color: var(--compare-item-title-color);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 22.4px */
+            letter-spacing: -0.4px;
+          }
+          dd {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+            h6 {
+              color: var(--title-color);
+            }
+          }
+        }
+      }
+      &-foot {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      &-nodata {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+    }
+  }
+
   &-comment {
     margin: 40px 0 0 0;
 
@@ -979,10 +1050,11 @@
     }
   }
   &-popover-score {
-    margin-left: 15px;
-    margin-top: -92px;
+    margin-left: 22px;
+    margin-top: -82px;
     padding: 0 4px;
     border-radius: 999px;
+    transform: translateX(4px);
   }
   &-table {
     &-header {
@@ -1007,13 +1079,14 @@
       }
     }
     &-popover {
-      margin-left: 27px;
-      margin-top: -72px;
+      margin-left: 22px;
+      margin-top: -76px;
       padding: 0 4px;
       border-radius: 999px;
     }
     .sb-nodata {
       padding: 80px 0 40px 0;
+      padding: 40px 0;
       svg {
         width: 80px;
         height: 80px;
@@ -1087,6 +1160,7 @@
     flex-direction: column;
     justify-content: center;
     padding: 80px 0;
+
     h6 {
       margin-top: 8px;
       color: var(--nodata-title-color);
@@ -1104,6 +1178,11 @@
     }
     &__button {
       margin-top: 32px;
+    }
+
+    .sb-caution {
+      margin-top: 40px;
+      width: 400px;
     }
     @include breakpoint {
       display: flex;
@@ -1571,11 +1650,13 @@
   }
 
   &-ai {
-    display: flex;
-    align-items: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     position: relative;
-    height: 64px;
-    padding: 0 74px 0 0;
+    min-height: 64px;
+    margin: 0;
+    padding: 0;
     border: none;
     background: transparent;
     //animation: float 3s ease-in-out infinite;
@@ -1584,16 +1665,15 @@
     &__tooltip {
       display: flex;
       align-items: center;
-      height: 42px;
+      min-height: 42px;
       position: relative;
-      margin: 6px 0 0 0;
       padding: 10px 20px;
       border-radius: 20px;
       background: var(--ai-tooltip-background);
+      margin-top: -4px;
       p {
         margin: 0;
         color: var(--ai-tooltip-color);
-        text-align: center;
 
         font-size: var(--Font-Heading-Small, 16px);
         font-style: normal;
@@ -1616,31 +1696,40 @@
     }
     &::after {
       content: '';
-      position: absolute;
-      top: 0;
-      right: -7px;
       display: block;
-      width: 72px;
+      width: 71.5px;
       height: 69px;
-      background: url(./../icons/ai/ai-pc.svg) no-repeat 50% 50%;
+      background: url(./../icons/ai/ai-pc.png) no-repeat 50% 50%;
       background-size: cover;
+    }
+    &--right {
+      flex-direction: row-reverse;
+      gap: 16px;
+    }
+    &--right & {
+      &__tooltip {
+        &:after {
+          right: auto;
+          left: -6px;
+          clip-path: polygon(100% 0%, 100% 100%, 0% 50%);
+        }
+      }
     }
     @include breakpoint {
       display: flex;
       align-items: flex-start;
+      gap: 14px;
       position: relative;
-      height: 48px;
-      margin-right: 0;
-      padding: 0 60px 0 0;
+      min-height: 48px;
       border: none;
       &__tooltip {
         display: flex;
         align-items: center;
-        height: 38px;
+        min-height: 38px;
         position: relative;
-        margin: 5px 0 0 0;
-        padding: 10px 20px;
+        padding: 8px 20px;
         border-radius: 20px;
+        margin-top: 4px;
         p {
           margin: 0;
           font-size: 14px;
@@ -1663,13 +1752,11 @@
       }
       &::after {
         content: '';
-        position: absolute;
-        top: 0px;
-        right: -2px;
         display: block;
         width: 49px;
         height: 51px;
-        background: url(./../icons/ai/ai-mo.svg) no-repeat 50% 50%;
+        background: url(./../icons/ai/ai-mo.png) no-repeat 50% 50%;
+        background-size: cover;
       }
     }
   }

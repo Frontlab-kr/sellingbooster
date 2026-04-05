@@ -57,6 +57,8 @@
             <h5>TOP 30</h5>
             <p>※ 네이버 쇼핑 기준 데이터 입니다.</p>
           </div>
+        </div>
+        <div class="sb-trend-table-tab">
           <div class="sb-tab">
             <Button label="일간" variant="text" class="active" />
             <Button label="주간" variant="text" />
@@ -65,7 +67,13 @@
         </div>
         <div class="sb-table">
           <DataTable :value="top30" responsiveLayout="scroll" removableSort>
-            <Column field="ranking" header="랭킹" style="width: 80px">
+            <Column
+              field="ranking"
+              header="랭킹"
+              headerClass="text-center"
+              bodyClass="text-center"
+              style="width: 80px"
+            >
               <template #body="slotProps">
                 {{ slotProps.data.ranking }}
               </template>
@@ -81,9 +89,9 @@
               field="influence"
               header="영향력"
               sortable
-              headerClass="text-right"
-              bodyClass="text-right"
-              style="width: 310px"
+              headerClass="text-center"
+              bodyClass="text-center"
+              style="width: 150px"
             >
               <template #body="slotProps">
                 <span>{{ slotProps.data.influence }}</span>
@@ -96,10 +104,23 @@
               sortable
               headerClass="text-right"
               bodyClass="text-right"
-              style="width: 310px"
+              style="width: 235px"
             >
               <template #body="slotProps">
                 {{ slotProps.data.productCount.toLocaleString() }}개
+              </template>
+            </Column>
+
+            <Column
+              field="searchVol"
+              header="검색량"
+              sortable
+              headerClass="text-right"
+              bodyClass="text-right"
+              style="width: 235px"
+            >
+              <template #body="slotProps">
+                {{ slotProps.data.searchVol.toLocaleString() }}건
               </template>
             </Column>
 
@@ -111,15 +132,21 @@
               style="width: 200px"
             >
               <template #header>
-                <div
-                  class="inline-flex align-items-center gap-1"
-                  @mouseenter="togglePopover"
-                  @mouseleave="togglePopover"
-                >
-                  경쟁강도
-                  <IconSystemInformationCircle
-                    class="ico-system-information-circle"
-                  />
+                <div class="sb-table-header-title">
+                  <span
+                    class="p-datatable-column-title"
+                    data-pc-section="columntitle"
+                    >경쟁강도</span
+                  >
+                  <div
+                    class="sb-table-header-title__icon"
+                    @mouseenter="togglePopover"
+                    @mouseleave="togglePopover"
+                  >
+                    <IconSystemInformationCircle
+                      class="ico-system-information-circle"
+                    />
+                  </div>
                 </div>
               </template>
               <template #body="slotProps">
@@ -197,7 +224,7 @@ const togglePopover = (event) => {
 const breadcrumb = ref([
   { label: 'Home' },
   { label: '마켓 트렌드' },
-  { label: '추천기회' },
+  { label: '추천 기회' },
 ]);
 
 //select

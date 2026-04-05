@@ -44,7 +44,7 @@ import IconSystemInformationCircle from '@/assets/icons/system/information-circl
 const breadcrumb = ref([
   { label: 'Home' },
   { label: '마켓 트렌드' },
-  { label: '추천기회' },
+  { label: '추천 기회' },
   { label: '아이템 소싱' },
 ]);
 

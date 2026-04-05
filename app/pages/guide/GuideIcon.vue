@@ -368,6 +368,6 @@ import IconIllustrationFrown from '@/assets/icons/illustration/frown.svg?compone
 import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 import IconIllustrationCheckCircle from '@/assets/icons/illustration/check-circle.svg?component';
 
-import IconAiPc from '@/assets/icons/ai/ai-pc.svg?component';
-import IconAiMo from '@/assets/icons/ai/ai-mo.svg?component';
+import IconAiPc from '@/assets/icons/ai/ai-pc.png?component';
+import IconAiMo from '@/assets/icons/ai/ai-mo.png?component';
 </script>

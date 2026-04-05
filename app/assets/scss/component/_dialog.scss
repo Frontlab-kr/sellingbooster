@@ -11,7 +11,7 @@
   --p-dialog-header-padding: var(--p-overlay-modal-padding);
   --p-dialog-header-gap: 0.5rem;
   --p-dialog-background: var(--p-gray-00);
-  --p-dialog-border-color: var(--p-overlay-modal-border-color);
+  --p-dialog-border-color: var(--p-gray-00);
   --p-dialog-title-color: var(--p-gray-900);
   --p-dialog-head-border-color: var(--p-gray-200);
   --p-dialog-text-color: var(--p-gray-900);
@@ -27,7 +27,7 @@
     --p-dialog-header-padding: var(--p-overlay-modal-padding);
     --p-dialog-header-gap: 0.5rem;
     --p-dialog-background: var(--p-gray-800);
-    --p-dialog-border-color: var(--p-overlay-modal-border-color);
+    --p-dialog-border-color: var(--p-gray-600);
     --p-dialog-title-color: var(--p-gray-00);
     --p-dialog-head-border-color: var(--p-gray-800);
     --p-dialog-text-color: var(--p-gray-900);
@@ -44,6 +44,7 @@
   border: none;
   border-radius: 30px;
   background: var(--p-dialog-background);
+  border: 1px solid var(--p-dialog-border-color);
   &-sm {
     min-width: 500px;
     width: 500px;

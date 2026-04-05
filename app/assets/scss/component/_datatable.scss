@@ -118,6 +118,8 @@
   --p-datatable-column-title-font-weight: 700;
   --p-datatable-column-title-color: var(--p-gray-900);
   --p-datatable-column-title-empty-color: var(--p-gray-300);
+  --p-datatable-column-title-empty-switch: url(./../../icons/action/switch-empty.svg)
+    no-repeat 50% 50%;
   --p-datatable-header-cell-background: var(--p-gray-00);
   --p-datatable-header-cell-hover-background: transparent;
   --p-datatable-header-cell-selected-background: var(--p-gray-50);
@@ -275,7 +277,9 @@
     --p-datatable-row-focus-ring-shadow: var(--p-focus-ring-shadow);
     --p-datatable-column-title-font-weight: 700;
     --p-datatable-column-title-color: var(--p-gray-00);
-    --p-datatable-column-title-empty-color: var(--p-gray-300);
+    --p-datatable-column-title-empty-color: var(--p-gray-600);
+    --p-datatable-column-title-empty-switch: url(./../../icons/action/switch-empty-dark.svg)
+      no-repeat 50% 50%;
     --p-datatable-header-cell-background: var(--p-gray-800);
     --p-datatable-header-cell-hover-background: transparent;
     --p-datatable-header-cell-selected-background: var(--p-gray-50);
@@ -317,7 +321,7 @@
         color: var(--p-datatable-column-title-empty-color) !important;
       }
       .p-datatable-sort-icon {
-        background: url(./../../icons/action/switch-empty.svg) no-repeat 50% 50%;
+        background: var(--p-datatable-column-title-empty-switch);
       }
       > .p-datatable-table-container {
         height: auto !important;
@@ -346,7 +350,7 @@
   }
   .p-datatable-scrollable-table > .p-datatable-thead {
     inset-block-start: 0;
-    z-index: 31;
+    z-index: 51;
   }
   .p-datatable-scrollable-table > .p-datatable-frozen-tbody {
     position: sticky;

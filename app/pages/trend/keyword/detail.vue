@@ -10,7 +10,11 @@
           </div>
           <div class="sb-keyword-detail-head__button">
             <Button label="연관 리포트" severity="contrast" outlined />
-            <Button label="비교하기" severity="primary" />
+            <Button
+              label="비교하기"
+              severity="primary"
+              @click="dialogCompare = true"
+            />
           </div>
         </div>
         <div class="grid">
@@ -748,7 +752,7 @@
     </div>
   </div>
 
-  <Dialog v-model:visible="dialogEdit" modal>
+  <Dialog v-model:visible="dialogEdit" modal class="sb-trend-edit-wrap">
     <div class="p-dialog-inner">
       <div class="sb-trend-edit">
         <div class="sb-trend-edit__title">
@@ -785,6 +789,124 @@
       </div>
     </div>
   </Dialog>
+
+  <Dialog v-model:visible="dialogCompare" modal class="sb-compare-wrap">
+    <div class="p-dialog-inner">
+      <h6 class="p-dialog-title">
+        키워드의 월 검색량, 경쟁 강도등을 한눈에! 스마트한 키워드 비교
+      </h6>
+      <div class="sb-compare">
+        <div class="sb-compare-list">
+          <div class="sb-compare-list-head">
+            <h5>봄동비빔밥</h5>
+            <Button variant="text">
+              <template #icon>
+                <IconSystemClose class="ico-system-close" />
+              </template>
+            </Button>
+          </div>
+          <div class="sb-compare-list-body">
+            <dl>
+              <dt>월 검색량</dt>
+              <dd>
+                <h6>123,456,789 회</h6>
+              </dd>
+            </dl>
+            <dl>
+              <dt>월 검색량</dt>
+              <dd>
+                <h6>123,456,789 회</h6>
+              </dd>
+            </dl>
+            <dl>
+              <dt>상품 평균가</dt>
+              <dd>
+                <h6>123,456,789 원</h6>
+              </dd>
+            </dl>
+            <dl>
+              <dt>경쟁 강도</dt>
+              <dd>
+                <h6>9,999.0</h6>
+                <Badge value="최저" severity="danger"></Badge>
+              </dd>
+            </dl>
+            <dl>
+              <dt>광고 클릭 수</dt>
+              <dd>
+                <h6>123,456,789 회</h6>
+              </dd>
+            </dl>
+            <dl>
+              <dt>월 평균 노출 광고 수</dt>
+              <dd>
+                <h6>123,456,789 회</h6>
+              </dd>
+            </dl>
+            <dl>
+              <dt>평균 CPC</dt>
+              <dd>
+                <h6>123,456,789 원</h6>
+              </dd>
+            </dl>
+            <dl>
+              <dt>상품 수</dt>
+              <dd>
+                <h6>123,456,789 개</h6>
+              </dd>
+            </dl>
+          </div>
+          <div class="sb-compare-list-foot">
+            <Button
+              severity="contrast"
+              outlined
+              label="키워드 상세 레포트 보기"
+            />
+          </div>
+        </div>
+        <div class="sb-compare-list">
+          <div class="sb-compare-list-nodata">
+            <div class="sb-nodata">
+              <IconIllustrationSmile class="ico-illustration-smile" />
+              <div class="sb-nodata__text">
+                <p>
+                  비교할 키워드를 추가해주세요.<br />
+                  키워드 비교는 최대 2개까지 추가 가능해요.
+                </p>
+              </div>
+              <div class="sb-nodata__button">
+                <SbInput
+                  show-search
+                  @search="onSearch"
+                  placeholder="40자 내외 키워드를 입력하세요."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="sb-compare-list">
+          <div class="sb-compare-list-nodata">
+            <div class="sb-nodata">
+              <IconIllustrationSmile class="ico-illustration-smile" />
+              <div class="sb-nodata__text">
+                <p>
+                  비교할 키워드를 추가해주세요.<br />
+                  키워드 비교는 최대 2개까지 추가 가능해요.
+                </p>
+              </div>
+              <div class="sb-nodata__button">
+                <SbInput
+                  show-search
+                  @search="onSearch"
+                  placeholder="40자 내외 키워드를 입력하세요."
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Dialog>
 </template>
 
 <script setup>
@@ -801,6 +923,8 @@ import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 import IconArrowAchevronLeft from '@/assets/icons/arrow/achevron-left.svg?component';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 import IconEtcKsnapp from '@/assets/icons/etc/ksnapp.svg?component';
+import IconSystemClose from '@/assets/icons/system/close.svg?component';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 
 // 탭
 const activeTabIndex = ref(0);
@@ -810,6 +934,8 @@ const changeTab = (index) => {
 
 //dialog
 const dialogEdit = ref(false);
+const dialogCompare = ref(false);
+
 const selectedInterests = ref([
   'monthly_search',
   'avg_views',

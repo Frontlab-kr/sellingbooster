@@ -31,8 +31,8 @@ const getCssVar = (varName) => {
 };
 
 const getScoreStatus = (p) => {
-  if (p >= 80) return { text: '매우 좋음', colorVar: '--color-primary' };
-  if (p >= 60) return { text: '좋음', colorVar: '--color-success' };
+  if (p >= 80) return { text: '매우 좋음', colorVar: '--color-success' };
+  if (p >= 60) return { text: '좋음', colorVar: '--color-secondary' };
   if (p >= 40) return { text: '보통', colorVar: '--color-info' };
   if (p >= 20) return { text: '나쁨', colorVar: '--color-warn' };
   return { text: '매우 나쁨', colorVar: '--color-danger' };

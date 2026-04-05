@@ -3,7 +3,7 @@
 .sb {
   &-popover {
     &-search-history {
-      width: 292px;
+      width: 260px;
       padding: 4px 0;
       &-layer {
         &::before,
@@ -17,7 +17,7 @@
         justify-content: space-between;
         margin-bottom: 12px;
         strong {
-          color: var(--Text_Light-900---mian, #1b1f27);
+          color: var(--title-color);
           font-size: 14px;
           font-style: normal;
           font-weight: 700;
@@ -34,21 +34,20 @@
         display: flex;
         flex-direction: column;
         gap: 8px;
-        height: 302px;
+        max-height: 306px;
         overflow: auto;
         @include custom-scrollbar();
         &-item {
           padding: 12px;
           border-radius: 8px;
-          background: var(--Gray-50, #f9fbfc);
+          background: var(--search-history-list-item-background);
           &-head {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 4px;
             span {
-              color: var(--Text_Light-400---eaplanation, #9aa3af);
-
+              color: var(--search-history-list-head-color);
               font-size: 12px;
               font-style: normal;
               font-weight: 400;
@@ -69,7 +68,7 @@
             gap: 4px;
             p {
               margin: 0;
-              color: var(--Text_Light-900---mian, #1b1f27);
+              color: var(--search-history-list-body-color);
               font-size: 14px;
               font-style: normal;
               font-weight: 700;
@@ -84,7 +83,7 @@
             justify-content: space-between;
             margin-top: 8px;
             span {
-              color: var(--Text_Light-500---sub, #6a7381);
+              color: var(--search-history-list-foot-color);
               font-size: 12px;
               font-style: normal;
               font-weight: 400;
@@ -93,6 +92,16 @@
             }
           }
         }
+      }
+      &-nodata {
+        padding: 40px 0;
+        color: var(--search-history-list-nodata-color);
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 22.4px */
+        letter-spacing: -0.4px;
       }
     }
   }

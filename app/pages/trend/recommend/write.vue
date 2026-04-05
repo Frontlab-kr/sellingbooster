@@ -138,22 +138,169 @@
           </div>
         </div>
         <div class="sb-trend-write-end">
-          <div class="sb-trend-write-ai"></div>
+          <div class="sb-trend-write-ai" v-scroll-end>
+            <div class="sb-trend-write-ai-scroll">
+              <div class="sb-ai sb-ai--right">
+                <div class="sb-ai__tooltip">
+                  <p>AI가 상품명을 추천해드려요</p>
+                </div>
+              </div>
+              <div class="sb-trend-write-ai-list">
+                <div class="sb-trend-write-ai-list-item">
+                  <p>
+                    [올리스] 26년 1월 수확 신선한 햇올리브로 만든 로스텐토
+                    프리미엄 엑스트라 버진 올리브오일 500ml 고급 요리용 풍미
+                    가득 건강한 식용 오일
+                  </p>
+                  <Button variant="text">
+                    <template #icon>
+                      <IconSystemCopy
+                        class="ico-system-copy"
+                        @click="showToast"
+                      />
+                    </template>
+                  </Button>
+                </div>
+                <div class="sb-trend-write-ai-list-item">
+                  <p>
+                    유기농 냉압착 엑스트라버진 올리브오일 올리브유 250ml x 2병 /
+                    스페인산 피쿠알 품종 올리브 저온압착 고급 식용 올리브 오일
+                  </p>
+                  <Button variant="text">
+                    <template #icon>
+                      <IconSystemCopy
+                        class="ico-system-copy"
+                        @click="showToast"
+                      />
+                    </template>
+                  </Button>
+                </div>
+                <div class="sb-trend-write-ai-list-item">
+                  <p>2026 햇올리브, 올리스 엑스트라 버진 500ml 올리브오일</p>
+                  <Button variant="text">
+                    <template #icon>
+                      <IconSystemCopy
+                        class="ico-system-copy"
+                        @click="showToast"
+                      />
+                    </template>
+                  </Button>
+                </div>
+                <div class="sb-trend-write-ai-list-item">
+                  <p>
+                    [올리스] 26년 1월 수확 신선한 햇올리브로 만든 로스텐토
+                    프리미엄 엑스트라 버진 올리브오일 500ml 고급 요리용 풍미
+                    가득 건강한 식용 오일
+                  </p>
+                  <Button variant="text">
+                    <template #icon>
+                      <IconSystemCopy
+                        class="ico-system-copy"
+                        @click="showToast"
+                      />
+                    </template>
+                  </Button>
+                </div>
+                <div class="sb-trend-write-ai-list-item">
+                  <p>
+                    유기농 냉압착 엑스트라버진 올리브오일 올리브유 250ml x 2병 /
+                    스페인산 피쿠알 품종 올리브 저온압착 고급 식용 올리브 오일
+                  </p>
+                  <Button variant="text">
+                    <template #icon>
+                      <IconSystemCopy
+                        class="ico-system-copy"
+                        @click="showToast"
+                      />
+                    </template>
+                  </Button>
+                </div>
+                <div class="sb-trend-write-ai-list-item">
+                  <p>2026 햇올리브, 올리스 엑스트라 버진 500ml 올리브오일</p>
+                  <Button variant="text">
+                    <template #icon>
+                      <IconSystemCopy
+                        class="ico-system-copy"
+                        @click="showToast"
+                      />
+                    </template>
+                  </Button>
+                </div>
+                <div class="sb-trend-write-ai-list-item">
+                  <p>
+                    [올리스] 26년 1월 수확 신선한 햇올리브로 만든 로스텐토
+                    프리미엄 엑스트라 버진 올리브오일 500ml 고급 요리용 풍미
+                    가득 건강한 식용 오일
+                  </p>
+                  <Button variant="text">
+                    <template #icon>
+                      <IconSystemCopy
+                        class="ico-system-copy"
+                        @click="showToast"
+                      />
+                    </template>
+                  </Button>
+                </div>
+                <div class="sb-trend-write-ai-list-item">
+                  <p>
+                    유기농 냉압착 엑스트라버진 올리브오일 올리브유 250ml x 2병 /
+                    스페인산 피쿠알 품종 올리브 저온압착 고급 식용 올리브 오일
+                  </p>
+                  <Button variant="text">
+                    <template #icon>
+                      <IconSystemCopy
+                        class="ico-system-copy"
+                        @click="showToast"
+                      />
+                    </template>
+                  </Button>
+                </div>
+                <div class="sb-trend-write-ai-list-item">
+                  <p>2026 햇올리브, 올리스 엑스트라 버진 500ml 올리브오일</p>
+                  <Button variant="text">
+                    <template #icon>
+                      <IconSystemCopy
+                        class="ico-system-copy"
+                        @click="showToast"
+                      />
+                    </template>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <Toast position="bottom-center" group="bc" />
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
+import { ref } from 'vue';
+
+import IconSystemCopy from '@/assets/icons/system/copy.svg?component';
+
+import { useToast } from 'primevue/usetoast';
+const toast = useToast();
+
+const showToast = () => {
+  toast.add({
+    detail: '추천 상품명이 복사 되었습니다. 이용하실 곳에 붙여넣기 하세요.',
+    group: 'bc',
+    life: 300000,
+  });
+};
+
+//radio
+const selectedMarket = ref('naver');
+const selectedLanguage = ref('KO');
 
 //breadcrumb
 const breadcrumb = ref([
   { label: 'Home' },
   { label: '마켓 트렌드' },
-  { label: '추천기회' },
+  { label: '추천 기회' },
   { label: '상품명 생성하기' },
 ]);
 </script>

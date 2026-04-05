@@ -528,6 +528,7 @@
   --trend-table-head-title-color: var(--p-gray-900);
   --trend-table-head-text-color: var(--p-gray-400);
 
+  --trend-top-title-text-color: var(--p-gray-400);
   --trend-top-list-item-category-color: var(--p-gray-400);
   --trend-top-list-item-category-divider: var(--p-gray-300);
   --trend-top-list-item-title-color: var(--p-gray-900);
@@ -562,6 +563,21 @@
   --trend-evaluation-head-text-color: var(--p-gray-400);
   --trend-evaluation-list-item-title-color: var(--p-gray-900);
   --trend-evaluation-list-item-text-color: var(--p-gray-500);
+  --trend-edit-background: var(--p-gray-00);
+  --trend-write-ai-background: var(--p-gray-50);
+  --trend-write-ai-list-item-background: var(--p-gray-00);
+  --trend-write-ai-list-item-boxshadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
+  --trend-write-ai-list-item-text-color: var(--p-gray-900);
+  --trend-ranking-head-text-color: var(--p-gray-400);
+  --trend-ranking-list-item-border-color: var(--p-gray-300);
+  --trend-ranking-list-item-text-title-color: var(--p-gray-900);
+  --trend-ranking-list-item-text-color: var(--p-gray-500);
+  --trend-ranking-result-head-text-color: var(--p-gray-400);
+  --trend-ranking-result-head-title-color: var(--p-gray-400);
+  --trend-ranking-result-head-status-color: var(--p-gray-900);
+  --trend-ranking-result-list-item-border-color: var(--p-gray-300);
+  --trend-ranking-result-list-item-title-color: var(--p-gray-900);
+  --trend-ranking-result-list-item-info-color: var(--p-gray-500);
 
   //keyword
   --keyword-detail-head-title-color: var(--p-gray-900);
@@ -645,6 +661,11 @@
   --policy-contents-title-color: var(--p-gray-600);
   --policy-contents-text-color: var(--p-gray-500);
 
+  //compare
+  --compare-background: var(--p-gray-50);
+  --compare-item-background: var(--p-gray-00);
+  --compare-item-title-color: var(--p-gray-400);
+
   //onboarding
   --onboarding-background: var(--p-gray-00);
   --onboarding-title-color: var(--p-gray-900);
@@ -682,6 +703,13 @@
   --alarm-view-title-color: var(--p-gray-900);
   --alarm-view-data-color: var(--p-gray-400);
   --alarm-view-contents-color: var(--p-gray-900);
+
+  //popover
+  --search-history-list-item-background: var(--p-gray-50);
+  --search-history-list-head-color: var(--p-gray-400);
+  --search-history-list-body-color: var(--p-gray-900);
+  --search-history-list-foot-color: var(--p-gray-500);
+  --search-history-list-nodata-color: var(--p-gray-400);
 
   //ico
   --ico-illustration-smile-color1: var(--p-gray-300);
@@ -901,7 +929,6 @@
 
     //table
     --table-ico-system-information-circle: var(--p-gray-00);
-
     --ai-tooltip-background: var(--p-gray-00);
     --ai-tooltip-color: var(--p-gray-900);
 
@@ -990,6 +1017,22 @@
     --trend-evaluation-head-text-color: var(--p-gray-400);
     --trend-evaluation-list-item-title-color: var(--p-gray-00);
     --trend-evaluation-list-item-text-color: var(--p-gray-300);
+    --trend-edit-background: var(--p-gray-900);
+    --trend-write-ai-background: var(--p-gray-900);
+    --trend-write-ai-list-item-background: var(--p-gray-800);
+    --trend-write-ai-list-item-boxshadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
+    --trend-write-ai-list-item-text-color: var(--p-gray-00);
+    --trend-ranking-head-text-color: var(--p-gray-400);
+    --trend-ranking-list-item-border-color: var(--p-gray-600);
+    --trend-ranking-list-item-text-title-color: var(--p-gray-00);
+    --trend-ranking-list-item-text-color: var(--p-gray-300);
+
+    --trend-ranking-result-head-text-color: var(--p-gray-400);
+    --trend-ranking-result-head-title-color: var(--p-gray-400);
+    --trend-ranking-result-head-status-color: var(--p-gray-00);
+    --trend-ranking-result-list-item-border-color: var(--p-gray-600);
+    --trend-ranking-result-list-item-title-color: var(--p-gray-00);
+    --trend-ranking-result-list-item-info-color: var(--p-gray-300);
 
     //keyword
     --keyword-detail-head-title-color: var(--p-gray-00);
@@ -1073,6 +1116,11 @@
     --policy-contents-title-color: var(--p-gray-400);
     --policy-contents-text-color: var(--p-gray-400);
 
+    //compare
+    --compare-background: var(--p-gray-900);
+    --compare-item-background: var(--p-gray-800);
+    --compare-item-title-color: var(--p-gray-400);
+
     //onboarding
     --onboarding-background: var(--p-gray-800);
     --onboarding-title-color: var(--p-gray-00);
@@ -1110,6 +1158,13 @@
     --alarm-view-title-color: var(--p-gray-00);
     --alarm-view-data-color: var(--p-gray-400);
     --alarm-view-contents-color: var(--p-gray-00);
+
+    //popover
+    --search-history-list-item-background: var(--p-gray-700);
+    --search-history-list-head-color: var(--p-gray-400);
+    --search-history-list-body-color: var(--p-gray-00);
+    --search-history-list-foot-color: var(--p-gray-300);
+    --search-history-list-nodata-color: var(--p-gray-400);
 
     //ico
     --ico-illustration-smile-color1: var(--p-gray-600);

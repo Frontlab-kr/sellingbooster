@@ -57,6 +57,8 @@
             <h5>TOP 30</h5>
             <p>※ 네이버 쇼핑 기준 데이터 입니다.</p>
           </div>
+        </div>
+        <div class="sb-trend-table-tab">
           <div class="sb-tab">
             <Button label="일간" variant="text" class="active" />
             <Button label="주간" variant="text" />
@@ -65,7 +67,13 @@
         </div>
         <div class="sb-table">
           <DataTable :value="top30" responsiveLayout="scroll" removableSort>
-            <Column field="ranking" header="랭킹" style="width: 80px">
+            <Column
+              field="ranking"
+              header="랭킹"
+              headerClass="text-center"
+              bodyClass="text-center"
+              style="width: 80px"
+            >
               <template #body="slotProps">
                 {{ slotProps.data.ranking }}
               </template>
@@ -81,9 +89,9 @@
               field="influence"
               header="영향력"
               sortable
-              headerClass="text-right"
-              bodyClass="text-right"
-              style="width: 310px"
+              headerClass="text-center"
+              bodyClass="text-center"
+              style="width: 150px"
             >
               <template #body="slotProps">
                 <span>{{ slotProps.data.influence }}</span>
@@ -96,10 +104,23 @@
               sortable
               headerClass="text-right"
               bodyClass="text-right"
-              style="width: 310px"
+              style="width: 235px"
             >
               <template #body="slotProps">
                 {{ slotProps.data.productCount.toLocaleString() }}개
+              </template>
+            </Column>
+
+            <Column
+              field="searchVol"
+              header="검색량"
+              sortable
+              headerClass="text-right"
+              bodyClass="text-right"
+              style="width: 235px"
+            >
+              <template #body="slotProps">
+                {{ slotProps.data.searchVol.toLocaleString() }}건
               </template>
             </Column>
 
@@ -149,6 +170,17 @@
                 </div>
               </template>
             </Column>
+            <template #empty>
+              <div class="sb-nodata">
+                <IconIllustrationSmile class="ico-illustration-smile" />
+                <div class="sb-nodata__text">
+                  <p>
+                    궁금한 카테고리가 있다면 지금 검색해보세요<br />
+                    정확한 분석 데이터가 기다리고 있어요.
+                  </p>
+                </div>
+              </div>
+            </template>
           </DataTable>
         </div>
       </div>
@@ -240,35 +272,7 @@ const top30 = ref([
     keyword: '오메가3',
     influence: '높음',
     productCount: 19327,
-    competition: 6.05,
-    statusColor: '#10b981', // 녹색
-  },
-  {
-    ranking: 14,
-    keyword: '정관장',
-    influence: '높음',
-    productCount: 1671,
-    competition: 0.41,
-  },
-  {
-    ranking: 18,
-    keyword: '유산균',
-    influence: '높음',
-    productCount: 1412,
-    competition: 0.26,
-  },
-  {
-    ranking: 5,
-    keyword: '마그네슘',
-    influence: '높음',
-    productCount: 121,
-    competition: 0.02,
-  },
-  {
-    ranking: 19,
-    keyword: '오메가3',
-    influence: '높음',
-    productCount: 19327,
+    searchVol: 9999,
     competition: 6.05,
   },
   {
@@ -276,6 +280,7 @@ const top30 = ref([
     keyword: '정관장',
     influence: '높음',
     productCount: 1671,
+    searchVol: 9999,
     competition: 0.41,
   },
   {
@@ -283,6 +288,7 @@ const top30 = ref([
     keyword: '유산균',
     influence: '높음',
     productCount: 1412,
+    searchVol: 9999,
     competition: 0.26,
   },
   {
@@ -290,13 +296,7 @@ const top30 = ref([
     keyword: '마그네슘',
     influence: '높음',
     productCount: 121,
-    competition: 0.02,
-  },
-  {
-    ranking: 5,
-    keyword: '마그네슘',
-    influence: '높음',
-    productCount: 121,
+    searchVol: 9999,
     competition: 0.02,
   },
   {
@@ -304,6 +304,47 @@ const top30 = ref([
     keyword: '오메가3',
     influence: '높음',
     productCount: 19327,
+    searchVol: 9999,
+    competition: 6.05,
+  },
+  {
+    ranking: 14,
+    keyword: '정관장',
+    influence: '높음',
+    productCount: 1671,
+    searchVol: 9999,
+    competition: 0.41,
+  },
+  {
+    ranking: 18,
+    keyword: '유산균',
+    influence: '높음',
+    productCount: 1412,
+    searchVol: 9999,
+    competition: 0.26,
+  },
+  {
+    ranking: 5,
+    keyword: '마그네슘',
+    influence: '높음',
+    productCount: 121,
+    searchVol: 9999,
+    competition: 0.02,
+  },
+  {
+    ranking: 5,
+    keyword: '마그네슘',
+    influence: '높음',
+    productCount: 121,
+    searchVol: 9999,
+    competition: 0.02,
+  },
+  {
+    ranking: 19,
+    keyword: '오메가3',
+    influence: '높음',
+    productCount: 19327,
+    searchVol: 9999,
     competition: 6.05,
   },
 ]);
