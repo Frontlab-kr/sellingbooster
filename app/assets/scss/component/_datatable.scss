@@ -704,7 +704,7 @@
     text-align: start;
     border-color: var(--p-datatable-body-cell-border-color);
     border-style: solid;
-    border-width: 1px !important;
+    border-width: 1px 0 1px 0 !important;
     padding: var(--p-datatable-body-cell-padding);
     color: var(--p-datatable-body-cell-color);
     font-size: 16px;
@@ -714,9 +714,11 @@
 
     &:first-child {
       border-radius: 8px 0 0 8px;
+      border-width: 1px 0 1px 1px !important;
     }
     &:last-child {
       border-radius: 0 8px 8px 0;
+      border-width: 1px 1px 1px 0 !important;
     }
   }
   .p-datatable-tbody > tr.p-datatable-empty-message > td {

@@ -419,7 +419,7 @@
                 <h5>상품 분석</h5>
               </div>
               <div class="sb-keyword-analyze-chart">
-                <SbChartWave :percent="90" />
+                <SbChartWave :percent="33" />
                 <div class="sb-keyword-analyze-chart__text">
                   <h6 class="text-warn">좋아요!</h6>
                   <p>
