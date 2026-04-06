@@ -464,12 +464,6 @@ const keywordList = [
     productCount: '121개',
     competition: 0.02,
   },
-  {
-    keyword: '몬트쿠키', // 이미지 최하단에 중복 혹은 유사 키워드로 살짝 걸쳐 있는 데이터
-    searchVol: '51,580건',
-    productCount: '62,221개',
-    competition: 0.07,
-  },
 ];
 const keywords = [
   { id: 1, name: '위스키테이스팅잔', category: '유리컵' },
