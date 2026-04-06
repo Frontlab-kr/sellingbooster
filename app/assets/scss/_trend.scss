@@ -490,6 +490,13 @@
             .ico-system-delete {
               color: var(--trend-product-list-item-delete-color);
             }
+            .p-button {
+              &:hover {
+                .ico-system-delete {
+                  color: var(--trend-product-list-item-delete-color);
+                }
+              }
+            }
           }
         }
       }
