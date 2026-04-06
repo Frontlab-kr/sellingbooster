@@ -138,6 +138,7 @@
           justify-content: center;
           width: 24px;
           height: 24px;
+          margin: 8px;
         }
         .sb-tab {
           width: auto;
@@ -304,6 +305,19 @@
       padding: 40px;
       border-radius: 30px;
       background: var(--trend-background);
+      &-info-text {
+        padding: 0 0 8px 0;
+        p {
+          margin: 0;
+          color: var(--Gray-400, #9aa3af);
+          text-align: right;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 140%; /* 19.6px */
+          letter-spacing: -0.35px;
+        }
+      }
       &-head {
         display: flex;
         align-items: center;
