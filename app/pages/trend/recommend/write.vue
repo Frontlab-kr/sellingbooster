@@ -288,7 +288,7 @@ const showToast = () => {
   toast.add({
     detail: '추천 상품명이 복사 되었습니다. 이용하실 곳에 붙여넣기 하세요.',
     group: 'bc',
-    life: 300000,
+    life: 3000,
   });
 };
 
