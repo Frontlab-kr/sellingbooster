@@ -75,7 +75,7 @@
               </div>
             </div>
             <div class="sb-trend-write-form-item">
-              <label>사이즈<strong>*</strong></label>
+              <label>사이즈</label>
               <div class="sb-trend-write-form-item__input">
                 <SbInput placeholder="XS, S, M, L XL, XXL" />
               </div>

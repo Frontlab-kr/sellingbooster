@@ -36,8 +36,8 @@
             <div class="sb-trend-result-head__title">
               <h5>검색 결과</h5>
               <div class="sb-trend-result-head__status">
-                <span>광고 : <strong class="text-primary">2</strong>건</span>
-                <span>일반 : <strong class="text-primary">1</strong>건</span>
+                <span>광고 : <strong class="text-primary">0</strong>건</span>
+                <span>일반 : <strong class="text-primary">0</strong>건</span>
               </div>
             </div>
           </div>
