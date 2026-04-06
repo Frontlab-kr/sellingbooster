@@ -1,0 +1,175 @@
+<template>
+  <div :class="['sb-chart-doughnut-horizontal', className]">
+    <div ref="chartRef" class="echart"></div>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted, onBeforeUnmount, nextTick, watch } from 'vue';
+import * as echarts from 'echarts';
+
+const props = defineProps({
+  // 스크린샷 데이터와 매칭되는 새로운 기본값 설정
+  chartData: {
+    type: Array,
+    required: true,
+    default: () => [
+      { value: 30, name: '상품', color: '#14C979' }, // 초록
+      { value: 40, name: '배송', color: '#7E81F4' }, // 보라
+      { value: 10, name: '반품', color: '#1EA0F2' }, // 파랑
+      { value: 5, name: '교환', color: '#FFC85C' }, // 노랑
+      { value: 10, name: '환불', color: '#FF646F' }, // 빨강
+      { value: 5, name: '기타', color: '#E9EBF0' }, // 회색
+    ],
+  },
+  className: {
+    type: String,
+    default: '',
+  },
+});
+
+const chartRef = ref(null);
+let chart = null;
+let observer = null;
+
+const customFontFamily =
+  "'Pretendard JP Variable', 'Pretendard JP', 'Pretendard', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'PingFang TC', 'Noto Sans TC', sans-serif";
+
+// CSS 변수 가져오기 함수 (다크모드 지원용)
+const getCssVar = (varName) => {
+  if (typeof window !== 'undefined') {
+    return getComputedStyle(document.documentElement)
+      .getPropertyValue(varName)
+      .trim();
+  }
+  return '';
+};
+
+const initChart = () => {
+  if (!chartRef.value || !props.chartData || props.chartData.length === 0)
+    return;
+
+  if (chart) chart.dispose();
+  chart = echarts.init(chartRef.value);
+
+  // 다크모드 대응을 위한 변수 처리 (필요시 CSS 변수로 대체 가능)
+  const chartBackground = getCssVar('--chart-background') || '#ffffff';
+  const labelColor = getCssVar('--chart-label-color') || '#333333';
+  const percentColor = getCssVar('--chart-percent-color') || '#666666';
+
+  // 데이터 가공: color 속성을 실제 itemStyle에 적용
+  const processedData = props.chartData.map((item) => ({
+    value: item.value,
+    name: item.name,
+    itemStyle: {
+      color: getCssVar(item.color) || item.color,
+    },
+  }));
+
+  const clientWidth = chartRef.value.clientWidth;
+  const clientHeight = chartRef.value.clientHeight;
+
+  // 크기 계산 (반응형)
+  const chartSize = Math.min(clientWidth * 0.6, clientHeight); // 차트 영역 비율 조절
+  const outerRadius = chartSize * 0.45; // 외경
+  const innerRadius = chartSize * 0.3; // 내경 (도넛 두께 조절)
+
+  const option = {
+    backgroundColor: chartBackground,
+    textStyle: { fontFamily: customFontFamily },
+    tooltip: { show: false }, // 스크린샷에는 툴팁이 없음
+
+    // [핵심 수정] 범례(Legend) 우측 배치 및 스타일 설정
+    legend: {
+      orient: 'vertical',
+      right: '10%',
+      top: 'center',
+      icon: 'circle',
+      itemWidth: 10,
+      itemHeight: 10,
+      itemGap: 15,
+      // [수정] itemStyle의 color 콜백을 제거합니다.
+      // ECharts는 series 데이터의 색상을 범례 아이콘에 자동으로 적용합니다.
+
+      formatter: function (name) {
+        const item = props.chartData.find((d) => d.name === name);
+        const val = item ? item.value : 0;
+        return `{name|${name}} {value|${val}%}`;
+      },
+      textStyle: {
+        rich: {
+          name: { fontSize: 14, color: labelColor, padding: [0, 10, 0, 0] },
+          value: { fontSize: 14, fontWeight: 'bold', color: percentColor },
+        },
+      },
+    },
+
+    series: [
+      {
+        type: 'pie',
+        // [핵심 수정] 위치 및 크기 조절
+        radius: [innerRadius, outerRadius], // 도넛 형태
+        center: ['35%', '50%'], // 차트를 왼쪽으로 치우치게 배치
+        avoidLabelOverlap: false,
+
+        itemStyle: {
+          borderRadius: 0, // 스크린샷은 각진 형태
+          borderColor: chartBackground, // 항목 간 간격 효과
+          borderWidth: 2,
+        },
+        label: { show: false }, // 차트 자체 라벨 숨김
+        emphasis: { scale: false }, // 마우스 오버 시 크기 변화 없음
+        data: processedData,
+      },
+    ],
+  };
+
+  chart.setOption(option);
+};
+
+watch(
+  () => props.chartData,
+  () => {
+    initChart();
+  },
+  { deep: true },
+);
+
+onMounted(async () => {
+  await nextTick();
+  initChart();
+
+  // 다크모드 감지 옵저버
+  observer = new MutationObserver(() => {
+    initChart();
+  });
+
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
+
+  window.addEventListener('resize', handleResize);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize);
+  if (observer) observer.disconnect();
+  if (chart) chart.dispose();
+});
+
+const handleResize = () => {
+  if (chart) chart.resize();
+};
+</script>
+
+<style scoped>
+.sb-chart-doughnut-horizontal {
+  width: 100%;
+  height: 300px; /* 적절한 높이 설정 */
+}
+.echart {
+  width: 100%;
+  height: 100%;
+}
+</style>

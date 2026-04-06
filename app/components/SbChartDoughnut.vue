@@ -50,7 +50,7 @@ const initChart = () => {
 
   const colorMap = {
     primaryColor: getCssVar('--chart-doughnut-primary'),
-    successColor: getCssVar('--chart-doughnut-success'),
+    secondaryColor: getCssVar('--chart-doughnut-secondary'),
     infoColor: getCssVar('--chart-doughnut-info'),
     warnColor: getCssVar('--chart-doughnut-warn'),
     dangerColor: getCssVar('--chart-doughnut-danger'),

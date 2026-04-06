@@ -863,7 +863,7 @@ const deviceStats = ref([
 ]);
 const genderStats = ref([
   { value: 74, name: '여성', color: 'dangerColor' },
-  { value: 26, name: '남성', color: 'successColor' },
+  { value: 26, name: '남성', color: 'secondaryColor' },
 ]);
 const clickCountStats = ref([
   { value: 58.5, name: 'PC', color: 'secondaryColor' },

@@ -10,6 +10,7 @@
   --p-popover-shadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
   --p-popover-gutter: 10px;
   --p-popover-arrow-offset: 17px;
+  --p-popover-arrow-start: 10px;
   &.p-dark,
   .p-dark {
     --p-popover-background: var(--p-gray-600);
@@ -21,7 +22,6 @@
 
 .p-popover {
   margin-block-start: var(--p-popover-gutter);
-  //margin-left: 22px;
   background: var(--p-popover-background);
   color: var(--p-popover-color);
   border: 1px solid var(--p-popover-border-color);
@@ -60,7 +60,7 @@
 
 .p-popover:after {
   border-width: calc(var(--p-popover-gutter) - 2px);
-  margin-left: calc(-1 * (var(--p-popover-gutter) - 2px));
+  margin-left: calc(-1 * (var(--p-popover-arrow-start) - 2px));
   border-style: solid;
   border-color: transparent;
   border-bottom-color: var(--p-popover-background);
@@ -68,7 +68,7 @@
 
 .p-popover:before {
   border-width: var(--p-popover-gutter);
-  margin-left: calc(-1 * var(--p-popover-gutter));
+  margin-left: calc(-1 * var(--p-popover-arrow-start));
   border-style: solid;
   border-color: transparent;
   border-bottom-color: var(--p-popover-border-color);

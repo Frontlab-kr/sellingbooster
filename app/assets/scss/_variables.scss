@@ -278,12 +278,19 @@
   --chart-bar-border-color: var(--p-gray-00);
 
   --chart-doughnut-primary: var(--p-primary-500);
-  --chart-doughnut-success: var(--p-slate-400);
+  --chart-doughnut-secondary: var(--p-slate-400);
   --chart-doughnut-info: var(--p-blue-200);
   --chart-doughnut-warn: var(--p-orange-500);
   --chart-doughnut-danger: var(--p-red-400);
   --chart-doughnut-border-color: var(--p-gray-00);
   --chart-doughnut-border-color02: var(--p-gray-50);
+
+  --chart-doughnut02-success: var(--p-green-400);
+  --chart-doughnut02-secondary: var(--p-slate-400);
+  --chart-doughnut02-info: var(--p-blue-400);
+  --chart-doughnut02-warn: var(--p-orange-400);
+  --chart-doughnut02-danger: var(--p-red-400);
+  --chart-doughnut02-neutral: var(--p-gray-200);
 
   --chart-line-background: var(--p-gray-00);
   --chart-line-primary: var(--p-primary-500);
@@ -522,21 +529,16 @@
 
   //trend
   --trend-background: var(--p-gray-00);
-
   --trend-category-background: var(--p-gray-50);
-
   --trend-table-head-title-color: var(--p-gray-900);
   --trend-table-head-text-color: var(--p-gray-400);
-
   --trend-top-title-text-color: var(--p-gray-400);
   --trend-top-list-item-category-color: var(--p-gray-400);
   --trend-top-list-item-category-divider: var(--p-gray-300);
   --trend-top-list-item-title-color: var(--p-gray-900);
   --trend-top-list-item-price-color: var(--p-gray-900);
-
   --trend-category-background: var(--p-gray-50);
   --trend-category-text-color: var(--p-gray-900);
-
   --trend-product-head-text-color: var(--p-gray-400);
   --trend-product-list-item-border-color: var(--p-gray-300);
   --trend-product-list-item-platform-color: var(--p-gray-600);
@@ -630,6 +632,21 @@
   --keyword-ksnapp-list-item-title-color: var(--p-gray-900);
   --keyword-relation-title-text-color: var(--p-gray-600);
 
+  //sales
+  --sales-background: var(--p-gray-00);
+  --sales-info-text: var(--p-gray-400);
+  --sales-product-head-amount-text-color: var(--p-gray-500);
+  --sales-product-head-button-text-color: var(--p-gray-900);
+  --sales-product-body-text-color: var(--p-gray-400);
+  --sales-product-list-item-background: var(--p-gray-50);
+  --sales-product-list-item-head-icon-color: var(--p-gray-500);
+  --sales-product-list-item-foot-border-color: var(--p-gray-300);
+  --sales-product-list-item-foot-title-color: var(--p-gray-500);
+  --sales-product-list-item-foot-text-color: var(--p-gray-400);
+  --sales-product-list-item-foot-icon-color: var(--p-gray-400);
+  --sales-product-list-item-number-color: var(--p-gray-500);
+  --sales-product-list-item-title-color: var(--p-gray-900);
+
   //auth
   --auth-background-image: #eff1f4 url(./../images/login-bg.jpg) no-repeat 0
     100%;
@@ -705,11 +722,20 @@
   --alarm-view-contents-color: var(--p-gray-900);
 
   //popover
-  --search-history-list-item-background: var(--p-gray-50);
-  --search-history-list-head-color: var(--p-gray-400);
-  --search-history-list-body-color: var(--p-gray-900);
-  --search-history-list-foot-color: var(--p-gray-500);
-  --search-history-list-nodata-color: var(--p-gray-400);
+  --popover-search-history-list-item-background: var(--p-gray-50);
+  --popover-search-history-list-head-color: var(--p-gray-400);
+  --popover-search-history-list-body-color: var(--p-gray-900);
+  --popover-search-history-list-foot-color: var(--p-gray-500);
+  --popover-search-history-list-nodata-color: var(--p-gray-400);
+
+  --popover-analyze-title: var(--p-gray-900);
+  --popover-analyze-list-item-border-color: var(--p-gray-300);
+  --popover-analyze-list-item-text-color: var(--p-gray-900);
+  --popover-analyze-propose-background: var(--p-gray-50);
+  --popover-analyze-propose-title-color: var(--p-gray-900);
+  --popover-analyze-propose-item-background: var(--p-gray-00);
+  --popover-analyze-propose-item-boxshadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
+  --popover-analyze-propose-item-text-color: var(--p-gray-900);
 
   //ico
   --ico-illustration-smile-color1: var(--p-gray-300);
@@ -743,12 +769,19 @@
 
     --chart-doughnut-background: var(--p-gray-800);
     --chart-doughnut-primary: var(--p-primary-400);
-    --chart-doughnut-success: var(--p-slate-400);
+    --chart-doughnut-secondary: var(--p-slate-400);
     --chart-doughnut-info: var(--p-blue-600);
     --chart-doughnut-warn: var(--p-orange-400);
     --chart-doughnut-danger: var(--p-red-300);
     --chart-doughnut-border-color: var(--p-gray-800);
     --chart-doughnut-border-color02: var(--p-gray-800);
+
+    --chart-doughnut02-success: var(--p-green-500);
+    --chart-doughnut02-secondary: var(--p-slate-500);
+    --chart-doughnut02-info: var(--p-blue-500);
+    --chart-doughnut02-warn: var(--p-orange-500);
+    --chart-doughnut02-danger: var(--p-red-500);
+    --chart-doughnut02-neutral: var(--p-gray-300);
 
     --chart-line-primary: var(--p-primary-300);
     --chart-line-success: var(--p-slate-600);
@@ -1086,6 +1119,23 @@
     --keyword-ksnapp-list-item-title-color: var(--p-gray-00);
     --keyword-relation-title-text-color: var(--p-gray-300);
 
+    //sales
+    --sales-background: var(--p-gray-800);
+    --sales-info-text: var(--p-gray-400);
+    --sales-product-head-amount-text-color: var(--p-gray-300);
+    --sales-product-head-button-text-color: var(--p-gray-00);
+
+    --sales-product-body-text-color: var(--p-gray-400);
+    --sales-product-list-item-background: var(--p-gray-900);
+    --sales-product-list-item-head-icon-color: var(--p-gray-00);
+    --sales-product-list-item-foot-border-color: var(--p-gray-600);
+    --sales-product-list-item-foot-title-color: var(--p-gray-300);
+    --sales-product-list-item-foot-text-color: var(--p-gray-400);
+
+    --sales-product-list-item-foot-icon-color: var(--p-gray-300);
+    --sales-product-list-item-number-color: var(--p-gray-300);
+    --sales-product-list-item-title-color: var(--p-gray-00);
+
     //auth
     --auth-background-image: var(--p-gray-900);
 
@@ -1160,11 +1210,20 @@
     --alarm-view-contents-color: var(--p-gray-00);
 
     //popover
-    --search-history-list-item-background: var(--p-gray-700);
-    --search-history-list-head-color: var(--p-gray-400);
-    --search-history-list-body-color: var(--p-gray-00);
-    --search-history-list-foot-color: var(--p-gray-300);
-    --search-history-list-nodata-color: var(--p-gray-400);
+    --popover-search-history-list-item-background: var(--p-gray-700);
+    --popover-search-history-list-head-color: var(--p-gray-400);
+    --popover-search-history-list-body-color: var(--p-gray-00);
+    --popover-search-history-list-foot-color: var(--p-gray-300);
+    --popover-search-history-list-nodata-color: var(--p-gray-400);
+
+    --popover-analyze-title: var(--p-gray-00);
+    --popover-analyze-list-item-border-color: var(--p-gray-500);
+    --popover-analyze-list-item-text-color: var(--p-gray-00);
+    --popover-analyze-propose-background: var(--p-gray-800);
+    --popover-analyze-propose-title-color: var(--p-gray-00);
+    --popover-analyze-propose-item-background: var(--p-gray-700);
+    --popover-analyze-propose-item-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
+    --popover-analyze-propose-item-text-color: var(--p-gray-00);
 
     //ico
     --ico-illustration-smile-color1: var(--p-gray-600);

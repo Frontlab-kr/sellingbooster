@@ -59,51 +59,60 @@
         <template #content>
           <div class="flex flex-column gap-2">
             <NuxtLink to="/trend/recommend/">추천기회</NuxtLink>
-            <NuxtLink to="/trend/recommend/nodata">추천기회 Nodata</NuxtLink>
+            <NuxtLink to="/trend/recommend/nodata">추천기회 - Nodata</NuxtLink>
             <NuxtLink to="/trend/recommend/write"
-              >추천기회 상품명 생성하기</NuxtLink
+              >추천기회 - 상품명 생성하기</NuxtLink
             >
             <!-- <NuxtLink to="/trend/recommend/item">추천기회 아이템 소싱</NuxtLink> -->
             <NuxtLink to="/trend/recommend/ranking"
-              >추천기회 나의 랭킹 찾기</NuxtLink
+              >추천기회 - 나의 랭킹 찾기</NuxtLink
             >
             <NuxtLink to="/trend/recommend/ranking/result"
-              >추천기회 나의 랭킹 찾기 결과</NuxtLink
+              >추천기회 - 나의 랭킹 찾기 결과</NuxtLink
             >
             <NuxtLink to="/trend/recommend/ranking/nodata"
-              >추천기회 나의 랭킹 찾기 Nodata</NuxtLink
+              >추천기회 - 나의 랭킹 찾기 Nodata</NuxtLink
             >
 
             <NuxtLink to="/trend/keyword/">키워드 분석</NuxtLink>
-            <NuxtLink to="/trend/keyword/nodata">키워드 분석 Nodata</NuxtLink>
-            <NuxtLink to="/trend/keyword/detail">키워드 분석 상세</NuxtLink>
+            <NuxtLink to="/trend/keyword/nodata">키워드 분석 - Nodata</NuxtLink>
+            <NuxtLink to="/trend/keyword/detail">키워드 분석 - 상세</NuxtLink>
             <NuxtLink to="/trend/keyword/detail02"
-              >키워드 분석 상세 미로그인</NuxtLink
+              >키워드 분석 - 상세 미로그인</NuxtLink
             >
             <NuxtLink to="/trend/keyword/detail03"
-              >키워드 분석 상세 FAQ Nodata</NuxtLink
+              >키워드 분석 - 상세 FAQ Nodata</NuxtLink
             >
             <NuxtLink to="/trend/product/">상품 분석</NuxtLink>
-            <NuxtLink to="/trend/product/nodata">상품 분석 Nodata</NuxtLink>
-            <NuxtLink to="/trend/product/detail">상품 분석 상세</NuxtLink>
+            <NuxtLink to="/trend/product/nodata">상품 분석 - Nodata</NuxtLink>
+            <NuxtLink to="/trend/product/detail">상품 분석 - 상세</NuxtLink>
             <NuxtLink to="/trend/analysis/">분석 결과</NuxtLink>
           </div>
         </template>
       </Card>
     </div>
-    <!-- 
-    <div>
+
+    <!-- <div>
       <h5>판매 가속</h5>
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
-            <NuxtLink to="/sales/price">가격실행</NuxtLink>
+            <NuxtLink to="/sales/price/">가격실행</NuxtLink>
+            <NuxtLink to="/sales/price/nodata">가격실행 - Nodata</NuxtLink>
+            <NuxtLink to="/sales/cs/">CS센터</NuxtLink>
+            <NuxtLink to="/sales/product/">상품명 점검</NuxtLink>
+            <NuxtLink to="/sales/product/nodata01"
+              >상품명 점검 - 채널 미연동</NuxtLink
+            >
+            <NuxtLink to="/sales/product/nodata02"
+              >상품명 점검 - 검색 실패</NuxtLink
+            >
           </div>
         </template>
       </Card>
-    </div>
+    </div> -->
 
-    <div>
+    <!-- <div>
       <h5>셀링 플래너</h5>
       <Card>
         <template #content>
@@ -122,34 +131,38 @@
         <template #content>
           <div class="flex flex-column gap-2">
             <NuxtLink to="/community/qna/">Q&A</NuxtLink>
-            <NuxtLink to="/community/qna/nodata">Q&A Nodata</NuxtLink>
+            <NuxtLink to="/community/qna/nodata">Q&A - Nodata</NuxtLink>
             <NuxtLink to="/community/notice/">공지사항</NuxtLink>
-            <NuxtLink to="/community/notice/view">공지사항 상세</NuxtLink>
+            <NuxtLink to="/community/notice/view">공지사항 - 상세</NuxtLink>
             <NuxtLink to="/community/notice/hasdata"
-              >공지사항 상세 HasData</NuxtLink
+              >공지사항 - 상세 HasData</NuxtLink
             >
-            <NuxtLink to="/community/notice/nodata">공지사항 Nodata</NuxtLink>
+            <NuxtLink to="/community/notice/nodata">공지사항 - Nodata</NuxtLink>
             <NuxtLink to="/community/notice/empty"
-              >공지사항 SearchEmpty</NuxtLink
+              >공지사항 - SearchEmpty</NuxtLink
             >
             <NuxtLink to="/community/faq/">Faq</NuxtLink>
-            <NuxtLink to="/community/faq/nodata">Faq Nodata</NuxtLink>
-            <NuxtLink to="/community/faq/hasdata">Faq HasData</NuxtLink>
+            <NuxtLink to="/community/faq/nodata">Faq - Nodata</NuxtLink>
+            <NuxtLink to="/community/faq/hasdata">Faq - HasData</NuxtLink>
             <NuxtLink to="/community/story/">성장스토리</NuxtLink>
-            <NuxtLink to="/community/story/view">성장스토리 상세</NuxtLink>
+            <NuxtLink to="/community/story/view">성장스토리 - 상세</NuxtLink>
             <NuxtLink to="/community/story/write"
-              >성장스토리 쓰기/수정</NuxtLink
+              >성장스토리 - 쓰기/수정</NuxtLink
             >
-            <NuxtLink to="/community/story/nodata">성장스토리 Nodata</NuxtLink>
+            <NuxtLink to="/community/story/nodata"
+              >성장스토리 - Nodata</NuxtLink
+            >
 
             <NuxtLink to="/community/board/">자유게시판</NuxtLink>
-            <NuxtLink to="/community/board/view">자유게시판 상세</NuxtLink>
+            <NuxtLink to="/community/board/view">자유게시판 - 상세</NuxtLink>
             <NuxtLink to="/community/board/write"
-              >자유게시판 쓰기/수정</NuxtLink
+              >자유게시판 - 쓰기/수정</NuxtLink
             >
-            <NuxtLink to="/community/board/nodata">자유게시판 Nodata</NuxtLink>
+            <NuxtLink to="/community/board/nodata"
+              >자유게시판 - Nodata</NuxtLink
+            >
             <NuxtLink to="/community/board/empty"
-              >자유게시판 SearchEmpty</NuxtLink
+              >자유게시판 - SearchEmpty</NuxtLink
             >
             <!-- 
             <NuxtLink to="/community/blog/">블로그</NuxtLink>

@@ -158,6 +158,8 @@
             <IconSystemSmartstore class="ico-system-smartstore" />
             <IconSystemUp class="ico-system-up" />
             <IconSystemDown class="ico-system-down" />
+            <IconSystemCheckS class="ico-system-check-s" />
+            <IconSystemAi class="ico-system-ai" />
           </div>
         </div>
         <div class="sb-guide-item">
@@ -349,6 +351,8 @@ import IconSystemDot from '@/assets/icons/system/dot.svg?component';
 import IconSystemSmartstore from '@/assets/icons/system/smartstore.svg?component';
 import IconSystemUp from '@/assets/icons/system/up.svg?component';
 import IconSystemDown from '@/assets/icons/system/down.svg?component';
+import IconSystemCheckS from '@/assets/icons/system/check-s.svg?component';
+import IconSystemAi from '@/assets/icons/system/ai.svg?component';
 
 import IconActionScore from '@/assets/icons/action/score.svg?component';
 import IconActionScoreHalf from '@/assets/icons/action/score-half.svg?component';

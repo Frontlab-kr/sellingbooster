@@ -91,6 +91,7 @@
   letter-spacing: -0.3px;
   white-space: noWrap;
   flex-shrink: 0;
+  line-height: 1;
   &[data-p='level1'] {
     background-color: var(--p-orange-500);
   }

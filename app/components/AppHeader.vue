@@ -234,9 +234,14 @@ const menu01 = ref([
   },
   {
     key: 'performance',
-    label: '성장 리포트',
+    label: '성과 리포트',
     icon: IconSnbChart,
     route: '/report',
+    items: [
+      { label: '성과 요약', route: '/report/summary' },
+      { label: '성과 분석', route: '/report/analyze' },
+      { label: '성과 히스토리', route: '/report/history' },
+    ],
   },
   {
     key: 'planner',

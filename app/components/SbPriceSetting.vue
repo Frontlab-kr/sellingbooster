@@ -102,15 +102,15 @@
                 <tbody>
                   <tr>
                     <th>2026.02.01</th>
-                    <td>19,500원 변경</td>
+                    <td><strong>19,500원 변경</strong></td>
                   </tr>
                   <tr>
                     <th>2025.12.20</th>
-                    <td>23,850원 변경</td>
+                    <td><strong>23,850원 변경</strong></td>
                   </tr>
                   <tr>
                     <th>2025.08.03</th>
-                    <td>22,900원 변경</td>
+                    <td><strong>22,900원 변경</strong></td>
                   </tr>
                 </tbody>
               </table>
@@ -221,10 +221,10 @@ const toggleOverlayEffect = (event) => {
 
 const props = defineProps({
   priceMin: { type: Number, default: 0 },
-  priceMax: { type: Number, default: 25000 },
-  priceCurrent: { type: Number, default: 16500 },
-  priceInitialRecommended: { type: Number, default: 14900 },
-  priceAverage: { type: Number, default: 17800 },
+  priceMax: { type: Number, default: 0 },
+  priceCurrent: { type: Number, default: 0 },
+  priceInitialRecommended: { type: Number, default: 0 },
+  priceAverage: { type: Number, default: 0 },
   isError: { type: Boolean, default: false },
 });
 
