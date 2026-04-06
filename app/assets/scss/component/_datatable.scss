@@ -670,18 +670,29 @@
 
     &:not(.p-datatable-empty-message) {
       &:hover {
-        &::after {
-          content: '';
-          display: block;
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          border-radius: 8px;
-          border: 1.5px solid var(--p-datatable-row-hover-border-color);
+        // &::after {
+        //   content: '';
+        //   display: block;
+        //   position: absolute;
+        //   top: 0;
+        //   right: 0;
+        //   bottom: 0;
+        //   left: 0;
+        //   border-radius: 8px;
+        //   border: 1.5px solid var(--p-datatable-row-hover-border-color);
+        //   background-color: var(--p-datatable-row-hover-background);
+        //   z-index: 10;
+        // }
+        td {
+          border-top: 1px solid var(--p-datatable-row-hover-border-color);
+          border-bottom: 1px solid var(--p-datatable-row-hover-border-color);
           background-color: var(--p-datatable-row-hover-background);
-          z-index: 10;
+          &:first-child {
+            border-left: 1px solid var(--p-datatable-row-hover-border-color);
+          }
+          &:last-child {
+            border-right: 1px solid var(--p-datatable-row-hover-border-color);
+          }
         }
       }
     }
@@ -693,7 +704,7 @@
     text-align: start;
     border-color: var(--p-datatable-body-cell-border-color);
     border-style: solid;
-    border-width: 0;
+    border-width: 1px;
     padding: var(--p-datatable-body-cell-padding);
     color: var(--p-datatable-body-cell-color);
     font-size: 16px;
