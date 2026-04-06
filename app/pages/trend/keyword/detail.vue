@@ -1016,6 +1016,13 @@ const selectedTop20Option = ref([
 ]);
 const selectedTop20 = ref(selectedTop20Option.value[0]);
 
+onMounted(async () => {
+  await nextTick();
+  if (selectRef.value) {
+    selectRef.value.show();
+  }
+});
+
 // 상세 지표 열기 토글 상태
 const showTrend = ref(false);
 
