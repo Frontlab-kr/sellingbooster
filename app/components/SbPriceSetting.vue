@@ -114,6 +114,10 @@
                   </tr>
                 </tbody>
               </table>
+              <Button variant="text">
+                <span class="p-button-label">성장 리포트 확인 하기</span>
+                <IconArrowRight class="ico-arrow-right" />
+              </Button>
             </div>
           </Popover>
         </div>
@@ -199,6 +203,7 @@ import Badge from 'primevue/badge';
 import Button from 'primevue/button';
 import IconArrowUp from '@/assets/icons/arrow/up.svg?component';
 import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
+import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
 
 const overlayCurrent = ref();
 const overlayEffect = ref();
@@ -210,7 +215,7 @@ const toggleOverlayEffect = (event) => {
   if (event.type === 'mouseenter') {
     overlayEffect.value.show(event);
   } else {
-    overlayEffect.value.hide();
+    //overlayEffect.value.hide();
   }
 };
 
