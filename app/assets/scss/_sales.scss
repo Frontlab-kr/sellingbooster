@@ -203,6 +203,12 @@
           }
         }
       }
+      &-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 40px;
+      }
       .sb-nodata {
         padding-top: 100px;
       }

@@ -320,6 +320,12 @@
             </SbPriceSetting>
           </div>
         </div>
+        <div class="sb-sales-price-button">
+          <Button severity="contrast" outlined>
+            <span class="p-button-label">더보기(16/83)</span>
+            <IconArrowAchevronDown class="ico-arrow-achevron-down" />
+          </Button>
+        </div>
       </div>
     </div>
   </div>
@@ -327,6 +333,7 @@
 
 <script setup>
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
+import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
 
 //breadcrumb
 const breadcrumb = ref([

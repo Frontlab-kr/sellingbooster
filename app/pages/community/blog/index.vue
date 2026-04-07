@@ -6,22 +6,43 @@
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>
-    <div class="sb-community-menu">
-      <div class="sb-tab">
-        <Button label="전체(132)" variant="text" class="active" />
-        <Button label="셀링트렌드" variant="text" />
-        <Button label="지식" variant="text" />
-        <Button label="이용사례" variant="text" />
-        <Button label="뉴스룸" variant="text" />
-      </div>
-      <SbInput
-        v-model="searchKeyword"
-        show-search
-        @search="onSearch"
-        placeholder="블로그 검색"
-      />
-    </div>
     <div class="sb-blog">
+      <div class="sb-blog-head">
+        <div class="sb-blog-head-title">
+          <h4>지금 구독하기 하고, 셀러한테 필요한 정보 꼭 확인하세요!</h4>
+        </div>
+        <div class="sb-blog-head-swiper">
+          <ClientOnly>
+            <swiper-container
+              ref="containerRef"
+              :slides-per-view="swiperParams.slidesPerView"
+              :space-between="swiperParams.spaceBetween"
+              :breakpoints="JSON.stringify(swiperParams.breakpoints)"
+              @swiperactiveindexchange="onSlideChange"
+            >
+              <swiper-slide v-for="item in blogItems" :key="item.id">
+                <NuxtLink to="/" class="sb-blog-head-swiper-item"> 1 </NuxtLink>
+              </swiper-slide>
+            </swiper-container>
+          </ClientOnly>
+        </div>
+      </div>
+      <div class="sb-community-menu">
+        <div class="sb-tab">
+          <Button label="전체(132)" variant="text" class="active" />
+          <Button label="셀링트렌드" variant="text" />
+          <Button label="지식" variant="text" />
+          <Button label="이용사례" variant="text" />
+          <Button label="뉴스룸" variant="text" />
+        </div>
+        <SbInput
+          v-model="searchKeyword"
+          show-search
+          @search="onSearch"
+          placeholder="블로그 검색"
+        />
+      </div>
+
       <div class="sb-blog-sort">
         <Select
           ref="selectRef"
@@ -68,6 +89,18 @@ const breadcrumb = ref([
   { label: '커뮤니티' },
   { label: '블로그' },
 ]);
+
+//swiper
+const swiperParams = {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  breakpoints: {
+    1024: {
+      slidesPerView: 2,
+      spaceBetween: 80,
+    },
+  },
+};
 
 //sort
 const selectRef = ref(null);
