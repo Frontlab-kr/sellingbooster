@@ -36,7 +36,7 @@
 
   <Dialog v-model:visible="dialogReport" modal class="p-dialog-sm">
     <div class="p-dialog-inner">
-      <h5 class="p-dialog-title">신고하기</h5>
+      <h6 class="p-dialog-title">신고하기</h6>
       <Report />
     </div>
   </Dialog>

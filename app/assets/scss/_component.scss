@@ -1088,6 +1088,15 @@
     .color-contrast {
       color: var(--table-color-contrast);
     }
+    &-click {
+      tbody {
+        tr {
+          td {
+            cursor: pointer;
+          }
+        }
+      }
+    }
     &-header {
       &-title {
         display: flex;
@@ -1107,6 +1116,10 @@
         display: flex;
         align-items: center;
         gap: 8px;
+        strong {
+          @include text-clamp(1);
+          text-align: left;
+        }
       }
       &-date {
         margin-top: 4px;

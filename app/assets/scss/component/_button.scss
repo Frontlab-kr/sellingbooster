@@ -440,9 +440,9 @@ button {
       background: var(--p-button-text-primary-hover-background);
       border-color: transparent;
       color: var(--p-button-text-plain-hover-color);
-      svg {
-        color: var(--p-button-text-plain-hover-color);
-      }
+      // svg {
+      //   color: var(--p-button-text-plain-hover-color);
+      // }
     }
     &:disabled {
       color: var(--p-button-text-plain-disabled-color);

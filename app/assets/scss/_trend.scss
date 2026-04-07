@@ -2,7 +2,7 @@
 
 .sb {
   &-trend {
-    min-width: 1200px;
+    min-width: 1275px;
     &-head {
       display: flex;
       align-items: flex-start;
@@ -1321,7 +1321,7 @@
             width: 100%;
           }
           .sb-radio {
-            gap: 24px;
+            column-gap: 24px;
           }
         }
         &__button {

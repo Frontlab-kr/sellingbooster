@@ -134,10 +134,7 @@
                           <div
                             class="sb-sales-cs-product-status-list-item__text"
                           >
-                            <p>
-                              <strong class="text-primary">95</strong>
-                              건
-                            </p>
+                            <p><strong class="text-primary">95</strong>건</p>
                             <span>/</span>
                             <p><strong>78</strong>%</p>
                           </div>
@@ -152,30 +149,24 @@
                           <div
                             class="sb-sales-cs-product-status-list-item__text"
                           >
-                            <p>
-                              <strong class="text-primary">95</strong>
-                              건
-                            </p>
+                            <p><strong class="text-primary">11</strong>건</p>
                             <span>/</span>
-                            <p><strong>78</strong>%</p>
+                            <p><strong>9</strong>%</p>
                           </div>
                         </div>
                         <div class="sb-sales-cs-product-status-list-item">
                           <div
                             class="sb-sales-cs-product-status-list-item__title"
                           >
-                            <IconSnbDocument class="ico-snb-document" />
+                            <IconSystemFileCheck class="ico-system-filecheck" />
                             요청/제안
                           </div>
                           <div
                             class="sb-sales-cs-product-status-list-item__text"
                           >
-                            <p>
-                              <strong class="text-primary">95</strong>
-                              건
-                            </p>
+                            <p><strong class="text-primary">16</strong>건</p>
                             <span>/</span>
-                            <p><strong>78</strong>%</p>
+                            <p><strong>13</strong>%</p>
                           </div>
                         </div>
                       </div>
@@ -348,7 +339,7 @@
                           class="sb-sales-cs-product-expanded-product__button"
                         >
                           <Button variant="text">
-                            <span class="p-button-label">상품 랭킹 찾기</span>
+                            <span class="p-button-label">상품 보기</span>
                             <IconArrowAchevronRight
                               class="ico-arrow-achevron-right"
                             />
@@ -382,7 +373,7 @@
             </div>
             <dl>
               <dt>
-                <h6 class="text-secondary">주요 문의 패턴</h6>
+                <h6 class="color-secondary">주요 문의 패턴</h6>
               </dt>
               <dd>
                 <div class="sb-sales-cs-report-list">
@@ -416,7 +407,7 @@
             </dl>
             <dl>
               <dt>
-                <h6 class="text-warn">운영 개선이 필요한 영역</h6>
+                <h6 class="color-warn">운영 개선이 필요한 영역</h6>
               </dt>
               <dd>
                 <div class="sb-sales-cs-report-list">
@@ -429,20 +420,14 @@
                     </p>
                   </div>
                   <div class="sb-sales-cs-report-list-item">
-                    <Badge
-                      value="검수 프로세스 강화"
-                      severity="secondary"
-                    ></Badge>
+                    <Badge value="검수 프로세스 강화" severity="warn"></Badge>
                     <p>
                       오배송 및 불량 건이 반복되고 있습니다. 출고 전 검수
                       시스템을 강화하여 고객의 부정적 경험을 최소화 해야 합니다.
                     </p>
                   </div>
                   <div class="sb-sales-cs-report-list-item">
-                    <Badge
-                      value="라이브 정보 투명성"
-                      severity="secondary"
-                    ></Badge>
+                    <Badge value="라이브 정보 투명성" severity="warn"></Badge>
                     <p>
                       라이브 일정 및 할인 적용 방법에 대한 정보가 고객에게
                       명확히 전달되지 않고 있습니다.
@@ -453,7 +438,7 @@
             </dl>
             <dl>
               <dt>
-                <h6 class="text-success">고객 경험 향상 제안</h6>
+                <h6 class="color-success">고객 경험 향상 제안</h6>
               </dt>
               <dd>
                 <div class="sb-sales-cs-report-list">
@@ -510,7 +495,7 @@
                     <dl>
                       <dt>답변 완료 현황</dt>
                       <dd>
-                        <h4 class="text-info">19,999</h4>
+                        <h4 class="color-info">19,999</h4>
                         <h5>건</h5>
                       </dd>
                     </dl>
@@ -528,7 +513,7 @@
                     <dl>
                       <dt>7일 이상 지연된 미답변 현황</dt>
                       <dd>
-                        <h4 class="text-danger">999</h4>
+                        <h4 class="color-danger">999</h4>
                         <h5>건</h5>
                       </dd>
                     </dl>
@@ -547,234 +532,241 @@
           </div>
         </div>
         <div class="sb-sales-cs-body">
-          <div class="sb-sales-cs-search">
-            <div class="sb-sales-cs-search-item">
-              <label>기간</label>
-              <div class="sb-sales-cs-search-item-form">
-                <Select
-                  v-model="selectedValue"
-                  :options="selectedOption"
-                  optionLabel="name"
-                  style="min-width: 190px"
-                />
-                <DatePicker v-model="dates" selectionMode="range" />
-              </div>
-            </div>
-            <div class="sb-sales-cs-search-item">
-              <label>유형</label>
-              <div class="sb-checkbox">
-                <div
-                  v-for="opt in filterOptions.types"
-                  :key="opt.value"
-                  class="sb-checkbox-item"
-                >
-                  <Checkbox
-                    :inputId="'type-' + opt.value"
-                    name="typeGroup"
-                    :value="opt.value"
-                    v-model="selectedTypes"
+          <div class="sb-sales-cs-store-head">
+            <div class="sb-sales-cs-store-search">
+              <div class="sb-sales-cs-store-search-item">
+                <label>기간</label>
+                <div class="sb-sales-cs-store-search-item-form">
+                  <Select
+                    v-model="selectedValue"
+                    :options="selectedOption"
+                    optionLabel="name"
+                    style="min-width: 190px"
                   />
-                  <label :for="'type-' + opt.value">{{ opt.label }}</label>
+                  <DatePicker v-model="dates" selectionMode="range" />
                 </div>
               </div>
-            </div>
-            <div class="sb-sales-cs-search-item">
-              <label>답변 여부</label>
-              <div class="sb-checkbox">
-                <div
-                  v-for="opt in filterOptions.replyStatus"
-                  :key="opt.value"
-                  class="sb-checkbox-item"
-                >
-                  <Checkbox
-                    :inputId="'reply-' + opt.value"
-                    name="replyGroup"
-                    :value="opt.value"
-                    v-model="selectedReplyStatus"
-                  />
-                  <label :for="'reply-' + opt.value">{{ opt.label }}</label>
+              <div class="sb-sales-cs-store-search-item">
+                <label>유형</label>
+                <div class="sb-checkbox">
+                  <div
+                    v-for="opt in filterOptions.types"
+                    :key="opt.value"
+                    class="sb-checkbox-item"
+                  >
+                    <Checkbox
+                      :inputId="'type-' + opt.value"
+                      name="typeGroup"
+                      :value="opt.value"
+                      v-model="selectedTypes"
+                    />
+                    <label :for="'type-' + opt.value">{{ opt.label }}</label>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="sb-sales-cs-search-item">
-              <label>분석 여부</label>
-              <div class="sb-checkbox">
-                <div
-                  v-for="opt in filterOptions.analysisStatus"
-                  :key="opt.value"
-                  class="sb-checkbox-item"
-                >
-                  <Checkbox
-                    :inputId="'analysis-status-' + opt.value"
-                    name="analysisStatusGroup"
-                    :value="opt.value"
-                    v-model="selectedAnalysisStatus"
-                  />
-                  <label :for="'analysis-status-' + opt.value">{{
-                    opt.label
-                  }}</label>
+              <div class="sb-sales-cs-store-search-item">
+                <label>답변 여부</label>
+                <div class="sb-checkbox">
+                  <div
+                    v-for="opt in filterOptions.replyStatus"
+                    :key="opt.value"
+                    class="sb-checkbox-item"
+                  >
+                    <Checkbox
+                      :inputId="'reply-' + opt.value"
+                      name="replyGroup"
+                      :value="opt.value"
+                      v-model="selectedReplyStatus"
+                    />
+                    <label :for="'reply-' + opt.value">{{ opt.label }}</label>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="sb-sales-cs-search-item">
-              <label>분석 유형</label>
-              <div class="sb-checkbox">
-                <div
-                  v-for="opt in filterOptions.analysisTypes"
-                  :key="opt.value"
-                  class="sb-checkbox-item"
-                >
-                  <Checkbox
-                    :inputId="'analysis-type-' + opt.value"
-                    name="analysisTypeGroup"
-                    :value="opt.value"
-                    v-model="selectedAnalysisTypes"
-                  />
-                  <label :for="'analysis-type-' + opt.value">{{
-                    opt.label
-                  }}</label>
+              <div class="sb-sales-cs-store-search-item">
+                <label>분석 여부</label>
+                <div class="sb-checkbox">
+                  <div
+                    v-for="opt in filterOptions.analysisStatus"
+                    :key="opt.value"
+                    class="sb-checkbox-item"
+                  >
+                    <Checkbox
+                      :inputId="'analysis-status-' + opt.value"
+                      name="analysisStatusGroup"
+                      :value="opt.value"
+                      v-model="selectedAnalysisStatus"
+                    />
+                    <label :for="'analysis-status-' + opt.value">{{
+                      opt.label
+                    }}</label>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="sb-sales-cs-search-item">
-              <label>검색어</label>
-              <div class="sb-sales-cs-search-item-form">
-                <Select
-                  v-model="selectedValue02"
-                  :options="selectedOption02"
-                  optionLabel="name"
-                  style="min-width: 190px"
-                />
+              <div class="sb-sales-cs-store-search-item">
+                <label>분석 유형</label>
+                <div class="sb-checkbox">
+                  <div
+                    v-for="opt in filterOptions.analysisTypes"
+                    :key="opt.value"
+                    class="sb-checkbox-item"
+                  >
+                    <Checkbox
+                      :inputId="'analysis-type-' + opt.value"
+                      name="analysisTypeGroup"
+                      :value="opt.value"
+                      v-model="selectedAnalysisTypes"
+                    />
+                    <label :for="'analysis-type-' + opt.value">{{
+                      opt.label
+                    }}</label>
+                  </div>
+                </div>
+              </div>
+              <div class="sb-sales-cs-store-search-item">
+                <label>검색어</label>
+                <div class="sb-sales-cs-store-search-item-form">
+                  <Select
+                    v-model="selectedValue02"
+                    :options="selectedOption02"
+                    optionLabel="name"
+                    style="min-width: 190px"
+                  />
 
-                <div style="width: 388px">
-                  <SbInput
-                    v-model="searchKeyword"
-                    show-search
-                    @search="onSearch"
-                    placeholder="검색어를 입력하세요"
-                    class="w-full"
-                  />
+                  <div style="width: 388px">
+                    <SbInput
+                      v-model="searchKeyword"
+                      show-search
+                      @search="onSearch"
+                      placeholder="검색어를 입력하세요"
+                      class="w-full"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="sb-sales-cs-tab">
-            <div class="sb-tab-circle">
-              <Button label="전체" variant="text" class="active" />
-              <Button label="상품" variant="text" />
-              <Button label="배송" variant="text" />
-              <Button label="반품" variant="text" />
-              <Button label="교환" variant="text" />
-              <Button label="환불" variant="text" />
-              <Button label="기타" variant="text" />
-            </div>
-          </div>
-          <div class="sb-sales-cs-store-table">
-            <div class="sb-sales-cs-store-table-head">
-              <div class="sb-sales-cs-store-table-head__amount">
-                총 <strong>4999,999</strong>건
-              </div>
-              <div class="sb-sales-cs-store-table-head__status">
-                <p>
-                  진행 중인 분석 : <strong class="text-primary">2</strong>건
-                </p>
-                <p>답변 대기 : <strong class="text-primary">1</strong>건</p>
-                <p>답변 완료 : <strong class="text-primary">1 </strong>건</p>
+          <div class="sb-sales-cs-store-body">
+            <div class="sb-sales-cs-tab">
+              <div class="sb-tab-circle">
+                <Button label="전체" variant="text" class="active" />
+                <Button label="상품" variant="text" />
+                <Button label="배송" variant="text" />
+                <Button label="반품" variant="text" />
+                <Button label="교환" variant="text" />
+                <Button label="환불" variant="text" />
+                <Button label="기타" variant="text" />
               </div>
             </div>
-            <div class="sb-sales-cs-store-table-body">
-              <div class="sb-table">
-                <DataTable
-                  :value="storeQnaList"
-                  responsiveLayout="scroll"
-                  class="sb-store-table"
-                >
-                  <Column
-                    field="id"
-                    header="문의 번호"
-                    style="width: 170px"
-                  ></Column>
-                  <Column
-                    field="type"
-                    header="유형"
-                    style="width: 80px"
-                  ></Column>
-                  <Column
-                    field="title"
-                    header="제목"
-                    style="width: 350px"
-                    bodyClass="text-left"
-                  >
-                    <template #body="slotProps">
-                      <div class="sb-table-body-ellipsis">
-                        {{ slotProps.data.title }}
-                      </div>
-                    </template></Column
-                  >
-                  <Column
-                    field="userId"
-                    header="문의자"
-                    style="width: 110px"
-                  ></Column>
-                  <Column
-                    field="regDate"
-                    header="등록일"
-                    sortable
-                    style="width: 140px"
-                  ></Column>
-                  <Column
-                    field="replyStatus"
-                    header="답변"
-                    sortable
-                    style="width: 160px"
-                  >
-                    <template #body="slotProps">
-                      {{ slotProps.data.replyStatus }}
-                      <div
-                        class="sb-table-body-date"
-                        v-if="slotProps.data.replyDate"
-                      >
-                        {{ slotProps.data.replyDate }}
-                      </div>
-                    </template>
-                  </Column>
-
-                  <Column
-                    field="productName"
-                    header="상품명"
-                    style="width: 350px"
-                    bodyClass="text-left"
-                  >
-                    <template #body="slotProps">
-                      <div class="sb-table-body-ellipsis">
-                        {{ slotProps.data.productName }}
-                      </div>
-                    </template>
-                  </Column>
-
-                  <Column
-                    field="analysisStatus"
-                    header="분석"
-                    sortable
-                    style="width: 140px"
-                  >
-                    <template #body="slotProps">
-                      <Badge
-                        :value="getAnalysisLabel(slotProps.data.analysisStatus)"
-                        :severity="slotProps.data.analysisStatus"
-                      />
-
-                      <div
-                        v-if="slotProps.data.analysisDate"
-                        class="sb-table-body-date"
-                      >
-                        {{ slotProps.data.analysisDate }}
-                      </div>
-                    </template>
-                  </Column>
-                </DataTable>
+            <div class="sb-sales-cs-store-table">
+              <div class="sb-sales-cs-store-table-head">
+                <div class="sb-sales-cs-store-table-head__amount">
+                  총 <strong>4999,999</strong>건
+                </div>
+                <div class="sb-sales-cs-store-table-head__status">
+                  <p>
+                    진행 중인 분석 : <strong class="text-primary">2</strong>건
+                  </p>
+                  <p>답변 대기 : <strong class="text-primary">1</strong>건</p>
+                  <p>답변 완료 : <strong class="text-primary">1 </strong>건</p>
+                </div>
               </div>
-              <SbPaginator />
+              <div class="sb-sales-cs-store-table-body">
+                <div class="sb-table">
+                  <DataTable
+                    :value="storeQnaList"
+                    responsiveLayout="scroll"
+                    class="sb-store-table sb-table-click"
+                    @row-click="dialogQna = true"
+                  >
+                    <Column
+                      field="id"
+                      header="문의 번호"
+                      style="width: 170px"
+                    ></Column>
+                    <Column
+                      field="type"
+                      header="유형"
+                      style="width: 80px"
+                    ></Column>
+                    <Column
+                      field="title"
+                      header="제목"
+                      style="width: 350px"
+                      bodyClass="text-left"
+                    >
+                      <template #body="slotProps">
+                        <div class="sb-table-body-ellipsis">
+                          {{ slotProps.data.title }}
+                        </div>
+                      </template></Column
+                    >
+                    <Column
+                      field="userId"
+                      header="문의자"
+                      style="width: 110px"
+                    ></Column>
+                    <Column
+                      field="regDate"
+                      header="등록일"
+                      sortable
+                      style="width: 140px"
+                    ></Column>
+                    <Column
+                      field="replyStatus"
+                      header="답변"
+                      sortable
+                      style="width: 160px"
+                    >
+                      <template #body="slotProps">
+                        {{ slotProps.data.replyStatus }}
+                        <div
+                          class="sb-table-body-date"
+                          v-if="slotProps.data.replyDate"
+                        >
+                          {{ slotProps.data.replyDate }}
+                        </div>
+                      </template>
+                    </Column>
+
+                    <Column
+                      field="productName"
+                      header="상품명"
+                      style="width: 350px"
+                      bodyClass="text-left"
+                    >
+                      <template #body="slotProps">
+                        <div class="sb-table-body-ellipsis">
+                          {{ slotProps.data.productName }}
+                        </div>
+                      </template>
+                    </Column>
+
+                    <Column
+                      field="analysisStatus"
+                      header="분석"
+                      sortable
+                      style="width: 140px"
+                    >
+                      <template #body="slotProps">
+                        <Badge
+                          :value="
+                            getAnalysisLabel(slotProps.data.analysisStatus)
+                          "
+                          :severity="slotProps.data.analysisStatus"
+                        />
+
+                        <div
+                          v-if="slotProps.data.analysisDate"
+                          class="sb-table-body-date"
+                        >
+                          {{ slotProps.data.analysisDate }}
+                        </div>
+                      </template>
+                    </Column>
+                  </DataTable>
+                </div>
+                <SbPaginator />
+              </div>
             </div>
           </div>
         </div>
@@ -782,6 +774,19 @@
       </div>
     </div>
   </div>
+
+  <Dialog v-model:visible="dialogQna" modal>
+    <div class="p-dialog-inner">
+      <h6 class="p-dialog-title">스토어 문의 내역 팝업 작업 예정</h6>
+      <div class="sb-sales-cs-dialog">
+        <div></div>
+        <div class="sb-sales-cs-dialog__button">
+          <Button label="닫기" severity="contrast" outlined />
+          <Button label="확인" />
+        </div>
+      </div>
+    </div>
+  </Dialog>
 </template>
 
 <script setup>
@@ -789,6 +794,7 @@ import { ref, watch } from 'vue';
 import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
 import IconSystemMessage from '@/assets/icons/system/message.svg?component';
 import IconSnbDocument from '@/assets/icons/snb/document.svg?component';
+import IconSystemFileCheck from '@/assets/icons/system/file-check.svg?component';
 import IconSystemFaceSad from '@/assets/icons/system/face-sad.svg?component';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 
@@ -799,7 +805,10 @@ const breadcrumb = ref([
   { label: 'CS 센터' },
 ]);
 
-//
+//dialog
+const dialogQna = ref(false);
+
+//radio
 const selectedRevenue = ref('1d'); // 기본 선택값
 
 const radioRange = [
@@ -813,7 +822,7 @@ const radioRange = [
 const date = ref();
 
 //tab
-const activeTab = ref(0);
+const activeTab = ref(1);
 
 //select
 const selectedOption = ref([
@@ -966,14 +975,11 @@ const toggleRow = (data) => {
   expandedRows.value = newExpandedRows;
 };
 
-// 3. 확장 여부 확인 함수
 const isRowExpanded = (data) => {
   return !!expandedRows.value[data.id];
 };
 
-// 행에 동적 클래스를 부여하는 함수
 const rowClass = (data) => {
-  // 현재 행이 확장된 상태인지 확인
   return isRowExpanded(data) ? 'p-row-expanded' : '';
 };
 

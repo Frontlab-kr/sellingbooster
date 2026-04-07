@@ -68,6 +68,8 @@ const initChart = () => {
     grid: {
       top: 0,
       bottom: 30, // 범례가 들어갈 하단 여백
+      // left: 76,
+      // right: 76,
       left: 0,
       right: 0,
       containLabel: false,
