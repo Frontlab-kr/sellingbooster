@@ -2447,9 +2447,6 @@
           font-weight: 400;
           line-height: 140%; /* 22.4px */
           letter-spacing: -0.4px;
-        }
-        &__icon {
-          display: flex;
           .ico-system-information-circle {
             min-width: 16px;
             width: 16px;
@@ -2457,6 +2454,7 @@
             color: var(--p-gray-900);
           }
         }
+
         &__percent {
           display: flex;
           align-items: center;

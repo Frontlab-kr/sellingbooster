@@ -376,69 +376,7 @@ const togglePopover = (event) => {
   }
 };
 
-const searchKeyword = ref('');
-
-const selectedValue = ref();
-const selectedOption = ref([
-  { name: '스팸홍보/도배글입니다.' },
-  { name: '음란물입니다.' },
-  { name: '불법정보를 포함하고 있습니다.' },
-  { name: '청소년에게 유해한 내용입니다.' },
-  { name: '욕설/혐오/차별적 표현입니다.' },
-  { name: '개인정보 노출 게시물입니다.' },
-  { name: '블퀘한 표현이 있습니다.' },
-  { name: '기타 (기타 사유를 입력해주세요.)' },
-]);
-
-const products = ref([
-  {
-    keyword: '무선 키보드',
-    category: '컴퓨터 주변기기',
-    influence: '상',
-    avgPrice: 45000,
-    productCount: 12500,
-    pcSearchVol: 5200,
-    moSearchVol: 18000,
-    avgClick: 450,
-    competition: '높음',
-  },
-  {
-    keyword: '친환경 텀블러',
-    category: '주방용품',
-    influence: '중',
-    avgPrice: 18900,
-    productCount: 3400,
-    pcSearchVol: 1200,
-    moSearchVol: 5400,
-    avgClick: 210,
-    competition: '보통',
-  },
-  {
-    keyword: '캠핑용 의자',
-    category: '스포츠/레저',
-    influence: '상',
-    avgPrice: 32000,
-    productCount: 8900,
-    pcSearchVol: 3100,
-    moSearchVol: 12500,
-    avgClick: 380,
-    competition: '치열',
-  },
-  {
-    keyword: '가습기 살균제 <i class="ico-24-back">ss</i>',
-    category: '생활용품',
-    influence: '하',
-    avgPrice: 8500,
-    productCount: 120,
-    pcSearchVol: 450,
-    moSearchVol: 900,
-    avgClick: 45,
-    competition: '낮음',
-  },
-]);
-const productsNodata = ref(null);
-
-//
+//data
 const keywordList = [
   {
     keyword: '두존쿠',
@@ -457,6 +395,12 @@ const keywordList = [
     searchVol: '113,700건',
     productCount: '1,412개',
     competition: 0.26,
+  },
+  {
+    keyword: '몬트쿠키',
+    searchVol: '102,580건',
+    productCount: '121개',
+    competition: 0.02,
   },
   {
     keyword: '몬트쿠키',

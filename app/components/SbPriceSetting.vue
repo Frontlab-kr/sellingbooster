@@ -96,7 +96,7 @@
             </template>
           </Button>
 
-          <Popover ref="overlayCurrent">
+          <Popover ref="overlayCurrent" class="sb-popover-small">
             <div class="sb-price-setting-popover">
               <table>
                 <tbody>
@@ -143,15 +143,17 @@
             <div class="sb-price-setting-effect-item">
               <div class="sb-price-setting-effect-item__text">
                 전환율
-                <div
-                  class="sb-price-setting-effect-item__icon"
+                <Button
+                  variant="text"
                   @mouseenter="toggleOverlayEffect"
                   @mouseleave="toggleOverlayEffect"
                 >
-                  <IconSystemInformationCircle
-                    class="ico-system-information-circle"
-                  />
-                </div>
+                  <template #icon>
+                    <IconSystemInformationCircle
+                      class="ico-system-information-circle"
+                    />
+                  </template>
+                </Button>
               </div>
               <div class="sb-price-setting-effect-item__percent">
                 <IconArrowUp class="ico-arrow-up" />
@@ -162,15 +164,17 @@
             <div class="sb-price-setting-effect-item">
               <div class="sb-price-setting-effect-item__text">
                 매출
-                <div
-                  class="sb-price-setting-effect-item__icon"
+                <Button
+                  variant="text"
                   @mouseenter="toggleOverlayEffect"
                   @mouseleave="toggleOverlayEffect"
                 >
-                  <IconSystemInformationCircle
-                    class="ico-system-information-circle"
-                  />
-                </div>
+                  <template #icon>
+                    <IconSystemInformationCircle
+                      class="ico-system-information-circle"
+                    />
+                  </template>
+                </Button>
               </div>
               <div class="sb-price-setting-effect-item__percent">
                 <IconArrowUp class="ico-arrow-up" />
@@ -189,7 +193,7 @@
       지속적으로 문제가 발생할 경우 고객센터로 문의 부탁드립니다.
     </div>
 
-    <Popover ref="overlayEffect">
+    <Popover ref="overlayEffect" class="sb-popover-small">
       ※ 해당 수치는 이전 30일 데이터 기준으로 분석한 예상 수치입니다.<br />
       ※ 실제 수치와는 차이가 있을 수 있습니다.
     </Popover>
@@ -215,10 +219,11 @@ const toggleOverlayEffect = (event) => {
   if (event.type === 'mouseenter') {
     overlayEffect.value.show(event);
   } else {
-    //overlayEffect.value.hide();
+    overlayEffect.value.hide();
   }
 };
 
+//
 const props = defineProps({
   priceMin: { type: Number, default: 0 },
   priceMax: { type: Number, default: 0 },
