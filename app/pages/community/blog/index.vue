@@ -8,23 +8,75 @@
     </div>
     <div class="sb-blog">
       <div class="sb-blog-head">
-        <div class="sb-blog-head-title">
-          <h4>지금 구독하기 하고, 셀러한테 필요한 정보 꼭 확인하세요!</h4>
+        <div class="sb-blog-head__title">
+          <h4>
+            지금 구독하기 하고,<br class="mo" />
+            셀러한테 필요한 정보 꼭 확인하세요!
+          </h4>
         </div>
         <div class="sb-blog-head-swiper">
-          <ClientOnly>
-            <swiper-container
-              ref="containerRef"
-              :slides-per-view="swiperParams.slidesPerView"
-              :space-between="swiperParams.spaceBetween"
-              :breakpoints="JSON.stringify(swiperParams.breakpoints)"
-              @swiperactiveindexchange="onSlideChange"
-            >
-              <swiper-slide v-for="item in blogItems" :key="item.id">
-                <NuxtLink to="/" class="sb-blog-head-swiper-item"> 1 </NuxtLink>
-              </swiper-slide>
-            </swiper-container>
-          </ClientOnly>
+          <div class="sb-blog-head-swiper__contents">
+            <ClientOnly>
+              <swiper-container
+                ref="containerRef"
+                :slides-per-view="swiperParams.slidesPerView"
+                :space-between="swiperParams.spaceBetween"
+                :effect="swiperParams.effect"
+                :breakpoints="JSON.stringify(swiperParams.breakpoints)"
+                @swiperactiveindexchange="onSlideChange"
+              >
+                <swiper-slide>
+                  <NuxtLink to="/" class="sb-blog-head-swiper-item">
+                    <div class="sb-blog-head-swiper-item__thumb">
+                      <img src="./../../../assets/images/blog.png" alt="" />
+                    </div>
+                    <h4>
+                      초보 셀러가 많이 하는 5가지 실수 제목은<br />
+                      최대 2줄까지 노출해주세요
+                    </h4>
+                  </NuxtLink>
+                </swiper-slide>
+                <swiper-slide>
+                  <NuxtLink to="/" class="sb-blog-head-swiper-item">
+                    <div class="sb-blog-head-swiper-item__thumb">
+                      <img src="https://picsum.photos/200/300" alt="" />
+                    </div>
+                    <h4>
+                      초보 셀러가 많이 하는 5가지 실수 제목은<br />
+                      최대 2줄까지 노출해주세요
+                    </h4>
+                  </NuxtLink>
+                </swiper-slide>
+              </swiper-container>
+            </ClientOnly>
+          </div>
+          <div class="sb-blog-head-swiper__button">
+            <div class="sb-swiper-controls">
+              <Button
+                rounded
+                severity="neutral"
+                :disabled="isBeginning"
+                @click="swiper.prev()"
+              >
+                <template #icon>
+                  <IconArrowLeft class="ico-arrow-left" />
+                </template>
+              </Button>
+              <Button
+                rounded
+                severity="neutral"
+                :disabled="isEnd"
+                @click="swiper.next()"
+              >
+                <template #icon>
+                  <IconArrowRight class="ico-arrow-right" />
+                </template>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div class="sb-blog-head__button">
+          <Button severity="primary" label="셀링블로그 구독하기" />
         </div>
       </div>
       <div class="sb-community-menu">
@@ -71,15 +123,22 @@
           :search-text="searchKeyword"
         />
       </div>
-      <SbPaginator />
+      <div class="sb-blog-button">
+        <Button severity="contrast" outlined>
+          <span class="p-button-label">더보기(16/83)</span>
+          <IconArrowAchevronDown class="ico-arrow-achevron-down" />
+        </Button>
+      </div>
     </div>
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import Item from './item.vue';
 import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
+import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
+import IconArrowLeft from '@/assets/icons/arrow/left.svg?component';
 
 const searchKeyword = ref('');
 
@@ -91,16 +150,35 @@ const breadcrumb = ref([
 ]);
 
 //swiper
+const containerRef = ref(null);
+const isBeginning = ref(true); // 시작 상태 (초기값 true)
+const isEnd = ref(false); // 끝 상태
+
 const swiperParams = {
   slidesPerView: 1,
   spaceBetween: 10,
-  breakpoints: {
-    1024: {
-      slidesPerView: 2,
-      spaceBetween: 80,
-    },
-  },
+  effect: 'fade',
 };
+
+const swiper = useSwiper(containerRef, swiperParams);
+
+// 슬라이드가 바뀔 때마다 실행되어 상태를 업데이트하는 함수
+const onSlideChange = () => {
+  // swiper.instance가 Ref라면 .value로 접근해야 합니다.
+  const swiperInst = swiper.instance.value;
+
+  if (swiperInst) {
+    isBeginning.value = (swiperInst as any).isBeginning;
+    isEnd.value = (swiperInst as any).isEnd;
+  }
+};
+
+onMounted(() => {
+  // 초기 렌더링 시 상태 체크
+  setTimeout(() => {
+    onSlideChange();
+  }, 100); // Swiper 초기화 시간을 벌어주기 위해 약간의 지연을 둡니다.
+});
 
 //sort
 const selectRef = ref(null);
@@ -121,9 +199,8 @@ const list = [
     ],
     date: '2026.02.14',
     imgSrc: 'https://picsum.photos/200/300',
-    title:
-      '광고비를 쓰지 않아도 매출은 충분히 만들 수 있습니다.<br>초보 셀러가 먼저 잡아야 할 핵심 구조 정리',
-    text: '광고를 하지 않으면 매출이 안 나온다고 생각하기 쉽습니다. 하지만 초보 셀러일수록 광고보다 중요한 것이 있습니다. 바로 ‘클릭을 부르는 요소’입니다. 썸네일에서 시선을 끌지 못하면 어떤 광고도 의미가 없...',
+    title: '작은 시작에서, 꾸준한 성장까지',
+    text: '처음부터 모든 게 순조롭진 않았습니다. 상품 등록 하나에도 고민이 많았고처음부터 모든 게 순조롭진 않았습니다. 상품 등록 하나에도 고민이 많았고처음부터 모든 게 순조롭진 않았습니다. 상품 등록 하나에도 고민이 많았고처음부터 모든 게 순조롭진 않았습니다. 상품 등록 하나에도 고민이 많았고처음부터 모든 게 순조롭진 않았습니다. 상품 등록 하나에도 고민이 많았고',
     viewCount: '12,325',
     readTime: '12분 분량',
   },

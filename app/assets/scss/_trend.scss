@@ -248,6 +248,63 @@
             letter-spacing: -0.35px;
           }
         }
+        @include breakpoint {
+          grid-template-columns: 1fr;
+          row-gap: 12px;
+          column-gap: 0;
+          margin-top: 0;
+          &-item {
+            gap: 20px;
+            &__thumb {
+              position: relative;
+              min-width: 80px;
+              width: 80px;
+              height: 80px;
+              img {
+                border-radius: 16px;
+              }
+              .p-badge {
+                position: absolute;
+                top: 4px;
+                left: 4px;
+              }
+            }
+            &__category {
+              gap: 4px;
+              margin-bottom: 4px;
+              span {
+                gap: 4px;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%; /* 16.8px */
+                letter-spacing: -0.3px;
+                &::after {
+                  content: '';
+                  display: block;
+                  width: 1px;
+                  height: 10px;
+                }
+              }
+            }
+            &__title {
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 140%; /* 19.6px */
+              letter-spacing: -0.35px;
+              @include text-clamp(1);
+            }
+            &__price {
+              margin-top: 8px;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 140%; /* 19.6px */
+              letter-spacing: -0.35px;
+            }
+          }
+        }
       }
       &--small {
         padding: 0;
@@ -276,6 +333,9 @@
         .ico-illustration-frown {
           --path-color-1: var(--ico-illustration-frown-color3);
           --path-color-2: var(--ico-illustration-frown-color4);
+        }
+        p {
+          color: var(--p-gray-400);
         }
       }
     }
@@ -524,6 +584,9 @@
         .ico-illustration-frown {
           --path-color-1: var(--ico-illustration-frown-color3);
           --path-color-2: var(--ico-illustration-frown-color4);
+        }
+        p {
+          color: var(--p-gray-400);
         }
       }
       &-write {
@@ -1062,6 +1125,9 @@
         .ico-illustration-frown {
           --path-color-1: var(--ico-illustration-frown-color3);
           --path-color-2: var(--ico-illustration-frown-color4);
+        }
+        p {
+          color: var(--p-gray-400);
         }
       }
     }
@@ -2016,6 +2082,9 @@
         .ico-illustration-frown {
           --path-color-1: var(--ico-illustration-frown-color3);
           --path-color-2: var(--ico-illustration-frown-color4);
+        }
+        p {
+          color: var(--p-gray-400);
         }
       }
     }

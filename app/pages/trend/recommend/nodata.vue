@@ -67,13 +67,7 @@
         </div>
         <div class="sb-table">
           <DataTable :value="top30" responsiveLayout="scroll" removableSort>
-            <Column
-              field="ranking"
-              header="랭킹"
-              headerClass="text-center"
-              bodyClass="text-center"
-              style="width: 80px"
-            >
+            <Column field="ranking" header="랭킹" style="width: 80px">
               <template #body="slotProps">
                 {{ slotProps.data.ranking }}
               </template>
@@ -89,8 +83,6 @@
               field="influence"
               header="영향력"
               sortable
-              headerClass="text-center"
-              bodyClass="text-center"
               style="width: 150px"
             >
               <template #body="slotProps">
@@ -102,7 +94,6 @@
               field="productCount"
               header="상품수"
               sortable
-              headerClass="text-right"
               bodyClass="text-right"
               style="width: 235px"
             >
@@ -115,7 +106,6 @@
               field="searchVol"
               header="검색량"
               sortable
-              headerClass="text-right"
               bodyClass="text-right"
               style="width: 235px"
             >
@@ -127,7 +117,6 @@
             <Column
               field="competition"
               sortable
-              headerClass="text-right"
               bodyClass="text-right"
               style="width: 200px"
             >

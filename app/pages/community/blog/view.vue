@@ -16,20 +16,20 @@
           <span>2026.02.14</span>
         </div>
       </div>
+      <div class="sb-blog-view__badge">
+        <Badge value="NEW" severity="warn"></Badge>
+        <Badge value="셀링트렌드 " severity="success"></Badge>
+      </div>
+      <div class="sb-blog-view__title">
+        <h6>작은 시작에서, 꾸준한 성장까지</h6>
+      </div>
       <div class="sb-blog-view__info">
-        <div class="sb-blog-view__badge">
-          <Badge value="NEW" severity="warn"></Badge>
-          <Badge value="셀링트렌드 " severity="success"></Badge>
-        </div>
         <SbInfo
           :visible-buttons="['read', 'thema']"
           :read-time="'12분 분량'"
           :themaText="'3월 시즌'"
           class="sb-info--small"
         />
-      </div>
-      <div class="sb-blog-view__title">
-        <h6>작은 시작에서, 꾸준한 성장까지</h6>
       </div>
       <div class="sb-blog-view__contents">
         처음부터 모든 게 순조롭진 않았습니다. 상품 등록 하나에도 고민이 많았고,
@@ -72,11 +72,21 @@
       </div>
       <div class="sb-chip">
         <div class="sb-chip-list">
-          <Chip label="초보셀러 처음 시작하는 방법" />
-          <Chip label="스마트스토어 처음 운영하는 법" />
-          <Chip label="쇼핑몰 창업준비 과정 정리" />
-          <Chip label="초보셀러 매출 올리는 방법" />
-          <Chip label="상품선정 어떻게 해야할까" />
+          <NuxtLink to="/">
+            <Chip label="초보셀러 처음 시작하는 방법" />
+          </NuxtLink>
+          <NuxtLink to="/">
+            <Chip label="스마트스토어 처음 운영하는 법" />
+          </NuxtLink>
+          <NuxtLink to="/">
+            <Chip label="쇼핑몰 창업준비 과정 정리" />
+          </NuxtLink>
+          <NuxtLink to="/">
+            <Chip label="초보셀러 매출 올리는 방법" />
+          </NuxtLink>
+          <NuxtLink to="/">
+            <Chip label="상품선정 어떻게 해야할까" />
+          </NuxtLink>
         </div>
       </div>
     </div>

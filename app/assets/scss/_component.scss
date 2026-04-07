@@ -814,6 +814,11 @@
         line-height: 140%; /* 19.6px */
         letter-spacing: -0.35px;
       }
+      &:last-child {
+        &.p-button-text .p-button-label {
+          padding-right: 24px;
+        }
+      }
       &:hover {
         background: none;
       }
@@ -1104,6 +1109,9 @@
         --path-color-1: var(--ico-illustration-frown-color3);
         --path-color-2: var(--ico-illustration-frown-color4);
       }
+      p {
+        color: var(--p-gray-400);
+      }
     }
     .sb-legend-item {
       font-size: 16px;
@@ -1112,6 +1120,19 @@
       min-width: 16px;
       width: 16px;
       height: 16px;
+    }
+    &-date {
+      margin-top: 4px;
+      color: var(--Gray-400, #9aa3af);
+      text-align: center;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 16.8px */
+      letter-spacing: -0.3px;
+    }
+    &-ellipsis {
+      @include text-clamp(1);
     }
   }
 
@@ -1122,18 +1143,31 @@
       .p-button {
         width: 40px;
         height: 40px;
-        background-color: var(--p-gray-50);
+        background-color: var(--swiper-controls-button-background);
         &:disabled {
-          background-color: var(--p-gray-50);
+          background-color: var(--swiper-controls-button-background);
           .ico-arrow-right,
           .ico-arrow-left {
-            color: var(--p-gray-300);
+            color: var(--swiper-controls-ico-disabled-color);
           }
         }
       }
       .ico-arrow-right,
       .ico-arrow-left {
-        color: var(--p-gray-500);
+        color: var(--swiper-controls-ico-color);
+      }
+      @include breakpoint {
+        gap: 8px;
+        .p-button {
+          width: 32px;
+          height: 32px;
+
+          .ico-arrow-right,
+          .ico-arrow-left {
+            width: 16px;
+            height: 16px;
+          }
+        }
       }
     }
   }

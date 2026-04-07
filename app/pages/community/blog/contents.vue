@@ -65,7 +65,6 @@
                   :visible-buttons="['view', 'read']"
                   :view-count="item.views"
                   :read-time="item.readingTime"
-                  class="sb-info--small"
                 />
               </div>
             </NuxtLink>

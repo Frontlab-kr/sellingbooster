@@ -44,13 +44,7 @@
               scrollable
               class="sb-ktrend-datatable"
             >
-              <Column
-                field="ranking"
-                header="랭킹"
-                style="width: 175px"
-                headerClass="text-center"
-                bodyClass="text-center"
-              >
+              <Column field="ranking" header="랭킹" style="width: 175px">
                 <template #body="slotProps">
                   <span class="ranking-number">{{
                     slotProps.data.ranking
@@ -100,7 +94,6 @@
               <Column
                 field="competition"
                 header="경쟁강도"
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 175px"
               >

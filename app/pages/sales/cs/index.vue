@@ -30,137 +30,221 @@
       </div>
       <div class="sb-sales-cs" v-if="activeTab === 0">
         <div class="sb-sales-cs-head">
-          <div class="sb-sales-cs-product-head__text">
+          <div class="sb-sales-cs-chart__text">
             네이버 쇼핑 기준 데이터 입니다.
+          </div>
+          <div class="sb-sales-cs-chart">
+            <div class="grid">
+              <div class="col">
+                <dl>
+                  <dt>총 문의 건수</dt>
+                  <dd>
+                    <h4>122</h4>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col">
+                <dl>
+                  <dt>답변 완료율</dt>
+                  <dd>
+                    <h4>98</h4>
+                    <h5>%</h5>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col">
+                <dl>
+                  <dt>분석 기간</dt>
+                  <dd>
+                    <h4>03.01~03.02</h4>
+                  </dd>
+                </dl>
+              </div>
+              <div class="col">
+                <dl>
+                  <dt>문의 유형 수</dt>
+                  <dd>
+                    <h4>7</h4>
+                    <h5>개</h5>
+                  </dd>
+                </dl>
+              </div>
+            </div>
           </div>
         </div>
         <div class="sb-sales-cs-body">
-          <div class="sb-sales-cs-product-status"></div>
-          <div class="sb-sales-cs-product-table">
-            <DataTable
-              v-model:expandedRows="expandedRows"
-              :value="productQnaList"
-              dataKey="id"
-              :rowClass="rowClass"
-              responsiveLayout="scroll"
-              class="table-expanded"
-            >
-              <Column
-                field="productName"
-                header="상품명"
-                headerClass="text-center"
-                bodyClass="text-center"
-                style="width: 300px"
-              >
-                <template #body="slotProps">
-                  <div
-                    class="flex align-items-center"
-                    @click="toggleRow(slotProps.data)"
+          <div class="sb-sales-cs-product-head">
+            <div class="sb-chip">
+              <div class="sb-chip__title">분석 기간 선택</div>
+              <div class="sb-radio">
+                <div
+                  class="sb-radio-item"
+                  v-for="item in radioRange"
+                  :key="item.id"
+                >
+                  <RadioButton
+                    v-model="selectedRevenue"
+                    :inputId="item.id"
+                    :value="item.value"
+                    name="revenueRange"
+                  />
+                  <label :for="item.id">{{ item.label }}</label>
+                </div>
+              </div>
+            </div>
+            <Button
+              severity="primary"
+              size="large"
+              label="문의 데이터 분석 시작"
+            />
+          </div>
+          <div class="sb-sales-cs-product-body">
+            <div class="sb-sales-cs-product-status">
+              <div class="sb-sales-cs-product-status__text">
+                분위기가 복합적인 경우 주된 감정으로 분류됩니다.
+              </div>
+              <div class="grid">
+                <div class="col-9">
+                  <dl>
+                    <dt>
+                      <h5>문의 유형 분포</h5>
+                    </dt>
+                    <dd>
+                      <SbChartSegmentBar
+                        :chart-data="inquiryTypeStats"
+                        :maxValue="50"
+                        unit-text="건"
+                        show-percent
+                      />
+                    </dd>
+                  </dl>
+                </div>
+                <div class="col-3">
+                  <dl>
+                    <dt><h5>문의 분위기 종류</h5></dt>
+                    <dd></dd>
+                  </dl>
+                </div>
+              </div>
+            </div>
+            <div class="sb-sales-cs-product-table">
+              <div class="sb-table">
+                <DataTable
+                  v-model:expandedRows="expandedRows"
+                  :value="productQnaList"
+                  dataKey="id"
+                  :rowClass="rowClass"
+                  responsiveLayout="scroll"
+                  class="table-expanded"
+                >
+                  <Column
+                    field="productName"
+                    header="상품명"
+                    style="width: 300px"
                   >
-                    <span>{{ slotProps.data.productName }}</span>
-                  </div>
-                </template>
-              </Column>
+                    <template #body="slotProps">
+                      <div
+                        class="flex align-items-center"
+                        @click="toggleRow(slotProps.data)"
+                      >
+                        <span>{{ slotProps.data.productName }}</span>
+                      </div>
+                    </template>
+                  </Column>
 
-              <Column
-                field="sizeInquiry"
-                header="사이즈 문의"
-                headerClass="text-right"
-                bodyClass="text-right"
-                style="width: 150px"
-              >
-                <template #body="slotProps">{{
-                  slotProps.data.sizeInquiry
-                }}</template>
-              </Column>
+                  <Column
+                    field="sizeInquiry"
+                    header="사이즈 문의"
+                    bodyClass="text-right"
+                    style="width: 150px"
+                  >
+                    <template #body="slotProps">{{
+                      slotProps.data.sizeInquiry
+                    }}</template>
+                  </Column>
 
-              <Column
-                field="deliveryInquiry"
-                header="배송 문의"
-                headerClass="text-right"
-                bodyClass="text-right"
-                style="width: 150px"
-              >
-                <template #body="slotProps">{{
-                  slotProps.data.deliveryInquiry
-                }}</template>
-              </Column>
+                  <Column
+                    field="deliveryInquiry"
+                    header="배송 문의"
+                    bodyClass="text-right"
+                    style="width: 150px"
+                  >
+                    <template #body="slotProps">{{
+                      slotProps.data.deliveryInquiry
+                    }}</template>
+                  </Column>
 
-              <Column
-                field="stockOption"
-                header="재고 / 옵션"
-                headerClass="text-right"
-                bodyClass="text-right"
-                style="width: 150px"
-              >
-                <template #body="slotProps">{{
-                  slotProps.data.stockOption
-                }}</template>
-              </Column>
+                  <Column
+                    field="stockOption"
+                    header="재고 / 옵션"
+                    bodyClass="text-right"
+                    style="width: 150px"
+                  >
+                    <template #body="slotProps">{{
+                      slotProps.data.stockOption
+                    }}</template>
+                  </Column>
 
-              <Column
-                field="exchangeReturn"
-                header="교환 / 반품"
-                headerClass="text-right"
-                bodyClass="text-right"
-                style="width: 150px"
-              >
-                <template #body="slotProps">{{
-                  slotProps.data.exchangeReturn
-                }}</template>
-              </Column>
+                  <Column
+                    field="exchangeReturn"
+                    header="교환 / 반품"
+                    bodyClass="text-right"
+                    style="width: 150px"
+                  >
+                    <template #body="slotProps">{{
+                      slotProps.data.exchangeReturn
+                    }}</template>
+                  </Column>
 
-              <Column
-                field="productInfo"
-                header="상품 정보"
-                headerClass="text-right"
-                bodyClass="text-right"
-                style="width: 150px"
-              >
-                <template #body="slotProps">{{
-                  slotProps.data.productInfo
-                }}</template>
-              </Column>
+                  <Column
+                    field="productInfo"
+                    header="상품 정보"
+                    bodyClass="text-right"
+                    style="width: 150px"
+                  >
+                    <template #body="slotProps">{{
+                      slotProps.data.productInfo
+                    }}</template>
+                  </Column>
 
-              <Column
-                field="priceDiscount"
-                header="가격 / 할인"
-                headerClass="text-right"
-                bodyClass="text-right"
-                style="width: 150px"
-              >
-                <template #body="slotProps">{{
-                  slotProps.data.priceDiscount
-                }}</template>
-              </Column>
+                  <Column
+                    field="priceDiscount"
+                    header="가격 / 할인"
+                    bodyClass="text-right"
+                    style="width: 150px"
+                  >
+                    <template #body="slotProps">{{
+                      slotProps.data.priceDiscount
+                    }}</template>
+                  </Column>
 
-              <Column
-                field="etc"
-                header="기타"
-                headerClass="text-right"
-                bodyClass="text-right"
-                style="width: 150px"
-              >
-                <template #body="slotProps">
-                  {{ slotProps.data.etc === 0 ? '-' : slotProps.data.etc }}
-                </template>
-              </Column>
+                  <Column
+                    field="etc"
+                    header="기타"
+                    bodyClass="text-right"
+                    style="width: 150px"
+                  >
+                    <template #body="slotProps">
+                      {{ slotProps.data.etc === 0 ? '-' : slotProps.data.etc }}
+                    </template>
+                  </Column>
 
-              <Column
-                field="total"
-                header="합계"
-                headerClass="text-right"
-                bodyClass="text-right"
-                style="width: 150px"
-              >
-                <template #body="slotProps">{{
-                  slotProps.data.total
-                }}</template>
-              </Column>
-              <template #expansion="slotProps">
-                <div class="p-4">11</div>
-              </template>
-            </DataTable>
+                  <Column
+                    field="total"
+                    header="합계"
+                    bodyClass="text-right"
+                    style="width: 150px"
+                  >
+                    <template #body="slotProps">{{
+                      slotProps.data.total
+                    }}</template>
+                  </Column>
+                  <template #expansion="slotProps">
+                    <SbChartStackedBar :chart-data="ageStats" />
+                  </template>
+                </DataTable>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -168,7 +252,7 @@
         <div class="sb-sales-cs-head">
           <div class="sb-sales-cs-chart">
             <div class="grid">
-              <div class="col-8">
+              <div class="col-7">
                 <div class="grid">
                   <div class="col-6">
                     <dl>
@@ -183,7 +267,7 @@
                     <dl>
                       <dt>답변 완료 현황</dt>
                       <dd>
-                        <h4>19,999</h4>
+                        <h4 class="text-info">19,999</h4>
                         <h5>건</h5>
                       </dd>
                     </dl>
@@ -201,29 +285,39 @@
                     <dl>
                       <dt>7일 이상 지연된 미답변 현황</dt>
                       <dd>
-                        <h4>999</h4>
+                        <h4 class="text-danger">999</h4>
                         <h5>건</h5>
                       </dd>
                     </dl>
                   </div>
                 </div>
               </div>
-              <div class="col-4">
-                <div class="col">
-                  <dl>
-                    <dt>문의 유형 별 현황</dt>
-                    <dd>
-                      <SbChartDoughnut02 :chartData="csChartData" />
-                    </dd>
-                  </dl>
-                </div>
+              <div class="col-5">
+                <dl class="sb-sales-cs-chart-item">
+                  <dt>문의 유형 별 현황</dt>
+                  <dd>
+                    <SbChartDoughnut02 :chartData="csChartData" />
+                  </dd>
+                </dl>
               </div>
             </div>
           </div>
         </div>
         <div class="sb-sales-cs-body">
-          <div class="sb-sales-cs-store-search">
-            <div class="sb-sales-cs-store-search-item">
+          <div class="sb-sales-cs-search">
+            <div class="sb-sales-cs-search-item">
+              <label>기간</label>
+              <div class="sb-sales-cs-search-item-form">
+                <Select
+                  v-model="selectedValue"
+                  :options="selectedOption"
+                  optionLabel="name"
+                  style="min-width: 190px"
+                />
+                <DatePicker v-model="dates" selectionMode="range" />
+              </div>
+            </div>
+            <div class="sb-sales-cs-search-item">
               <label>유형</label>
               <div class="sb-checkbox">
                 <div
@@ -241,8 +335,7 @@
                 </div>
               </div>
             </div>
-
-            <div class="sb-sales-cs-store-search-item">
+            <div class="sb-sales-cs-search-item">
               <label>답변 여부</label>
               <div class="sb-checkbox">
                 <div
@@ -260,8 +353,7 @@
                 </div>
               </div>
             </div>
-
-            <div class="sb-sales-cs-store-search-item">
+            <div class="sb-sales-cs-search-item">
               <label>분석 여부</label>
               <div class="sb-checkbox">
                 <div
@@ -281,8 +373,7 @@
                 </div>
               </div>
             </div>
-
-            <div class="sb-sales-cs-store-search-item">
+            <div class="sb-sales-cs-search-item">
               <label>분석 유형</label>
               <div class="sb-checkbox">
                 <div
@@ -302,15 +393,38 @@
                 </div>
               </div>
             </div>
+            <div class="sb-sales-cs-search-item">
+              <label>검색어</label>
+              <div class="sb-sales-cs-search-item-form">
+                <Select
+                  v-model="selectedValue02"
+                  :options="selectedOption02"
+                  optionLabel="name"
+                  style="min-width: 190px"
+                />
+
+                <div style="width: 388px">
+                  <SbInput
+                    v-model="searchKeyword"
+                    show-search
+                    @search="onSearch"
+                    placeholder="검색어를 입력하세요"
+                    class="w-full"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="sb-tab-circle">
-            <Button label="전체" variant="text" class="active" />
-            <Button label="상품 " variant="text" />
-            <Button label="배송" variant="text" />
-            <Button label="반품" variant="text" />
-            <Button label="교환" variant="text" />
-            <Button label="환불" variant="text" />
-            <Button label="기타" variant="text" />
+          <div class="sb-sales-cs-tab">
+            <div class="sb-tab-circle">
+              <Button label="전체" variant="text" class="active" />
+              <Button label="상품" variant="text" />
+              <Button label="배송" variant="text" />
+              <Button label="반품" variant="text" />
+              <Button label="교환" variant="text" />
+              <Button label="환불" variant="text" />
+              <Button label="기타" variant="text" />
+            </div>
           </div>
           <div class="sb-sales-cs-store-table">
             <div class="sb-sales-cs-store-table-head">
@@ -325,113 +439,98 @@
                 <p>답변 완료 : <strong class="text-primary">1 </strong>건</p>
               </div>
             </div>
-            <div class="-body">
-              <DataTable
-                :value="storeQnaList"
-                responsiveLayout="scroll"
-                class="sb-store-table"
-              >
-                <Column
-                  field="id"
-                  header="문의 번호"
-                  style="width: 150px"
-                ></Column>
-                <Column
-                  field="type"
-                  header="유형"
-                  headerClass="text-center"
-                  bodyClass="text-center"
-                  style="width: 80px"
-                ></Column>
-                <Column
-                  field="title"
-                  header="제목"
-                  style="min-width: 200px"
-                ></Column>
-                <Column
-                  field="userId"
-                  header="문의자"
-                  style="width: 100px"
-                ></Column>
-                <Column
-                  field="regDate"
-                  header="등록일"
-                  sortable
-                  style="width: 150px"
-                ></Column>
-
-                <Column
-                  field="replyStatus"
-                  header="답변"
-                  sortable
-                  style="width: 150px"
+            <div class="sb-sales-cs-store-table-body">
+              <div class="sb-table">
+                <DataTable
+                  :value="storeQnaList"
+                  responsiveLayout="scroll"
+                  class="sb-store-table"
                 >
-                  <template #body="slotProps">
-                    <div class="flex flex-column">
-                      <span
-                        :class="{
-                          'text-primary': slotProps.data.replyStatus === '완료',
-                        }"
-                      >
-                        {{ slotProps.data.replyStatus }}
-                      </span>
-                      <span
+                  <Column
+                    field="id"
+                    header="문의 번호"
+                    style="width: 170px"
+                  ></Column>
+                  <Column
+                    field="type"
+                    header="유형"
+                    style="width: 80px"
+                  ></Column>
+                  <Column
+                    field="title"
+                    header="제목"
+                    style="width: 350px"
+                    bodyClass="text-left"
+                  >
+                    <template #body="slotProps">
+                      <div class="sb-table-ellipsis">
+                        {{ slotProps.data.title }}
+                      </div>
+                    </template></Column
+                  >
+                  <Column
+                    field="userId"
+                    header="문의자"
+                    style="width: 110px"
+                  ></Column>
+                  <Column
+                    field="regDate"
+                    header="등록일"
+                    sortable
+                    style="width: 140px"
+                  ></Column>
+                  <Column
+                    field="replyStatus"
+                    header="답변"
+                    sortable
+                    style="width: 160px"
+                  >
+                    <template #body="slotProps">
+                      {{ slotProps.data.replyStatus }}
+                      <div
+                        class="sb-table-date"
                         v-if="slotProps.data.replyDate"
-                        class="text-xs text-400"
                       >
                         {{ slotProps.data.replyDate }}
-                      </span>
-                    </div>
-                  </template>
-                </Column>
+                      </div>
+                    </template>
+                  </Column>
 
-                <Column
-                  field="productName"
-                  header="상품명"
-                  style="min-width: 200px"
-                ></Column>
+                  <Column
+                    field="productName"
+                    header="상품명"
+                    style="width: 350px"
+                    bodyClass="text-left"
+                  >
+                    <template #body="slotProps">
+                      <div class="sb-table-ellipsis">
+                        {{ slotProps.data.productName }}
+                      </div>
+                    </template>
+                  </Column>
 
-                <Column
-                  field="analysisStatus"
-                  header="분석"
-                  sortable
-                  style="width: 120px"
-                  bodyClass="text-center"
-                >
-                  <template #body="slotProps">
-                    <div
-                      v-if="getAnalysisBadge(slotProps.data.analysisStatus)"
-                      class="flex flex-column align-items-center"
-                    >
+                  <Column
+                    field="analysisStatus"
+                    header="분석"
+                    sortable
+                    style="width: 140px"
+                  >
+                    <template #body="slotProps">
                       <Badge
-                        :value="
-                          getAnalysisBadge(slotProps.data.analysisStatus).value
-                        "
-                        :severity="
-                          getAnalysisBadge(slotProps.data.analysisStatus)
-                            .severity
-                        "
-                        class="mb-1"
-                      ></Badge>
-                      <span
+                        :value="getAnalysisLabel(slotProps.data.analysisStatus)"
+                        :severity="slotProps.data.analysisStatus"
+                      />
+
+                      <div
                         v-if="slotProps.data.analysisDate"
-                        class="text-xs text-400"
+                        class="sb-table-date"
                       >
                         {{ slotProps.data.analysisDate }}
-                      </span>
-                    </div>
-
-                    <div v-else>
-                      <Button
-                        label="분석하기"
-                        variant="text"
-                        size="small"
-                        class="p-0 text-primary"
-                      />
-                    </div>
-                  </template>
-                </Column>
-              </DataTable>
+                      </div>
+                    </template>
+                  </Column>
+                </DataTable>
+              </div>
               <SbPaginator />
             </div>
           </div>
@@ -452,8 +551,38 @@ const breadcrumb = ref([
   { label: 'CS 센터' },
 ]);
 
+//
+const selectedRevenue = ref('1d'); // 기본 선택값
+
+const radioRange = [
+  { id: 'range1', label: '1일', value: '1d' },
+  { id: 'range2', label: '7일', value: '7d' },
+  { id: 'range3', label: '1달', value: '1m' },
+  { id: 'range4', label: '6개월', value: '6m' },
+];
+
+//datepicker
+const date = ref();
+
 //tab
-const activeTab = ref(1);
+const activeTab = ref(0);
+
+//select
+const selectedOption = ref([
+  { name: '1일' },
+  { name: '1주' },
+  { name: '1개월' },
+  { name: '6개월' },
+  { name: '1년' },
+]);
+const selectedValue = ref(selectedOption.value[0]);
+const selectedOption02 = ref([
+  { name: '제목+내용' },
+  { name: '문의 번호' },
+  { name: '문의자' },
+  { name: '상품명' },
+]);
+const selectedValue02 = ref(selectedOption02.value[0]);
 
 //data
 const productQnaList = ref([
@@ -524,6 +653,22 @@ const csChartData = ref([
   { value: 10, name: '환불', color: '--chart-doughnut02-danger' },
   { value: 5, name: '기타', color: '--chart-doughnut02-neutral' },
 ]);
+const inquiryTypeStats = ref([
+  { value: 43, name: '사이즈 문의', color: 'infoColor' },
+  { value: 24, name: '배송 문의', color: 'successColor' },
+  { value: 23, name: '재고/옵션', color: 'secondaryColor' },
+  { value: 16, name: '교환/반품', color: 'dangerColor' },
+  { value: 8, name: '상품 정보', color: 'warnColor' },
+  { value: 7, name: '가격/할인', color: 'primaryColor' },
+  { value: 10, name: '기타', color: 'contrastColor' },
+]);
+const ageStats = ref([
+  { name: '10', value: 3, color: '#C2F4F8' },
+  { name: '20', value: 12, color: '#3ADDE9' },
+  { name: '30', value: 26, color: '#00B1BD' },
+  { name: '40', value: 35, color: '#23858C' },
+  { name: '50', value: 24, color: '#1A6369' },
+]);
 
 // 1. 기간 (Select/Date 관련 데이터는 생략하고 체크박스 중심 구성)
 const selectedTypes = ref(['all']); // 유형 (기본값: 전체)
@@ -563,8 +708,47 @@ const filterOptions = {
     { label: '부정', value: 'negative' },
   ],
 };
+
 // 스토어 문의 내역 데이터 리스트
 const storeQnaList = ref([
+  {
+    id: '20260310132535',
+    type: '상품',
+    title:
+      '갤럭시S26 울트라 보호필름 재고 문의드립니다.갤럭시S26 울트라 보호필름 재고 문의드립니다.갤럭시S26 울트라 보호필름 재고 문의드립니다.갤럭시S26 울트라 보호필름 재고 문의드립니다.갤럭시S26 울트라 보호필름 재고 문의드립니다.',
+    userId: 'USER_ID',
+    regDate: '2026.03.01 13:25:35',
+    replyStatus: '완료',
+    replyDate: '2026.03.01 13:25:35',
+    productName:
+      '상품정보(상품명+상품 주문 옵션)상품정보(상품명+상품 주문 옵션)상품정보(상품명+상품 주문 옵션)상품정보(상품명+상품 주문 옵션)상품정보(상품명+상품 주문 옵션)상품정보(상품명+상품 주문 옵션)상품정보(상품명+상품 주문 옵션)상품정보(상품명+상품 주문 옵션)상품정보(상품명+상품 주문 옵션)상품정보(상품명+상품 주문 옵션)상품정보(상품명+상품 주문 옵션)',
+    analysisStatus: 'success', // 긍정
+    analysisDate: '2026.03.10',
+  },
+  {
+    id: '20260310132535',
+    type: '배송',
+    title: '갤럭시',
+    userId: 'USER_ID',
+    regDate: '2026.03.01 13:25:35',
+    replyStatus: '완료',
+    replyDate: '2026.03.01 13:25:35',
+    productName: '상품정보(상품명+상품 주문 옵션: 최대 1줄(...생략))',
+    analysisStatus: 'secondary', // 분석하기
+    analysisDate: null,
+  },
+  {
+    id: '20260310132535',
+    type: '상품',
+    title: '갤럭시S26 울트라 보호필름 재고 문의드립니다.',
+    userId: 'USER_ID',
+    regDate: '2026.03.01 13:25:35',
+    replyStatus: '완료',
+    replyDate: '2026.03.01 13:25:35',
+    productName: '상ㅇㅇㄴㄹ)',
+    analysisStatus: 'warn', // 중립
+    analysisDate: '2026.03.10',
+  },
   {
     id: '20260310132535',
     type: '상품',
@@ -574,67 +758,139 @@ const storeQnaList = ref([
     replyStatus: '완료',
     replyDate: '2026.03.01 13:25:35',
     productName: '상품정보(상품명+상품 주문 옵션: 최대 1줄(...생략))',
-    analysisStatus: 'positive', // 긍정
+    analysisStatus: 'danger', // 부정
     analysisDate: '2026.03.10',
   },
   {
-    id: '20260310132536',
-    type: '배송',
-    title: '배송이 언제쯤 도착할까요?',
+    id: '20260310132535',
+    type: '상품',
+    title: '갤럭시S26 울트라 보호필름 재고 문의드립니다.',
     userId: 'USER_ID',
     regDate: '2026.03.01 13:25:35',
-    replyStatus: '미답변',
-    replyDate: null,
+    replyStatus: '완료',
+    replyDate: '2026.03.01 13:25:35',
     productName: '상품정보(상품명+상품 주문 옵션: 최대 1줄(...생략))',
-    analysisStatus: 'none', // 분석하기 버튼 노출
+    analysisStatus: 'contrast', // 분석중
     analysisDate: null,
   },
   {
-    id: '20260310132537',
+    id: '20260310132535',
     type: '상품',
-    title: '재입고 일정 문의합니다.',
+    title: '갤럭시S26 울트라 보호필름 재고 문의드립니다.',
     userId: 'USER_ID',
     regDate: '2026.03.01 13:25:35',
     replyStatus: '완료',
     replyDate: '2026.03.01 13:25:35',
     productName: '상품정보(상품명+상품 주문 옵션: 최대 1줄(...생략))',
-    analysisStatus: 'neutral', // 중립
-    analysisDate: '2026.03.10',
+    analysisStatus: 'contrast',
+    analysisDate: null,
   },
   {
-    id: '20260310132538',
+    id: '20260310132535',
     type: '상품',
-    title: '제품 불량인 것 같아요.',
+    title: '갤럭시S26 울트라 보호필름 재고 문의드립니다.',
     userId: 'USER_ID',
     regDate: '2026.03.01 13:25:35',
     replyStatus: '완료',
     replyDate: '2026.03.01 13:25:35',
     productName: '상품정보(상품명+상품 주문 옵션: 최대 1줄(...생략))',
-    analysisStatus: 'negative', // 부정
-    analysisDate: '2026.03.10',
+    analysisStatus: 'contrast',
+    analysisDate: null,
   },
   {
-    id: '20260310132539',
-    type: '기타',
-    title: '이벤트 참여 방법 문의',
+    id: '20260310132535',
+    type: '상품',
+    title: '갤럭시S26 울트라 보호필름 재고 문의드립니다.',
     userId: 'USER_ID',
     regDate: '2026.03.01 13:25:35',
     replyStatus: '완료',
     replyDate: '2026.03.01 13:25:35',
     productName: '상품정보(상품명+상품 주문 옵션: 최대 1줄(...생략))',
-    analysisStatus: 'loading', // 분석 중
+    analysisStatus: 'contrast',
+    analysisDate: null,
+  },
+  {
+    id: '20260310132535',
+    type: '상품',
+    title: '갤럭시S26 울트라 보호필름 재고 문의드립니다.',
+    userId: 'USER_ID',
+    regDate: '2026.03.01 13:25:35',
+    replyStatus: '완료',
+    replyDate: '2026.03.01 13:25:35',
+    productName: '상품정보(상품명+상품 주문 옵션: 최대 1줄(...생략))',
+    analysisStatus: 'secondary', // 분석하기 버튼들 시작
+    analysisDate: null,
+  },
+  {
+    id: '20260310132535',
+    type: '상품',
+    title: '갤럭시S26 울트라 보호필름 재고 문의드립니다.',
+    userId: 'USER_ID',
+    regDate: '2026.03.01 13:25:35',
+    replyStatus: '완료',
+    replyDate: '2026.03.01 13:25:35',
+    productName: '상품정보(상품명+상품 주문 옵션: 최대 1줄(...생략))',
+    analysisStatus: 'secondary',
+    analysisDate: null,
+  },
+  {
+    id: '20260310132535',
+    type: '상품',
+    title: '갤럭시S26 울트라 보호필름 재고 문의드립니다.',
+    userId: 'USER_ID',
+    regDate: '2026.03.01 13:25:35',
+    replyStatus: '완료',
+    replyDate: '2026.03.01 13:25:35',
+    productName: '상품정보(상품명+상품 주문 옵션: 최대 1줄(...생략))',
+    analysisStatus: 'secondary',
+    analysisDate: null,
+  },
+  {
+    id: '20260310132535',
+    type: '상품',
+    title: '갤럭시S26 울트라 보호필름 재고 문의드립니다.',
+    userId: 'USER_ID',
+    regDate: '2026.03.01 13:25:35',
+    replyStatus: '완료',
+    replyDate: '2026.03.01 13:25:35',
+    productName: '상품정보(상품명+상품 주문 옵션: 최대 1줄(...생략))',
+    analysisStatus: 'secondary',
+    analysisDate: null,
+  },
+  {
+    id: '20260310132535',
+    type: '상품',
+    title: '갤럭시S26 울트라 보호필름 재고 문의드립니다.',
+    userId: 'USER_ID',
+    regDate: '2026.03.01 13:25:35',
+    replyStatus: '완료',
+    replyDate: '2026.03.01 13:25:35',
+    productName: '상품정보(상품명+상품 주문 옵션: 최대 1줄(...생략))',
+    analysisStatus: 'secondary',
+    analysisDate: null,
+  },
+  {
+    id: '20260310132535',
+    type: '상품',
+    title: '갤럭시S26 울트라 보호필름 재고 문의드립니다.',
+    userId: 'USER_ID',
+    regDate: '2026.03.01 13:25:35',
+    replyStatus: '완료',
+    replyDate: '2026.03.01 13:25:35',
+    productName: '상품정보(상품명+상품 주문 옵션: 최대 1줄(...생략))',
+    analysisStatus: 'secondary',
     analysisDate: null,
   },
 ]);
 
-// 분석 상태별 뱃지 설정 매핑
-const getAnalysisBadge = (status) => {
-  const map = {
-    positive: { value: '긍정', severity: 'success' },
-    neutral: { value: '중립', severity: 'warn' },
-    negative: { value: '부정', severity: 'danger' },
-    loading: { value: '분석 중', severity: 'secondary' },
+const getAnalysisLabel = (severity) => {
+  const labelMap = {
+    success: '긍정',
+    warn: '중립',
+    danger: '부정',
+    contrast: '분석중',
+    secondary: '분석하기',
   };
-  return map[status] || null;
+  return labelMap[severity] || '분석하기';
 };
 </script>

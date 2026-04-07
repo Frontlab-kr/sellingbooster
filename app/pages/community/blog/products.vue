@@ -27,7 +27,7 @@
         </div>
       </div>
     </div>
-    <div class="sb-trend-top-list">
+    <div class="sb-blog-products-list">
       <ClientOnly>
         <swiper-container
           ref="containerRef"
@@ -36,7 +36,7 @@
           :breakpoints="JSON.stringify(swiperParams.breakpoints)"
           @swiperactiveindexchange="onSlideChange"
         >
-          <swiper-slide>
+          <swiper-slide v-for="n in 3">
             <div class="sb-trend-top-list">
               <NuxtLink
                 v-for="item in categoryTop30"
@@ -45,12 +45,6 @@
                 class="sb-trend-top-list-item"
               >
                 <div class="sb-trend-top-list-item__thumb">
-                  <Badge
-                    :value="item.rank"
-                    size="small"
-                    class="p-badge-circle"
-                    :severity="item.rank > 3 ? 'contrast' : undefined"
-                  ></Badge>
                   <img :src="item.imgSrc" :alt="item.title" />
                 </div>
                 <div class="sb-trend-top-list-item__contents">
@@ -87,12 +81,6 @@ const isEnd = ref(false); // 끝 상태
 const swiperParams = {
   slidesPerView: 1,
   spaceBetween: 10,
-  breakpoints: {
-    1024: {
-      slidesPerView: 2,
-      spaceBetween: 80,
-    },
-  },
 };
 
 const swiper = useSwiper(containerRef, swiperParams);
@@ -164,32 +152,6 @@ const categoryTop30 = ref([
     mall: '네이버쇼핑',
     title: '보아르 투웨이 대용량 손잡이 스텐 보온 보냉 텀블러...',
     price: 22700,
-  },
-  {
-    rank: 7,
-    imgSrc: '/temp/top7.png',
-    brand: '락앤락',
-    mall: '네이버쇼핑',
-    title: '락앤락 모그 스텐 머그컵 텀블러',
-    price: 24790,
-  },
-  {
-    id: 'stanley-aerolight-33',
-    rank: 8,
-    imgSrc: '/temp/top8.png',
-    brand: '스텐리',
-    mall: '네이버쇼핑',
-    title: '스텐리 아이스플로우 에어로라이트 패스트플로우 텀블러',
-    price: 33490,
-    to: '/product/stanley-aerolight-33',
-  },
-  {
-    rank: 9,
-    imgSrc: '/temp/top9.png',
-    brand: '락앤락',
-    mall: '네이버쇼핑',
-    title: '락앤락 메트로카페 세라믹 텀블러 바닐라라떼 650ml',
-    price: 24570,
   },
 ]);
 </script>

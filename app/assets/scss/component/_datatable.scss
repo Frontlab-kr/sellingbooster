@@ -442,6 +442,7 @@
 .p-datatable-column-header-content {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--p-datatable-header-cell-gap);
   [data-pc-section='sort'] {
     display: flex;
@@ -623,7 +624,7 @@
   border-width: 0 0 1px 0;
   color: var(--p-datatable-header-cell-color);
   font-weight: normal;
-  text-align: start;
+  text-align: center;
   white-space: noWrap;
   transition:
     background var(--p-datatable-transition-duration),
@@ -631,6 +632,7 @@
     border-color var(--p-datatable-transition-duration),
     outline-color var(--p-datatable-transition-duration),
     box-shadow var(--p-datatable-transition-duration);
+
   &.text-left {
     .p-datatable-column-header-content {
       justify-content: start;
@@ -737,7 +739,7 @@
   position: relative;
   z-index: 20;
   height: 60px;
-  text-align: start;
+  text-align: center;
   border-color: var(--p-datatable-body-cell-border-color);
   border-style: solid;
   border-width: 1px 0 1px 0 !important;
@@ -745,7 +747,7 @@
   color: var(--p-datatable-body-cell-color);
   font-size: 16px;
   font-weight: 400;
-  line-height: 1; /* 22.4px */
+  line-height: 140%; /* 22.4px */
   letter-spacing: -0.4px;
 
   &:first-child {

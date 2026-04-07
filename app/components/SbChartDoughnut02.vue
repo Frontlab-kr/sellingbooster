@@ -1,5 +1,5 @@
 <template>
-  <div :class="['sb-chart-doughnut-horizontal', className]">
+  <div :class="['sb-chart-doughnut02', className]">
     <div ref="chartRef" class="echart"></div>
   </div>
 </template>
@@ -72,7 +72,7 @@ const initChart = () => {
   // 크기 계산 (반응형)
   const chartSize = Math.min(clientWidth * 0.6, clientHeight); // 차트 영역 비율 조절
   const outerRadius = chartSize * 0.45; // 외경
-  const innerRadius = chartSize * 0.3; // 내경 (도넛 두께 조절)
+  const innerRadius = chartSize * 0.27; // 내경 (도넛 두께 조절)
 
   const option = {
     backgroundColor: chartBackground,
@@ -85,11 +85,10 @@ const initChart = () => {
       right: '10%',
       top: 'center',
       icon: 'circle',
-      itemWidth: 10,
-      itemHeight: 10,
-      itemGap: 15,
-      // [수정] itemStyle의 color 콜백을 제거합니다.
-      // ECharts는 series 데이터의 색상을 범례 아이콘에 자동으로 적용합니다.
+      itemWidth: 12,
+      itemHeight: 12,
+      itemGap: 16,
+      width: 100,
 
       formatter: function (name) {
         const item = props.chartData.find((d) => d.name === name);
@@ -98,8 +97,8 @@ const initChart = () => {
       },
       textStyle: {
         rich: {
-          name: { fontSize: 14, color: labelColor, padding: [0, 10, 0, 0] },
-          value: { fontSize: 14, fontWeight: 'bold', color: percentColor },
+          name: { fontSize: 12, color: labelColor, padding: [0, 4, 0, 0] },
+          value: { fontSize: 12, fontWeight: 'bold', color: percentColor },
         },
       },
     },
@@ -109,7 +108,7 @@ const initChart = () => {
         type: 'pie',
         // [핵심 수정] 위치 및 크기 조절
         radius: [innerRadius, outerRadius], // 도넛 형태
-        center: ['35%', '50%'], // 차트를 왼쪽으로 치우치게 배치
+        center: ['45%', '50%'], // 차트를 왼쪽으로 치우치게 배치
         avoidLabelOverlap: false,
 
         itemStyle: {
@@ -162,14 +161,3 @@ const handleResize = () => {
   if (chart) chart.resize();
 };
 </script>
-
-<style scoped>
-.sb-chart-doughnut-horizontal {
-  width: 100%;
-  height: 300px; /* 적절한 높이 설정 */
-}
-.echart {
-  width: 100%;
-  height: 100%;
-}
-</style>

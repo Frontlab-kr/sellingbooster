@@ -41,7 +41,12 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'github-pages',
   },
-  modules: ['@primevue/nuxt-module', '@nuxt/content', 'nuxt-tiptap-editor', 'nuxt-swiper'],
+  modules: [
+    '@primevue/nuxt-module',
+    '@nuxt/content',
+    'nuxt-tiptap-editor',
+    'nuxt-swiper',
+  ],
 
   css: ['@/assets/scss/common.scss', 'remixicon/fonts/remixicon.css'],
 
@@ -64,6 +69,7 @@ export default defineNuxtConfig({
     //성능 저하 이슈로 필요한 컴포넌트만 불러옴
     components: {
       include: [
+        'DatePicker',
         'Accordion',
         'Button',
         'Dialog',
@@ -83,6 +89,55 @@ export default defineNuxtConfig({
     },
     options: {
       ripple: true,
+      locale: {
+        dayNames: [
+          '일요일',
+          '월요일',
+          '화요일',
+          '수요일',
+          '목요일',
+          '금요일',
+          '토요일',
+        ],
+        showMonthAfterYear: true,
+        dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+        dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+        monthNames: [
+          '1월',
+          '2월',
+          '3월',
+          '4월',
+          '5월',
+          '6월',
+          '7월',
+          '8월',
+          '9월',
+          '10월',
+          '11월',
+          '12월',
+        ],
+        monthNamesShort: [
+          '1월',
+          '2월',
+          '3월',
+          '4월',
+          '5월',
+          '6월',
+          '7월',
+          '8월',
+          '9월',
+          '10월',
+          '11월',
+          '12월',
+        ],
+        today: '오늘',
+        clear: '초기화',
+        weekHeader: '주',
+        firstDayOfWeek: 0,
+        dateFormat: 'yy.mm.dd',
+        accept: '확인',
+        reject: '취소',
+      },
       theme: {
         preset: MyPreset,
         options: {

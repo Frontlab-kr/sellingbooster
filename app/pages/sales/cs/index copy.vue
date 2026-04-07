@@ -42,13 +42,7 @@
               responsiveLayout="scroll"
               removableSort
             >
-              <Column
-                field="productName"
-                header="상품명"
-                headerClass="text-center"
-                bodyClass="text-center"
-                style="width: 300px"
-              >
+              <Column field="productName" header="상품명" style="width: 300px">
                 <template #body="slotProps">
                   <div class="flex align-items-center">
                     <i class="pi pi-chevron-down mr-2 text-sm text-400"></i>
@@ -60,7 +54,6 @@
               <Column
                 field="sizeInquiry"
                 header="사이즈 문의"
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 150px"
               >
@@ -72,7 +65,6 @@
               <Column
                 field="deliveryInquiry"
                 header="배송 문의"
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 150px"
               >
@@ -84,7 +76,6 @@
               <Column
                 field="stockOption"
                 header="재고 / 옵션"
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 150px"
               >
@@ -96,7 +87,6 @@
               <Column
                 field="exchangeReturn"
                 header="교환 / 반품"
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 150px"
               >
@@ -108,7 +98,6 @@
               <Column
                 field="productInfo"
                 header="상품 정보"
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 150px"
               >
@@ -120,7 +109,6 @@
               <Column
                 field="priceDiscount"
                 header="가격 / 할인"
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 150px"
               >
@@ -132,7 +120,6 @@
               <Column
                 field="etc"
                 header="기타"
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 150px"
               >
@@ -144,7 +131,6 @@
               <Column
                 field="total"
                 header="합계"
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 150px"
               >

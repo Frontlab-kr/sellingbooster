@@ -93,13 +93,7 @@
             removableSort
             scrollable
           >
-            <Column
-              field="ranking"
-              header="랭킹"
-              headerClass="text-center"
-              bodyClass="text-center"
-              style="width: 80px"
-            >
+            <Column field="ranking" header="랭킹" style="width: 80px">
               <template #body="slotProps">
                 <span v-html="slotProps.data.ranking"></span>
               </template>
@@ -129,8 +123,6 @@
               field="influence"
               header="영향력"
               sortable
-              headerClass="text-center"
-              bodyClass="text-center"
               style="width: 150px"
             >
               <template #body="slotProps">
@@ -141,8 +133,6 @@
               field="avgPrice"
               header="평균가"
               sortable
-              headerClass="text-center"
-              bodyClass="text-center"
               style="width: 150px"
             >
               <template #body="slotProps">
@@ -153,7 +143,6 @@
               field="productCount"
               header="상품수"
               sortable
-              headerClass="text-right"
               bodyClass="text-right"
               style="width: 205px"
             >
@@ -165,7 +154,6 @@
               field="pcSearchVol"
               header="PC 월 검색량"
               sortable
-              headerClass="text-right"
               bodyClass="text-right"
               style="width: 205px"
             >
@@ -177,7 +165,6 @@
               field="moSearchVol"
               header="MO 월 검색량"
               sortable
-              headerClass="text-right"
               bodyClass="text-right"
               style="width: 205px"
             >
@@ -189,7 +176,6 @@
               field="avgClick"
               header="평균 클릭 수"
               sortable
-              headerClass="text-right"
               bodyClass="text-right"
               style="width: 150px"
             >
@@ -200,7 +186,6 @@
             <Column
               field="competition"
               sortable
-              headerClass="text-right"
               bodyClass="text-right"
               style="width: 150px"
             >
@@ -296,8 +281,6 @@
               field="category"
               header="카테고리"
               sortable
-              headerClass="text-center"
-              bodyClass="text-center"
               style="width: 180px"
             >
               <template #body="slotProps">
@@ -308,8 +291,6 @@
               field="influence"
               header="영향력"
               sortable
-              headerClass="text-center"
-              bodyClass="text-center"
               style="width: 150px"
             >
               <template #body="slotProps">
@@ -320,8 +301,6 @@
               field="avgPrice"
               header="평균가"
               sortable
-              headerClass="text-center"
-              bodyClass="text-center"
               style="width: 150px"
             >
               <template #body="slotProps">
@@ -332,7 +311,6 @@
               field="productCount"
               header="상품수"
               sortable
-              headerClass="text-right"
               bodyClass="text-right"
               style="width: 180px"
             >
@@ -344,7 +322,6 @@
               field="pcSearchVol"
               header="PC 월 검색량"
               sortable
-              headerClass="text-right"
               bodyClass="text-right"
               style="width: 180px"
             >
@@ -356,7 +333,6 @@
               field="moSearchVol"
               header="MO 월 검색량"
               sortable
-              headerClass="text-right"
               bodyClass="text-right"
               style="width: 180px"
             >
@@ -368,7 +344,6 @@
               field="avgClick"
               header="평균 클릭 수"
               sortable
-              headerClass="text-right"
               bodyClass="text-right"
               style="width: 150px"
             >
@@ -379,7 +354,6 @@
             <Column
               field="competition"
               sortable
-              headerClass="text-right"
               bodyClass="text-right"
               style="width: 150px"
             >

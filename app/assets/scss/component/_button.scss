@@ -476,6 +476,7 @@ button {
     &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text):not(
         .p-button-link
       ):not(.p-button-sm):not(.p-button-lg) {
+      min-width: 110px;
       height: 40px;
       font-size: 14px;
       letter-spacing: -0.35px;

@@ -99,7 +99,7 @@
           <div class="flex flex-column gap-2">
             <NuxtLink to="/sales/price/">가격실행</NuxtLink>
             <NuxtLink to="/sales/price/nodata">가격실행 - Nodata</NuxtLink>
-            <!-- <NuxtLink to="/sales/cs/">CS센터</NuxtLink> -->
+            <NuxtLink to="/sales/cs/">CS센터</NuxtLink>
             <NuxtLink to="/sales/product/">상품명 점검</NuxtLink>
             <NuxtLink to="/sales/product/nodata01"
               >상품명 점검 - 채널 미연동</NuxtLink
@@ -165,10 +165,10 @@
               >자유게시판 - SearchEmpty</NuxtLink
             >
 
-            <!-- <NuxtLink to="/community/blog/">블로그</NuxtLink>
+            <NuxtLink to="/community/blog/">블로그</NuxtLink>
             <NuxtLink to="/community/blog/view">블로그 상세</NuxtLink>
 
-            <NuxtLink to="/community/ktrend">K-trend</NuxtLink> -->
+            <NuxtLink to="/community/ktrend">K-trend</NuxtLink>
           </div>
         </template>
       </Card>

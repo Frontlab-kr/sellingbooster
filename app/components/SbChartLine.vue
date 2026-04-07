@@ -55,7 +55,7 @@ const getRuntimeOption = () => {
     backgroundColor: chartBackground,
     color: [
       chartPrimary,
-      style.getPropertyValue('--chart-line-success').trim(),
+      style.getPropertyValue('--chart-line-secondary').trim(),
       style.getPropertyValue('--chart-line-info').trim(),
       style.getPropertyValue('--chart-line-warn').trim(),
       style.getPropertyValue('--chart-line-danger').trim(),

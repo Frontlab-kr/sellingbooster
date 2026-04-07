@@ -292,6 +292,7 @@
                             :chart-data="clickCountStats"
                             :maxValue="500"
                             unit-text="건"
+                            show-icon
                           />
                         </dd>
                       </dl>
@@ -474,13 +475,7 @@
                   removableSort
                   scrollable
                 >
-                  <Column
-                    field="ranking"
-                    header="랭킹"
-                    headerClass="text-center"
-                    bodyClass="text-center"
-                    style="width: 80px"
-                  >
+                  <Column field="ranking" header="랭킹" style="width: 80px">
                     <template #body="slotProps">
                       <span v-html="slotProps.data.ranking"></span>
                     </template>
@@ -493,8 +488,6 @@
                   <Column
                     field="category"
                     header="카테고리"
-                    headerClass="text-center"
-                    bodyClass="text-center"
                     style="width: 155px"
                   >
                     <template #body="slotProps">
@@ -505,7 +498,6 @@
                   <Column
                     field="searchVol"
                     header="월 검색량"
-                    headerClass="text-right"
                     bodyClass="text-right"
                     style="width: 155px"
                   >
@@ -516,7 +508,6 @@
                   <Column
                     field="competition"
                     header="경쟁강도"
-                    headerClass="text-right"
                     bodyClass="text-right"
                     style="width: 155px"
                   >

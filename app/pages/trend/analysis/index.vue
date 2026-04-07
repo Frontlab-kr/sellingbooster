@@ -63,8 +63,6 @@
                 field="influence"
                 header="영향력"
                 sortable
-                headerClass="text-center"
-                bodyClass="text-center"
                 style="width: 150px"
               >
                 <template #body="slotProps">
@@ -75,8 +73,6 @@
                 field="avgPrice"
                 header="평균가"
                 sortable
-                headerClass="text-center"
-                bodyClass="text-center"
                 style="width: 150px"
               >
                 <template #body="slotProps">
@@ -87,7 +83,6 @@
                 field="productCount"
                 header="상품수"
                 sortable
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 225px"
               >
@@ -99,7 +94,6 @@
                 field="pcSearchVol"
                 header="PC 월 검색량"
                 sortable
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 225px"
               >
@@ -111,7 +105,6 @@
                 field="moSearchVol"
                 header="MO 월 검색량"
                 sortable
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 225px"
               >
@@ -123,7 +116,6 @@
                 field="avgClick"
                 header="평균 클릭 수"
                 sortable
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 150px"
               >
@@ -134,7 +126,6 @@
               <Column
                 field="competition"
                 sortable
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 150px"
               >
@@ -209,13 +200,7 @@
               removableSort
               scrollable
             >
-              <Column
-                field="top50"
-                header="TOP 50"
-                headerClass="text-center"
-                bodyClass="text-center"
-                style="width: 80px"
-              >
+              <Column field="top50" header="TOP 50" style="width: 80px">
                 <template #body="slotProps">
                   <span v-html="slotProps.data.top50"></span>
                 </template>
@@ -248,8 +233,6 @@
                 field="influence"
                 header="영향력"
                 sortable
-                headerClass="text-center"
-                bodyClass="text-center"
                 style="width: 150px"
               >
                 <template #body="slotProps">
@@ -261,8 +244,6 @@
                 header="평균가"
                 sortable
                 style="width: 150px"
-                headerClass="text-center"
-                bodyClass="text-center"
               >
                 <template #body="slotProps">
                   <span v-html="slotProps.data.avgPrice"></span>
@@ -273,7 +254,6 @@
                 header="상품수"
                 sortable
                 style="width: 242px"
-                headerClass="text-right"
                 bodyClass="text-right"
               >
                 <template #body="slotProps">
@@ -285,7 +265,6 @@
                 header="PC 월 검색량"
                 sortable
                 style="width: 242px"
-                headerClass="text-right"
                 bodyClass="text-right"
               >
                 <template #body="slotProps">
@@ -297,7 +276,6 @@
                 header="MO 월 검색량"
                 sortable
                 style="width: 242px"
-                headerClass="text-right"
                 bodyClass="text-right"
               >
                 <template #body="slotProps">
@@ -307,7 +285,6 @@
               <Column
                 field="competition"
                 sortable
-                headerClass="text-right"
                 bodyClass="text-right"
                 style="width: 150px"
               >

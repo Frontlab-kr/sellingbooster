@@ -1,14 +1,25 @@
 <template>
-  <div :class="['sb-chart-segment', className]">
+  <div
+    :class="[
+      'sb-chart-segment',
+      className,
+      { 'sb-chart-segment--icon': showIcon },
+      { 'sb-chart-segment--large': processedData.length >= 4 },
+    ]"
+  >
     <div
       v-for="(item, index) in processedData"
       :key="`col-${index}`"
       :class="['sb-chart-segment-item', item.textClass]"
     >
-      <div class="sb-chart-segment-item__value">
-        {{ item.value.toLocaleString() }}{{ unitText }}
+      <div>
+        <div class="sb-chart-segment-item__value">
+          {{ item.value.toLocaleString() }}{{ unitText }}
+        </div>
+        <div v-if="showPercent" class="sb-chart-segment-item__percent">
+          {{ item.percent }}%
+        </div>
       </div>
-
       <div class="sb-chart-segment-item__bar">
         <span
           v-for="n in totalSegments"
@@ -39,6 +50,14 @@ const props = defineProps({
     required: true,
     default: () => [],
   },
+  showPercent: {
+    type: Boolean,
+    default: false,
+  },
+  showIcon: {
+    type: Boolean,
+    default: false,
+  },
   totalSegments: {
     type: Number,
     default: 20,
@@ -63,19 +82,28 @@ const isSegmentActive = (item, n) => {
 
 const processedData = computed(() => {
   const classMap = {
-    primaryColor: 'text-primary',
-    secondaryColor: 'text-secondary',
-    infoColor: 'text-info',
-    warnColor: 'text-warn',
-    dangerColor: 'text-danger',
+    primaryColor: 'color-primary',
+    successColor: 'color-success',
+    secondaryColor: 'color-secondary',
+    infoColor: 'color-info',
+    warnColor: 'color-warn',
+    dangerColor: 'color-danger',
+    contrastColor: 'color-contrast',
   };
 
-  return props.chartData.map((item) => ({
-    ...item,
-    textClass: classMap[item.color] || '', // 클래스가 없으면 빈 문자열
-    filledCount: Math.round(
-      (item.value / props.maxValue) * props.totalSegments,
-    ),
-  }));
+  const totalSum = props.chartData.reduce((acc, cur) => acc + cur.value, 0);
+
+  return props.chartData.map((item) => {
+    const percentage = totalSum > 0 ? (item.value / totalSum) * 100 : 0;
+
+    return {
+      ...item,
+      textClass: classMap[item.color] || '',
+      percent: percentage.toFixed(1),
+      filledCount: Math.round(
+        (item.value / props.maxValue) * props.totalSegments,
+      ),
+    };
+  });
 });
 </script>

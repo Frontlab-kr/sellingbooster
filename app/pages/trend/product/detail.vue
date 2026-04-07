@@ -117,7 +117,6 @@
                   <Column
                     field="searchVol"
                     header="월 검색량"
-                    headerClass="text-right"
                     bodyClass="text-right"
                     style="width: 108px"
                   >
@@ -128,7 +127,6 @@
                   <Column
                     field="productCount"
                     header="상품 수"
-                    headerClass="text-right"
                     bodyClass="text-right"
                     style="width: 108px"
                   >
@@ -139,7 +137,6 @@
                   <Column
                     field="competition"
                     header="경쟁강도"
-                    headerClass="text-right"
                     bodyClass="text-right"
                     style="width: 108px"
                   >
