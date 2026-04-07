@@ -502,7 +502,7 @@
   --tab-circle-active-background: var(--p-gray-00);
 
   --nodata-title-color: var(--p-gray-500);
-  --nodata-text-color: var(--p-gray-400);
+  --nodata-text-color: var(--p-gray-500);
 
   --qna-view-title-color: var(--p-gray-900);
   --qna-view-date-color: var(--p-gray-400);
@@ -635,6 +635,10 @@
   //sales
   --sales-background: var(--p-gray-00);
   --sales-info-text: var(--p-gray-400);
+
+  --sales-price-list-item-category-color: var(--p-gray-500);
+  --sales-price-list-item-icon-color: var(--p-gray-500);
+
   --sales-product-head-amount-text-color: var(--p-gray-500);
   --sales-product-head-button-text-color: var(--p-gray-900);
   --sales-product-body-text-color: var(--p-gray-400);
@@ -736,6 +740,30 @@
   --popover-analyze-propose-item-background: var(--p-gray-00);
   --popover-analyze-propose-item-boxshadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
   --popover-analyze-propose-item-text-color: var(--p-gray-900);
+
+  //price setting
+  --price-setting-background: var(--p-gray-50);
+  --price-setting-head-border-color: var(--p-gray-300);
+  --price-setting-form-tile-color: var(--p-gray-900);
+  --price-setting-form-item-text-color: var(--p-gray-900);
+  --price-setting-slider-label-color: var(--p-gray-400);
+  --price-setting-slider-bg-slider: var(--p-gray-300);
+  --price-setting-slider-bg-average: var(--p-gray-300);
+  --price-setting-slider-bg-current: var(--p-primary-500);
+  --price-setting-current-background: var(--p-gray-400);
+  --price-setting-current-text-color: var(--p-gray-00);
+  --price-setting-average-text-color: var(--p-gray-400);
+  --price-setting-average-border-color: var(--p-gray-300);
+  --price-setting-recommended-background: var(--p-gray-900);
+  --price-setting-recommended-text-color: var(--p-gray-00);
+  --price-setting-effect-border-color: var(--p-gray-300);
+  --price-setting-effect-text-color: var(--p-gray-500);
+  --price-setting-effect-icon-color: var(--p-gray-900);
+  --price-setting-effect-percent-icon-color: var(--p-red-600);
+  --price-setting-effect-percent-text-color: var(--p-gray-500);
+  --price-setting-foot-title-color: var(--p-gray-900);
+  --price-setting-error-text-color: var(--p-gray-500);
+  --price-setting-popover-text-color: var(--p-gray-900);
 
   //ico
   --ico-illustration-smile-color1: var(--p-gray-300);
@@ -985,7 +1013,7 @@
     --tab-circle-active-background: #000;
 
     --nodata-title-color: var(--p-gray-500);
-    --nodata-text-color: var(--p-gray-500);
+    --nodata-text-color: var(--p-gray-400);
 
     --qna-view-title-color: var(--p-gray-00);
     --qna-view-date-color: var(--p-gray-400);
@@ -1122,6 +1150,10 @@
     //sales
     --sales-background: var(--p-gray-800);
     --sales-info-text: var(--p-gray-400);
+
+    --sales-price-list-item-category-color: var(--p-gray-300);
+    --sales-price-list-item-icon-color: var(--p-gray-300);
+
     --sales-product-head-amount-text-color: var(--p-gray-300);
     --sales-product-head-button-text-color: var(--p-gray-00);
 
@@ -1224,6 +1256,30 @@
     --popover-analyze-propose-item-background: var(--p-gray-700);
     --popover-analyze-propose-item-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
     --popover-analyze-propose-item-text-color: var(--p-gray-00);
+
+    //price setting
+    --price-setting-background: var(--p-gray-900);
+    --price-setting-head-border-color: var(--p-gray-600);
+    --price-setting-form-tile-color: var(--p-gray-00);
+    --price-setting-form-item-text-color: var(--p-gray-00);
+    --price-setting-slider-label-color: var(--p-gray-400);
+    --price-setting-slider-bg-slider: var(--p-gray-600);
+    --price-setting-slider-bg-average: var(--p-gray-600);
+    --price-setting-slider-bg-current: var(--p-primary-400);
+    --price-setting-current-background: var(--p-gray-700);
+    --price-setting-current-text-color: var(--p-gray-00);
+    --price-setting-average-text-color: var(--p-gray-400);
+    --price-setting-average-border-color: var(--p-gray-600);
+    --price-setting-recommended-background: var(--p-gray-00);
+    --price-setting-recommended-text-color: var(--p-gray-600);
+    --price-setting-effect-border-color: var(--p-gray-600);
+    --price-setting-effect-text-color: var(--p-gray-300);
+    --price-setting-effect-icon-color: var(--p-gray-00);
+    --price-setting-effect-percent-icon-color: var(--p-red-600);
+    --price-setting-effect-percent-text-color: var(--p-gray-300);
+    --price-setting-foot-title-color: var(--p-gray-00);
+    --price-setting-error-text-color: var(--p-gray-300);
+    --price-setting-popover-text-color: var(--p-gray-00);
 
     //ico
     --ico-illustration-smile-color1: var(--p-gray-600);

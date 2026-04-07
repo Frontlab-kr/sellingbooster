@@ -30,17 +30,22 @@
           </div>
         </div>
       </div>
-
-      <div class="sb-nodata">
-        <IconIllustrationSmile class="ico-illustration-smile" />
-        <div class="sb-nodata__text">
-          <p>
-            AI가 분석/추천 해주는 상품명 점검 서비스 이용을 위해서 채널 연동이
-            필요합니다.
-          </p>
-        </div>
-        <div class="sb-nodata__button">
-          <Button severity="primary" label="채널 연동 하러 가기" />
+      <div class="sb-sales-product-body">
+        <div class="sb-nodata">
+          <IconIllustrationSmile class="ico-illustration-smile" />
+          <div class="sb-nodata__text">
+            <p>
+              AI가 분석/추천 해주는 상품명 점검 서비스 이용을 위해서 채널 연동이
+              필요합니다.
+            </p>
+          </div>
+          <div class="sb-nodata__button">
+            <Button
+              severity="primary"
+              label="채널 연동 하러 가기"
+              size="large"
+            />
+          </div>
         </div>
       </div>
     </div>

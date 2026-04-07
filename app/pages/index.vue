@@ -91,7 +91,7 @@
         </template>
       </Card>
     </div>
-    <!-- 
+
     <div>
       <h5>판매 가속</h5>
       <Card>
@@ -99,7 +99,7 @@
           <div class="flex flex-column gap-2">
             <NuxtLink to="/sales/price/">가격실행</NuxtLink>
             <NuxtLink to="/sales/price/nodata">가격실행 - Nodata</NuxtLink>
-            <NuxtLink to="/sales/cs/">CS센터</NuxtLink>
+            <!-- <NuxtLink to="/sales/cs/">CS센터</NuxtLink> -->
             <NuxtLink to="/sales/product/">상품명 점검</NuxtLink>
             <NuxtLink to="/sales/product/nodata01"
               >상품명 점검 - 채널 미연동</NuxtLink
@@ -110,7 +110,7 @@
           </div>
         </template>
       </Card>
-    </div> -->
+    </div>
 
     <!-- <div>
       <h5>셀링 플래너</h5>

@@ -56,6 +56,9 @@
     &-contents {
       &-head {
         padding: 40px;
+        h4 {
+          color: var(--title-color);
+        }
         .sb-caution {
           padding: 20px 0 0 0;
           background: none;
@@ -114,15 +117,23 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 20px;
+        @media screen and (max-width: 1600px) {
+          grid-template-columns: 1fr;
+        }
         &-item {
           padding: 40px;
           border-radius: 32px;
-          background: var(--Gray-00, #fff);
+          background: var(--sales-background);
           &-head {
             display: flex;
             align-items: center;
             gap: 12px;
             margin-bottom: 20px;
+            &__title {
+              h6 {
+                color: var(--title-color);
+              }
+            }
             &__thumb {
               min-width: 80px;
               width: 80px;
@@ -149,7 +160,7 @@
                   display: flex;
                   align-items: center;
                   gap: 4px;
-                  color: var(--Text_Light-500---sub, #6a7381);
+                  color: var(--sales-price-list-item-category-color);
 
                   font-size: 14px;
                   font-style: normal;
@@ -183,6 +194,7 @@
                 min-width: 20px;
                 width: 20px;
                 height: 20px;
+                color: var(--sales-price-list-item-icon-color);
               }
             }
             &__contents {
@@ -190,6 +202,9 @@
             }
           }
         }
+      }
+      .sb-nodata {
+        padding-top: 100px;
       }
     }
     &-cs {
@@ -261,6 +276,9 @@
         }
         .sb-paginator {
           margin-top: 40px;
+        }
+        .sb-nodata {
+          padding-top: 100px;
         }
       }
       &-list {

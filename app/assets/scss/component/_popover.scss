@@ -30,13 +30,17 @@
   will-change: transform;
   &.sb-popover-small {
     transform: translateX(-24px);
+    transform: none;
+    margin-left: -24px;
     &.popover-right-side {
       transform: translateX(27px);
+      transform: none;
+      margin-left: 27px;
       &::after {
-        margin-left: -16px;
+        margin-left: -40px;
       }
       &::before {
-        margin-left: -18px;
+        margin-left: -42px;
       }
     }
   }
@@ -73,7 +77,7 @@
 .p-popover:after {
   border-width: calc(var(--p-popover-gutter) - 2px);
   margin-left: calc(-1 * (var(--p-popover-gutter) - 2px));
-  margin-left: 23px;
+  margin-left: 6px;
   border-style: solid;
   border-color: transparent;
   border-bottom-color: var(--p-popover-background);
@@ -82,7 +86,7 @@
 .p-popover:before {
   border-width: var(--p-popover-gutter);
   margin-left: calc(-1 * var(--p-popover-gutter));
-  margin-left: 21px;
+  margin-left: 4px;
   border-style: solid;
   border-color: transparent;
   border-bottom-color: var(--p-popover-border-color);

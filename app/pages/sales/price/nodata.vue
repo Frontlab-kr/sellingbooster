@@ -25,19 +25,21 @@
           </ul>
         </div>
       </div>
-      <div class="sb-nodata">
-        <IconIllustrationFrown class="ico-illustration-frown" />
-        <div class="sb-nodata__text">
-          <p>
-            검색결과가 없습니다.<br />
-            검색 키워드가 맞게 입력됐는지 다시 한번 확인해주세요.
-          </p>
-        </div>
-        <div class="sb-nodata__button">
-          <Button severity="contrast" outlined>
-            <IconArrowAchevronLeft class="ico-arrow-achevron-left" />
-            <span class="p-button-label">이전 페이지 이동</span>
-          </Button>
+      <div class="sb-sales-price">
+        <div class="sb-nodata">
+          <IconIllustrationFrown class="ico-illustration-frown" />
+          <div class="sb-nodata__text">
+            <p>
+              검색결과가 없습니다.<br />
+              검색 키워드가 맞게 입력됐는지 다시 한번 확인해주세요.
+            </p>
+          </div>
+          <div class="sb-nodata__button">
+            <Button severity="contrast" outlined>
+              <IconArrowAchevronLeft class="ico-arrow-achevron-left" />
+              <span class="p-button-label">이전 페이지 이동</span>
+            </Button>
+          </div>
         </div>
       </div>
     </div>
