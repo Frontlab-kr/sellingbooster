@@ -1041,11 +1041,11 @@ const trendData = ref([
   { value: 12, name: '4월' },
 ]);
 const ageStats = ref([
-  { name: '10', value: 3, color: '#C2F4F8' },
-  { name: '20', value: 12, color: '#3ADDE9' },
-  { name: '30', value: 26, color: '#00B1BD' },
-  { name: '40', value: 35, color: '#23858C' },
-  { name: '50', value: 24, color: '#1A6369' },
+  { name: '10대', value: 3, color: '#C2F4F8' },
+  { name: '20대', value: 12, color: '#3ADDE9' },
+  { name: '30대', value: 26, color: '#00B1BD' },
+  { name: '40대', value: 35, color: '#23858C' },
+  { name: '50대', value: 24, color: '#1A6369' },
 ]);
 
 //data

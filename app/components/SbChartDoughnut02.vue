@@ -9,18 +9,9 @@ import { ref, onMounted, onBeforeUnmount, nextTick, watch } from 'vue';
 import * as echarts from 'echarts';
 
 const props = defineProps({
-  // 스크린샷 데이터와 매칭되는 새로운 기본값 설정
   chartData: {
     type: Array,
     required: true,
-    default: () => [
-      { value: 30, name: '상품', color: '#14C979' }, // 초록
-      { value: 40, name: '배송', color: '#7E81F4' }, // 보라
-      { value: 10, name: '반품', color: '#1EA0F2' }, // 파랑
-      { value: 5, name: '교환', color: '#FFC85C' }, // 노랑
-      { value: 10, name: '환불', color: '#FF646F' }, // 빨강
-      { value: 5, name: '기타', color: '#E9EBF0' }, // 회색
-    ],
   },
   className: {
     type: String,
@@ -52,19 +43,34 @@ const initChart = () => {
   if (chart) chart.dispose();
   chart = echarts.init(chartRef.value);
 
-  // 다크모드 대응을 위한 변수 처리 (필요시 CSS 변수로 대체 가능)
+  const colorMap = {
+    primaryColor: '--chart-doughnut02-primary',
+    successColor: '--chart-doughnut02-success',
+    secondaryColor: '--chart-doughnut02-secondary',
+    infoColor: '--chart-doughnut02-info',
+    warnColor: '--chart-doughnut02-warn',
+    dangerColor: '--chart-doughnut02-danger',
+    neutralColor: '--chart-doughnut02-neutral',
+  };
+
   const chartBackground = getCssVar('--chart-background') || '#ffffff';
   const labelColor = getCssVar('--chart-label-color') || '#333333';
   const percentColor = getCssVar('--chart-percent-color') || '#666666';
 
   // 데이터 가공: color 속성을 실제 itemStyle에 적용
-  const processedData = props.chartData.map((item) => ({
-    value: item.value,
-    name: item.name,
-    itemStyle: {
-      color: getCssVar(item.color) || item.color,
-    },
-  }));
+  const processedData = props.chartData.map((item) => {
+    // colorMap에 있는 키워드면 해당 변수명을 사용, 아니면 넘겨받은 값(CSS 변수명 등)을 그대로 사용
+    const targetVar = colorMap[item.color] || item.color;
+
+    return {
+      value: item.value,
+      name: item.name,
+      itemStyle: {
+        // getCssVar를 통해 최종적으로 HEX/RGB 컬러값을 추출
+        color: getCssVar(targetVar) || targetVar,
+      },
+    };
+  });
 
   const clientWidth = chartRef.value.clientWidth;
   const clientHeight = chartRef.value.clientHeight;

@@ -122,13 +122,93 @@
                 <div class="col-3">
                   <dl>
                     <dt><h5>문의 분위기 종류</h5></dt>
-                    <dd></dd>
+                    <dd>
+                      <div class="sb-sales-cs-product-status-list">
+                        <div class="sb-sales-cs-product-status-list-item">
+                          <div
+                            class="sb-sales-cs-product-status-list-item__title"
+                          >
+                            <IconSystemMessage class="ico-system-message" />
+                            일반 문의
+                          </div>
+                          <div
+                            class="sb-sales-cs-product-status-list-item__text"
+                          >
+                            <p>
+                              <strong class="text-primary">95</strong>
+                              건
+                            </p>
+                            <span>/</span>
+                            <p><strong>78</strong>%</p>
+                          </div>
+                        </div>
+                        <div class="sb-sales-cs-product-status-list-item">
+                          <div
+                            class="sb-sales-cs-product-status-list-item__title"
+                          >
+                            <IconSystemFaceSad class="ico-system-face-sad" />
+                            불만/불편
+                          </div>
+                          <div
+                            class="sb-sales-cs-product-status-list-item__text"
+                          >
+                            <p>
+                              <strong class="text-primary">95</strong>
+                              건
+                            </p>
+                            <span>/</span>
+                            <p><strong>78</strong>%</p>
+                          </div>
+                        </div>
+                        <div class="sb-sales-cs-product-status-list-item">
+                          <div
+                            class="sb-sales-cs-product-status-list-item__title"
+                          >
+                            <IconSnbDocument class="ico-snb-document" />
+                            요청/제안
+                          </div>
+                          <div
+                            class="sb-sales-cs-product-status-list-item__text"
+                          >
+                            <p>
+                              <strong class="text-primary">95</strong>
+                              건
+                            </p>
+                            <span>/</span>
+                            <p><strong>78</strong>%</p>
+                          </div>
+                        </div>
+                      </div>
+                    </dd>
                   </dl>
                 </div>
               </div>
             </div>
             <div class="sb-sales-cs-product-table">
+              <h5>상품별 문의 현황</h5>
               <div class="sb-table">
+                <div class="sb-sales-cs-product-table-checkbox">
+                  <div class="sb-sales-cs-product-table-checkbox__title">
+                    유형별 보기
+                  </div>
+                  <div class="sb-checkbox">
+                    <div
+                      v-for="option in inquiryTypeOptions"
+                      :key="option.id"
+                      class="sb-checkbox-item"
+                    >
+                      <Checkbox
+                        v-model="selectedInquiryTypes"
+                        :inputId="option.id"
+                        :value="option.value"
+                      />
+                      <label :for="option.id" :class="option.colorClass">
+                        {{ option.label }}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
                 <DataTable
                   v-model:expandedRows="expandedRows"
                   :value="productQnaList"
@@ -143,19 +223,24 @@
                     style="width: 300px"
                   >
                     <template #body="slotProps">
-                      <div
-                        class="flex align-items-center"
+                      <button
                         @click="toggleRow(slotProps.data)"
+                        class="sb-table-body-toggle"
                       >
-                        <span>{{ slotProps.data.productName }}</span>
-                      </div>
+                        <div class="sb-table-body-ellipsis">
+                          {{ slotProps.data.productName }}
+                        </div>
+                        <IconArrowAchevronDown
+                          class="ico-arrow-achevron-down"
+                        />
+                      </button>
                     </template>
                   </Column>
 
                   <Column
                     field="sizeInquiry"
                     header="사이즈 문의"
-                    bodyClass="text-right"
+                    bodyClass="text-right color-info"
                     style="width: 150px"
                   >
                     <template #body="slotProps">{{
@@ -166,7 +251,7 @@
                   <Column
                     field="deliveryInquiry"
                     header="배송 문의"
-                    bodyClass="text-right"
+                    bodyClass="text-right color-success"
                     style="width: 150px"
                   >
                     <template #body="slotProps">{{
@@ -177,7 +262,7 @@
                   <Column
                     field="stockOption"
                     header="재고 / 옵션"
-                    bodyClass="text-right"
+                    bodyClass="text-right color-secondary"
                     style="width: 150px"
                   >
                     <template #body="slotProps">{{
@@ -188,7 +273,7 @@
                   <Column
                     field="exchangeReturn"
                     header="교환 / 반품"
-                    bodyClass="text-right"
+                    bodyClass="text-right color-danger"
                     style="width: 150px"
                   >
                     <template #body="slotProps">{{
@@ -199,7 +284,7 @@
                   <Column
                     field="productInfo"
                     header="상품 정보"
-                    bodyClass="text-right"
+                    bodyClass="text-right color-warn"
                     style="width: 150px"
                   >
                     <template #body="slotProps">{{
@@ -210,7 +295,7 @@
                   <Column
                     field="priceDiscount"
                     header="가격 / 할인"
-                    bodyClass="text-right"
+                    bodyClass="text-right color-primary"
                     style="width: 150px"
                   >
                     <template #body="slotProps">{{
@@ -221,7 +306,7 @@
                   <Column
                     field="etc"
                     header="기타"
-                    bodyClass="text-right"
+                    bodyClass="text-right color-contrast"
                     style="width: 150px"
                   >
                     <template #body="slotProps">
@@ -235,16 +320,174 @@
                     bodyClass="text-right"
                     style="width: 150px"
                   >
-                    <template #body="slotProps">{{
-                      slotProps.data.total
-                    }}</template>
+                    <template #body="slotProps">
+                      <strong>
+                        {{ slotProps.data.total }}
+                      </strong>
+                    </template>
                   </Column>
                   <template #expansion="slotProps">
-                    <SbChartStackedBar :chart-data="ageStats" />
+                    <div class="sb-sales-cs-product-expanded">
+                      <div class="sb-sales-cs-product-expanded-product">
+                        <div
+                          class="sb-sales-cs-product-expanded-product__thumb"
+                        >
+                          <img src="https://picsum.photos/200/300" alt="" />
+                        </div>
+                        <div
+                          class="sb-sales-cs-product-expanded-product__contents"
+                        >
+                          <p>
+                            삼소니 봄신상 데일리세트 모음전 키즈꼬모 봄 인기
+                            상하세트 모음전 상품명 모두 노출
+                          </p>
+                          <span> 옵션 : 002 삼소니 세트/크림 5호 </span>
+                          <strong>11,900원</strong>
+                        </div>
+                        <div
+                          class="sb-sales-cs-product-expanded-product__button"
+                        >
+                          <Button variant="text">
+                            <span class="p-button-label">상품 랭킹 찾기</span>
+                            <IconArrowAchevronRight
+                              class="ico-arrow-achevron-right"
+                            />
+                          </Button>
+                        </div>
+                      </div>
+
+                      <div class="sb-sales-cs-product-expanded-chart">
+                        <SbChartStackedBar
+                          :chart-data="categoryStats"
+                          :bar-width="20"
+                          unit-text=""
+                        />
+                      </div>
+                    </div>
                   </template>
                 </DataTable>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="sb-sales-cs-foot">
+          <div class="sb-sales-cs-report">
+            <div class="sb-sales-cs-report-head">
+              <h5>AI 인사이트 리포트</h5>
+              <p>
+                이 리포트는 실제 데이터를 기반으로 AI가 분석해 정리한
+                정보입니다. 시장 상황에 따라 일부 내용은 달라질 수 있으니
+                참고용으로 활용해 주세요.
+              </p>
+            </div>
+            <dl>
+              <dt>
+                <h6 class="text-secondary">주요 문의 패턴</h6>
+              </dt>
+              <dd>
+                <div class="sb-sales-cs-report-list">
+                  <div class="sb-sales-cs-report-list-item">
+                    <Badge value="사이즈 고민" severity="secondary"></Badge>
+                    <p>
+                      아동복 특성상 키와 몸무게를 기반으로 한 사이즈 추천 문의가
+                      압도적입니다. 특히 ‘건조기 사용 시 수축’을 고려한 사이즈
+                      선택에 대한 불안감이 매우 큽니다.
+                    </p>
+                  </div>
+                  <div class="sb-sales-cs-report-list-item">
+                    <Badge
+                      value="배송 및 재고 문의"
+                      severity="secondary"
+                    ></Badge>
+                    <p>
+                      라이브 방송 전후로 재입고 요청과 배송 일정 확인 문의가
+                      집중됩니다.
+                    </p>
+                  </div>
+                  <div class="sb-sales-cs-report-list-item">
+                    <Badge value="교환/반품 이슈" severity="secondary"></Badge>
+                    <p>
+                      오배송 및 상품 불량에 대한 문의가 다수 발생하며, 이에 대한
+                      고객의 불만족도가 높습니다.
+                    </p>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <h6 class="text-warn">운영 개선이 필요한 영역</h6>
+              </dt>
+              <dd>
+                <div class="sb-sales-cs-report-list">
+                  <div class="sb-sales-cs-report-list-item">
+                    <Badge value="상세 페이지 보완" severity="warn"></Badge>
+                    <p>
+                      건조기 사용 시 권장 사이즈 가이드(예: ‘건조기 사용 시 한
+                      사이즈 업 추천’)를 명시하여 반복되는 사이즈 문의를 줄여야
+                      합니다.
+                    </p>
+                  </div>
+                  <div class="sb-sales-cs-report-list-item">
+                    <Badge
+                      value="검수 프로세스 강화"
+                      severity="secondary"
+                    ></Badge>
+                    <p>
+                      오배송 및 불량 건이 반복되고 있습니다. 출고 전 검수
+                      시스템을 강화하여 고객의 부정적 경험을 최소화 해야 합니다.
+                    </p>
+                  </div>
+                  <div class="sb-sales-cs-report-list-item">
+                    <Badge
+                      value="라이브 정보 투명성"
+                      severity="secondary"
+                    ></Badge>
+                    <p>
+                      라이브 일정 및 할인 적용 방법에 대한 정보가 고객에게
+                      명확히 전달되지 않고 있습니다.
+                    </p>
+                  </div>
+                </div>
+              </dd>
+            </dl>
+            <dl>
+              <dt>
+                <h6 class="text-success">고객 경험 향상 제안</h6>
+              </dt>
+              <dd>
+                <div class="sb-sales-cs-report-list">
+                  <div class="sb-sales-cs-report-list-item">
+                    <Badge
+                      value="사이즈 가이드 챗봇 / FAQ "
+                      severity="success"
+                    ></Badge>
+                    <p>
+                      키/몸무게별 추천 사이즈표를 상세페이지 상단에 배치하고,
+                      건조기 사용 여부에 따른 가이드를 추가하세요.
+                    </p>
+                  </div>
+                  <div class="sb-sales-cs-report-list-item">
+                    <Badge value="배송 알림 서비스" severity="success"></Badge>
+                    <p>
+                      ‘상품 준비 중’ 상태에서 고객이 불안해하지 않도록 배송 예상
+                      일정을 자동 알림으로 제공하세요.
+                    </p>
+                  </div>
+                  <div class="sb-sales-cs-report-list-item">
+                    <Badge
+                      value="교환/반품 프로세스 간소화"
+                      severity="success"
+                    ></Badge>
+                    <p>
+                      오배송 발생 시 고객이 사진을 보내는 번거로움을 줄이고
+                      즉각적인 회수 및 재발송 프로세스를 구축하여 신뢰를
+                      회복해야 합니다.
+                    </p>
+                  </div>
+                </div>
+              </dd>
+            </dl>
           </div>
         </div>
       </div>
@@ -463,7 +706,7 @@
                     bodyClass="text-left"
                   >
                     <template #body="slotProps">
-                      <div class="sb-table-ellipsis">
+                      <div class="sb-table-body-ellipsis">
                         {{ slotProps.data.title }}
                       </div>
                     </template></Column
@@ -488,7 +731,7 @@
                     <template #body="slotProps">
                       {{ slotProps.data.replyStatus }}
                       <div
-                        class="sb-table-date"
+                        class="sb-table-body-date"
                         v-if="slotProps.data.replyDate"
                       >
                         {{ slotProps.data.replyDate }}
@@ -503,7 +746,7 @@
                     bodyClass="text-left"
                   >
                     <template #body="slotProps">
-                      <div class="sb-table-ellipsis">
+                      <div class="sb-table-body-ellipsis">
                         {{ slotProps.data.productName }}
                       </div>
                     </template>
@@ -523,7 +766,7 @@
 
                       <div
                         v-if="slotProps.data.analysisDate"
-                        class="sb-table-date"
+                        class="sb-table-body-date"
                       >
                         {{ slotProps.data.analysisDate }}
                       </div>
@@ -542,7 +785,12 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
+import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
+import IconSystemMessage from '@/assets/icons/system/message.svg?component';
+import IconSnbDocument from '@/assets/icons/snb/document.svg?component';
+import IconSystemFaceSad from '@/assets/icons/system/face-sad.svg?component';
+import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 
 //breadcrumb
 const breadcrumb = ref([
@@ -588,7 +836,8 @@ const selectedValue02 = ref(selectedOption02.value[0]);
 const productQnaList = ref([
   {
     id: 1,
-    productName: '삼소니 봄신상 데일리세트 모음전 키즈...',
+    productName:
+      '삼소니 봄신상 데일리세트 모음전 삼소니 봄신상 데일리세트 모음전삼소니 봄신상 데일리세트 모음전삼소니 봄신상 데일리세트 모음전삼소니 봄신상 데일리세트 모음전삼소니 봄신상 데일리세트 모음전삼소니 봄신상 데일리세트 모음전삼소니 봄신상 데일리세트 모음전',
     sizeInquiry: 14,
     deliveryInquiry: 13,
     stockOption: 10,
@@ -600,7 +849,7 @@ const productQnaList = ref([
   },
   {
     id: 2,
-    productName: '삼소니 봄신상 데일리세트 모음전 키즈...',
+    productName: '삼소니 ',
     sizeInquiry: 14,
     deliveryInquiry: 13,
     stockOption: 10,
@@ -610,23 +859,107 @@ const productQnaList = ref([
     etc: 0,
     total: 55,
   },
-  // ... 동일한 객체를 필요한 만큼 반복
+  {
+    id: 3,
+    productName: '삼소니 ',
+    sizeInquiry: 14,
+    deliveryInquiry: 13,
+    stockOption: 10,
+    exchangeReturn: 5,
+    productInfo: 4,
+    priceDiscount: 4,
+    etc: 0,
+    total: 55,
+  },
+  {
+    id: 4,
+    productName:
+      'AI가 문의 데이터를 분석해 유형별ㆍ분위기별ㆍ상품별 패턴과 운영 인사이트를 도출해드려요.AI가 문의 데이터를 분석해 유형별ㆍ분위기별ㆍ상품별 패턴과 운영 인사이트를 도출해드려요. ',
+    sizeInquiry: 14,
+    deliveryInquiry: 13,
+    stockOption: 10,
+    exchangeReturn: 5,
+    productInfo: 4,
+    priceDiscount: 4,
+    etc: 0,
+    total: 55,
+  },
 ]);
 
-// 1. 초기값을 배열이 아닌 빈 객체로 설정
-const expandedRows = ref({});
+//checkbox
+const selectedInquiryTypes = ref(['all']);
 
-// 2. 토글 함수 수정
+const inquiryTypeOptions = [
+  { id: 'type-all', label: '전체', value: 'all', colorClass: '' },
+  {
+    id: 'type-size',
+    label: '사이즈 문의',
+    value: 'size',
+    colorClass: 'color-info',
+  },
+  {
+    id: 'type-delivery',
+    label: '배송 문의',
+    value: 'delivery',
+    colorClass: 'color-success',
+  },
+  {
+    id: 'type-stock',
+    label: '재고 / 옵션',
+    value: 'stock',
+    colorClass: 'color-secondary',
+  },
+  {
+    id: 'type-exchange',
+    label: '교환 / 반품',
+    value: 'exchange',
+    colorClass: 'color-danger',
+  },
+  {
+    id: 'type-info',
+    label: '상품 정보',
+    value: 'info',
+    colorClass: 'color-warn',
+  },
+  {
+    id: 'type-price',
+    label: '가격 / 할인',
+    value: 'price',
+    colorClass: 'color-primary',
+  },
+  { id: 'type-etc', label: '기타', value: 'etc', colorClass: 'color-contrast' },
+];
+
+const allValues = inquiryTypeOptions
+  .filter((opt) => opt.value !== 'all')
+  .map((opt) => opt.value);
+
+watch(selectedInquiryTypes, (newValue, oldValue) => {
+  if (newValue.includes('all') && !oldValue.includes('all')) {
+    selectedInquiryTypes.value = ['all', ...allValues];
+  } else if (!newValue.includes('all') && oldValue.includes('all')) {
+    selectedInquiryTypes.value = [];
+  } else if (
+    !newValue.includes('all') &&
+    newValue.length === allValues.length
+  ) {
+    selectedInquiryTypes.value = ['all', ...allValues];
+  } else if (
+    newValue.includes('all') &&
+    newValue.length - 1 < allValues.length
+  ) {
+    selectedInquiryTypes.value = newValue.filter((val) => val !== 'all');
+  }
+});
+
+//table toggle
+const expandedRows = ref({});
 const toggleRow = (data) => {
-  // 객체 전개 연산자를 사용하여 반응성을 강제로 업데이트합니다.
   const newExpandedRows = { ...expandedRows.value };
 
   if (newExpandedRows[data.id]) {
-    // 이미 ID가 존재하면 삭제 (닫기)
     delete newExpandedRows[data.id];
   } else {
-    // 없으면 ID를 키로 추가 (열기)
-    // 값은 true나 data 객체 아무거나 상관없습니다.
     newExpandedRows[data.id] = true;
   }
 
@@ -646,12 +979,12 @@ const rowClass = (data) => {
 
 //chart
 const csChartData = ref([
-  { value: 30, name: '상품', color: '--chart-doughnut02-success' },
-  { value: 40, name: '배송', color: '--chart-doughnut02-secondary' },
-  { value: 10, name: '반품', color: '--chart-doughnut02-info' },
-  { value: 5, name: '교환', color: '--chart-doughnut02-warn' },
-  { value: 10, name: '환불', color: '--chart-doughnut02-danger' },
-  { value: 5, name: '기타', color: '--chart-doughnut02-neutral' },
+  { value: 30, name: '상품', color: 'successColor' },
+  { value: 40, name: '배송', color: 'secondaryColor' },
+  { value: 10, name: '반품', color: 'infoColor' },
+  { value: 5, name: '교환', color: 'warnColor' },
+  { value: 10, name: '환불', color: 'dangerColor' },
+  { value: 5, name: '기타', color: 'neutralColor' },
 ]);
 const inquiryTypeStats = ref([
   { value: 43, name: '사이즈 문의', color: 'infoColor' },
@@ -662,12 +995,14 @@ const inquiryTypeStats = ref([
   { value: 7, name: '가격/할인', color: 'primaryColor' },
   { value: 10, name: '기타', color: 'contrastColor' },
 ]);
-const ageStats = ref([
-  { name: '10', value: 3, color: '#C2F4F8' },
-  { name: '20', value: 12, color: '#3ADDE9' },
-  { name: '30', value: 26, color: '#00B1BD' },
-  { name: '40', value: 35, color: '#23858C' },
-  { name: '50', value: 24, color: '#1A6369' },
+const categoryStats = ref([
+  { value: 13, name: '사이즈 문의', color: 'infoColor' },
+  { value: 1, name: '배송 문의', color: 'successColor' },
+  { value: 10, name: '재고/옵션', color: 'secondaryColor' },
+  { value: 5, name: '교환/반품', color: 'dangerColor' },
+  { value: 20, name: '상품 정보', color: 'warnColor' },
+  { value: 20, name: '가격/할인', color: 'primaryColor' },
+  { value: 24, name: '기타', color: 'contrastColor' },
 ]);
 
 // 1. 기간 (Select/Date 관련 데이터는 생략하고 체크박스 중심 구성)

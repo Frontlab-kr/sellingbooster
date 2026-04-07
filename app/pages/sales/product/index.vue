@@ -112,7 +112,7 @@
                   </div>
                 </div>
                 <Button variant="text">
-                  <span class="p-button-label">상품 랭킹 찾기</span>
+                  <span class="p-button-label"></span>
                   <IconArrowRight class="ico-arrow-right" />
                 </Button>
               </div>

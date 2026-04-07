@@ -332,6 +332,14 @@
   --chart-segment-danger: var(--p-red-700);
   --chart-segment-contrast: var(--p-gray-500);
 
+  --chart-stackedbar-primary: var(--p-indigo-600);
+  --chart-stackedbar-success: var(--p-green-700);
+  --chart-stackedbar-secondary: var(--p-slate-500);
+  --chart-stackedbar-info: var(--p-blue-700);
+  --chart-stackedbar-warn: var(--p-orange-800);
+  --chart-stackedbar-danger: var(--p-red-700);
+  --chart-stackedbar-contrast: var(--p-gray-500);
+
   --chart-label-color01: var(--p-gray-500);
   --chart-label-color02: var(--p-gray-900);
 
@@ -495,6 +503,13 @@
 
   //table
   --table-ico-system-information-circle: var(--p-gray-900);
+  --table-color-primary: var(--p-indigo-600);
+  --table-color-success: var(--p-green-700);
+  --table-color-secondary: var(--p-slate-500);
+  --table-color-info: var(--p-blue-700);
+  --table-color-warn: var(--p-orange-800);
+  --table-color-danger: var(--p-red-700);
+  --table-color-contrast: var(--p-gray-500);
 
   --ai-tooltip-background: #000;
   --ai-tooltip-color: var(--p-gray-00);
@@ -872,6 +887,14 @@
     --chart-segment-danger: var(--p-red-500);
     --chart-segment-contrast: var(--p-gray-300);
 
+    --chart-stackedbar-primary: var(--p-indigo-300);
+    --chart-stackedbar-success: var(--p-green-500);
+    --chart-stackedbar-secondary: var(--p-slate-400);
+    --chart-stackedbar-info: var(--p-blue-500);
+    --chart-stackedbar-warn: var(--p-orange-600);
+    --chart-stackedbar-danger: var(--p-red-500);
+    --chart-stackedbar-contrast: var(--p-gray-300);
+
     --chart-label-color01: var(--p-gray-300);
     --chart-label-color02: var(--p-gray-00);
 
@@ -1030,6 +1053,14 @@
 
     //table
     --table-ico-system-information-circle: var(--p-gray-00);
+    --table-color-primary: var(--p-indigo-300);
+    --table-color-success: var(--p-green-500);
+    --table-color-secondary: var(--p-slate-400);
+    --table-color-info: var(--p-blue-500);
+    --table-color-warn: var(--p-orange-600);
+    --table-color-danger: var(--p-red-500);
+    --table-color-contrast: var(--p-gray-300);
+
     --ai-tooltip-background: var(--p-gray-00);
     --ai-tooltip-color: var(--p-gray-900);
 

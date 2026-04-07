@@ -14,6 +14,14 @@ const props = defineProps({
     required: true,
     default: () => [],
   },
+  barWidth: {
+    type: [Number, String],
+    default: 40,
+  },
+  unitText: {
+    type: String,
+    default: '%',
+  },
 });
 
 const chartRef = ref(null);
@@ -38,9 +46,21 @@ const initChart = () => {
   if (chart) chart.dispose();
   chart = echarts.init(chartRef.value);
 
+  const colorMap = {
+    primaryColor: '--chart-stackedbar-primary',
+    successColor: '--chart-stackedbar-success',
+    secondaryColor: '--chart-stackedbar-secondary',
+    infoColor: '--chart-stackedbar-info',
+    warnColor: '--chart-stackedbar-warn',
+    dangerColor: '--chart-stackedbar-danger',
+    contrastColor: '--chart-stackedbar-contrast',
+  };
+
   const chartBackground = getCssVar('--chart-background');
   const chartLabelColor01 = getCssVar('--chart-label-color01');
   const chartLabelColor02 = getCssVar('--chart-label-color02');
+
+  const dataTotalSum = props.chartData.reduce((acc, cur) => acc + cur.value, 0);
 
   const option = {
     backgroundColor: chartBackground,
@@ -55,7 +75,7 @@ const initChart = () => {
     xAxis: {
       type: 'value',
       min: 0,
-      max: 100,
+      max: dataTotalSum,
       show: false,
     },
     yAxis: {
@@ -74,7 +94,7 @@ const initChart = () => {
       formatter: function (name) {
         const item = props.chartData.find((d) => d.name === name);
         const val = item ? item.value : 0;
-        return `{name|${name}}대 {value|${val}%}`;
+        return `{name|${name}} {value|${val}${props.unitText}}`;
       },
       textStyle: {
         rich: {
@@ -89,24 +109,28 @@ const initChart = () => {
         },
       },
     },
-    series: props.chartData.map((item, index) => ({
-      name: item.name, // legend와 매칭
-      type: 'bar',
-      stack: 'total',
-      barWidth: 40, // 바 두께
-      data: [item.value],
-      itemStyle: {
-        color: item.color,
-        // 첫 번째 조각의 왼쪽, 마지막 조각의 오른쪽만 둥글게
-        borderRadius:
-          index === 0
-            ? [10, 0, 0, 10]
-            : index === props.chartData.length - 1
-              ? [0, 10, 10, 0]
-              : 0,
-      },
-      emphasis: { disabled: true },
-    })),
+    series: props.chartData.map((item, index) => {
+      const targetVar = colorMap[item.color] || item.color;
+      const finalColor = getCssVar(targetVar) || targetVar;
+
+      return {
+        name: item.name,
+        type: 'bar',
+        stack: 'total',
+        barWidth: props.barWidth,
+        data: [item.value],
+        itemStyle: {
+          color: finalColor,
+          borderRadius:
+            index === 0
+              ? [10, 0, 0, 10]
+              : index === props.chartData.length - 1
+                ? [0, 10, 10, 0]
+                : 0,
+        },
+        emphasis: { disabled: true },
+      };
+    }),
   };
 
   chart.setOption(option);

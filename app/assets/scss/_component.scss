@@ -1067,6 +1067,27 @@
     transform: translateX(4px);
   }
   &-table {
+    .color-primary {
+      color: var(--table-color-primary);
+    }
+    .color-success {
+      color: var(--table-color-success);
+    }
+    .color-secondary {
+      color: var(--table-color-secondary);
+    }
+    .color-info {
+      color: var(--table-color-info);
+    }
+    .color-warn {
+      color: var(--table-color-warn);
+    }
+    .color-danger {
+      color: var(--table-color-danger);
+    }
+    .color-contrast {
+      color: var(--table-color-contrast);
+    }
     &-header {
       &-title {
         display: flex;
@@ -1086,6 +1107,37 @@
         display: flex;
         align-items: center;
         gap: 8px;
+      }
+      &-date {
+        margin-top: 4px;
+        color: var(--Gray-400, #9aa3af);
+        text-align: center;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 16.8px */
+        letter-spacing: -0.3px;
+      }
+      &-ellipsis {
+        @include text-clamp(1);
+      }
+      &-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: none;
+        overflow: hidden;
+        color: var(--Text_Light-900---mian, #1b1f27);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 22.4px */
+        letter-spacing: -0.4px;
       }
     }
     &-popover {
@@ -1120,19 +1172,6 @@
       min-width: 16px;
       width: 16px;
       height: 16px;
-    }
-    &-date {
-      margin-top: 4px;
-      color: var(--Gray-400, #9aa3af);
-      text-align: center;
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 140%; /* 16.8px */
-      letter-spacing: -0.3px;
-    }
-    &-ellipsis {
-      @include text-clamp(1);
     }
   }
 
