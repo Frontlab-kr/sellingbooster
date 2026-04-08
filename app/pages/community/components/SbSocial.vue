@@ -4,9 +4,10 @@
       variant="text"
       class="sb-social__like"
       v-if="show('like')"
-      @click="isLiked = !isLiked"
+      @click="emit('update:likeActive', !likeActive)"
     >
-      <IconSystemLike :class="['ico-system-like', { active: isLiked }]" />
+      <IconSystemLikeActive v-if="likeActive" class="ico-system-like active" />
+      <IconSystemLike v-else class="ico-system-like" />
       <span class="p-button-label">{{ likeCount }}</span>
     </Button>
     <Button variant="text" class="sb-social__comment" v-if="show('comment')">
@@ -49,6 +50,7 @@
 <script setup>
 import { ref } from 'vue';
 import IconSystemLike from '@/assets/icons/system/like.svg?component';
+import IconSystemLikeActive from '@/assets/icons/system/like-active.svg?component';
 import IconSystemMessage from '@/assets/icons/system/message.svg?component';
 import IconSystemShare from '@/assets/icons/system/share.svg?component';
 
@@ -58,10 +60,11 @@ import IconSocialKakaotalk from '@/assets/icons/social/kakaotalk.svg?component';
 import IconSocialNaverblog from '@/assets/icons/social/naverblog.svg?component';
 import IconSocialCopy from '@/assets/icons/social/copy.svg?component';
 
-const emit = defineEmits(['reply']);
+const emit = defineEmits(['reply', 'update:likeActive']);
 
 const props = defineProps({
   likeCount: { type: [String, Number], default: '0' },
+  likeActive: { type: Boolean, default: false },
   commentCount: { type: [String, Number], default: '0' },
   shareCount: { type: [String, Number], default: '0' },
   visibleButtons: {
@@ -70,7 +73,6 @@ const props = defineProps({
   },
 });
 
-const isLiked = ref(false);
 const menu = ref();
 const show = (btnName) => props.visibleButtons.includes(btnName);
 const menuItems = ref([

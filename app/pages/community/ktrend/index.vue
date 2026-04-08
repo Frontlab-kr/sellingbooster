@@ -7,6 +7,78 @@
       </div>
     </div>
     <div class="sb-ktrend">
+      <div class="sb-blog-head">
+        <div class="sb-blog-head__title">
+          <h4>
+            지금 구독하기 하고,<br class="mo" />
+            셀러한테 필요한 정보 꼭 확인하세요!
+          </h4>
+        </div>
+        <div class="sb-blog-head-swiper">
+          <div class="sb-blog-head-swiper__contents">
+            <ClientOnly>
+              <swiper-container
+                ref="containerRef"
+                :slides-per-view="swiperParams.slidesPerView"
+                :space-between="swiperParams.spaceBetween"
+                :effect="swiperParams.effect"
+                :breakpoints="JSON.stringify(swiperParams.breakpoints)"
+                @swiperactiveindexchange="onSlideChange"
+              >
+                <swiper-slide>
+                  <NuxtLink to="/" class="sb-blog-head-swiper-item">
+                    <div class="sb-blog-head-swiper-item__thumb">
+                      <img src="./../../../assets/images/blog.png" alt="" />
+                    </div>
+                    <h4>
+                      초보 셀러가 많이 하는 5가지 실수 제목은<br />
+                      최대 2줄까지 노출해주세요
+                    </h4>
+                  </NuxtLink>
+                </swiper-slide>
+                <swiper-slide>
+                  <NuxtLink to="/" class="sb-blog-head-swiper-item">
+                    <div class="sb-blog-head-swiper-item__thumb">
+                      <img src="https://picsum.photos/200/300" alt="" />
+                    </div>
+                    <h4>
+                      초보 셀러가 많이 하는 5가지 실수 제목은<br />
+                      최대 2줄까지 노출해주세요
+                    </h4>
+                  </NuxtLink>
+                </swiper-slide>
+              </swiper-container>
+            </ClientOnly>
+          </div>
+          <div class="sb-blog-head-swiper__button">
+            <div class="sb-swiper-controls">
+              <Button
+                rounded
+                severity="neutral"
+                :disabled="isBeginning"
+                @click="swiper.prev()"
+              >
+                <template #icon>
+                  <IconArrowLeft class="ico-arrow-left" />
+                </template>
+              </Button>
+              <Button
+                rounded
+                severity="neutral"
+                :disabled="isEnd"
+                @click="swiper.next()"
+              >
+                <template #icon>
+                  <IconArrowRight class="ico-arrow-right" />
+                </template>
+              </Button>
+            </div>
+          </div>
+        </div>
+        <div class="sb-blog-head__button">
+          <Button severity="primary" label="셀링블로그 구독하기" />
+        </div>
+      </div>
       <div class="grid">
         <div class="col-12">
           <div class="sb-ktrend-list">
@@ -17,6 +89,24 @@
               <Button label="패션" variant="text" />
               <Button label="펫" variant="text" />
               <Button label="유아" variant="text" />
+            </div>
+
+            <div class="sb-chip">
+              <div class="sb-chip__title">관련 키워드</div>
+              <div class="sb-checkbox">
+                <div
+                  class="sb-checkbox-item"
+                  v-for="item in keywordOptions"
+                  :key="item.value"
+                >
+                  <Checkbox
+                    v-model="selectedKeyword"
+                    :inputId="item.id"
+                    :value="item.value"
+                  />
+                  <label :for="item.id">{{ item.label }}</label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -218,10 +308,12 @@
   </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import SbInfo from '@/pages/community/components/SbInfo.vue';
 import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
+import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
+import IconArrowLeft from '@/assets/icons/arrow/left.svg?component';
 import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 import IconSystemUp from '@/assets/icons/system/up.svg?component';
 import IconSystemDown from '@/assets/icons/system/down.svg?component';
@@ -235,6 +327,34 @@ const breadcrumb = ref([
   { label: '커뮤니티' },
   { label: 'K-trend' },
 ]);
+
+//swiper
+const containerRef = ref(null);
+const isBeginning = ref(true);
+const isEnd = ref(false);
+
+const swiperParams = {
+  slidesPerView: 1,
+  spaceBetween: 10,
+  effect: 'fade',
+};
+
+const swiper = useSwiper(containerRef, swiperParams);
+
+const onSlideChange = () => {
+  const swiperInst = swiper.instance.value;
+
+  if (swiperInst) {
+    isBeginning.value = (swiperInst as any).isBeginning;
+    isEnd.value = (swiperInst as any).isEnd;
+  }
+};
+
+onMounted(() => {
+  setTimeout(() => {
+    onSlideChange();
+  }, 100);
+});
 
 const rankingList = ref([
   {
@@ -318,4 +438,17 @@ const rankingList = ref([
     status: '최적',
   },
 ]);
+
+const selectedKeyword = ref([]);
+const keywordOptions = [
+  { id: 'kw-1', label: '프로바이오틱스', value: 'probiotics', selected: true },
+  { id: 'kw-2', label: '루테인', value: 'lutein', selected: false },
+  { id: 'kw-3', label: '오메가3', value: 'omega3', selected: false },
+  { id: 'kw-4', label: '밀크시슬', value: 'milkthistle', selected: false },
+  { id: 'kw-5', label: '마그네슘', value: 'magnesium', selected: false },
+  { id: 'kw-6', label: '비타민D', value: 'vitamind', selected: false },
+  { id: 'kw-7', label: '비오틴', value: 'biotin', selected: false },
+  { id: 'kw-8', label: '영양제', value: 'supplement', selected: false },
+  { id: 'kw-9', label: '비타민C', value: 'vitaminc', selected: false },
+];
 </script>

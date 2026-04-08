@@ -60,6 +60,7 @@
           :like-count="item.likeCount"
           :comment-count="item.commentCount"
           :share-count="item.shareCount"
+          v-model:like-active="item.likeActive"
         />
       </div>
     </div>

@@ -906,6 +906,11 @@
       svg {
         margin: 4px !important;
       }
+      .ico-system-like {
+        &.active {
+          color: var(--color-primary);
+        }
+      }
     }
     &--disabled {
       .p-button {

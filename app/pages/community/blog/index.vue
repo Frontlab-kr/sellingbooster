@@ -151,8 +151,8 @@ const breadcrumb = ref([
 
 //swiper
 const containerRef = ref(null);
-const isBeginning = ref(true); // 시작 상태 (초기값 true)
-const isEnd = ref(false); // 끝 상태
+const isBeginning = ref(true);
+const isEnd = ref(false);
 
 const swiperParams = {
   slidesPerView: 1,
@@ -162,9 +162,7 @@ const swiperParams = {
 
 const swiper = useSwiper(containerRef, swiperParams);
 
-// 슬라이드가 바뀔 때마다 실행되어 상태를 업데이트하는 함수
 const onSlideChange = () => {
-  // swiper.instance가 Ref라면 .value로 접근해야 합니다.
   const swiperInst = swiper.instance.value;
 
   if (swiperInst) {
@@ -174,10 +172,9 @@ const onSlideChange = () => {
 };
 
 onMounted(() => {
-  // 초기 렌더링 시 상태 체크
   setTimeout(() => {
     onSlideChange();
-  }, 100); // Swiper 초기화 시간을 벌어주기 위해 약간의 지연을 둡니다.
+  }, 100);
 });
 
 //sort
