@@ -30,6 +30,7 @@
 @use './colors';
 @use './community';
 @use './component';
+@use './etc';
 @use './guide';
 @use './icon';
 @use './layout';
@@ -189,37 +190,6 @@ h6 {
 
 button {
   font-family: $font-family-global;
-}
-
-.sb {
-  &-dashboard {
-    &-spc {
-      position: relative;
-      height: 370px;
-      border-radius: 60px 185px 185px 60px;
-      background: var(--Gray-300_D1D6DD, #d1d6dd);
-      &-chart {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 330px;
-        height: 330px;
-        background-color: #fff;
-        border-radius: 330px;
-      }
-    }
-  }
-}
-
-.sb {
-  // * {
-  //   &:focus {
-  //     box-shadow: var(--p-button-primary-focus-ring-shadow);
-  //     outline: var(--p-button-focus-ring-width) var(--p-button-focus-ring-style)
-  //       var(--p-button-primary-focus-ring-color);
-  //     outline-offset: var(--p-button-focus-ring-offset);
-  //   }
-  // }
 }
 
 @keyframes float {

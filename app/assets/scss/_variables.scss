@@ -802,6 +802,15 @@
   --swiper-controls-ico-color: var(--p-gray-500);
   --swiper-controls-ico-disabled-color: var(--p-gray-300);
 
+  //error
+  --error-background: var(--p-gray-50);
+  --error-icon-color01: var(--p-gray-300);
+  --error-icon-color02: var(--p-gray-400);
+  --error-icon-color03: var(--p-gray-50);
+  --error-number-color: var(--p-gray-500);
+  --error-title-color: var(--p-gray-500);
+  --error-text-color: var(--p-gray-900);
+
   //ico
   --ico-illustration-smile-color1: var(--p-gray-300);
   --ico-illustration-smile-color2: var(--p-gray-400);
@@ -1356,6 +1365,15 @@
     --swiper-controls-button-background: var(--p-gray-700);
     --swiper-controls-ico-color: var(--p-gray-300);
     --swiper-controls-ico-disabled-color: var(--p-gray-600);
+
+    //error
+    --error-background: var(--p-gray-900);
+    --error-icon-color01: var(--p-gray-600);
+    --error-icon-color02: var(--p-gray-500);
+    --error-icon-color03: var(--p-gray-900);
+    --error-number-color: var(--p-gray-300);
+    --error-title-color: var(--p-gray-300);
+    --error-text-color: var(--p-gray-00);
 
     //ico
     --ico-illustration-smile-color1: var(--p-gray-600);

@@ -1,0 +1,132 @@
+@use './mixins' as *;
+
+.sb {
+  &-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    background: var(--error-background);
+    &__number {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 10;
+      color: var(--error-number-color);
+      text-align: center;
+      font-size: 500px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 130%; /* 650px */
+      letter-spacing: -12.5px;
+      opacity: 0.06;
+      transform: translate(-50%, -50%);
+      margin-top: -102px;
+    }
+    &__icon {
+      position: relative;
+      z-index: 20;
+      display: flex;
+      justify-content: center;
+      .ico-etc-error403 {
+        width: 200px;
+        height: 200px;
+        --path-color-1: var(--error-icon-color01);
+        --path-color-2: var(--error-icon-color02);
+        --path-color-3: var(--error-icon-color03);
+      }
+      .ico-etc-error404 {
+        width: 200px;
+        height: 200px;
+        --path-color-1: var(--error-icon-color01);
+        --path-color-2: var(--error-icon-color02);
+        --path-color-3: var(--error-icon-color03);
+      }
+      .ico-etc-error500 {
+        width: 200px;
+        height: 241px;
+        --path-color-1: var(--error-icon-color01);
+        --path-color-2: var(--error-icon-color02);
+        --path-color-3: var(--error-icon-color03);
+      }
+    }
+    &__title {
+      position: relative;
+      z-index: 20;
+      margin-top: 24px;
+      text-align: center;
+      color: var(--error-title-color);
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 130%; /* 78px */
+      letter-spacing: -1.5px;
+    }
+    &__text {
+      position: relative;
+      z-index: 20;
+      margin-top: 16px;
+      color: var(--error-text-color);
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 22.4px */
+      letter-spacing: -0.4px;
+    }
+    &__button {
+      position: relative;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+    }
+    @include breakpoint {
+      &__number {
+        font-size: 160px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%; /* 208px */
+        letter-spacing: -4px;
+        margin-top: -122px;
+      }
+      &__icon {
+        margin: 0 auto;
+        .ico-etc-error403 {
+          width: 100px;
+          height: 100px;
+        }
+        .ico-etc-error404 {
+          width: 100px;
+          height: 100px;
+        }
+        .ico-etc-error500 {
+          width: 100px;
+          height: 123.5px;
+        }
+      }
+      &__title {
+        margin-top: 8px;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%; /* 52px */
+        letter-spacing: -1px;
+      }
+      &__text {
+        margin-top: 16px;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 19.6px */
+        letter-spacing: -0.35px;
+      }
+      &__button {
+        margin-top: 24px;
+      }
+    }
+  }
+}

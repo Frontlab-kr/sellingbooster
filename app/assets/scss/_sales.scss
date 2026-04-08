@@ -423,7 +423,7 @@
             align-items: center;
             gap: 20px;
 
-            width: 718px;
+            width: 678px;
             margin-right: 40px;
             padding-right: 40px;
             border-right: 1px solid #eaecf1;
@@ -478,7 +478,7 @@
           }
           &-chart {
             width: 100%;
-            //max-width: 678px;
+            max-width: 678px;
           }
         }
       }
@@ -498,6 +498,7 @@
           grid-template-columns: 1fr 1fr;
           column-gap: 24px;
           row-gap: 16px;
+          width: 100%;
           padding: 12px 0;
           &-item {
             display: flex;

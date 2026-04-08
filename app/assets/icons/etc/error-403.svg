@@ -1,0 +1,7 @@
+<svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="99.5" cy="100.5" r="74.5" fill="var(--path-color-3)"/>
+<path d="M172 100C172 60.2355 139.764 28 100 28C60.2355 28 28 60.2355 28 100C28 139.764 60.2355 172 100 172C139.764 172 172 139.764 172 100ZM184 100C184 146.392 146.392 184 100 184C53.6081 184 16 146.392 16 100C16 53.6081 53.6081 16 100 16C146.392 16 184 53.6081 184 100Z" fill="var(--path-color-1)"/>
+<path d="M126 126C118.63 118.436 109.667 114 100 114C90.3329 114 81.3699 118.436 74 126" stroke="#9AA3AF" stroke-width="10" stroke-linecap="round"/>
+<circle cx="126" cy="84" r="8" fill="var(--path-color-2)"/>
+<circle cx="74" cy="84" r="8" fill="var(--path-color-2)"/>
+</svg>

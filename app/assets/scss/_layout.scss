@@ -424,6 +424,14 @@
     overflow: hidden;
     background: #eff1f4 url(./../images/login-bg.jpg) no-repeat 0 100%;
   }
+  &--layout-error {
+    padding: 0 !important;
+    .sb-header,
+    .sb-snb,
+    .sb-header-mo {
+      display: none;
+    }
+  }
   @include breakpoint {
     padding: 56px 0 0 0;
     &-header {

@@ -191,5 +191,38 @@
         </template>
       </Card>
     </div>
+
+    <div>
+      <h5>ETC</h5>
+      <Card>
+        <template #content>
+          <div class="flex flex-column gap-2">
+            <!-- <NuxtLink @click="dialogLoading = true">로딩</NuxtLink> -->
+            <NuxtLink to="/etc/403/">403</NuxtLink>
+            <NuxtLink to="/etc/404/">404</NuxtLink>
+            <NuxtLink to="/etc/500/">500</NuxtLink>
+          </div>
+        </template>
+      </Card>
+    </div>
+
+    <Dialog v-model:visible="dialogLoading" modal class="sb-dialog-loading">
+      <SbLoadingLogo />
+      <div class="sb-dialog-loading__text">
+        <p>
+          거의 다 됐어요!<br />
+          조금만 더 기다려 주세요.
+        </p>
+        <span>
+          상품 분석 URL만 입력하면<br />
+          빠르게 분석해드려요.
+        </span>
+      </div>
+    </Dialog>
   </div>
 </template>
+
+<script setup>
+//dialog
+const dialogLoading = ref(false);
+</script>
