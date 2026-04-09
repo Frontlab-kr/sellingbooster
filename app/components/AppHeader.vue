@@ -61,7 +61,7 @@
       <PanelMenu :model="menu01" v-model:expandedKeys="expandedKeys">
         <template #item="{ item, props }">
           <a
-            v-if="item.route"
+            v-if="item.items && item.items.length > 0"
             class="p-panelmenu-header-link"
             :class="[
               {
@@ -70,7 +70,7 @@
               },
             ]"
             v-bind="props.action"
-            @click.prevent="handleLinkClick($event, item)"
+            @click.stop.prevent="handleLinkClick($event, item)"
           >
             <div class="p-menuitem-icon">
               <component v-if="item.icon" :is="item.icon" />
@@ -79,17 +79,16 @@
           </a>
 
           <a
-            v-else
+            v-else-if="item.route"
             class="p-panelmenu-header-link"
+            :class="{ 'p-panelmenu-header-active': isActive(item.route) }"
             v-bind="props.action"
-            @click.stop.prevent="item.id === 'toggle-btn' ? toggleMenu() : null"
+            @click="handleLinkClick($event, item)"
           >
             <div class="p-menuitem-icon">
-              <component v-if="item.icon" :is="getMenuIcon(item)" />
+              <component v-if="item.icon" :is="item.icon" />
             </div>
-            <span class="p-panelmenu-header-label">{{
-              getMenuLabel(item)
-            }}</span>
+            <span class="p-panelmenu-header-label">{{ item.label }}</span>
           </a>
         </template>
       </PanelMenu>
@@ -314,13 +313,25 @@ const toggleMenu = () => {
 
 const handleLinkClick = (event, item) => {
   const hasChildren = item.items?.length > 0;
+
   if (isFolded.value) {
-    event.preventDefault();
-    event.stopPropagation();
+    // 사이드바가 접혀있을 때는 링크 이동만 처리
     if (item.route) router.push(item.route);
-  } else {
-    if (hasChildren) event.preventDefault();
-    else if (item.route) router.push(item.route);
+    return;
+  }
+
+  // 사이드바가 펼쳐져 있을 때
+  if (hasChildren) {
+    // 1. 이미 열려있는 메뉴를 클릭한 경우 -> 닫기 위해 빈 객체 할당
+    if (expandedKeys.value[item.key]) {
+      expandedKeys.value = {};
+    } else {
+      // 2. 다른 메뉴를 클릭한 경우 -> 기존 것을 닫고 이것만 열기
+      expandedKeys.value = { [item.key]: true };
+    }
+  } else if (item.route) {
+    // 자식이 없는 메뉴 클릭 시 이동
+    router.push(item.route);
   }
 };
 
@@ -329,8 +340,12 @@ const openActiveMenu = () => {
     (item) =>
       item.items && item.items.some((sub) => route.path.startsWith(sub.route)),
   );
+
   if (activeParent && activeParent.key) {
+    // 기존 expandedKeys를 덮어씌워 하나만 유지
     expandedKeys.value = { [activeParent.key]: true };
+  } else {
+    expandedKeys.value = {};
   }
 };
 
@@ -369,7 +384,21 @@ const getMenuLabel = (item) => {
   return item.label;
 };
 
-const isActive = (itemRoute) => itemRoute && route.path.startsWith(itemRoute);
+const isActive = (itemRoute) => {
+  if (!itemRoute) return false;
+
+  // 하위 메뉴(items)가 있는 메뉴는 startsWith 유지 (하위 페이지에서도 부모 메뉴 활성화)
+  const isParentMenu = menu01.value.some(
+    (m) => m.route === itemRoute && m.items,
+  );
+
+  if (isParentMenu) {
+    return route.path.startsWith(itemRoute);
+  }
+
+  // 하위 메뉴가 없는 단일 메뉴(대시보드 등)는 정확히 일치할 때만 활성
+  return route.path === itemRoute;
+};
 
 const toggleSearch = () => {
   isSearchOpen.value = !isSearchOpen.value;
