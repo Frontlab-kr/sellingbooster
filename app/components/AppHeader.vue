@@ -278,7 +278,7 @@ const menu01 = ref([
     route: '/planner/timeline',
     items: [
       { label: '타임라인', route: '/planner/timeline' },
-      { label: '캘린더', route: '/planner/calender' },
+      { label: '캘린더', route: '/planner/calendar' },
       { label: '메모', route: '/planner/memo' },
     ],
   },

@@ -79,6 +79,7 @@
       background: url(./../../icons/etc/chip-text-delete.svg);
     }
   }
+
   &[severity='primary'] {
     color: var(--color-primary);
     border-color: var(--chip-primary-border-color);

@@ -87,7 +87,7 @@
       font-weight: 700;
       line-height: 140%; /* 25.2px */
       letter-spacing: -0.45px;
-      text-decoration: none;
+
       &-contrast {
         border: 1px solid var(--tag-contrast);
         background: var(--tag-contrast);
@@ -1484,7 +1484,6 @@
       border-radius: 8px;
       background: var(--attachment-item-background);
 
-      text-decoration: none;
       a,
       p {
         width: 100%;
@@ -1496,7 +1495,6 @@
         line-height: 140%; /* 19.6px */
         letter-spacing: -0.35px;
         @include text-clamp(1);
-        text-decoration: none;
       }
       &__size {
         margin: 0 24px 0 40px;
@@ -1526,7 +1524,6 @@
           display: flex;
           align-items: center;
           gap: 0;
-          text-decoration: none;
         }
         p {
           width: 100%;
@@ -1872,7 +1869,7 @@
     border: none;
     background: transparent;
     //animation: float 3s ease-in-out infinite;
-    text-decoration: none;
+
     cursor: pointer;
     &__tooltip {
       display: flex;

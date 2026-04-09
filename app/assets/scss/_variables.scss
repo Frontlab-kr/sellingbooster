@@ -424,6 +424,28 @@
   --community-list-item-divider-color: var(--p-gray-300);
   --community-view-background: var(--p-gray-00);
 
+  --timeline-color-info: var(--p-blue-700);
+  --timeline-color-success: var(--p-green-700);
+  --timeline-color-danger: var(--p-red-700);
+  --timeline-color-secondary: var(--p-slate-500);
+  --timeline-color-warn: var(--p-orange-800);
+  --timeline-color-primary: var(--p-indigo-600);
+  --timeline-color-contrast: var(--p-gray-500);
+  --timeline-background-info: var(--p-blue-50);
+  --timeline-background-success: var(--p-green-50);
+  --timeline-background-danger: var(--p-red-50);
+  --timeline-background-secondary: var(--p-slate-50);
+  --timeline-background-warn: var(--p-orange-50);
+  --timeline-background-primary: var(--p-indigo-50);
+  --timeline-background-contrast: var(--p-gray-50);
+  --timeline-dot-info: var(--p-blue-500);
+  --timeline-dot-success: var(--p-green-600);
+  --timeline-dot-danger: var(--p-red-500);
+  --timeline-dot-secondary: var(--p-slate-400);
+  --timeline-dot-warn: var(--p-orange-600);
+  --timeline-dot-primary: var(--p-indigo-600);
+  --timeline-dot-contrast: var(--p-gray-500);
+
   --comment-write-name-color: var(--p-slate-500);
   --comment-write-background: var(--p-gray-00);
   --comment-write-border-color: var(--p-gray-300);
@@ -744,6 +766,9 @@
   --sales-product-list-item-foot-icon-color: var(--p-gray-400);
   --sales-product-list-item-number-color: var(--p-gray-500);
   --sales-product-list-item-title-color: var(--p-gray-900);
+
+  //planer
+  --planer-background: var(--p-gray-00);
 
   //auth
   --auth-background-image: #eff1f4 url(./../images/login-bg.jpg) no-repeat 0

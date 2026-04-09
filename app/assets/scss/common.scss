@@ -201,6 +201,9 @@ input[type='number'] {
   appearance: textfield;
   -moz-appearance: textfield;
 }
+a {
+  text-decoration: none;
+}
 
 @keyframes float {
   0%,
