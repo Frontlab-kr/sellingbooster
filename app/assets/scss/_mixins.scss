@@ -4,6 +4,7 @@ $BreakpointMd: 1024px;
 
 :root,
 :host {
+  --scroll-thumb-color-background: var(--p-gray-00);
   --scroll-thumb-color: var(--p-gray-300);
   --scroll-hover-thumb-color: var(--p-gray-400);
   &.p-dark {
@@ -79,15 +80,9 @@ $BreakpointMd: 1024px;
 
   &::-webkit-scrollbar-thumb {
     background-color: transparent;
-    border-radius: math.div($width, 2);
+    border-radius: 10px;
     border: 4px solid transparent;
-    background-clip: content-box;
 
-    /* 부드러운 전환 효과 설정 */
-    transition:
-      box-shadow 0.3s ease-in-out,
-      background-color 0.3s ease-in-out;
-    /* 초기 그림자 값을 투명하게 설정 */
     box-shadow: inset 0 0 0 10px transparent;
   }
 
