@@ -2027,6 +2027,11 @@
       padding: 40px;
       border-radius: 32px;
       background: var(--ktrend-background);
+      @media screen and (max-width: 1374px) {
+        .grid {
+          gap: 20px;
+        }
+      }
     }
     &-list {
       &-head {
@@ -2085,6 +2090,9 @@
           height: 1104px;
           overflow: auto;
           @include custom-scrollbar();
+          @media screen and (max-width: 1374px) {
+            grid-template-columns: 1fr;
+          }
         }
         @include custom-scrollbar-blur();
         &.is-scroll-end {
@@ -2098,6 +2106,9 @@
         display: block;
         text-decoration: none;
         padding: 30px;
+        @media screen and (max-width: 1374px) {
+          padding: 0;
+        }
         &-head {
           display: flex;
           justify-content: space-between;
@@ -2148,6 +2159,9 @@
     }
     &-keyword {
       padding: 0 30px;
+      @media screen and (max-width: 1374px) {
+        padding: 0;
+      }
       &-head {
         display: flex;
         align-items: center;
@@ -2179,6 +2193,9 @@
     }
     &-ranking {
       padding: 0 30px;
+      @media screen and (max-width: 1374px) {
+        padding: 0;
+      }
       &-head {
         display: flex;
         align-items: center;
@@ -2326,6 +2343,9 @@
           overflow: auto;
           height: 680px;
           @include custom-scrollbar();
+          @media screen and (max-width: 1374px) {
+            grid-template-columns: 1fr;
+          }
         }
         &-item {
           display: flex;
@@ -2381,7 +2401,6 @@
     @media screen and (max-width: 1374px) {
       .grid {
         flex-direction: column;
-        gap: 20px;
         > [class*='col'] {
           width: 100%;
         }
