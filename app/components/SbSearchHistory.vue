@@ -49,11 +49,12 @@
                 value="기본"
                 severity="neutral"
               />
-              <IconSystemSmartstore
+              <img
                 v-else-if="item.type === 'store'"
+                :src="IconSystemSmartstore"
+                alt="smart store"
                 class="ico-system-smartstore"
               />
-
               <p>{{ item.bodyText }}</p>
             </div>
 
@@ -85,7 +86,7 @@ import { ref, onMounted, computed, watch, nextTick } from 'vue';
 import IconArrowAchevronUp from '@/assets/icons/arrow/achevron-up.svg?component';
 import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
 import IconSystemClose from '@/assets/icons/system/close.svg?component';
-import IconSystemSmartstore from '@/assets/icons/system/smartstore.svg?component';
+import IconSystemSmartstore from '@/assets/icons/system/smartstore.png';
 
 //popover
 const searchHistoryRef = ref(null);

@@ -80,7 +80,11 @@
                 </div>
                 <div class="sb-sales-product-list-item__contents">
                   <div class="sb-sales-product-list-item__number">
-                    <IconSystemSmartstore class="ico-system-smartstore" />
+                    <img
+                      :src="IconSystemSmartstore"
+                      alt="smart store"
+                      class="ico-system-smartstore"
+                    />
                     <p>상품번호 : 20260310132535</p>
                   </div>
                   <div class="sb-sales-product-list-item__title">
@@ -122,7 +126,11 @@
                 </div>
                 <div class="sb-sales-product-list-item__contents">
                   <div class="sb-sales-product-list-item__number">
-                    <IconSystemSmartstore class="ico-system-smartstore" />
+                    <img
+                      :src="IconSystemCoupang"
+                      alt="Coupang"
+                      class="ico-system-coupang"
+                    />
                     <p>상품번호 : 20260310132535</p>
                   </div>
                   <div class="sb-sales-product-list-item__title">
@@ -164,7 +172,11 @@
                 </div>
                 <div class="sb-sales-product-list-item__contents">
                   <div class="sb-sales-product-list-item__number">
-                    <IconSystemSmartstore class="ico-system-smartstore" />
+                    <img
+                      :src="IconSystemGmarket"
+                      alt="gmarket"
+                      class="ico-system-gmarket"
+                    />
                     <p>상품번호 : 20260310132535</p>
                   </div>
                   <div class="sb-sales-product-list-item__title">
@@ -209,7 +221,11 @@
                 </div>
                 <div class="sb-sales-product-list-item__contents">
                   <div class="sb-sales-product-list-item__number">
-                    <IconSystemSmartstore class="ico-system-smartstore" />
+                    <img
+                      :src="IconSystemSmartstore"
+                      alt="smart store"
+                      class="ico-system-smartstore"
+                    />
                     <p>상품번호 : 20260310132535</p>
                   </div>
                   <div class="sb-sales-product-list-item__title">
@@ -255,7 +271,11 @@
                 </div>
                 <div class="sb-sales-product-list-item__contents">
                   <div class="sb-sales-product-list-item__number">
-                    <IconSystemSmartstore class="ico-system-smartstore" />
+                    <img
+                      :src="IconSystemSmartstore"
+                      alt="smart store"
+                      class="ico-system-smartstore"
+                    />
                     <p>상품번호 : 20260310132535</p>
                   </div>
                   <div class="sb-sales-product-list-item__title">
@@ -301,7 +321,11 @@
                 </div>
                 <div class="sb-sales-product-list-item__contents">
                   <div class="sb-sales-product-list-item__number">
-                    <IconSystemSmartstore class="ico-system-smartstore" />
+                    <img
+                      :src="IconSystemSmartstore"
+                      alt="smart store"
+                      class="ico-system-smartstore"
+                    />
                     <p>상품번호 : 20260310132535</p>
                   </div>
                   <div class="sb-sales-product-list-item__title">
@@ -347,7 +371,11 @@
                 </div>
                 <div class="sb-sales-product-list-item__contents">
                   <div class="sb-sales-product-list-item__number">
-                    <IconSystemSmartstore class="ico-system-smartstore" />
+                    <img
+                      :src="IconSystemSmartstore"
+                      alt="smart store"
+                      class="ico-system-smartstore"
+                    />
                     <p>상품번호 : 20260310132535</p>
                   </div>
                   <div class="sb-sales-product-list-item__title">
@@ -393,7 +421,11 @@
                 </div>
                 <div class="sb-sales-product-list-item__contents">
                   <div class="sb-sales-product-list-item__number">
-                    <IconSystemSmartstore class="ico-system-smartstore" />
+                    <img
+                      :src="IconSystemSmartstore"
+                      alt="smart store"
+                      class="ico-system-smartstore"
+                    />
                     <p>상품번호 : 20260310132535</p>
                   </div>
                   <div class="sb-sales-product-list-item__title">
@@ -439,7 +471,11 @@
                 </div>
                 <div class="sb-sales-product-list-item__contents">
                   <div class="sb-sales-product-list-item__number">
-                    <IconSystemSmartstore class="ico-system-smartstore" />
+                    <img
+                      :src="IconSystemSmartstore"
+                      alt="smart store"
+                      class="ico-system-smartstore"
+                    />
                     <p>상품번호 : 20260310132535</p>
                   </div>
                   <div class="sb-sales-product-list-item__title">
@@ -485,7 +521,11 @@
                 </div>
                 <div class="sb-sales-product-list-item__contents">
                   <div class="sb-sales-product-list-item__number">
-                    <IconSystemSmartstore class="ico-system-smartstore" />
+                    <img
+                      :src="IconSystemSmartstore"
+                      alt="smart store"
+                      class="ico-system-smartstore"
+                    />
                     <p>상품번호 : 20260310132535</p>
                   </div>
                   <div class="sb-sales-product-list-item__title">
@@ -522,7 +562,9 @@
 import { useToast } from 'primevue/usetoast';
 import analyze from '@/pages/sales/components/analyze.vue';
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
-import IconSystemSmartstore from '@/assets/icons/system/smartstore.svg?component';
+import IconSystemSmartstore from '@/assets/icons/system/smartstore.png';
+import IconSystemCoupang from '@/assets/icons/system/coupang.png';
+import IconSystemGmarket from '@/assets/icons/system/gmarket.png';
 import IconSystemCheckS from '@/assets/icons/system/check-s.svg?component';
 
 //breadcrumb

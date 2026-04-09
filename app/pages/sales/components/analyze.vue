@@ -45,38 +45,147 @@
         <IconSystemAi class="ico-system-ai" />
         제안 상품명
       </div>
-      <div class="sb-popover-analyze-propose-item">
-        <p>
-          신지모루 AR저반사고화질 풀커버 지문인식 강화유리 액정보호필름
-          갤럭시S26 울트라, 2매입 신지모루 AR저반사고화질 풀커버 지문인식
-          강화유리 액정보호필름 갤럭시S26 울트라, 2매입 신지모루 AR저반사고화질
-          풀커버 지문인식 강화유리 액정보호필름 갤럭시S26 울트라, 2매입
-        </p>
-        <Button variant="text">
-          <template #icon>
-            <IconSystemCopy class="ico-system-copy" @click="onCopyClick" />
-          </template>
-        </Button>
-      </div>
-      <div class="sb-popover-analyze-propose-item">
-        <p>
-          신지모루 AG저반사지문방지 풀커버 지문인식 강화유리 액정보호필름
-          갤럭시S26 울트라, 2매입
-        </p>
-        <Button variant="text">
-          <template #icon>
-            <IconSystemCopy class="ico-system-copy" @click="onCopyClick" />
-          </template>
-        </Button>
-      </div>
-      <div class="sb-popover-analyze-propose-item">
-        <p>신지모루 지문인식 강화유리 액정보호필름 갤럭시S26 울트라, 2매입</p>
-        <Button variant="text">
-          <template #icon>
-            <IconSystemCopy class="ico-system-copy" @click="onCopyClick" />
-          </template>
-        </Button>
-      </div>
+      <dl>
+        <dt>
+          <img
+            :src="IconSystemSmartstore"
+            alt="smart store"
+            class="ico-system-smartstore"
+          />
+          <p>네이버스토어</p>
+        </dt>
+        <dd>
+          <div class="sb-popover-analyze-propose-item">
+            <p>
+              신지모루 AR저반사고화질 풀커버 지문인식 강화유리 액정보호필름
+              갤럭시S26 울트라, 2매입 신지모루 AR저반사고화질 풀커버 지문인식
+              강화유리 액정보호필름 갤럭시S26 울트라, 2매입 신지모루
+              AR저반사고화질 풀커버 지문인식 강화유리 액정보호필름 갤럭시S26
+              울트라, 2매입
+            </p>
+            <Button variant="text">
+              <template #icon>
+                <IconSystemCopy class="ico-system-copy" @click="onCopyClick" />
+              </template>
+            </Button>
+          </div>
+          <div class="sb-popover-analyze-propose-item">
+            <p>
+              신지모루 AG저반사지문방지 풀커버 지문인식 강화유리 액정보호필름
+              갤럭시S26 울트라, 2매입
+            </p>
+            <Button variant="text">
+              <template #icon>
+                <IconSystemCopy class="ico-system-copy" @click="onCopyClick" />
+              </template>
+            </Button>
+          </div>
+          <div class="sb-popover-analyze-propose-item">
+            <p>
+              신지모루 지문인식 강화유리 액정보호필름 갤럭시S26 울트라, 2매입
+            </p>
+            <Button variant="text">
+              <template #icon>
+                <IconSystemCopy class="ico-system-copy" @click="onCopyClick" />
+              </template>
+            </Button>
+          </div>
+        </dd>
+      </dl>
+      <dl>
+        <dt>
+          <img
+            :src="IconSystemCoupang"
+            alt="Coupang"
+            class="ico-system-coupang"
+          />
+          <p>쿠팡</p>
+        </dt>
+        <dd>
+          <div class="sb-popover-analyze-propose-item">
+            <p>
+              신지모루 AR저반사고화질 풀커버 지문인식 강화유리 액정보호필름
+              갤럭시S26 울트라, 2매입 신지모루 AR저반사고화질 풀커버 지문인식
+              강화유리 액정보호필름 갤럭시S26 울트라, 2매입 신지모루
+              AR저반사고화질 풀커버 지문인식 강화유리 액정보호필름 갤럭시S26
+              울트라, 2매입
+            </p>
+            <Button variant="text">
+              <template #icon>
+                <IconSystemCopy class="ico-system-copy" @click="onCopyClick" />
+              </template>
+            </Button>
+          </div>
+          <div class="sb-popover-analyze-propose-item">
+            <p>
+              신지모루 AG저반사지문방지 풀커버 지문인식 강화유리 액정보호필름
+              갤럭시S26 울트라, 2매입
+            </p>
+            <Button variant="text">
+              <template #icon>
+                <IconSystemCopy class="ico-system-copy" @click="onCopyClick" />
+              </template>
+            </Button>
+          </div>
+          <div class="sb-popover-analyze-propose-item">
+            <p>
+              신지모루 지문인식 강화유리 액정보호필름 갤럭시S26 울트라, 2매입
+            </p>
+            <Button variant="text">
+              <template #icon>
+                <IconSystemCopy class="ico-system-copy" @click="onCopyClick" />
+              </template>
+            </Button>
+          </div>
+        </dd>
+      </dl>
+      <dl>
+        <dt>
+          <img
+            :src="IconSystemGmarket"
+            alt="gmarket"
+            class="ico-system-gmarket"
+          />
+          <p>G마켓</p>
+        </dt>
+        <dd>
+          <div class="sb-popover-analyze-propose-item">
+            <p>
+              신지모루 AR저반사고화질 풀커버 지문인식 강화유리 액정보호필름
+              갤럭시S26 울트라, 2매입 신지모루 AR저반사고화질 풀커버 지문인식
+              강화유리 액정보호필름 갤럭시S26 울트라, 2매입 신지모루
+              AR저반사고화질 풀커버 지문인식 강화유리 액정보호필름 갤럭시S26
+              울트라, 2매입
+            </p>
+            <Button variant="text">
+              <template #icon>
+                <IconSystemCopy class="ico-system-copy" @click="onCopyClick" />
+              </template>
+            </Button>
+          </div>
+          <div class="sb-popover-analyze-propose-item">
+            <p>
+              신지모루 AG저반사지문방지 풀커버 지문인식 강화유리 액정보호필름
+              갤럭시S26 울트라, 2매입
+            </p>
+            <Button variant="text">
+              <template #icon>
+                <IconSystemCopy class="ico-system-copy" @click="onCopyClick" />
+              </template>
+            </Button>
+          </div>
+          <div class="sb-popover-analyze-propose-item">
+            <p>
+              신지모루 지문인식 강화유리 액정보호필름 갤럭시S26 울트라, 2매입
+            </p>
+            <Button variant="text">
+              <template #icon>
+                <IconSystemCopy class="ico-system-copy" @click="onCopyClick" />
+              </template>
+            </Button>
+          </div>
+        </dd>
+      </dl>
     </div>
   </Popover>
 </template>
@@ -89,6 +198,9 @@ import faceSuccess from '@/assets/icons/etc/face-success.svg';
 import faceDanger from '@/assets/icons/etc/face-danger.svg';
 import IconSystemAi from '@/assets/icons/system/ai.svg?component';
 import IconSystemCopy from '@/assets/icons/system/copy.svg?component';
+import IconSystemSmartstore from '@/assets/icons/system/smartstore.png';
+import IconSystemCoupang from '@/assets/icons/system/coupang.png';
+import IconSystemGmarket from '@/assets/icons/system/gmarket.png';
 
 const popoverAnalyze = ref();
 const togglePopoverAnalyze = (event) => {

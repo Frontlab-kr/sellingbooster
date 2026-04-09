@@ -243,16 +243,51 @@
         padding: 20px;
         border-radius: 8px;
         background: var(--popover-analyze-propose-background);
+        max-height: 316px;
+        overflow: auto;
+        @include custom-scrollbar();
         &__title {
           display: flex;
           align-items: center;
           gap: 4px;
+          margin-bottom: 20px;
           color: var(--popover-analyze-propose-title-color);
-          font-size: 14px;
+          font-size: 16px;
           font-style: normal;
           font-weight: 700;
-          line-height: 140%; /* 19.6px */
-          letter-spacing: -0.35px;
+          line-height: 140%; /* 22.4px */
+          letter-spacing: -0.4px;
+        }
+        dl {
+          margin: 0 0 20px 0;
+          padding: 0 0 20px 0;
+          border-bottom: 1px dashed
+            var(--popover-analyze-propose-section-border-color);
+          &:last-child {
+            margin: 0;
+            padding: 0;
+            border-bottom: none;
+          }
+          dt {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin: 0;
+            padding: 0;
+            p {
+              margin: 0;
+              color: var(--popover-analyze-propose-subtitle-color);
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 1;
+              letter-spacing: -0.35px;
+            }
+          }
+          dd {
+            margin: 0;
+            padding: 0;
+          }
         }
         &-item {
           display: flex;

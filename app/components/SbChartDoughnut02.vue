@@ -53,9 +53,9 @@ const initChart = () => {
     neutralColor: '--chart-doughnut02-neutral',
   };
 
-  const chartBackground = getCssVar('--chart-background') || '#ffffff';
-  const labelColor = getCssVar('--chart-label-color') || '#333333';
-  const percentColor = getCssVar('--chart-percent-color') || '#666666';
+  const chartBackground = getCssVar('--chart-background');
+  const labelColor = getCssVar('--chart-label-color01');
+  const percentColor = getCssVar('--chart-label-color02');
 
   // 데이터 가공: color 속성을 실제 itemStyle에 적용
   const processedData = props.chartData.map((item) => {

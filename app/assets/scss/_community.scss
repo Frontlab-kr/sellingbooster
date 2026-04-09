@@ -1966,15 +1966,31 @@
     }
   }
   &-ktrend {
+    &-head {
+      margin-bottom: 40px;
+      &-chip {
+        display: flex;
+        margin: 20px 0 0 0;
+      }
+    }
     &-list {
       padding: 40px;
       border-radius: 32px;
       background: var(--Gray-00, #fff);
+      &-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      &-item {
+        display: block;
+        &-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
     }
     &-keyword {
-      padding: 40px;
-      border-radius: 32px;
-      background: var(--Gray-00, #fff);
       &-head {
         display: flex;
         align-items: center;
@@ -1983,9 +1999,6 @@
       }
     }
     &-ranking {
-      padding: 40px;
-      border-radius: 32px;
-      background: var(--Gray-00, #fff);
       &-head {
         display: flex;
         align-items: center;

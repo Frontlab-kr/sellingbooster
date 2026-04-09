@@ -100,6 +100,7 @@
             <NuxtLink to="/sales/price/">가격실행</NuxtLink>
             <NuxtLink to="/sales/price/nodata">가격실행 - Nodata</NuxtLink>
             <NuxtLink to="/sales/cs/">CS센터</NuxtLink>
+            <NuxtLink to="/sales/cs/nodata">CS센터 - Nodata</NuxtLink>
             <NuxtLink to="/sales/product/">상품명 점검</NuxtLink>
             <NuxtLink to="/sales/product/nodata01"
               >상품명 점검 - 채널 미연동</NuxtLink
@@ -168,7 +169,7 @@
             <NuxtLink to="/community/blog/">블로그</NuxtLink>
             <NuxtLink to="/community/blog/view">블로그 상세</NuxtLink>
 
-            <!-- <NuxtLink to="/community/ktrend">K-trend</NuxtLink> -->
+            <NuxtLink to="/community/ktrend">K-trend</NuxtLink>
           </div>
         </template>
       </Card>
@@ -197,7 +198,7 @@
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
-            <!-- <NuxtLink @click="dialogLoading = true">로딩</NuxtLink> -->
+            <NuxtLink @click="dialogLoading = true">로딩</NuxtLink>
             <NuxtLink to="/etc/403/">403</NuxtLink>
             <NuxtLink to="/etc/404/">404</NuxtLink>
             <NuxtLink to="/etc/500/">500</NuxtLink>

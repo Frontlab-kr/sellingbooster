@@ -155,7 +155,6 @@
             <IconSystemCopy class="ico-system-copy" />
             <IconSystemThema class="ico-system-thema" />
             <IconSystemDot class="ico-system-dot" />
-            <IconSystemSmartstore class="ico-system-smartstore" />
             <IconSystemUp class="ico-system-up" />
             <IconSystemDown class="ico-system-down" />
             <IconSystemCheckS class="ico-system-check-s" />
@@ -348,7 +347,6 @@ import IconSystemMail from '@/assets/icons/system/mail.svg?component';
 import IconSystemCopy from '@/assets/icons/system/copy.svg?component';
 import IconSystemThema from '@/assets/icons/system/thema.svg?component';
 import IconSystemDot from '@/assets/icons/system/dot.svg?component';
-import IconSystemSmartstore from '@/assets/icons/system/smartstore.svg?component';
 import IconSystemUp from '@/assets/icons/system/up.svg?component';
 import IconSystemDown from '@/assets/icons/system/down.svg?component';
 import IconSystemCheckS from '@/assets/icons/system/check-s.svg?component';

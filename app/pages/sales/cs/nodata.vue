@@ -100,380 +100,29 @@
             />
           </div>
           <div class="sb-sales-cs-product-body">
-            <div class="sb-sales-cs-product-status">
-              <div class="sb-sales-cs-product-status__text">
-                분위기가 복합적인 경우 주된 감정으로 분류됩니다.
+            <div class="sb-nodata">
+              <IconIllustrationFrown class="ico-illustration-frown" />
+              <div class="sb-nodata__text">
+                <p>데이터 분석에 실패하였습니다.</p>
               </div>
-              <div class="grid">
-                <div class="col-9">
-                  <dl>
-                    <dt>
-                      <h5>문의 유형 분포</h5>
-                    </dt>
-                    <dd>
-                      <SbChartSegmentBar
-                        :chart-data="inquiryTypeStats"
-                        :maxValue="50"
-                        unit-text="건"
-                        show-percent
+            </div>
+            <div class="sb-caution">
+              <ul>
+                <li>
+                  채널 연동이 모두 되어있는지 확인해주세요.
+
+                  <NuxtLink to="/">
+                    <Button variant="text">
+                      <span class="p-button-label">채널 연동하러 가기</span>
+                      <IconArrowAchevronRight
+                        class="ico-arrow-achevron-right"
                       />
-                    </dd>
-                  </dl>
-                </div>
-                <div class="col-3">
-                  <dl>
-                    <dt><h5>문의 분위기 종류</h5></dt>
-                    <dd>
-                      <div class="sb-sales-cs-product-status-list">
-                        <div class="sb-sales-cs-product-status-list-item">
-                          <div
-                            class="sb-sales-cs-product-status-list-item__title"
-                          >
-                            <IconSystemMessage class="ico-system-message" />
-                            일반 문의
-                          </div>
-                          <div
-                            class="sb-sales-cs-product-status-list-item__text"
-                          >
-                            <p><strong class="text-primary">95</strong>건</p>
-                            <span>/</span>
-                            <p><strong>78</strong>%</p>
-                          </div>
-                        </div>
-                        <div class="sb-sales-cs-product-status-list-item">
-                          <div
-                            class="sb-sales-cs-product-status-list-item__title"
-                          >
-                            <IconSystemFaceSad class="ico-system-face-sad" />
-                            불만/불편
-                          </div>
-                          <div
-                            class="sb-sales-cs-product-status-list-item__text"
-                          >
-                            <p><strong class="text-primary">11</strong>건</p>
-                            <span>/</span>
-                            <p><strong>9</strong>%</p>
-                          </div>
-                        </div>
-                        <div class="sb-sales-cs-product-status-list-item">
-                          <div
-                            class="sb-sales-cs-product-status-list-item__title"
-                          >
-                            <IconSystemFileCheck class="ico-system-filecheck" />
-                            요청/제안
-                          </div>
-                          <div
-                            class="sb-sales-cs-product-status-list-item__text"
-                          >
-                            <p><strong class="text-primary">16</strong>건</p>
-                            <span>/</span>
-                            <p><strong>13</strong>%</p>
-                          </div>
-                        </div>
-                      </div>
-                    </dd>
-                  </dl>
-                </div>
-              </div>
+                    </Button>
+                  </NuxtLink>
+                </li>
+                <li>일시적인 오류일 수 있으니 다시 한번 시도해보세요.</li>
+              </ul>
             </div>
-            <div class="sb-sales-cs-product-table">
-              <h5>상품별 문의 현황</h5>
-              <div class="sb-table">
-                <div class="sb-sales-cs-product-table-checkbox">
-                  <div class="sb-sales-cs-product-table-checkbox__title">
-                    유형별 보기
-                  </div>
-                  <div class="sb-checkbox">
-                    <div
-                      v-for="option in inquiryTypeOptions"
-                      :key="option.id"
-                      class="sb-checkbox-item"
-                    >
-                      <Checkbox
-                        v-model="selectedInquiryTypes"
-                        :inputId="option.id"
-                        :value="option.value"
-                      />
-                      <label :for="option.id" :class="option.colorClass">
-                        {{ option.label }}
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                <DataTable
-                  v-model:expandedRows="expandedRows"
-                  :value="productQnaList"
-                  dataKey="id"
-                  :rowClass="rowClass"
-                  responsiveLayout="scroll"
-                  class="table-expanded"
-                >
-                  <Column
-                    field="productName"
-                    header="상품명"
-                    style="width: 300px"
-                  >
-                    <template #body="slotProps">
-                      <button
-                        @click="toggleRow(slotProps.data)"
-                        class="sb-table-body-toggle"
-                      >
-                        <div class="sb-table-body-ellipsis">
-                          {{ slotProps.data.productName }}
-                        </div>
-                        <IconArrowAchevronDown
-                          class="ico-arrow-achevron-down"
-                        />
-                      </button>
-                    </template>
-                  </Column>
-
-                  <Column
-                    field="sizeInquiry"
-                    header="사이즈 문의"
-                    bodyClass="text-right color-info"
-                    style="width: 150px"
-                  >
-                    <template #body="slotProps">{{
-                      slotProps.data.sizeInquiry
-                    }}</template>
-                  </Column>
-
-                  <Column
-                    field="deliveryInquiry"
-                    header="배송 문의"
-                    bodyClass="text-right color-success"
-                    style="width: 150px"
-                  >
-                    <template #body="slotProps">{{
-                      slotProps.data.deliveryInquiry
-                    }}</template>
-                  </Column>
-
-                  <Column
-                    field="stockOption"
-                    header="재고 / 옵션"
-                    bodyClass="text-right color-secondary"
-                    style="width: 150px"
-                  >
-                    <template #body="slotProps">{{
-                      slotProps.data.stockOption
-                    }}</template>
-                  </Column>
-
-                  <Column
-                    field="exchangeReturn"
-                    header="교환 / 반품"
-                    bodyClass="text-right color-danger"
-                    style="width: 150px"
-                  >
-                    <template #body="slotProps">{{
-                      slotProps.data.exchangeReturn
-                    }}</template>
-                  </Column>
-
-                  <Column
-                    field="productInfo"
-                    header="상품 정보"
-                    bodyClass="text-right color-warn"
-                    style="width: 150px"
-                  >
-                    <template #body="slotProps">{{
-                      slotProps.data.productInfo
-                    }}</template>
-                  </Column>
-
-                  <Column
-                    field="priceDiscount"
-                    header="가격 / 할인"
-                    bodyClass="text-right color-primary"
-                    style="width: 150px"
-                  >
-                    <template #body="slotProps">{{
-                      slotProps.data.priceDiscount
-                    }}</template>
-                  </Column>
-
-                  <Column
-                    field="etc"
-                    header="기타"
-                    bodyClass="text-right color-contrast"
-                    style="width: 150px"
-                  >
-                    <template #body="slotProps">
-                      {{ slotProps.data.etc === 0 ? '-' : slotProps.data.etc }}
-                    </template>
-                  </Column>
-
-                  <Column
-                    field="total"
-                    header="합계"
-                    bodyClass="text-right"
-                    style="width: 150px"
-                  >
-                    <template #body="slotProps">
-                      <strong>
-                        {{ slotProps.data.total }}
-                      </strong>
-                    </template>
-                  </Column>
-                  <template #expansion="slotProps">
-                    <div class="sb-sales-cs-product-expanded">
-                      <div class="sb-sales-cs-product-expanded-product">
-                        <div
-                          class="sb-sales-cs-product-expanded-product__thumb"
-                        >
-                          <img src="https://picsum.photos/200/300" alt="" />
-                        </div>
-                        <div
-                          class="sb-sales-cs-product-expanded-product__contents"
-                        >
-                          <p>
-                            삼소니 봄신상 데일리세트 모음전 키즈꼬모 봄 인기
-                            상하세트 모음전 상품명 모두 노출
-                          </p>
-                          <span> 옵션 : 002 삼소니 세트/크림 5호 </span>
-                          <strong>11,900원</strong>
-                        </div>
-                        <div
-                          class="sb-sales-cs-product-expanded-product__button"
-                        >
-                          <Button variant="text">
-                            <span class="p-button-label">상품 보기</span>
-                            <IconArrowAchevronRight
-                              class="ico-arrow-achevron-right"
-                            />
-                          </Button>
-                        </div>
-                      </div>
-
-                      <div class="sb-sales-cs-product-expanded-chart">
-                        <SbChartStackedBar
-                          :chart-data="categoryStats"
-                          :bar-width="20"
-                          unit-text=""
-                        />
-                      </div>
-                    </div>
-                  </template>
-                </DataTable>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="sb-sales-cs-foot">
-          <div class="sb-sales-cs-report">
-            <div class="sb-sales-cs-report-head">
-              <h5>AI 인사이트 리포트</h5>
-              <p>
-                이 리포트는 실제 데이터를 기반으로 AI가 분석해 정리한
-                정보입니다. 시장 상황에 따라 일부 내용은 달라질 수 있으니
-                참고용으로 활용해 주세요.
-              </p>
-            </div>
-            <dl>
-              <dt>
-                <h6 class="color-secondary">주요 문의 패턴</h6>
-              </dt>
-              <dd>
-                <div class="sb-sales-cs-report-list">
-                  <div class="sb-sales-cs-report-list-item">
-                    <Badge value="사이즈 고민" severity="secondary"></Badge>
-                    <p>
-                      아동복 특성상 키와 몸무게를 기반으로 한 사이즈 추천 문의가
-                      압도적입니다. 특히 ‘건조기 사용 시 수축’을 고려한 사이즈
-                      선택에 대한 불안감이 매우 큽니다.
-                    </p>
-                  </div>
-                  <div class="sb-sales-cs-report-list-item">
-                    <Badge
-                      value="배송 및 재고 문의"
-                      severity="secondary"
-                    ></Badge>
-                    <p>
-                      라이브 방송 전후로 재입고 요청과 배송 일정 확인 문의가
-                      집중됩니다.
-                    </p>
-                  </div>
-                  <div class="sb-sales-cs-report-list-item">
-                    <Badge value="교환/반품 이슈" severity="secondary"></Badge>
-                    <p>
-                      오배송 및 상품 불량에 대한 문의가 다수 발생하며, 이에 대한
-                      고객의 불만족도가 높습니다.
-                    </p>
-                  </div>
-                </div>
-              </dd>
-            </dl>
-            <dl>
-              <dt>
-                <h6 class="color-warn">운영 개선이 필요한 영역</h6>
-              </dt>
-              <dd>
-                <div class="sb-sales-cs-report-list">
-                  <div class="sb-sales-cs-report-list-item">
-                    <Badge value="상세 페이지 보완" severity="warn"></Badge>
-                    <p>
-                      건조기 사용 시 권장 사이즈 가이드(예: ‘건조기 사용 시 한
-                      사이즈 업 추천’)를 명시하여 반복되는 사이즈 문의를 줄여야
-                      합니다.
-                    </p>
-                  </div>
-                  <div class="sb-sales-cs-report-list-item">
-                    <Badge value="검수 프로세스 강화" severity="warn"></Badge>
-                    <p>
-                      오배송 및 불량 건이 반복되고 있습니다. 출고 전 검수
-                      시스템을 강화하여 고객의 부정적 경험을 최소화 해야 합니다.
-                    </p>
-                  </div>
-                  <div class="sb-sales-cs-report-list-item">
-                    <Badge value="라이브 정보 투명성" severity="warn"></Badge>
-                    <p>
-                      라이브 일정 및 할인 적용 방법에 대한 정보가 고객에게
-                      명확히 전달되지 않고 있습니다.
-                    </p>
-                  </div>
-                </div>
-              </dd>
-            </dl>
-            <dl>
-              <dt>
-                <h6 class="color-success">고객 경험 향상 제안</h6>
-              </dt>
-              <dd>
-                <div class="sb-sales-cs-report-list">
-                  <div class="sb-sales-cs-report-list-item">
-                    <Badge
-                      value="사이즈 가이드 챗봇 / FAQ "
-                      severity="success"
-                    ></Badge>
-                    <p>
-                      키/몸무게별 추천 사이즈표를 상세페이지 상단에 배치하고,
-                      건조기 사용 여부에 따른 가이드를 추가하세요.
-                    </p>
-                  </div>
-                  <div class="sb-sales-cs-report-list-item">
-                    <Badge value="배송 알림 서비스" severity="success"></Badge>
-                    <p>
-                      ‘상품 준비 중’ 상태에서 고객이 불안해하지 않도록 배송 예상
-                      일정을 자동 알림으로 제공하세요.
-                    </p>
-                  </div>
-                  <div class="sb-sales-cs-report-list-item">
-                    <Badge
-                      value="교환/반품 프로세스 간소화"
-                      severity="success"
-                    ></Badge>
-                    <p>
-                      오배송 발생 시 고객이 사진을 보내는 번거로움을 줄이고
-                      즉각적인 회수 및 재발송 프로세스를 구축하여 신뢰를
-                      회복해야 합니다.
-                    </p>
-                  </div>
-                </div>
-              </dd>
-            </dl>
           </div>
         </div>
       </div>
@@ -530,6 +179,13 @@
                 </dl>
               </div>
             </div>
+          </div>
+          <div class="sb-sales-cs-channel">
+            <h6>
+              AI가 분석해주는 CS 문의 데이터 분석 서비스 이용을 위해서 <br />
+              채널 연동이 필요합니다.
+            </h6>
+            <Button severity="primary" label="채널 연동하러 가기" />
           </div>
         </div>
         <div class="sb-sales-cs-body">
@@ -765,6 +421,14 @@
                 </div>
                 <SbPaginator />
               </div>
+              <div class="sb-sales-cs-channel">
+                <h6>
+                  AI가 분석해주는 CS 문의 데이터 분석 서비스 이용을 위해서
+                  <br />
+                  채널 연동이 필요합니다.
+                </h6>
+                <Button severity="primary" label="채널 연동하러 가기" />
+              </div>
             </div>
           </div>
         </div>
@@ -799,6 +463,7 @@ import IconSystemMessage from '@/assets/icons/system/message.svg?component';
 import IconSnbDocument from '@/assets/icons/snb/document.svg?component';
 import IconSystemFileCheck from '@/assets/icons/system/file-check.svg?component';
 import IconSystemFaceSad from '@/assets/icons/system/face-sad.svg?component';
+import IconIllustrationFrown from '@/assets/icons/illustration/frown.svg?component';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 
 //breadcrumb

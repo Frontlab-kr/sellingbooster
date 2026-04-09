@@ -79,143 +79,189 @@
           <Button severity="primary" label="셀링블로그 구독하기" />
         </div>
       </div>
-      <div class="grid">
-        <div class="col-12">
-          <div class="sb-ktrend-list">
-            <div class="sb-tab">
-              <Button label="건강기능식품" variant="text" class="active" />
-              <Button label="이너뷰티" variant="text" />
-              <Button label="코스메틱" variant="text" />
-              <Button label="패션" variant="text" />
-              <Button label="펫" variant="text" />
-              <Button label="유아" variant="text" />
-            </div>
-
-            <div class="sb-chip">
-              <div class="sb-chip__title">관련 키워드</div>
-              <div class="sb-checkbox">
-                <div
-                  class="sb-checkbox-item"
-                  v-for="item in keywordOptions"
-                  :key="item.value"
-                >
-                  <Checkbox
-                    v-model="selectedKeyword"
-                    :inputId="item.id"
-                    :value="item.value"
-                  />
-                  <label :for="item.id">{{ item.label }}</label>
+      <div class="sb-ktrend-list">
+        <div class="grid">
+          <div class="col-12">
+            <div class="sb-ktrend-list">
+              <div class="sb-ktrend-list-head">
+                <div class="sb-tab">
+                  <Button label="건강기능식품" variant="text" class="active" />
+                  <Button label="이너뷰티" variant="text" />
+                  <Button label="코스메틱" variant="text" />
+                  <Button label="패션" variant="text" />
+                  <Button label="펫" variant="text" />
+                  <Button label="유아" variant="text" />
                 </div>
+                <div class="sb-ktrend-list-head-chip">
+                  <div class="sb-chip">
+                    <div class="sb-chip__title">관련 키워드</div>
+                    <div class="sb-checkbox">
+                      <div
+                        class="sb-checkbox-item"
+                        v-for="item in keywordOptions"
+                        :key="item.value"
+                      >
+                        <Checkbox
+                          v-model="selectedKeyword"
+                          :inputId="item.id"
+                          :value="item.value"
+                        />
+                        <label :for="item.id">{{ item.label }}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sb-ktrend-list-grid">
+                <NuxtLink to="/" class="sb-ktrend-list-item">
+                  <div class="sb-ktrend-list-item-head">
+                    <div class="sb-ktrend-list-item-head__badge">
+                      <Badge value="답변 대기" severity="danger"></Badge>
+                    </div>
+                    <div class="sb-ktrend-list-item-head__date">2026.02.14</div>
+                  </div>
+                  <div class="sb-ktrend-list-item-contents">
+                    <div class="sb-ktrend-list-item-contents__thumb">
+                      <img src="https://picsum.photos/200/300" alt="" />
+                    </div>
+                    <div class="sb-ktrend-list-item-contents__text">
+                      <h6>
+                        컨텐츠 제목은 최대 1줄로 처리하고 더 길어질 경우는
+                        ...으로 처리하는 것으로 결정
+                      </h6>
+                      <p>
+                        초보 셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을
+                        읽고 실수를 미리 방지하세요 최대 2줄까지 노출해주세요
+                        초보 셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을
+                        읽고 실수를 미리 방지하세요 최대 2줄까지 노출해주세요
+                        초보 셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을
+                        읽고 실수를 미리 방지하세요 최대 2줄까지 노출해주세요
+                        초보 셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을
+                        읽고 실수를 미리 방지하세요 최대 2줄까지 노출해주세요
+                      </p>
+                    </div>
+                  </div>
+                </NuxtLink>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-6">
-          <div class="sb-ktrend-keyword">
-            <div class="sb-ktrend-keyword-head">
-              <h5>K-Culture 키워드</h5>
+          <div class="col-6">
+            <div class="sb-ktrend-keyword">
+              <div class="sb-ktrend-keyword-head">
+                <h5>K-Culture 키워드</h5>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-6">
-          <div class="sb-ktrend-ranking">
-            <div class="sb-ktrend-ranking-head">
-              <h5>K-Trend 키워드 랭킹</h5>
-              <Button rounded severity="white">
-                <template #icon>
-                  <IconArrowUpRight class="ico-arrow-up-right" />
-                </template>
-              </Button>
-            </div>
-            <DataTable
-              :value="rankingList"
-              responsiveLayout="scroll"
-              removableSort
-              scrollable
-              class="sb-ktrend-datatable"
-            >
-              <Column field="ranking" header="랭킹" style="width: 175px">
-                <template #body="slotProps">
-                  <span class="ranking-number">{{
-                    slotProps.data.ranking
-                  }}</span>
-                </template>
-              </Column>
-
-              <Column field="keyword" header="키워드" style="min-width: 175px">
-                <template #body="slotProps">
-                  <span class="keyword-text">{{ slotProps.data.keyword }}</span>
-                </template>
-              </Column>
-
-              <Column
-                field="searchVol"
-                header="검색량"
-                headerClass="justify-content-end"
-                bodyClass="text-right"
-                style="width: 175px"
+          <div class="col-6">
+            <div class="sb-ktrend-ranking">
+              <div class="sb-ktrend-ranking-head">
+                <h5>K-Trend 키워드 랭킹</h5>
+                <Button rounded severity="white">
+                  <template #icon>
+                    <IconArrowUpRight class="ico-arrow-up-right" />
+                  </template>
+                </Button>
+              </div>
+              <DataTable
+                :value="rankingList"
+                responsiveLayout="scroll"
+                removableSort
+                scrollable
+                class="sb-ktrend-datatable"
               >
-                <template #body="slotProps">
-                  <div
-                    class="flex align-items-center justify-content-end gap-1"
-                  >
-                    <template v-if="slotProps.data.searchDir === 'up'">
-                      <IconArrowUp
-                        class="ico-arrow-up text-red-500"
-                        style="width: 12px"
-                      />
-                      <span class="text-red-500 font-bold">{{
-                        slotProps.data.searchVol
-                      }}</span>
-                    </template>
-                    <template v-else>
-                      <IconArrowDown
-                        class="ico-arrow-down text-blue-500"
-                        style="width: 12px"
-                      />
-                      <span class="text-blue-500 font-bold">{{
-                        slotProps.data.searchVol
-                      }}</span>
-                    </template>
-                  </div>
-                </template>
-              </Column>
-
-              <Column
-                field="competition"
-                header="경쟁강도"
-                bodyClass="text-right"
-                style="width: 175px"
-              >
-                <template #body="slotProps">
-                  <div
-                    class="flex align-items-center justify-content-end gap-2"
-                  >
-                    <span class="competition-value">{{
-                      slotProps.data.competition
+                <Column field="ranking" header="랭킹" style="width: 175px">
+                  <template #body="slotProps">
+                    <span class="ranking-number">{{
+                      slotProps.data.ranking
                     }}</span>
-                    <Badge
-                      :value="slotProps.data.status"
-                      :severity="
-                        slotProps.data.status === '최적' ? 'success' : 'danger'
-                      "
-                      class="sb-badge-sm"
-                    />
+                  </template>
+                </Column>
+
+                <Column
+                  field="keyword"
+                  header="키워드"
+                  style="min-width: 175px"
+                >
+                  <template #body="slotProps">
+                    <span class="keyword-text">{{
+                      slotProps.data.keyword
+                    }}</span>
+                  </template>
+                </Column>
+
+                <Column
+                  field="searchVol"
+                  header="검색량"
+                  headerClass="justify-content-end"
+                  bodyClass="text-right"
+                  style="width: 175px"
+                >
+                  <template #body="slotProps">
+                    <div
+                      class="flex align-items-center justify-content-end gap-1"
+                    >
+                      <template v-if="slotProps.data.searchDir === 'up'">
+                        <IconArrowUp
+                          class="ico-arrow-up text-red-500"
+                          style="width: 12px"
+                        />
+                        <span class="text-red-500 font-bold">{{
+                          slotProps.data.searchVol
+                        }}</span>
+                      </template>
+                      <template v-else>
+                        <IconArrowDown
+                          class="ico-arrow-down text-blue-500"
+                          style="width: 12px"
+                        />
+                        <span class="text-blue-500 font-bold">{{
+                          slotProps.data.searchVol
+                        }}</span>
+                      </template>
+                    </div>
+                  </template>
+                </Column>
+
+                <Column
+                  field="competition"
+                  header="경쟁강도"
+                  bodyClass="text-right"
+                  style="width: 175px"
+                >
+                  <template #body="slotProps">
+                    <div
+                      class="flex align-items-center justify-content-end gap-2"
+                    >
+                      <span class="competition-value">{{
+                        slotProps.data.competition
+                      }}</span>
+                      <Badge
+                        :value="slotProps.data.status"
+                        :severity="
+                          slotProps.data.status === '최적'
+                            ? 'success'
+                            : 'danger'
+                        "
+                        class="sb-badge-sm"
+                      />
+                    </div>
+                  </template>
+                </Column>
+
+                <template #empty>
+                  <div class="sb-nodata">
+                    <IconIllustrationSmile class="ico-illustration-smile" />
+                    <div class="sb-nodata__text">
+                      <p>조회된 데이터가 없습니다.</p>
+                    </div>
                   </div>
                 </template>
-              </Column>
-
-              <template #empty>
-                <div class="sb-nodata">
-                  <IconIllustrationSmile class="ico-illustration-smile" />
-                  <div class="sb-nodata__text">
-                    <p>조회된 데이터가 없습니다.</p>
-                  </div>
-                </div>
-              </template>
-            </DataTable>
+              </DataTable>
+            </div>
           </div>
         </div>
+      </div>
+      <div class="grid">
         <div class="col-6">
           <div class="sb-ktrend-ksnapp">
             <div class="sb-ktrend-ksnapp-head">

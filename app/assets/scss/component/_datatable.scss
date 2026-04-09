@@ -148,6 +148,7 @@
   --p-datatable-body-cell-selected-border-color: var(--p-primary-100);
   --p-datatable-row-striped-background: var(--p-surface-50);
   --p-datatable-border-color: var(--p-content-border-color);
+  --p-datatable-expanded-td-background: var(--p-gray-50);
   &.p-dark,
   .p-dark {
     --p-datatable-paginator-bottom-border-color: var(
@@ -308,6 +309,7 @@
     --p-datatable-body-cell-selected-border-color: var(--p-primary-100);
     --p-datatable-row-striped-background: var(--p-surface-50);
     --p-datatable-border-color: var(--p-content-border-color);
+    --p-datatable-expanded-td-background: var(--p-gray-900);
   }
 }
 
@@ -702,7 +704,7 @@
   .p-row-expanded {
     > td {
       border-top: 1px solid var(--p-datatable-row-hover-border-color) !important;
-      background: var(--Gray-50, #f9fbfc);
+      background: var(--p-datatable-expanded-td-background);
       &:last-child {
         border-radius: 0 8px 0 0 !important;
         border-right: 1px solid var(--p-datatable-row-hover-border-color) !important;
