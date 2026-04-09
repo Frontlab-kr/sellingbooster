@@ -98,19 +98,14 @@
                     <div class="sb-ktrend-list-head-menu-chip-scroll">
                       <div class="sb-chip">
                         <div class="sb-chip__title">관련 키워드</div>
-                        <div class="sb-checkbox">
-                          <div
-                            class="sb-checkbox-item"
+                        <div class="sb-chip-list">
+                          <NuxtLink
+                            to="/"
                             v-for="item in keywordOptions"
                             :key="item.value"
                           >
-                            <Checkbox
-                              v-model="selectedKeyword"
-                              :inputId="item.id"
-                              :value="item.value"
-                            />
-                            <label :for="item.id">{{ item.label }}</label>
-                          </div>
+                            <Chip :label="item.label" size="large" />
+                          </NuxtLink>
                         </div>
                       </div>
                     </div>
@@ -179,13 +174,13 @@
               <div class="sb-ktrend-keyword-chip" v-scroll-end>
                 <div class="sb-ktrend-keyword-chip-scroll">
                   <div class="sb-chip">
-                    <div class="sb-checkbox">
+                    <div class="sb-radio">
                       <div
-                        class="sb-checkbox-item"
+                        class="sb-radio-item"
                         v-for="item in keywordKCultureOptions"
                         :key="item.value"
                       >
-                        <Checkbox
+                        <RadioButton
                           v-model="selectedKeywordKCulture"
                           :inputId="item.id"
                           :value="item.value"

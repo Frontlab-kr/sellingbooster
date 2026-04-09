@@ -2071,7 +2071,7 @@
                 padding: 0;
               }
             }
-            .sb-checkbox {
+            .sb-chip-list {
               flex-wrap: nowrap !important;
             }
           }
@@ -2171,7 +2171,7 @@
           overflow: auto;
         }
         .sb-chip {
-          .sb-checkbox {
+          .sb-radio {
             flex-wrap: nowrap;
           }
         }
@@ -2381,6 +2381,7 @@
     @media screen and (max-width: 1374px) {
       .grid {
         flex-direction: column;
+        gap: 20px;
         > [class*='col'] {
           width: 100%;
         }
