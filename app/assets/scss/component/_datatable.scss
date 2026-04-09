@@ -311,6 +311,9 @@
     --p-datatable-border-color: var(--p-content-border-color);
     --p-datatable-expanded-td-background: var(--p-gray-900);
   }
+  @include breakpoint {
+    --p-datatable-header-cell-padding: 0 4px 12px 4px;
+  }
 }
 
 .p-datatable {
@@ -658,6 +661,13 @@
   font-weight: 700;
   line-height: 140%;
   letter-spacing: -0.4px;
+  @include breakpoint {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%; /* 19.6px */
+    letter-spacing: -0.35px;
+  }
 }
 .p-datatable-tbody > tr {
   position: relative;
@@ -765,6 +775,14 @@
   &:last-child {
     border-radius: 0 8px 8px 0;
     border-width: 1px 1px 1px 0 !important;
+  }
+  @include breakpoint {
+    height: 46px;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140%; /* 19.6px */
+    letter-spacing: -0.35px;
   }
 }
 .p-datatable-tbody > tr.p-datatable-empty-message > td {

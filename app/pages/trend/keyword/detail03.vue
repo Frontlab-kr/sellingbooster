@@ -513,10 +513,8 @@
                     style="width: 155px"
                   >
                     <template #body="slotProps">
-                      <div class="flex align-items-center justify-content-end">
-                        <span class="mr-2">{{
-                          slotProps.data.competition
-                        }}</span>
+                      <div class="sb-table-body-badge">
+                        <span>{{ slotProps.data.competition }}</span>
                         <Badge
                           :value="slotProps.data.status"
                           severity="success"

@@ -498,7 +498,7 @@
                     <dl>
                       <dt>답변 완료 현황</dt>
                       <dd>
-                        <h4 class="color-info">19,999</h4>
+                        <h4 class="text-down">19,999</h4>
                         <h5>건</h5>
                       </dd>
                     </dl>
@@ -516,7 +516,7 @@
                     <dl>
                       <dt>7일 이상 지연된 미답변 현황</dt>
                       <dd>
-                        <h4 class="color-danger">999</h4>
+                        <h4 class="text-up">999</h4>
                         <h5>건</h5>
                       </dd>
                     </dl>

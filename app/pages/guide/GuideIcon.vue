@@ -249,10 +249,7 @@
           <div class="sb-guide-item-head">
             <h4>AI icon</h4>
           </div>
-          <div class="sb-guide-icon">
-            <IconAiPc class="ico-ai-pc" />
-            <IconAiMo class="ico-ai-mo" />
-          </div>
+          <div class="sb-guide-icon"></div>
         </div>
       </div>
     </div>
@@ -369,7 +366,4 @@ import IconActionSwitchDown from '@/assets/icons/action/switch-down.svg?componen
 import IconIllustrationFrown from '@/assets/icons/illustration/frown.svg?component';
 import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 import IconIllustrationCheckCircle from '@/assets/icons/illustration/check-circle.svg?component';
-
-import IconAiPc from '@/assets/icons/ai/ai-pc.png?component';
-import IconAiMo from '@/assets/icons/ai/ai-mo.png?component';
 </script>

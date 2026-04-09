@@ -267,6 +267,9 @@
   --color-danger: var(--p-red-600);
   --color-contrast: var(--p-gray-500);
 
+  --color-down: var(--p-blue-500);
+  --color-up: var(--p-red-600);
+
   --chart-background: transparent;
 
   --chart-wave-background01: var(--p-gray-100);
@@ -343,6 +346,15 @@
   --chart-label-color01: var(--p-gray-500);
   --chart-label-color02: var(--p-gray-900);
 
+  --tag-color: var(--p-gray-00);
+  --tag-contrast: var(--p-gray-400);
+  --tag-primary: var(--p-indigo-400);
+  --tag-success: var(--p-green-400);
+  --tag-info: var(--p-blue-400);
+  --tag-secondary: var(--p-slate-400);
+  --tag-danger: var(--p-red-400);
+  --tag-warn: var(--p-orange-400);
+
   --url-title-color: var(--p-gray-900);
   --url-text-color: var(--p-gray-600);
   --url-card-background: var(--p-gray-00);
@@ -386,6 +398,17 @@
   --blog-contents-background: var(--p-gray-00);
   --blog-contents-list-item-title-color: var(--p-gray-900);
   --blog-contents-list-item-date-color: var(--p-gray-400);
+
+  --ktrend-background: var(--p-gray-00);
+  --ktrend-head-swiper-background: var(--p-gray-00);
+  --ktrend-list-item-head-date-color: var(--p-gray-400);
+  --ktrend-list-item-contents-text-color: var(--p-gray-900);
+  --ktrend-ranking-head-icon-color: var(--p-gray-400);
+  --ktrend-ksnapp-head-text-color: var(--p-gray-400);
+  --ktrend-ksnapp-list-item-border-color: var(--p-gray-300);
+  --ktrend-trend-head-text-color: var(--p-gray-400);
+  --ktrend-trend-list-item-head-text-color: var(--p-gray-400);
+  --ktrend-trend-list-item-body-text-color: var(--p-gray-900);
 
   --community-list-item-background: var(--p-gray-00);
   --community-list-item-title-color: var(--p-gray-900);
@@ -675,8 +698,6 @@
   --sales-cs-chart-item-background: var(--p-gray-50);
   --sales-cs-chart-item-title-color: var(--p-gray-500);
   --sales-cs-chart-item-text-color: var(--p-gray-900);
-  --sales-cs-chart-item-info-color: var(--p-blue-500);
-  --sales-cs-chart-item-danger-color: var(--p-red-600);
   --sales-cs-product-head-border-color: var(--p-gray-300);
   --sales-cs-product-status-border-color: var(--p-gray-300);
   --sales-cs-product-status-item-background: var(--p-gray-50);
@@ -867,6 +888,9 @@
     --color-danger: var(--p-red-400);
     --color-contrast: var(--p-gray-300);
 
+    --color-up: var(--p-red-400);
+    --color-down: var(--p-blue-400);
+
     --chart-background: transparent;
 
     --chart-wave-background01: var(--p-gray-100);
@@ -943,6 +967,7 @@
     --chart-label-color01: var(--p-gray-300);
     --chart-label-color02: var(--p-gray-00);
 
+    --tag-color: var(--p-gray-900);
     --url-title-color: var(--p-gray-00);
     --url-text-color: var(--p-gray-00);
     --url-card-background: var(--p-gray-800);
@@ -984,6 +1009,17 @@
     --blog-contents-background: var(--p-gray-800);
     --blog-contents-list-item-title-color: var(--p-gray-00);
     --blog-contents-list-item-date-color: var(--p-gray-400);
+
+    --ktrend-background: var(--p-gray-800);
+    --ktrend-head-swiper-background: var(--p-gray-800);
+    --ktrend-list-item-head-date-color: var(--p-gray-400);
+    --ktrend-list-item-contents-text-color: var(--p-gray-00);
+    --ktrend-ranking-head-icon-color: var(--p-gray-400);
+    --ktrend-ksnapp-head-text-color: var(--p-gray-400);
+    --ktrend-ksnapp-list-item-border-color: var(--p-gray-600);
+    --ktrend-trend-head-text-color: var(--p-gray-400);
+    --ktrend-trend-list-item-head-text-color: var(--p-gray-400);
+    --ktrend-trend-list-item-body-text-color: var(--p-gray-00);
 
     --community-list-item-background: var(--p-gray-700);
     --community-list-item-title-color: var(--p-gray-00);
@@ -1274,8 +1310,7 @@
     --sales-cs-chart-item-background: var(--p-gray-900);
     --sales-cs-chart-item-title-color: var(--p-gray-300);
     --sales-cs-chart-item-text-color: var(--p-gray-00);
-    --sales-cs-chart-item-info-color: var(--p-blue-400);
-    --sales-cs-chart-item-danger-color: var(--p-red-400);
+
     --sales-cs-product-head-border-color: var(--p-gray-600);
     --sales-cs-product-status-border-color: var(--p-gray-600);
     --sales-cs-product-status-item-background: var(--p-gray-900);

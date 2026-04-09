@@ -7,15 +7,9 @@
       </div>
     </div>
     <div class="sb-ktrend">
-      <div class="sb-blog-head">
-        <div class="sb-blog-head__title">
-          <h4>
-            지금 구독하기 하고,<br class="mo" />
-            셀러한테 필요한 정보 꼭 확인하세요!
-          </h4>
-        </div>
-        <div class="sb-blog-head-swiper">
-          <div class="sb-blog-head-swiper__contents">
+      <div class="sb-ktrend-head">
+        <div class="sb-ktrend-head-swiper">
+          <div class="sb-ktrend-head-swiper__contents">
             <ClientOnly>
               <swiper-container
                 ref="containerRef"
@@ -26,19 +20,21 @@
                 @swiperactiveindexchange="onSlideChange"
               >
                 <swiper-slide>
-                  <NuxtLink to="/" class="sb-blog-head-swiper-item">
-                    <div class="sb-blog-head-swiper-item__thumb">
+                  <NuxtLink to="/" class="sb-ktrend-head-swiper-item">
+                    <div class="sb-ktrend-head-swiper-item__thumb">
                       <img src="./../../../assets/images/blog.png" alt="" />
                     </div>
                     <h4>
-                      초보 셀러가 많이 하는 5가지 실수 제목은<br />
-                      최대 2줄까지 노출해주세요
+                      초보 셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을
+                      읽고 실수를 미리 방지하세요 최대 2줄까지 노출해주세요초보
+                      셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을 읽고
+                      실수를 미리 방지하세요 최대 2줄까지 노출해주세요
                     </h4>
                   </NuxtLink>
                 </swiper-slide>
                 <swiper-slide>
-                  <NuxtLink to="/" class="sb-blog-head-swiper-item">
-                    <div class="sb-blog-head-swiper-item__thumb">
+                  <NuxtLink to="/" class="sb-ktrend-head-swiper-item">
+                    <div class="sb-ktrend-head-swiper-item__thumb">
                       <img src="https://picsum.photos/200/300" alt="" />
                     </div>
                     <h4>
@@ -50,7 +46,7 @@
               </swiper-container>
             </ClientOnly>
           </div>
-          <div class="sb-blog-head-swiper__button">
+          <div class="sb-ktrend-head-swiper__button">
             <div class="sb-swiper-controls">
               <Button
                 rounded
@@ -75,72 +71,104 @@
             </div>
           </div>
         </div>
-        <div class="sb-blog-head__button">
-          <Button severity="primary" label="셀링블로그 구독하기" />
-        </div>
       </div>
-      <div class="sb-ktrend-list">
+      <div class="sb-ktrend-contents">
         <div class="grid">
           <div class="col-12">
-            <div class="sb-ktrend-list-head">
-              <div class="sb-tab">
-                <Button label="건강기능식품" variant="text" class="active" />
-                <Button label="이너뷰티" variant="text" />
-                <Button label="코스메틱" variant="text" />
-                <Button label="패션" variant="text" />
-                <Button label="펫" variant="text" />
-                <Button label="유아" variant="text" />
-              </div>
-              <div class="sb-ktrend-list-head-chip">
-                <div class="sb-chip">
-                  <div class="sb-chip__title">관련 키워드</div>
-                  <div class="sb-checkbox">
-                    <div
-                      class="sb-checkbox-item"
-                      v-for="item in keywordOptions"
-                      :key="item.value"
-                    >
-                      <Checkbox
-                        v-model="selectedKeyword"
-                        :inputId="item.id"
-                        :value="item.value"
+            <div class="sb-ktrend-list">
+              <div class="sb-ktrend-list-head">
+                <div class="sb-ktrend-list-head-tab">
+                  <div class="sb-ktrend-list-head-tab-scroll">
+                    <div class="sb-tab">
+                      <Button
+                        label="건강기능식품"
+                        variant="text"
+                        class="active"
                       />
-                      <label :for="item.id">{{ item.label }}</label>
+                      <Button label="이너뷰티" variant="text" />
+                      <Button label="코스메틱" variant="text" />
+                      <Button label="패션" variant="text" />
+                      <Button label="펫" variant="text" />
+                      <Button label="유아" variant="text" />
                     </div>
                   </div>
                 </div>
+                <div class="sb-ktrend-list-head-menu">
+                  <div class="sb-ktrend-list-head-menu-chip" v-scroll-end>
+                    <div class="sb-ktrend-list-head-menu-chip-scroll">
+                      <div class="sb-chip">
+                        <div class="sb-chip__title">관련 키워드</div>
+                        <div class="sb-checkbox">
+                          <div
+                            class="sb-checkbox-item"
+                            v-for="item in keywordOptions"
+                            :key="item.value"
+                          >
+                            <Checkbox
+                              v-model="selectedKeyword"
+                              :inputId="item.id"
+                              :value="item.value"
+                            />
+                            <label :for="item.id">{{ item.label }}</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sb-ktrend-list-head-menu-sort">
+                    <Select
+                      ref="selectRef"
+                      v-model="selectedSort"
+                      :options="selectedSortOption"
+                      optionLabel="name"
+                      size="small"
+                      class="p-select-text"
+                      panelClass="p-select-overlay--text"
+                      :pt="{
+                        overlay: {
+                          onclick: (event) => {
+                            if (event.target === event.currentTarget) {
+                              selectRef.hide();
+                            }
+                          },
+                        },
+                      }"
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="sb-ktrend-list-grid">
-              <NuxtLink to="/" class="sb-ktrend-list-item" v-for="item in 8">
-                <div class="sb-ktrend-list-item-head">
-                  <div class="sb-ktrend-list-item-head__badge">
-                    <Badge value="답변 대기" severity="danger"></Badge>
-                  </div>
-                  <div class="sb-ktrend-list-item-head__date">2026.02.14</div>
+              <div class="sb-ktrend-list-grid" v-scroll-end>
+                <div class="sb-ktrend-list-grid-scroll">
+                  <NuxtLink
+                    to="/"
+                    class="sb-ktrend-list-item"
+                    v-for="item in ktrendList"
+                    :key="item.id"
+                  >
+                    <div class="sb-ktrend-list-item-head">
+                      <div class="sb-ktrend-list-item-head__badge">
+                        <Badge
+                          :value="item.category"
+                          :severity="item.severity"
+                        ></Badge>
+                      </div>
+                      <div class="sb-ktrend-list-item-head__date">
+                        {{ item.date }}
+                      </div>
+                    </div>
+
+                    <div class="sb-ktrend-list-item-contents">
+                      <div class="sb-ktrend-list-item-contents__thumb">
+                        <img :src="item.thumbnail" :alt="item.title" />
+                      </div>
+                      <div class="sb-ktrend-list-item-contents__text">
+                        <h6>{{ item.title }}</h6>
+                        <p>{{ item.description }}</p>
+                      </div>
+                    </div>
+                  </NuxtLink>
                 </div>
-                <div class="sb-ktrend-list-item-contents">
-                  <div class="sb-ktrend-list-item-contents__thumb">
-                    <img src="https://picsum.photos/200/300" alt="" />
-                  </div>
-                  <div class="sb-ktrend-list-item-contents__text">
-                    <h6>
-                      컨텐츠 제목은 최대 1줄로 처리하고 더 길어질 경우는 ...으로
-                      처리하는 것으로 결정
-                    </h6>
-                    <p>
-                      초보 셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을
-                      읽고 실수를 미리 방지하세요 최대 2줄까지 노출해주세요 초보
-                      셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을 읽고
-                      실수를 미리 방지하세요 최대 2줄까지 노출해주세요 초보
-                      셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을 읽고
-                      실수를 미리 방지하세요 최대 2줄까지 노출해주세요 초보
-                      셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을 읽고
-                      실수를 미리 방지하세요 최대 2줄까지 노출해주세요
-                    </p>
-                  </div>
-                </div>
-              </NuxtLink>
+              </div>
             </div>
           </div>
           <div class="col-6">
@@ -148,42 +176,119 @@
               <div class="sb-ktrend-keyword-head">
                 <h5>K-Culture 키워드</h5>
               </div>
+              <div class="sb-ktrend-keyword-chip" v-scroll-end>
+                <div class="sb-ktrend-keyword-chip-scroll">
+                  <div class="sb-chip">
+                    <div class="sb-checkbox">
+                      <div
+                        class="sb-checkbox-item"
+                        v-for="item in keywordKCultureOptions"
+                        :key="item.value"
+                      >
+                        <Checkbox
+                          v-model="selectedKeywordKCulture"
+                          :inputId="item.id"
+                          :value="item.value"
+                        />
+                        <label :for="item.id">{{ item.label }}</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="sb-ktrend-keyword-list">
+                <div class="sb-tag">
+                  <NuxtLink
+                    v-for="(tag, index) in tags"
+                    :key="index"
+                    to="/"
+                    :class="[
+                      'sb-tag-item',
+                      `sb-tag-item-${tag.type}`,
+                      { 'sb-tag-item-outlined': tag.outlined },
+                    ]"
+                    @mouseenter="openPopover($event)"
+                    @mouseleave="closePopover"
+                  >
+                    {{ tag.label }}
+                  </NuxtLink>
+                </div>
+                <Popover
+                  ref="popoverTag"
+                  class="sb-popover-tag"
+                  :dismissable="true"
+                  :pt="{
+                    root: { class: 'sb-popover-tag' },
+                  }"
+                  @mouseenter="cancelClose"
+                  @mouseleave="closePopover"
+                >
+                  <div class="sb-popover-tag-head">
+                    <div class="sb-popover-tag-head__title">
+                      <IconSystemAi class="ico-system-ai" />
+                      K-글로우
+                    </div>
+                    <p>광고 문구 또는 상품 소개에 활용하세요.</p>
+                  </div>
+                  <div class="sb-popover-tag-list">
+                    <div class="sb-popover-tag-list-item">
+                      <p>
+                        K-글로우는 단순히 화장품으로 만든 인위적인 광택이
+                        아니라, "속부터 건강하게 차오르는 맑고 투명한 피부
+                        상태"를 의미합니다. 2026년의 K-글로우는 피부 장벽의
+                        건강함과 충분한 수분감이 만들어 내는 자연스러운
+                        광채(Bloom Skin)에 집중합니다.
+                      </p>
+                      <Button variant="text">
+                        <template #icon>
+                          <IconSystemCopy
+                            class="ico-system-copy"
+                            @click="showToast"
+                          />
+                        </template>
+                      </Button>
+                    </div>
+                  </div>
+                </Popover>
+              </div>
             </div>
           </div>
           <div class="col-6">
             <div class="sb-ktrend-ranking">
               <div class="sb-ktrend-ranking-head">
                 <h5>K-Trend 키워드 랭킹</h5>
-                <Button rounded severity="white">
+                <Button variant="text" severity="white">
                   <template #icon>
                     <IconArrowUpRight class="ico-arrow-up-right" />
                   </template>
                 </Button>
               </div>
               <DataTable
+                v-scroll-end
                 :value="rankingList"
                 responsiveLayout="scroll"
                 removableSort
                 scrollable
                 class="sb-ktrend-datatable"
               >
-                <Column field="ranking" header="랭킹" style="width: 175px">
+                <Column
+                  field="ranking"
+                  header="랭킹"
+                  style="width: 80px"
+                  class="pc"
+                >
                   <template #body="slotProps">
-                    <span class="ranking-number">{{
-                      slotProps.data.ranking
-                    }}</span>
+                    {{ slotProps.data.ranking }}
                   </template>
                 </Column>
 
                 <Column
                   field="keyword"
                   header="키워드"
-                  style="min-width: 175px"
+                  style="min-width: 200px"
                 >
                   <template #body="slotProps">
-                    <span class="keyword-text">{{
-                      slotProps.data.keyword
-                    }}</span>
+                    {{ slotProps.data.keyword }}
                   </template>
                 </Column>
 
@@ -192,30 +297,27 @@
                   header="검색량"
                   headerClass="justify-content-end"
                   bodyClass="text-right"
-                  style="width: 175px"
+                  style="width: 200px"
                 >
                   <template #body="slotProps">
                     <div
-                      class="flex align-items-center justify-content-end gap-1"
+                      class="sb-table-body-ranking"
+                      :class="{
+                        'text-up': slotProps.data.searchDir === 'up',
+                        'text-down': slotProps.data.searchDir === 'down',
+                      }"
                     >
-                      <template v-if="slotProps.data.searchDir === 'up'">
-                        <IconArrowUp
-                          class="ico-arrow-up text-red-500"
-                          style="width: 12px"
-                        />
-                        <span class="text-red-500 font-bold">{{
-                          slotProps.data.searchVol
-                        }}</span>
-                      </template>
-                      <template v-else>
-                        <IconArrowDown
-                          class="ico-arrow-down text-blue-500"
-                          style="width: 12px"
-                        />
-                        <span class="text-blue-500 font-bold">{{
-                          slotProps.data.searchVol
-                        }}</span>
-                      </template>
+                      <IconArrowSmallUp
+                        class="ico-arrow-small-up text-up"
+                        v-if="slotProps.data.searchDir === 'up'"
+                      />
+                      <IconArrowSmallDown
+                        class="ico-arrow-small-down text-down"
+                        v-else
+                      />
+                      <strong class="sb-table-body-ranking__value">{{
+                        slotProps.data.searchVol
+                      }}</strong>
                     </div>
                   </template>
                 </Column>
@@ -227,12 +329,8 @@
                   style="width: 175px"
                 >
                   <template #body="slotProps">
-                    <div
-                      class="flex align-items-center justify-content-end gap-2"
-                    >
-                      <span class="competition-value">{{
-                        slotProps.data.competition
-                      }}</span>
+                    <div class="sb-table-body-badge">
+                      <span>{{ slotProps.data.competition }}</span>
                       <Badge
                         :value="slotProps.data.status"
                         :severity="
@@ -263,36 +361,38 @@
         <div class="col-6">
           <div class="sb-ktrend-ksnapp">
             <div class="sb-ktrend-ksnapp-head">
-              <h5>
-                <img src="./../../../assets/images/ksnapp.png" alt="KSnapp" />
-              </h5>
-              <span>[정보 출처 K-snapp]</span>
+              <h5>KSnapp</h5>
+              <span>정보 출처 K-snapp</span>
             </div>
-            <div class="sb-ktrend-ksnapp-list">
-              <NuxtLink to="/" class="sb-ktrend-ksnapp-list-item">
-                <div class="sb-ktrend-ksnapp-list-item__thumb">
-                  <img src="https://picsum.photos/200/300" alt="" />
-                </div>
-                <div class="sb-ktrend-ksnapp-list-item__text">
-                  <IconSystemUp class="ico-system-up" />
+            <div class="sb-ktrend-ksnapp-list" v-scroll-end>
+              <div class="sb-ktrend-ksnapp-list-scroll">
+                <NuxtLink
+                  to="/"
+                  class="sb-ktrend-ksnapp-list-item"
+                  v-for="item in ksnappItems"
+                  :key="item.rank"
+                >
+                  <div class="sb-ktrend-ksnapp-list-item__thumb">
+                    <Badge
+                      :value="item.rank"
+                      size="small"
+                      class="p-badge-circle"
+                      :severity="item.rank > 3 ? 'contrast' : undefined"
+                    ></Badge>
+                    <img :src="item.thumbnail" :alt="item.title" />
+                  </div>
 
-                  <p>
-                    [리뷰] "백지영도 쓴다" ... 피부 고민 해결 해 줄 화제의
-                    뷰티템 [리뷰] "백지영도 쓴다" ... 피부 고민 해결 해 줄
-                    화제의 뷰티템 [리뷰] "백지영도 쓴다" ... 피부 고민 해결 해
-                    줄 화제의 뷰티템
-                  </p>
-                </div>
-              </NuxtLink>
-              <NuxtLink to="/" class="sb-ktrend-ksnapp-list-item">
-                <div class="sb-ktrend-ksnapp-list-item__thumb">
-                  <img src="https://picsum.photos/200/300" alt="" />
-                </div>
-                <div class="sb-ktrend-ksnapp-list-item__text">
-                  <IconSystemDown class="ico-system-down" />
-                  <p>안효섭, 올화이트 '수트핏' 눈길 .•• 고급미 물씬</p>
-                </div>
-              </NuxtLink>
+                  <div class="sb-ktrend-ksnapp-list-item__text">
+                    <IconSystemUp
+                      v-if="item.trend === 'up'"
+                      class="ico-system-up"
+                    />
+                    <IconSystemDown v-else class="ico-system-down" />
+
+                    <h6>{{ item.title }}</h6>
+                  </div>
+                </NuxtLink>
+              </div>
             </div>
           </div>
         </div>
@@ -302,7 +402,7 @@
               <h5>Selling Trend</h5>
               <div class="sb-ktrend-trend-head__menu">
                 <span>해당 컨텐츠는 셀링부스터가 편집하고 발행했습니다.</span>
-                <Button rounded severity="white">
+                <Button variant="text" severity="white">
                   <template #icon>
                     <IconArrowUpRight class="ico-arrow-up-right" />
                   </template>
@@ -338,7 +438,6 @@
                         :visible-buttons="['view', 'read']"
                         :view-count="'12,325'"
                         :read-time="'12분 분량'"
-                        class="sb-info--small"
                       />
                     </div>
                   </div>
@@ -350,20 +449,24 @@
       </div>
     </div>
   </div>
+
+  <Toast position="bottom-center" group="bc" />
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, nextTick } from 'vue';
 import SbInfo from '@/pages/community/components/SbInfo.vue';
-import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
+import IconSystemAi from '@/assets/icons/system/ai.svg?component';
+import IconSystemCopy from '@/assets/icons/system/copy.svg?component';
+import IconArrowSmallUp from '@/assets/icons/arrow/small-up.svg?component';
+import IconArrowSmallDown from '@/assets/icons/arrow/small-down.svg?component';
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
 import IconArrowLeft from '@/assets/icons/arrow/left.svg?component';
 import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 import IconSystemUp from '@/assets/icons/system/up.svg?component';
 import IconSystemDown from '@/assets/icons/system/down.svg?component';
 import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
-
-const searchKeyword = ref('');
+import { useToast } from 'primevue/usetoast';
 
 // breadcrumb
 const breadcrumb = ref([
@@ -400,6 +503,19 @@ onMounted(() => {
   }, 100);
 });
 
+//sort
+const selectRef = ref(null);
+const selectedSortOption = ref([
+  { name: '전체(235개)' },
+  { name: 'NEWS' },
+  { name: 'Blog' },
+  { name: 'Cafe' },
+  { name: 'TikTok' },
+  { name: 'YouTube' },
+]);
+const selectedSort = ref(selectedSortOption.value[0]);
+
+//data
 const rankingList = ref([
   {
     ranking: 1,
@@ -481,18 +597,377 @@ const rankingList = ref([
     competition: '0.26',
     status: '최적',
   },
+  {
+    ranking: 10,
+    keyword: '카투트효소',
+    searchVol: '12%',
+    searchDir: 'up',
+    competition: '0.26',
+    status: '최적',
+  },
+  {
+    ranking: 10,
+    keyword: '카투트효소',
+    searchVol: '12%',
+    searchDir: 'up',
+    competition: '0.26',
+    status: '최적',
+  },
 ]);
 
+const tags = [
+  { label: '이너뷰티-테크', type: 'contrast' },
+  { label: '괄사 마사지', type: 'primary', outlined: true },
+  { label: 'PDRN', type: 'primary' },
+  { label: '블룸스킨', type: 'success' },
+  { label: '지성 피부', type: 'primary' },
+  { label: '윤광', type: 'info' },
+  { label: '투명 피부', type: 'primary' },
+  { label: '진정 케어', type: 'secondary' },
+  { label: '반짝', type: 'secondary', outlined: true },
+  { label: '장벽 강화', type: 'success' },
+  { label: '클린', type: 'secondary' },
+  { label: '클린', type: 'success' },
+  { label: '꾸안꾸 피부', type: 'info' },
+  { label: '윤기', type: 'info', outlined: true },
+  { label: '생얼 메이크업', type: 'contrast' },
+  { label: '케어 스킨케어', type: 'primary' },
+  { label: '물', type: 'contrast' },
+  { label: '촉촉한', type: 'secondary', outlined: true },
+  { label: '내추럴', type: 'contrast' },
+  { label: '쫀쫀한 피부', type: 'primary' },
+  { label: '데일리 메이크업', type: 'secondary' },
+  { label: '투명 메이크업', type: 'success' },
+  { label: '회복', type: 'primary' },
+  { label: '꾸안꾸', type: 'secondary' },
+  { label: '수분', type: 'info' },
+  { label: '건강한 광', type: 'success' },
+  { label: '유행 메이크업', type: 'primary', outlined: true },
+  { label: '수분', type: 'info' },
+];
+
+const ksnappItems = [
+  {
+    rank: 1,
+    trend: 'up',
+    thumbnail: 'https://picsum.photos/200/300',
+    title:
+      '[리뷰] "백지영도 쓴다" ... 피부 고민 해결 해 줄 화제의 뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템',
+  },
+  {
+    rank: 2,
+    trend: 'down',
+    thumbnail: 'https://picsum.photos/200/300',
+    title: "안효섭, 올화이트 '수트핏' 눈길 ·· 고급미 물씬",
+  },
+  {
+    rank: 3,
+    trend: 'up',
+    thumbnail: 'https://picsum.photos/200/300',
+    title: '[리뷰] "백지영도 쓴다" ... 피부 고민 해결 해 줄 화제의 뷰티템',
+  },
+  {
+    rank: 4,
+    trend: 'down',
+    thumbnail: 'https://picsum.photos/200/300',
+    title: '[리뷰] "백지영도 쓴다" ... 피부 고민 해결 해 줄 화제의 뷰티템',
+  },
+  {
+    rank: 5,
+    trend: 'up',
+    thumbnail: 'https://picsum.photos/200/300',
+    title: '[리뷰] "백지영도 쓴다" ... 피부 고민 해결 해 줄 화제의 뷰티템',
+  },
+  {
+    rank: 6,
+    trend: 'up',
+    thumbnail: 'https://picsum.photos/200/300',
+    title: '[리뷰] "백지영도 쓴다" ... 피부 고민 해결 해 줄 화제의 뷰티템',
+  },
+  {
+    rank: 7,
+    trend: 'up',
+    thumbnail: 'https://picsum.photos/200/300',
+    title: '[리뷰] "백지영도 쓴다" ... 피부 고민 해결 해 줄 화제의 뷰티템',
+  },
+  {
+    rank: 8,
+    trend: 'up',
+    thumbnail: 'https://picsum.photos/200/300',
+    title: '[리뷰] "백지영도 쓴다" ... 피부 고민 해결 해 줄 화제의 뷰티템',
+  },
+];
+
+const ktrendList = [
+  {
+    id: 1,
+    category: 'NEWS',
+    severity: 'warn',
+    date: '2026.02.14',
+    thumbnail: 'https://picsum.photos/id/1/200/300',
+    title: '글로벌 이커머스 시장 진출을 위한 필수 전략 가이드',
+    description:
+      '본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질 경우에는 말줄임표로 마무리 처리합니다. 해외 시장 조사부터 물류 최적화까지 한 번에 확인하세요. 성공적인 글로벌 셀러가 되기 위한 첫걸음을 지금 시작해보세요.본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질 경우에는 말줄임표로 마무리 처리합니다. 해외 시장 조사부터 물류 최적화까지 한 번에 확인하세요. 성공적인 글로벌 셀러가 되기 위한 첫걸음을 지금 시작해보세요.본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질 경우에는 말줄임표로 마무리 처리합니다. 해외 시장 조사부터 물류 최적화까지 한 번에 확인하세요. 성공적인 글로벌 셀러가 되기 위한 첫걸음을 지금 시작해보세요.본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질 경우에는 말줄임표로 마무리 처리합니다. 해외 시장 조사부터 물류 최적화까지 한 번에 확인하세요. 성공적인 글로벌 셀러가 되기 위한 첫걸음을 지금 시작해보세요.',
+  },
+  {
+    id: 2,
+    category: 'Blog',
+    severity: 'success',
+    date: '2026.02.14',
+    thumbnail: 'https://picsum.photos/id/2/200/300',
+    title: '성공적인 브랜딩을 위한 폰트 선택 노하우 10가지',
+    description:
+      '디자인의 완성은 폰트라고 해도 과언이 아닙니다. 브랜드의 아이덴티티를 가장 잘 나타낼 수 있는 폰트를 고르는 방법과 가독성을 높이는 레이아웃 설계법을 상세히 공유합니다.',
+  },
+  {
+    id: 3,
+    category: 'Cafe',
+    severity: 'secondary',
+    date: '2026.02.14',
+    thumbnail: 'https://picsum.photos/id/3/200/300',
+    title: '초보 셀러들이 가장 많이 묻는 질문(Q&A) 모음집',
+    description:
+      '본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리 처리합니다. 정산 주기부터 고객 응대 CS 템플릿까지 커뮤니티에서 가장 반응이 좋았던 질문들만 엄선했습니다.',
+  },
+  {
+    id: 4,
+    category: 'TikTok',
+    severity: 'contrast',
+    date: '2026.02.14',
+    thumbnail: 'https://picsum.photos/id/4/200/300',
+    title: '15초 안에 시청자를 사로잡는 숏폼 영상 편집 기술',
+    description:
+      '짧지만 강렬한 인상을 남겨야 하는 숏폼 마케팅의 핵심 전략! 시각적 요소를 극대화하고 시청 시간을 늘릴 수 있는 자막 활용법과 배경음악 선정 팁을 소개합니다.',
+  },
+  {
+    id: 5,
+    category: 'YouTube',
+    severity: 'danger',
+    date: '2026.02.14',
+    thumbnail: 'https://picsum.photos/id/5/200/300',
+    title: '2026년 상반기 소비 트렌드 분석: 무엇이 팔리는가?',
+    description:
+      '데이터로 보는 최신 소비 성향 보고서입니다. 1인 가구의 증가와 가치 소비 트렌드가 이커머스 시장에 미치는 영향력을 심도 있게 분석하여 다음 시즌 주력 상품군을 제안합니다.',
+  },
+  {
+    id: 6,
+    category: 'NEWS',
+    severity: 'warn',
+    date: '2026.02.14',
+    thumbnail: 'https://picsum.photos/id/6/200/300',
+    title: '신규 가입 셀러를 위한 수수료 감면 혜택 안내',
+    description:
+      '새롭게 시작하는 파트너사를 위해 준비한 파격적인 지원 정책! 첫 3개월간 판매 수수료 0원 혜택과 함께 무료 광고 쿠폰을 지원받아 초기 매출을 빠르게 확보해보세요.',
+  },
+  {
+    id: 7,
+    category: 'Cafe',
+    severity: 'secondary',
+    date: '2026.02.14',
+    thumbnail: 'https://picsum.photos/id/7/200/300',
+    title: '효율적인 재고 관리를 위한 엑셀 템플릿 무료 나눔',
+    description:
+      '수동으로 관리하기 힘들었던 재고 현황, 이제 이 템플릿 하나로 해결하세요. 입고와 출고 수량을 자동으로 계산해주어 품절 사태를 미연에 방지할 수 있습니다.',
+  },
+  {
+    id: 8,
+    category: 'TikTok',
+    severity: 'contrast',
+    date: '2026.02.14',
+    thumbnail: 'https://picsum.photos/id/8/200/300',
+    title: '바이럴 영상 제작을 위한 스마트폰 촬영 꿀팁',
+    description:
+      '비싼 장비 없이도 고퀄리티 영상을 만들 수 있습니다. 자연광 활용법부터 흔들림 없는 핸드헬드 촬영 기법까지, 지금 바로 적용 가능한 실전 노하우를 공개합니다.',
+  },
+  {
+    id: 9,
+    category: 'YouTube',
+    severity: 'danger',
+    date: '2026.02.14',
+    thumbnail: 'https://picsum.photos/id/5/200/300',
+    title: '2026년 상반기 소비 트렌드 분석: 무엇이 팔리는가?',
+    description:
+      '데이터로 보는 최신 소비 성향 보고서입니다. 1인 가구의 증가와 가치 소비 트렌드가 이커머스 시장에 미치는 영향력을 심도 있게 분석하여 다음 시즌 주력 상품군을 제안합니다.',
+  },
+  {
+    id: 10,
+    category: 'NEWS',
+    severity: 'warn',
+    date: '2026.02.14',
+    thumbnail: 'https://picsum.photos/id/6/200/300',
+    title: '신규 가입 셀러를 위한 수수료 감면 혜택 안내',
+    description:
+      '새롭게 시작하는 파트너사를 위해 준비한 파격적인 지원 정책! 첫 3개월간 판매 수수료 0원 혜택과 함께 무료 광고 쿠폰을 지원받아 초기 매출을 빠르게 확보해보세요.',
+  },
+];
+
+//chip
 const selectedKeyword = ref([]);
 const keywordOptions = [
-  { id: 'kw-1', label: '프로바이오틱스', value: 'probiotics', selected: true },
-  { id: 'kw-2', label: '루테인', value: 'lutein', selected: false },
-  { id: 'kw-3', label: '오메가3', value: 'omega3', selected: false },
-  { id: 'kw-4', label: '밀크시슬', value: 'milkthistle', selected: false },
-  { id: 'kw-5', label: '마그네슘', value: 'magnesium', selected: false },
-  { id: 'kw-6', label: '비타민D', value: 'vitamind', selected: false },
-  { id: 'kw-7', label: '비오틴', value: 'biotin', selected: false },
-  { id: 'kw-8', label: '영양제', value: 'supplement', selected: false },
-  { id: 'kw-9', label: '비타민C', value: 'vitaminc', selected: false },
+  {
+    id: 'selectedKeyword-1',
+    label: '프로바이오틱스',
+    value: 'probiotics',
+    selected: true,
+  },
+  {
+    id: 'selectedKeyword-2',
+    label: '루테인',
+    value: 'lutein',
+    selected: false,
+  },
+  {
+    id: 'selectedKeyword-3',
+    label: '오메가3',
+    value: 'omega3',
+    selected: false,
+  },
+  {
+    id: 'selectedKeyword-4',
+    label: '밀크시슬',
+    value: 'milkthistle',
+    selected: false,
+  },
+  {
+    id: 'selectedKeyword-5',
+    label: '마그네슘',
+    value: 'magnesium',
+    selected: false,
+  },
+  {
+    id: 'selectedKeyword-6',
+    label: '비타민D',
+    value: 'vitamind',
+    selected: false,
+  },
+  {
+    id: 'selectedKeyword-7',
+    label: '비오틴',
+    value: 'biotin',
+    selected: false,
+  },
+  {
+    id: 'selectedKeyword-8',
+    label: '영양제',
+    value: 'supplement',
+    selected: false,
+  },
+  {
+    id: 'selectedKeyword-9',
+    label: '비타민C',
+    value: 'vitaminc',
+    selected: false,
+  },
 ];
+
+const selectedKeywordKCulture = ref([]);
+const keywordKCultureOptions = [
+  {
+    id: 'selectedKeywordKCulture-1',
+    label: '프로바이오틱스',
+    value: 'probiotics',
+    selected: true,
+  },
+  {
+    id: 'selectedKeywordKCulture-2',
+    label: '루테인',
+    value: 'lutein',
+    selected: false,
+  },
+  {
+    id: 'selectedKeywordKCulture-3',
+    label: '오메가3',
+    value: 'omega3',
+    selected: false,
+  },
+  {
+    id: 'selectedKeywordKCulture-4',
+    label: '밀크시슬',
+    value: 'milkthistle',
+    selected: false,
+  },
+  {
+    id: 'selectedKeywordKCulture-5',
+    label: '마그네슘',
+    value: 'magnesium',
+    selected: false,
+  },
+  {
+    id: 'selectedKeywordKCulture-6',
+    label: '비타민D',
+    value: 'vitamind',
+    selected: false,
+  },
+  {
+    id: 'selectedKeywordKCulture-7',
+    label: '비오틴',
+    value: 'biotin',
+    selected: false,
+  },
+  {
+    id: 'selectedKeywordKCulture-8',
+    label: '영양제',
+    value: 'supplement',
+    selected: false,
+  },
+  {
+    id: 'selectedKeywordKCulture-9',
+    label: '비타민C',
+    value: 'vitaminc',
+    selected: false,
+  },
+];
+
+//popover
+const popoverTag = ref();
+let closeTimeout = null;
+
+const openPopover = async (event) => {
+  // 1. 기존 예약된 닫기(지연 닫기)가 있다면 무조건 취소
+  if (closeTimeout) {
+    clearTimeout(closeTimeout);
+    closeTimeout = null;
+  }
+
+  // 2. 중요: 이미 열려 있다면 "즉시" 닫아서 상태를 초기화합니다.
+  // 이 과정이 있어야 태그 간 이동 시 팝오버가 잔상처럼 남지 않습니다.
+  if (popoverTag.value?.visible) {
+    popoverTag.value.hide();
+  }
+
+  // 3. 브라우저가 hide를 인지하고 난 뒤(다음 프레임) 새 타겟에 보여줍니다.
+  // setTimeout 0 또는 nextTick을 사용합니다.
+  const target = event.currentTarget;
+  setTimeout(() => {
+    popoverTag.value?.show(event, target);
+  }, 0);
+};
+
+const closePopover = () => {
+  // 태그를 벗어났을 때 0.1초 뒤에 닫기 (팝오버로 진입할 시간 확보)
+  closeTimeout = setTimeout(() => {
+    if (popoverTag.value) {
+      popoverTag.value.hide();
+    }
+  }, 100);
+};
+
+const cancelClose = () => {
+  // 팝오버 내부 진입 시 닫기 예약 취소
+  if (closeTimeout) {
+    clearTimeout(closeTimeout);
+    closeTimeout = null;
+  }
+};
+
+//toast
+const toast = useToast();
+
+const showToast = () => {
+  toast.add({
+    detail: '추천 상품명이 복사 되었습니다. 이용하실 곳에 붙여넣기 하세요.',
+    group: 'bc',
+    life: 3000,
+  });
+};
 </script>

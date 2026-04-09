@@ -2,41 +2,65 @@
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive('scroll-end', {
     mounted(el) {
-      // 1. PrimeVue DataTable 내부 컨테이너를 먼저 찾고, 없으면 첫 번째 자식을 타겟으로 함
       const container =
         el.querySelector('.p-datatable-table-container') ||
         el.firstElementChild ||
         el;
 
       const handleScroll = () => {
-        const { scrollTop, clientHeight, scrollHeight } = container;
+        const {
+          scrollTop,
+          clientHeight,
+          scrollHeight,
+          scrollLeft,
+          clientWidth,
+          scrollWidth,
+        } = container;
 
-        // 스크롤이 없거나 바닥에 닿았을 때 true (1px 오차 허용)
+        // 1. 세로 스크롤 끝 감지 (1px 오차 허용)
         const isBottom = scrollTop + clientHeight >= scrollHeight - 1;
+        // 스크롤 영역이 없을 때(scrollHeight <= clientHeight) 처리 포함
+        if (isBottom || scrollHeight <= clientHeight) {
+          el.classList.add('is-scroll-end-y');
+        } else {
+          el.classList.remove('is-scroll-end-y');
+        }
 
-        if (isBottom) {
+        // 2. 가로 스크롤 끝 감지 (1px 오차 허용)
+        const isRightEnd = scrollLeft + clientWidth >= scrollWidth - 1;
+        // 가로 스크롤 영역이 없을 때 처리 포함
+        if (isRightEnd || scrollWidth <= clientWidth) {
+          el.classList.add('is-scroll-end-x');
+        } else {
+          el.classList.remove('is-scroll-end-x');
+        }
+
+        // 기존 클래스 유지용 (필요 시)
+        if (isBottom && isRightEnd) {
           el.classList.add('is-scroll-end');
         } else {
           el.classList.remove('is-scroll-end');
         }
       };
 
-      // 요소 크기나 내부 데이터 변화 감지
       const observer = new ResizeObserver(() => {
         handleScroll();
       });
 
       observer.observe(container);
+      // 자식 요소(테이블 내용)의 크기 변화도 감지해야 정확합니다
+      if (container.firstElementChild) {
+        observer.observe(container.firstElementChild);
+      }
+
       container.addEventListener('scroll', handleScroll);
 
-      // 언마운트 시 참조를 위해 저장
       el._scrollTarget = {
         container,
         handleScroll,
         observer,
       };
 
-      // 초기 상태 즉시 반영 (스크롤 없는 짧은 리스트 대응)
       handleScroll();
     },
     unmounted(el) {
