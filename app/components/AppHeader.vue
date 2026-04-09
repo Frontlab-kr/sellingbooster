@@ -263,9 +263,10 @@ const menu01 = ref([
       { label: 'Q&A', route: '/community/qna' },
       { label: '공지사항', route: '/community/notice' },
       { label: 'FAQ', route: '/community/faq' },
-      { label: '성장스토리', route: '/community/story' },
-      { label: '자유게시판', route: '/community/board' },
-      { label: '트랜드', route: '/community/treand' },
+      { label: '성장 스토리', route: '/community/story' },
+      { label: '자유 게시판', route: '/community/board' },
+      { label: 'K-trend', route: '/community/k-trend' },
+      { label: '블로그', route: '/community/blog' },
     ],
   },
 ]);
