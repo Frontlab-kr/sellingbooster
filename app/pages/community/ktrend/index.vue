@@ -275,7 +275,7 @@
                   field="ranking"
                   header="랭킹"
                   style="width: 80px"
-                  class="pc"
+                  class="sb-table-pc"
                 >
                   <template #body="slotProps">
                     {{ slotProps.data.ranking }}

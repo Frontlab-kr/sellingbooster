@@ -346,7 +346,7 @@
           display: flex;
           align-items: center;
           gap: 4px;
-          color: var(--Text_Light-900---mian, #1b1f27);
+          color: var(--popover-tag-head-title-color);
           font-size: 14px;
           font-style: normal;
           font-weight: 700;
@@ -355,7 +355,7 @@
         }
         p {
           margin: 0;
-          color: var(--Gray-400, #9aa3af);
+          color: var(--popover-tag-head-text-color);
           font-size: 12px;
           font-style: normal;
           font-weight: 400;
@@ -370,10 +370,10 @@
           gap: 20px;
           padding: 10px 12px;
           border-radius: 8px;
-          background: var(--Gray-50, #f9fbfc);
+          background: var(--popover-tag-list-item-background);
           p {
             margin: 0;
-            color: var(--Text_Light-900---mian, #1b1f27);
+            color: var(--popover-tag-list-item-text-color);
             font-size: 14px;
             font-style: normal;
             font-weight: 400;
@@ -385,6 +385,7 @@
             min-width: 40px;
             width: 40px;
             height: 40px;
+            color: var(--popover-tag-list-item-icon-color);
           }
         }
       }

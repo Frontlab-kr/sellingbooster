@@ -653,6 +653,11 @@
       justify-content: end;
     }
   }
+  @include breakpoint {
+    &.sb-table-pc {
+      display: none !important;
+    }
+  }
 }
 .p-datatable-column-title {
   font-weight: var(--p-datatable-column-title-font-weight);
@@ -783,6 +788,11 @@
     font-weight: 400;
     line-height: 140%; /* 19.6px */
     letter-spacing: -0.35px;
+  }
+  @include breakpoint {
+    &.sb-table-pc {
+      display: none !important;
+    }
   }
 }
 .p-datatable-tbody > tr.p-datatable-empty-message > td {

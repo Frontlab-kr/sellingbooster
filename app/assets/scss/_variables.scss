@@ -830,6 +830,12 @@
   --popover-analyze-propose-item-boxshadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
   --popover-analyze-propose-item-text-color: var(--p-gray-900);
 
+  --popover-tag-head-title-color: var(--p-gray-900);
+  --popover-tag-head-text-color: var(--p-gray-400);
+  --popover-tag-head-icon-color: var(--p-gray-400);
+  --popover-tag-list-item-background: var(--p-gray-50);
+  --popover-tag-list-item-text-color: var(--p-gray-900);
+
   //price setting
   --price-setting-background: var(--p-gray-50);
   --price-setting-head-border-color: var(--p-gray-300);
@@ -1441,6 +1447,12 @@
     --popover-analyze-propose-item-background: var(--p-gray-700);
     --popover-analyze-propose-item-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
     --popover-analyze-propose-item-text-color: var(--p-gray-00);
+
+    --popover-tag-head-title-color: var(--p-gray-00);
+    --popover-tag-head-text-color: var(--p-gray-400);
+    --popover-tag-head-icon-color: var(--p-gray-400);
+    --popover-tag-list-item-background: var(--p-gray-800);
+    --popover-tag-list-item-text-color: var(--p-gray-00);
 
     //price setting
     --price-setting-background: var(--p-gray-900);
