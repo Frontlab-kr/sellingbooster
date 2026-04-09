@@ -382,6 +382,9 @@
   --snb-link-color: var(--p-gray-500);
   --snb-link-menu-color: var(--p-gray-400);
 
+  --contents-background: url(./../images/background-circle.png) no-repeat 100%
+    162px;
+
   --breadcrumb-color: var(--p-gray-500);
 
   --loading-url: url(./../icons/etc/loading.svg) no-repeat 50% 50%;
@@ -998,6 +1001,8 @@
 
     --snb-link-color: var(--p-gray-400);
     --snb-link-menu-color: var(--p-gray-500);
+
+    --contents-background: none;
 
     --breadcrumb-color: var(--p-gray-300);
 

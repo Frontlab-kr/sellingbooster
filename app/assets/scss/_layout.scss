@@ -361,6 +361,8 @@
     z-index: 80;
     padding: 20px 40px 40px 300px;
     transition: $transition-layout;
+    background: var(--contents-background);
+    background-size: 604px 1188px;
   }
   &--fold & {
     &-snb {
@@ -492,6 +494,7 @@
     &-contents {
       padding: 24px 20px 32px 20px;
       padding: 0;
+      background: none;
     }
     &--layout-auth {
       background: var(--auth-background-image);
