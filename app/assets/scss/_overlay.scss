@@ -330,10 +330,10 @@
     }
     &-tag {
       width: 448px;
-      // &::before,
-      // &::after {
-      //   left: 16px;
-      // }
+      &::before,
+      &::after {
+        display: none;
+      }
       .p-popover-content {
         padding: 16px;
       }
