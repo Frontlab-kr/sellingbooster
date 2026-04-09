@@ -169,7 +169,7 @@
             <NuxtLink to="/community/blog/">블로그</NuxtLink>
             <NuxtLink to="/community/blog/view">블로그 상세</NuxtLink>
 
-            <NuxtLink to="/community/ktrend">K-trend</NuxtLink>
+            <!-- <NuxtLink to="/community/ktrend">K-trend</NuxtLink> -->
           </div>
         </template>
       </Card>
