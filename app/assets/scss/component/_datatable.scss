@@ -702,6 +702,7 @@
 }
 .p-datatable-tbody {
   .p-row-expanded {
+    background-color: #f60;
     > td {
       border-top: 1px solid var(--p-datatable-row-hover-border-color) !important;
       background: var(--p-datatable-expanded-td-background);
@@ -717,6 +718,11 @@
     &:hover {
       td {
         border-bottom-color: transparent !important;
+      }
+    }
+    .sb-table-body-toggle {
+      .ico-arrow-achevron-down {
+        transform: rotate(180deg);
       }
     }
   }
