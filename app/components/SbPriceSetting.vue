@@ -20,6 +20,7 @@
               <div class="sb-price-setting-form-item__input">
                 <SbInput
                   v-model="priceRecommended"
+                  type="number"
                   @update:modelValue="handlePriceRecommendedChange"
                   :disabled="isError"
                 />

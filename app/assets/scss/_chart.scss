@@ -262,7 +262,7 @@
           }
         }
         &.color-warn {
-          color: var(--chart-segment-warn);
+          color: var(--chart-segment-warn-text);
         }
         &.color-warn & {
           &__segments {

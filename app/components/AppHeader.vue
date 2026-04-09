@@ -134,7 +134,10 @@
     </div>
   </div>
 
-  <header class="sb-header-mo" :class="{ 'is-scrolled': isScrolled }">
+  <header
+    class="sb-header-mo"
+    :class="{ 'sb-header-mo--search': isSearchOpen, 'is-scrolled': isScrolled }"
+  >
     <div class="sb-header-mo-start">
       <Button variant="text" @click="goBack">
         <template #icon>
@@ -146,23 +149,47 @@
       <div class="sb-header-mo__title">{{ pageTitle }}</div>
     </div>
     <div class="sb-header-mo-end">
-      <Button rounded severity="white" @click="toggleMode()">
+      <!-- <Button rounded severity="white" @click="toggleMode()">
         <template #icon>
           <IconSystemModeLight v-if="isDark" class="ico-system-mode-light" />
           <IconSystemModeDark v-else class="ico-system-mode-dark" />
         </template>
-      </Button>
-      <Button variant="text">
+      </Button> -->
+      <!-- <Button variant="text">
         <template #icon>
           <IconSystemBellOn class="ico-system-bell-on" />
         </template>
-      </Button>
+      </Button> -->
+      <div class="sb-header-mo-search">
+        <div class="sb-header-mo-search-layer">
+          <div class="sb-header-mo-search-layer__button">
+            <Button variant="text" @click="toggleSearch">
+              <template #icon>
+                <IconSystemClose class="ico-system-close" />
+              </template>
+            </Button>
+          </div>
+          <SbInput
+            show-search
+            @search="onSearch"
+            placeholder="검색어를 입력하세요."
+          />
+        </div>
+        <div class="sb-header-mo-search__toggle">
+          <Button variant="text" @click="toggleSearch">
+            <template #icon>
+              <IconSystemSearch class="ico-system-search" />
+            </template>
+          </Button>
+        </div>
+      </div>
       <Button variant="text">
         <template #icon>
           <IconSystemMenu class="ico-system-menu" />
         </template>
       </Button>
     </div>
+    <div class="sb-header-mo-dimmed" @click="toggleSearch"></div>
   </header>
 </template>
 <script setup>
@@ -189,6 +216,7 @@ import IconSnbSetting from '@/assets/icons/snb/setting.svg?component';
 import IconSnbLogout from '@/assets/icons/snb/logout.svg?component';
 import IconSnbMenuClose from '@/assets/icons/snb/menu-close.svg?component';
 import IconSnbMenuOpen from '@/assets/icons/snb/menu-open.svg?component';
+import IconSystemClose from '@/assets/icons/system/close.svg?component';
 
 /** 1. 상태 정의 (State) */
 const isFolded = useState('isFolded', () => false);
@@ -388,7 +416,10 @@ watch(isFolded, (newValue) => {
 
 watch(
   () => route.path,
-  (newPath) => updateTitle(newPath),
+  (newPath) => {
+    updateTitle(newPath);
+    isSearchOpen.value = false;
+  },
   { immediate: true },
 );
 

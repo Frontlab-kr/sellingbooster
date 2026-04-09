@@ -331,7 +331,8 @@
   --chart-segment-success: var(--p-green-500);
   --chart-segment-secondary: var(--p-slate-500);
   --chart-segment-info: var(--p-blue-500);
-  --chart-segment-warn: var(--p-orange-700);
+  --chart-segment-warn: var(--p-orange-500);
+  --chart-segment-warn-text: var(--p-orange-700);
   --chart-segment-danger: var(--p-red-500);
   --chart-segment-contrast: var(--p-gray-500);
 
@@ -373,7 +374,10 @@
   --header-mo-menu-color: var(--p-gray-500);
   --header-mo-border-color: var(--p-gray-200);
   --header-mo-background: var(--p-gray-00);
-
+  --header-mo-dimmed-background: rgba(0, 0, 0, 0.7);
+  --header-mo-search-background: var(--p-gray-00);
+  --header-mo-search-boxshadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
+  --header-mo-search-close-color: var(--p-gray-600);
   --header-search-icon-color: var(--p-gray-500);
   --header-mode-icon-color: var(--p-gray-500);
   --header-language-icon-color: var(--p-gray-500);
@@ -962,6 +966,7 @@
     --chart-segment-secondary: var(--p-slate-400);
     --chart-segment-info: var(--p-blue-400);
     --chart-segment-warn: var(--p-orange-400);
+    --chart-segment-warn-text: var(--p-orange-400);
     --chart-segment-danger: var(--p-red-400);
     --chart-segment-contrast: var(--p-gray-400);
 
@@ -993,6 +998,11 @@
     --header-mo-menu-color: var(--p-gray-300);
     --header-mo-border-color: var(--p-gray-600);
     --header-mo-background: var(--p-gray-800);
+
+    --header-mo-dimmed-background: rgba(0, 0, 0, 0.7);
+    --header-mo-search-background: var(--p-gray-800);
+    --header-mo-search-boxshadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
+    --header-mo-search-close-color: var(--p-gray-300);
 
     --header-search-icon-color: var(--p-gray-300);
     --header-mode-icon-color: var(--p-gray-300);
