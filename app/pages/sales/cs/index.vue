@@ -352,6 +352,8 @@
                         <SbChartStackedBar
                           :chart-data="categoryStats"
                           :bar-width="20"
+                          :grid-left="76"
+                          :grid-right="76"
                           unit-text=""
                         />
                       </div>

@@ -1,11 +1,11 @@
 <svg width="100%" height="100%" viewBox="0 0 200 241" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="100" cy="141.5" r="74.5" fill="var(--path-color-3)"/>
 <path d="M172 141C172 101.236 139.764 69 100 69C60.2355 69 28 101.236 28 141C28 180.764 60.2355 213 100 213C139.764 213 172 180.764 172 141ZM184 141C184 187.392 146.392 225 100 225C53.6081 225 16 187.392 16 141C16 94.6081 53.6081 57 100 57C146.392 57 184 94.6081 184 141Z" fill="var(--path-color-1)"/>
-<path d="M125.5 165C118.13 157.436 109.167 153 99.5 153C89.8329 153 80.8699 157.436 73.5 165" stroke="var(--path-color-2)" stroke-width="10" stroke-linecap="round"/>
-<path d="M80.6426 130.145L66.5004 116.002" stroke="var(--path-color-2)" stroke-width="10" stroke-linecap="round"/>
-<path d="M66.5 130.145L80.6421 116.002" stroke="var(--path-color-2)" stroke-width="10" stroke-linecap="round"/>
-<path d="M132.643 130.145L118.5 116.002" stroke="var(--path-color-2)" stroke-width="10" stroke-linecap="round"/>
-<path d="M118.5 130.145L132.642 116.002" stroke="var(--path-color-2)" stroke-width="10" stroke-linecap="round"/>
+<path d="M125.5 165C118.13 157.436 109.167 153 99.5 153C89.8329 153 80.8699 157.436 73.5 165" stroke="var(--path-color-2)" stroke-width="10" stroke-linecap="round" class="shake-animation"/>
+<path d="M80.6426 130.145L66.5004 116.002" stroke="var(--path-color-2)" stroke-width="10" stroke-linecap="round" class="shake-animation"/>
+<path d="M66.5 130.145L80.6421 116.002" stroke="var(--path-color-2)" stroke-width="10" stroke-linecap="round" class="shake-animation"/>
+<path d="M132.643 130.145L118.5 116.002" stroke="var(--path-color-2)" stroke-width="10" stroke-linecap="round" class="shake-animation"/>
+<path d="M118.5 130.145L132.642 116.002" stroke="var(--path-color-2)" stroke-width="10" stroke-linecap="round" class="shake-animation"/>
 <path d="M46.6322 6.15416C46.6768 0.422596 53.8151 -2.1754 57.5331 2.18655L99.2924 51.1765C102.093 54.4619 100.755 59.5326 96.6985 61.0091L54.4402 76.3898C50.3836 77.8663 46.0996 74.8417 46.133 70.5251L46.6322 6.15416Z" fill="#FB7310"/>
 <path d="M46.3223 46.1703L46.4833 25.4086L70.0257 16.8398L83.4945 32.6409L46.3223 46.1703Z" fill="#FFEEEE"/>
 <path d="M46.3223 46.1703L46.4833 25.4086L70.0257 16.8398L83.4945 32.6409L46.3223 46.1703Z" fill="url(#paint0_linear_4267_3671)"/>

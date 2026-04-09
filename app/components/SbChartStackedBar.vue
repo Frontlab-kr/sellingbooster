@@ -22,6 +22,22 @@ const props = defineProps({
     type: String,
     default: '%',
   },
+  gridLeft: {
+    type: [Number, String],
+    default: 0,
+  },
+  gridTop: {
+    type: [Number, String],
+    default: 0,
+  },
+  gridRight: {
+    type: [Number, String],
+    default: 0,
+  },
+  gridBottom: {
+    type: [Number, String],
+    default: 30,
+  },
 });
 
 const chartRef = ref(null);
@@ -66,12 +82,10 @@ const initChart = () => {
     backgroundColor: chartBackground,
     textStyle: { fontFamily: customFontFamily },
     grid: {
-      top: 0,
-      bottom: 30, // 범례가 들어갈 하단 여백
-      // left: 76,
-      // right: 76,
-      left: 0,
-      right: 0,
+      top: props.gridTop,
+      left: props.gridLeft,
+      right: props.gridRight,
+      bottom: props.gridBottom,
       containLabel: false,
     },
     xAxis: {
