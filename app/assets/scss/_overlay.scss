@@ -240,12 +240,24 @@
         }
       }
       &-propose {
-        padding: 20px;
         border-radius: 8px;
         background: var(--popover-analyze-propose-background);
-        max-height: 316px;
-        overflow: auto;
-        @include custom-scrollbar();
+        @include custom-scrollbar-blur();
+        &::after {
+          height: 30px;
+        }
+        &.is-scroll-end {
+          &::after {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+        &-scroll {
+          max-height: 230px;
+          padding: 20px;
+          overflow: auto;
+          @include custom-scrollbar();
+        }
         &__title {
           display: flex;
           align-items: center;

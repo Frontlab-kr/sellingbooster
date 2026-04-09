@@ -82,67 +82,65 @@
       <div class="sb-ktrend-list">
         <div class="grid">
           <div class="col-12">
-            <div class="sb-ktrend-list">
-              <div class="sb-ktrend-list-head">
-                <div class="sb-tab">
-                  <Button label="건강기능식품" variant="text" class="active" />
-                  <Button label="이너뷰티" variant="text" />
-                  <Button label="코스메틱" variant="text" />
-                  <Button label="패션" variant="text" />
-                  <Button label="펫" variant="text" />
-                  <Button label="유아" variant="text" />
-                </div>
-                <div class="sb-ktrend-list-head-chip">
-                  <div class="sb-chip">
-                    <div class="sb-chip__title">관련 키워드</div>
-                    <div class="sb-checkbox">
-                      <div
-                        class="sb-checkbox-item"
-                        v-for="item in keywordOptions"
-                        :key="item.value"
-                      >
-                        <Checkbox
-                          v-model="selectedKeyword"
-                          :inputId="item.id"
-                          :value="item.value"
-                        />
-                        <label :for="item.id">{{ item.label }}</label>
-                      </div>
+            <div class="sb-ktrend-list-head">
+              <div class="sb-tab">
+                <Button label="건강기능식품" variant="text" class="active" />
+                <Button label="이너뷰티" variant="text" />
+                <Button label="코스메틱" variant="text" />
+                <Button label="패션" variant="text" />
+                <Button label="펫" variant="text" />
+                <Button label="유아" variant="text" />
+              </div>
+              <div class="sb-ktrend-list-head-chip">
+                <div class="sb-chip">
+                  <div class="sb-chip__title">관련 키워드</div>
+                  <div class="sb-checkbox">
+                    <div
+                      class="sb-checkbox-item"
+                      v-for="item in keywordOptions"
+                      :key="item.value"
+                    >
+                      <Checkbox
+                        v-model="selectedKeyword"
+                        :inputId="item.id"
+                        :value="item.value"
+                      />
+                      <label :for="item.id">{{ item.label }}</label>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="sb-ktrend-list-grid">
-                <NuxtLink to="/" class="sb-ktrend-list-item">
-                  <div class="sb-ktrend-list-item-head">
-                    <div class="sb-ktrend-list-item-head__badge">
-                      <Badge value="답변 대기" severity="danger"></Badge>
-                    </div>
-                    <div class="sb-ktrend-list-item-head__date">2026.02.14</div>
+            </div>
+            <div class="sb-ktrend-list-grid">
+              <NuxtLink to="/" class="sb-ktrend-list-item" v-for="item in 8">
+                <div class="sb-ktrend-list-item-head">
+                  <div class="sb-ktrend-list-item-head__badge">
+                    <Badge value="답변 대기" severity="danger"></Badge>
                   </div>
-                  <div class="sb-ktrend-list-item-contents">
-                    <div class="sb-ktrend-list-item-contents__thumb">
-                      <img src="https://picsum.photos/200/300" alt="" />
-                    </div>
-                    <div class="sb-ktrend-list-item-contents__text">
-                      <h6>
-                        컨텐츠 제목은 최대 1줄로 처리하고 더 길어질 경우는
-                        ...으로 처리하는 것으로 결정
-                      </h6>
-                      <p>
-                        초보 셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을
-                        읽고 실수를 미리 방지하세요 최대 2줄까지 노출해주세요
-                        초보 셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을
-                        읽고 실수를 미리 방지하세요 최대 2줄까지 노출해주세요
-                        초보 셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을
-                        읽고 실수를 미리 방지하세요 최대 2줄까지 노출해주세요
-                        초보 셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을
-                        읽고 실수를 미리 방지하세요 최대 2줄까지 노출해주세요
-                      </p>
-                    </div>
+                  <div class="sb-ktrend-list-item-head__date">2026.02.14</div>
+                </div>
+                <div class="sb-ktrend-list-item-contents">
+                  <div class="sb-ktrend-list-item-contents__thumb">
+                    <img src="https://picsum.photos/200/300" alt="" />
                   </div>
-                </NuxtLink>
-              </div>
+                  <div class="sb-ktrend-list-item-contents__text">
+                    <h6>
+                      컨텐츠 제목은 최대 1줄로 처리하고 더 길어질 경우는 ...으로
+                      처리하는 것으로 결정
+                    </h6>
+                    <p>
+                      초보 셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을
+                      읽고 실수를 미리 방지하세요 최대 2줄까지 노출해주세요 초보
+                      셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을 읽고
+                      실수를 미리 방지하세요 최대 2줄까지 노출해주세요 초보
+                      셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을 읽고
+                      실수를 미리 방지하세요 최대 2줄까지 노출해주세요 초보
+                      셀러가 많이 하는 5가지 실수 잊지 말고 이 블로그글을 읽고
+                      실수를 미리 방지하세요 최대 2줄까지 노출해주세요
+                    </p>
+                  </div>
+                </div>
+              </NuxtLink>
             </div>
           </div>
           <div class="col-6">
