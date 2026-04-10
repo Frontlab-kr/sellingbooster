@@ -2319,13 +2319,16 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 24px;
         margin-bottom: 40px;
         h5 {
           color: var(--title-color);
+          white-space: noWrap;
         }
         &__menu {
           display: flex;
           align-items: center;
+          justify-content: flex-end;
           gap: 8px;
           span {
             color: var(--ktrend-trend-head-text-color);
@@ -2357,7 +2360,7 @@
           overflow: auto;
           height: 680px;
           @include custom-scrollbar();
-          @media screen and (max-width: 1374px) {
+          @media screen and (max-width: 1800px) {
             grid-template-columns: 1fr;
           }
         }

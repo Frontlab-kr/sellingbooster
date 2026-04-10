@@ -124,6 +124,7 @@
         // @media screen and (max-width: 1600px) {
         //   grid-template-columns: 1fr;
         // }
+
         &-item {
           padding: 40px;
           border-radius: 32px;
@@ -433,7 +434,7 @@
             align-items: center;
             gap: 20px;
 
-            width: 678px;
+            max-width: 678px;
             margin-right: 40px;
             padding-right: 40px;
             border-right: 1px solid
@@ -452,7 +453,6 @@
               }
             }
             &__contents {
-              width: 292px;
               text-align: left;
               p {
                 margin: 0 0 4px 0;
