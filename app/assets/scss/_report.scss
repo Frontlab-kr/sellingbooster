@@ -62,5 +62,20 @@
         }
       }
     }
+    &-summary {
+      &-head {
+        padding: 40px;
+        background: var(--report-background);
+        border-radius: 32px;
+      }
+      &-compare {
+      }
+      &-chart {
+      }
+      &-product {
+      }
+      &-cs {
+      }
+    }
   }
 }
