@@ -280,7 +280,7 @@
                 <Column
                   field="keyword"
                   header="키워드"
-                  style="min-width: 200px"
+                  style="min-width: 300px"
                 >
                   <template #body="slotProps">
                     {{ slotProps.data.keyword }}
@@ -292,7 +292,7 @@
                   header="검색량"
                   headerClass="justify-content-end"
                   bodyClass="text-right"
-                  style="width: 200px"
+                  style="width: 100px"
                 >
                   <template #body="slotProps">
                     <div

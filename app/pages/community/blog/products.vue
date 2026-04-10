@@ -106,7 +106,7 @@ onMounted(() => {
 const categoryTop30 = ref([
   {
     rank: 1,
-    imgSrc: '/temp/top1.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '스텐리1913',
     mall: '네이버쇼핑',
     title: '스텐리 스텐리1913 젠처 H2.0 플로우스테이트 텀블러',
@@ -114,7 +114,7 @@ const categoryTop30 = ref([
   },
   {
     rank: 2,
-    imgSrc: '/temp/top2.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '스텐리1913',
     mall: '네이버쇼핑',
     title: '스텐리 스텐리1913 젠처 프로듀어 플립 스트로 텀블러 887ml 크림',
@@ -122,7 +122,7 @@ const categoryTop30 = ref([
   },
   {
     rank: 3,
-    imgSrc: '/temp/top3.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '락앤락',
     mall: '네이버쇼핑',
     title:
@@ -131,7 +131,7 @@ const categoryTop30 = ref([
   },
   {
     rank: 4,
-    imgSrc: '/temp/top4.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '스텐리1913',
     mall: '네이버쇼핑',
     title: '스텐리 퀜처 플로우 스테이트 텀블러 H2.0',
@@ -139,7 +139,7 @@ const categoryTop30 = ref([
   },
   {
     rank: 5,
-    imgSrc: '/temp/top5.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '스텐리1913',
     mall: '네이버쇼핑',
     title: '스텐리 바이탈라이즈 쉐이커 텀블러 591ml + 컨테이너 103ml 세트',
@@ -147,7 +147,7 @@ const categoryTop30 = ref([
   },
   {
     rank: 6,
-    imgSrc: '/temp/top6.png',
+    imgSrc: 'https://picsum.photos/200/300',
     brand: '보아르',
     mall: '네이버쇼핑',
     title: '보아르 투웨이 대용량 손잡이 스텐 보온 보냉 텀블러...',

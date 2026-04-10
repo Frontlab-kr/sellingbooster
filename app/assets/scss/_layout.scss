@@ -151,16 +151,17 @@
   &-snb {
     position: fixed;
     top: 0;
-    left: 40px;
+    left: 0;
     z-index: 110;
     display: flex;
     flex-direction: column;
-    width: 224px;
+    width: 280px;
     height: 100vh;
     min-height: calc(100vh - 160px);
     gap: 0;
-    padding: 0 0 40px 0;
+    padding: 0 0 40px 40px;
     transition: $transition-layout;
+    background: var(--snb-background);
     &-logo {
       display: block;
       width: 210px;
@@ -180,7 +181,6 @@
       .p-panelmenu-header-content {
       background: none;
       > .p-panelmenu-header-link {
-        background: #00b1bd;
         color: #fff;
         svg {
           color: #fff;
@@ -232,10 +232,10 @@
           &:hover,
           &:focus,
           &.p-panelmenu-header-active {
-            background: #00b1bd;
-            color: #fff;
+            background: var(--p-primary-500);
+            color: var(--p-gray-00);
             svg {
-              color: #fff;
+              color: var(--p-gray-00);
             }
             &.has-children {
               &:after {
@@ -260,10 +260,10 @@
       .p-panelmenu-header.p-panelmenu-header-active
         .p-panelmenu-header-content {
         > .p-panelmenu-header-link {
-          background: #00b1bd;
-          color: #fff;
+          background: var(--p-primary-500);
+          color: var(--p-gray-00);
           svg {
-            color: #fff;
+            color: var(--p-gray-00);
           }
           &.has-children {
             &::after {
@@ -297,19 +297,16 @@
             width: 6px;
             height: 6px;
             border-radius: 99px;
-            background: var(--Gray-500_6A7381, #6a7381);
+            background: var(--snb-link-color);
           }
           &:hover {
             background: none;
           }
           &:hover,
           &.p-panelmenu-header-active {
-            color: var(
-              --primary-500_00B1BD,
-              var(--primary-500_00B1BD, #00b1bd)
-            );
+            color: var(--color-primary);
             &:before {
-              background-color: #00b1bd;
+              background: var(--color-primary);
             }
           }
           &.p-panelmenu-header-active {
@@ -337,9 +334,9 @@
             color: var(--snb-link-menu-color);
           }
           &.p-panelmenu-header-active {
-            color: #fff;
+            color: var(--p-gray-00);
             svg {
-              color: #fff;
+              color: var(--p-gray-00);
             }
           }
         }
@@ -347,13 +344,16 @@
         .p-panelmenu-header:not(.p-disabled):focus-visible
           .p-panelmenu-header-content {
           > .p-panelmenu-header-link {
-            color: #fff;
+            color: var(--p-gray-00);
             svg {
-              color: #fff;
+              color: var(--p-gray-00);
             }
           }
         }
       }
+    }
+    @media screen and (max-width: 1374px) {
+      box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.2);
     }
   }
   &-contents {
@@ -363,19 +363,23 @@
     transition: $transition-layout;
     background: var(--contents-background);
     background-size: 604px 1188px;
+    @media screen and (max-width: 1374px) {
+      padding: 20px 40px 40px 140px;
+    }
   }
   &--fold & {
     &-snb {
       position: fixed;
       top: 0;
-      left: 40px;
+      left: 0;
       display: flex;
       flex-direction: column;
-      width: 60px;
+      width: 100px;
       height: 100vh;
       min-height: calc(100vh - 160px);
       gap: 0;
-      padding: 0 0 40px 0;
+      padding: 0 0 40px 40px;
+      box-shadow: none;
       .sb-snb-logo {
         display: block;
         width: 60px;
@@ -399,9 +403,15 @@
     }
     &-header {
       padding: 40px 40px 40px 160px;
+      @media screen and (max-width: 1374px) {
+        padding-left: 140px;
+      }
     }
     &-contents {
       padding: 20px 40px 40px 160px;
+      @media screen and (max-width: 1374px) {
+        padding-left: 140px;
+      }
     }
   }
   &-header-mo {
@@ -440,7 +450,7 @@
       display: none;
     }
     &-snb {
-      display: none;
+      display: none !important;
     }
     &-header-mo {
       position: fixed;
@@ -553,7 +563,7 @@
     }
     &-contents {
       padding: 24px 20px 32px 20px;
-      padding: 0;
+      padding: 0 !important;
       background: none;
     }
     &--layout-auth {

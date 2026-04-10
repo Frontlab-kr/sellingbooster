@@ -330,6 +330,9 @@
     }
     &-tag {
       width: 448px;
+      @include breakpoint {
+        display: none;
+      }
       &::before,
       &::after {
         display: none;

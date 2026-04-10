@@ -364,7 +364,9 @@
 
   --logo: url('./../images/logo.svg');
 
+  --snb-background: #eff1f4;
   --snb-link-color: var(--p-gray-500);
+  --snb-link-menu-color: var(--p-gray-400);
 
   --header-menu-icon-background: var(--p-gray-00);
   --header-menu-icon-color: var(--p-gray-500);
@@ -382,9 +384,6 @@
   --header-mode-icon-color: var(--p-gray-500);
   --header-language-icon-color: var(--p-gray-500);
   --header-notification-icon-color: var(--p-gray-500);
-
-  --snb-link-color: var(--p-gray-500);
-  --snb-link-menu-color: var(--p-gray-400);
 
   --contents-background: url(./../images/background-circle.png) no-repeat 100%
     162px;
@@ -1013,7 +1012,10 @@
 
     --body-background: var(--p-gray-900);
     --logo: url('./../images/logo-dark.svg');
+
+    --snb-background: var(--p-gray-900);
     --snb-link-color: var(--p-gray-400);
+    --snb-link-menu-color: var(--p-gray-500);
 
     --header-menu-icon-background: var(--p-gray-800);
     --header-menu-icon-color: var(--p-gray-300);
@@ -1033,9 +1035,6 @@
     --header-mode-icon-color: var(--p-gray-300);
     --header-language-icon-color: var(--p-gray-300);
     --header-notification-icon-color: var(--p-gray-300);
-
-    --snb-link-color: var(--p-gray-400);
-    --snb-link-menu-color: var(--p-gray-500);
 
     --contents-background: none;
 

@@ -315,22 +315,25 @@ const handleLinkClick = (event, item) => {
   const hasChildren = item.items?.length > 0;
 
   if (isFolded.value) {
-    // 사이드바가 접혀있을 때는 링크 이동만 처리
+    if (hasChildren) {
+      // 1. 사이드바를 먼저 펼침
+      isFolded.value = false;
+      // 2. 해당 메뉴의 키를 즉시 활성화 (반드시 key가 정의되어 있어야 함)
+      expandedKeys.value = { [item.key]: true };
+      return;
+    }
     if (item.route) router.push(item.route);
     return;
   }
 
-  // 사이드바가 펼쳐져 있을 때
+  // 펼쳐진 상태에서의 로직
   if (hasChildren) {
-    // 1. 이미 열려있는 메뉴를 클릭한 경우 -> 닫기 위해 빈 객체 할당
     if (expandedKeys.value[item.key]) {
       expandedKeys.value = {};
     } else {
-      // 2. 다른 메뉴를 클릭한 경우 -> 기존 것을 닫고 이것만 열기
       expandedKeys.value = { [item.key]: true };
     }
   } else if (item.route) {
-    // 자식이 없는 메뉴 클릭 시 이동
     router.push(item.route);
   }
 };
@@ -411,6 +414,29 @@ const onSearch = (value) => {
 };
 
 /** 3. UI 제어 및 테마 로직 */
+const handleClickOutside = (event) => {
+  // 1374px 미만이고 사이드바가 펼쳐져 있을 때만 동작
+  if (window.innerWidth < 1374 && !isFolded.value) {
+    const snbElement = document.querySelector('.sb-snb');
+    const toggleBtn = document.querySelector('.sb-header-mo-end'); // 모바일 메뉴 버튼 등 제외 필요 시 추가
+
+    // 클릭된 타겟이 SNB 내부가 아니면 접음
+    if (snbElement && !snbElement.contains(event.target)) {
+      // 메뉴 토글 버튼 자체를 누를 때는 제외 (중복 이벤트 방지)
+      if (toggleBtn && toggleBtn.contains(event.target)) return;
+
+      isFolded.value = true;
+    }
+  }
+};
+const handleResize = () => {
+  // 화면 너비가 1374px 미만이면 자동으로 접힘(true)
+  if (window.innerWidth < 1374) {
+    isFolded.value = true;
+  } else {
+    isFolded.value = false;
+  }
+};
 const toggleMode = () => {
   isDark.value = !isDark.value;
   updateTheme();
@@ -439,8 +465,15 @@ const handleScroll = () => {
 
 /** 4. 감시자 및 생명주기 관리 */
 watch(isFolded, (newValue) => {
-  if (newValue === true) expandedKeys.value = {};
-  else openActiveMenu();
+  if (newValue === true) {
+    expandedKeys.value = {};
+  } else {
+    // 이미 handleLinkClick에서 expandedKeys를 설정했다면 openActiveMenu를 건너뜁니다.
+    // 만약 expandedKeys가 비어있을 때만(토글 버튼 등으로 펼칠 때) 실행되게 합니다.
+    if (Object.keys(expandedKeys.value).length === 0) {
+      openActiveMenu();
+    }
+  }
 });
 
 watch(
@@ -448,6 +481,10 @@ watch(
   (newPath) => {
     updateTitle(newPath);
     isSearchOpen.value = false;
+
+    if (process.client && window.innerWidth < 1374) {
+      isFolded.value = true;
+    }
   },
   { immediate: true },
 );
@@ -460,13 +497,20 @@ onMounted(() => {
     updateTheme();
   }
 
+  handleResize();
+
   window.addEventListener('scroll', handleScroll);
   window.addEventListener('keydown', handleKeyDown);
+  window.addEventListener('resize', handleResize);
+  window.addEventListener('mousedown', handleClickOutside);
+
   if (!isFolded.value) openActiveMenu();
 });
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
   window.removeEventListener('keydown', handleKeyDown);
+  window.removeEventListener('resize', handleResize);
+  window.removeEventListener('mousedown', handleClickOutside);
 });
 </script>

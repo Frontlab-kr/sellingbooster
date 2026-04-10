@@ -1749,6 +1749,12 @@
       }
     }
     @include breakpoint {
+      &-list {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 8px;
+        column-gap: 4px;
+      }
       .sb-radio,
       .sb-checkbox {
         display: flex;
