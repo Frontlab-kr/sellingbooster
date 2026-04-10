@@ -277,11 +277,7 @@
                   </template>
                 </Column>
 
-                <Column
-                  field="keyword"
-                  header="키워드"
-                  style="min-width: 300px"
-                >
+                <Column field="keyword" header="키워드" style="width: 300px">
                   <template #body="slotProps">
                     {{ slotProps.data.keyword }}
                   </template>
