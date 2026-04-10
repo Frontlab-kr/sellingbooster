@@ -56,6 +56,16 @@
       width: 20px;
       height: 20px;
     }
+    @include breakpoint {
+      height: 32px;
+      font-size: 14px;
+      letter-spacing: -0.35px;
+      .p-chip-remove-icon {
+        min-width: var(--p-chip-remove-icon-size);
+        width: var(--p-chip-remove-icon-size);
+        height: var(--p-chip-remove-icon-size);
+      }
+    }
   }
   svg {
     color: var(--p-chip-color);

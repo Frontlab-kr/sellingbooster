@@ -77,7 +77,7 @@
           <div class="col-12">
             <div class="sb-ktrend-list">
               <div class="sb-ktrend-list-head">
-                <div class="sb-ktrend-list-head-tab">
+                <div class="sb-ktrend-list-head-tab" v-scroll-end>
                   <div class="sb-ktrend-list-head-tab-scroll">
                     <div class="sb-tab">
                       <Button

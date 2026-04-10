@@ -2039,8 +2039,14 @@
           gap: 20px;
         }
       }
+      @include breakpoint {
+        .grid {
+          gap: 0;
+        }
+      }
     }
     &-list {
+      margin-bottom: 12px;
       &-head {
         margin-bottom: 40px;
         &-tab {
@@ -2328,6 +2334,7 @@
             font-weight: 400;
             line-height: 140%; /* 21px */
             letter-spacing: -0.375px;
+            word-break: keep-all;
           }
           .ico-arrow-up-right {
             color: var(--ktrend-trend-head-text-color);
@@ -2504,8 +2511,8 @@
             align-items: flex-end;
             justify-content: space-between;
             flex-direction: column;
-            gap: 12px;
-            margin-top: 24px;
+            gap: 0;
+            margin-top: 12px;
             &-chip {
               width: 100%;
               .sb-chip {
@@ -2592,7 +2599,7 @@
           }
         }
         &-chip {
-          margin-bottom: 24px;
+          margin-bottom: 12px;
           .sb-chip {
             .sb-checkbox {
               flex-wrap: nowrap;
