@@ -17,6 +17,10 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  showCenterText: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const chartRef = ref(null);
@@ -43,6 +47,8 @@ const initChart = () => {
   if (chart) chart.dispose();
   chart = echarts.init(chartRef.value);
 
+  const totalValue = props.chartData.reduce((acc, cur) => acc + cur.value, 0);
+
   const colorMap = {
     primaryColor: '--chart-doughnut02-primary',
     successColor: '--chart-doughnut02-success',
@@ -50,6 +56,7 @@ const initChart = () => {
     infoColor: '--chart-doughnut02-info',
     warnColor: '--chart-doughnut02-warn',
     dangerColor: '--chart-doughnut02-danger',
+    contrastColor: '--chart-doughnut02-contrast',
     neutralColor: '--chart-doughnut02-neutral',
   };
 
@@ -83,12 +90,30 @@ const initChart = () => {
   const option = {
     backgroundColor: chartBackground,
     textStyle: { fontFamily: customFontFamily },
-    tooltip: { show: false }, // 스크린샷에는 툴팁이 없음
+    tooltip: { show: false },
 
-    // [핵심 수정] 범례(Legend) 우측 배치 및 스타일 설정
+    graphic: props.showCenterText
+      ? [
+          {
+            type: 'text',
+            left: '45%',
+            top: 'middle',
+            style: {
+              text: `${totalValue.toLocaleString()}건`,
+              textAlign: 'center',
+              fill: labelColor,
+              fontSize: 16,
+              fontWeight: 'bold',
+              fontFamily: customFontFamily,
+            },
+            origin: [0, 0],
+          },
+        ]
+      : [],
+
     legend: {
       orient: 'vertical',
-      right: '10%',
+      right: '0%',
       top: 'center',
       icon: 'circle',
       itemWidth: 12,
@@ -98,8 +123,10 @@ const initChart = () => {
 
       formatter: function (name) {
         const item = props.chartData.find((d) => d.name === name);
-        const val = item ? item.value : 0;
-        return `{name|${name}} {value|${val}%}`;
+        // [수정] value 대신 퍼센트 계산하여 표시
+        const percentage =
+          totalValue > 0 ? ((item.value / totalValue) * 100).toFixed(0) : 0;
+        return `{name|${name}} {value|${percentage}%}`;
       },
       textStyle: {
         rich: {

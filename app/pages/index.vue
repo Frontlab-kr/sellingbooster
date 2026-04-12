@@ -63,7 +63,9 @@
             <NuxtLink to="/trend/recommend/write"
               >추천기회 - 상품명 생성하기</NuxtLink
             >
-            <!-- <NuxtLink to="/trend/recommend/item">추천기회 아이템 소싱</NuxtLink> -->
+            <NuxtLink to="/trend/recommend/sourcing"
+              >추천기회 - 아이템 소싱</NuxtLink
+            >
             <NuxtLink to="/trend/recommend/ranking"
               >추천기회 - 나의 랭킹 찾기</NuxtLink
             >
@@ -113,18 +115,18 @@
       </Card>
     </div>
 
-    <!-- <div>
+    <div>
       <h5>셀링 플래너</h5>
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
             <NuxtLink to="/planner/timeline">타임라인</NuxtLink>
-            <NuxtLink to="/planner/calender">캘린더</NuxtLink>
+            <NuxtLink to="/planner/calendar">캘린더</NuxtLink>
             <NuxtLink to="/planner/memo">메모</NuxtLink>
           </div>
         </template>
       </Card>
-    </div> -->
+    </div>
 
     <div>
       <h5>커뮤니티</h5>
@@ -188,6 +190,17 @@
             <NuxtLink to="/setting/account/delete">회원탈퇴</NuxtLink>
             <NuxtLink to="/setting/seller/channel">채널연동</NuxtLink>
             <NuxtLink to="/setting/seller/alarm">알림 설정</NuxtLink>
+          </div>
+        </template>
+      </Card>
+    </div>
+
+    <div>
+      <h5>FOOTER</h5>
+      <Card>
+        <template #content>
+          <div class="flex flex-column gap-2">
+            <NuxtLink to="/policy/personalPrivacy">개인정보 처리방침</NuxtLink>
           </div>
         </template>
       </Card>

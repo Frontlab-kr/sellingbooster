@@ -1473,6 +1473,55 @@
     }
   }
 
+  &-imageupload {
+    height: 100%;
+    min-height: 213px;
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px dashed var(--imageupload-border-color);
+    &:hover,
+    &.is-dragging {
+      border-color: var(--color-primary);
+      background: var(--imageupload-hover-background);
+      .sb-imageupload-text {
+        color: var(--color-primary);
+      }
+    }
+    .p-fileupload {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    .p-fileupload-header,
+    .p-fileupload-content {
+      padding: 0;
+    }
+    .p-fileupload-advanced {
+      border: 0;
+    }
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+    &-text {
+      margin-top: 10px;
+      color: var(--imageupload-text-color);
+      text-align: center;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 22.4px */
+      letter-spacing: -0.4px;
+    }
+    &-button {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 24px;
+    }
+  }
+
   &-attachment {
     display: flex;
     flex-direction: column;

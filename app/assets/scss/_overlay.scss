@@ -393,8 +393,58 @@
         }
       }
     }
+    &-sourcing {
+      width: 400px;
+      border: none;
+      margin-left: -134px;
+      @include breakpoint {
+        display: none;
+      }
+      &::before,
+      &::after {
+        display: none;
+      }
+      .p-popover-content {
+        padding: 0;
+      }
+      .sb-trend-sourcing-result-list-item {
+        padding: 20px;
+        background: none;
+        &__thumb {
+          min-width: 100px;
+          width: 100px;
+          height: 100px;
+        }
+        &__text {
+          p {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 4px;
+            span {
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+        &__link {
+          margin-top: 20px;
+          justify-content: center;
+        }
+      }
+    }
   }
   &-dialog {
+    &-bottom {
+      display: flex;
+      align-items: flex-end !important;
+      .p-dialog {
+        width: 100%;
+        border-radius: 24px 24px 0 0;
+      }
+    }
     &-loading {
       min-width: 320px;
       width: 320px;
@@ -439,5 +489,295 @@
         }
       }
     }
+    &-schedule {
+      &-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        h3 {
+          color: var(--dialog-schedule-head-title-color);
+        }
+        p {
+          margin: 12px 0 0 0;
+          color: var(--dialog-schedule-head-text-color);
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 140%; /* 22.4px */
+          letter-spacing: -0.4px;
+        }
+      }
+      &-body {
+        margin-top: 40px;
+        ul {
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          li {
+            width: 100%;
+            padding: 16px 0;
+            border-bottom: 1px dashed var(--dialog-schedule-body-border-color);
+            &:first-child {
+              padding-top: 0;
+            }
+            &:last-child {
+              padding-bottom: 0;
+              border-bottom: none;
+            }
+            &.color-info {
+              .sb-dialog-schedule-body__title {
+                &::before {
+                  background-color: var(--planner-dot-info);
+                }
+              }
+            }
+            &.color-success {
+              .sb-dialog-schedule-body__title {
+                &::before {
+                  background-color: var(--planner-dot-success);
+                }
+              }
+            }
+            &.color-danger {
+              .sb-dialog-schedule-body__title {
+                &::before {
+                  background-color: var(--planner-dot-danger);
+                }
+              }
+            }
+            &.color-secondary {
+              .sb-dialog-schedule-body__title {
+                &::before {
+                  background-color: var(--planner-dot-secondary);
+                }
+              }
+            }
+            &.color-warn {
+              .sb-dialog-schedule-body__title {
+                &::before {
+                  background-color: var(--planner-dot-warn);
+                }
+              }
+            }
+            &.color-primary {
+              .sb-dialog-schedule-body__title {
+                &::before {
+                  background-color: var(--planner-dot-primary);
+                }
+              }
+            }
+            &.color-contrast {
+              .sb-dialog-schedule-body__title {
+                &::before {
+                  background-color: var(--planner-dot-contrast);
+                }
+              }
+            }
+          }
+        }
+        &__title {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          p {
+            margin: 0;
+            color: var(--dialog-schedule-body-title-color);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 22.4px */
+            letter-spacing: -0.4px;
+          }
+          &::before {
+            content: '';
+            display: block;
+            min-width: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 8px;
+          }
+          .p-button {
+            min-width: 24px;
+            width: 24px;
+            height: 24px;
+            border-radius: 8px;
+            background: var(--dialog-schedule-body-button-background);
+            &:hover {
+              background: var(--dialog-schedule-body-button-background);
+            }
+            .ico-system-edit {
+              min-width: 16px;
+              width: 16px;
+              height: 16px;
+              color: var(--dialog-schedule-body-button-color);
+            }
+            .ico-system-delete {
+              color: var(--dialog-schedule-body-button-background);
+            }
+          }
+        }
+        &__button {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+        }
+        &__text {
+          p {
+            position: relative;
+            display: flex;
+            margin: 6px 0 0 0;
+            padding: 0 0 0 16px;
+            color: var(--dialog-schedule-body-text-color);
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 19.6px */
+            letter-spacing: -0.35px;
+            &::before {
+              content: '';
+              display: block;
+              position: absolute;
+              top: 8px;
+              left: 0;
+              width: 8px;
+              height: 1px;
+              background: var(--dialog-schedule-body-text-color);
+            }
+          }
+        }
+      }
+      @include breakpoint {
+        &-head {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          p {
+            margin: 12px 0 0 0;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 19.6px */
+            letter-spacing: -0.35px;
+          }
+        }
+        &-body {
+          margin-top: 20px;
+
+          &__title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            p {
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 140%; /* 19.6px */
+              letter-spacing: -0.35px;
+            }
+          }
+          &__button {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+          }
+          &__text {
+            p {
+              position: relative;
+              display: flex;
+              margin: 4px 0 0 0;
+              padding: 0 0 0 16px;
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 140%; /* 16.8px */
+              letter-spacing: -0.3px;
+            }
+          }
+        }
+      }
+      @media screen and (min-width: 1025px) {
+        min-width: 600px;
+        width: 600px;
+        border: none;
+        .p-dialog-header {
+          padding: 0;
+        }
+        .p-dialog-content {
+          padding: 40px 40px 0 40px;
+        }
+        .p-dialog-header-actions {
+          position: absolute;
+          top: 24px;
+          right: 24px;
+        }
+        &-mask {
+          background: none !important;
+        }
+      }
+    }
+    &-memowrite {
+      &-form {
+        &-item {
+          margin-bottom: 40px;
+          padding-bottom: 40px;
+          border-bottom: 1px dashed var(--dialog-memowrite-border-color);
+          &:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+          }
+          > label {
+            display: block;
+            margin-bottom: 16px;
+            color: var(--dialog-memowrite-label-color);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 22.4px */
+            letter-spacing: -0.4px;
+          }
+        }
+      }
+      &-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 32px;
+      }
+      @include breakpoint {
+        &-form {
+          &-item {
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            &:last-child {
+              margin-bottom: 0;
+              padding-bottom: 0;
+              border-bottom: none;
+            }
+            > label {
+              margin-bottom: 8px;
+            }
+          }
+        }
+        &-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 32px;
+        }
+      }
+    }
   }
+}
+
+.p-dialog .sb-planner-app-head-checkbox .sb-checkbox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding-top: 20px;
 }

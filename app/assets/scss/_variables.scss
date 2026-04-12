@@ -289,12 +289,23 @@
   --chart-doughnut-border-color: var(--p-gray-00);
   --chart-doughnut-border-color02: var(--p-gray-50);
 
+  --chart-doughnut02-primary: var(--p-indigo-500);
   --chart-doughnut02-success: var(--p-green-500);
   --chart-doughnut02-secondary: var(--p-slate-500);
   --chart-doughnut02-info: var(--p-blue-500);
   --chart-doughnut02-warn: var(--p-orange-500);
   --chart-doughnut02-danger: var(--p-red-500);
-  --chart-doughnut02-neutral: var(--p-gray-500);
+  --chart-doughnut02-contrast: var(--p-gray-500);
+  --chart-doughnut02-neutral: var(--p-gray-200);
+
+  --chart-comparisonbar-primary: var(--p-indigo-500);
+  --chart-comparisonbar-success: var(--p-green-500);
+  --chart-comparisonbar-secondary: var(--p-slate-500);
+  --chart-comparisonbar-info: var(--p-blue-500);
+  --chart-comparisonbar-warn: var(--p-orange-500);
+  --chart-comparisonbar-danger: var(--p-red-500);
+  --chart-comparisonbar-contrast: var(--p-gray-500);
+  --chart-comparisonbar-neutral: var(--p-gray-200);
 
   --chart-line-background: var(--p-gray-00);
   --chart-line-primary: var(--p-primary-500);
@@ -361,6 +372,7 @@
   --url-card-background: var(--p-gray-00);
 
   --body-background: #eff1f4;
+  --body-color: var(--p-gray-900);
 
   --logo: url('./../images/logo.svg');
 
@@ -422,28 +434,6 @@
   --community-list-item-date-color: var(--p-gray-400);
   --community-list-item-divider-color: var(--p-gray-300);
   --community-view-background: var(--p-gray-00);
-
-  --timeline-color-info: var(--p-blue-700);
-  --timeline-color-success: var(--p-green-700);
-  --timeline-color-danger: var(--p-red-700);
-  --timeline-color-secondary: var(--p-slate-500);
-  --timeline-color-warn: var(--p-orange-800);
-  --timeline-color-primary: var(--p-indigo-600);
-  --timeline-color-contrast: var(--p-gray-500);
-  --timeline-background-info: var(--p-blue-50);
-  --timeline-background-success: var(--p-green-50);
-  --timeline-background-danger: var(--p-red-50);
-  --timeline-background-secondary: var(--p-slate-50);
-  --timeline-background-warn: var(--p-orange-50);
-  --timeline-background-primary: var(--p-indigo-50);
-  --timeline-background-contrast: var(--p-gray-50);
-  --timeline-dot-info: var(--p-blue-500);
-  --timeline-dot-success: var(--p-green-600);
-  --timeline-dot-danger: var(--p-red-500);
-  --timeline-dot-secondary: var(--p-slate-400);
-  --timeline-dot-warn: var(--p-orange-600);
-  --timeline-dot-primary: var(--p-indigo-600);
-  --timeline-dot-contrast: var(--p-gray-500);
 
   --comment-write-name-color: var(--p-slate-500);
   --comment-write-background: var(--p-gray-00);
@@ -549,6 +539,10 @@
   --fileupload-text-color: var(--p-gray-400);
   --fileupload-icon-color: var(--p-gray-200);
   --fileupload-icon-hover-color: var(--p-gray-300);
+
+  --imageupload-border-color: var(--p-gray-300);
+  --imageupload-hover-background: var(--p-gray-50);
+  --imageupload-text-color: var(--p-gray-500);
 
   --scroll-blur-background: var(--p-gray-00);
 
@@ -664,6 +658,29 @@
   --trend-ranking-result-list-item-title-color: var(--p-gray-900);
   --trend-ranking-result-list-item-info-color: var(--p-gray-500);
 
+  --trend-sourcing-url-border-color: var(--p-gray-300);
+  --trend-sourcing-url-text-color: var(--p-gray-500);
+  --trend-sourcing-url-hover-background: var(--p-gray-50);
+  --trend-sourcing-preview-background: var(--p-gray-50);
+  --trend-sourcing-loading-background: var(--p-gray-00);
+  --trend-sourcing-loading-boxshadow: 0 20px 40px 0 rgba(0, 0, 0, 0.15);
+  --trend-sourcing-loading-text-color: var(--p-gray-900);
+  --trend-sourcing-result-head-text-color: var(--p-gray-900);
+  --trend-sourcing-result-foot-border-color: var(--p-gray-300);
+  --trend-sourcing-result-foot-title-color: var(--p-gray-900);
+  --trend-sourcing-result-foot-chip-ico-color: var(--p-gray-400);
+  --trend-sourcing-result-image-background: var(--p-gray-50);
+  --trend-sourcing-result-image-point-boxshadow: 0 10px 30px 0
+    rgba(0, 0, 0, 0.1);
+  --trend-sourcing-result-image-point-color: var(--p-gray-00);
+  --trend-sourcing-result-item-background: var(--p-gray-50);
+  --trend-sourcing-result-item-title-color: var(--p-gray-900);
+  --trend-sourcing-result-item-text-color: var(--p-gray-500);
+  --trend-sourcing-result-item-text-border-color: var(--p-gray-300);
+  --trend-sourcing-result-tag-item-background: var(--p-gray-100);
+  --trend-sourcing-result-tag-item-color: var(--p-gray-900);
+  --trend-sourcing-product-item-text-color: var(--p-gray-900);
+
   //keyword
   --keyword-detail-head-title-color: var(--p-gray-900);
   --keyword-detail-head-text-color: var(--p-gray-500);
@@ -770,7 +787,79 @@
   --sales-product-list-item-title-color: var(--p-gray-900);
 
   //planer
-  --planer-background: var(--p-gray-00);
+  --planner-background: var(--p-gray-00);
+  --planner-app-head-background: var(--p-gray-50);
+  --planner-app-head-title-color: var(--p-gray-900);
+
+  --planner-color-info: var(--p-blue-700);
+  --planner-color-success: var(--p-green-700);
+  --planner-color-danger: var(--p-red-700);
+  --planner-color-secondary: var(--p-slate-500);
+  --planner-color-warn: var(--p-orange-800);
+  --planner-color-primary: var(--p-indigo-600);
+  --planner-color-contrast: var(--p-gray-500);
+
+  --planner-dot-info: var(--p-blue-500);
+  --planner-dot-success: var(--p-green-600);
+  --planner-dot-danger: var(--p-red-500);
+  --planner-dot-secondary: var(--p-slate-400);
+  --planner-dot-warn: var(--p-orange-600);
+  --planner-dot-primary: var(--p-indigo-600);
+  --planner-dot-contrast: var(--p-gray-500);
+
+  --timeline-background-info: var(--p-blue-50);
+  --timeline-background-success: var(--p-green-50);
+  --timeline-background-danger: var(--p-red-50);
+  --timeline-background-secondary: var(--p-slate-50);
+  --timeline-background-warn: var(--p-orange-50);
+  --timeline-background-primary: var(--p-indigo-50);
+  --timeline-background-contrast: var(--p-gray-50);
+  --timeline-dot-info: var(--p-blue-500);
+  --timeline-dot-success: var(--p-green-600);
+  --timeline-dot-danger: var(--p-red-500);
+  --timeline-dot-secondary: var(--p-slate-400);
+  --timeline-dot-warn: var(--p-orange-600);
+  --timeline-dot-primary: var(--p-indigo-600);
+  --timeline-dot-contrast: var(--p-gray-500);
+
+  --calendar-background-info: var(--p-blue-500);
+  --calendar-background-success: var(--p-green-400);
+  --calendar-background-danger: var(--p-red-400);
+  --calendar-background-secondary: var(--p-slate-400);
+  --calendar-background-warn: var(--p-orange-500);
+  --calendar-background-primary: var(--p-indigo-400);
+  --calendar-background-contrast: var(--p-gray-400);
+  --calendar-dot-info: var(--p-blue-800);
+  --calendar-dot-success: var(--p-green-600);
+  --calendar-dot-danger: var(--p-red-600);
+  --calendar-dot-secondary: var(--p-slate-700);
+  --calendar-dot-warn: var(--p-orange-700);
+  --calendar-dot-primary: var(--p-indigo-700);
+  --calendar-dot-contrast: var(--p-gray-500);
+
+  --time-list-item-border-color: var(--p-gray-300);
+  --time-list-item-date-color: var(--p-gray-900);
+  --time-list-item-date-text-color: var(--p-gray-400);
+  --time-list-item-text-color: var(--p-gray-900);
+  --time-list-item-button-background: var(--p-gray-200);
+  --time-list-item-button-color: var(--p-gray-400);
+
+  --memo-background: var(--p-gray-100);
+  --memo-item-background: var(--p-gray-00);
+  --memo-item-folding-background: var(--p-gray-100)
+    url(./../icons/etc/folding.svg) no-repeat 50% 50%;
+  --memo-item-date-color: var(--p-gray-900);
+  --memo-item-text-color: var(--p-gray-900);
+  --memo-item-button-background: var(--p-gray-200);
+  --memo-item-button-color: var(--p-gray-400);
+
+  //full calendar
+  --fc-holiday-color: var(--p-red-500);
+  --fc-background: var(--p-gray-100);
+  --fc-td-background: var(--p-gray-00);
+  --fc-th-color: var(--p-gray-500);
+  --fc-number-color: var(--p-gray-900);
+  --fc-today-color: var(--p-gray-00);
 
   //auth
   --auth-background-image: #eff1f4 url(./../images/login-bg.jpg) no-repeat 0
@@ -870,6 +959,18 @@
   --popover-tag-list-item-background: var(--p-gray-50);
   --popover-tag-list-item-text-color: var(--p-gray-900);
 
+  //dialog
+  --dialog-schedule-head-title-color: var(--p-gray-300);
+  --dialog-schedule-head-text-color: var(--p-gray-500);
+  --dialog-schedule-body-border-color: var(--p-gray-300);
+  --dialog-schedule-body-title-color: var(--p-gray-900);
+  --dialog-schedule-body-button-background: var(--p-gray-200);
+  --dialog-schedule-body-button-color: var(--p-gray-400);
+  --dialog-schedule-body-text-color: var(--p-gray-500);
+
+  --dialog-memowrite-border-color: var(--p-gray-300);
+  --dialog-memowrite-label-color: var(--p-gray-600);
+
   //price setting
   --price-setting-background: var(--p-gray-50);
   --price-setting-head-border-color: var(--p-gray-300);
@@ -951,12 +1052,23 @@
     --chart-doughnut-border-color: var(--p-gray-800);
     --chart-doughnut-border-color02: var(--p-gray-800);
 
+    --chart-doughnut02-primary: var(--p-indigo-400);
     --chart-doughnut02-success: var(--p-green-400);
     --chart-doughnut02-secondary: var(--p-slate-400);
     --chart-doughnut02-info: var(--p-blue-400);
     --chart-doughnut02-warn: var(--p-orange-400);
     --chart-doughnut02-danger: var(--p-red-400);
-    --chart-doughnut02-neutral: var(--p-gray-400);
+    --chart-doughnut02-contrast: var(--p-gray-400);
+    --chart-doughnut02-neutral: var(--p-gray-300);
+
+    --chart-comparisonbar-primary: var(--p-indigo-400);
+    --chart-comparisonbar-success: var(--p-green-400);
+    --chart-comparisonbar-secondary: var(--p-slate-400);
+    --chart-comparisonbar-info: var(--p-blue-400);
+    --chart-comparisonbar-warn: var(--p-orange-400);
+    --chart-comparisonbar-danger: var(--p-red-400);
+    --chart-comparisonbar-contrast: var(--p-gray-400);
+    --chart-comparisonbar-neutral: var(--p-gray-300);
 
     --chart-line-primary: var(--p-primary-300);
     --chart-line-secondary: var(--p-slate-600);
@@ -1014,6 +1126,7 @@
     --url-card-background: var(--p-gray-800);
 
     --body-background: var(--p-gray-900);
+    --body-color: var(--p-gray-00);
     --logo: url('./../images/logo-dark.svg');
 
     --snb-background: var(--p-gray-900);
@@ -1178,6 +1291,10 @@
     --fileupload-icon-color: var(--p-gray-800);
     --fileupload-icon-hover-color: var(--p-gray-900);
 
+    --imageupload-border-color: var(--p-gray-600);
+    --imageupload-hover-background: var(--p-gray-900);
+    --imageupload-text-color: var(--p-gray-00);
+
     --scroll-blur-background: var(--p-gray-800);
 
     //table
@@ -1295,6 +1412,29 @@
     --trend-ranking-result-list-item-title-color: var(--p-gray-00);
     --trend-ranking-result-list-item-info-color: var(--p-gray-300);
 
+    --trend-sourcing-url-border-color: var(--p-gray-600);
+    --trend-sourcing-url-text-color: var(--p-gray-300);
+    --trend-sourcing-url-hover-background: var(--p-gray-900);
+    --trend-sourcing-preview-background: var(--p-gray-900);
+    --trend-sourcing-loading-background: var(--p-gray-900);
+    --trend-sourcing-loading-boxshadow: 0 20px 40px 0 rgba(0, 0, 0, 0.8);
+    --trend-sourcing-loading-text-color: var(--p-gray-00);
+    --trend-sourcing-result-head-text-color: var(--p-gray-00);
+    --trend-sourcing-result-foot-border-color: var(--p-gray-600);
+    --trend-sourcing-result-foot-title-color: var(--p-gray-00);
+    --trend-sourcing-result-foot-chip-ico-color: var(--p-gray-400);
+    --trend-sourcing-result-image-background: var(--p-gray-900);
+    --trend-sourcing-result-image-point-boxshadow: 0 10px 30px 0
+      rgba(0, 0, 0, 0.1);
+    --trend-sourcing-result-image-point-color: var(--p-gray-900);
+    --trend-sourcing-result-item-background: var(--p-gray-900);
+    --trend-sourcing-result-item-title-color: var(--p-gray-00);
+    --trend-sourcing-result-item-text-color: var(--p-gray-300);
+    --trend-sourcing-result-item-text-border-color: var(--p-gray-600);
+    --trend-sourcing-result-tag-item-background: var(--p-gray-500);
+    --trend-sourcing-result-tag-item-color: var(--p-gray-00);
+    --trend-sourcing-product-item-text-color: var(--p-gray-00);
+
     //keyword
     --keyword-detail-head-title-color: var(--p-gray-00);
     --keyword-detail-head-text-color: var(--p-gray-300);
@@ -1399,6 +1539,81 @@
     --sales-product-list-item-number-color: var(--p-gray-300);
     --sales-product-list-item-title-color: var(--p-gray-00);
 
+    //planer
+    --planner-background: var(--p-gray-800);
+    --planner-app-head-background: var(--p-gray-900);
+    --planner-app-head-title-color: var(--p-gray-00);
+
+    --planner-color-info: var(--p-blue-400);
+    --planner-color-success: var(--p-green-400);
+    --planner-color-danger: var(--p-red-400);
+    --planner-color-secondary: var(--p-slate-400);
+    --planner-color-warn: var(--p-orange-400);
+    --planner-color-primary: var(--p-indigo-300);
+    --planner-color-contrast: var(--p-gray-300);
+
+    --planner-dot-info: var(--p-blue-400);
+    --planner-dot-success: var(--p-green-400);
+    --planner-dot-danger: var(--p-red-400);
+    --planner-dot-secondary: var(--p-slate-400);
+    --planner-dot-warn: var(--p-orange-400);
+    --planner-dot-primary: var(--p-indigo-400);
+    --planner-dot-contrast: var(--p-gray-400);
+
+    --timeline-background-info: var(--p-blue-100);
+    --timeline-background-success: var(--p-green-100);
+    --timeline-background-danger: var(--p-red-100);
+    --timeline-background-secondary: var(--p-slate-100);
+    --timeline-background-warn: var(--p-orange-100);
+    --timeline-background-primary: var(--p-indigo-100);
+    --timeline-background-contrast: var(--p-gray-400);
+    --timeline-dot-info: var(--p-blue-900);
+    --timeline-dot-success: var(--p-green-900);
+    --timeline-dot-danger: var(--p-red-700);
+    --timeline-dot-secondary: var(--p-slate-900);
+    --timeline-dot-warn: var(--p-orange-900);
+    --timeline-dot-primary: var(--p-indigo-900);
+    --timeline-dot-contrast: var(--p-gray-700);
+
+    --calendar-background-info: var(--p-blue-700);
+    --calendar-background-success: var(--p-green-700);
+    --calendar-background-danger: var(--p-red-700);
+    --calendar-background-secondary: var(--p-slate-700);
+    --calendar-background-warn: var(--p-orange-700);
+    --calendar-background-primary: var(--p-indigo-700);
+    --calendar-background-contrast: var(--p-gray-600);
+    --calendar-dot-info: var(--p-blue-900);
+    --calendar-dot-success: var(--p-green-900);
+    --calendar-dot-danger: var(--p-red-900);
+    --calendar-dot-secondary: var(--p-slate-900);
+    --calendar-dot-warn: var(--p-orange-900);
+    --calendar-dot-primary: var(--p-indigo-900);
+    --calendar-dot-contrast: var(--p-gray-800);
+
+    --time-list-item-border-color: var(--p-gray-600);
+    --time-list-item-date-color: var(--p-gray-00);
+    --time-list-item-date-text-color: var(--p-gray-300);
+    --time-list-item-text-color: var(--p-gray-900);
+    --time-list-item-button-background: var(--p-gray-600);
+    --time-list-item-button-color: var(--p-gray-400);
+
+    --memo-background: var(--p-gray-900);
+    --memo-item-background: var(--p-gray-800);
+    --memo-item-folding-background: var(--p-gray-900)
+      url(./../icons/etc/folding-dark.svg) no-repeat 50% 50%;
+    --memo-item-date-color: var(--p-gray-00);
+    --memo-item-text-color: var(--p-gray-00);
+    --memo-item-button-background: var(--p-gray-600);
+    --memo-item-button-color: var(--p-gray-400);
+
+    //full calendar
+    --fc-holiday-color: var(--p-red-400);
+    --fc-background: var(--p-gray-700);
+    --fc-td-background: var(--p-gray-900);
+    --fc-th-color: var(--p-gray-300);
+    --fc-number-color: var(--p-gray-300);
+    --fc-today-color: var(--p-gray-900);
+
     //auth
     --auth-background-image: var(--p-gray-900);
 
@@ -1495,6 +1710,18 @@
     --popover-tag-head-icon-color: var(--p-gray-400);
     --popover-tag-list-item-background: var(--p-gray-800);
     --popover-tag-list-item-text-color: var(--p-gray-00);
+
+    //dialog
+    --dialog-schedule-head-title-color: var(--p-gray-300);
+    --dialog-schedule-head-text-color: var(--p-gray-500);
+    --dialog-schedule-body-border-color: var(--p-gray-600);
+    --dialog-schedule-body-title-color: var(--p-gray-00);
+    --dialog-schedule-body-button-background: var(--p-gray-600);
+    --dialog-schedule-body-button-color: var(--p-gray-400);
+    --dialog-schedule-body-text-color: var(--p-gray-300);
+
+    --dialog-memowrite-border-color: var(--p-gray-600);
+    --dialog-memowrite-label-color: var(--p-gray-00);
 
     //price setting
     --price-setting-background: var(--p-gray-900);

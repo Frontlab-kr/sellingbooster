@@ -86,7 +86,7 @@ body {
   font-family: $font-family-global;
   font-variation-settings: 'wght' var(--p-weight, 400);
 
-  color: var(--Gray-900_1B1F27, #1b1f27);
+  color: var(--body-color);
 }
 
 h1,
@@ -203,6 +203,7 @@ input[type='number'] {
 }
 a {
   text-decoration: none;
+  color: var(--body-color);
 }
 
 @keyframes float {

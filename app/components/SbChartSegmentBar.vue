@@ -37,6 +37,10 @@
       <div class="sb-chart-segment-item__legend">
         {{ item.name }}
       </div>
+
+      <div v-if="item.badgeValue" class="sb-chart-segment-item__badge">
+        <Badge :value="item.badgeValue" :severity="item.badgeSeverity"></Badge>
+      </div>
     </div>
   </div>
 </template>
@@ -96,9 +100,16 @@ const processedData = computed(() => {
   return props.chartData.map((item) => {
     const percentage = totalSum > 0 ? (item.value / totalSum) * 100 : 0;
 
+    /**
+     * 핵심 로직:
+     * item.color가 'successColor'라면 'Color'를 빈값으로 바꿔서 'success'만 남깁니다.
+     */
+    const severity = item.color ? item.color.replace('Color', '') : 'info';
+
     return {
       ...item,
       textClass: classMap[item.color] || '',
+      badgeSeverity: severity, // 여기서 가공된 'success', 'danger' 등이 들어감
       percent: percentage.toFixed(1),
       filledCount: Math.round(
         (item.value / props.maxValue) * props.totalSegments,

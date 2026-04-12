@@ -2,21 +2,14 @@
   <div class="sb-planner-schedule">
     <h5>샌드위치 연휴 5.1(금)~5.5(화) 최대 5일 휴가 준비</h5>
     <div class="sb-planner-schedule__contents">
-      <dl v-for="(group, index) in plannerData" :key="index">
-        <dt>
+      <div class="sb-chip" v-for="(group, index) in plannerData" :key="index">
+        <div class="sb-chip-list">
           <Chip :label="group.category" size="large" class="active" />
-          <IconArrowAchevronRight class="ico-arrow-achevron-right" />
-        </dt>
-        <dd>
-          <div class="sb-chip">
-            <div class="sb-chip-list">
-              <NuxtLink v-for="(item, i) in group.items" :key="i" to="/">
-                <Chip :label="'#' + item" size="large" />
-              </NuxtLink>
-            </div>
-          </div>
-        </dd>
-      </dl>
+          <NuxtLink v-for="(item, i) in group.items" :key="i" to="/">
+            <Chip :label="'#' + item" size="large" />
+          </NuxtLink>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -41,7 +34,7 @@ const plannerData = ref([
     ],
   },
   {
-    category: '#부모님 선물',
+    category: '#부모님부모님 선물',
     items: [
       '안마의자',
       '한우선물세트',

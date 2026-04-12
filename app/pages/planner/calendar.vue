@@ -9,10 +9,18 @@
 
     <div class="sb-planner-contents">
       <div class="sb-planner-contents-head">
-        <h4>
-          판매, 정산, 광고, 세금등<br />
-          해야할 일들을 놓치지 마시고 미리 챙겨보세요.
-        </h4>
+        <div class="pc">
+          <h4>
+            판매, 정산, 광고, 세금등<br />
+            해야할 일들을 놓치지 마시고 미리 챙겨보세요.
+          </h4>
+        </div>
+        <div class="mo">
+          <h5>
+            판매, 정산, 광고, 세금등 해야할 일들을<br />
+            놓치지 마시고 미리 챙겨보세요.
+          </h5>
+        </div>
       </div>
       <div class="sb-planner-body">
         <div class="sb-planner-body-tab">

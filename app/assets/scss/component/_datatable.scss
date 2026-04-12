@@ -349,7 +349,7 @@
 }
 .p-datatable-scrollable > .p-datatable-table-container {
   position: relative;
-  height: 644px;
+  max-height: 644px;
   @include custom-scrollbar();
 }
 .p-datatable-scrollable-table > .p-datatable-thead {

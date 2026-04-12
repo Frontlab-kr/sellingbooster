@@ -66,42 +66,49 @@
       </div>
     </div>
 
-    <div class="sb-timeline-list">
-      <div
-        v-for="day in sortedDays"
-        :key="day.dateStr"
-        class="sb-timeline-list-item"
-        @click="openSchedule"
-      >
-        <div class="pc">
-          <div class="sb-timeline-list-item__date">
-            {{ day.formattedDate }} ({{ day.weekday }})
-          </div>
-        </div>
-        <div class="mo">
-          <div class="sb-timeline-list-item__date">
-            <strong>{{ day.dayOnly }}</strong>
-            <span>{{ day.weekday }}</span>
-          </div>
-        </div>
+    <div class="sb-memo-list">
+      <client-only>
+        <masonry-wall
+          :items="sortedDays"
+          :max-columns="5"
+          :column-width="284"
+          :gap="12"
+        >
+          <template #default="{ item: day }">
+            <div class="sb-memo-list-item" @click="openSchedule">
+              <div class="pc">
+                <div class="sb-memo-list-item__date">
+                  {{ day.formattedDate }} ({{ day.weekday }})
+                </div>
+              </div>
 
-        <div class="sb-timeline-list-item__contents">
-          <ul>
-            <li
-              v-for="event in day.events"
-              :key="event.id"
-              :class="getCategoryClass(event.extendedProps.category)"
-            >
-              <p>{{ event.title }}</p>
-              <Button variant="text" v-if="event.extendedProps.isEdit">
-                <template #icon>
-                  <IconSystemEdit class="ico-system-edit" />
-                </template>
-              </Button>
-            </li>
-          </ul>
-        </div>
-      </div>
+              <div class="mo">
+                <div class="sb-memo-list-item__date">
+                  <strong>{{ day.dayOnly }}</strong>
+                  <span>{{ day.weekday }}</span>
+                </div>
+              </div>
+
+              <div class="sb-memo-list-item__contents">
+                <ul>
+                  <li
+                    v-for="event in day.events"
+                    :key="event.id"
+                    :class="getCategoryClass(event.extendedProps.category)"
+                  >
+                    <p>{{ event.title }}</p>
+                    <Button variant="text" v-if="event.extendedProps.isEdit">
+                      <template #icon>
+                        <IconSystemEdit class="ico-system-edit" />
+                      </template>
+                    </Button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </template>
+        </masonry-wall>
+      </client-only>
 
       <div class="sb-nodata" v-if="sortedDays.length === 0">
         <IconIllustrationSmile class="ico-illustration-smile" />
@@ -165,6 +172,8 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
+import MasonryWall from '@yeger/vue-masonry-wall';
+
 import DialogSchedule from '@/pages/planner/components/DialogSchedule.vue';
 import IconArrowAchevronLeft from '@/assets/icons/arrow/achevron-left.svg?component';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
@@ -241,186 +250,276 @@ const activeFilters = ref([
 const allEvents = ref([
   {
     id: '1',
-    title: '광고 예산 점검',
+    title: '원천세 및 지방세 납부',
     start: '2026-03-05',
-    extendedProps: { category: 'marketing', isEdit: false },
+    extendedProps: { category: 'tax' },
   },
   {
     id: '2',
-    title: '원천세 및 지방세 납부',
+    title: '스마트스토어 광고 종료',
     start: '2026-03-05',
-    extendedProps: { category: 'tax', isEdit: false },
+    extendedProps: { category: 'marketing' },
   },
   {
     id: '3',
-    title: '쿠팡 정산',
+    title: '지마켓 정산 점검',
     start: '2026-03-06',
-    extendedProps: { category: 'schedule', isEdit: false },
+    extendedProps: { category: 'schedule', isEdit: true },
   },
   {
     id: '4',
-    title: '재고 체크 및 월 지출 내역서 정리',
-    start: '2026-03-10',
-    extendedProps: { category: 'memo', isEdit: true },
+    title: '원천세 및 지방세 납부',
+    start: '2026-03-06',
+    extendedProps: { category: 'tax' },
   },
   {
     id: '5',
-    title: '스마트스토어 키워드 광고 종료',
-    start: '2026-03-13',
-    extendedProps: { category: 'marketing', isEdit: false },
+    title: '스마트스토어 광고 종료스마트스토어 광고 종료스마트스토어 광고 종료',
+    start: '2026-03-06',
+    extendedProps: { category: 'marketing' },
   },
   {
     id: '6',
-    title: '주간 지출 내역서 정리',
-    start: '2026-03-18',
-    extendedProps: { category: 'memo', isEdit: true },
+    title: '쿠팡 광고 종료',
+    start: '2026-03-06',
+    extendedProps: { category: 'marketing' },
   },
   {
     id: '7',
-    title: '원천세 및 지방세 납부 원천세 및 지방세 납부 원천세',
-    start: '2026-03-23',
-    extendedProps: { category: 'tax', isEdit: false },
+    title: '11번가 정산',
+    start: '2026-03-06',
+    extendedProps: { category: 'schedule' },
   },
   {
     id: '8',
-    title: '광고 예산 점검 광고 예산 점검 광고후 광고 예산 점검',
-    start: '2026-03-23',
+    title: '광고 예산 점검',
+    start: '2026-03-06',
     extendedProps: { category: 'memo', isEdit: true },
   },
   {
     id: '9',
-    title: '11번가 정산',
-    start: '2026-03-23',
-    extendedProps: { category: 'schedule', isEdit: false },
+    title: '지방세 납부',
+    start: '2026-03-06',
+    extendedProps: { category: 'tax' },
   },
   {
     id: '10',
-    title: '이월 상품 재고 관리',
-    start: '2026-03-25',
-    extendedProps: { category: 'sales', isEdit: false },
+    title: '베스트 상품 전시',
+    start: '2026-03-06',
+    extendedProps: { category: 'product' },
   },
   {
     id: '11',
-    title: '재고 체크 및 월 지출 내역서 정리',
-    start: '2026-03-31',
-    extendedProps: { category: 'memo', isEdit: true },
-  },
-  {
-    id: '11',
-    title: '만우절 깜짝 타임세일',
-    start: '2026-04-01',
+    title: '스마트스토어 광고 종료',
+    start: '2026-03-07',
     extendedProps: { category: 'marketing' },
   },
   {
     id: '12',
-    title: '여름 의류 선발주 소싱',
-    start: '2026-04-03',
-    extendedProps: { category: 'product' },
-  },
-  {
-    id: '13',
-    title: '부가가치세 예정 고지 납부',
-    start: '2026-04-05',
-    extendedProps: { category: 'tax', isEdit: true },
-  },
-  {
-    id: '14',
-    title: '지마켓/옥션 정산 확인',
-    start: '2026-04-07',
-    extendedProps: { category: 'schedule', isEdit: true },
-  },
-  {
-    id: '15',
-    title: 'SNS 인플루언서 협업 미팅',
-    start: '2026-04-10',
-    extendedProps: { category: 'marketing', isEdit: true },
-  },
-  {
-    id: '16',
-    title: '정부 지원금 신청 서류 준비',
-    start: '2026-04-18',
-    extendedProps: { category: 'loan' },
-  },
-  {
-    id: '17',
-    title: '중간고사 시즌 마케팅',
-    start: '2026-04-18',
+    title: '쿠팡 광고 종료',
+    start: '2026-03-07',
     extendedProps: { category: 'marketing' },
   },
   {
-    id: '18',
-    title: '물류 창고 이전 견적 비교',
-    start: '2026-04-18',
-    extendedProps: { category: 'memo' },
+    id: '13',
+    title: '광고 예산 점검',
+    start: '2026-03-07',
+    extendedProps: { category: 'memo', isEdit: true },
   },
   {
-    id: '19',
-    title: '1분기 매출 실적 분석',
-    start: '2026-04-18',
-    extendedProps: { category: 'sales' },
+    id: '14',
+    title: '쿠팡 광고 종료',
+    start: '2026-03-10',
+    extendedProps: { category: 'marketing' },
   },
   {
-    id: '20',
-    title: '4월 급여 지급 및 정산',
-    start: '2026-04-28',
+    id: '15',
+    title: '11번가 정산',
+    start: '2026-03-10',
     extendedProps: { category: 'schedule' },
   },
   {
+    id: '16',
+    title: '광고 예산 점검',
+    start: '2026-03-10',
+    extendedProps: { category: 'memo', isEdit: true },
+  },
+  {
+    id: '17',
+    title: '베스트 상품 전시',
+    start: '2026-03-13',
+    extendedProps: { category: 'sales' },
+  },
+  {
+    id: '18',
+    title: '쿠팡 광고 종료',
+    start: '2026-03-18',
+    extendedProps: { category: 'marketing' },
+  },
+  {
+    id: '19',
+    title: '11번가 정산',
+    start: '2026-03-18',
+    extendedProps: { category: 'schedule' },
+  },
+  {
+    id: '20',
+    title: '기업은행 대출 만기',
+    start: '2026-03-18',
+    extendedProps: { category: 'loan' },
+  },
+  {
     id: '21',
+    title: '광고 예산 점검',
+    start: '2026-03-18',
+    extendedProps: { category: 'memo', isEdit: true },
+  },
+  {
+    id: '22',
+    title: '광고 예산 점검',
+    start: '2026-03-25',
+    extendedProps: { category: 'memo', isEdit: true },
+  },
+  {
+    id: '23',
+    title: '베스트 상품 전시',
+    start: '2026-03-25',
+    extendedProps: { category: 'sales' },
+  },
+  {
+    id: '24',
+    title: '광고 예산 점검',
+    start: '2026-03-31',
+    extendedProps: { category: 'memo', isEdit: true },
+  },
+  {
+    id: '25',
+    title: '판매 점검',
+    start: '2026-03-31',
+    extendedProps: { category: 'sales' },
+  },
+  {
+    id: '26',
+    title: '광고 예산 점검',
+    start: '2026-04-05',
+    extendedProps: { category: 'marketing', isEdit: false },
+  },
+  {
+    id: '27',
+    title: '원천세 및 지방세 납부',
+    start: '2026-04-05',
+    extendedProps: { category: 'tax', isEdit: false },
+  },
+  {
+    id: '28',
+    title: '쿠팡 정산',
+    start: '2026-04-06',
+    extendedProps: { category: 'schedule', isEdit: false },
+  },
+  {
+    id: '29',
+    title: '재고 체크 및 월 지출 내역서 정리',
+    start: '2026-04-10',
+    extendedProps: { category: 'memo', isEdit: true },
+  },
+  {
+    id: '30',
+    title: '스마트스토어 키워드 광고 종료',
+    start: '2026-04-13',
+    extendedProps: { category: 'marketing', isEdit: false },
+  },
+  {
+    id: '31',
+    title: '주간 지출 내역서 정리',
+    start: '2026-04-18',
+    extendedProps: { category: 'memo', isEdit: true },
+  },
+  {
+    id: '32',
+    title: '원천세 및 지방세 납부 원천세 및 지방세 납부 원천세',
+    start: '2026-04-23',
+    extendedProps: { category: 'tax', isEdit: false },
+  },
+  {
+    id: '33',
+    title: '광고 예산 점검 광고 예산 점검 광고후 광고 예산 점검',
+    start: '2026-04-23',
+    extendedProps: { category: 'memo', isEdit: true },
+  },
+  {
+    id: '34',
+    title: '11번가 정산',
+    start: '2026-04-23',
+    extendedProps: { category: 'schedule', isEdit: false },
+  },
+  {
+    id: '35',
+    title: '이월 상품 재고 관리',
+    start: '2026-04-25',
+    extendedProps: { category: 'sales', isEdit: false },
+  },
+  {
+    id: '36',
+    title: '재고 체크 및 월 지출 내역서 정리',
+    start: '2026-04-31',
+    extendedProps: { category: 'memo', isEdit: true },
+  },
+  {
+    id: '37',
     title: '가정의 달 기획전 오픈',
     start: '2026-05-01',
     extendedProps: { category: 'marketing' },
   },
   {
-    id: '22',
+    id: '38',
     title: '어린이날 배송 마감 공지',
     start: '2026-05-03',
     extendedProps: { category: 'sales' },
   },
   {
-    id: '23',
+    id: '39',
     title: '종합소득세 신고 기간 시작',
     start: '2026-05-04',
     extendedProps: { category: 'tax' },
   },
   {
-    id: '24',
+    id: '40',
     title: '어버이날 선물세트 배송 집중',
     start: '2026-05-07',
     extendedProps: { category: 'sales' },
   },
   {
-    id: '25',
+    id: '41',
     title: '카카오페이 가맹점 정산',
     start: '2026-05-12',
     extendedProps: { category: 'schedule' },
   },
   {
-    id: '26',
+    id: '42',
     title: '스승의 날 감사제 마케팅',
     start: '2026-05-15',
     extendedProps: { category: 'marketing' },
   },
   {
-    id: '27',
+    id: '43',
     title: '하반기 상품 소싱 해외 출장',
     start: '2026-05-19',
     extendedProps: { category: 'product' },
   },
   {
-    id: '28',
+    id: '44',
     title: '종합소득세 최종 납부 확인',
     start: '2026-05-25',
     extendedProps: { category: 'tax' },
   },
   {
-    id: '29',
+    id: '45',
     title: '사업 확장 자금 추가 상담',
     start: '2026-05-28',
     extendedProps: { category: 'loan' },
   },
   {
-    id: '30',
+    id: '46',
     title: '5월 운영비 지출 증빙 정리',
     start: '2026-05-30',
     extendedProps: { category: 'memo' },
