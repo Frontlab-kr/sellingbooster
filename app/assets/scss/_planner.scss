@@ -545,132 +545,44 @@
     }
     @include breakpoint {
       &-list {
-        padding: 0 10px;
-        border-radius: 0;
-        background: none;
+        padding: 20px 20px;
         .masonry-column {
-          gap: 0 !important;
+          gap: 20px !important;
         }
         &-item {
-          display: flex;
-          gap: 16px;
-          padding: 20px 0;
-          border-radius: 0;
-          border-bottom: 1px dashed var(--time-list-item-border-color);
-          cursor: pointer;
-          &::after {
-            display: none;
-          }
+          position: relative;
+          padding: 24px 20px 28px 20px;
+
           &__date {
-            text-align: center;
-            width: 20px;
-            min-width: 20px;
-            margin: 0;
-            color: var(--time-list-item-date-text-color);
-            font-size: 12px;
+            margin-bottom: 20px;
+            font-size: 16px;
             font-style: normal;
-            font-weight: 400;
-            line-height: 140%; /* 16.8px */
-            letter-spacing: -0.3px;
-            strong {
-              color: var(--time-list-item-date-color);
-              font-size: 14px;
-              font-style: normal;
-              font-weight: 700;
-              line-height: 140%; /* 19.6px */
-              letter-spacing: -0.35px;
-            }
+            font-weight: 700;
+            line-height: 140%; /* 22.4px */
+            letter-spacing: -0.4px;
           }
           &__contents {
             ul {
               display: flex;
               align-items: flex-start;
               flex-direction: column;
-              gap: 4px;
+              gap: 10px;
               margin: 0;
               padding: 0;
               list-style: none;
               li {
                 display: inline-flex;
                 align-items: center;
-                gap: 5px;
+                gap: 8px;
                 margin: 0;
-                padding: 4px 8px;
+                padding: 0;
                 border-radius: 8px;
                 p {
-                  margin: 0;
-                  color: var(--time-list-item-text-color) !important;
                   font-size: 14px;
                   font-style: normal;
                   font-weight: 400;
                   line-height: 140%; /* 19.6px */
                   letter-spacing: -0.35px;
-                }
-                .p-button {
-                  min-width: 24px;
-                  width: 24px;
-                  height: 24px;
-                  border-radius: 8px;
-                  background: var(--time-list-item-button-background);
-                  &:hover {
-                    background: var(--time-list-item-button-background);
-                  }
-                  .ico-system-edit {
-                    min-width: 16px;
-                    width: 16px;
-                    height: 16px;
-                    color: var(--time-list-item-button-color);
-                  }
-                }
-                &::before {
-                  content: '';
-                  display: block;
-                  min-width: 8px;
-                  width: 8px;
-                  height: 8px;
-                  border-radius: 8px;
-                }
-                &.color-info {
-                  background-color: var(--timeline-background-info);
-                  &::before {
-                    background-color: var(--timeline-dot-info);
-                  }
-                }
-                &.color-success {
-                  background-color: var(--timeline-background-success);
-                  &::before {
-                    background-color: var(--timeline-dot-success);
-                  }
-                }
-                &.color-danger {
-                  background-color: var(--timeline-background-danger);
-                  &::before {
-                    background-color: var(--timeline-dot-danger);
-                  }
-                }
-                &.color-secondary {
-                  background-color: var(--timeline-background-secondary);
-                  &::before {
-                    background-color: var(--timeline-dot-secondary);
-                  }
-                }
-                &.color-warn {
-                  background-color: var(--timeline-background-warn);
-                  &::before {
-                    background-color: var(--timeline-dot-warn);
-                  }
-                }
-                &.color-primary {
-                  background-color: var(--timeline-background-primary);
-                  &::before {
-                    background-color: var(--timeline-dot-primary);
-                  }
-                }
-                &.color-contrast {
-                  background-color: var(--timeline-background-contrast);
-                  &::before {
-                    background-color: var(--timeline-dot-contrast);
-                  }
                 }
               }
             }

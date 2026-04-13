@@ -352,15 +352,21 @@ const openActiveMenu = () => {
   }
 };
 
-const updateTitle = (path) => {
-  // 1. 페이지 내 sb-planner-head__title h5가 최우선 (가장 강력)
-  const plannerTitleEl = document.querySelector('.sb-planner-head__title h5');
-  if (plannerTitleEl && plannerTitleEl.textContent.trim()) {
-    pageTitle.value = plannerTitleEl.textContent.trim();
-    return;
+const updateTitle = async (path) => {
+  // 1. 클라이언트 사이드에서만 DOM 접근 (가장 중요!)
+  if (process.client) {
+    await nextTick(); // DOM이 완전히 렌더링된 후에 읽기
+    await nextTick(); // 한 번 더 안전하게
+
+    const plannerTitleEl = document.querySelector('.sb-planner-head__title h5');
+
+    if (plannerTitleEl && plannerTitleEl.textContent.trim()) {
+      pageTitle.value = plannerTitleEl.textContent.trim();
+      return;
+    }
   }
 
-  // 2. plannerTitleEl이 없거나 비어있으면 기존 메뉴 로직으로 fallback
+  // 2. planner 제목이 없거나 서버 사이드일 경우 → 기존 메뉴 라벨로 fallback
   const allMenus = [...menu01.value, ...menu02.value];
   let targetLabel = '';
 
@@ -380,7 +386,7 @@ const updateTitle = (path) => {
     }
   }
 
-  pageTitle.value = targetLabel || 'Selling Booster'; // 기본값 설정 추천
+  pageTitle.value = targetLabel || 'Selling Booster';
 };
 
 const getMenuIcon = (item) => {

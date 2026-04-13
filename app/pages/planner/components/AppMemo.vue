@@ -76,17 +76,8 @@
         >
           <template #default="{ item: day }">
             <div class="sb-memo-list-item" @click="openSchedule">
-              <div class="pc">
-                <div class="sb-memo-list-item__date">
-                  {{ day.formattedDate }} ({{ day.weekday }})
-                </div>
-              </div>
-
-              <div class="mo">
-                <div class="sb-memo-list-item__date">
-                  <strong>{{ day.dayOnly }}</strong>
-                  <span>{{ day.weekday }}</span>
-                </div>
+              <div class="sb-memo-list-item__date">
+                {{ day.formattedDate }} ({{ day.weekday }})
               </div>
 
               <div class="sb-memo-list-item__contents">
