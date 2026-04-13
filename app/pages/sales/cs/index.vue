@@ -546,10 +546,15 @@
                     optionLabel="name"
                     style="min-width: 190px"
                   />
+
                   <DatePicker
                     v-model="dates"
                     selectionMode="range"
+                    showButtonBar
                     placeholder="날짜를 선택해주세요"
+                    ref="datePickerRef"
+                    @date-select="onDateSelect"
+                    style="min-width: 260px"
                   />
                 </div>
               </div>
@@ -795,11 +800,10 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, nextTick, watch } from 'vue';
 import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
 import IconSystemMessage from '@/assets/icons/system/message.svg?component';
 import IconSnbDocument from '@/assets/icons/snb/document.svg?component';
-import IconSystemFileCheck from '@/assets/icons/system/file-check.svg?component';
 import IconSystemFaceSad from '@/assets/icons/system/face-sad.svg?component';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 
@@ -824,7 +828,33 @@ const radioRange = [
 ];
 
 //datepicker
-const date = ref();
+const dates = ref(null);
+const datePickerRef = ref(null);
+
+const onDateSelect = async () => {
+  if (
+    Array.isArray(dates.value) &&
+    dates.value.length === 2 &&
+    dates.value[1]
+  ) {
+    await nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 400));
+
+    const dp = datePickerRef.value;
+    if (dp) {
+      dp.overlayVisible = false;
+      if (typeof dp.hide === 'function') {
+        dp.hide();
+      }
+    }
+  }
+};
+const closeCalendar = () => {
+  if (datePickerRef.value) {
+    datePickerRef.value.hide();
+    alert(1);
+  }
+};
 
 //tab
 const activeTab = ref(0);
