@@ -9,6 +9,8 @@
           showButtonBar
           placeholder="날짜를 선택해주세요"
           class="w-full"
+          ref="datePickerRef"
+          @date-select="onDateSelect"
         />
       </div>
       <div class="sb-dialog-memowrite-form-item">
@@ -46,6 +48,36 @@
 </template>
 
 <script setup>
+import { ref, nextTick } from 'vue';
+
+const dates = ref(null); // [start, end] 형태
+const datePickerRef = ref(null);
+
+// 종료일 선택 시 달력 강제 닫기
+const onDateSelect = async () => {
+  // dates가 배열이고, 정확히 2개(시작 + 종료)가 모두 선택된 경우
+  if (
+    Array.isArray(dates.value) &&
+    dates.value.length === 2 &&
+    dates.value[1]
+  ) {
+    await nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 30)); // 약간의 지연 (중요)
+
+    const dp = datePickerRef.value;
+    if (dp) {
+      // 방법 1: 가장 추천 (PrimeVue 내부 상태 직접 제어)
+      dp.overlayVisible = false;
+
+      // 방법 2: hide 메서드도 같이 시도 (일부 버전에서 필요)
+      if (typeof dp.hide === 'function') {
+        dp.hide();
+      }
+    }
+  }
+};
+
+//select
 const selectedValue = ref();
 const selectedOption = ref([
   { name: '상품 소싱' },
