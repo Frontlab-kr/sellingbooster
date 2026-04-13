@@ -312,7 +312,7 @@
                 </div>
                 <div class="sb-report-summary-product-list-foot">
                   <Button
-                    label="최저가 상품품 제안 보기"
+                    label="최저가 상품 제안 보기"
                     severity="contrast"
                     outlined
                   />
