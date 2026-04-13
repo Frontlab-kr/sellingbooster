@@ -69,6 +69,7 @@
             :like-count="item.likeCount"
             :comment-count="item.commentCount"
             :share-count="item.shareCount"
+            v-model:like-active="item.likeActive"
             @reply="
               openReplyMode();
               openReplyTo();
@@ -102,6 +103,7 @@
                 :like-count="item.likeCount"
                 :comment-count="item.commentCount"
                 :share-count="item.shareCount"
+                v-model:like-active="item.likeActive"
                 @reply="
                   openReplyMode();
                   openReplyTo();
@@ -136,6 +138,7 @@
             :like-count="item.likeCount"
             :comment-count="item.commentCount"
             :share-count="item.shareCount"
+            v-model:like-active="item.likeActive"
             @reply="
               openReplyMode();
               openReplyTo();
@@ -169,6 +172,7 @@
                 :like-count="item.likeCount"
                 :comment-count="item.commentCount"
                 :share-count="item.shareCount"
+                v-model:like-active="item.likeActive"
                 @reply="
                   openReplyMode();
                   openReplyTo();
@@ -217,6 +221,7 @@
                 :like-count="item.likeCount"
                 :comment-count="item.commentCount"
                 :share-count="item.shareCount"
+                v-model:like-active="item.likeActive"
                 @reply="
                   openReplyMode();
                   openReplyTo();
@@ -251,6 +256,7 @@
             :like-count="item.likeCount"
             :comment-count="item.commentCount"
             :share-count="item.shareCount"
+            v-model:like-active="item.likeActive"
             @reply="
               openReplyMode();
               openReplyTo();

@@ -42,76 +42,44 @@
           </div>
         </div>
         <div class="sb-trend-product-list">
-          <div class="sb-trend-product-list-item">
+          <div
+            v-for="item in analysisProducts"
+            :key="item.id"
+            class="sb-trend-product-list-item"
+          >
             <div class="sb-trend-product-list-item__favorite">
-              <IconActionFavoriteFull class="ico-action-favorite-full" />
-            </div>
-            <div class="sb-trend-product-list-item__thumb">
-              <img src="https://picsum.photos/id/1/800/800" alt="" />
-            </div>
-            <div class="sb-trend-product-list-item__title">
-              <div class="sb-trend-product-list-item__platform">
-                <span>인테리어조명</span>
-                <span>네이버쇼핑</span>
-              </div>
-              <h6>
-                무드등 LED 수유등 수면등 미니조명 인테리어조명무드등 LED 수유등
-                수면등 미니조명 인테리어조명무드등 LED 수유등 수면등 미니조명
-                인테리어조명무드등 LED 수유등 수면등 미니조명 인테리어조명무드등
-                LED 수유등 수면등 미니조명 인테리어조명
-              </h6>
-            </div>
-            <div class="sb-trend-product-list-item__category">
-              <dl>
-                <dt>카테고리</dt>
-                <dd>
-                  <span>가구/인테리어</span>
-                  <span>인테리어 소품</span>
-                  <span>조명</span>
-                  <span>인테리어 조명</span>
-                </dd>
-              </dl>
-            </div>
-            <div class="sb-trend-product-list-item__score">
-              <strong class="text-info">보통 60점</strong>
-              <p>2026.02.01</p>
-            </div>
-            <div class="sb-trend-product-list-item__button">
-              <Button variant="text">
+              <Button variant="text" @click="toggleFavorite(item)">
                 <template #icon>
-                  <IconSystemDelete class="ico-system-delete" />
+                  <IconActionFavoriteFull
+                    v-if="item.isFavorite"
+                    class="ico-action-favorite-full"
+                  />
+                  <IconActionFavorite v-else class="ico-action-favorite" />
                 </template>
               </Button>
             </div>
-          </div>
-          <div class="sb-trend-product-list-item">
-            <div class="sb-trend-product-list-item__favorite">
-              <IconActionFavoriteFull class="ico-action-favorite-full" />
-            </div>
             <div class="sb-trend-product-list-item__thumb">
               <img src="https://picsum.photos/id/1/800/800" alt="" />
             </div>
             <div class="sb-trend-product-list-item__title">
               <div class="sb-trend-product-list-item__platform">
-                <span>인테리어조명</span>
-                <span>네이버쇼핑</span>
+                <span>인테리어조명</span><span>네이버쇼핑</span>
               </div>
-              <h6>무드등 LED 수유등 수면등 미니조명 인테리어조명</h6>
+              <h6>{{ item.title }}</h6>
             </div>
             <div class="sb-trend-product-list-item__category">
               <dl>
                 <dt>카테고리</dt>
                 <dd>
-                  <span>가구/인테리어</span>
-                  <span>인테리어 소품</span>
-                  <span>조명</span>
-                  <span>인테리어 조명</span>
+                  <span v-for="cat in item.category" :key="cat">{{ cat }}</span>
                 </dd>
               </dl>
             </div>
             <div class="sb-trend-product-list-item__score">
-              <strong class="text-warn">낮음 36점</strong>
-              <p>2026.02.01</p>
+              <strong :class="item.scoreClass"
+                >{{ item.scoreText }} {{ item.score }}점</strong
+              >
+              <p>{{ item.date }}</p>
             </div>
             <div class="sb-trend-product-list-item__button">
               <Button variant="text">
@@ -144,182 +112,44 @@
           </div>
         </div>
         <div class="sb-trend-product-list">
-          <div class="sb-trend-product-list-item">
+          <div
+            v-for="item in favoriteProducts"
+            :key="item.id"
+            class="sb-trend-product-list-item"
+          >
             <div class="sb-trend-product-list-item__favorite">
-              <IconActionFavoriteFull class="ico-action-favorite-full" />
-            </div>
-            <div class="sb-trend-product-list-item__thumb">
-              <img src="https://picsum.photos/id/1/800/800" alt="" />
-            </div>
-            <div class="sb-trend-product-list-item__title">
-              <div class="sb-trend-product-list-item__platform">
-                <span>인테리어조명</span>
-                <span>네이버쇼핑</span>
-              </div>
-              <h6>무드등 LED 수유등 수면등 미니조명 인테리어조명</h6>
-            </div>
-            <div class="sb-trend-product-list-item__category">
-              <dl>
-                <dt>카테고리</dt>
-                <dd>
-                  <span>가구/인테리어</span>
-                  <span>인테리어 소품</span>
-                  <span>조명</span>
-                  <span>인테리어 조명</span>
-                </dd>
-              </dl>
-            </div>
-            <div class="sb-trend-product-list-item__score">
-              <strong class="text-success">최고 83점</strong>
-              <p>2026.02.01</p>
-            </div>
-            <div class="sb-trend-product-list-item__button">
-              <Button variant="text">
+              <Button variant="text" @click="toggleFavorite(item)">
                 <template #icon>
-                  <IconSystemDelete class="ico-system-delete" />
+                  <IconActionFavoriteFull
+                    v-if="item.isFavorite"
+                    class="ico-action-favorite-full"
+                  />
+                  <IconActionFavorite v-else class="ico-action-favorite" />
                 </template>
               </Button>
             </div>
-          </div>
-          <div class="sb-trend-product-list-item">
-            <div class="sb-trend-product-list-item__favorite">
-              <IconActionFavoriteFull class="ico-action-favorite-full" />
-            </div>
             <div class="sb-trend-product-list-item__thumb">
               <img src="https://picsum.photos/id/1/800/800" alt="" />
             </div>
             <div class="sb-trend-product-list-item__title">
               <div class="sb-trend-product-list-item__platform">
-                <span>인테리어조명</span>
-                <span>네이버쇼핑</span>
+                <span>인테리어조명</span><span>네이버쇼핑</span>
               </div>
-              <h6>무드등 LED 수유등 수면등 미니조명 인테리어조명</h6>
+              <h6>{{ item.title }}</h6>
             </div>
             <div class="sb-trend-product-list-item__category">
               <dl>
                 <dt>카테고리</dt>
                 <dd>
-                  <span>가구/인테리어</span>
-                  <span>인테리어 소품</span>
-                  <span>조명</span>
-                  <span>인테리어 조명</span>
+                  <span v-for="cat in item.category" :key="cat">{{ cat }}</span>
                 </dd>
               </dl>
             </div>
             <div class="sb-trend-product-list-item__score">
-              <strong class="text-info">보통 61점</strong>
-              <p>2026.02.01</p>
-            </div>
-            <div class="sb-trend-product-list-item__button">
-              <Button variant="text">
-                <template #icon>
-                  <IconSystemDelete class="ico-system-delete" />
-                </template>
-              </Button>
-            </div>
-          </div>
-          <div class="sb-trend-product-list-item">
-            <div class="sb-trend-product-list-item__favorite">
-              <IconActionFavoriteFull class="ico-action-favorite-full" />
-            </div>
-            <div class="sb-trend-product-list-item__thumb">
-              <img src="https://picsum.photos/id/1/800/800" alt="" />
-            </div>
-            <div class="sb-trend-product-list-item__title">
-              <div class="sb-trend-product-list-item__platform">
-                <span>인테리어조명</span>
-                <span>네이버쇼핑</span>
-              </div>
-              <h6>무드등 LED 수유등 수면등 미니조명 인테리어조명</h6>
-            </div>
-            <div class="sb-trend-product-list-item__category">
-              <dl>
-                <dt>카테고리</dt>
-                <dd>
-                  <span>가구/인테리어</span>
-                  <span>인테리어 소품</span>
-                  <span>조명</span>
-                  <span>인테리어 조명</span>
-                </dd>
-              </dl>
-            </div>
-            <div class="sb-trend-product-list-item__score">
-              <strong class="text-danger">최저 18점</strong>
-              <p>2026.02.01</p>
-            </div>
-            <div class="sb-trend-product-list-item__button">
-              <Button variant="text">
-                <template #icon>
-                  <IconSystemDelete class="ico-system-delete" />
-                </template>
-              </Button>
-            </div>
-          </div>
-          <div class="sb-trend-product-list-item">
-            <div class="sb-trend-product-list-item__favorite">
-              <IconActionFavorite class="ico-action-favorite" />
-            </div>
-            <div class="sb-trend-product-list-item__thumb">
-              <img src="https://picsum.photos/id/1/800/800" alt="" />
-            </div>
-            <div class="sb-trend-product-list-item__title">
-              <div class="sb-trend-product-list-item__platform">
-                <span>인테리어조명</span>
-                <span>네이버쇼핑</span>
-              </div>
-              <h6>무드등 LED 수유등 수면등 미니조명 인테리어조명</h6>
-            </div>
-            <div class="sb-trend-product-list-item__category">
-              <dl>
-                <dt>카테고리</dt>
-                <dd>
-                  <span>가구/인테리어</span>
-                  <span>인테리어 소품</span>
-                  <span>조명</span>
-                  <span>인테리어 조명</span>
-                </dd>
-              </dl>
-            </div>
-            <div class="sb-trend-product-list-item__score">
-              <strong class="text-warn">낮음 36점</strong>
-              <p>2026.02.01</p>
-            </div>
-            <div class="sb-trend-product-list-item__button">
-              <Button variant="text">
-                <template #icon>
-                  <IconSystemDelete class="ico-system-delete" />
-                </template>
-              </Button>
-            </div>
-          </div>
-          <div class="sb-trend-product-list-item">
-            <div class="sb-trend-product-list-item__favorite">
-              <IconActionFavorite class="ico-action-favorite" />
-            </div>
-            <div class="sb-trend-product-list-item__thumb">
-              <img src="https://picsum.photos/id/1/800/800" alt="" />
-            </div>
-            <div class="sb-trend-product-list-item__title">
-              <div class="sb-trend-product-list-item__platform">
-                <span>인테리어조명</span>
-                <span>네이버쇼핑</span>
-              </div>
-              <h6>무드등 LED 수유등 수면등 미니조명 인테리어조명</h6>
-            </div>
-            <div class="sb-trend-product-list-item__category">
-              <dl>
-                <dt>카테고리</dt>
-                <dd>
-                  <span>가구/인테리어</span>
-                  <span>인테리어 소품</span>
-                  <span>조명</span>
-                  <span>인테리어 조명</span>
-                </dd>
-              </dl>
-            </div>
-            <div class="sb-trend-product-list-item__score">
-              <strong class="text-secondary">좋음 52점</strong>
-              <p>2026.02.01</p>
+              <strong :class="item.scoreClass"
+                >{{ item.scoreText }} {{ item.score }}점</strong
+              >
+              <p>{{ item.date }}</p>
             </div>
             <div class="sb-trend-product-list-item__button">
               <Button variant="text">
@@ -359,6 +189,89 @@ const breadcrumb = ref([
   { label: '마켓 트렌드' },
   { label: '상품 분석' },
 ]);
+
+const analysisProducts = ref([
+  {
+    id: 'a1',
+    isFavorite: false,
+    title:
+      '무드등 LED 수유등 수면등 미니조명 인테리어조명무드등 LED 수유등 수면등 미니조명 인테리어조명무드등 LED 수유등 수면등 미니조명 인테리어조명무드등 LED 수유등 수면등 미니조명 인테리어조명무드등 LED 수유등 수면등 미니조명 인테리어조명',
+    category: ['가구/인테리어', '인테리어 소품', '조명', '인테리어 조명'],
+    score: 60,
+    scoreText: '보통',
+    scoreClass: 'text-info',
+    date: '2026.02.01',
+  },
+  {
+    id: 'a2',
+    isFavorite: true,
+    title: '무드등 LED 수유등 수면등 미니조명 인테리어조명',
+    category: ['가구/인테리어', '인테리어 소품', '조명', '인테리어 조명'],
+    score: 36,
+    scoreText: '낮음',
+    scoreClass: 'text-warn',
+    date: '2026.02.01',
+  },
+]);
+
+// 나의 관심 상품 리스트 데이터
+const favoriteProducts = ref([
+  {
+    id: 'f1',
+    isFavorite: true,
+    title: '무드등 LED 수유등 수면등 미니조명 인테리어조명',
+    category: ['가구/인테리어', '인테리어 소품', '조명', '인테리어 조명'],
+    score: 83,
+    scoreText: '최고',
+    scoreClass: 'text-success',
+    date: '2026.02.01',
+  },
+  {
+    id: 'f2',
+    isFavorite: true,
+    title: '무드등 LED 수유등 수면등 미니조명 인테리어조명',
+    category: ['가구/인테리어', '인테리어 소품', '조명', '인테리어 조명'],
+    score: 61,
+    scoreText: '보통',
+    scoreClass: 'text-info',
+    date: '2026.02.01',
+  },
+  {
+    id: 'f3',
+    isFavorite: true,
+    title: '무드등 LED 수유등 수면등 미니조명 인테리어조명',
+    category: ['가구/인테리어', '인테리어 소품', '조명', '인테리어 조명'],
+    score: 18,
+    scoreText: '최저',
+    scoreClass: 'text-danger',
+    date: '2026.02.01',
+  },
+  {
+    id: 'f4',
+    isFavorite: false,
+    title: '무드등 LED 수유등 수면등 미니조명 인테리어조명',
+    category: ['가구/인테리어', '인테리어 소품', '조명', '인테리어 조명'],
+    score: 36,
+    scoreText: '낮음',
+    scoreClass: 'text-warn',
+    date: '2026.02.01',
+  },
+  {
+    id: 'f5',
+    isFavorite: false,
+    title: '무드등 LED 수유등 수면등 미니조명 인테리어조명',
+    category: ['가구/인테리어', '인테리어 소품', '조명', '인테리어 조명'],
+    score: 52,
+    scoreText: '좋음',
+    scoreClass: 'text-secondary',
+    date: '2026.02.01',
+  },
+]);
+
+// 토글 함수
+const toggleFavorite = (item) => {
+  item.isFavorite = !item.isFavorite;
+};
 
 //popover
 const popoverScore = ref();
