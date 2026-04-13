@@ -115,11 +115,10 @@
                   </div>
                 </div>
                 <div class="sb-report-history-bna-list-item-button">
-                  <Button
-                    label="상품별 성과 히스토리 보기"
-                    severity="contrast"
-                    outlined
-                  />
+                  <Button severity="contrast" outlined>
+                    <span class="p-button-label">품별 성과 히스토리 보기</span>
+                    <IconArrowAchevronDown class="ico-arrow-achevron-down" />
+                  </Button>
                 </div>
               </div>
             </div>
