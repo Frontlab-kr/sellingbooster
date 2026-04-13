@@ -7,7 +7,6 @@
           v-model="dates"
           selectionMode="range"
           showButtonBar
-          showClear
           placeholder="날짜를 선택해주세요"
           class="w-full"
         />
