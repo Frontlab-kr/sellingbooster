@@ -3,6 +3,11 @@
     <div class="sb-dialog-memowrite-form">
       <div class="sb-dialog-memowrite-form-item">
         <label>일자</label>
+        <div
+          class="p-datepicker-mask"
+          :class="{ active: datePickerRef?.overlayVisible }"
+          @click="closeCalendar"
+        ></div>
         <DatePicker
           v-model="dates"
           selectionMode="range"
@@ -74,6 +79,12 @@ const onDateSelect = async () => {
         dp.hide();
       }
     }
+  }
+};
+const closeCalendar = () => {
+  if (datePickerRef.value) {
+    datePickerRef.value.hide();
+    alert(1);
   }
 };
 
