@@ -80,6 +80,8 @@
   --p-datepicker-dropdown-color: var(--p-surface-600);
   --p-datepicker-dropdown-hover-color: var(--p-surface-700);
   --p-datepicker-dropdown-active-color: var(--p-surface-800);
+  --p-datepicker-delete-icon: url(./../../icons/etc/datepicker-delete.svg)
+    no-repeat 50% 50%;
 }
 
 .p-dark {
@@ -91,6 +93,8 @@
   --p-datepicker-dropdown-color: var(--p-surface-300);
   --p-datepicker-dropdown-hover-color: var(--p-surface-200);
   --p-datepicker-dropdown-active-color: var(--p-surface-100);
+  --p-datepicker-delete-icon: url(./../../icons/etc/detepicker-delete-dark.svg)
+    no-repeat 50% 50%;
 }
 
 .p-datepicker {
@@ -173,6 +177,8 @@
   min-width: 100%;
 }
 .p-datepicker-panel {
+  min-width: 300px !important;
+  max-width: 328px;
   width: auto;
   padding: var(--p-datepicker-panel-padding);
   background: var(--p-datepicker-panel-background);
@@ -428,6 +434,7 @@
   align-items: center;
   padding: var(--p-datepicker-buttonbar-padding);
   border-block-start: 1px solid var(--p-datepicker-buttonbar-border-color);
+  border: none;
 }
 .p-datepicker-buttonbar .p-button {
   width: auto;
@@ -479,10 +486,18 @@
 .p-datepicker-clear-icon {
   position: absolute;
   top: 50%;
-  margin-top: -0.5rem;
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  border-radius: 0;
   cursor: pointer;
   color: var(--p-form-field-icon-color);
   inset-inline-end: var(--p-form-field-padding-x);
+  background: var(--p-datepicker-delete-icon);
+  path {
+    display: none;
+  }
 }
 .p-datepicker:has(.p-datepicker-dropdown) .p-datepicker-clear-icon {
   inset-inline-end: calc(
