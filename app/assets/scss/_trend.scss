@@ -1577,19 +1577,23 @@
         &-image {
           display: flex;
           justify-content: center;
+          align-items: center;
           width: 100%;
           min-height: 688px;
           padding: 40px;
           border-radius: 16px;
           background: var(--trend-sourcing-result-image-background);
           &-inner {
+            display: flex;
             position: relative;
             max-width: 390px;
             img {
               position: relative;
               z-index: 10;
               max-width: 100%;
+              max-height: 600px;
               border-radius: 16px;
+              object-fit: cover;
             }
           }
           &__point {
