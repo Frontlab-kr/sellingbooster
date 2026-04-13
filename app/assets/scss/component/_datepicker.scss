@@ -105,6 +105,7 @@
   position: relative;
   display: inline-flex;
   max-width: 100%;
+  min-width: 200px;
 }
 .p-datepicker:after {
   content: '';

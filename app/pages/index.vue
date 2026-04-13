@@ -114,7 +114,17 @@
         </template>
       </Card>
     </div>
-
+    <div>
+      <h5>성과 리포트</h5>
+      <Card>
+        <template #content>
+          <div class="flex flex-column gap-2">
+            <NuxtLink to="/report/summary">성과 요약</NuxtLink>
+            <NuxtLink to="/report/history">성과 히스토리</NuxtLink>
+          </div>
+        </template>
+      </Card>
+    </div>
     <div>
       <h5>셀링 플래너</h5>
       <Card>

@@ -1,6 +1,6 @@
 <template>
-  <div :class="['sb-chart-comparison-bar', className]">
-    <div ref="chartRef" class="echart" style="width: 100%; height: 350px"></div>
+  <div :class="['sb-chart-comparisonbar', className]">
+    <div ref="chartRef" class="echart"></div>
   </div>
 </template>
 
@@ -21,6 +21,10 @@ const props = defineProps({
 
 const chartRef = ref(null);
 let chart = null;
+let observer = null;
+
+const customFontFamily =
+  "'Pretendard JP Variable', 'Pretendard JP', 'Pretendard', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'PingFang TC', 'Noto Sans TC', sans-serif";
 
 const getCssVar = (varName) => {
   if (typeof window !== 'undefined') {
@@ -54,14 +58,35 @@ const initChart = () => {
   };
 
   const chartBackground = getCssVar('--chart-background');
-  const labelColor = getCssVar('--chart-label-color') || '#999';
-  const barBgColor = getCssVar('--chart-bar-neutral') || '#f0f2f5';
+  const labelColor = getCssVar('--chart-label-color01');
+  const barBgColor = getCssVar('--chart-comparisonbar-background');
+  const chartComparisonbarTooltipBackground = getCssVar(
+    '--chart-comparisonbar-tooltip-background',
+  );
 
-  // [핵심] 범례 이름을 자동으로 추출 (D-2, D-1, 오늘 등)
+  // [핵심] 범례 이름을 추출
   const legendNames = firstItem.data.map((d) => d.label);
   const categories = props.chartData.map((item) => item.name);
 
-  // [핵심] 시리즈 동적 생성 (인덱스 오류 해결)
+  // legendData 구성 수정: 아이콘 색상(itemStyle)을 막대 색상과 동기화
+  const legendData = legendNames.map((name, index) => {
+    // 해당 인덱스의 막대 색상을 가져옴
+    const colorKey = firstItem.data[index]?.color;
+    const actualColor = getCssVar(colorMap[colorKey]) || colorKey || '#ccc';
+
+    return {
+      name: name,
+      // 아이콘 색상을 막대 색상으로 강제 지정
+      itemStyle: {
+        color: actualColor,
+      },
+      textStyle: {
+        color: labelColor, // 텍스트는 기존 라벨 컬러 유지
+        fontSize: 12,
+      },
+    };
+  });
+
   const series = legendNames.map((label, index) => {
     return {
       name: label,
@@ -77,63 +102,87 @@ const initChart = () => {
           },
         };
       }),
-      barWidth: legendNames.length > 2 ? 18 : 24,
-      barGap: '30%',
+      barWidth: 24,
+      barGap: '50%',
       showBackground: true,
-      backgroundStyle: { color: barBgColor, borderRadius: 12 },
-      itemStyle: { borderRadius: 12 },
+      backgroundStyle: { color: barBgColor, borderRadius: [24, 24, 8, 8] },
+      itemStyle: { borderRadius: [24, 24, 8, 8] },
     };
   });
 
   const option = {
     backgroundColor: chartBackground,
+    textStyle: { fontFamily: customFontFamily },
     grid: {
-      left: '3%',
-      right: '3%',
-      bottom: '10%',
-      top: '15%',
+      left: '0',
+      right: '0',
+      bottom: '0',
+      top: '24%',
       containLabel: true,
     },
     legend: {
       right: '0',
-      top: '0',
+      top: '8',
       icon: 'circle',
-      data: legendNames,
-      textStyle: { color: labelColor, fontSize: 13 },
+      data: legendData,
+      itemWidth: 12,
+      itemHeight: 12,
+      itemGap: 20,
+      textStyle: { color: labelColor, fontSize: 12 },
     },
     tooltip: {
       show: true,
-      trigger: 'axis',
+      trigger: 'item',
       axisPointer: { type: 'none' },
-      backgroundColor: '#1f2937',
-      borderRadius: 12,
-      padding: [8, 12],
-      textStyle: { color: '#fff', fontSize: 12 },
+      backgroundColor: chartComparisonbarTooltipBackground,
+      borderWidth: 0,
+      //alwaysShowContent: true,
+      extraCssText:
+        'border-radius: 20px; box-shadow: var(--chart-comparisonbar-tooltip-boxshadow);',
+      borderRadius: 24,
+      padding: [6, 16],
+      position: function (point, params, dom, rect, size) {
+        const x = point[0];
+        const y = point[1];
+        const viewWidth = size.viewSize[0];
+        const viewHeight = size.viewSize[1];
+        const tooltipWidth = size.contentSize[0];
+        const tooltipHeight = size.contentSize[1];
+
+        let posX = x - tooltipWidth / 2;
+        let posY = y - tooltipHeight - 20; // 기본 위쪽 배치
+        let side = 'bottom';
+
+        // 화면 위쪽으로 나갈 경우 아래로 배치
+        if (posY < 0) {
+          posY = y + 20;
+          side = 'top';
+        }
+        // 좌우 경계 처리
+        if (posX < 0) posX = 5;
+        if (posX + tooltipWidth > viewWidth)
+          posX = viewWidth - tooltipWidth - 5;
+
+        return [posX, posY];
+      },
       formatter: function (params) {
-        // '오늘' 시리즈를 찾거나, 없으면 마지막 시리즈를 타겟으로 잡음
-        const target =
-          params.find((p) => p.seriesName === '오늘') ||
-          params[params.length - 1];
-        if (!target) return '';
+        const unit = params.data.unit || '';
 
-        // 데이터 가공 시 넣어둔 unit을 꺼내옴
-        const unit = target.data.unit || '';
-
-        return `<div style="display:flex; align-items:center; gap:8px;">
-                  <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background:${target.color};"></span>
-                  <span>${target.seriesName}</span>
-                  <span style="font-weight:bold; margin-left:10px;">
-                    ${target.value.toLocaleString()}${unit}
-                  </span>
+        return `<div class="sb-chart-comparisonbar-tooltip">
+                  <p><span style='background:${params.color};'></span> ${params.seriesName}</p>
+                  <strong>
+                    ${params.value.toLocaleString()}${unit}
+                  </strong>
                 </div>`;
       },
     },
+
     xAxis: {
       type: 'category',
       data: categories,
       axisLine: { show: false },
       axisTick: { show: false },
-      axisLabel: { color: labelColor, fontSize: 12, margin: 20 },
+      axisLabel: { color: labelColor, fontSize: 12, margin: 15 },
     },
     yAxis: { type: 'value', show: false },
     series: series,
@@ -153,11 +202,26 @@ watch(
 onMounted(async () => {
   await nextTick();
   initChart();
-  window.addEventListener('resize', () => chart && chart.resize());
+
+  // 테마(다크모드) 감지
+  observer = new MutationObserver(() => {
+    initChart();
+  });
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class'],
+  });
+
+  window.addEventListener('resize', handleResize);
 });
 
 onBeforeUnmount(() => {
-  window.removeEventListener('resize', () => chart && chart.resize());
+  window.removeEventListener('resize', handleResize);
+  if (observer) observer.disconnect();
   if (chart) chart.dispose();
 });
+
+const handleResize = () => {
+  if (chart) chart.resize();
+};
 </script>

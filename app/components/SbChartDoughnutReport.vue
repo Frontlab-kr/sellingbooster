@@ -1,5 +1,5 @@
 <template>
-  <div :class="['sb-chart-doughnut02', className]">
+  <div :class="['sb-chart-doughnut-report', className]">
     <div ref="chartRef" class="echart"></div>
   </div>
 </template>
@@ -16,10 +16,6 @@ const props = defineProps({
   className: {
     type: String,
     default: '',
-  },
-  showCenterText: {
-    type: Boolean,
-    default: false,
   },
 });
 
@@ -84,42 +80,22 @@ const initChart = () => {
 
   // 크기 계산 (반응형)
   const chartSize = Math.min(clientWidth * 0.6, clientHeight); // 차트 영역 비율 조절
-  const outerRadius = chartSize * 0.45; // 외경
-  const innerRadius = chartSize * 0.27; // 내경 (도넛 두께 조절)
+  const outerRadius = 105; // 외경 px (원하는 전체 크기)
+  const thickness = 26; // 도넛의 순수 굵기 px
+  const innerRadius = outerRadius - thickness; // 내경 = 외경 - 굵기
 
   const option = {
     backgroundColor: chartBackground,
     textStyle: { fontFamily: customFontFamily },
     tooltip: { show: false },
-
-    graphic: props.showCenterText
-      ? [
-          {
-            type: 'text',
-            left: '45%',
-            top: 'middle',
-            style: {
-              text: `${totalValue.toLocaleString()}건`,
-              textAlign: 'center',
-              fill: labelColor,
-              fontSize: 16,
-              fontWeight: 'bold',
-              fontFamily: customFontFamily,
-            },
-            origin: [0, 0],
-          },
-        ]
-      : [],
-
     legend: {
       orient: 'vertical',
-      right: '0%',
+      right: '5%',
       top: 'center',
       icon: 'circle',
       itemWidth: 12,
       itemHeight: 12,
       itemGap: 16,
-      width: 100,
 
       formatter: function (name) {
         const item = props.chartData.find((d) => d.name === name);
@@ -141,7 +117,7 @@ const initChart = () => {
         type: 'pie',
         // [핵심 수정] 위치 및 크기 조절
         radius: [innerRadius, outerRadius], // 도넛 형태
-        center: ['45%', '50%'], // 차트를 왼쪽으로 치우치게 배치
+        center: ['35%', '50%'], // 차트를 왼쪽으로 치우치게 배치
         avoidLabelOverlap: false,
 
         itemStyle: {
@@ -149,7 +125,15 @@ const initChart = () => {
           borderColor: chartBackground, // 항목 간 간격 효과
           borderWidth: 2,
         },
-        label: { show: false }, // 차트 자체 라벨 숨김
+        label: {
+          show: true,
+          position: 'center', // ← 핵심: 중앙에 정확히 고정
+          formatter: () => `${totalValue.toLocaleString()}건`,
+          fontSize: 16,
+          fontWeight: 'bold',
+          color: labelColor,
+          fontFamily: customFontFamily,
+        },
         emphasis: { scale: false }, // 마우스 오버 시 크기 변화 없음
         data: processedData,
       },

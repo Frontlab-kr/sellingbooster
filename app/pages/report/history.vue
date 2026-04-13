@@ -34,18 +34,52 @@
             <div class="sb-report-history-chart-menu">
               <div class="sb-report-history-chart-menu__tab">
                 <div class="sb-tab-circle">
-                  <Button label="일" variant="text" class="active" />
-                  <Button label="주" variant="text" />
-                  <Button label="월" variant="text" />
+                  <Button
+                    label="일"
+                    variant="text"
+                    class="active"
+                    v-tooltip.top="{
+                      value: '오늘 기준 이전 30일간 매출',
+                    }"
+                  />
+                  <Button
+                    label="주"
+                    variant="text"
+                    v-tooltip.top="{
+                      value: '금주 기준 이전 10주간 매출',
+                    }"
+                  />
+                  <Button
+                    label="월"
+                    variant="text"
+                    v-tooltip.top="{
+                      value: '금월 기준 이전 10개월 매출',
+                    }"
+                  />
                 </div>
                 <p>기간 : 03.01~03.30 (오늘 기준 이전 30일)</p>
               </div>
               <div class="sb-report-history-chart-menu__label">
-                <p>결제 금액(만원)</p>
-                <p>결제 건수(건)</p>
-                <p>셀링부스터 액션</p>
+                <p>
+                  <IconSystemLegendSecondary />
+                  결제 금액(만원)
+                </p>
+                <p>
+                  <IconSystemLegendWarn />
+                  결제 건수(건)
+                </p>
+                <p>
+                  <IconSystemLegendPin />
+                  셀링부스터 액션
+                </p>
               </div>
             </div>
+            <SbChartCombined
+              :sales-data="salesData"
+              :count-data="countData"
+              :booster-days="boosterDays"
+              :days="days"
+            />
           </div>
           <div class="sb-report-history-bna">
             <div class="sb-report-history-bna-head">
@@ -110,21 +144,424 @@
                 <div class="sb-report-history-bna-list-item-foot">
                   <h6>주문량 변화</h6>
                   <div class="sb-report-history-bna-list-item-foot__price">
+                    <IconArrowUp class="ico-arrow-up text-up" />
+                    <h5>158</h5>
+                    <span>%</span>
+                  </div>
+                </div>
+                <div class="sb-report-history-bna-list-item-button">
+                  <NuxtLink to="#bestPrice">
+                    <Button severity="contrast" outlined>
+                      <span class="p-button-label"
+                        >상품별 성과 히스토리 보기</span
+                      >
+                      <IconArrowAchevronDown class="ico-arrow-achevron-down" />
+                    </Button>
+                  </NuxtLink>
+                </div>
+              </div>
+              <div class="sb-report-history-bna-list-item">
+                <div class="sb-report-history-bna-list-item-head">
+                  <h5>상품명 분석/변경 효과 레포트</h5>
+                  <p>
+                    상품명 분석 진행 상품 :
+                    <strong class="text-primary">35</strong>개
+                  </p>
+                </div>
+                <div class="sb-report-history-bna-list-item-body">
+                  <div class="sb-report-history-bna-list-item-chart">
+                    <dl>
+                      <dt>
+                        <h6>전</h6>
+                        <p>(2026.03.11 ~ 2026.03.17)</p>
+                      </dt>
+                      <dd>
+                        <ul>
+                          <li>
+                            <p>7일간 매출액</p>
+                            <h6>876,000원</h6>
+                          </li>
+                          <li>
+                            <p>7일간 주문량</p>
+                            <h6>10건</h6>
+                          </li>
+                        </ul>
+                      </dd>
+                    </dl>
+                    <dl class="active">
+                      <dt>
+                        <h6>후</h6>
+                        <p>(2026.03.11 ~ 2026.03.17)</p>
+                      </dt>
+                      <dd>
+                        <ul>
+                          <li>
+                            <p>7일간 매출액</p>
+                            <h6>1,752,000원</h6>
+                          </li>
+                          <li>
+                            <p>7일간 주문량</p>
+                            <h6>20건</h6>
+                          </li>
+                        </ul>
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+                <div class="sb-report-history-bna-list-item-foot">
+                  <h6>주문량 변화</h6>
+                  <div class="sb-report-history-bna-list-item-foot__price">
+                    <IconArrowUp class="ico-arrow-up text-up" />
+                    <h5>100</h5>
+                    <span>%</span>
+                  </div>
+                </div>
+                <div class="sb-report-history-bna-list-item-button">
+                  <NuxtLink to="#productAnalysis">
+                    <Button severity="contrast" outlined>
+                      <span class="p-button-label"
+                        >상품별 성과 히스토리 보기</span
+                      >
+                      <IconArrowAchevronDown class="ico-arrow-achevron-down" />
+                    </Button>
+                  </NuxtLink>
+                </div>
+              </div>
+              <div class="sb-report-history-bna-list-item">
+                <div class="sb-report-history-bna-list-item-head">
+                  <h5>CS 분석 효과 레포트</h5>
+                  <p>
+                    CS 분석 진행 건수 :
+                    <strong class="text-primary">115</strong>개
+                  </p>
+                </div>
+                <div class="sb-report-history-bna-list-item-body">
+                  <div class="sb-report-history-bna-list-item-chart">
+                    <dl>
+                      <dt>
+                        <h6>전</h6>
+                        <p>(2026.03.11 ~ 2026.03.17)</p>
+                      </dt>
+                      <dd>
+                        <ul>
+                          <li>
+                            <p>평균 대응 시간</p>
+                            <h6>42분</h6>
+                          </li>
+                          <li>
+                            <p>고객 긍정 비율</p>
+                            <h6>72%</h6>
+                          </li>
+                        </ul>
+                      </dd>
+                    </dl>
+                    <dl class="active">
+                      <dt>
+                        <h6>후</h6>
+                        <p>(2026.03.11 ~ 2026.03.17)</p>
+                      </dt>
+                      <dd>
+                        <ul>
+                          <li>
+                            <p>평균 대응 시간</p>
+                            <h6>18분</h6>
+                          </li>
+                          <li>
+                            <p>고객 긍정 비율</p>
+                            <h6>88%</h6>
+                          </li>
+                        </ul>
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+                <div class="sb-report-history-bna-list-item-foot">
+                  <h6>고객 응대 시간 단축율</h6>
+                  <div class="sb-report-history-bna-list-item-foot__price">
+                    <IconArrowDown class="ico-arrow-down text-down" />
                     <h5>158</h5>
                     <span>%</span>
                   </div>
                 </div>
                 <div class="sb-report-history-bna-list-item-button">
                   <Button severity="contrast" outlined>
-                    <span class="p-button-label">품별 성과 히스토리 보기</span>
-                    <IconArrowAchevronDown class="ico-arrow-achevron-down" />
+                    <span class="p-button-label">CS 응대 시간 단축하기</span>
+                    <IconArrowRight class="ico-arrow-right" />
                   </Button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="sb-report-history-date"></div>
+        <div class="sb-report-history-date">
+          <div class="sb-report-history-date-title">
+            <h5>일자별 상품 히스토리</h5>
+          </div>
+          <div class="sb-report-history-date-head">
+            <div class="sb-report-history-date-head__date">
+              <strong>기준 일자</strong>
+              <DatePicker v-model="dates" placeholder="날짜를 선택해주세요" />
+            </div>
+            <p>산출 대상 기간 : 2026.03.17~2026.03.23</p>
+          </div>
+          <div class="sb-report-history-date-body">
+            <div class="sb-report-history-date-body-section" id="bestPrice">
+              <div class="sb-report-history-date-body-head">
+                <p>
+                  가격 최적가 조정 상품 수 :
+                  <strong class="text-primary">35</strong>개
+                </p>
+                <Button
+                  severity="contrast"
+                  outlined
+                  label="가격 최적가 실행 바로가기"
+                  size="small"
+                />
+              </div>
+              <div
+                v-for="(item, index) in [0, 1, 2, 3, 4]"
+                :key="index"
+                class="sb-report-history-date-list"
+                :class="{ active: openStates[index] }"
+              >
+                <div class="sb-report-history-date-list__title">
+                  <strong>2026.03.23</strong>
+                  <Button variant="text" @click="toggleList(index)">
+                    <span class="p-button-label"
+                      >4개 {{ openStates[index] ? '닫기' : '보기' }}</span
+                    >
+                    <IconArrowAchevronDown
+                      class="ico-arrow-achevron-down"
+                      :style="{
+                        transform: openStates[index]
+                          ? 'rotate(180deg)'
+                          : 'rotate(0deg)',
+                      }"
+                    />
+                  </Button>
+                </div>
+                <div class="sb-report-history-date-list__contents">
+                  <div
+                    class="sb-report-history-date-list-item"
+                    v-for="value in 4"
+                  >
+                    <div class="sb-report-history-date-list-item__product">
+                      <div class="sb-report-history-date-list-item__contents">
+                        <div class="sb-report-history-date-list-item__thumb">
+                          <img src="https://picsum.photos/200/300" alt="" />
+                        </div>
+                        <div class="sb-report-history-date-list-item__text">
+                          <div class="sb-report-history-date-list-item__title">
+                            [네이버 단독 100일분] 블랙모어스 알티지오메가3 호주
+                            프리미엄 RTG오메가3 임산부 피쉬오일 미니 캡슐 2+1
+                            [네이버 단독 100일분] 블랙모어스 알티지오메가3 호주
+                            프리미엄 RTG오메가3 임산부 피쉬오일 미니 캡슐 2+1
+                          </div>
+                          <div class="sb-report-history-date-list-item__price">
+                            <span>변경 전 28,000원</span>
+                            <IconArrowRight class="ico-arrow-right" />
+                            <strong>변경가 28,000원</strong>
+                          </div>
+                          <p>(변경일시 : 2026.03.13 16:23:16)</p>
+                        </div>
+                      </div>
+                      <div class="sb-report-history-date-list-item__button">
+                        <Button variant="text">
+                          <span class="p-button-label"
+                            >레포트 보기 : 최근 7일</span
+                          >
+                          <IconArrowAchevronDown
+                            class="ico-arrow-achevron-down"
+                          />
+                        </Button>
+                        <hr />
+                        <Button variant="text">
+                          <span class="p-button-label">상품 분석 보기</span>
+                          <IconArrowAchevronDown
+                            class="ico-arrow-achevron-down"
+                          />
+                        </Button>
+                      </div>
+                    </div>
+                    <div class="sb-report-history-date-list-item__bna">
+                      <dl>
+                        <dt>
+                          <h6>전</h6>
+                        </dt>
+                        <dd>
+                          <ul>
+                            <li>
+                              <p>
+                                <span>매출액</span>
+                                <strong>876,000원</strong>
+                              </p>
+                            </li>
+                            <li>
+                              <p>
+                                <span>주문량</span>
+                                <strong>10건</strong>
+                              </p>
+                            </li>
+                          </ul>
+                        </dd>
+                      </dl>
+                      <dl class="active">
+                        <dt>
+                          <h6>후</h6>
+                        </dt>
+                        <dd>
+                          <ul>
+                            <li>
+                              <p>
+                                <span>매출액</span>
+                                <strong>1,752,000원</strong>
+                              </p>
+                            </li>
+                            <li>
+                              <p>
+                                <span>주문량</span>
+                                <strong>20건</strong>
+                              </p>
+                            </li>
+                          </ul>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="sb-report-history-date-body-section"
+              id="productAnalysis"
+            >
+              <div class="sb-report-history-date-body-head">
+                <p>
+                  상품명 분석 진행 상품 :
+                  <strong class="text-primary">35</strong>개
+                </p>
+                <Button
+                  severity="contrast"
+                  outlined
+                  label="상품명 분석 바로가기"
+                  size="small"
+                />
+              </div>
+              <div
+                v-for="(item, index) in [0, 1, 2, 3, 4]"
+                :key="index"
+                class="sb-report-history-date-list"
+                :class="{ active: openStates[index] }"
+              >
+                <div class="sb-report-history-date-list__title">
+                  <strong>2026.03.23</strong>
+                  <Button variant="text" @click="toggleList(index)">
+                    <span class="p-button-label"
+                      >4개 {{ openStates[index] ? '닫기' : '보기' }}</span
+                    >
+                    <IconArrowAchevronDown
+                      class="ico-arrow-achevron-down"
+                      :style="{
+                        transform: openStates[index]
+                          ? 'rotate(180deg)'
+                          : 'rotate(0deg)',
+                      }"
+                    />
+                  </Button>
+                </div>
+                <div class="sb-report-history-date-list__contents">
+                  <div
+                    class="sb-report-history-date-list-item"
+                    v-for="value in 4"
+                  >
+                    <div class="sb-report-history-date-list-item__product">
+                      <div class="sb-report-history-date-list-item__contents">
+                        <div class="sb-report-history-date-list-item__thumb">
+                          <img src="https://picsum.photos/200/300" alt="" />
+                        </div>
+                        <div class="sb-report-history-date-list-item__text">
+                          <div class="sb-report-history-date-list-item__title">
+                            [네이버 단독 100일분] 블랙모어스 알티지오메가3 호주
+                            프리미엄 RTG오메가3 임산부 피쉬오일 미니 캡슐 2+1
+                            [네이버 단독 100일분] 블랙모어스 알티지오메가3 호주
+                            프리미엄 RTG오메가3 임산부 피쉬오일 미니 캡슐 2+1
+                          </div>
+                          <div class="sb-report-history-date-list-item__price">
+                            <span>변경 전 28,000원</span>
+                            <IconArrowRight class="ico-arrow-right" />
+                            <strong>변경가 28,000원</strong>
+                          </div>
+                          <p>(변경일시 : 2026.03.13 16:23:16)</p>
+                        </div>
+                      </div>
+                      <div class="sb-report-history-date-list-item__button">
+                        <Button variant="text">
+                          <span class="p-button-label"
+                            >레포트 보기 : 최근 7일</span
+                          >
+                          <IconArrowAchevronDown
+                            class="ico-arrow-achevron-down"
+                          />
+                        </Button>
+                        <hr />
+                        <Button variant="text">
+                          <span class="p-button-label">상품 분석 보기</span>
+                          <IconArrowAchevronDown
+                            class="ico-arrow-achevron-down"
+                          />
+                        </Button>
+                      </div>
+                    </div>
+                    <div class="sb-report-history-date-list-item__bna">
+                      <dl>
+                        <dt>
+                          <h6>전</h6>
+                        </dt>
+                        <dd>
+                          <ul>
+                            <li>
+                              <p>
+                                <span>매출액</span>
+                                <strong>876,000원</strong>
+                              </p>
+                            </li>
+                            <li>
+                              <p>
+                                <span>주문량</span>
+                                <strong>10건</strong>
+                              </p>
+                            </li>
+                          </ul>
+                        </dd>
+                      </dl>
+                      <dl class="active">
+                        <dt>
+                          <h6>후</h6>
+                        </dt>
+                        <dd>
+                          <ul>
+                            <li>
+                              <p>
+                                <span>매출액</span>
+                                <strong>1,752,000원</strong>
+                              </p>
+                            </li>
+                            <li>
+                              <p>
+                                <span>주문량</span>
+                                <strong>20건</strong>
+                              </p>
+                            </li>
+                          </ul>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <SbBanner />
       </div>
     </div>
@@ -134,14 +571,12 @@
 <script setup>
 import { ref, watch } from 'vue';
 import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
-import IconSystemMessage from '@/assets/icons/system/message.svg?component';
-import IconSnbDocument from '@/assets/icons/snb/document.svg?component';
-import IconSystemFileCheck from '@/assets/icons/system/file-check.svg?component';
-import IconSystemFaceSad from '@/assets/icons/system/face-sad.svg?component';
-import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
-
-import IconSystemSmartstore from '@/assets/icons/system/smartstore.png';
+import IconArrowUp from '@/assets/icons/arrow/up.svg?component';
+import IconArrowDown from '@/assets/icons/arrow/down.svg?component';
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
+import IconSystemLegendSecondary from '@/assets/icons/system/legend-secondary.svg?component';
+import IconSystemLegendWarn from '@/assets/icons/system/legend-warn.svg?component';
+import IconSystemLegendPin from '@/assets/icons/system/legend-pin.svg?component';
 
 //breadcrumb
 const breadcrumb = ref([
@@ -150,128 +585,24 @@ const breadcrumb = ref([
   { label: '성과 히스토리' },
 ]);
 
-//data
-const dailyStats = ref([
-  {
-    date: '오늘',
-    orderCount: '123,456,789 건',
-    totalAmount: '123,456,789 건',
-    confirmCount: '123,456,789 건',
-    refundCount: '123,456,789 건',
-    cancelCount: '123,456,789 건',
-  },
-  {
-    date: 'D-1 (어제)',
-    orderCount: '123,456,789 건',
-    totalAmount: '123,456,789 건',
-    confirmCount: '123,456,789 건',
-    refundCount: '123,456,789 건',
-    cancelCount: '123,456,789 건',
-  },
-  {
-    date: 'D-2 (그제)',
-    orderCount: '123,456,789 건',
-    totalAmount: '123,456,789 건',
-    confirmCount: '123,456,789 건',
-    refundCount: '123,456,789 건',
-    cancelCount: '123,456,789 건',
-  },
-]);
+// 리스트의 개별 토글 상태 관리 (index를 키로 사용)
+const openStates = ref({});
+
+const toggleList = (index) => {
+  openStates.value[index] = !openStates.value[index];
+};
 
 //chart
-const salesStatsData = ref([
-  {
-    name: '매출 금액',
-    unit: '원',
-    data: [
-      { label: 'D-1', value: 8500, color: 'successColor' },
-      { label: '오늘', value: 1236, color: 'primaryColor' },
-    ],
-  },
-  {
-    name: '주문 건수',
-    unit: '건',
-    data: [
-      { label: 'D-1', value: 4225, color: 'successColor' },
-      { label: '오늘', value: 2222, color: 'primaryColor' },
-    ],
-  },
-]);
-const comparisonStatsData = ref([
-  {
-    name: '주문 건수',
-    unit: '건',
-    data: [
-      { label: 'D-2', value: 4000, color: 'warnColor' }, // 노란색
-      { label: 'D-1', value: 4000, color: 'successColor' }, // 초록색
-      { label: '오늘', value: 4000, color: 'primaryColor' }, // 보라색
-    ],
-  },
-  {
-    name: '총 결제 금액',
-    unit: '원',
-    data: [
-      { label: 'D-2', value: 4000, color: 'warnColor' },
-      { label: 'D-1', value: 4000, color: 'successColor' },
-      { label: '오늘', value: 4000, color: 'primaryColor' },
-    ],
-  },
-  {
-    name: '결제 확정 건수',
-    unit: '건',
-    data: [
-      { label: 'D-2', value: 4000, color: 'warnColor' },
-      { label: 'D-1', value: 4000, color: 'successColor' },
-      { label: '오늘', value: 4000, color: 'primaryColor' },
-    ],
-  },
-  {
-    name: '환불 건수',
-    unit: '건',
-    data: [
-      { label: 'D-2', value: 4000, color: 'warnColor' },
-      { label: 'D-1', value: 4000, color: 'successColor' },
-      { label: '오늘', value: 4000, color: 'primaryColor' },
-    ],
-  },
-  {
-    name: '취소 건수',
-    data: [
-      { label: 'D-2', value: 4000, color: 'warnColor' },
-      { label: 'D-1', value: 4000, color: 'successColor' },
-      { label: '오늘', value: 4000, color: 'primaryColor' },
-    ],
-  },
+const salesData = ref([
+  1300, 1600, 1300, 2100, 2200, 2300, 3000, 3100, 2500, 3700, 3000, 4200, 4000,
+  3700, 3500, 3000, 3700, 4100, 3100, 2600, 3900, 3700, 3000, 3800, 2600, 2100,
+  1300, 1100, 1300, 1900,
 ]);
 
-const csChartData = ref([
-  { value: 2696, name: '일반문의', color: 'secondaryColor' },
-  { value: 449, name: '요청/제안', color: 'warnColor' },
-  { value: 449, name: '반불만/불평', color: 'neutralColor' },
+const countData = ref([
+  220, 240, 210, 280, 270, 310, 340, 380, 280, 430, 370, 460, 390, 340, 420,
+  350, 440, 410, 350, 300, 430, 340, 260, 370, 220, 160, 130, 150, 190, 190,
 ]);
-const categoryStats = ref([
-  { value: 13, name: '사이즈 문의', color: 'infoColor' },
-  { value: 1, name: '배송 문의', color: 'successColor' },
-  { value: 10, name: '재고/옵션', color: 'secondaryColor' },
-  { value: 5, name: '교환/반품', color: 'dangerColor' },
-  { value: 20, name: '상품 정보', color: 'warnColor' },
-  { value: 20, name: '가격/할인', color: 'primaryColor' },
-  { value: 24, name: '기타', color: 'contrastColor' },
-]);
-const inquiryTypeStats = ref([
-  {
-    value: 20000,
-    color: 'successColor',
-    badgeValue: '매우좋음',
-  },
-  { value: 15000, color: 'secondaryColor', badgeValue: '좋음' },
-  {
-    value: 10000,
-    color: 'infoColor',
-    badgeValue: '보통',
-  },
 
-  { value: 5000, color: 'warnColor', badgeValue: '나쁨' },
-  { value: 1000, color: 'dangerColor', badgeValue: '매우나쁨' },
-]);
+const boosterDays = ref([4, 12, 18, 26]);
 </script>

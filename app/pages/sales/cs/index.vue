@@ -527,7 +527,7 @@
                 <dl class="sb-sales-cs-chart-item">
                   <dt>문의 유형 별 현황</dt>
                   <dd>
-                    <SbChartDoughnut02 :chartData="csChartData" />
+                    <SbChartDoughnutCs :chartData="csChartData" />
                   </dd>
                 </dl>
               </div>

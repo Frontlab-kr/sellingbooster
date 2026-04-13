@@ -34,7 +34,7 @@
         ></span>
       </div>
 
-      <div class="sb-chart-segment-item__legend">
+      <div class="sb-chart-segment-item__legend" v-if="item.name">
         {{ item.name }}
       </div>
 

@@ -306,6 +306,16 @@
   --chart-comparisonbar-danger: var(--p-red-500);
   --chart-comparisonbar-contrast: var(--p-gray-500);
   --chart-comparisonbar-neutral: var(--p-gray-200);
+  --chart-comparisonbar-background: var(--p-gray-200);
+  --chart-comparisonbar-tooltip-color: var(--p-gray-00);
+  --chart-comparisonbar-tooltip-background: var(--p-gray-900);
+  --chart-comparisonbar-tooltip-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+
+  --chart-comparisonbar-horizontal-item-color: var(--p-gray-500);
+  --chart-comparisonbar-horizontal-progress-background: var(--p-gray-200);
+  --chart-comparisonbar-horizontal-success: var(--p-green-500);
+  --chart-comparisonbar-horizontal-warn: var(--p-orange-500);
+  --chart-comparisonbar-horizontal-danger: var(--p-red-500);
 
   --chart-line-background: var(--p-gray-00);
   --chart-line-primary: var(--p-primary-500);
@@ -354,6 +364,13 @@
   --chart-stackedbar-warn: var(--p-orange-500);
   --chart-stackedbar-danger: var(--p-red-500);
   --chart-stackedbar-contrast: var(--p-gray-500);
+
+  --chart-combined-warn: var(--p-orange-400);
+  --chart-combined-secondary: var(--p-slate-400);
+  --chart-combined-tooltip-color: var(--p-gray-00);
+  --chart-combined-tooltip-background: var(--p-gray-900);
+  --chart-combined-tooltip-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+  --chart-combined-border-color: var(--p-gray-300);
 
   --chart-label-color01: var(--p-gray-500);
   --chart-label-color02: var(--p-gray-900);
@@ -732,9 +749,6 @@
   --keyword-ksnapp-list-item-title-color: var(--p-gray-900);
   --keyword-relation-title-text-color: var(--p-gray-600);
 
-  //report
-  --report-background: var(--p-gray-00);
-
   //sales
   --sales-background: var(--p-gray-00);
   --sales-info-text: var(--p-gray-400);
@@ -852,6 +866,59 @@
   --memo-item-text-color: var(--p-gray-900);
   --memo-item-button-background: var(--p-gray-200);
   --memo-item-button-color: var(--p-gray-400);
+
+  //report
+  --report-background: var(--p-gray-00);
+  --report-summary-head-list-border-color: var(--p-gray-300);
+  --report-summary-head-list-text-color: var(--p-gray-900);
+  --report-summary-section-head-text-color: var(--p-gray-400);
+  --report-summary-section-item-background: var(--p-gray-50);
+  --report-summary-section-item-title-color: var(--p-gray-500);
+  --report-summary-chart-head-text-color: var(--p-gray-400);
+  --report-summary-product-item-border-color: var(--p-gray-300);
+  --report-summary-product-list-head-color: var(--p-gray-900);
+  --report-summary-product-list-item-background: var(--p-gray-50);
+  --report-summary-product-list-title-color: var(--p-gray-900);
+  --report-summary-product-list-price-color: var(--p-gray-500);
+  --report-summary-product-list-icon-color: var(--p-gray-400);
+  --report-summary-product-list-text-color: var(--p-gray-400);
+  --report-summary-product-list-number-color: var(--p-gray-500);
+
+  --report-history-chart-border-color: var(--p-gray-300);
+  --report-history-chart-head-title-color: var(--p-gray-500);
+  --report-history-chart-head-text-color: var(--p-gray-900);
+  --report-history-chart-menu-text-color: var(--p-gray-400);
+  --report-history-chart-menu-label-color: var(--p-gray-500);
+  --report-history-bna-menu-date-title-color: var(--p-gray-900);
+  --report-history-bna-menu-text-color: var(--p-gray-400);
+  --report-history-bna-list-item-background: var(--p-gray-50);
+  --report-history-bna-list-item-head-text-color: var(--p-gray-900);
+  --report-history-bna-list-item-chart-background: var(--p-gray-00);
+  --report-history-bna-list-item-chart-title-color: var(--p-gray-500);
+  --report-history-bna-list-item-chart-text-color: var(--p-gray-400);
+  --report-history-bna-list-item-chart-item-border-color: var(--p-gray-300);
+  --report-history-bna-list-item-chart-item-text-color: var(--p-gray-400);
+  --report-history-bna-list-item-foot-price-color: var(--p-gray-500);
+
+  --report-history-date-head-border-color: var(--p-gray-300);
+  --report-history-date-head-date-title-color: var(--p-gray-900);
+  --report-history-date-head-date-text-color: var(--p-gray-400);
+  --report-history-date-body-head-text-color: var(--p-gray-900);
+  --report-history-date-body-section-border-color: var(--p-gray-300);
+  --report-history-date-body-list-border-color: var(--p-gray-300);
+  --report-history-date-body-list-title-color: var(--p-gray-500);
+  --report-history-date-body-list-item-background: var(--p-gray-50);
+  --report-history-date-body-list-item-text-color: var(--p-gray-400);
+  --report-history-date-body-list-item-title-color: var(--p-gray-900);
+  --report-history-date-body-list-item-price-text-color: var(--p-gray-500);
+  --report-history-date-body-list-item-price-ico-color: var(--p-gray-400);
+  --report-history-date-body-list-item-price-title-color: var(--p-gray-900);
+  --report-history-date-body-list-item-button-border-color: var(--p-gray-300);
+  --report-history-date-body-list-item-bna-background: var(--p-gray-00);
+  --report-history-date-body-list-item-bna-title-color: var(--p-gray-500);
+  --report-history-date-body-list-item-bna-border-color: var(--p-gray-300);
+  --report-history-date-body-list-item-bna-item-text-color: var(--p-gray-400);
+  --report-history-date-body-list-item-bna-item-title-color: var(--p-gray-500);
 
   //full calendar
   --fc-holiday-color: var(--p-red-500);
@@ -1069,6 +1136,16 @@
     --chart-comparisonbar-danger: var(--p-red-400);
     --chart-comparisonbar-contrast: var(--p-gray-400);
     --chart-comparisonbar-neutral: var(--p-gray-300);
+    --chart-comparisonbar-background: var(--p-gray-700);
+    --chart-comparisonbar-tooltip-color: var(--p-gray-900);
+    --chart-comparisonbar-tooltip-background: var(--p-gray-00);
+    --chart-comparisonbar-tooltip-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+
+    --chart-comparisonbar-horizontal-item-color: var(--p-gray-300);
+    --chart-comparisonbar-horizontal-progress-background: var(--p-gray-700);
+    --chart-comparisonbar-horizontal-success: var(--p-green-400);
+    --chart-comparisonbar-horizontal-warn: var(--p-orange-400);
+    --chart-comparisonbar-horizontal-danger: var(--p-red-400);
 
     --chart-line-primary: var(--p-primary-300);
     --chart-line-secondary: var(--p-slate-600);
@@ -1116,6 +1193,13 @@
     --chart-stackedbar-warn: var(--p-orange-400);
     --chart-stackedbar-danger: var(--p-red-400);
     --chart-stackedbar-contrast: var(--p-gray-400);
+
+    --chart-combined-warn: var(--p-orange-400);
+    --chart-combined-secondary: var(--p-slate-400);
+    --chart-combined-tooltip-color: var(--p-gray-900);
+    --chart-combined-tooltip-background: var(--p-gray-00);
+    --chart-combined-tooltip-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+    --chart-combined-border-color: var(--p-gray-600);
 
     --chart-label-color01: var(--p-gray-300);
     --chart-label-color02: var(--p-gray-00);
@@ -1605,6 +1689,61 @@
     --memo-item-text-color: var(--p-gray-00);
     --memo-item-button-background: var(--p-gray-600);
     --memo-item-button-color: var(--p-gray-400);
+
+    //report
+    --report-background: var(--p-gray-800);
+    --report-summary-head-list-border-color: var(--p-gray-600);
+    --report-summary-head-list-text-color: var(--p-gray-00);
+    --report-summary-section-head-text-color: var(--p-gray-400);
+    --report-summary-section-item-background: var(--p-gray-900);
+    --report-summary-section-item-title-color: var(--p-gray-400);
+    --report-summary-chart-head-text-color: var(--p-gray-400);
+    --report-summary-product-item-border-color: var(--p-gray-600);
+    --report-summary-product-list-head-color: var(--p-gray-00);
+    --report-summary-product-list-item-background: var(--p-gray-900);
+    --report-summary-product-list-title-color: var(--p-gray-00);
+    --report-summary-product-list-price-color: var(--p-gray-00);
+    --report-summary-product-list-icon-color: var(--p-gray-400);
+    --report-summary-product-list-text-color: var(--p-gray-400);
+    --report-summary-product-list-number-color: var(--p-gray-300);
+
+    --report-history-chart-border-color: var(--p-gray-600);
+    --report-history-chart-head-title-color: var(--p-gray-300);
+    --report-history-chart-head-text-color: var(--p-gray-00);
+    --report-history-chart-menu-text-color: var(--p-gray-400);
+    --report-history-chart-menu-label-color: var(--p-gray-300);
+    --report-history-bna-menu-date-title-color: var(--p-gray-00);
+    --report-history-bna-menu-text-color: var(--p-gray-400);
+    --report-history-bna-list-item-background: var(--p-gray-900);
+    --report-history-bna-list-item-head-text-color: var(--p-gray-00);
+    --report-history-bna-list-item-chart-background: var(--p-gray-800);
+    --report-history-bna-list-item-chart-title-color: var(--p-gray-300);
+    --report-history-bna-list-item-chart-text-color: var(--p-gray-400);
+    --report-history-bna-list-item-chart-item-border-color: var(--p-gray-600);
+    --report-history-bna-list-item-chart-item-text-color: var(--p-gray-400);
+    --report-history-bna-list-item-foot-price-color: var(--p-gray-300);
+
+    --report-history-date-head-border-color: var(--p-gray-600);
+    --report-history-date-head-date-title-color: var(--p-gray-00);
+    --report-history-date-head-date-text-color: var(--p-gray-400);
+    --report-history-date-body-head-text-color: var(--p-gray-00);
+    --report-history-date-body-section-border-color: var(--p-gray-600);
+    --report-history-date-body-list-border-color: var(--p-gray-600);
+    --report-history-date-body-list-title-color: var(--p-gray-300);
+    --report-history-date-body-list-item-background: var(--p-gray-900);
+    --report-history-date-body-list-item-text-color: var(--p-gray-400);
+    --report-history-date-body-list-item-title-color: var(--p-gray-00);
+    --report-history-date-body-list-item-price-text-color: var(--p-gray-300);
+    --report-history-date-body-list-item-price-ico-color: var(--p-gray-400);
+    --report-history-date-body-list-item-price-title-color: var(--p-gray-00);
+    --report-history-date-body-list-item-button-border-color: var(--p-gray-600);
+    --report-history-date-body-list-item-bna-background: var(--p-gray-800);
+    --report-history-date-body-list-item-bna-title-color: var(--p-gray-300);
+    --report-history-date-body-list-item-bna-border-color: var(--p-gray-600);
+    --report-history-date-body-list-item-bna-item-text-color: var(--p-gray-400);
+    --report-history-date-body-list-item-bna-item-title-color: var(
+      --p-gray-300
+    );
 
     //full calendar
     --fc-holiday-color: var(--p-red-400);

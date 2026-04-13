@@ -560,7 +560,6 @@
 
 <script setup>
 import { useToast } from 'primevue/usetoast';
-import analyze from '@/pages/sales/components/analyze.vue';
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
 import IconSystemSmartstore from '@/assets/icons/system/smartstore.png';
 import IconSystemCoupang from '@/assets/icons/system/coupang.png';
