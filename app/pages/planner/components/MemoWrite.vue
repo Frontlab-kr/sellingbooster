@@ -62,7 +62,7 @@ const onDateSelect = async () => {
     dates.value[1]
   ) {
     await nextTick();
-    await new Promise((resolve) => setTimeout(resolve, 30)); // 약간의 지연 (중요)
+    await new Promise((resolve) => setTimeout(resolve, 400)); // 약간의 지연 (중요)
 
     const dp = datePickerRef.value;
     if (dp) {
