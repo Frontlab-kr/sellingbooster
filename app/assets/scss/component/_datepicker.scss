@@ -72,8 +72,8 @@
   --p-datepicker-panel-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.15);
   --p-datepicker-panel-padding: 24px;
   --p-datepicker-transition-duration: var(--p-transition-duration);
-  --p-datepicker-today-background: var(--p-surface-200);
-  --p-datepicker-today-color: var(--p-surface-900);
+  --p-datepicker-today-background: none;
+  --p-datepicker-today-color: var(--color-primary);
   --p-datepicker-dropdown-background: var(--p-surface-100);
   --p-datepicker-dropdown-hover-background: var(--p-surface-200);
   --p-datepicker-dropdown-active-background: var(--p-surface-300);

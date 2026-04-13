@@ -353,8 +353,17 @@ const openActiveMenu = () => {
 };
 
 const updateTitle = (path) => {
+  // 1. 페이지 내 sb-planner-head__title h5가 최우선 (가장 강력)
+  const plannerTitleEl = document.querySelector('.sb-planner-head__title h5');
+  if (plannerTitleEl && plannerTitleEl.textContent.trim()) {
+    pageTitle.value = plannerTitleEl.textContent.trim();
+    return;
+  }
+
+  // 2. plannerTitleEl이 없거나 비어있으면 기존 메뉴 로직으로 fallback
   const allMenus = [...menu01.value, ...menu02.value];
   let targetLabel = '';
+
   for (const mainItem of allMenus) {
     if (mainItem.items) {
       const subItem = mainItem.items.find(
@@ -365,10 +374,13 @@ const updateTitle = (path) => {
         break;
       }
     }
-    if (mainItem.route && path.startsWith(mainItem.route))
+    if (mainItem.route && path.startsWith(mainItem.route)) {
       targetLabel = mainItem.label;
+      break;
+    }
   }
-  pageTitle.value = targetLabel || '';
+
+  pageTitle.value = targetLabel || 'Selling Booster'; // 기본값 설정 추천
 };
 
 const getMenuIcon = (item) => {

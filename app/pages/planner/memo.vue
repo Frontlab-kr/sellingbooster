@@ -2,7 +2,7 @@
   <div class="sb-planner">
     <div class="sb-planner-head">
       <div class="sb-planner-head__title">
-        <h5>메모</h5>
+        <h5>셀링 플래너</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>

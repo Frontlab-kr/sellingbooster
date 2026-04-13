@@ -2,7 +2,7 @@
   <div class="sb-planner">
     <div class="sb-planner-head">
       <div class="sb-planner-head__title">
-        <h5>타임라인</h5>
+        <h5>셀링 플래너</h5>
         <Breadcrumb :model="breadcrumb" />
       </div>
     </div>
@@ -39,21 +39,44 @@
         </ClientOnly>
         <div class="sb-planner-body-button">
           <div class="pc">
-            <Button label="메모 등록" severity="primary" />
+            <Button
+              label="메모 등록"
+              severity="primary"
+              @click="openMemoWrite"
+            />
           </div>
           <div class="mo">
-            <Button label="메모 등록" severity="primary" size="large" />
+            <Button
+              label="메모 등록"
+              severity="primary"
+              size="large"
+              @click="openMemoWrite"
+            />
           </div>
         </div>
       </div>
       <Schedule />
     </div>
   </div>
+
+  <Dialog v-model:visible="dialogMemoWrite" modal>
+    <div class="p-dialog-inner">
+      <h6 class="p-dialog-title">잊으면 안되는 개인 일정을 메모하세요.</h6>
+      <MemoWrite />
+    </div>
+  </Dialog>
 </template>
 
 <script setup>
 import Schedule from './components/Schedule.vue';
 import AppTimeline from './components/AppTimeline.vue';
+import MemoWrite from './components/MemoWrite.vue';
+
+const dialogMemoWrite = ref(false);
+
+const openMemoWrite = () => {
+  dialogMemoWrite.value = true;
+};
 
 //breadcrumb
 const breadcrumb = ref([
