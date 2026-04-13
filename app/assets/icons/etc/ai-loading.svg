@@ -4,18 +4,18 @@
     @keyframes sparkle {
       0%, 100% {
         opacity: 0.2; /* 최대로 흐려질 때 */
-        
+        transform: scale(0.9); 
       }
       50% {
         opacity: 1; /* 최대로 밝아질 때 */
-        
+        transform: scale(1.1);
       }
     }
 
     /* 모든 path에 공통 적용 */
     .star {
       transform-origin: center; /* 변형 기준점을 center로 설정 */
-      animation: sparkle 2s infinite ease-in-out; /* 2초 주기로 무한 반복, 부드럽게 */
+      animation: sparkle 1.8s infinite ease-in-out; /* 2초 주기로 무한 반복, 부드럽게 */
     }
 
     /* 각 별마다 다른 지연 시간(delay) 부여 */

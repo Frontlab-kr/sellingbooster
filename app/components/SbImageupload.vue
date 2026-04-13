@@ -7,6 +7,7 @@
     :class="{ 'is-dragging': isDragging }"
   >
     <FileUpload
+      :key="fileKey"
       ref="fileUploadRef"
       mode="advanced"
       name="demo[]"
@@ -43,7 +44,15 @@
 </template>
 
 <script setup>
-import { ref, defineProps, defineEmits, defineExpose, nextTick } from 'vue';
+import {
+  ref,
+  defineProps,
+  defineEmits,
+  defineExpose,
+  nextTick,
+  onMounted,
+  onUnmounted,
+} from 'vue';
 
 const props = defineProps({
   accept: { type: String, default: 'image/*' },
@@ -104,12 +113,35 @@ const onDrop = (e) => {
 const onSelectedFiles = (event) => {
   if (event?.files) {
     emit('update-files', [...event.files]);
+    resetFileInput(); // ← 여기에도 추가
   }
 };
 
 // 개별 파일 제거
 const onRemoveFile = (event) => {
-  emit('update-files', event.files ? [...event.files] : []);
+  emit('update-files', [...event.files]);
+  resetFileInput();
+};
+
+const resetFileInput = async () => {
+  if (!fileUploadRef.value) return;
+
+  await nextTick();
+
+  const input = fileUploadRef.value.$el.querySelector('input[type="file"]');
+  if (!input) return;
+
+  // 1. 기본 초기화
+  input.value = '';
+
+  // 2. DataTransfer로 완전 새 파일 리스트 생성 (가장 중요!)
+  const dt = new DataTransfer();
+  input.files = dt.files;
+
+  // 3. PrimeVue 내부 상태도 강제로 동기화
+  if (fileUploadRef.value.files) {
+    fileUploadRef.value.files = [];
+  }
 };
 
 // 전체 초기화
@@ -125,6 +157,53 @@ const onClearFiles = async () => {
     fileUploadRef.value.files = [];
   }
 };
+
+const onPaste = (e) => {
+  const items = e.clipboardData?.items;
+  if (!items) return;
+
+  const files = [];
+  for (const item of items) {
+    if (item.type.indexOf('image') !== -1) {
+      files.push(item.getAsFile());
+    }
+  }
+
+  if (files.length > 0) {
+    // 기존 onDrop 로직을 재사용하거나 별도 함수로 분리하여 호출
+    handleManualFileUpload(files);
+  }
+};
+
+// 파일 주입 로직 공통화
+const handleManualFileUpload = (newFiles) => {
+  if (!fileUploadRef.value) return;
+
+  const currentFiles = fileUploadRef.value.files || [];
+  const allowedCount = Math.max(0, props.limit - currentFiles.length);
+  const filesToAdd = newFiles.slice(0, allowedCount);
+
+  if (filesToAdd.length > 0) {
+    const dt = new DataTransfer();
+    filesToAdd.forEach((file) => dt.items.add(file));
+
+    const input = fileUploadRef.value.$el.querySelector('input[type="file"]');
+    if (input) {
+      input.files = dt.files;
+      input.dispatchEvent(new Event('change', { bubbles: true }));
+    }
+  } else {
+    alert(`최대 ${props.limit}개까지만 업로드 가능합니다.`);
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('paste', onPaste);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('paste', onPaste);
+});
 
 defineExpose({
   clear: onClearFiles,
