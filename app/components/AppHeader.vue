@@ -187,6 +187,9 @@ const menu01 = ref([
     route: '/trend/recommend',
     items: [
       { label: '추천 기회', route: '/trend/recommend' },
+      { label: '나의 랭킹찾기', route: '/trend/recommend/ranking' },
+      { label: '아이템 소싱', route: '/trend/recommend/sourcing' },
+      { label: '상품명 생성하기', route: '/trend/recommend/write' },
       { label: '키워드 분석', route: '/trend/keyword' },
       { label: '상품 분석', route: '/trend/product' },
       { label: '분석 결과', route: '/trend/analysis' },

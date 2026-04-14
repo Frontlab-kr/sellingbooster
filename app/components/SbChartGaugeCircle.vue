@@ -10,9 +10,9 @@ import * as echarts from 'echarts';
 
 const props = defineProps({
   score: { type: Number, default: 0 },
-  totalScore: { type: Number, default: 100 },
-  unitText: { type: String, default: '점' },
 });
+
+const chartValue = props.score;
 
 const chartRef = ref(null);
 let chart = null;
@@ -54,15 +54,7 @@ const initChart = () => {
     chart = echarts.init(chartRef.value);
   }
 
-  const statusInfo = getScoreStatus(props.score);
-
   const chartBackground = getCssVar('--chart-background');
-  const trackColor = getCssVar('--chart-gauge-track-color');
-  const activeColor = getCssVar(statusInfo.colorVar);
-  const pointerBorderColor = getRgba(activeColor, 0.3);
-  const labelColor01 = getCssVar('--chart-gauge-label-color01');
-  const labelColor02 = getCssVar('--chart-gauge-label-color02');
-
   const colorStart = getCssVar('--chart-gauge-circle-start-color');
   const colorEnd = getCssVar('--chart-gauge-circle-end-color');
   const colorLine = getCssVar('--chart-gauge-circle-line-color');
@@ -108,8 +100,8 @@ const initChart = () => {
         },
         splitLine: { show: false }, // 굵은 구분선 숨김
         axisTick: {
-          splitNumber: 10,
-          distance: -18, // 안쪽 눈금 위치
+          splitNumber: 9,
+          distance: -16, // 안쪽 눈금 위치
           length: 10,
           lineStyle: {
             color: colorLine,
@@ -117,7 +109,7 @@ const initChart = () => {
           },
         },
         axisLabel: { show: false }, // 숫자 라벨 숨김
-        data: [{ value: rate }],
+        data: [{ value: chartValue }],
         detail: { show: false },
       },
       {
@@ -140,7 +132,7 @@ const initChart = () => {
         splitLine: { show: false },
         axisLabel: { show: false },
         detail: { show: false },
-        data: [{ value: rate }],
+        data: [{ value: chartValue }],
       },
     ],
   };

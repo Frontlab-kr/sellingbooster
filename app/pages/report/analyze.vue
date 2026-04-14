@@ -72,7 +72,15 @@
                 </div>
                 <div class="sb-report-analyze-record-chart">
                   <div class="sb-report-analyze-record-chart-chart">
-                    <SbChartGaugeCircle />
+                    <SbChartGaugeCircle :score="36" />
+                    <div class="sb-report-analyze-record-chart-text">
+                      <Badge value="Level 1" severity="level1"></Badge>
+                      <div class="sb-report-analyze-record-chart-text__percent">
+                        <h1>36</h1>
+                        <h5>%</h5>
+                      </div>
+                      <p>현재 달성율</p>
+                    </div>
                   </div>
                   <div class="sb-report-analyze-record-chart-contents">
                     <div class="sb-report-analyze-record-chart-contents__price">

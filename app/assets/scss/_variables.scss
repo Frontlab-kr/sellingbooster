@@ -933,6 +933,8 @@
   --report-analyze-swiper-item-title-color: var(--p-gray-900);
   --report-analyze-swiper-item-text-color: var(--p-gray-500);
   --report-analyze-record-chart-backcground: var(--p-gray-50);
+  --report-analyze-record-chart-score-title-color: var(--p-gray-900);
+  --report-analyze-record-chart-score-text-color: var(--p-gray-500);
   --report-analyze-record-chart-price-border-color: var(--p-gray-300);
   --report-analyze-record-chart-price-title-color: var(--p-gray-500);
   --report-analyze-record-chart-expect-title-color: var(--p-gray-500);
@@ -1206,6 +1208,10 @@
     --chart-gauge-face-danger: url('/assets/icons/chart/face-danger.svg');
     --chart-gauge-face-label-color01: var(--p-gray-300);
     --chart-gauge-face-label-color02: var(--p-gray-00);
+
+    --chart-gauge-circle-start-color: var(--p-gray-800);
+    --chart-gauge-circle-end-color: #fb7310;
+    --chart-gauge-circle-line-color: var(--p-gray-300);
 
     --chart-segment-segments-color: var(--p-gray-700);
     --chart-segment-legend-color: var(--p-gray-300);
@@ -1781,6 +1787,8 @@
     --report-analyze-swiper-item-title-color: var(--p-gray-00);
     --report-analyze-swiper-item-text-color: var(--p-gray-300);
     --report-analyze-record-chart-backcground: var(--p-gray-900);
+    --report-analyze-record-chart-score-title-color: var(--p-gray-300);
+    --report-analyze-record-chart-score-text-color: var(--p-gray-300);
     --report-analyze-record-chart-price-border-color: var(--p-gray-600);
     --report-analyze-record-chart-price-title-color: var(--p-gray-300);
     --report-analyze-record-chart-expect-title-color: var(--p-gray-300);
