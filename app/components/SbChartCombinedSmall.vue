@@ -1,5 +1,5 @@
 <template>
-  <div class="sb-chart-combined">
+  <div class="sb-chart-combined" style="height: 244px">
     <div ref="chartRef" class="echart"></div>
   </div>
 </template>
@@ -14,7 +14,7 @@ const props = defineProps({
   boosterDays: { type: Array, default: () => [4, 12, 18, 26] },
   days: {
     type: Array,
-    default: () => Array.from({ length: 30 }, (_, i) => `${i + 1}`),
+    default: () => Array.from({ length: 30 }, (_, i) => `${i + 1}일`),
   },
 });
 
@@ -128,10 +128,10 @@ const initChart = () => {
     },
 
     grid: {
-      left: '80',
-      right: '80',
+      left: '40',
+      right: '30',
       bottom: '0',
-      top: '60',
+      top: '20',
       containLabel: true,
     },
     xAxis: {
@@ -141,7 +141,7 @@ const initChart = () => {
       axisTick: { show: false },
       axisLabel: {
         color: labelColor,
-        fontSize: 14,
+        fontSize: 12,
         interval: 0,
         formatter: '{value}일',
       },
@@ -152,16 +152,16 @@ const initChart = () => {
         name: '결\n제\n금\n액\n(만원)',
         position: 'left',
         nameLocation: 'middle',
-        nameGap: 90,
+        nameGap: 65,
         nameRotate: 0,
         nameTextStyle: {
           color: labelColor,
-          fontSize: 16,
+          fontSize: 12,
           fontWeight: 'bold',
-          lineHeight: 22,
+          lineHeight: 16,
           align: 'center',
         },
-        axisLabel: { color: labelColor, fontSize: 14, margin: 12 },
+        axisLabel: { color: labelColor, fontSize: 12, margin: 12 },
         splitLine: {
           lineStyle: {
             color: borderColor,
@@ -174,16 +174,16 @@ const initChart = () => {
         name: '결\n제\n건\n수\n(건)',
         position: 'right',
         nameLocation: 'middle',
-        nameGap: 80,
+        nameGap: 55,
         nameRotate: 0,
         nameTextStyle: {
           color: labelColor,
-          fontSize: 16,
+          fontSize: 12,
           fontWeight: 'bold',
-          lineHeight: 22,
+          lineHeight: 16,
           align: 'center',
         },
-        axisLabel: { color: labelColor, fontSize: 14, margin: 12 },
+        axisLabel: { color: labelColor, fontSize: 12, margin: 12 },
         splitLine: { show: false },
       },
     ],

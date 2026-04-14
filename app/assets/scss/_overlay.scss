@@ -435,6 +435,19 @@
         }
       }
     }
+    &-chart {
+      width: 448px;
+      @include breakpoint {
+        display: none;
+      }
+      &::before,
+      &::after {
+        display: none;
+      }
+      .p-popover-content {
+        padding: 16px;
+      }
+    }
   }
   &-dialog {
     &-bottom {

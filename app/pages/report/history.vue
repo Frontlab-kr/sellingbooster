@@ -78,7 +78,6 @@
               :sales-data="salesData"
               :count-data="countData"
               :booster-days="boosterDays"
-              :days="days"
             />
           </div>
           <div class="sb-report-history-bna">
@@ -366,7 +365,11 @@
                         </div>
                       </div>
                       <div class="sb-report-history-date-list-item__button">
-                        <Button variant="text">
+                        <Button
+                          variant="text"
+                          @click="togglePopover"
+                          :class="{ active: popoverChart?.visible }"
+                        >
                           <span class="p-button-label"
                             >레포트 보기 : 최근 7일</span
                           >
@@ -495,7 +498,11 @@
                         </div>
                       </div>
                       <div class="sb-report-history-date-list-item__button">
-                        <Button variant="text">
+                        <Button
+                          variant="text"
+                          @click="togglePopover"
+                          :class="{ active: popoverChart?.visible }"
+                        >
                           <span class="p-button-label"
                             >레포트 보기 : 최근 7일</span
                           >
@@ -566,6 +573,21 @@
       </div>
     </div>
   </div>
+  <Popover
+    ref="popoverChart"
+    :pt="{
+      root: {
+        class: 'sb-popover-chart',
+      },
+    }"
+  >
+    <SbChartCombinedSmall
+      :sales-data="salesData02"
+      :count-data="countData02"
+      :booster-days="boosterDays02"
+      :days="days02"
+    />
+  </Popover>
 </template>
 
 <script setup>
@@ -592,6 +614,12 @@ const toggleList = (index) => {
   openStates.value[index] = !openStates.value[index];
 };
 
+//popover
+const popoverChart = ref();
+const togglePopover = (event) => {
+  popoverChart.value.toggle(event);
+};
+
 //chart
 const salesData = ref([
   1300, 1600, 1300, 2100, 2200, 2300, 3000, 3100, 2500, 3700, 3000, 4200, 4000,
@@ -605,4 +633,11 @@ const countData = ref([
 ]);
 
 const boosterDays = ref([4, 12, 18, 26]);
+
+const salesData02 = ref([1300, 1600, 1300, 2100, 2200, 2300, 3000]);
+
+const countData02 = ref([220, 240, 210, 280, 270, 310, 340]);
+
+const boosterDays02 = ref([4]);
+const days02 = ref([1, 2, 3, 4, 5, 6, 7]);
 </script>
