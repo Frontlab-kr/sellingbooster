@@ -338,7 +338,7 @@ const updateTitle = async (path) => {
     }
   }
 
-  pageTitle.value = targetLabel || 'Selling Booster';
+  pageTitle.value = targetLabel;
 };
 
 const getMenuIcon = (item) => {

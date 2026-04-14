@@ -2,7 +2,7 @@
   <header class="sb-header" :class="{ 'sb-header--search': isSearchOpen }">
     <div class="sb-header-logo"></div>
     <div class="sb-header-gnb">
-      <Nuxtlink to="/" class="sb-header-gnb-item">마켓트렌드</Nuxtlink>
+      <Nuxtlink to="/" class="sb-header-gnb-item">마켓 트렌드</Nuxtlink>
       <Nuxtlink to="/" class="sb-header-gnb-item">판매 가속</Nuxtlink>
       <Nuxtlink to="/" class="sb-header-gnb-item">성장 리포트</Nuxtlink>
       <Nuxtlink to="/" class="sb-header-gnb-item">셀링 플래너</Nuxtlink>
@@ -230,43 +230,6 @@ const openActiveMenu = () => {
   }
 };
 
-const updateTitle = async (path) => {
-  // 1. 클라이언트 사이드에서만 DOM 접근 (가장 중요!)
-  if (process.client) {
-    await nextTick(); // DOM이 완전히 렌더링된 후에 읽기
-    await nextTick(); // 한 번 더 안전하게
-
-    const plannerTitleEl = document.querySelector('.sb-planner-head__title h5');
-
-    if (plannerTitleEl && plannerTitleEl.textContent.trim()) {
-      pageTitle.value = plannerTitleEl.textContent.trim();
-      return;
-    }
-  }
-
-  // 2. planner 제목이 없거나 서버 사이드일 경우 → 기존 메뉴 라벨로 fallback
-  const allMenus = [...menu01.value, ...menu02.value];
-  let targetLabel = '';
-
-  for (const mainItem of allMenus) {
-    if (mainItem.items) {
-      const subItem = mainItem.items.find(
-        (s) => s.route && path.startsWith(s.route),
-      );
-      if (subItem) {
-        targetLabel = subItem.label;
-        break;
-      }
-    }
-    if (mainItem.route && path.startsWith(mainItem.route)) {
-      targetLabel = mainItem.label;
-      break;
-    }
-  }
-
-  pageTitle.value = targetLabel || 'Selling Booster';
-};
-
 const getMenuIcon = (item) => {
   if (item.id === 'toggle-btn') {
     // 접혀있을 때(true)는 Open 아이콘, 펼쳐져있을 때(false)는 Close 아이콘
@@ -344,7 +307,6 @@ watch(isFolded, (newValue) => {
 watch(
   () => route.path,
   (newPath) => {
-    updateTitle(newPath);
     isSearchOpen.value = false;
 
     if (process.client && window.innerWidth < 1374) {

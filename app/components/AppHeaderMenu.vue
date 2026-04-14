@@ -40,7 +40,7 @@
     <NuxtLink to="/" class="sb-header-user">
       <div class="sb-header-user__thumb">
         <img
-          src="./../assets/icons/profile/lv1.png"
+          src="./../assets/icons/profile/badge-level1-small.svg"
           alt=""
           class="ico-profile-lv"
         />
