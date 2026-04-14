@@ -1088,6 +1088,10 @@
   --dialog-memowrite-border-color: var(--p-gray-300);
   --dialog-memowrite-label-color: var(--p-gray-600);
 
+  --dialog-loading-background: var(--p-gray-00);
+  --dialog-loading-boxshadow: 0 20px 40px 0 rgba(0, 0, 0, 0.15);
+  --dialog-loading-color: var(--p-gray-900);
+
   //price setting
   --price-setting-background: var(--p-gray-50);
   --price-setting-head-border-color: var(--p-gray-300);
@@ -1957,6 +1961,10 @@
 
     --dialog-memowrite-border-color: var(--p-gray-600);
     --dialog-memowrite-label-color: var(--p-gray-00);
+
+    --dialog-loading-background: var(--p-gray-900);
+    --dialog-loading-boxshadow: 0 20px 40px 0 rgba(0, 0, 0, 0.15);
+    --dialog-loading-color: var(--p-gray-00);
 
     //price setting
     --price-setting-background: var(--p-gray-900);
