@@ -333,22 +333,22 @@
                   <td>
                     <div class="flex gap-3">
                       <img
-                        src="./../../assets/icons/profile/lv1.png"
+                        src="./../../assets/icons/profile/badge-level1-small.svg"
                         alt=""
                         class="ico-profile-lv"
                       />
                       <img
-                        src="./../../assets/icons/profile/lv2.png"
+                        src="./../../assets/icons/profile/badge-level2-small.svg"
                         alt=""
                         class="ico-profile-lv"
                       />
                       <img
-                        src="./../../assets/icons/profile/lv3.png"
+                        src="./../../assets/icons/profile/badge-level3-small.svg"
                         alt=""
                         class="ico-profile-lv"
                       />
                       <img
-                        src="./../../assets/icons/profile/lv4.png"
+                        src="./../../assets/icons/profile/badge-level4-small.svg"
                         alt=""
                         class="ico-profile-lv"
                       />

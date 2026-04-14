@@ -72,15 +72,18 @@
                       <IconSystemMail class="ico-system-mail" />
                     </template>
                   </Button>
-                  <Button rounded severity="white">
+                  <Button rounded severity="white" @click="alertCopy()">
                     <template #icon>
                       <IconSystemCopy class="ico-system-copy" />
                     </template>
                   </Button>
-                  <Button rounded severity="white">
+                  <Button rounded severity="white" @click="toggleFavorite">
                     <template #icon>
-                      <IconActionFavorite class="ico-action-favorite" />
-                      <!-- <IconActionFavoriteFull class="ico-action-favorite-full" /> -->
+                      <IconActionFavoriteFull
+                        v-if="isFavorite"
+                        class="ico-action-favorite-full"
+                      />
+                      <IconActionFavorite v-else class="ico-action-favorite" />
                     </template>
                   </Button>
                 </div>
@@ -777,6 +780,7 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useConfirm } from 'primevue/useconfirm';
 import draggable from 'vuedraggable';
 import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg?component';
 import IconSystemMail from '@/assets/icons/system/mail.svg?component';
@@ -816,6 +820,28 @@ const keywordInterestItems = ref([
   { id: 'interest-07', label: '6개월 시장 규모', value: 'market_size_6m' },
   { id: 'interest-08', label: '상품 평균가 (이전 6개월)', value: 'avg_price' },
 ]);
+
+//alert
+const confirm = useConfirm();
+const alertCopy = () => {
+  confirm.require({
+    message: 'URL이 복사 되었습니다.',
+    rejectProps: {
+      label: '취소',
+      class: 'hidden',
+    },
+    acceptProps: {
+      label: '확인',
+    },
+  });
+};
+
+// 즐겨찾기 상태 관리
+const isFavorite = ref(false);
+
+const toggleFavorite = () => {
+  isFavorite.value = !isFavorite.value;
+};
 
 //항목
 const reportData = ref([
