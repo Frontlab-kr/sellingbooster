@@ -26,6 +26,20 @@
                 :breakpoints="JSON.stringify(swiperParams.breakpoints)"
                 @swiperactiveindexchange="onSlideChange"
               >
+                <swiper-slide class="swiper-slide">
+                  <div class="sb-report-analyze-swiper-item">
+                    <div class="sb-report-analyze-swiper-item__text">
+                      <strong>
+                        현재 네이버스토어 유입량이 목표대비
+                        <span class="text-primary">20% 부족</span>합니다.
+                      </strong>
+                      <p>상품명 점검을 통해 검색 노출을 높여보세요.</p>
+                    </div>
+                    <div class="sb-report-analyze-swiper-item__time">
+                      6시간 전
+                    </div>
+                  </div>
+                </swiper-slide>
                 <swiper-slide v-for="n in 10" :key="n" class="swiper-slide">
                   <div class="sb-report-analyze-swiper-item">
                     <div class="sb-report-analyze-swiper-item__text">
@@ -83,20 +97,26 @@
                     </div>
                   </div>
                   <div class="sb-report-analyze-record-chart-contents">
-                    <div class="sb-report-analyze-record-chart-contents__price">
+                    <div class="sb-report-analyze-record-chart-contents-price">
                       <dl>
                         <dt>이번달 누적 매출액</dt>
                         <dd>
-                          <h4>12,680,760원</h4>
+                          <div
+                            class="sb-report-analyze-record-chart-contents-price__text"
+                          >
+                            <h4>12,680,760원</h4>
+                          </div>
                         </dd>
                       </dl>
                       <dl>
                         <dt>예상 마진</dt>
                         <dd>
-                          <h4>45%</h4>
-                        </dd>
-                        <dd>
-                          <h4 class="color-etc">5,706,342원</h4>
+                          <div
+                            class="sb-report-analyze-record-chart-contents-price__text"
+                          >
+                            <span><h4>45%</h4></span>
+                            <span><h4 class="color-etc">5,706,342원</h4></span>
+                          </div>
                         </dd>
                       </dl>
                     </div>
@@ -166,12 +186,10 @@
                 </li>
               </ul>
             </div>
-            <div
-              class="sb-report-analyze-level-list-item level02 active"
-              v-tooltip.top="{
-                value: '현재 레벨',
-              }"
-            >
+            <div class="sb-report-analyze-level-list-item level02 active">
+              <div class="sb-report-analyze-level-list-item__tooltip">
+                <p>현재 레벨</p>
+              </div>
               <div class="sb-report-analyze-level-list-item__line">
                 <IconProfileLevelLine class="ico-profile-level-line" />
               </div>
@@ -255,8 +273,7 @@ import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?comp
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
 import IconSystemCheckS from '@/assets/icons/system/check-s.svg?component';
 import IconProfileLevelLine from '@/assets/icons/profile/level-line.svg?component';
-const targetRef = ref(null);
-const tooltipRef = ref(null);
+
 //breadcrumb
 const breadcrumb = ref([
   { label: 'Home' },

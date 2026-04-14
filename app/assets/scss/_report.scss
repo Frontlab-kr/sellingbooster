@@ -1100,11 +1100,12 @@
           align-items: center;
           justify-content: space-between;
           gap: 20px;
-
+          height: 160px;
           padding: 40px;
           border-radius: 32px;
           background: var(--report-background);
           &__text {
+            min-height: 80px;
             strong {
               color: var(--report-analyze-swiper-item-title-color);
               font-size: 16px;
@@ -1157,7 +1158,7 @@
           display: flex;
           align-items: center;
           gap: 40px;
-
+          padding: 0 80px 0 0;
           border-radius: 9999px;
           background: var(--report-analyze-record-chart-backcground);
           &-chart {
@@ -1199,7 +1200,7 @@
             }
           }
           &-contents {
-            &__price {
+            &-price {
               display: flex;
               flex-direction: column;
               gap: 24px;
@@ -1207,27 +1208,14 @@
               padding-bottom: 32px;
               border-bottom: 1px dashed
                 var(--report-analyze-record-chart-price-border-color);
-              dl {
+              &__text {
                 display: flex;
-                align-items: center;
-                margin: 0;
-                padding: 0;
-                dt {
-                  min-width: 154px;
-                  margin: 0;
-                  padding: 0;
-                  color: var(--report-analyze-record-chart-price-title-color);
-                  font-size: 16px;
-                  font-style: normal;
-                  font-weight: 700;
-                  line-height: 140%; /* 22.4px */
-                  letter-spacing: -0.4px;
-                }
-                dd {
+                span {
                   display: flex;
                   align-items: center;
                   margin: 0;
                   padding: 0;
+                  white-space: noWrap;
                   h4 {
                     color: var(--title-color);
                     &.color-etc {
@@ -1253,6 +1241,28 @@
                   }
                 }
               }
+              dl {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                margin: 0;
+                padding: 0;
+                dt {
+                  min-width: 154px;
+                  margin: 0;
+                  padding: 0;
+                  color: var(--report-analyze-record-chart-price-title-color);
+                  font-size: 16px;
+                  font-style: normal;
+                  font-weight: 700;
+                  line-height: 140%; /* 22.4px */
+                  letter-spacing: -0.4px;
+                }
+                dd {
+                  margin: 0;
+                  padding: 0;
+                }
+              }
             }
             &__expect {
               dl {
@@ -1271,7 +1281,9 @@
                 dd {
                   display: flex;
                   align-items: center;
-                  gap: 24px;
+                  flex-wrap: wrap;
+                  column-gap: 24px;
+                  row-gap: 4px;
                   margin: 0;
                   padding: 0;
                   p {
@@ -1405,7 +1417,7 @@
         &-list {
           display: flex;
           justify-content: center;
-          gap: 140px;
+          gap: 10%;
           padding: 56px 0 32px 0;
           &-item {
             position: relative;
@@ -1415,6 +1427,40 @@
             justify-content: center;
             gap: 16px;
             min-width: 240px;
+            &__tooltip {
+              position: absolute;
+              top: 0;
+              left: 50%;
+              display: flex;
+              align-items: center;
+              min-height: 42px;
+              padding: 10px 20px;
+              border-radius: 20px;
+              background: var(--ai-tooltip-background);
+              transform: translate(-50%, calc(-100% - 12px));
+              p {
+                margin: 0;
+                color: var(--ai-tooltip-color);
+
+                font-size: var(--Font-Heading-Small, 16px);
+                font-style: normal;
+                font-weight: 700;
+                line-height: 140%; /* 22.4px */
+                letter-spacing: -0.4px;
+              }
+              &:after {
+                content: '';
+                position: absolute;
+                bottom: -7px;
+                left: 50%;
+                display: block;
+                width: 14px;
+                height: 9px;
+                background-color: var(--ai-tooltip-background);
+                clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+                transform: translateX(-50%);
+              }
+            }
             &__line {
               position: absolute;
               top: 102px;

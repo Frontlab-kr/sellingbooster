@@ -93,7 +93,11 @@
               :class="getCategoryClass(event.extendedProps.category)"
             >
               <p>{{ event.title }}</p>
-              <Button variant="text" v-if="event.extendedProps.isEdit">
+              <Button
+                variant="text"
+                v-if="event.extendedProps.isEdit"
+                @click="openMemoModify($event)"
+              >
                 <template #icon>
                   <IconSystemEdit class="ico-system-edit" />
                 </template>
@@ -126,7 +130,7 @@
       },
     }"
   >
-    <DialogSchedule />
+    <DialogSchedule @request-open="openMemoModify" />
   </Dialog>
 
   <Dialog
@@ -184,6 +188,15 @@ const openFilter = () => {
 };
 
 const dateRef = ref(null);
+
+//modify
+const emit = defineEmits(['request-open']);
+const openMemoModify = (event) => {
+  if (event && typeof event.stopPropagation === 'function') {
+    event.stopPropagation();
+  }
+  emit('request-open');
+};
 
 // --- 1. 연/월 옵션 동적 생성 로직 ---
 const dateOptions = ref([]);

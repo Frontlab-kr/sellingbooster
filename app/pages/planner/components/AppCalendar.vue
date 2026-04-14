@@ -89,7 +89,7 @@
       },
     }"
   >
-    <DialogSchedule />
+    <DialogSchedule @request-open="openMemoModify" />
   </Dialog>
 
   <Dialog
@@ -152,6 +152,15 @@ const openFilter = () => {
 
 const fullCalendarRef = ref(null);
 const dateRef = ref(null);
+
+//modify
+const emit = defineEmits(['request-open']);
+const openMemoModify = (event) => {
+  if (event && typeof event.stopPropagation === 'function') {
+    event.stopPropagation();
+  }
+  emit('request-open');
+};
 
 // --- 1. 날짜 제어 로직 (Timeline 형식 통합) ---
 const dateOptions = ref([]);

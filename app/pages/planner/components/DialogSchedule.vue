@@ -14,7 +14,7 @@
         <div class="sb-dialog-schedule-body__title">
           <p>광고 예산 점검 광고 예산 점검 광고 광고 예산 점검</p>
           <div class="sb-dialog-schedule-body__button">
-            <Button variant="text">
+            <Button variant="text" @click="openMemoModify($event)">
               <template #icon>
                 <IconSystemEdit class="ico-system-edit" />
               </template>
@@ -49,4 +49,11 @@
 <script setup>
 import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 import IconSystemDelete from '@/assets/icons/system/delete.svg?component';
+
+//modify
+const emit = defineEmits(['request-open']);
+const openMemoModify = (event) => {
+  if (event) event.stopPropagation();
+  emit('request-open', event);
+};
 </script>

@@ -35,7 +35,7 @@
           </div>
         </div>
         <ClientOnly>
-          <AppTimeline />
+          <AppTimeline @request-open="openMemoWrite" />
         </ClientOnly>
         <div class="sb-planner-body-button">
           <div class="pc">
