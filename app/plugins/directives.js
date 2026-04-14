@@ -19,6 +19,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
         // 1. 세로 스크롤 끝 감지 (1px 오차 허용)
         const isBottom = scrollTop + clientHeight >= scrollHeight - 1;
+        const noVerticalScroll = scrollHeight <= clientHeight;
+
         // 스크롤 영역이 없을 때(scrollHeight <= clientHeight) 처리 포함
         if (isBottom || scrollHeight <= clientHeight) {
           el.classList.add('is-scroll-end-y');
@@ -36,7 +38,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         }
 
         // 기존 클래스 유지용 (필요 시)
-        if (isBottom && isRightEnd) {
+        if (isBottom || noVerticalScroll) {
           el.classList.add('is-scroll-end');
         } else {
           el.classList.remove('is-scroll-end');
