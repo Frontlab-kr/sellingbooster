@@ -63,7 +63,7 @@
                       <IconSystemMail class="ico-system-mail" />
                     </template>
                   </Button>
-                  <Button rounded severity="white" @click="alertCopy()">
+                  <Button rounded severity="white" @click="showToast">
                     <template #icon>
                       <IconSystemCopy class="ico-system-copy" />
                     </template>
@@ -937,12 +937,11 @@
     </div>
   </Dialog>
 
-  <ConfirmDialog></ConfirmDialog>
+  <Toast position="bottom-center" group="bc" />
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import { useConfirm } from 'primevue/useconfirm';
 import draggable from 'vuedraggable';
 import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg?component';
 import IconSystemMail from '@/assets/icons/system/mail.svg?component';
@@ -986,18 +985,14 @@ const keywordInterestItems = ref([
   { id: 'interest-08', label: '상품 평균가 (이전 6개월)', value: 'avg_price' },
 ]);
 
-//alert
-const confirm = useConfirm();
-const alertCopy = () => {
-  confirm.require({
-    message: 'URL이 복사 되었습니다.',
-    rejectProps: {
-      label: '취소',
-      class: 'hidden',
-    },
-    acceptProps: {
-      label: '확인',
-    },
+//toast
+const toast = useToast();
+
+const showToast = () => {
+  toast.add({
+    detail: 'URL이 복사 되었습니다.',
+    group: 'bc',
+    life: 3000,
   });
 };
 

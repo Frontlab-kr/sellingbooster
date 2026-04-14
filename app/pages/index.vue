@@ -120,6 +120,7 @@
         <template #content>
           <div class="flex flex-column gap-2">
             <NuxtLink to="/report/summary">성과 요약</NuxtLink>
+            <NuxtLink to="/report/analyze">성과 분석</NuxtLink>
             <NuxtLink to="/report/history">성과 히스토리</NuxtLink>
           </div>
         </template>
