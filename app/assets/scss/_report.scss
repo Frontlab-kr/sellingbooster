@@ -223,15 +223,35 @@
       &-product {
         display: flex;
         &-item {
+          position: relative;
           width: 100%;
           margin-right: 40px;
           padding-right: 40px;
-          border-right: 1px dotted
-            var(--report-summary-product-item-border-color);
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0px;
+            bottom: 0;
+            width: 1px;
+            height: 100%;
+            background-image: linear-gradient(
+              to bottom,
+              var(--report-summary-product-item-border-color) 50%,
+              /* 1. 전체 높이의 50%(4px)만큼 색을 채움 */ rgba(255, 255, 255, 0)
+                0%
+            );
+            background-position: top;
+            background-size: 1px 8px; /* 2. 너비 1px, 높이 10px (이 10px이 점 사이의 간격) */
+            background-repeat: repeat-y; /* 3. 세로로 반복 */
+          }
           &:last-child {
             margin-right: 0;
             padding-right: 0;
-            border-right: 0;
+            &:after {
+              display: none;
+            }
           }
           .sb-chart-segment {
             padding: 16px 0;
