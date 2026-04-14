@@ -154,7 +154,6 @@
                       <span class="p-button-label"
                         >상품별 성과 히스토리 보기</span
                       >
-                      <IconArrowAchevronDown class="ico-arrow-achevron-down" />
                     </Button>
                   </NuxtLink>
                 </div>
@@ -221,7 +220,6 @@
                       <span class="p-button-label"
                         >상품별 성과 히스토리 보기</span
                       >
-                      <IconArrowAchevronDown class="ico-arrow-achevron-down" />
                     </Button>
                   </NuxtLink>
                 </div>

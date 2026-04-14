@@ -777,7 +777,7 @@
           &-head {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: space-between;
             gap: 24px;
 
             p {
@@ -1058,6 +1058,82 @@
     }
 
     &-analyze {
+      &-swiper {
+        position: relative;
+        margin-bottom: 40px;
+        margin-right: -40px;
+        padding: 0 0 0 40px;
+        overflow: hidden;
+        &-inner {
+          margin-right: -300px;
+        }
+        .sb-swiper-controls {
+          position: absolute;
+          top: 50%;
+          right: 80px;
+          transform: translateY(-50%);
+          z-index: 50;
+          .p-button {
+            background-color: var(--color-primary);
+            svg {
+              color: #fff;
+            }
+          }
+        }
+        .swiper-slide {
+          opacity: 0.5;
+          transition: all 0.4s ease;
+          &.swiper-slide-active {
+            opacity: 1;
+          }
+          &.swiper-slide-next {
+            opacity: 1;
+          }
+          &.swiper-slide-next + .swiper-slide {
+            opacity: 1;
+          }
+        }
+        &-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          padding: 40px;
+          border-radius: 32px;
+          background: var(--Gray-00, #fff);
+
+          &__text {
+            strong {
+              color: var(--Text_Light-900---mian, #1b1f27);
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 140%; /* 22.4px */
+              letter-spacing: -0.4px;
+              @include text-clamp(1);
+            }
+            p {
+              margin: 4px 0 0 0;
+              color: var(--Text_Light-500---sub, #6a7381);
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 140%; /* 22.4px */
+              letter-spacing: -0.4px;
+              @include text-clamp(1);
+            }
+          }
+          &__time {
+            color: var(--Text_Light-500---sub, #6a7381);
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 19.6px */
+            letter-spacing: -0.35px;
+            white-space: noWrap;
+          }
+        }
+      }
       &-record {
         min-height: 574px;
         padding: 40px;

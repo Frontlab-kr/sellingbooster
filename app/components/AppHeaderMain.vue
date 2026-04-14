@@ -1,86 +1,15 @@
 <template>
   <header class="sb-header" :class="{ 'sb-header--search': isSearchOpen }">
+    <div class="sb-header-logo"></div>
+    <div class="sb-header-gnb">
+      <Nuxtlink to="/" class="sb-header-gnb-item">마켓트렌드</Nuxtlink>
+      <Nuxtlink to="/" class="sb-header-gnb-item">판매 가속</Nuxtlink>
+      <Nuxtlink to="/" class="sb-header-gnb-item">성장 리포트</Nuxtlink>
+      <Nuxtlink to="/" class="sb-header-gnb-item">셀링 플래너</Nuxtlink>
+      <Nuxtlink to="/" class="sb-header-gnb-item">커뮤니티</Nuxtlink>
+    </div>
     <AppHeaderMenu v-model:isSearchOpen="isSearchOpen" />
   </header>
-
-  <div class="sb-snb">
-    <NuxtLink to="/" class="sb-snb-logo">Selling Booster</NuxtLink>
-
-    <div class="sb-snb-menu">
-      <PanelMenu :model="menu01" v-model:expandedKeys="expandedKeys">
-        <template #item="{ item, props }">
-          <a
-            v-if="item.items && item.items.length > 0"
-            class="p-panelmenu-header-link"
-            :class="[
-              {
-                'has-children': item.items?.length > 0,
-                'p-panelmenu-header-active': isActive(item.route),
-              },
-            ]"
-            v-bind="props.action"
-            @click.stop.prevent="handleLinkClick($event, item)"
-          >
-            <div class="p-menuitem-icon">
-              <component v-if="item.icon" :is="item.icon" />
-            </div>
-            <span class="p-panelmenu-header-label">{{ item.label }}</span>
-          </a>
-
-          <a
-            v-else-if="item.route"
-            class="p-panelmenu-header-link"
-            :class="{ 'p-panelmenu-header-active': isActive(item.route) }"
-            v-bind="props.action"
-            @click="handleLinkClick($event, item)"
-          >
-            <div class="p-menuitem-icon">
-              <component v-if="item.icon" :is="item.icon" />
-            </div>
-            <span class="p-panelmenu-header-label">{{ item.label }}</span>
-          </a>
-        </template>
-      </PanelMenu>
-    </div>
-
-    <div class="sb-snb-menu">
-      <PanelMenu :model="menu02" v-model:expandedKeys="expandedKeys">
-        <template #item="{ item, props }">
-          <a
-            v-if="item.route"
-            class="p-panelmenu-header-link"
-            :class="[
-              {
-                'has-children': item.items?.length > 0,
-                'p-panelmenu-header-active': isActive(item.route),
-              },
-            ]"
-            v-bind="props.action"
-            @click.prevent="handleLinkClick($event, item)"
-          >
-            <div class="p-menuitem-icon">
-              <component v-if="item.icon" :is="item.icon" />
-            </div>
-            <span class="p-panelmenu-header-label">{{ item.label }}</span>
-          </a>
-
-          <a
-            v-else
-            class="p-panelmenu-header-link"
-            v-bind="props.action"
-            @click.stop.prevent="item.id === 'toggle-btn' ? toggleMenu() : null"
-          >
-            <div class="p-menuitem-icon">
-              <component v-if="item.icon" :is="getMenuIcon(item)" />
-            </div>
-            <span class="p-panelmenu-header-label">{{
-              getMenuLabel(item)
-            }}</span>
-          </a>
-        </template>
-      </PanelMenu>
-    </div>
-  </div>
 
   <header
     class="sb-header-mo"

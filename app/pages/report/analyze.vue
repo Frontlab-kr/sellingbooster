@@ -16,7 +16,46 @@
         </h4>
       </div>
       <div class="sb-report-analyze">
-        <div class="sb-report-analyze-swier"></div>
+        <div class="sb-report-analyze-swiper">
+          <div class="sb-report-analyze-swiper-inner">
+            <swiper-container
+              ref="containerRef"
+              :slides-per-view="swiperParams.slidesPerView"
+              :space-between="swiperParams.spaceBetween"
+              :effect="swiperParams.effect"
+              :breakpoints="JSON.stringify(swiperParams.breakpoints)"
+              @swiperactiveindexchange="onSlideChange"
+            >
+              <swiper-slide v-for="n in 10" :key="n" class="swiper-slide">
+                <div class="sb-report-analyze-swiper-item">
+                  <div class="sb-report-analyze-swiper-item__text">
+                    <strong>
+                      현재 네이버스토어 유입량이 목표대비
+                      <span class="text-primary">20% 부족</span>합니다.
+                    </strong>
+                    <p>상품명 점검을 통해 검색 노출을 높여보세요.</p>
+                  </div>
+                  <div class="sb-report-analyze-swiper-item__time">
+                    6시간 전
+                  </div>
+                </div>
+              </swiper-slide>
+              <swiper-slide class="swiper-slide"></swiper-slide>
+            </swiper-container>
+          </div>
+          <div class="sb-swiper-controls">
+            <Button
+              rounded
+              severity="neutral"
+              :disabled="isEnd"
+              @click="swiper.next()"
+            >
+              <template #icon>
+                <IconArrowRight class="ico-arrow-right" />
+              </template>
+            </Button>
+          </div>
+        </div>
         <div class="sb-report-analyze-grid">
           <div class="grid">
             <div class="col-8">
@@ -136,7 +175,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, watch } from 'vue';
 import AppTimeline from '@/pages/planner/components/AppTimeline.vue';
 import IconSystemSmartstore from '@/assets/icons/system/smartstore.png';
@@ -149,4 +188,31 @@ const breadcrumb = ref([
   { label: '성과 리포트' },
   { label: '성과 분석' },
 ]);
+
+//swiper
+const containerRef = ref(null);
+const isBeginning = ref(true);
+const isEnd = ref(false);
+
+const swiperParams = {
+  slidesPerView: 4,
+  spaceBetween: 8,
+};
+
+const swiper = useSwiper(containerRef, swiperParams);
+
+const onSlideChange = () => {
+  const swiperInst = swiper.instance.value;
+
+  if (swiperInst) {
+    isBeginning.value = (swiperInst as any).isBeginning;
+    isEnd.value = (swiperInst as any).isEnd;
+  }
+};
+
+onMounted(() => {
+  setTimeout(() => {
+    onSlideChange();
+  }, 100);
+});
 </script>
