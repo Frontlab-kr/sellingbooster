@@ -367,7 +367,8 @@
                       <div class="sb-report-history-date-list-item__button">
                         <Button
                           variant="text"
-                          @click="togglePopover"
+                          @mouseenter="openPopover($event)"
+                          @mouseleave="closePopover"
                           :class="{ active: popoverChart?.visible }"
                         >
                           <span class="p-button-label"
@@ -500,7 +501,8 @@
                       <div class="sb-report-history-date-list-item__button">
                         <Button
                           variant="text"
-                          @click="togglePopover"
+                          @mouseenter="openPopover($event)"
+                          @mouseleave="closePopover"
                           :class="{ active: popoverChart?.visible }"
                         >
                           <span class="p-button-label"
@@ -580,6 +582,8 @@
         class: 'sb-popover-chart',
       },
     }"
+    @mouseenter="cancelClose"
+    @mouseleave="closePopover"
   >
     <SbChartCombinedSmall
       :sales-data="salesData02"
@@ -616,8 +620,36 @@ const toggleList = (index) => {
 
 //popover
 const popoverChart = ref();
-const togglePopover = (event) => {
-  popoverChart.value.toggle(event);
+let closeTimeout = null;
+
+const openPopover = async (event) => {
+  if (closeTimeout) {
+    clearTimeout(closeTimeout);
+    closeTimeout = null;
+  }
+  if (popoverChart.value?.visible) {
+    popoverChart.value.hide();
+  }
+  const target = event.currentTarget;
+  setTimeout(() => {
+    popoverChart.value?.show(event, target);
+  }, 0);
+};
+
+const closePopover = () => {
+  closeTimeout = setTimeout(() => {
+    if (popoverChart.value) {
+      popoverChart.value.hide();
+    }
+  }, 400);
+};
+
+const cancelClose = () => {
+  // 팝오버 내부 진입 시 닫기 예약 취소
+  if (closeTimeout) {
+    clearTimeout(closeTimeout);
+    closeTimeout = null;
+  }
 };
 
 //chart
