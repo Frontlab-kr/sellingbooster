@@ -156,7 +156,7 @@
               field="orderCount"
               header="주문 건수"
               bodyClass="text-right"
-              style="min-width: 270px"
+              style="min-width: 250px"
             >
               <template #body="slotProps">
                 {{ slotProps.data.orderCount }}
@@ -167,7 +167,7 @@
               field="totalAmount"
               header="총 결제 금액"
               bodyClass="text-right"
-              style="min-width: 270px"
+              style="min-width: 250px"
             >
               <template #body="slotProps">
                 {{ slotProps.data.totalAmount }}
@@ -178,7 +178,7 @@
               field="confirmCount"
               header="결제 확정 건수"
               bodyClass="text-right"
-              style="min-width: 270px"
+              style="min-width: 250px"
             >
               <template #body="slotProps">
                 {{ slotProps.data.confirmCount }}
@@ -189,7 +189,7 @@
               field="refundCount"
               header="환불 건수"
               bodyClass="text-right"
-              style="min-width: 270px"
+              style="min-width: 250px"
             >
               <template #body="slotProps">
                 {{ slotProps.data.refundCount }}
@@ -200,7 +200,7 @@
               field="cancelCount"
               header="취소 건수"
               bodyClass="text-right"
-              style="min-width: 270px"
+              style="min-width: 250px"
             >
               <template #body="slotProps">
                 {{ slotProps.data.cancelCount }}
