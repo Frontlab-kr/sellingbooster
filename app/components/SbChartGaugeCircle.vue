@@ -63,6 +63,10 @@ const initChart = () => {
   const labelColor01 = getCssVar('--chart-gauge-label-color01');
   const labelColor02 = getCssVar('--chart-gauge-label-color02');
 
+  const colorStart = getCssVar('--chart-gauge-circle-start-color');
+  const colorEnd = getCssVar('--chart-gauge-circle-end-color');
+  const colorLine = getCssVar('--chart-gauge-circle-line-color');
+
   const rate = 36;
 
   const option = {
@@ -74,17 +78,15 @@ const initChart = () => {
         type: 'gauge',
         startAngle: 90,
         endAngle: -270,
-        radius: '95%', // 차트 크기 꽉 차게
-        pointer: { show: false }, // 바늘 숨김
+        radius: '95%',
+        pointer: { show: false },
         progress: {
           show: true,
           overlap: false,
-          roundCap: true, // 끝부분을 둥글게
+          roundCap: true,
           clip: false,
           itemStyle: {
-            borderWidth: 1,
-            borderColor: '#fff',
-            // 그라데이션 설정
+            borderWidth: 0,
             color: {
               type: 'linear',
               x: 0,
@@ -92,72 +94,46 @@ const initChart = () => {
               x2: 0,
               y2: 1,
               colorStops: [
-                { offset: 0, color: '#ffffff' }, // 시작색 (연한 오렌지)
-                { offset: 1, color: '#FF4D00' }, // 끝색 (진한 오렌지)
+                { offset: 0, color: colorStart },
+                { offset: 1, color: colorEnd },
               ],
             },
           },
         },
         axisLine: {
           lineStyle: {
-            width: 20, // 게이지 두께
-            color: [[1, '#fff']], // 배경 트랙 색상
+            width: 25, // 게이지 두께
+            color: [[1, 'transparent']], // 배경 트랙 색상
           },
         },
         splitLine: { show: false }, // 굵은 구분선 숨김
         axisTick: {
-          distance: -14, // 안쪽 눈금 위치
+          splitNumber: 10,
+          distance: -18, // 안쪽 눈금 위치
           length: 10,
           lineStyle: {
-            color: '#9AA3AF',
+            color: colorLine,
             width: 1,
           },
         },
         axisLabel: { show: false }, // 숫자 라벨 숨김
         data: [{ value: rate }],
-        detail: {
-          width: '60%',
-          lineHeight: 40,
-          borderRadius: 8,
-          offsetCenter: [0, '5%'], // 중앙 위치 조정
-          fontWeight: '700',
-          formatter: (value) => {
-            return `{label|달성률}\n{value|${value}}{unit|%}`;
-          },
-          rich: {
-            label: {
-              fontSize: 18,
-              color: '#64748b',
-              padding: [0, 0, 10, 0],
-            },
-            value: {
-              fontSize: 60,
-              color: '#475569',
-              fontWeight: 'bold',
-            },
-            unit: {
-              fontSize: 24,
-              color: '#475569',
-              padding: [0, 0, 10, 5],
-            },
-          },
-        },
+        detail: { show: false },
       },
       {
         type: 'gauge',
         startAngle: 90,
         endAngle: -270,
-        z: 3, // 이 숫자가 높을수록 위로 올라옵니다!
+        z: 3,
         pointer: {
           show: true,
           icon: 'circle',
-          length: '238%', // 오렌지 바 두께 중심에 맞게 조절
+          length: '234%',
           width: 12,
           itemStyle: {
             color: '#fff',
           },
         },
-        // 포인터 외의 모든 요소는 숨김 처리
         progress: { show: false },
         axisLine: { show: false },
         axisTick: { show: false },

@@ -23,6 +23,9 @@
                 :space-between="swiperParams.spaceBetween"
                 :effect="swiperParams.effect"
                 :breakpoints="JSON.stringify(swiperParams.breakpoints)"
+                autoplay-delay="3000"
+                autoplay-disable-on-interaction="false"
+                loop="true"
                 @swiperactiveindexchange="onSlideChange"
               >
                 <swiper-slide>

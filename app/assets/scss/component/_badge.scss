@@ -94,15 +94,19 @@
   line-height: 1;
   &[data-p='level1'] {
     background-color: var(--p-orange-500);
+    color: #fff;
   }
   &[data-p='level2'] {
     background-color: #fb7310;
+    color: #fff;
   }
   &[data-p='level3'] {
     background-color: var(--p-red-500);
+    color: #fff;
   }
   &[data-p='level4'] {
     background-color: var(--p-slate-500);
+    color: #fff;
   }
 }
 .p-badge-dot {

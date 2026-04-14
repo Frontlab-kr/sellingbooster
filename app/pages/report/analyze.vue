@@ -18,30 +18,37 @@
       <div class="sb-report-analyze">
         <div class="sb-report-analyze-swiper">
           <div class="sb-report-analyze-swiper-inner">
-            <swiper-container
-              ref="containerRef"
-              :slides-per-view="swiperParams.slidesPerView"
-              :space-between="swiperParams.spaceBetween"
-              :effect="swiperParams.effect"
-              :breakpoints="JSON.stringify(swiperParams.breakpoints)"
-              @swiperactiveindexchange="onSlideChange"
-            >
-              <swiper-slide v-for="n in 10" :key="n" class="swiper-slide">
-                <div class="sb-report-analyze-swiper-item">
-                  <div class="sb-report-analyze-swiper-item__text">
-                    <strong>
-                      현재 네이버스토어 유입량이 목표대비
-                      <span class="text-primary">20% 부족</span>합니다.
-                    </strong>
-                    <p>상품명 점검을 통해 검색 노출을 높여보세요.</p>
+            <ClientOnly>
+              <swiper-container
+                ref="containerRef"
+                :slides-per-view="swiperParams.slidesPerView"
+                :space-between="swiperParams.spaceBetween"
+                :breakpoints="JSON.stringify(swiperParams.breakpoints)"
+                @swiperactiveindexchange="onSlideChange"
+              >
+                <swiper-slide v-for="n in 10" :key="n" class="swiper-slide">
+                  <div class="sb-report-analyze-swiper-item">
+                    <div class="sb-report-analyze-swiper-item__text">
+                      <strong>
+                        현재 네이버스토어 유입량이 목표대비
+                        <span class="text-primary">20% 부족</span>합니다.
+                      </strong>
+                      <p>상품명 점검을 통해 검색 노출을 높여보세요.</p>
+                      <Button variant="text">
+                        <span class="p-button-label">상품명 점검 하기</span>
+                        <IconArrowAchevronRight
+                          class="ico-arrow-achevron-right"
+                        />
+                      </Button>
+                    </div>
+                    <div class="sb-report-analyze-swiper-item__time">
+                      6시간 전
+                    </div>
                   </div>
-                  <div class="sb-report-analyze-swiper-item__time">
-                    6시간 전
-                  </div>
-                </div>
-              </swiper-slide>
-              <swiper-slide class="swiper-slide"></swiper-slide>
-            </swiper-container>
+                </swiper-slide>
+                <swiper-slide class="swiper-slide"></swiper-slide>
+              </swiper-container>
+            </ClientOnly>
           </div>
           <div class="sb-swiper-controls">
             <Button
@@ -81,7 +88,7 @@
                           <h4>45%</h4>
                         </dd>
                         <dd>
-                          <h4>5,706,342원</h4>
+                          <h4 class="color-etc">5,706,342원</h4>
                         </dd>
                       </dl>
                     </div>
@@ -130,44 +137,102 @@
             </div>
           </div>
         </div>
-        <div class="sb-report-analyze-check">
-          <div class="sb-report-analyze-check-head">
-            <h5>셀링부스터 점검</h5>
-          </div>
-          <div class="sb-report-analyze-check-list">
-            <div class="sb-report-analyze-check-list-item">
-              <div class="sb-report-analyze-check-list-item__text">
-                <h6>
-                  마지막 상품명 점검으로부터
-                  <strong class="text-primary">7일</strong>이 지났습니다.
-                </h6>
-                <p>놓치고 있는 부분은 없는지 업데이트를 체크하세요.</p>
-              </div>
-              <div class="sb-report-analyze-check-list-item__button">
-                <Button severity="contrast" outlined label="상품명 점검 하기" />
-              </div>
-            </div>
-            <div class="sb-report-analyze-check-list-item">
-              <div class="sb-report-analyze-check-list-item__text">
-                <h6>
-                  상품 최적가 진행이
-                  <strong class="text-primary">15일</strong> 동안 없었습니다.
-                </h6>
-                <p>가격 적인 전략에서 뒤쳐지고 있는건 아닌지 체크하세요.</p>
-              </div>
-              <div class="sb-report-analyze-check-list-item__button">
-                <Button
-                  severity="contrast"
-                  outlined
-                  label="가격 최적가 제안 보기"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+
         <div class="sb-report-analyze-level">
           <div class="sb-report-analyze-level-head">
             <h5>다음 레벨까지 얼마나 남았을까요?</h5>
+          </div>
+          <div class="sb-report-analyze-level-list">
+            <div class="sb-report-analyze-level-list-item level01">
+              <ul>
+                <li class="active">
+                  <IconSystemCheckS class="ico-system-check-s" />사업자 정보
+                  입력
+                </li>
+                <li class="active">
+                  <IconSystemCheckS class="ico-system-check-s" />관심 카테고리
+                  설정
+                </li>
+                <li class="active">
+                  <IconSystemCheckS class="ico-system-check-s" />온보딩 시나리오
+                </li>
+              </ul>
+            </div>
+            <div
+              class="sb-report-analyze-level-list-item level02 active"
+              v-tooltip.top="{
+                value: '현재 레벨',
+              }"
+            >
+              <div class="sb-report-analyze-level-list-item__line">
+                <IconProfileLevelLine class="ico-profile-level-line" />
+              </div>
+              <ul>
+                <li class="active">
+                  <IconSystemCheckS class="ico-system-check-s" />스토어 연동
+                </li>
+                <li>
+                  <IconSystemCheckS class="ico-system-check-s" />상품명
+                  점검(35/50
+                </li>
+                <li>
+                  <IconSystemCheckS class="ico-system-check-s" />최적가
+                  조정(42/50)
+                </li>
+              </ul>
+            </div>
+            <div class="sb-report-analyze-level-list-item level03">
+              <div class="sb-report-analyze-level-list-item__line">
+                <IconProfileLevelLine class="ico-profile-level-line" />
+              </div>
+              <ul>
+                <li>
+                  <IconSystemCheckS class="ico-system-check-s" />자금 진단 및
+                  대출 조회
+                </li>
+                <li>
+                  <IconSystemCheckS class="ico-system-check-s" />경쟁사 정밀
+                  모니터링
+                </li>
+                <li>
+                  <IconSystemCheckS class="ico-system-check-s" />광고 효율 관리
+                </li>
+              </ul>
+            </div>
+            <div class="sb-report-analyze-level-list-item level04">
+              <div class="sb-report-analyze-level-list-item__line">
+                <IconProfileLevelLine class="ico-profile-level-line" />
+              </div>
+              <ul>
+                <li>
+                  <IconSystemCheckS class="ico-system-check-s" />매출 달성 및
+                  성장율 조회
+                </li>
+                <li>
+                  <IconSystemCheckS class="ico-system-check-s" />심층 외부
+                  동향(뉴스/논문)
+                </li>
+                <li>
+                  <IconSystemCheckS class="ico-system-check-s" />
+                  커뮤니티 노하우 공유
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="sb-report-analyze-level-text">
+            <p>
+              <span
+                >상품명 점검을 <strong>15건</strong>과 최적가 가격 조정
+                <strong>8건</strong>을 더 완료하면</span
+              >
+              <span class="sb-report-analyze-level-text__badge">
+                <Badge value="Level 3" severity="level3"></Badge>
+              </span>
+              <span
+                ><strong class="text-level03">LV3. BOOSTER(부스터)</strong>로
+                레벨업 할 수 있어요.</span
+              >
+            </p>
           </div>
         </div>
       </div>
@@ -178,10 +243,12 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import AppTimeline from '@/pages/planner/components/AppTimeline.vue';
-import IconSystemSmartstore from '@/assets/icons/system/smartstore.png';
+import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
 import IconSystemCheckS from '@/assets/icons/system/check-s.svg?component';
-
+import IconProfileLevelLine from '@/assets/icons/profile/level-line.svg?component';
+const targetRef = ref(null);
+const tooltipRef = ref(null);
 //breadcrumb
 const breadcrumb = ref([
   { label: 'Home' },
@@ -197,6 +264,10 @@ const isEnd = ref(false);
 const swiperParams = {
   slidesPerView: 4,
   spaceBetween: 8,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
 };
 
 const swiper = useSwiper(containerRef, swiperParams);

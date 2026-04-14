@@ -355,13 +355,6 @@ watch(
 );
 
 onMounted(() => {
-  const savedTheme = localStorage.getItem('sb-theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-    isDark.value = true;
-    updateTheme();
-  }
-
   handleResize();
 
   window.addEventListener('scroll', handleScroll);

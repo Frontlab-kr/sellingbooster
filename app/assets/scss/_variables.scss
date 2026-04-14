@@ -270,6 +270,11 @@
   --color-down: var(--p-blue-500);
   --color-up: var(--p-red-600);
 
+  --color-level1: var(--p-orange-500);
+  --color-level2: #fb7310;
+  --color-level3: var(--p-red-500);
+  --color-level4: var(--p-slate-500);
+
   --chart-background: transparent;
 
   --chart-wave-background01: var(--p-gray-100);
@@ -345,6 +350,10 @@
   --chart-gauge-face-danger: url('/assets/icons/chart/face-danger.svg');
   --chart-gauge-face-label-color01: var(--p-gray-500);
   --chart-gauge-face-label-color02: var(--p-gray-900);
+
+  --chart-gauge-circle-start-color: var(--p-gray-50);
+  --chart-gauge-circle-end-color: #fb7310;
+  --chart-gauge-circle-line-color: var(--p-gray-500);
 
   --chart-segment-segments-color: var(--p-gray-200);
   --chart-segment-legend-color: var(--p-gray-500);
@@ -920,6 +929,28 @@
   --report-history-date-body-list-item-bna-border-color: var(--p-gray-300);
   --report-history-date-body-list-item-bna-item-text-color: var(--p-gray-400);
   --report-history-date-body-list-item-bna-item-title-color: var(--p-gray-500);
+
+  --report-analyze-swiper-item-title-color: var(--p-gray-900);
+  --report-analyze-swiper-item-text-color: var(--p-gray-500);
+  --report-analyze-record-chart-backcground: var(--p-gray-50);
+  --report-analyze-record-chart-price-border-color: var(--p-gray-300);
+  --report-analyze-record-chart-price-title-color: var(--p-gray-500);
+  --report-analyze-record-chart-expect-title-color: var(--p-gray-500);
+  --report-analyze-record-chart-expect-text-color: var(--p-gray-900);
+  --report-analyze-record-chart-expect-ico-color: var(--p-gray-400);
+  --report-analyze-level-line-color: var(--p-gray-200);
+  --report-analyze-level1-disabled-background: url(./../icons/profile/badge-level1-disabled.svg)
+    no-repeat 50% 50%;
+  --report-analyze-level2-disabled-background: url(./../icons/profile/badge-level2-disabled.svg)
+    no-repeat 50% 50%;
+  --report-analyze-level3-disabled-background: url(./../icons/profile/badge-level3-disabled.svg)
+    no-repeat 50% 50%;
+  --report-analyze-level4-disabled-background: url(./../icons/profile/badge-level4-disabled.svg)
+    no-repeat 50% 50%;
+  --report-analyze-level-list-text-color: var(--p-gray-400);
+  --report-analyze-level-list-active-text-color: var(--p-gray-900);
+  --report-analyze-level-text-background: var(--p-gray-50);
+  --report-analyze-level-text-color: var(--p-gray-900);
 
   //full calendar
   --fc-holiday-color: var(--p-red-500);
@@ -1746,6 +1777,28 @@
     --report-history-date-body-list-item-bna-item-title-color: var(
       --p-gray-300
     );
+
+    --report-analyze-swiper-item-title-color: var(--p-gray-00);
+    --report-analyze-swiper-item-text-color: var(--p-gray-300);
+    --report-analyze-record-chart-backcground: var(--p-gray-900);
+    --report-analyze-record-chart-price-border-color: var(--p-gray-600);
+    --report-analyze-record-chart-price-title-color: var(--p-gray-300);
+    --report-analyze-record-chart-expect-title-color: var(--p-gray-300);
+    --report-analyze-record-chart-expect-text-color: var(--p-gray-00);
+    --report-analyze-record-chart-expect-ico-color: var(--p-gray-400);
+    --report-analyze-level-line-color: var(--p-gray-600);
+    --report-analyze-level1-disabled-background: url(./../icons/profile/badge-level1-disabled-dark.svg)
+      no-repeat 50% 50%;
+    --report-analyze-level2-disabled-background: url(./../icons/profile/badge-level2-disabled-dark.svg)
+      no-repeat 50% 50%;
+    --report-analyze-level3-disabled-background: url(./../icons/profile/badge-level3-disabled-dark.svg)
+      no-repeat 50% 50%;
+    --report-analyze-level4-disabled-background: url(./../icons/profile/badge-level4-disabled-dark.svg)
+      no-repeat 50% 50%;
+    --report-analyze-level-list-text-color: var(--p-gray-600);
+    --report-analyze-level-list-active-text-color: var(--p-gray-00);
+    --report-analyze-level-text-background: var(--p-gray-900);
+    --report-analyze-level-text-color: var(--p-gray-00);
 
     //full calendar
     --fc-holiday-color: var(--p-red-400);
