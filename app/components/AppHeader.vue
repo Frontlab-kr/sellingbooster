@@ -1,6 +1,6 @@
 <template>
   <header class="sb-header" :class="{ 'sb-header--search': isSearchOpen }">
-    <AppHeaderMenu v-model:isSearchOpen="isSearchOpen" />
+    <AppHeaderMenu v-model:isSearchOpen="isSearchOpen" @search="onSearch" />
   </header>
 
   <div class="sb-snb">

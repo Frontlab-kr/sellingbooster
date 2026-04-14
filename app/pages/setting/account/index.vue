@@ -215,9 +215,7 @@
     <div class="sb-auth-link">
       <NuxtLink to="/setting/account/delete">
         <Button variant="text" label="Text button">
-          <span class="p-button-label" data-pc-section="label" data-p=""
-            >회원탈퇴</span
-          >
+          <span class="p-button-label">회원탈퇴</span>
           <IconArrowAchevronRight class="ico-arrow-achevron-right" />
         </Button>
       </NuxtLink>

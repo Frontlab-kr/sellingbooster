@@ -187,10 +187,26 @@
             <h4>Gonfalon icon</h4>
           </div>
           <div class="sb-guide-icon">
-            <!-- <IconGonfalonJp class="ico-gonfalon-jp" />
-            <IconGonfalonUs class="ico-gonfalon-us" />
-            <IconGonfalonCn class="ico-gonfalon-cs" />
-            <IconGonfalonKr class="ico-gonfalon-kr" /> -->
+            <img
+              :src="IconGonfalonJp"
+              alt="smart store"
+              class="ico-gonfalon-jp"
+            />
+            <img
+              :src="IconGonfalonUs"
+              alt="smart store"
+              class="ico-gonfalon-us"
+            />
+            <img
+              :src="IconGonfalonCn"
+              alt="smart store"
+              class="ico-gonfalon-cn"
+            />
+            <img
+              :src="IconGonfalonKr"
+              alt="smart store"
+              class="ico-gonfalon-kr"
+            />
           </div>
         </div>
         <div class="sb-guide-item">
@@ -358,10 +374,10 @@ import IconActionSwitch from '@/assets/icons/action/switch.svg?component';
 import IconActionSwitchUp from '@/assets/icons/action/switch-up.svg?component';
 import IconActionSwitchDown from '@/assets/icons/action/switch-down.svg?component';
 
-// import IconGonfalonJp from '@/assets/icons/gonfalon/jp.png';
-// import IconGonfalonUs from '@/assets/icons/gonfalon/us.png';
-// import IconGonfalonCn from '@/assets/icons/gonfalon/cn.png';
-// import IconGonfalonKr from '@/assets/icons/gonfalon/kr.png';
+import IconGonfalonJp from '@/assets/icons/gonfalon/jp.png';
+import IconGonfalonUs from '@/assets/icons/gonfalon/us.png';
+import IconGonfalonCn from '@/assets/icons/gonfalon/cn.png';
+import IconGonfalonKr from '@/assets/icons/gonfalon/kr.png';
 
 import IconIllustrationFrown from '@/assets/icons/illustration/frown.svg?component';
 import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';

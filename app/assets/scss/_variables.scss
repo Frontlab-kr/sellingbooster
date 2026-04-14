@@ -422,6 +422,22 @@
   --header-mode-icon-color: var(--p-gray-500);
   --header-language-icon-color: var(--p-gray-500);
   --header-notification-icon-color: var(--p-gray-500);
+  --header-menu-layer-background: var(--p-gray-00);
+  --header-menu-layer-boxshadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
+  --header-menu-layer-background-image: url(./../images/header-bg.png) no-repeat
+    0 0;
+  --header-menu-layer-background-image-large: url(./../images/header-bg-large.png)
+    no-repeat 0 0;
+  --header-menu-language-list-color: var(--p-gray-500);
+  --header-menu-language-list-hover-color: var(--p-gray-900);
+  --header-menu-language-list-hover-background: var(--p-gray-100);
+  --header-menu-notification-center-head-title-color: var(--p-gray-900);
+  --header-menu-notification-center-tab-text-color: var(--p-gray-400);
+  --header-menu-notification-center-list-item-border-color: var(--p-gray-200);
+  --header-menu-notification-center-list-item-date-color: var(--p-gray-400);
+  --header-menu-notification-center-list-item-title-color: var(--p-gray-900);
+  --header-menu-notification-center-button-color: var(--p-gray-500);
+  --header-menu-user-list-color: var(--p-gray-500);
 
   --contents-background: url(./../images/background-circle.png) no-repeat 100%
     162px;
@@ -1273,6 +1289,23 @@
     --header-mode-icon-color: var(--p-gray-300);
     --header-language-icon-color: var(--p-gray-300);
     --header-notification-icon-color: var(--p-gray-300);
+
+    --header-menu-layer-background: var(--p-gray-800);
+    --header-menu-layer-boxshadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    --header-menu-layer-background-image: url(./../images/header-bg-dark.png)
+      no-repeat 0 0;
+    --header-menu-layer-background-image-large: url(./../images/header-bg-large-dark.png)
+      no-repeat 0 0;
+    --header-menu-language-list-color: var(--p-gray-300);
+    --header-menu-language-list-hover-color: var(--p-gray-00);
+    --header-menu-language-list-hover-background: var(--p-gray-600);
+    --header-menu-notification-center-head-title-color: var(--p-gray-00);
+    --header-menu-notification-center-tab-text-color: var(--p-gray-400);
+    --header-menu-notification-center-list-item-border-color: var(--p-gray-600);
+    --header-menu-notification-center-list-item-date-color: var(--p-gray-400);
+    --header-menu-notification-center-list-item-title-color: var(--p-gray-00);
+    --header-menu-notification-center-button-color: var(--p-gray-300);
+    --header-menu-user-list-color: var(--p-gray-300);
 
     --contents-background: none;
 
