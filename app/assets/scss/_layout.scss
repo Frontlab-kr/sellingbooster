@@ -160,7 +160,7 @@
     min-height: calc(100vh - 160px);
     gap: 0;
     padding: 0 0 40px 40px;
-    transition: $transition-layout;
+    // transition: $transition-layout;
     background: var(--snb-background);
     &-logo {
       display: block;
