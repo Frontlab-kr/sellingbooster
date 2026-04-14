@@ -116,7 +116,7 @@ const initChart = () => {
         });
 
         return `
-        <div class="sb-chart-combined-tooltip">
+        <div class="sb-chart-combined-tooltip arrow-none">
           <dl>
             <dt>03.${formattedDay}</dt>
             <dd>
@@ -265,7 +265,7 @@ const initChart = () => {
           },
           formatter: (param) => {
             const day = param.data.value[0] + 1;
-            return `<div class="sb-chart-combined-tooltip w-auto">상품명 7건 변경</div>`;
+            return `<div class="sb-chart-combined-tooltip arrow-none w-auto">상품명 7건 변경</div>`;
           },
         },
       },

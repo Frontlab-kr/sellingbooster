@@ -509,6 +509,11 @@
           border-top: 12px solid var(--chart-combined-tooltip-background);
           pointer-events: none;
         }
+        &.arrow-none {
+          &::after {
+            display: none;
+          }
+        }
       }
     }
   }
