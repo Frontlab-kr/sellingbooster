@@ -539,7 +539,7 @@
             </div>
           </div>
           <div class="col-6">
-            <div class="sb-keyword-ranking">
+            <div class="sb-keyword-ranking" ref="rankingRef">
               <div class="sb-keyword-ranking__title">
                 <h5>연관 상품 랭킹 TOP20</h5>
               </div>
@@ -856,6 +856,7 @@ const reportData = ref([
 ]);
 
 //sort
+const rankingRef = ref(null);
 const selectRef = ref(null);
 const selectedTop20Option = ref([
   { name: '스마트스토어' },
@@ -864,6 +865,34 @@ const selectedTop20Option = ref([
   { name: 'G마켓' },
 ]);
 const selectedTop20 = ref(selectedTop20Option.value[0]);
+
+let observer = null;
+
+onMounted(async () => {
+  await nextTick();
+
+  if (rankingRef.value) {
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(async (entry) => {
+          if (entry.isIntersecting) {
+            selectRef.value.show();
+          }
+        });
+      },
+      {
+        threshold: 0.4,
+      },
+    );
+
+    const target = rankingRef.value.$el || rankingRef.value;
+    observer.observe(target);
+  }
+});
+
+onUnmounted(() => {
+  if (observer) observer.disconnect();
+});
 
 // 상세 지표 열기 토글 상태
 const showTrend = ref(false);

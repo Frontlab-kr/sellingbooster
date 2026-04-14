@@ -645,6 +645,12 @@
       padding: 20px 40px 40px 140px;
     }
   }
+  &-main & {
+    &-contents {
+      padding: 0 170px;
+      padding: 0 8.85%;
+    }
+  }
   &--fold & {
     &-snb {
       position: fixed;

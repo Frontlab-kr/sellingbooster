@@ -1,0 +1,44 @@
+@use './mixins' as *;
+
+.sb {
+  &-dashboard {
+    &-head {
+      // display: flex;
+      // align-items: center;
+      // gap: 298px;
+      margin-bottom: 60px;
+      width: 100%;
+      &-title {
+        h4,
+        h3 {
+          white-space: noWrap;
+        }
+      }
+      &-swiper {
+        width: 500px;
+        background-color: #f60;
+        display: none;
+      }
+    }
+    &-card {
+      height: 100%;
+      padding: 40px;
+      border-radius: 32px;
+      background: var(--Gray-00, #fff);
+      &-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        h5 {
+          color: var(--title-color);
+        }
+        &-menu {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+      }
+    }
+  }
+}
