@@ -4,7 +4,9 @@
     <div class="sb-planner-schedule__contents">
       <div class="sb-chip" v-for="(group, index) in plannerData" :key="index">
         <div class="sb-chip-list">
-          <Chip :label="group.category" size="large" class="active" />
+          <NuxtLink to="/">
+            <Chip :label="group.category" size="large" class="active" />
+          </NuxtLink>
           <NuxtLink v-for="(item, i) in group.items" :key="i" to="/">
             <Chip :label="'#' + item" size="large" />
           </NuxtLink>

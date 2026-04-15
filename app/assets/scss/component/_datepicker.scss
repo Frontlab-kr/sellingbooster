@@ -111,6 +111,7 @@
   content: '';
   display: block;
   position: absolute;
+  z-index: 10;
   top: 50%;
   right: 20px;
   width: 24px;
@@ -132,6 +133,9 @@
 .p-datepicker-input {
   flex: 1 1 auto;
   width: 1%;
+  position: relative;
+  z-index: 20;
+  background: none;
 }
 .p-datepicker-dropdown {
   cursor: pointer;

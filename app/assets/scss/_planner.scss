@@ -435,6 +435,7 @@
         padding: 24px 22px 28px 22px;
         border-radius: 8px 8px 8px;
         background: var(--memo-item-background);
+        cursor: pointer;
         &::after {
           content: '';
           display: block;
