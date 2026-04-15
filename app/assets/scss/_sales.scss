@@ -308,6 +308,11 @@
               padding: 0;
             }
           }
+          &__date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
         }
         &-body {
           padding: 40px;

@@ -536,7 +536,7 @@ import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
 //breadcrumb
 const breadcrumb = ref([
   { label: 'Home' },
-  { label: '성과 리포트' },
+  { label: '성장 리포트' },
   { label: '성과 요약' },
 ]);
 

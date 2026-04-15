@@ -75,23 +75,34 @@
         </div>
         <div class="sb-sales-cs-body">
           <div class="sb-sales-cs-product-head">
-            <div class="sb-chip">
-              <div class="sb-chip__title">분석 기간 선택</div>
-              <div class="sb-radio">
-                <div
-                  class="sb-radio-item"
-                  v-for="item in radioRange"
-                  :key="item.id"
-                >
-                  <RadioButton
-                    v-model="selectedRevenue"
-                    :inputId="item.id"
-                    :value="item.value"
-                    name="revenueRange"
-                  />
-                  <label :for="item.id">{{ item.label }}</label>
+            <div class="sb-sales-cs-product-head__date">
+              <div class="sb-chip">
+                <div class="sb-chip__title">분석 기간 선택</div>
+                <div class="sb-radio">
+                  <div
+                    class="sb-radio-item"
+                    v-for="item in radioRange"
+                    :key="item.id"
+                  >
+                    <RadioButton
+                      v-model="selectedRevenue"
+                      :inputId="item.id"
+                      :value="item.value"
+                      name="revenueRange"
+                    />
+                    <label :for="item.id">{{ item.label }}</label>
+                  </div>
                 </div>
               </div>
+              <DatePicker
+                v-model="dates"
+                selectionMode="range"
+                showButtonBar
+                placeholder="날짜를 선택해주세요"
+                ref="datePickerRef"
+                @date-select="onDateSelect"
+                style="min-width: 260px"
+              />
             </div>
             <Button
               severity="primary"
@@ -540,13 +551,23 @@
               <div class="sb-sales-cs-store-search-item">
                 <label>기간</label>
                 <div class="sb-sales-cs-store-search-item-form">
-                  <Select
-                    v-model="selectedValue"
-                    :options="selectedOption"
-                    optionLabel="name"
-                    style="min-width: 190px"
-                  />
-
+                  <div class="sb-chip">
+                    <div class="sb-radio">
+                      <div
+                        class="sb-radio-item"
+                        v-for="item in radioRange"
+                        :key="item.id"
+                      >
+                        <RadioButton
+                          v-model="selectedRevenue"
+                          :inputId="item.id"
+                          :value="item.value"
+                          name="revenueRange"
+                        />
+                        <label :for="item.id">{{ item.label }}</label>
+                      </div>
+                    </div>
+                  </div>
                   <DatePicker
                     v-model="dates"
                     selectionMode="range"
@@ -877,6 +898,32 @@ const selectedOption02 = ref([
 ]);
 const selectedValue02 = ref(selectedOption02.value[0]);
 
+//datepicker
+const updateDatesByRange = (range) => {
+  const end = new Date();
+  const start = new Date();
+
+  switch (range) {
+    case '1d':
+      start.setDate(end.getDate() - 1);
+      break;
+    case '7d':
+      start.setDate(end.getDate() - 7);
+      break;
+    case '1m':
+      start.setMonth(end.getMonth() - 1);
+      break;
+    case '6m':
+      start.setMonth(end.getMonth() - 6);
+      break;
+    default:
+      return;
+  }
+
+  // DatePicker가 selectionMode="range"이므로 [시작일, 종료일] 배열로 설정
+  dates.value = [start, end];
+};
+
 //data
 const productQnaList = ref([
   {
@@ -996,6 +1043,14 @@ watch(selectedInquiryTypes, (newValue, oldValue) => {
     selectedInquiryTypes.value = newValue.filter((val) => val !== 'all');
   }
 });
+
+watch(
+  selectedRevenue,
+  (newRange) => {
+    updateDatesByRange(newRange);
+  },
+  { immediate: true },
+);
 
 //table toggle
 const expandedRows = ref({});

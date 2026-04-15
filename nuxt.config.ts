@@ -46,6 +46,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     'nuxt-tiptap-editor',
     'nuxt-swiper',
+    '@pinia/nuxt',
   ],
 
   css: ['@/assets/scss/common.scss', 'remixicon/fonts/remixicon.css'],

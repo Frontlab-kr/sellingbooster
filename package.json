@@ -16,6 +16,7 @@
     "@fullcalendar/interaction": "^6.1.20",
     "@fullcalendar/vue3": "^6.1.20",
     "@nuxt/content": "^3.11.2",
+    "@pinia/nuxt": "^0.11.3",
     "@primeuix/themes": "^2.0.3",
     "@tiptap/extension-highlight": "^3.19.0",
     "@tiptap/extension-subscript": "^3.19.0",

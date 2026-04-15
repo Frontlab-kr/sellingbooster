@@ -137,7 +137,7 @@
 
 <script setup>
 definePageMeta({
-  layout: 'main',
+  layoutClass: 'sb-main',
 });
 
 //sort

@@ -115,7 +115,7 @@
       </Card>
     </div>
     <div>
-      <h5>성과 리포트</h5>
+      <h5>성장 리포트</h5>
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
