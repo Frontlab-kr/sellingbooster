@@ -457,6 +457,13 @@
       font-size: 0;
       //transition: $transition-layout;
     }
+    .ico-snb-arrow {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      margin-left: auto;
+      margin-right: 18px;
+    }
     .p-panelmenu {
       gap: 10px;
     }
@@ -526,23 +533,6 @@
             svg {
               color: var(--p-gray-00);
             }
-            &.has-children {
-              &:after {
-                background: url(./../icons/snb/snb-arrow-active.svg) no-repeat
-                  50% 50%;
-              }
-            }
-          }
-          &.has-children {
-            &::after {
-              content: '';
-              display: block;
-              width: 24px;
-              height: 24px;
-              margin-left: auto;
-              margin-right: 18px;
-              background: url(./../icons/snb/snb-arrow.svg) no-repeat 50% 50%;
-            }
           }
         }
       }
@@ -554,12 +544,8 @@
           svg {
             color: var(--p-gray-00);
           }
-          &.has-children {
-            &::after {
-              background: url(./../icons/snb/snb-arrow-active.svg) no-repeat 50%
-                50%;
-              transform: rotate(180deg);
-            }
+          .ico-snb-arrow {
+            transform: rotate(180deg);
           }
         }
       }
@@ -642,46 +628,6 @@
           color: var(--p-gray-00);
           svg {
             color: var(--p-gray-00);
-          }
-        }
-      }
-
-      .p-panelmenu-panel {
-        .p-panelmenu-header-content {
-          > .p-panelmenu-header-link {
-            &:hover,
-            &:focus,
-            &.p-panelmenu-header-active {
-              &.has-children {
-                &:after {
-                  background: url(./../icons/snb/snb-arrow-active.svg) no-repeat
-                    50% 50%;
-                }
-              }
-            }
-            &.has-children {
-              &::after {
-                content: '';
-                display: block;
-                width: 24px;
-                height: 24px;
-                margin-left: auto;
-                margin-right: 18px;
-                background: url(./../icons/snb/snb-arrow.svg) no-repeat 50% 50%;
-              }
-            }
-          }
-        }
-        .p-panelmenu-header.p-panelmenu-header-active
-          .p-panelmenu-header-content {
-          > .p-panelmenu-header-link {
-            &.has-children {
-              &::after {
-                background: url(./../icons/snb/snb-arrow-active.svg) no-repeat
-                  50% 50%;
-                transform: rotate(180deg);
-              }
-            }
           }
         }
       }
@@ -816,6 +762,13 @@
       &-logo {
         display: none;
       }
+      .ico-snb-arrow {
+        min-width: 20px;
+        width: 20px;
+        height: 20px;
+        margin-left: auto;
+        margin-right: 20px;
+      }
       .p-panelmenu {
         gap: 4px;
       }
@@ -872,33 +825,6 @@
               line-height: 140%; /* 22.4px */
               letter-spacing: -0.4px;
             }
-            &:hover,
-            &:focus,
-            &.p-panelmenu-header-active {
-              background: var(--p-primary-500);
-              color: var(--p-gray-00);
-              svg {
-                color: var(--p-gray-00);
-              }
-              &.has-children {
-                &:after {
-                  background: url(./../icons/snb/snb-arrow-active.svg) no-repeat
-                    50% 50%;
-                }
-              }
-            }
-            &.has-children {
-              &::after {
-                content: '';
-                display: block;
-                width: 24px;
-                height: 24px;
-                margin-left: auto;
-                margin-right: 18px;
-                background: url(./../icons/snb/snb-arrow.svg) no-repeat 50% 50%;
-                background-size: 20px 20px;
-              }
-            }
           }
         }
         .p-panelmenu-header.p-panelmenu-header-active
@@ -908,13 +834,6 @@
             color: var(--p-gray-00);
             svg {
               color: var(--p-gray-00);
-            }
-            &.has-children {
-              &::after {
-                background: url(./../icons/snb/snb-arrow-active.svg) no-repeat
-                  50% 50%;
-                transform: rotate(180deg);
-              }
             }
           }
         }
@@ -1028,13 +947,8 @@
             background: none;
             color: var(--color-primary);
 
-            &.has-children {
-              &::after {
-                background: url(./../icons/snb/snb-arrow-active-primary.svg)
-                  no-repeat 50% 50%;
-                background-size: 20px 20px;
-                transform: rotate(180deg);
-              }
+            svg {
+              color: var(--color-primary);
             }
           }
         }
@@ -1054,17 +968,16 @@
 
         .p-panelmenu-panel
           .p-panelmenu-header-content
-          > .p-panelmenu-header-link:hover.has-children:after,
+          > .p-panelmenu-header-link:hover.has-children,
         .p-panelmenu-panel
           .p-panelmenu-header-content
-          > .p-panelmenu-header-link:focus.has-children:after,
+          > .p-panelmenu-header-link:focus.has-children,
         .p-panelmenu-panel
           .p-panelmenu-header-content
-          > .p-panelmenu-header-link.p-panelmenu-header-active.has-children:after {
-          background: url(./../icons/snb/snb-arrow-active-primary.svg) no-repeat
-            50% 50%;
-          background-size: 20px 20px;
-          transform: rotate(0deg);
+          > .p-panelmenu-header-link.p-panelmenu-header-active.has-children {
+          svg {
+            color: var(--color-primary);
+          }
         }
 
         .p-panelmenu-panel

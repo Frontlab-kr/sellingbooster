@@ -21,6 +21,7 @@
               <component v-if="item.icon" :is="item.icon" />
             </div>
             <span class="p-panelmenu-header-label">{{ item.label }}</span>
+            <IconSnbArrow class="ico-snb-arrow" />
           </a>
 
           <a
@@ -58,6 +59,7 @@
               <component v-if="item.icon" :is="item.icon" />
             </div>
             <span class="p-panelmenu-header-label">{{ item.label }}</span>
+            <IconSnbArrow class="ico-snb-arrow" />
           </a>
 
           <a
@@ -96,6 +98,7 @@
               <component v-if="item.icon" :is="item.icon" />
             </div>
             <span class="p-panelmenu-header-label">{{ item.label }}</span>
+            <IconSnbArrow class="ico-snb-arrow" />
           </a>
 
           <a
@@ -135,6 +138,7 @@ import IconSnbSetting from '@/assets/icons/snb/setting.svg?component';
 import IconSnbLogout from '@/assets/icons/snb/logout.svg?component';
 import IconSnbMenuClose from '@/assets/icons/snb/menu-close.svg?component';
 import IconSnbMenuOpen from '@/assets/icons/snb/menu-open.svg?component';
+import IconSnbArrow from '@/assets/icons/snb/snb-arrow.svg?component';
 
 //data
 const snbMenu = ref([
