@@ -804,6 +804,7 @@ import { ref, nextTick, watch } from 'vue';
 import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
 import IconSystemMessage from '@/assets/icons/system/message.svg?component';
 import IconSnbDocument from '@/assets/icons/snb/document.svg?component';
+import IconSystemFileCheck from '@/assets/icons/system/file-check.svg?component';
 import IconSystemFaceSad from '@/assets/icons/system/face-sad.svg?component';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 
