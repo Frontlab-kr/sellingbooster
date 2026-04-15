@@ -87,7 +87,16 @@
             <div class="sb-report-history-bna-menu">
               <div class="sb-report-history-bna-menu__date">
                 <strong>기준 일자</strong>
-                <DatePicker v-model="dates" placeholder="날짜를 선택해주세요" />
+
+                <DatePicker
+                  v-model="dates"
+                  selectionMode="range"
+                  showButtonBar
+                  placeholder="날짜를 선택해주세요"
+                  ref="datePickerRef"
+                  @date-select="onDateSelect"
+                  style="min-width: 260px"
+                />
               </div>
               <p>산출 대상 기간 : 2026.03.17~2026.03.23</p>
             </div>
@@ -297,7 +306,15 @@
           <div class="sb-report-history-date-head">
             <div class="sb-report-history-date-head__date">
               <strong>기준 일자</strong>
-              <DatePicker v-model="dates" placeholder="날짜를 선택해주세요" />
+              <DatePicker
+                v-model="dates"
+                selectionMode="range"
+                showButtonBar
+                placeholder="날짜를 선택해주세요"
+                ref="datePickerRef"
+                @date-select="onDateSelect"
+                style="min-width: 260px"
+              />
             </div>
             <p>산출 대상 기간 : 2026.03.17~2026.03.23</p>
           </div>
@@ -608,6 +625,29 @@ const breadcrumb = ref([
   { label: '성장 리포트' },
   { label: '성과 히스토리' },
 ]);
+
+//datepicker
+const dates = ref(null);
+const datePickerRef = ref(null);
+
+const onDateSelect = async () => {
+  if (
+    Array.isArray(dates.value) &&
+    dates.value.length === 2 &&
+    dates.value[1]
+  ) {
+    await nextTick();
+    await new Promise((resolve) => setTimeout(resolve, 400));
+
+    const dp = datePickerRef.value;
+    if (dp) {
+      dp.overlayVisible = false;
+      if (typeof dp.hide === 'function') {
+        dp.hide();
+      }
+    }
+  }
+};
 
 // 리스트의 개별 토글 상태 관리 (index를 키로 사용)
 const openStates = ref({});

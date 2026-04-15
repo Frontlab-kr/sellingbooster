@@ -77,12 +77,6 @@ const onDateSelect = async () => {
     }
   }
 };
-const closeCalendar = () => {
-  if (datePickerRef.value) {
-    datePickerRef.value.hide();
-    alert(1);
-  }
-};
 
 //select
 const selectedValue = ref();

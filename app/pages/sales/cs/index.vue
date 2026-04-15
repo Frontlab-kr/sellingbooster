@@ -871,12 +871,6 @@ const onDateSelect = async () => {
     }
   }
 };
-const closeCalendar = () => {
-  if (datePickerRef.value) {
-    datePickerRef.value.hide();
-    alert(1);
-  }
-};
 
 //tab
 const activeTab = ref(0);
