@@ -18,16 +18,18 @@
         </template>
       </Button>
     </div>
-    <div class="sb-header-mo-menu-profile">
-      <div class="sb-header-mo-menu-profile__thumb">
-        <IconProfileBadgeLevel1Small />
+    <div class="sb-header-mo-menu-body">
+      <div class="sb-header-mo-menu-profile">
+        <div class="sb-header-mo-menu-profile__thumb">
+          <IconProfileBadgeLevel1Small />
+        </div>
+        <div class="sb-header-mo-menu-profile__info">
+          <div class="sb-header-mo-menu-profile__name">셀링부스터님</div>
+          <p><strong>Lv.1</strong><span>Visitor</span></p>
+        </div>
       </div>
-      <div class="sb-header-mo-menu-profile__info">
-        <div class="sb-header-mo-menu-profile__name">셀링부스터님</div>
-        <p><strong>LV 1</strong> Visitor</p>
-      </div>
+      <AppSnb />
     </div>
-    <AppSnb />
   </div>
 </template>
 <script setup>

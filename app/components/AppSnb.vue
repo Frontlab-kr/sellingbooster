@@ -113,6 +113,12 @@
         </template>
       </PanelMenu>
     </div>
+    <div class="sb-snb-mo-logout">
+      <Button variant="text">
+        <IconSnbLogout class="ico-snb-logout" />
+        <span class="p-button-label">로그아웃</span>
+      </Button>
+    </div>
   </div>
 </template>
 <script setup>
@@ -215,29 +221,29 @@ const moUtill = ref([
     route: '/setting/account/',
     items: [
       { label: '개인 정보 관리', route: '/setting/account/' },
-      { label: '셀러 정보 관리', route: '/' },
+      { label: '셀러 정보 관리', route: '/policy/personalPrivacy' },
       { label: '알림 관리', route: '/setting/seller/alarm' },
-      { label: '팀/권한 관리', route: '/' },
-      { label: '구독 관리', route: '/' },
+      { label: '팀/권한 관리', route: '/policy/personalPrivacy' },
+      { label: '구독 관리', route: '/policy/personalPrivacy' },
     ],
   },
   {
     key: 'store',
     label: '스토어 관리',
-    route: '/',
+    route: '/policy/personalPrivacy',
     items: [
-      { label: '스마트 스토어', route: '/' },
-      { label: '쿠팡', route: '/' },
+      { label: '스마트 스토어', route: '/policy/personalPrivacy' },
+      { label: '쿠팡', route: '/policy/personalPrivacy' },
     ],
   },
   {
     key: 'language',
     label: '다국어',
-    route: '/',
+    route: '/policy/personalPrivacy',
     items: [
-      { label: '영어', route: '/' },
-      { label: '중국어', route: '/' },
-      { label: '일본어', route: '/' },
+      { label: '영어', route: '/policy/personalPrivacy' },
+      { label: '중국어', route: '/policy/personalPrivacy' },
+      { label: '일본어', route: '/policy/personalPrivacy' },
     ],
   },
 ]);

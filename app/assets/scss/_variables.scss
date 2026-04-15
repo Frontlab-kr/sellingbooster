@@ -438,6 +438,12 @@
   --header-menu-notification-center-list-item-title-color: var(--p-gray-900);
   --header-menu-notification-center-button-color: var(--p-gray-500);
   --header-menu-user-list-color: var(--p-gray-500);
+  --header-mo-menu-background: var(--p-gray-00);
+  --header-mo-menu-border-color: var(--p-gray-200);
+  --header-mo-menu-info-text-color: var(--p-gray-500);
+  --header-mo-menu-info-name-color: var(--p-gray-900);
+  --header-mo-utill-border-color: var(--p-gray-200);
+  --header-mo-logout-color: var(--p-gray-400);
 
   --contents-background: url(./../images/background-circle.png) no-repeat 100%
     162px;
@@ -1310,6 +1316,12 @@
     --header-menu-notification-center-list-item-title-color: var(--p-gray-00);
     --header-menu-notification-center-button-color: var(--p-gray-300);
     --header-menu-user-list-color: var(--p-gray-300);
+    --header-mo-menu-background: var(--p-gray-800);
+    --header-mo-menu-border-color: var(--p-gray-600);
+    --header-mo-menu-info-text-color: var(--p-gray-300);
+    --header-mo-menu-info-name-color: var(--p-gray-00);
+    --header-mo-utill-border-color: var(--p-gray-600);
+    --header-mo-logout-color: var(--p-gray-400);
 
     --contents-background: none;
 
