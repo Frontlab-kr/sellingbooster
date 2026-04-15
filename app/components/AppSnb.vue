@@ -43,7 +43,7 @@
       <PanelMenu :model="pcUtill" v-model:expandedKeys="expandedKeys">
         <template #item="{ item, props }">
           <a
-            v-if="item.route"
+            v-if="item.items && item.items.length > 0"
             class="p-panelmenu-header-link"
             :class="[
               {
@@ -52,7 +52,7 @@
               },
             ]"
             v-bind="props.action"
-            @click.prevent="handleLinkClick($event, item)"
+            @click.stop.prevent="handleLinkClick($event, item)"
           >
             <div class="p-menuitem-icon">
               <component v-if="item.icon" :is="item.icon" />
@@ -129,6 +129,7 @@ import IconSnbDocument from '@/assets/icons/snb/document.svg?component';
 import IconSnbStar from '@/assets/icons/snb/star.svg?component';
 import IconSnbChart from '@/assets/icons/snb/chart.svg?component';
 import IconSnbChat from '@/assets/icons/snb/chat.svg?component';
+import IconSnbShop from '@/assets/icons/snb/shop.svg?component';
 import IconSnbPlanner from '@/assets/icons/snb/planner.svg?component';
 import IconSnbSetting from '@/assets/icons/snb/setting.svg?component';
 import IconSnbLogout from '@/assets/icons/snb/logout.svg?component';
@@ -209,8 +210,16 @@ const snbMenu = ref([
 ]);
 
 const pcUtill = ref([
-  { label: '설정/관리', icon: IconSnbSetting, route: '/setting' },
-  { label: '로그아웃', icon: IconSnbLogout, route: '/logout' },
+  {
+    key: 'store',
+    label: '스토어 관리',
+    icon: IconSnbShop,
+    route: '/policy/personalPrivacy',
+    items: [
+      { label: '스마트 스토어', route: '/policy/personalPrivacy' },
+      { label: '쿠팡', route: '/policy/personalPrivacy' },
+    ],
+  },
   { id: 'toggle-btn', label: '메뉴 닫기', icon: IconSnbMenuClose },
 ]);
 
