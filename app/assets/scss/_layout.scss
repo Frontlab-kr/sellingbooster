@@ -607,6 +607,7 @@
     }
     &-utill {
       margin-top: auto;
+      overflow: hidden;
       .p-panelmenu-panel
         .p-panelmenu-header-content
         > .p-panelmenu-header-link:not(:hover) {
@@ -638,7 +639,7 @@
     &-mo-logout {
       display: none;
     }
-    @media screen and (max-width: 1374px) {
+    @media screen and (max-width: 1440px) {
       box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.2);
     }
   }
@@ -649,7 +650,7 @@
     transition: $transition-layout;
     background: var(--contents-background);
     background-size: 604px 1188px;
-    @media screen and (max-width: 1374px) {
+    @media screen and (max-width: 1440px) {
       padding: 20px 40px 40px 140px;
     }
   }
@@ -699,13 +700,13 @@
     }
     &-header {
       padding: 40px 40px 40px 160px;
-      @media screen and (max-width: 1374px) {
+      @media screen and (max-width: 1440px) {
         padding-left: 140px;
       }
     }
     &-contents {
       padding: 20px 40px 40px 160px;
-      @media screen and (max-width: 1374px) {
+      @media screen and (max-width: 1440px) {
         padding-left: 140px;
       }
     }
@@ -1041,7 +1042,7 @@
           }
         }
       }
-      @media screen and (max-width: 1374px) {
+      @media screen and (max-width: 1440px) {
         height: auto;
         box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.2);
       }

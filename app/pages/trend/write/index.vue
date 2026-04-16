@@ -300,7 +300,6 @@ const selectedLanguage = ref('KO');
 const breadcrumb = ref([
   { label: 'Home' },
   { label: '마켓 트렌드' },
-  { label: '추천 기회' },
   { label: '상품명 생성하기' },
 ]);
 </script>

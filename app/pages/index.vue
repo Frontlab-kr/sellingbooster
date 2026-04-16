@@ -60,19 +60,13 @@
           <div class="flex flex-column gap-2">
             <NuxtLink to="/trend/recommend/">추천기회</NuxtLink>
             <NuxtLink to="/trend/recommend/nodata">추천기회 - Nodata</NuxtLink>
-            <NuxtLink to="/trend/recommend/write"
-              >추천기회 - 상품명 생성하기</NuxtLink
-            >
-            <NuxtLink to="/trend/recommend/sourcing"
-              >추천기회 - 아이템 소싱</NuxtLink
-            >
-            <NuxtLink to="/trend/recommend/ranking"
-              >추천기회 - 나의 랭킹 찾기</NuxtLink
-            >
-            <NuxtLink to="/trend/recommend/ranking/result"
+            <NuxtLink to="/trend/write">추천기회 - 상품명 생성하기</NuxtLink>
+            <NuxtLink to="/trend/sourcing">추천기회 - 아이템 소싱</NuxtLink>
+            <NuxtLink to="/trend/ranking">추천기회 - 나의 랭킹 찾기</NuxtLink>
+            <NuxtLink to="/trend/ranking/result"
               >추천기회 - 나의 랭킹 찾기 결과</NuxtLink
             >
-            <NuxtLink to="/trend/recommend/ranking/nodata"
+            <NuxtLink to="/trend/ranking/nodata"
               >추천기회 - 나의 랭킹 찾기 Nodata</NuxtLink
             >
 

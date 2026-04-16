@@ -155,9 +155,9 @@ const snbMenu = ref([
     route: '/trend/recommend',
     items: [
       { label: '추천 기회', route: '/trend/recommend' },
-      { label: '나의 랭킹찾기', route: '/trend/recommend/ranking' },
-      { label: '아이템 소싱', route: '/trend/recommend/sourcing' },
-      { label: '상품명 생성하기', route: '/trend/recommend/write' },
+      { label: '나의 랭킹찾기', route: '/trend/ranking' },
+      { label: '아이템 소싱', route: '/trend/sourcing' },
+      { label: '상품명 생성하기', route: '/trend/write' },
       { label: '키워드 분석', route: '/trend/keyword' },
       { label: '상품 분석', route: '/trend/product' },
       { label: '분석 결과', route: '/trend/analysis' },
@@ -367,8 +367,8 @@ const handleClickOutside = (event) => {
     return;
   }
 
-  // 2. 1024px 이상 ~ 1374px 미만인 경우: 외부 클릭 시 메뉴를 접음
-  if (window.innerWidth < 1374 && !isFolded.value) {
+  // 2. 1024px 이상 ~ 1441px 미만인 경우: 외부 클릭 시 메뉴를 접음
+  if (window.innerWidth < 1441 && !isFolded.value) {
     const snbElement = document.querySelector('.sb-snb');
     const toggleBtn = document.querySelector('.sb-header-mo-end');
 
@@ -383,7 +383,7 @@ const handleClickOutside = (event) => {
 const handleResize = () => {
   if (window.innerWidth < 1024) {
     isFolded.value = false;
-  } else if (window.innerWidth < 1374) {
+  } else if (window.innerWidth < 1441) {
     isFolded.value = true;
   } else {
     isFolded.value = false;
@@ -409,9 +409,9 @@ watch(
     // async/await 추가로 렌더링 타이밍 확보
     if (process.client) {
       // 1. 화면 너비에 따른 Fold 상태 결정
-      if (window.innerWidth >= 1024 && window.innerWidth < 1374) {
+      if (window.innerWidth >= 1024 && window.innerWidth < 1441) {
         isFolded.value = true;
-      } else if (window.innerWidth >= 1374) {
+      } else if (window.innerWidth >= 1441) {
         isFolded.value = false;
       }
 

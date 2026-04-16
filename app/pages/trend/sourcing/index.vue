@@ -367,7 +367,6 @@ import IconActionFavoriteFull from '@/assets/icons/action/favorite-full.svg?comp
 const breadcrumb = ref([
   { label: 'Home' },
   { label: '마켓 트렌드' },
-  { label: '추천 기회' },
   { label: '아이템 소싱' },
 ]);
 

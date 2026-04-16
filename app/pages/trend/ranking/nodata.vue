@@ -96,7 +96,6 @@ import IconIllustrationFrown from '@/assets/icons/illustration/frown.svg?compone
 const breadcrumb = ref([
   { label: 'Home' },
   { label: '마켓 트렌드' },
-  { label: '추천 기회' },
   { label: '나의 랭킹 찾기' },
 ]);
 
