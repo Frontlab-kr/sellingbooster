@@ -394,12 +394,14 @@
                           />
                         </Button>
                         <hr />
-                        <Button variant="text">
-                          <span class="p-button-label">상품 분석 보기</span>
-                          <IconArrowAchevronDown
-                            class="ico-arrow-achevron-down"
-                          />
-                        </Button>
+                        <NuxtLink to="/">
+                          <Button variant="text">
+                            <span class="p-button-label">상품 분석 보기</span>
+                            <IconArrowSmallRight
+                              class="ico-arrow-small-right"
+                            />
+                          </Button>
+                        </NuxtLink>
                       </div>
                     </div>
                     <div class="sb-report-history-date-list-item__bna">
@@ -528,12 +530,14 @@
                           />
                         </Button>
                         <hr />
-                        <Button variant="text">
-                          <span class="p-button-label">상품 분석 보기</span>
-                          <IconArrowAchevronDown
-                            class="ico-arrow-achevron-down"
-                          />
-                        </Button>
+                        <NuxtLink to="/">
+                          <Button variant="text">
+                            <span class="p-button-label">상품 분석 보기</span>
+                            <IconArrowSmallRight
+                              class="ico-arrow-small-right"
+                            />
+                          </Button>
+                        </NuxtLink>
                       </div>
                     </div>
                     <div class="sb-report-history-date-list-item__bna">
@@ -615,6 +619,7 @@ import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?compon
 import IconArrowUp from '@/assets/icons/arrow/up.svg?component';
 import IconArrowDown from '@/assets/icons/arrow/down.svg?component';
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
+import IconArrowSmallRight from '@/assets/icons/arrow/small-right.svg?component';
 import IconSystemLegendSecondary from '@/assets/icons/system/legend-secondary.svg?component';
 import IconSystemLegendWarn from '@/assets/icons/system/legend-warn.svg?component';
 import IconSystemLegendPin from '@/assets/icons/system/legend-pin.svg?component';
