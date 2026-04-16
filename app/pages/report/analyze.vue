@@ -88,12 +88,11 @@
                   <div class="sb-report-analyze-record-chart-chart">
                     <SbChartGaugeCircle :score="36" />
                     <div class="sb-report-analyze-record-chart-text">
-                      <Badge value="Level 1" severity="level1"></Badge>
+                      <p>달성율</p>
                       <div class="sb-report-analyze-record-chart-text__percent">
                         <h1>36</h1>
-                        <h5>%</h5>
+                        <h3>%</h3>
                       </div>
-                      <p>현재 달성율</p>
                     </div>
                   </div>
                   <div class="sb-report-analyze-record-chart-contents">
@@ -101,22 +100,14 @@
                       <dl>
                         <dt>이번달 누적 매출액</dt>
                         <dd>
-                          <div
-                            class="sb-report-analyze-record-chart-contents-price__text"
-                          >
-                            <h4>12,680,760원</h4>
-                          </div>
+                          <h4>12,680,760원</h4>
                         </dd>
                       </dl>
                       <dl>
                         <dt>예상 마진</dt>
                         <dd>
-                          <div
-                            class="sb-report-analyze-record-chart-contents-price__text"
-                          >
-                            <span><h4>45%</h4></span>
-                            <span><h4 class="color-etc">5,706,342원</h4></span>
-                          </div>
+                          <h6 class="text-up">45%</h6>
+                          <h4 class="color-etc">5,706,342원</h4>
                         </dd>
                       </dl>
                     </div>
@@ -124,7 +115,7 @@
                       class="sb-report-analyze-record-chart-contents__expect"
                     >
                       <dl>
-                        <dt>현재 흐름에 따른 도달 예측</dt>
+                        <dt>데이터 기반 분석 예측</dt>
                         <dd>
                           <p>
                             <IconSystemCheckS class="ico-system-check-s" />
@@ -291,7 +282,15 @@ const swiperParams = {
   spaceBetween: 8,
   autoplay: {
     delay: 3000,
-    disableOnInteraction: false,
+    disableOnInteraction: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 4,
+    },
+    1800: {
+      slidesPerView: 4,
+    },
   },
 };
 

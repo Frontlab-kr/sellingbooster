@@ -785,6 +785,115 @@
         }
       }
     }
+    &-marketing {
+      &__text {
+        margin-bottom: 32px;
+        color: var(--dialog-marketing-text-color);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%; /* 25.6px */
+        letter-spacing: -0.4px;
+      }
+      &__button {
+        display: flex;
+        justify-content: center;
+        margin-top: 32px;
+      }
+      @include breakpoint {
+        &__text {
+          margin-bottom: 24px;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 160%; /* 22.4px */
+          letter-spacing: -0.35px;
+        }
+        .sb-checkbox {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+        &__button {
+          margin-top: 24px;
+        }
+      }
+    }
+    &-notification {
+      .p-dialog-title {
+        width: calc(100% - 40px);
+
+        .p-button {
+          margin-left: auto;
+
+          .ico-system-setting {
+            color: var(--dialog-notification-head-ico-color);
+          }
+        }
+      }
+      &-body {
+        padding: 24px 0;
+      }
+      &-text {
+        display: flex;
+        justify-content: flex-end;
+        padding: 12px 0 24px 0;
+        p {
+          margin: 0;
+          color: var(--dialog-notification-text-color);
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 140%; /* 16.8px */
+          letter-spacing: -0.3px;
+        }
+      }
+      &-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        &-item {
+          display: block;
+          padding: 20px 20px 28px 20px;
+          border-radius: 24px;
+          background: var(--dialog-notification-list-item-background);
+          &__head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 0 0 12px 0;
+            p {
+              margin: 0;
+              color: var(--dialog-notification-list-item-text-color);
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 140%; /* 16.8px */
+              letter-spacing: -0.3px;
+            }
+          }
+          &__title {
+            color: var(--dialog-notification-list-item-title-color);
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 25.2px */
+            letter-spacing: -0.45px;
+            @include text-clamp(2, 25.2);
+          }
+        }
+      }
+      &-button {
+        display: flex;
+        justify-content: center;
+        margin-top: 24px;
+        .ico-arrow-achevron-right {
+          min-width: 20px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
   }
 }
 

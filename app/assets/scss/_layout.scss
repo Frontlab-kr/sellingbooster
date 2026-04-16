@@ -204,7 +204,12 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 32px;
+          margin-bottom: 12px;
+        }
+        &-text {
+          display: flex;
+          justify-content: flex-end;
+          margin-bottom: 24px;
           p {
             margin: 0;
             color: var(--header-menu-notification-center-tab-text-color);
@@ -297,6 +302,28 @@
         }
       }
     }
+    &-notification-dialog {
+      display: none;
+      &-head {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 56px;
+        padding: 0 12px;
+        background: var(--header-mo-menu-background);
+        border-bottom: 1px solid var(--header-mo-menu-border-color);
+        z-index: 20;
+        transition: all 0.2s ease;
+        .p-button {
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
     &-user {
       position: relative;
       &-button {
@@ -350,7 +377,7 @@
         flex-direction: column;
         gap: 4px;
         align-items: flex-start;
-        strong {
+        > strong {
           color: var(--header-menu-user-name-color);
           font-size: 16px;
           font-style: normal;
@@ -369,6 +396,8 @@
         }
       }
       &-layer {
+        // opacity: 1;
+        // visibility: visible;
         &::before {
           content: '';
           display: block;
@@ -639,7 +668,7 @@
     &-mo-logout {
       display: none;
     }
-    @media screen and (max-width: 1440px) {
+    @media screen and (max-width: 1600px) {
       box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.2);
     }
   }
@@ -650,8 +679,8 @@
     transition: $transition-layout;
     background: var(--contents-background);
     background-size: 604px 1188px;
-    @media screen and (max-width: 1440px) {
-      padding: 20px 40px 40px 140px;
+    @media screen and (max-width: 1600px) {
+      padding: 20px 40px 40px 160px;
     }
   }
   &-main & {
@@ -700,14 +729,14 @@
     }
     &-header {
       padding: 40px 40px 40px 160px;
-      @media screen and (max-width: 1440px) {
+      @media screen and (max-width: 1600px) {
         padding-left: 140px;
       }
     }
     &-contents {
       padding: 20px 40px 40px 160px;
-      @media screen and (max-width: 1440px) {
-        padding-left: 140px;
+      @media screen and (max-width: 1600px) {
+        //padding-left: 140px;
       }
     }
   }
@@ -1042,7 +1071,7 @@
           }
         }
       }
-      @media screen and (max-width: 1440px) {
+      @media screen and (max-width: 1600px) {
         height: auto;
         box-shadow: 0 20px 40px 0 rgba(0, 0, 0, 0.2);
       }

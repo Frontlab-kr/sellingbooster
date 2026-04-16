@@ -1155,6 +1155,7 @@
         }
       }
       &-record {
+        height: 100%;
         min-height: 574px;
         padding: 40px;
         border-radius: 32px;
@@ -1174,7 +1175,8 @@
           background: var(--report-analyze-record-chart-backcground);
           &-chart {
             position: relative;
-            width: 340px;
+            min-width: 340px;
+            height: 340px;
           }
           &-text {
             display: flex;
@@ -1189,77 +1191,42 @@
             &__percent {
               display: flex;
               align-items: center;
-              gap: 2px;
-              margin-top: 8px;
+              gap: 4px;
               h1,
-              h5 {
+              h3 {
                 color: var(--report-analyze-record-chart-score-title-color);
-              }
-              h5 {
-                position: relative;
-                top: 10px;
               }
             }
             p {
               margin: 0;
               color: var(--report-analyze-record-chart-score-text-color);
-              font-size: 14px;
+              font-size: 20px;
               font-style: normal;
               font-weight: 700;
-              line-height: 140%; /* 19.6px */
-              letter-spacing: -0.35px;
+              line-height: 140%; /* 28px */
+              letter-spacing: -0.5px;
             }
           }
           &-contents {
             &-price {
               display: flex;
               flex-direction: column;
-              gap: 24px;
-              margin-bottom: 32px;
-              padding-bottom: 32px;
+              gap: 12px;
+              max-width: 440px;
+              margin-bottom: 20px;
+              padding-bottom: 20px;
               border-bottom: 1px dashed
                 var(--report-analyze-record-chart-price-border-color);
-              &__text {
-                display: flex;
-                span {
-                  display: flex;
-                  align-items: center;
-                  margin: 0;
-                  padding: 0;
-                  white-space: noWrap;
-                  h4 {
-                    color: var(--title-color);
-                    &.color-etc {
-                      color: var(
-                        --report-analyze-record-chart-price-title-color
-                      );
-                    }
-                  }
-                  &:after {
-                    content: '';
-                    display: block;
-                    width: 1px;
-                    height: 24px;
-                    margin: 0 12px;
-                    background: var(
-                      --report-analyze-record-chart-price-border-color
-                    );
-                  }
-                  &:last-child {
-                    &::after {
-                      display: none;
-                    }
-                  }
-                }
-              }
+
               dl {
                 display: flex;
                 align-items: center;
+                justify-content: space-between;
                 flex-wrap: wrap;
+                gap: 12px;
                 margin: 0;
                 padding: 0;
                 dt {
-                  min-width: 154px;
                   margin: 0;
                   padding: 0;
                   color: var(--report-analyze-record-chart-price-title-color);
@@ -1270,6 +1237,9 @@
                   letter-spacing: -0.4px;
                 }
                 dd {
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
                   margin: 0;
                   padding: 0;
                 }
@@ -1334,6 +1304,7 @@
           margin-bottom: 32px;
           h5 {
             color: var(--title-color);
+            word-break: keep-all;
           }
         }
         &-body {

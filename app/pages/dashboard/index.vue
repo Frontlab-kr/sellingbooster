@@ -61,7 +61,8 @@
               <h3>원</h3>
             </div>
             <div class="sb-dashboard-status-info-text">
-              Lv.3 목표까지 <strong>22,319,240원</strong> 남았어요!
+              Lv.3 <span>목표</span>까지 <strong>22,319,240원</strong>
+              <span>남았어요!</span>
             </div>
             <div class="sb-dashboard-status-info-button">
               <Button severity="contrast" size="small">
@@ -130,7 +131,7 @@
         </div>
       </div>
       <div class="col-6">
-        <div class="sb-dashboard-top10">
+        <div class="sb-dashboard-keyword-top10">
           <div class="sb-dashboard-card">
             <div class="sb-dashboard-card-head">
               <h5>내 상품 키워드 TOP 10 분석</h5>
@@ -269,63 +270,65 @@
         </div>
       </div>
       <div class="col-6">
-        <div class="sb-dashboard-card">
-          <div class="sb-dashboard-card-head">
-            <h5>판매 속도를 높이는 AI의 가격 제안</h5>
-            <div class="sb-dashboard-card-head-menu">
-              <NuxtLink to="/">
-                <Button variant="text" severity="white">
-                  <template #icon>
-                    <IconArrowUpRight class="ico-arrow-up-right" />
-                  </template>
-                </Button>
-              </NuxtLink>
-              <SbMenu :items="menuItems" />
-            </div>
-          </div>
-          <div class="sb-dashboard-card-body">
-            <div class="sb-sales-price-list-item-head">
-              <div class="sb-sales-price-list-item-head__thumb">
-                <img src="https://picsum.photos/200/300" alt="" />
-              </div>
-              <div class="sb-sales-price-list-item-head__contents">
-                <div class="sb-sales-price-list-item-head__title">
-                  <h6>뉴트리코어 하이퍼셀오메가3</h6>
-                </div>
-                <div class="sb-sales-price-list-item-head__category">
-                  <p>
-                    <span>식품</span>
-                    <span>건강식품</span>
-                    <span>영양제</span>
-                    <span>오메가3</span>
-                  </p>
-                  <p>
-                    <span>건가보조식품</span>
-                    <span>혈행개선</span>
-                    <span>오메가</span>
-                    <span>오메가3</span>
-                  </p>
-                  <p>
-                    <span>식품</span>
-                    <span>건강식품</span>
-                    <span>영양제</span>
-                    <span>기타영양제</span>
-                    <span>오메가3</span>
-                  </p>
-                </div>
+        <div class="sb-dashboard-price">
+          <div class="sb-dashboard-card">
+            <div class="sb-dashboard-card-head">
+              <h5>판매 속도를 높이는 AI의 가격 제안</h5>
+              <div class="sb-dashboard-card-head-menu">
+                <NuxtLink to="/">
+                  <Button variant="text" severity="white">
+                    <template #icon>
+                      <IconArrowUpRight class="ico-arrow-up-right" />
+                    </template>
+                  </Button>
+                </NuxtLink>
+                <SbMenu :items="menuItems" />
               </div>
             </div>
-            <SbPriceSetting
-              :price-min="0"
-              :price-max="25000"
-              :price-current="16500"
-              :price-initial-recommended="14900"
-              :price-average="17800"
-            >
-              <template #badge>
-                <Badge value="매우 좋음" severity="success" />
-              </template>
-            </SbPriceSetting>
+            <div class="sb-dashboard-card-body">
+              <div class="sb-sales-price-list-item-head">
+                <div class="sb-sales-price-list-item-head__thumb">
+                  <img src="https://picsum.photos/200/300" alt="" />
+                </div>
+                <div class="sb-sales-price-list-item-head__contents">
+                  <div class="sb-sales-price-list-item-head__title">
+                    <h6>뉴트리코어 하이퍼셀오메가3</h6>
+                  </div>
+                  <div class="sb-sales-price-list-item-head__category">
+                    <p>
+                      <span>식품</span>
+                      <span>건강식품</span>
+                      <span>영양제</span>
+                      <span>오메가3</span>
+                    </p>
+                    <p>
+                      <span>건가보조식품</span>
+                      <span>혈행개선</span>
+                      <span>오메가</span>
+                      <span>오메가3</span>
+                    </p>
+                    <p>
+                      <span>식품</span>
+                      <span>건강식품</span>
+                      <span>영양제</span>
+                      <span>기타영양제</span>
+                      <span>오메가3</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <SbPriceSetting
+                :price-min="0"
+                :price-max="25000"
+                :price-current="16500"
+                :price-initial-recommended="14900"
+                :price-average="17800"
+              >
+                <template #badge>
+                  <Badge value="매우 좋음" severity="success" />
+                </template>
+              </SbPriceSetting>
+            </div>
           </div>
         </div>
       </div>
@@ -477,13 +480,7 @@
                 <div class="sb-dashboard-card-head-menu__text">
                   정보 출처 K-snapp
                 </div>
-                <NuxtLink to="/">
-                  <Button variant="text" severity="white">
-                    <template #icon>
-                      <IconArrowUpRight class="ico-arrow-up-right" />
-                    </template>
-                  </Button>
-                </NuxtLink>
+
                 <SbMenu :items="menuItems" />
               </div>
             </div>
@@ -678,62 +675,64 @@
         </div>
       </div>
       <div class="col-6">
-        <div class="sb-dashboard-card">
-          <div class="sb-dashboard-card-head">
-            <h5>관심 카테고리 상품 TOP 10</h5>
-            <div class="sb-dashboard-card-head-menu">
-              <div class="sb-dashboard-card-head-menu__text">
-                네이버 쇼핑 기준
-              </div>
-              <NuxtLink to="/">
-                <Button variant="text" severity="white">
-                  <template #icon>
-                    <IconArrowUpRight class="ico-arrow-up-right" />
-                  </template>
-                </Button>
-              </NuxtLink>
-              <SbMenu :items="menuItems" />
-            </div>
-          </div>
-          <div class="sb-dashboard-card-body">
-            <div class="sb-tab">
-              <Button label="패션" variant="text" class="active" />
-              <Button label="이너뷰티" variant="text" />
-              <Button label="코스메틱" variant="text" />
-              <Button label="건강기능식품" variant="text" />
-              <Button label="펫" variant="text" />
-              <Button label="유아" variant="text" />
-            </div>
-            <div class="sb-trend-top sb-trend-top--small" v-scroll-end>
-              <div class="sb-trend-top-list">
-                <NuxtLink
-                  v-for="item in top20List"
-                  :key="item.rank"
-                  to="/"
-                  class="sb-trend-top-list-item"
-                >
-                  <div class="sb-trend-top-list-item__thumb">
-                    <Badge
-                      :value="item.rank"
-                      size="small"
-                      class="p-badge-circle"
-                      :severity="item.rank > 3 ? 'contrast' : undefined"
-                    ></Badge>
-                    <img :src="item.imgSrc" :alt="item.title" />
-                  </div>
-                  <div class="sb-trend-top-list-item__contents">
-                    <div class="sb-trend-top-list-item__category">
-                      <span>{{ item.brand }}</span>
-                      <span>{{ item.mall }}</span>
-                    </div>
-                    <div class="sb-trend-top-list-item__title">
-                      {{ item.title }}
-                    </div>
-                    <div class="sb-trend-top-list-item__price">
-                      {{ item.price.toLocaleString() }}원
-                    </div>
-                  </div>
+        <div class="sb-dashboard-category-top10">
+          <div class="sb-dashboard-card">
+            <div class="sb-dashboard-card-head">
+              <h5>관심 카테고리 상품 TOP 10</h5>
+              <div class="sb-dashboard-card-head-menu">
+                <div class="sb-dashboard-card-head-menu__text">
+                  네이버 쇼핑 기준
+                </div>
+                <NuxtLink to="/">
+                  <Button variant="text" severity="white">
+                    <template #icon>
+                      <IconArrowUpRight class="ico-arrow-up-right" />
+                    </template>
+                  </Button>
                 </NuxtLink>
+                <SbMenu :items="menuItems" />
+              </div>
+            </div>
+            <div class="sb-dashboard-card-body">
+              <div class="sb-tab">
+                <Button label="패션" variant="text" class="active" />
+                <Button label="이너뷰티" variant="text" />
+                <Button label="코스메틱" variant="text" />
+                <Button label="건강기능식품" variant="text" />
+                <Button label="펫" variant="text" />
+                <Button label="유아" variant="text" />
+              </div>
+              <div class="sb-trend-top sb-trend-top--small" v-scroll-end>
+                <div class="sb-trend-top-list">
+                  <NuxtLink
+                    v-for="item in top20List"
+                    :key="item.rank"
+                    to="/"
+                    class="sb-trend-top-list-item"
+                  >
+                    <div class="sb-trend-top-list-item__thumb">
+                      <Badge
+                        :value="item.rank"
+                        size="small"
+                        class="p-badge-circle"
+                        :severity="item.rank > 3 ? 'contrast' : undefined"
+                      ></Badge>
+                      <img :src="item.imgSrc" :alt="item.title" />
+                    </div>
+                    <div class="sb-trend-top-list-item__contents">
+                      <div class="sb-trend-top-list-item__category">
+                        <span>{{ item.brand }}</span>
+                        <span>{{ item.mall }}</span>
+                      </div>
+                      <div class="sb-trend-top-list-item__title">
+                        {{ item.title }}
+                      </div>
+                      <div class="sb-trend-top-list-item__price">
+                        {{ item.price.toLocaleString() }}원
+                      </div>
+                    </div>
+                  </NuxtLink>
+                </div>
               </div>
             </div>
           </div>
@@ -780,8 +779,8 @@
                   </div>
                 </div>
               </div>
-              <div class="sb-dashboard-report-chrt">
-                <div class="sb-dashboard-report-chrt-head">
+              <div class="sb-dashboard-report-chart">
+                <div class="sb-dashboard-report-chart-head">
                   <Select
                     ref="selectRef"
                     v-model="selectedSort"
@@ -800,6 +799,13 @@
                       },
                     }"
                   />
+                  <div class="sb-dashboard-report-chart-label">
+                    <p class="color-primary">주문 건수</p>
+                    <p class="color-secondary">주문 금액</p>
+                  </div>
+                </div>
+                <div class="sb-dashboard-report-chart-body">
+                  <SbChartBarDashboard :chart-data="trendData" />
                 </div>
               </div>
             </div>
@@ -835,7 +841,15 @@ const swiperParams = {
   spaceBetween: 8,
   autoplay: {
     delay: 3000,
-    disableOnInteraction: false,
+    disableOnInteraction: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 2,
+    },
+    1800: {
+      slidesPerView: 3,
+    },
   },
 };
 
@@ -880,11 +894,7 @@ const togglePopover = (event) => {
 
 //sort
 const selectRef = ref(null);
-const selectedSortOption = ref([
-  { name: '최신 작성순' },
-  { name: '댓글 수' },
-  { name: '좋아요 수' },
-]);
+const selectedSortOption = ref([{ name: '주간' }, { name: '월간' }]);
 const selectedSort = ref(selectedSortOption.value[0]);
 
 //data
@@ -1073,7 +1083,6 @@ const ksnappItems = [
     title: '[리뷰] "백지영도 쓴다" ... 피부 고민 해결 해 줄 화제의 뷰티템',
   },
 ];
-
 const top20List = ref([
   {
     rank: 1,
@@ -1156,7 +1165,6 @@ const top20List = ref([
     price: 79410,
   },
 ]);
-
 const interestKeyword = ref([
   {
     keyword: '크림',
@@ -1238,5 +1246,14 @@ const interestKeyword = ref([
     productCount: '123,456개',
     isFavorite: false,
   },
+]);
+const trendData = ref([
+  { date: '01.02', count: 2500, amount: 3000 },
+  { date: '01.03', count: 4800, amount: 5800 },
+  { date: '01.04', count: 12356, amount: 15423 }, // 스크린샷 강조 데이터
+  { date: '01.05', count: 3200, amount: 4000 },
+  { date: '01.06', count: 5600, amount: 8000 },
+  { date: '01.07', count: 3800, amount: 5000 },
+  { date: '01.08', count: 4800, amount: 9000 },
 ]);
 </script>

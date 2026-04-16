@@ -2415,7 +2415,7 @@
 
         .sb-trend-top-list {
           overflow: auto;
-          height: 582px;
+          max-height: 582px;
           @include custom-scrollbar();
         }
         @include custom-scrollbar-blur();

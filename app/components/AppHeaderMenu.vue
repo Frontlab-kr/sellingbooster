@@ -68,8 +68,8 @@
         <div class="sb-header-menu-layer sb-header-notification-layer">
           <div class="sb-header-notification-center">
             <div class="sb-header-notification-center-head">
-              <strong>알림센터</strong>
-              <Button variant="text">
+              <strong>알림함</strong>
+              <Button variant="text" @click="controls.openMarketing">
                 <template #icon>
                   <IconSystemSetting class="ico-system-setting" />
                 </template>
@@ -78,10 +78,14 @@
             <div class="sb-header-notification-center-tab">
               <div class="sb-tab-circle">
                 <Button label="전체" variant="text" class="active" />
-                <Button label="공지" variant="text" />
                 <Button label="시스템" variant="text" />
+                <Button label="공지" variant="text" />
                 <Button label="서비스" variant="text" />
+                <Button label="긴급" variant="text" />
+                <Button label="중요" variant="text" />
               </div>
+            </div>
+            <div class="sb-header-notification-center-text">
               <p>최근 7일간의 알림</p>
             </div>
             <div class="sb-header-notification-center-list" v-scroll-end>
@@ -121,7 +125,7 @@
           </div>
           <div class="sb-header-user__text">
             <strong>셀링부스터</strong>
-            <p>26.01.31 접속</p>
+            <p><strong>Lv.1</strong> Visitor</p>
           </div>
         </button>
         <div class="sb-header-menu-layer sb-header-user-layer">
@@ -133,10 +137,6 @@
             <NuxtLink to="/" class="sb-header-user-list-item">
               <IconSystemWreach class="ico-system-wreach" />
               셀러 정보 관리
-            </NuxtLink>
-            <NuxtLink to="/" class="sb-header-user-list-item">
-              <IconSystemBellOff class="ico-system-bell-off" />
-              알림 관리
             </NuxtLink>
             <NuxtLink to="/" class="sb-header-user-list-item">
               <IconSystemManagement class="ico-system-management" />
@@ -157,6 +157,7 @@
   </header>
 </template>
 <script setup>
+import { inject } from 'vue';
 import { ref, watch, nextTick } from 'vue';
 import { useRoute } from 'vue-router';
 import { storeToRefs } from 'pinia';
@@ -179,6 +180,8 @@ import IconGonfalonKr from '@/assets/icons/gonfalon/kr.png';
 import IconGonfalonJp from '@/assets/icons/gonfalon/jp.png';
 import IconGonfalonUs from '@/assets/icons/gonfalon/us.png';
 import IconGonfalonCn from '@/assets/icons/gonfalon/cn.png';
+
+const controls = inject('dialogControls');
 
 // theme
 const themeStore = useThemeStore();

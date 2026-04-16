@@ -7,7 +7,7 @@
           <IconSystemModeDark v-else class="ico-system-mode-dark" />
         </template>
       </Button>
-      <Button variant="text">
+      <Button variant="text" @click="controls.openNotification">
         <template #icon>
           <IconSystemBellOn class="ico-system-bell-on" />
         </template>
@@ -33,6 +33,7 @@
   </div>
 </template>
 <script setup>
+import { inject } from 'vue';
 import { useThemeStore } from '@/stores/useTheme';
 
 import IconProfileBadgeLevel1Small from '@/assets/icons/profile/badge-level1-small.svg';
@@ -40,6 +41,8 @@ import IconSystemClose from '@/assets/icons/system/close.svg?component';
 import IconSystemModeDark from '@/assets/icons/system/mode-dark.svg?component';
 import IconSystemModeLight from '@/assets/icons/system/mode-light.svg?component';
 import IconSystemBellOn from '@/assets/icons/system/bell-on.svg?component';
+
+const controls = inject('dialogControls');
 
 // theme
 const themeStore = useThemeStore();

@@ -286,6 +286,12 @@
   --chart-bar-color02-end: rgba(194, 244, 248, 0);
   --chart-bar-border-color: var(--p-gray-00);
 
+  --chart-bar-dashboard-tooltip-color: var(--p-gray-00);
+  --chart-bar-dashboard-tooltip-background: var(--p-gray-900);
+  --chart-bar-dashboard-tooltip-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+  --chart-bar-dashboard-border-color: var(--p-gray-200);
+  --chart-bar-dashboard-circle-border-color: var(--p-gray-00);
+
   --chart-doughnut-primary: var(--p-primary-500);
   --chart-doughnut-secondary: var(--p-slate-400);
   --chart-doughnut-info: var(--p-blue-200);
@@ -455,6 +461,37 @@
   --title-color: var(--p-gray-900);
   --contents-color: var(--p-gray-900);
 
+  --dashboard-swiper-button-background: var(--p-gray-900);
+  --dashboard-swiper-button-ico-color: var(--p-gray-00);
+  --dashboard-swiper-item-background: var(--p-gray-50);
+  --dashboard-swiper-item-title-color: var(--p-gray-900);
+  --dashboard-swiper-item-text-color: var(--p-gray-500);
+  --dashboard-swiper-item-time-color: var(--p-gray-500);
+  --dashboard-card-background: var(--p-gray-00);
+  --dashboard-card-head-menu-text: var(--p-gray-400);
+  --dashboard-status-border-color: var(--p-gray-300);
+  --dashboard-status-background: var(--p-gray-200);
+  --dashboard-status-info-text-color: var(--p-gray-500);
+  --dashboard-status-chart-border-color: var(--p-gray-200);
+  --dashboard-status-chart-background: var(--p-gray-50);
+  --dashboard-status-chart-text-color: var(--p-gray-500);
+  --dashboard-planner-item-border-color: var(--p-gray-300);
+  --dashboard-planner-item-title-color: var(--p-gray-900);
+  --dashboard-planner-item-text-color: var(--p-gray-500);
+  --dashboard-trend-product-border-color: var(--p-gray-200);
+  --dashboard-trend-product-head-color: var(--p-gray-900);
+  --dashboard-trend-product-head-buttn-color: var(--p-gray-500);
+  --dashboard-trend-product-list-item-border-color: var(--p-gray-300);
+  --dashboard-trend-product-list-item-category-color: var(--p-gray-400);
+  --dashboard-trend-product-list-item-category-border-color: var(--p-gray-300);
+  --dashboard-trend-product-list-item-title-color: var(--p-gray-900);
+  --dashboard-trend-product-list-item-price-color: var(--p-gray-900);
+  --dashboard-report-info-item-background: var(--p-gray-50);
+  --dashboard-report-info-item-title-color: var(--p-gray-900);
+  --dashboard-report-info-item-button-color: var(--p-gray-400);
+  --dashboard-report-info-item-text-color: var(--p-gray-500);
+  --dashboard-report-chart-label-color: var(--p-gray-500);
+
   --blog-head-swiper-background: var(--p-gray-00);
   --blog-list-item-background: var(--p-gray-00);
   --blog-list-item-date-color: var(--p-gray-400);
@@ -603,6 +640,9 @@
   --table-color-warn: var(--p-orange-700);
   --table-color-danger: var(--p-red-500);
   --table-color-contrast: var(--p-gray-500);
+
+  --table-body-progress-title-color: var(--p-gray-900);
+  --table-body-progress-background: var(--p-gray-200);
 
   --ai-tooltip-background: #000;
   --ai-tooltip-color: var(--p-gray-00);
@@ -1098,6 +1138,14 @@
   --dialog-loading-boxshadow: 0 20px 40px 0 rgba(0, 0, 0, 0.15);
   --dialog-loading-color: var(--p-gray-900);
 
+  --dialog-marketing-text-color: var(--p-gray-900);
+
+  --dialog-notification-head-ico-color: var(--p-gray-500);
+  --dialog-notification-text-color: var(--p-gray-400);
+  --dialog-notification-list-item-background: var(--p-gray-50);
+  --dialog-notification-list-item-text-color: var(--p-gray-400);
+  --dialog-notification-list-item-title-color: var(--p-gray-900);
+
   //price setting
   --price-setting-background: var(--p-gray-50);
   --price-setting-head-border-color: var(--p-gray-300);
@@ -1170,6 +1218,12 @@
     --chart-bar-color02-start: var(--p-primary-700);
     --chart-bar-color02-end: rgba(194, 244, 248, 0);
     --chart-bar-border-color: var(--p-gray-00);
+
+    --chart-bar-dashboard-tooltip-color: var(--p-gray-900);
+    --chart-bar-dashboard-tooltip-background: var(--p-gray-00);
+    --chart-bar-dashboard-tooltip-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.15);
+    --chart-bar-dashboard-border-color: var(--p-gray-600);
+    --chart-bar-dashboard-circle-border-color: var(--p-gray-800);
 
     --chart-doughnut-background: var(--p-gray-800);
     --chart-doughnut-primary: var(--p-primary-400);
@@ -1333,6 +1387,39 @@
     --title-color: var(--p-gray-00);
     --contents-color: var(--p-gray-00);
 
+    --dashboard-swiper-button-background: var(--p-gray-00);
+    --dashboard-swiper-button-ico-color: var(--p-gray-900);
+    --dashboard-swiper-item-background: var(--p-gray-700);
+    --dashboard-swiper-item-title-color: var(--p-gray-00);
+    --dashboard-swiper-item-text-color: var(--p-gray-300);
+    --dashboard-swiper-item-time-color: var(--p-gray-400);
+    --dashboard-card-background: var(--p-gray-800);
+    --dashboard-card-head-menu-text: var(--p-gray-400);
+    --dashboard-status-border-color: var(--p-gray-700);
+    --dashboard-status-background: var(--p-gray-700);
+    --dashboard-status-info-text-color: var(--p-gray-300);
+    --dashboard-status-chart-border-color: var(--p-gray-900);
+    --dashboard-status-chart-background: var(--p-gray-900);
+    --dashboard-status-chart-text-color: var(--p-gray-300);
+    --dashboard-planner-item-border-color: var(--p-gray-600);
+    --dashboard-planner-item-title-color: var(--p-gray-00);
+    --dashboard-planner-item-text-color: var(--p-gray-300);
+    --dashboard-trend-product-border-color: var(--p-gray-600);
+    --dashboard-trend-product-head-color: var(--p-gray-00);
+    --dashboard-trend-product-head-buttn-color: var(--p-gray-300);
+    --dashboard-trend-product-list-item-border-color: var(--p-gray-600);
+    --dashboard-trend-product-list-item-category-color: var(--p-gray-400);
+    --dashboard-trend-product-list-item-category-border-color: var(
+      --p-gray-600
+    );
+    --dashboard-trend-product-list-item-title-color: var(--p-gray-00);
+    --dashboard-trend-product-list-item-price-color: var(--p-gray-00);
+    --dashboard-report-info-item-background: var(--p-gray-900);
+    --dashboard-report-info-item-title-color: var(--p-gray-00);
+    --dashboard-report-info-item-button-color: var(--p-gray-400);
+    --dashboard-report-info-item-text-color: var(--p-gray-300);
+    --dashboard-report-chart-label-color: var(--p-gray-300);
+
     --blog-head-swiper-background: var(--p-gray-800);
     --blog-list-item-background: var(--p-gray-700);
     --blog-list-item-date-color: var(--p-gray-400);
@@ -1478,6 +1565,9 @@
     --table-color-warn: var(--p-orange-600);
     --table-color-danger: var(--p-red-500);
     --table-color-contrast: var(--p-gray-300);
+
+    --table-body-progress-title-color: var(--p-gray-00);
+    --table-body-progress-background: var(--p-gray-600);
 
     --ai-tooltip-background: var(--p-gray-00);
     --ai-tooltip-color: var(--p-gray-900);
@@ -1978,6 +2068,14 @@
     --dialog-loading-background: var(--p-gray-900);
     --dialog-loading-boxshadow: 0 20px 40px 0 rgba(0, 0, 0, 0.15);
     --dialog-loading-color: var(--p-gray-00);
+
+    --dialog-marketing-text-color: var(--p-gray-00);
+
+    --dialog-notification-head-ico-color: var(--p-gray-300);
+    --dialog-notification-text-color: var(--p-gray-400);
+    --dialog-notification-list-item-background: var(--p-gray-700);
+    --dialog-notification-list-item-text-color: var(--p-gray-400);
+    --dialog-notification-list-item-title-color: var(--p-gray-00);
 
     //price setting
     --price-setting-background: var(--p-gray-900);

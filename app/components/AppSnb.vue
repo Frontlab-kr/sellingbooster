@@ -367,8 +367,8 @@ const handleClickOutside = (event) => {
     return;
   }
 
-  // 2. 1024px 이상 ~ 1441px 미만인 경우: 외부 클릭 시 메뉴를 접음
-  if (window.innerWidth < 1441 && !isFolded.value) {
+  // 2. 1024px 이상 ~ 1601px 미만인 경우: 외부 클릭 시 메뉴를 접음
+  if (window.innerWidth < 1601 && !isFolded.value) {
     const snbElement = document.querySelector('.sb-snb');
     const toggleBtn = document.querySelector('.sb-header-mo-end');
 
@@ -383,7 +383,7 @@ const handleClickOutside = (event) => {
 const handleResize = () => {
   if (window.innerWidth < 1024) {
     isFolded.value = false;
-  } else if (window.innerWidth < 1441) {
+  } else if (window.innerWidth < 1601) {
     isFolded.value = true;
   } else {
     isFolded.value = false;
@@ -409,9 +409,9 @@ watch(
     // async/await 추가로 렌더링 타이밍 확보
     if (process.client) {
       // 1. 화면 너비에 따른 Fold 상태 결정
-      if (window.innerWidth >= 1024 && window.innerWidth < 1441) {
+      if (window.innerWidth >= 1024 && window.innerWidth < 1601) {
         isFolded.value = true;
-      } else if (window.innerWidth >= 1441) {
+      } else if (window.innerWidth >= 1601) {
         isFolded.value = false;
       }
 

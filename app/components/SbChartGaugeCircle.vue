@@ -70,7 +70,7 @@ const initChart = () => {
         type: 'gauge',
         startAngle: 90,
         endAngle: -270,
-        radius: '95%',
+        radius: '97%',
         pointer: { show: false },
         progress: {
           show: true,
@@ -94,14 +94,14 @@ const initChart = () => {
         },
         axisLine: {
           lineStyle: {
-            width: 25, // 게이지 두께
+            width: 20, // 게이지 두께
             color: [[1, 'transparent']], // 배경 트랙 색상
           },
         },
         splitLine: { show: false }, // 굵은 구분선 숨김
         axisTick: {
           splitNumber: 9,
-          distance: -16, // 안쪽 눈금 위치
+          distance: -15, // 안쪽 눈금 위치
           length: 10,
           lineStyle: {
             color: colorLine,
@@ -120,7 +120,7 @@ const initChart = () => {
         pointer: {
           show: true,
           icon: 'circle',
-          length: '234%',
+          length: '243%',
           width: 12,
           itemStyle: {
             color: '#fff',
