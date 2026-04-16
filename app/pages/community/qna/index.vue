@@ -49,7 +49,7 @@
   <Dialog v-model:visible="dialogWrite" modal class="p-dialog--full">
     <div class="p-dialog-inner">
       <h6 class="p-dialog-title">Q&A 작성하기</h6>
-      <Write />
+      <Write @close="dialogWrite = false" />
     </div>
   </Dialog>
 

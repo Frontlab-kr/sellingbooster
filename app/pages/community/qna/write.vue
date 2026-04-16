@@ -100,8 +100,13 @@
     </div>
     <div class="pc">
       <div class="sb-form-button">
-        <Button label="취소" severity="contrast" outlined />
-        <Button label="등록" />
+        <Button
+          label="취소"
+          severity="contrast"
+          outlined
+          @click="emit('close')"
+        />
+        <Button label="등록" @click="emit('close')" />
       </div>
     </div>
     <div class="sb-caution">
@@ -119,15 +124,21 @@
     </div>
     <div class="mo">
       <div class="sb-form-button">
-        <Button label="취소" size="large" severity="contrast" outlined />
-        <Button label="등록" size="large" />
+        <Button
+          label="취소"
+          size="large"
+          severity="contrast"
+          outlined
+          @click="emit('close')"
+        />
+        <Button label="등록" size="large" @click="emit('close')" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, markRaw } from 'vue';
+import { ref, markRaw, defineEmits } from 'vue';
 
 import IconEtcLogin from '@/assets/icons/etc/login.svg?component';
 import IconEtcSmile from '@/assets/icons/etc/smile.svg?component';
@@ -135,6 +146,8 @@ import IconEtcProfile from '@/assets/icons/etc/profile.svg?component';
 import IconEtcCard from '@/assets/icons/etc/card.svg?component';
 import IconEtcAlertCircle from '@/assets/icons/etc/alert-circle.svg?component';
 import IconEtcDocument from '@/assets/icons/etc/document.svg?component';
+
+const emit = defineEmits(['close']);
 
 const radioCategory = ref('radioCategory01');
 const categories = [
