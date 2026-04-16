@@ -119,6 +119,8 @@
           display: flex;
           align-items: center;
           gap: 10px;
+          width: 100%;
+          justify-content: space-between;
           h5 {
             color: var(--trend-table-head-title-color);
           }

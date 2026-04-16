@@ -418,7 +418,7 @@ watch(
       // 2. DOM 업데이트 이후 실행되도록 nextTick 효과
       setTimeout(() => {
         openActiveMenu();
-      }, 50);
+      }, 500);
     }
   },
   { immediate: true },
