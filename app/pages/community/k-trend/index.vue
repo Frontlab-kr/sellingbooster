@@ -449,7 +449,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue';
-import SbInfo from '@/pages/community/components/SbInfo.vue';
+
 import IconSystemAi from '@/assets/icons/system/ai.svg?component';
 import IconSystemCopy from '@/assets/icons/system/copy.svg?component';
 import IconArrowSmallUp from '@/assets/icons/arrow/small-up.svg?component';

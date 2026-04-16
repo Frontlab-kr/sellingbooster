@@ -3,7 +3,6 @@
 .sb {
   &-dashboard {
     @media screen and (max-width: 1440px) {
-      background-color: #f60;
     }
     &-head {
       display: flex;
@@ -23,17 +22,18 @@
         margin-left: auto;
         overflow: hidden;
         &-inner {
+          width: 1224px;
           margin-right: -300px;
         }
         .sb-swiper-controls {
           position: absolute;
           top: 50%;
-          right: 80px;
+          right: 40px;
           transform: translateY(-50%);
           z-index: 50;
           .p-button {
             &:not(:disabled) {
-              background-color: var(--color-primary);
+              background: var(--Gray-900, #1b1f27);
               svg {
                 color: #fff;
               }
@@ -117,14 +117,19 @@
             line-height: 140%; /* 19.6px */
             letter-spacing: -0.35px;
           }
+          .p-button {
+            width: 32px;
+            height: 32px;
+          }
         }
       }
     }
     &-status {
       display: flex;
       justify-content: space-between;
+      height: 370px;
       padding: 20px;
-      border-radius: 32px 999px 999px 32px;
+      border-radius: 32px 185px 185px 32px;
       border: 1px solid var(--Gray-300, #d1d6dd);
       background: var(--Gray-200, #eaecf1);
       &-info {
@@ -134,6 +139,9 @@
 
         h5 {
           margin: 0 0 40px 0;
+        }
+        &-badge {
+          margin-bottom: 12px;
         }
         &-price {
           display: flex;
@@ -153,6 +161,11 @@
           align-items: center;
           gap: 8px;
           margin-top: auto;
+          svg {
+            min-width: 20px;
+            width: 20px;
+            height: 20px;
+          }
         }
       }
       &-chart {
@@ -162,6 +175,9 @@
         position: relative;
         min-width: 330px;
         height: 330px;
+        border-radius: 330px;
+        border: 1px solid var(--Gray-200, #eaecf1);
+        background: var(--Gray-50, #f9fbfc);
         &-text {
           display: flex;
           flex-direction: column;
@@ -194,6 +210,7 @@
       }
     }
     &-planner {
+      margin-top: -8px;
       @include custom-scrollbar-blur();
       &.is-scroll-end {
         &::after {
@@ -253,6 +270,24 @@
         }
       }
     }
+    &-top10 {
+      .p-datatable-scrollable > .p-datatable-table-container {
+        max-height: 470px;
+      }
+    }
+    &-ksnapp {
+      .sb-dashboard-card-head {
+        h5 {
+          width: 129px;
+          height: 26px;
+          background: var(--keyword-ktrend-title-background);
+          background-size: cover;
+          font-size: 0;
+        }
+      }
+    }
+    &-ktrend {
+    }
     &-report {
       display: flex;
       gap: 32px;
@@ -262,7 +297,7 @@
         gap: 12px;
         &-item {
           width: 320px;
-          padding: 32px;
+          padding: 37px 32px;
           border-radius: 16px;
           background: var(--Gray-50, #f9fbfc);
           &__title {

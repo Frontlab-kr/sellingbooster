@@ -42,7 +42,7 @@
             @click="swiper.next()"
           >
             <template #icon>
-              <IconArrowRight class="ico-arrow-right" />
+              <IconArrowSmallRight class="ico-arrow-small-right" />
             </template>
           </Button>
         </div>
@@ -64,11 +64,11 @@
               Lv.3 목표까지 <strong>22,319,240원</strong> 남았어요!
             </div>
             <div class="sb-dashboard-status-info-button">
-              <Button severity="contrast">
+              <Button severity="contrast" size="small">
                 <span class="p-button-label">운영 목표 관리</span>
                 <IconArrowRight class="ico-arrow-right" />
               </Button>
-              <Button severity="contrast" outlined>
+              <Button severity="contrast" size="small" outlined>
                 <span class="p-button-label">온보딩 완료하기</span>
                 <IconArrowRight class="ico-arrow-right" />
               </Button>
@@ -128,138 +128,140 @@
         </div>
       </div>
       <div class="col-6">
-        <div class="sb-dashboard-card">
-          <div class="sb-dashboard-card-head">
-            <h5>내 상품 키워드 TOP 10 분석</h5>
-            <div class="sb-dashboard-card-head-menu">
-              <div class="sb-dashboard-card-head-menu__text">
-                전일 00시 기준
+        <div class="sb-dashboard-top10">
+          <div class="sb-dashboard-card">
+            <div class="sb-dashboard-card-head">
+              <h5>내 상품 키워드 TOP 10 분석</h5>
+              <div class="sb-dashboard-card-head-menu">
+                <div class="sb-dashboard-card-head-menu__text">
+                  전일 00시 기준
+                </div>
+                <Button variant="text" severity="white">
+                  <template #icon>
+                    <IconArrowUpRight class="ico-arrow-up-right" />
+                  </template>
+                </Button>
+                <SbMenu :items="menuItems" />
               </div>
-              <Button variant="text" severity="white">
-                <template #icon>
-                  <IconArrowUpRight class="ico-arrow-up-right" />
-                </template>
-              </Button>
-              <SbMenu :items="menuItems" />
             </div>
-          </div>
-          <div class="sb-dashboard-card-body">
-            <div class="sb-table">
-              <DataTable
-                v-scroll-end
-                :value="keywordTop10"
-                responsiveLayout="scroll"
-                removableSort
-                scrollable
-              >
-                <Column
-                  field="keyword"
-                  header="키워드"
-                  bodyClass="text-left"
-                  style="width: 150px"
+            <div class="sb-dashboard-card-body">
+              <div class="sb-table">
+                <DataTable
+                  v-scroll-end
+                  :value="keywordTop10"
+                  responsiveLayout="scroll"
+                  removableSort
+                  scrollable
                 >
-                  <template #body="slotProps">
-                    <span v-html="slotProps.data.keyword"></span>
-                  </template>
-                </Column>
-                <Column
-                  field="searchVol"
-                  header="월 검색량"
-                  bodyClass="text-right"
-                  style="width: 136px"
-                >
-                  <template #body="slotProps">
-                    <span v-html="slotProps.data.searchVol"></span>
-                  </template>
-                </Column>
-                <Column
-                  field="ranking"
-                  header="카테고리내 순위"
-                  bodyClass="text-right"
-                  style="width: 136px"
-                >
-                  <template #body="slotProps">
-                    <span v-html="slotProps.data.ranking"></span>위
-                  </template>
-                </Column>
-                <Column
-                  field="productCount"
-                  header="상품수"
-                  bodyClass="text-right"
-                  style="width: 136px"
-                >
-                  <template #body="slotProps">
-                    <span v-html="slotProps.data.productCount"></span>
-                  </template>
-                </Column>
-                <Column
-                  field="competition"
-                  bodyClass="text-right"
-                  style="width: 136px"
-                >
-                  <template #header>
-                    <div class="sb-table-header-title">
-                      <span
-                        class="p-datatable-column-title"
-                        data-pc-section="columntitle"
-                        >경쟁강도</span
-                      >
-                      <div
-                        class="sb-table-header-title__icon"
-                        @mouseenter="togglePopover"
-                        @mouseleave="togglePopover"
-                      >
-                        <IconSystemInformationCircle
-                          class="ico-system-information-circle"
-                        />
+                  <Column
+                    field="keyword"
+                    header="키워드"
+                    bodyClass="text-left"
+                    style="width: 150px"
+                  >
+                    <template #body="slotProps">
+                      <span v-html="slotProps.data.keyword"></span>
+                    </template>
+                  </Column>
+                  <Column
+                    field="searchVol"
+                    header="월 검색량"
+                    bodyClass="text-right"
+                    style="width: 136px"
+                  >
+                    <template #body="slotProps">
+                      <span v-html="slotProps.data.searchVol"></span>
+                    </template>
+                  </Column>
+                  <Column
+                    field="ranking"
+                    header="카테고리내 순위"
+                    bodyClass="text-right"
+                    style="width: 136px"
+                  >
+                    <template #body="slotProps">
+                      <span v-html="slotProps.data.ranking"></span>위
+                    </template>
+                  </Column>
+                  <Column
+                    field="productCount"
+                    header="상품수"
+                    bodyClass="text-right"
+                    style="width: 136px"
+                  >
+                    <template #body="slotProps">
+                      <span v-html="slotProps.data.productCount"></span>
+                    </template>
+                  </Column>
+                  <Column
+                    field="competition"
+                    bodyClass="text-right"
+                    style="width: 136px"
+                  >
+                    <template #header>
+                      <div class="sb-table-header-title">
+                        <span
+                          class="p-datatable-column-title"
+                          data-pc-section="columntitle"
+                          >경쟁강도</span
+                        >
+                        <div
+                          class="sb-table-header-title__icon"
+                          @mouseenter="togglePopover"
+                          @mouseleave="togglePopover"
+                        >
+                          <IconSystemInformationCircle
+                            class="ico-system-information-circle"
+                          />
+                        </div>
+                      </div>
+                    </template>
+                    <template #body="slotProps">
+                      <div class="sb-legend">
+                        <span
+                          class="sb-legend-item"
+                          :class="
+                            slotProps.data.competition >= 0.8
+                              ? 'text-success'
+                              : slotProps.data.competition >= 0.6
+                                ? 'text-secondary'
+                                : slotProps.data.competition >= 0.4
+                                  ? 'text-info'
+                                  : slotProps.data.competition >= 0.2
+                                    ? 'text-warn'
+                                    : 'text-danger'
+                          "
+                        >
+                          {{ slotProps.data.competition.toFixed(2) }}
+                        </span>
+                      </div>
+                    </template>
+                  </Column>
+                  <template #empty>
+                    <div class="sb-nodata">
+                      <IconIllustrationSmile class="ico-illustration-smile" />
+                      <div class="sb-nodata__text">
+                        <p>
+                          궁금한 카테고리가 있다면 지금 검색해보세요<br />
+                          정확한 분석 데이터가 기다리고 있어요.
+                        </p>
                       </div>
                     </div>
                   </template>
-                  <template #body="slotProps">
-                    <div class="sb-legend">
-                      <span
-                        class="sb-legend-item"
-                        :class="
-                          slotProps.data.competition >= 0.8
-                            ? 'text-success'
-                            : slotProps.data.competition >= 0.6
-                              ? 'text-secondary'
-                              : slotProps.data.competition >= 0.4
-                                ? 'text-info'
-                                : slotProps.data.competition >= 0.2
-                                  ? 'text-warn'
-                                  : 'text-danger'
-                        "
-                      >
-                        {{ slotProps.data.competition.toFixed(2) }}
-                      </span>
-                    </div>
-                  </template>
-                </Column>
-                <template #empty>
-                  <div class="sb-nodata">
-                    <IconIllustrationSmile class="ico-illustration-smile" />
-                    <div class="sb-nodata__text">
-                      <p>
-                        궁금한 카테고리가 있다면 지금 검색해보세요<br />
-                        정확한 분석 데이터가 기다리고 있어요.
-                      </p>
-                    </div>
-                  </div>
-                </template>
-              </DataTable>
+                </DataTable>
+              </div>
             </div>
+            <Popover
+              ref="popoverScore"
+              :pt="{
+                root: {
+                  class: 'p-popover-flipped sb-table-popover',
+                },
+              }"
+            >
+              <SbLegend />
+            </Popover>
           </div>
-          <Popover
-            ref="popoverScore"
-            :pt="{
-              root: {
-                class: 'p-popover-flipped sb-table-popover',
-              },
-            }"
-          >
-            <SbLegend />
-          </Popover>
         </div>
       </div>
       <div class="col-6">
@@ -342,105 +344,109 @@
         </div>
       </div>
       <div class="col-6">
-        <div class="sb-dashboard-card">
-          <div class="sb-dashboard-card-head">
-            <h5>KSnapp</h5>
-            <div class="sb-dashboard-card-head-menu">
-              <div class="sb-dashboard-card-head-menu__text">
-                정보 출처 K-snapp
+        <div class="sb-dashboard-ksnapp">
+          <div class="sb-dashboard-card">
+            <div class="sb-dashboard-card-head">
+              <h5>KSnapp</h5>
+              <div class="sb-dashboard-card-head-menu">
+                <div class="sb-dashboard-card-head-menu__text">
+                  정보 출처 K-snapp
+                </div>
+                <Button variant="text" severity="white">
+                  <template #icon>
+                    <IconArrowUpRight class="ico-arrow-up-right" />
+                  </template>
+                </Button>
+                <SbMenu :items="menuItems" />
               </div>
-              <Button variant="text" severity="white">
-                <template #icon>
-                  <IconArrowUpRight class="ico-arrow-up-right" />
-                </template>
-              </Button>
-              <SbMenu :items="menuItems" />
             </div>
-          </div>
-          <div class="sb-dashboard-card-body">
-            <div class="sb-ktrend-ksnapp-list" v-scroll-end>
-              <div class="sb-ktrend-ksnapp-list-scroll">
-                <NuxtLink
-                  to="/"
-                  class="sb-ktrend-ksnapp-list-item"
-                  v-for="item in ksnappItems"
-                  :key="item.rank"
-                >
-                  <div class="sb-ktrend-ksnapp-list-item__thumb">
-                    <Badge
-                      :value="item.rank"
-                      size="small"
-                      class="p-badge-circle"
-                      :severity="item.rank > 3 ? 'contrast' : undefined"
-                    ></Badge>
-                    <img :src="item.thumbnail" :alt="item.title" />
-                  </div>
+            <div class="sb-dashboard-card-body">
+              <div class="sb-ktrend-ksnapp-list" v-scroll-end>
+                <div class="sb-ktrend-ksnapp-list-scroll">
+                  <NuxtLink
+                    to="/"
+                    class="sb-ktrend-ksnapp-list-item"
+                    v-for="item in ksnappItems"
+                    :key="item.rank"
+                  >
+                    <div class="sb-ktrend-ksnapp-list-item__thumb">
+                      <Badge
+                        :value="item.rank"
+                        size="small"
+                        class="p-badge-circle"
+                        :severity="item.rank > 3 ? 'contrast' : undefined"
+                      ></Badge>
+                      <img :src="item.thumbnail" :alt="item.title" />
+                    </div>
 
-                  <div class="sb-ktrend-ksnapp-list-item__text">
-                    <IconSystemUp
-                      v-if="item.trend === 'up'"
-                      class="ico-system-up"
-                    />
-                    <IconSystemDown v-else class="ico-system-down" />
+                    <div class="sb-ktrend-ksnapp-list-item__text">
+                      <IconSystemUp
+                        v-if="item.trend === 'up'"
+                        class="ico-system-up"
+                      />
+                      <IconSystemDown v-else class="ico-system-down" />
 
-                    <h6>{{ item.title }}</h6>
-                  </div>
-                </NuxtLink>
+                      <h6>{{ item.title }}</h6>
+                    </div>
+                  </NuxtLink>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div class="col-6">
-        <div class="sb-dashboard-card">
-          <div class="sb-dashboard-card-head">
-            <h5>K트렌드 매거진</h5>
-            <div class="sb-dashboard-card-head-menu">
-              <div class="sb-dashboard-card-head-menu__text">
-                발행: 셀링부스터
+        <div class="sb-dashboard-ktrend">
+          <div class="sb-dashboard-card">
+            <div class="sb-dashboard-card-head">
+              <h5>K트렌드 매거진</h5>
+              <div class="sb-dashboard-card-head-menu">
+                <div class="sb-dashboard-card-head-menu__text">
+                  발행: 셀링부스터
+                </div>
+                <Button variant="text" severity="white">
+                  <template #icon>
+                    <IconArrowUpRight class="ico-arrow-up-right" />
+                  </template>
+                </Button>
+                <SbMenu :items="menuItems" />
               </div>
-              <Button variant="text" severity="white">
-                <template #icon>
-                  <IconArrowUpRight class="ico-arrow-up-right" />
-                </template>
-              </Button>
-              <SbMenu :items="menuItems" />
             </div>
-          </div>
-          <div class="sb-dashboard-card-body">
-            <div class="sb-ktrend-trend-list" v-scroll-end>
-              <div class="sb-ktrend-trend-list-scroll">
-                <NuxtLink
-                  to="/"
-                  class="sb-ktrend-trend-list-item"
-                  v-for="n in 20"
-                  :key="n"
-                >
-                  <div class="sb-ktrend-trend-list-item__thumb">
-                    <img src="https://picsum.photos/200/300" alt="" />
-                  </div>
-                  <div class="sb-ktrend-trend-list-item__contents">
-                    <div class="sb-ktrend-trend-list-item__head">
-                      <span>
-                        <Badge value="NEW" severity="warn"></Badge>
-                      </span>
-                      <p>2026.02.14</p>
+            <div class="sb-dashboard-card-body">
+              <div class="sb-ktrend-trend-list" v-scroll-end>
+                <div class="sb-ktrend-trend-list-scroll">
+                  <NuxtLink
+                    to="/"
+                    class="sb-ktrend-trend-list-item"
+                    v-for="n in 20"
+                    :key="n"
+                  >
+                    <div class="sb-ktrend-trend-list-item__thumb">
+                      <img src="https://picsum.photos/200/300" alt="" />
                     </div>
-                    <div class="sb-ktrend-trend-list-item__body">
-                      <p>
-                        광고비를 쓰지 않아도 매출은 충분히 만들 수 있습니다.
-                        초보 셀러가 먼저 잡아야 할 핵심 구조 정리
-                      </p>
+                    <div class="sb-ktrend-trend-list-item__contents">
+                      <div class="sb-ktrend-trend-list-item__head">
+                        <span>
+                          <Badge value="NEW" severity="warn"></Badge>
+                        </span>
+                        <p>2026.02.14</p>
+                      </div>
+                      <div class="sb-ktrend-trend-list-item__body">
+                        <p>
+                          광고비를 쓰지 않아도 매출은 충분히 만들 수 있습니다.
+                          초보 셀러가 먼저 잡아야 할 핵심 구조 정리
+                        </p>
+                      </div>
+                      <div class="sb-ktrend-trend-list-item__foot">
+                        <SbInfo
+                          :visible-buttons="['view', 'read']"
+                          :view-count="'12,325'"
+                          :read-time="'12분 분량'"
+                        />
+                      </div>
                     </div>
-                    <div class="sb-ktrend-trend-list-item__foot">
-                      <SbInfo
-                        :visible-buttons="['view', 'read']"
-                        :view-count="'12,325'"
-                        :read-time="'12분 분량'"
-                      />
-                    </div>
-                  </div>
-                </NuxtLink>
+                  </NuxtLink>
+                </div>
               </div>
             </div>
           </div>
@@ -641,7 +647,28 @@
                   </div>
                 </div>
               </div>
-              <div class="sb-dashboard-report-cart"></div>
+              <div class="sb-dashboard-report-chrt">
+                <div class="sb-dashboard-report-chrt-head">
+                  <Select
+                    ref="selectRef"
+                    v-model="selectedSort"
+                    :options="selectedSortOption"
+                    optionLabel="name"
+                    size="small"
+                    class="p-select-text"
+                    panelClass="p-select-overlay--text"
+                    :pt="{
+                      overlay: {
+                        onclick: (event) => {
+                          if (event.target === event.currentTarget) {
+                            selectRef.hide();
+                          }
+                        },
+                      },
+                    }"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -655,12 +682,15 @@
 import { ref, watch } from 'vue';
 
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
+import IconArrowSmallRight from '@/assets/icons/arrow/small-right.svg?component';
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
 import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
 import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
 import IconSystemRotateRight from '@/assets/icons/system/rotate-right.svg';
+import IconSystemUp from '@/assets/icons/system/up.svg?component';
+import IconSystemDown from '@/assets/icons/system/down.svg?component';
 
 //swiper
 const containerRef = ref(null);
@@ -715,6 +745,15 @@ const togglePopover = (event) => {
   }
 };
 
+//sort
+const selectRef = ref(null);
+const selectedSortOption = ref([
+  { name: '최신 작성순' },
+  { name: '댓글 수' },
+  { name: '좋아요 수' },
+]);
+const selectedSort = ref(selectedSortOption.value[0]);
+
 //data
 const keywordTop10 = ref([
   {
@@ -740,6 +779,30 @@ const keywordTop10 = ref([
     productCount: '2,506개',
     searchVol: '113,700건',
     competition: 0.26,
+  },
+  {
+    ranking: 24,
+    isFavorite: false,
+    keyword: '멜라논크림',
+    productCount: '1,234개',
+    searchVol: '102,580건',
+    competition: 0.02,
+  },
+  {
+    ranking: 5,
+    isFavorite: false,
+    keyword: '라로슈포제B5',
+    productCount: '1,234개',
+    searchVol: '51,520건',
+    competition: 0.77,
+  },
+  {
+    ranking: 10,
+    isFavorite: false,
+    keyword: '재생크림',
+    productCount: '1,234개',
+    searchVol: '51,000건',
+    competition: 0.32,
   },
   {
     ranking: 24,
@@ -826,6 +889,7 @@ const ksnappItems = [
     title: '[리뷰] "백지영도 쓴다" ... 피부 고민 해결 해 줄 화제의 뷰티템',
   },
 ];
+
 const top20List = ref([
   {
     rank: 1,

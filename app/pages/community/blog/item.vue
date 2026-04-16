@@ -32,7 +32,6 @@
 </template>
 
 <script setup>
-import SbInfo from '@/pages/community/components/SbInfo.vue';
 import IconSystemPaperclip from '@/assets/icons/system/paperclip.svg?component';
 
 // props 정의

@@ -70,7 +70,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
-import SbInfo from '@/pages/community/components/SbInfo.vue';
+
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
 import IconArrowLeft from '@/assets/icons/arrow/left.svg?component';
 
