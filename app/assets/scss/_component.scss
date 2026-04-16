@@ -520,7 +520,8 @@
       z-index: 50;
     }
     &__button {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
       position: absolute;
       top: 50%;
       right: 20px;
@@ -629,7 +630,8 @@
     &--clear {
       &.focus .sb-input__button,
       &:focus-within .sb-input__button {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
       }
     }
     @include breakpoint {
