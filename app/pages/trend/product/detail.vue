@@ -71,7 +71,7 @@
                 </div>
               </div>
               <div class="sb-trend-summary-text">
-                ※ 네이버 쇼핑 기준 데이터 입니다.
+                네이버 쇼핑 기준 데이터 입니다.
               </div>
             </div>
           </div>

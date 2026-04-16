@@ -55,7 +55,7 @@
         <div class="sb-trend-table-head">
           <div class="sb-trend-table-head__title">
             <h5>TOP 30</h5>
-            <p>※ 네이버 쇼핑 기준 데이터 입니다.</p>
+            <p>네이버 쇼핑 기준 데이터 입니다.</p>
           </div>
         </div>
         <div class="sb-trend-table-tab">
@@ -186,7 +186,7 @@
       <div class="sb-trend-top">
         <div class="sb-trend-top__title">
           <h5>카테고리 연관 상품 TOP 30</h5>
-          <p>※ 네이버 쇼핑 기준</p>
+          <p>네이버 쇼핑 기준 데이터 입니다.</p>
         </div>
         <div class="sb-trend-top-list">
           <NuxtLink

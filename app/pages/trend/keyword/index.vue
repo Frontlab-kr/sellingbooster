@@ -82,7 +82,7 @@
         <div class="sb-trend-table-head">
           <div class="sb-trend-table-head__title">
             <h5>키워드 목록</h5>
-            <p>※ 네이버 쇼핑 기준 데이터 입니다.</p>
+            <p>네이버 쇼핑 기준 데이터 입니다.</p>
           </div>
         </div>
         <div class="sb-table">
