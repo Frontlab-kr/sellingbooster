@@ -370,11 +370,11 @@ const handleClickOutside = (event) => {
   // 2. 1024px 이상 ~ 1601px 미만인 경우: 외부 클릭 시 메뉴를 접음
   if (window.innerWidth < 1601 && !isFolded.value) {
     const snbElement = document.querySelector('.sb-snb');
-    const toggleBtn = document.querySelector('.sb-header-mo-end');
 
-    if (snbElement && !snbElement.contains(event.target)) {
-      if (toggleBtn && toggleBtn.contains(event.target)) return;
+    const isClickInsideMenu = event.target.closest('.sb-snb');
+    const isClickToggleBtn = event.target.closest('.sb-header-mo-end');
 
+    if (!isClickInsideMenu && !isClickToggleBtn) {
       isFolded.value = true;
     }
   }

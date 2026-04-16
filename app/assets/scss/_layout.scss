@@ -633,6 +633,9 @@
       overflow: hidden;
       overflow-y: auto;
       @include custom-scrollbar();
+      @media screen and (max-width: 1600px) {
+        max-height: calc(100vh - 100px);
+      }
     }
     &-utill {
       margin-top: auto;
