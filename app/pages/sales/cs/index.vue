@@ -1021,20 +1021,38 @@ const allValues = inquiryTypeOptions
   .map((opt) => opt.value);
 
 watch(selectedInquiryTypes, (newValue, oldValue) => {
-  if (newValue.includes('all') && !oldValue.includes('all')) {
+  const isAllSelected = newValue.includes('all');
+  const wasAllSelected = oldValue.includes('all');
+
+  // 1. '전체'가 새로 선택된 경우 (전체 체크박스를 클릭함)
+  if (isAllSelected && !wasAllSelected) {
     selectedInquiryTypes.value = ['all', ...allValues];
-  } else if (!newValue.includes('all') && oldValue.includes('all')) {
-    selectedInquiryTypes.value = [];
-  } else if (
-    !newValue.includes('all') &&
+    return;
+  }
+
+  // 2. '전체'를 직접 해제한 경우 (전체 체크박스를 다시 클릭함)
+  if (
+    !isAllSelected &&
+    wasAllSelected &&
     newValue.length === allValues.length
   ) {
+    selectedInquiryTypes.value = [];
+    return;
+  }
+
+  // 3. 전체가 선택된 상태에서 개별 항목 하나를 해제한 경우
+  // newValue에 'all'이 들어있지만 개별 항목 하나가 빠진 상태
+  if (isAllSelected && wasAllSelected && newValue.length <= allValues.length) {
+    // 'all'을 제외한 나머지만 남김
+    const filtered = newValue.filter((val) => val !== 'all');
+    selectedInquiryTypes.value = filtered;
+    return;
+  }
+
+  // 4. 개별적으로 하나씩 클릭하다가 모든 항목이 선택된 경우 (자동으로 '전체' 체크)
+  if (!isAllSelected && newValue.length === allValues.length) {
     selectedInquiryTypes.value = ['all', ...allValues];
-  } else if (
-    newValue.includes('all') &&
-    newValue.length - 1 < allValues.length
-  ) {
-    selectedInquiryTypes.value = newValue.filter((val) => val !== 'all');
+    return;
   }
 });
 
