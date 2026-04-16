@@ -509,6 +509,34 @@ const selectedSortOption = ref([
 ]);
 const selectedSort = ref(selectedSortOption.value[0]);
 
+let observer = null;
+
+onMounted(async () => {
+  await nextTick();
+
+  if (selectRef.value) {
+    observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(async (entry) => {
+          if (entry.isIntersecting) {
+            selectRef.value.show();
+          }
+        });
+      },
+      {
+        threshold: 0.4,
+      },
+    );
+
+    const target = selectRef.value.$el || selectRef.value;
+    observer.observe(target);
+  }
+});
+
+onUnmounted(() => {
+  if (observer) observer.disconnect();
+});
+
 //data
 const rankingList = ref([
   {

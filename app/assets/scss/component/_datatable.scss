@@ -708,6 +708,9 @@
         &:first-child {
           border-left: 1px solid var(--p-datatable-row-hover-border-color);
         }
+        &.sb-table-pc + td {
+          border-left: 1px solid var(--p-datatable-row-hover-border-color);
+        }
         &:last-child {
           border-right: 1px solid var(--p-datatable-row-hover-border-color);
         }
@@ -792,6 +795,10 @@
   @include breakpoint {
     &.sb-table-pc {
       display: none !important;
+    }
+    &.sb-table-pc + td {
+      border-radius: 8px 0 0 8px;
+      border-width: 1px 0 1px 1px !important;
     }
   }
 }
