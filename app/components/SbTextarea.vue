@@ -30,6 +30,7 @@
           severity="contrast"
           outlined
           label="취소"
+          @click="handleCancel"
           :disabled="disabled || !internalValue.trim()"
         />
         <Button
@@ -80,6 +81,10 @@ const internalValue = computed({
   get: () => props.modelValue,
   set: (value) => emit('update:modelValue', value),
 });
+
+const handleCancel = () => {
+  internalValue.value = '';
+};
 
 // props.modelValue 대신 내부 computed 값을 참조해야
 // 부모 업데이트와 상관없이 화면에 즉시 반영됩니다.
