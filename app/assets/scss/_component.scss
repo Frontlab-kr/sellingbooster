@@ -520,6 +520,7 @@
       z-index: 50;
     }
     &__button {
+      display: flex;
       opacity: 0;
       visibility: hidden;
       position: absolute;
