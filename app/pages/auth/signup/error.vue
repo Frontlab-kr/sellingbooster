@@ -20,11 +20,7 @@
           >
         </div>
         <div class="sb-auth-form-item__input">
-          <SbInput
-            placeholder="인증코드 입력를 입력해주세요."
-            time="03:00"
-            number
-          />
+          <SbInput placeholder="인증코드를 입력해주세요." time="03:00" number />
           <Button label="인증 완료" severity="primary" outlined disabled />
         </div>
       </div>

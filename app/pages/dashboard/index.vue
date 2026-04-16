@@ -365,7 +365,7 @@
                         field="keyword"
                         header="급상승 키워드"
                         bodyClass="text-left"
-                        style="min-width: 346px"
+                        style="min-width: 336px"
                       >
                         <template #body="slotProps">
                           <span>{{ slotProps.data.keyword }}</span>
@@ -376,7 +376,7 @@
                         field="growthRate"
                         header="상승률"
                         bodyClass="text-left"
-                        style="min-width: 346px"
+                        style="min-width: 336px"
                       >
                         <template #body="slotProps">
                           <div class="sb-table-body-progress">
@@ -396,7 +396,7 @@
                         field="reason"
                         header="상승 사유 요약"
                         bodyClass="text-left"
-                        style="min-width: 346px"
+                        style="min-width: 336px"
                       >
                         <template #body="slotProps">
                           <span>{{ slotProps.data.reason }}</span>

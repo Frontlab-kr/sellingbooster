@@ -58,6 +58,12 @@
         </template>
       </Button>
     </div>
+
+    <div class="sb-input__cancel" v-if="cancel">
+      <Button variant="text" @click="emit('cancel')">
+        <span class="p-button-label"><span>변경</span>취소</span>
+      </Button>
+    </div>
   </div>
 </template>
 
@@ -76,9 +82,10 @@ const props = defineProps({
   disabled: { type: Boolean, default: false },
   time: { type: String, default: '' },
   size: { type: String, default: '' },
+  cancel: { type: Boolean, default: false },
 });
 
-const emit = defineEmits(['search']);
+const emit = defineEmits(['search', 'cancel']);
 
 const model = defineModel({ type: String, default: '' }); // 최종 숫자만
 const rawValue = ref(''); // InputMask 포맷용

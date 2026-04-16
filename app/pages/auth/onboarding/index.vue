@@ -322,7 +322,7 @@
               </div>
               <div class="sb-onboarding-form-item__input">
                 <SbInput
-                  placeholder="인증코드 입력를 입력해주세요."
+                  placeholder="인증코드를 입력해주세요."
                   time="03:59"
                   number
                 />
@@ -351,7 +351,7 @@
               </div>
               <div class="sb-onboarding-form-item__input">
                 <SbInput
-                  placeholder="인증코드 입력를 입력해주세요."
+                  placeholder="인증코드를 입력해주세요."
                   time="03:59"
                   number
                 />
