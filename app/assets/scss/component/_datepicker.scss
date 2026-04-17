@@ -563,7 +563,9 @@
   border-start-end-radius: var(--p-datepicker-dropdown-border-radius);
   border-end-end-radius: var(--p-datepicker-dropdown-border-radius);
 }
-
+.p-datepicker-mask {
+  display: none;
+}
 @include breakpoint {
   .p-datepicker-panel {
     position: fixed !important;

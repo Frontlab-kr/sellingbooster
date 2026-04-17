@@ -734,8 +734,10 @@
     &-memowrite {
       &-form {
         &-item {
-          margin-bottom: 40px;
-          padding-bottom: 40px;
+          display: flex;
+          gap: 16px;
+          margin-bottom: 16px;
+          padding-bottom: 16px;
           border-bottom: 1px dashed var(--dialog-memowrite-border-color);
           &:last-child {
             margin-bottom: 0;
@@ -744,7 +746,7 @@
           }
           > label {
             display: block;
-            margin-bottom: 16px;
+            min-width: 100px;
             color: var(--dialog-memowrite-label-color);
             font-size: 16px;
             font-style: normal;
