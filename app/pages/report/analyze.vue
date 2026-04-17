@@ -72,7 +72,7 @@
               @click="swiper.next()"
             >
               <template #icon>
-                <IconArrowRight class="ico-arrow-right" />
+                <IconArrowSmallRight class="ico-arrow-small-right" />
               </template>
             </Button>
           </div>
@@ -261,7 +261,7 @@
 import { ref, watch } from 'vue';
 import AppTimeline from '@/pages/planner/components/AppTimeline.vue';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
-import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
+import IconArrowSmallRight from '@/assets/icons/arrow/small-right.svg?component';
 import IconSystemCheckS from '@/assets/icons/system/check-s.svg?component';
 import IconProfileLevelLine from '@/assets/icons/profile/level-line.svg?component';
 

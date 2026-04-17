@@ -1086,9 +1086,9 @@
           z-index: 50;
           .p-button {
             &:not(:disabled) {
-              background-color: var(--color-primary);
+              background: var(--dashboard-swiper-button-background);
               svg {
-                color: #fff;
+                color: var(--dashboard-swiper-button-ico-color);
               }
             }
           }
@@ -1310,6 +1310,9 @@
         }
         &-body {
           .sb-planner-app-head {
+            display: none;
+          }
+          .sb-timeline-list-item__contents ul li .p-button {
             display: none;
           }
           @include custom-scrollbar-blur();
