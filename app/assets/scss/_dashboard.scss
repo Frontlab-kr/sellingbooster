@@ -625,6 +625,21 @@
     .sb-banner {
       margin-top: 30px;
     }
+    &-mobile-notice {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--dashboard-mobile-notice-background);
+      color: var(--dashboard-mobile-notice-color);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 130%; /* 15.6px */
+      letter-spacing: -0.3px;
+      display: none;
+    }
     @media screen and (max-width: 1440px) {
       .grid {
         > [class*='col'] {
@@ -650,6 +665,7 @@
         gap: 32px;
         margin-bottom: 32px;
         width: 100%;
+
         &-swiper {
           position: relative;
           margin-right: -20px;
@@ -685,6 +701,8 @@
             align-items: center;
             justify-content: space-between;
             gap: 12px;
+            width: 220px;
+            min-width: 220px;
             max-width: 220px;
             padding: 20px;
             border-radius: 24px;
@@ -711,7 +729,7 @@
           }
           @media screen and (max-width: 1800px) {
             &-inner {
-              width: 100vw;
+              width: calc(100vw - 20px);
               margin-right: 0;
             }
             .swiper-slide {
@@ -723,8 +741,9 @@
         }
       }
       &-card {
+        position: relative;
         height: auto;
-        padding: 24px 20px;
+        padding: 24px 20px 28px;
         border-radius: 24px;
         &-head {
           display: flex;
@@ -744,12 +763,14 @@
               line-height: 140%; /* 16.8px */
               letter-spacing: -0.3px;
             }
+            a {
+              position: absolute;
+              top: 24px;
+              right: 20px;
+            }
             .p-button {
-              width: 32px;
-              height: 32px;
-              .ico-arrow-up-right {
-                color: var(--dashboard-card-head-menu-text);
-              }
+              width: 24px;
+              height: 24px;
             }
             .sb-menu {
               display: none;
@@ -880,8 +901,6 @@
         &-contents {
           display: flex;
           justify-content: space-between;
-          gap: 0;
-          margin-top: 32px;
         }
         &-table {
           max-width: calc(100% - 460px);
@@ -896,7 +915,8 @@
         @media screen and (max-width: 1440px) {
           &-contents {
             flex-direction: column;
-            gap: 24px;
+            gap: 16px;
+            margin-top: 24px;
           }
           &-table {
             width: 100%;
@@ -927,6 +947,9 @@
       }
       .sb-banner {
         display: none;
+      }
+      &-mobile-notice {
+        display: flex;
       }
     }
   }

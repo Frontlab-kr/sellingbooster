@@ -468,6 +468,9 @@
                   </div>
                 </div>
               </div>
+              <div class="sb-dashboard-mobile-notice">
+                PC 브라우저로 더 많은 상세 정보를 확인하세요.
+              </div>
             </div>
           </div>
         </div>
@@ -839,11 +842,17 @@ const swiperParams = {
     disableOnInteraction: true,
   },
   breakpoints: {
+    // 0px 이상 1024px 미만
     0: {
-      slidesPerView: 2,
+      slidesPerView: 'auto',
     },
-    1800: {
+    // 1024px 이상 1800px 미만
+    1024: {
       slidesPerView: 3,
+    },
+    // 1800px 이상
+    1800: {
+      slidesPerView: 3, // 기존 설정 유지
     },
   },
 };
