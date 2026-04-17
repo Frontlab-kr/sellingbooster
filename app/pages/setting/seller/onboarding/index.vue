@@ -611,7 +611,7 @@
 
 <script setup>
 const onboardingContainer = ref(null);
-const currentStep = ref('2');
+const currentStep = ref('1');
 
 const selectedLicense = ref('Y');
 const selectedInterests = ref([]);

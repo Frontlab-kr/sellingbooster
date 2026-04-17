@@ -130,7 +130,7 @@
         </button>
         <div class="sb-header-menu-layer sb-header-user-layer">
           <div class="sb-header-user-list">
-            <NuxtLink to="/" class="sb-header-user-list-item">
+            <NuxtLink to="/setting/account/" class="sb-header-user-list-item">
               <IconSystemUserProfile class="ico-system-user-profile" />
               개인정보관리
             </NuxtLink>

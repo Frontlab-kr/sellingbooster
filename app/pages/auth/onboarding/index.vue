@@ -306,33 +306,54 @@
                   판매자 휴대폰 번호<strong>*</strong>
                 </div>
               </div>
-              <div class="sb-onboarding-form-item__input">
-                <SbInput
-                  placeholder="휴대폰 번호를 입력해주세요."
-                  time="03:00"
-                  number
-                  phone
-                />
+              <div
+                v-if="!isEditingPhone"
+                class="sb-onboarding-form-item__input"
+              >
+                <SbInput value="010-1111-2222" readonly />
                 <Button
-                  label="인증 코드 발송"
+                  label="변경"
                   severity="primary"
                   outlined
-                  disabled
+                  @click="enablePhoneEdit"
                 />
               </div>
-              <div class="sb-onboarding-form-item__input">
-                <SbInput
-                  placeholder="인증코드를 입력해주세요."
-                  time="03:59"
-                  number
-                />
-                <Button
-                  label="코드 인증"
-                  severity="primary"
-                  outlined
-                  disabled
-                />
-              </div>
+              <template v-else>
+                <div class="sb-onboarding-form-item__input">
+                  <SbInput
+                    placeholder="휴대폰 번호를 입력해주세요."
+                    value="010-1111-2222"
+                    cancel
+                    @cancel="disablePhoneEdit"
+                  />
+                  <Button label="인증하기" severity="primary" outlined />
+                </div>
+                <div class="sb-auth-form-item__message">
+                  <Message size="small" severity="error" variant="simple"
+                    >입력하신 휴대폰 번호로 발송된 인증 번호를
+                    입력해주세요.</Message
+                  >
+                </div>
+                <div class="sb-onboarding-form-item__input">
+                  <SbInput
+                    placeholder="인증코드를 입력해주세요."
+                    time="03:59"
+                    number
+                  />
+                  <Button
+                    label="코드 인증"
+                    severity="primary"
+                    outlined
+                    disabled
+                  />
+                </div>
+                <div class="sb-auth-form-item__message">
+                  <Message size="small" severity="neutral" variant="simple"
+                    >인증 시간이 만료되었거나 인증 번호가 오지 않았을 경우
+                    재인증을 해주세요.</Message
+                  >
+                </div>
+              </template>
             </div>
             <div class="sb-onboarding-form-item">
               <div class="sb-onboarding-form-item-head">
@@ -340,7 +361,50 @@
                   판매자 이메일<strong>*</strong>
                 </div>
               </div>
-              <div class="sb-onboarding-form-item__input">
+              <div
+                v-if="!isEditingEmail"
+                class="sb-onboarding-form-item__input"
+              >
+                <SbInput value="user_email@mail.com" readonly />
+                <Button
+                  label="인증 코드 발송"
+                  severity="primary"
+                  outlined
+                  @click="enableEmailEdit"
+                />
+              </div>
+              <template v-else>
+                <div class="sb-onboarding-form-item__input">
+                  <SbInput
+                    placeholder="이메일 주소를 입력해주세요."
+                    value="user_emil1234@mail.com"
+                    cancel
+                    @cancel="disableEmailEdit"
+                  />
+                  <Button label="인증하기" severity="primary" outlined />
+                </div>
+                <div class="sb-onboarding-form-item__input">
+                  <SbInput
+                    placeholder="인증코드를 입력해주세요."
+                    time="03:59"
+                    number
+                  />
+                  <Button
+                    label="코드 인증"
+                    severity="primary"
+                    outlined
+                    disabled
+                  />
+                </div>
+                <div class="sb-auth-form-item__message">
+                  <Message size="small" severity="neutral" variant="simple"
+                    >링크가 만료되었거나 메일이 오지 않았을 경우 재인증을
+                    해주세요.</Message
+                  >
+                </div>
+              </template>
+
+              <!-- <div class="sb-onboarding-form-item__input">
                 <SbInput placeholder="이메일 주소를 입력해주세요." />
                 <Button
                   label="인증 코드 발송"
@@ -361,7 +425,7 @@
                   outlined
                   disabled
                 />
-              </div>
+              </div> -->
             </div>
             <div class="sb-onboarding-form-item">
               <div class="sb-onboarding-form-item-head">
@@ -653,6 +717,23 @@ const overseasOptions = [
   { id: 'over-holland', label: '홀란드앤버렛', value: 'holland' },
   { id: 'over-etc', label: '기타', value: 'over-etc' },
 ];
+
+//
+const isEditingPhone = ref(false);
+const enablePhoneEdit = () => {
+  isEditingPhone.value = true;
+};
+const disablePhoneEdit = () => {
+  isEditingPhone.value = false;
+};
+
+const isEditingEmail = ref(false);
+const enableEmailEdit = () => {
+  isEditingEmail.value = true;
+};
+const disableEmailEdit = () => {
+  isEditingEmail.value = false;
+};
 
 watch(currentStep, () => {
   if (onboardingContainer.value) {
