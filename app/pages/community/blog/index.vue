@@ -80,6 +80,7 @@
         </div>
         <div class="sb-blog-head__button">
           <Button severity="primary" label="셀링블로그 구독하기" />
+          <Button severity="primary" outlined label="구독 해지하기" />
         </div>
       </div>
       <div class="sb-community-menu">
