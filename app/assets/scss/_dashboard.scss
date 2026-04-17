@@ -222,6 +222,7 @@
         }
       }
       @media screen and (max-width: 1800px) {
+        max-width: 610px;
         &-info {
           display: flex;
           flex-direction: column;
@@ -996,5 +997,11 @@
         display: flex;
       }
     }
+  }
+}
+.sb-table-popover-dashboard {
+  margin-left: -240px;
+  @media screen and (max-width: 1800px) {
+    margin-left: 22px;
   }
 }

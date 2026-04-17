@@ -266,7 +266,8 @@
             ref="popoverScore"
             :pt="{
               root: {
-                class: 'p-popover-flipped sb-table-popover',
+                class:
+                  'p-popover-flipped sb-table-popover sb-table-popover-dashboard',
               },
             }"
           >
@@ -851,7 +852,7 @@ const swiperParams = {
   spaceBetween: 8,
   loop: false,
   autoplay: {
-    delay: 300000,
+    delay: 3000,
     disableOnInteraction: true,
   },
   breakpoints: {
