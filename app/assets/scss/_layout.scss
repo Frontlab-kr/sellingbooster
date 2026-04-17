@@ -1129,10 +1129,10 @@
         display: block;
         min-width: 144px;
         width: 144px;
-        height: 24px;
+        height: 42px;
         margin-left: 8px;
-        background: url(./../images/logo.svg) no-repeat;
-        background-size: cover;
+        background: var(--logo) no-repeat;
+        background-size: 100% auto;
         font-size: 0;
         display: none;
       }

@@ -467,6 +467,11 @@
   --dashboard-swiper-item-title-color: var(--p-gray-900);
   --dashboard-swiper-item-text-color: var(--p-gray-500);
   --dashboard-swiper-item-time-color: var(--p-gray-500);
+  --dashboard-swiper-blur: linear-gradient(
+    270deg,
+    #fff 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
   --dashboard-card-background: var(--p-gray-00);
   --dashboard-card-head-menu-text: var(--p-gray-400);
   --dashboard-status-border-color: var(--p-gray-300);
@@ -1395,6 +1400,12 @@
     --dashboard-swiper-item-title-color: var(--p-gray-00);
     --dashboard-swiper-item-text-color: var(--p-gray-300);
     --dashboard-swiper-item-time-color: var(--p-gray-400);
+    --dashboard-swiper-blur: linear-gradient(
+      270deg,
+      #1b1f27 0%,
+      rgba(27, 31, 39, 0) 100%
+    );
+
     --dashboard-card-background: var(--p-gray-800);
     --dashboard-card-head-menu-text: var(--p-gray-400);
     --dashboard-status-border-color: var(--p-gray-700);
