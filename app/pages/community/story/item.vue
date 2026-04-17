@@ -1,5 +1,5 @@
 <template>
-  <div class="sb-board-list-item">
+  <NuxtLink to="/community/story/view" class="sb-board-list-item">
     <div class="sb-board-list-item__head">
       <div class="sb-board-list-item__thumb">
         <img v-if="item.thumb" :src="item.thumb" alt="썸네일" />
@@ -9,30 +9,29 @@
         <p>{{ item.author }}</p>
         <span>{{ item.date }}</span>
       </div>
-      <div class="sb-board-list-item__menu">
+      <div class="sb-board-list-item__menu" @click.stop.prevent>
         <SbMenu :items="menuItems" />
       </div>
     </div>
-    <NuxtLink to="/community/story/view">
-      <h6 class="sb-board-list-item__title">{{ item.title }}</h6>
-      <div class="sb-board-list-item__contents">
-        {{ item.content }}
-      </div>
-      <div class="sb-board-list-item__image" v-if="item.image">
-        <img :src="item.image" alt="" />
-      </div>
-      <div class="sb-board-list-item__foot">
-        <SbSocial
-          class="sb-social--disabled"
-          :visible-buttons="['like', 'comment', 'share']"
-          :like-count="item.likeCount"
-          :comment-count="item.commentCount"
-          :share-count="item.shareCount"
-          v-model:like-active="item.likeActive"
-        />
-      </div>
-    </NuxtLink>
-  </div>
+
+    <h6 class="sb-board-list-item__title">{{ item.title }}</h6>
+    <div class="sb-board-list-item__contents">
+      {{ item.content }}
+    </div>
+    <div class="sb-board-list-item__image" v-if="item.image">
+      <img :src="item.image" alt="" />
+    </div>
+    <div class="sb-board-list-item__foot">
+      <SbSocial
+        class="sb-social--disabled"
+        :visible-buttons="['like', 'comment', 'share']"
+        :like-count="item.likeCount"
+        :comment-count="item.commentCount"
+        :share-count="item.shareCount"
+        v-model:like-active="item.likeActive"
+      />
+    </div>
+  </NuxtLink>
   <TieredMenu ref="menu" :model="menuItems" popup appendTo="body" />
 
   <Dialog v-model:visible="dialogReport" modal class="p-dialog-sm">
