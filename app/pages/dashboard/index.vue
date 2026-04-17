@@ -829,6 +829,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layoutClass: 'sb-dashboard',
+});
+
 import { ref, watch, onMounted } from 'vue';
 
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
@@ -852,7 +856,7 @@ const swiperParams = {
   spaceBetween: 8,
   loop: false,
   autoplay: {
-    delay: 3000,
+    delay: 30000000,
     disableOnInteraction: true,
   },
   breakpoints: {

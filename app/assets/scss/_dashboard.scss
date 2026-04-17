@@ -705,7 +705,7 @@
 
         &-swiper {
           position: relative;
-          margin-right: -20px;
+          margin-right: 0;
           margin-left: auto;
           overflow: hidden;
           &::after {
@@ -772,7 +772,7 @@
           @media screen and (max-width: 1800px) {
             &-inner {
               width: calc(100vw - 20px);
-              margin-right: -20px;
+              margin-right: 0;
             }
             .swiper-slide {
               &.swiper-slide-next {

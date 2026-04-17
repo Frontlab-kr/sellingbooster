@@ -4,6 +4,7 @@
     :class="{ 'sb-header-mo--search': isSearchOpen, 'is-scrolled': isScrolled }"
   >
     <div class="sb-header-mo-start">
+      <NuxtLink to="/" class="sb-header-mo-logo">Selling Booster</NuxtLink>
       <Button variant="text" @click="goBack">
         <template #icon>
           <IconArrowAchevronLeft class="ico-arrow-achevron-left" />
