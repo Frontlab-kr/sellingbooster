@@ -167,7 +167,7 @@ const snbMenu = ref([
     key: 'sales',
     label: '판매 가속',
     icon: IconSnbStar,
-    route: '/sales',
+    route: '/sales/price',
     items: [
       { label: '가격 실행', route: '/sales/price' },
       { label: 'CS 센터', route: '/sales/cs' },
@@ -178,7 +178,7 @@ const snbMenu = ref([
     key: 'report',
     label: '성장 리포트',
     icon: IconSnbChart,
-    route: '/report',
+    route: '/report/summary',
     items: [
       { label: '성과 요약', route: '/report/summary' },
       { label: '성과 분석', route: '/report/analyze' },

@@ -434,7 +434,7 @@
                     </Button>
                   </NuxtLink>
                 </div>
-                <div class="sb-dashboard-trend-product-list">
+                <div class="sb-dashboard-trend-product-list" v-scroll-end>
                   <div class="sb-dashboard-trend-product-list-scroll">
                     <NuxtLink
                       to="/"

@@ -1,5 +1,23 @@
 <template>
   <header class="sb-header" :class="{ 'sb-header--search': isSearchOpen }">
+    <NuxtLink to="/" class="sb-header-logo"> Selling Booster </NuxtLink>
+    <div class="sb-header-gnb">
+      <NuxtLink to="/trend/recommend" class="sb-header-gnb-item"
+        >마켓트렌드</NuxtLink
+      >
+      <NuxtLink to="/sales/price" class="sb-header-gnb-item"
+        >판매 가속</NuxtLink
+      >
+      <NuxtLink to="/report/summary" class="sb-header-gnb-item"
+        >성장 리포트</NuxtLink
+      >
+      <NuxtLink to="/planner/timeline" class="sb-header-gnb-item"
+        >셀링 플래너</NuxtLink
+      >
+      <NuxtLink to="/community/qna" class="sb-header-gnb-item"
+        >커뮤니티</NuxtLink
+      >
+    </div>
     <div class="sb-header-menu">
       <div class="sb-header-search">
         <SbInput
