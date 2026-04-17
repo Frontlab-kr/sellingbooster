@@ -1,7 +1,7 @@
 <template>
   <div class="sb-dashboard">
     <div class="sb-dashboard-head">
-      <div class="sb-dashboard-head-title">
+      <div class="sb-dashboard-head-title" @click="showToast">
         <h4>반가워요 셀링부스터님</h4>
         <h3>시작 전 체크해 볼까요?</h3>
       </div>
@@ -813,6 +813,8 @@
     </div>
     <SbBanner />
   </div>
+
+  <Toast position="bottom-center" group="bc" />
 </template>
 
 <script setup lang="ts">
@@ -885,6 +887,18 @@ const menuItems = ref([
     icon: IconSystemTrash,
   },
 ]);
+
+//toast
+const toast = useToast();
+
+const showToast = () => {
+  toast.add({
+    detail:
+      '일부 서비스는 PC에서만 지원이 됩니다. /n PC 브라우저로 접속해주세요.',
+    group: 'bc',
+    life: 3000,
+  });
+};
 
 //popover
 const popoverScore = ref();
