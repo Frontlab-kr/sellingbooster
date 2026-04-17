@@ -359,7 +359,7 @@
 
   --chart-gauge-circle-start-color: var(--p-gray-50);
   --chart-gauge-circle-end-color: #fb7310;
-  --chart-gauge-circle-line-color: var(--p-gray-500);
+  --chart-gauge-circle-line-color: rgba(154, 163, 175, 0.5);
 
   --chart-segment-segments-color: var(--p-gray-200);
   --chart-segment-legend-color: var(--p-gray-500);
@@ -1299,7 +1299,7 @@
 
     --chart-gauge-circle-start-color: var(--p-gray-800);
     --chart-gauge-circle-end-color: #fb7310;
-    --chart-gauge-circle-line-color: var(--p-gray-300);
+    --chart-gauge-circle-line-color: rgba(209, 214, 221, 0.5);
 
     --chart-segment-segments-color: var(--p-gray-700);
     --chart-segment-legend-color: var(--p-gray-300);

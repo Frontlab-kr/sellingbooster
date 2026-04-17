@@ -439,7 +439,7 @@
                     <NuxtLink
                       to="/"
                       class="sb-dashboard-trend-product-list-item"
-                      v-for="n in 20"
+                      v-for="n in 4"
                       :key="n"
                     >
                       <div class="sb-dashboard-trend-product-list-item__thumb">

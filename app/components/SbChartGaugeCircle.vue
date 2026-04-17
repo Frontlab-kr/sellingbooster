@@ -100,7 +100,7 @@ const initChart = () => {
         },
         splitLine: { show: false }, // 굵은 구분선 숨김
         axisTick: {
-          splitNumber: 9,
+          splitNumber: 14,
           distance: -15, // 안쪽 눈금 위치
           length: 10,
           lineStyle: {

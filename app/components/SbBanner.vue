@@ -13,12 +13,12 @@
       >
         <swiper-slide class="swiper-slide">
           <NuxtLink to="/">
-            <img src="/temp/banner.png" alt="" />
+            <img src="/temp/banner02.png" alt="" />
           </NuxtLink>
         </swiper-slide>
         <swiper-slide class="swiper-slide">
           <NuxtLink to="/">
-            <img src="/temp/banner.png" alt="" />
+            <img src="/temp/banner02.png" alt="" />
           </NuxtLink>
         </swiper-slide>
       </swiper-container>
