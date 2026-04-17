@@ -685,34 +685,22 @@
     border-color var(--p-datatable-transition-duration),
     outline-color var(--p-datatable-transition-duration),
     box-shadow var(--p-datatable-transition-duration);
-
-  &:not(.p-datatable-empty-message) {
-    &:hover {
-      // &::after {
-      //   content: '';
-      //   display: block;
-      //   position: absolute;
-      //   top: 0;
-      //   right: 0;
-      //   bottom: 0;
-      //   left: 0;
-      //   border-radius: 8px;
-      //   border: 1.5px solid var(--p-datatable-row-hover-border-color);
-      //   background-color: var(--p-datatable-row-hover-background);
-      //   z-index: 10;
-      // }
-      td {
-        border-top: 1px solid var(--p-datatable-row-hover-border-color);
-        border-bottom: 1px solid var(--p-datatable-row-hover-border-color);
-        background-color: var(--p-datatable-row-hover-background);
-        &:first-child {
-          border-left: 1px solid var(--p-datatable-row-hover-border-color);
-        }
-        &.sb-table-pc + td {
-          border-left: 1px solid var(--p-datatable-row-hover-border-color);
-        }
-        &:last-child {
-          border-right: 1px solid var(--p-datatable-row-hover-border-color);
+  @media screen and (min-width: 1025px) {
+    &:not(.p-datatable-empty-message) {
+      &:hover {
+        td {
+          border-top: 1px solid var(--p-datatable-row-hover-border-color);
+          border-bottom: 1px solid var(--p-datatable-row-hover-border-color);
+          background-color: var(--p-datatable-row-hover-background);
+          &:first-child {
+            border-left: 1px solid var(--p-datatable-row-hover-border-color);
+          }
+          &.sb-table-pc + td {
+            border-left: 1px solid var(--p-datatable-row-hover-border-color);
+          }
+          &:last-child {
+            border-right: 1px solid var(--p-datatable-row-hover-border-color);
+          }
         }
       }
     }

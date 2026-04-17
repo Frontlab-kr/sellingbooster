@@ -1,7 +1,7 @@
 <template>
   <div class="sb-dashboard">
     <div class="sb-dashboard-head">
-      <div class="sb-dashboard-head-title" @click="showToast">
+      <div class="sb-dashboard-head-title">
         <h4>반가워요 셀링부스터님</h4>
         <h3>시작 전 체크해 볼까요?</h3>
       </div>
@@ -30,7 +30,7 @@
                   </div>
                 </div>
               </swiper-slide>
-              <swiper-slide class="swiper-slide"></swiper-slide>
+              <swiper-slide class="swiper-slide pc"></swiper-slide>
             </swiper-container>
           </ClientOnly>
         </div>
@@ -364,13 +364,14 @@
                     v-scroll-end
                     :value="trendKeyword"
                     responsiveLayout="scroll"
+                    removableSort
                     scrollable
                   >
                     <Column
                       field="keyword"
                       header="급상승 키워드"
                       bodyClass="text-left"
-                      style="min-width: 336px"
+                      style="width: 346px"
                     >
                       <template #body="slotProps">
                         <span>{{ slotProps.data.keyword }}</span>
@@ -380,8 +381,8 @@
                     <Column
                       field="growthRate"
                       header="상승률"
-                      bodyClass="text-left"
-                      style="min-width: 336px"
+                      bodyClass="text-center"
+                      style="width: 346px"
                     >
                       <template #body="slotProps">
                         <div class="pc">
@@ -404,7 +405,7 @@
                       field="reason"
                       header="상승 사유 요약"
                       bodyClass="text-left"
-                      style="min-width: 336px"
+                      style="width: 346px"
                     >
                       <template #body="slotProps">
                         <span>{{ slotProps.data.reason }}</span>
@@ -473,6 +474,15 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="sb-dashboard-banner">
+        <div class="sb-dashboard-banner__text">
+          <h6>
+            판매 속도를 높이는<br />
+            AI의 가격 제안과 키워드 분석
+          </h6>
+          <p>PC버전에서 만나 보세요.</p>
         </div>
       </div>
       <div class="col-6 sb-dashboard-ksnapp">
@@ -607,7 +617,7 @@
                   field="keyword"
                   header="키워드"
                   bodyClass="text-left"
-                  style="min-width: 150px"
+                  style="width: 150px"
                 >
                   <template #body="slotProps">
                     <strong>{{ slotProps.data.keyword }}</strong>
@@ -618,7 +628,7 @@
                   field="searchVol"
                   header="월 검색량"
                   bodyClass="text-right"
-                  style="min-width: 130px"
+                  style="width: 133px"
                 >
                   <template #body="slotProps">
                     <span>{{ slotProps.data.searchVol }}</span>
@@ -629,7 +639,7 @@
                   field="avgClickPrice"
                   header="평균 클릭비"
                   bodyClass="text-right"
-                  style="min-width: 150px"
+                  style="width: 150px"
                 >
                   <template #body="slotProps">
                     <span>{{ slotProps.data.avgClickPrice }}</span>
@@ -640,7 +650,7 @@
                   field="ranking"
                   header="카테고리내 순위"
                   bodyClass="text-right"
-                  style="min-width: 130px"
+                  style="width: 133px"
                 >
                   <template #body="slotProps">
                     <span>{{ slotProps.data.ranking }}위</span>
@@ -651,7 +661,7 @@
                   field="productCount"
                   header="상품 수"
                   bodyClass="text-right"
-                  style="min-width: 130px"
+                  style="width: 133px"
                 >
                   <template #body="slotProps">
                     <span>{{ slotProps.data.productCount }}</span>
@@ -818,7 +828,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, onMounted } from 'vue';
 
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 import IconArrowSmallRight from '@/assets/icons/arrow/small-right.svg?component';
@@ -839,22 +849,26 @@ const isEnd = ref(false);
 const swiperParams = {
   slidesPerView: 3,
   spaceBetween: 8,
+  loop: false,
   autoplay: {
-    delay: 3000,
+    delay: 300000,
     disableOnInteraction: true,
   },
   breakpoints: {
-    // 0px 이상 1024px 미만
     0: {
       slidesPerView: 'auto',
+      spaceBetween: 0,
+      loop: true,
     },
-    // 1024px 이상 1800px 미만
     1024: {
-      slidesPerView: 3,
+      slidesPerView: 2,
+      spaceBetween: 8,
+      loop: false,
     },
-    // 1800px 이상
     1800: {
-      slidesPerView: 3, // 기존 설정 유지
+      slidesPerView: 3,
+      spaceBetween: 8,
+      loop: false,
     },
   },
 };
@@ -891,13 +905,15 @@ const menuItems = ref([
 //toast
 const toast = useToast();
 
-const showToast = () => {
-  toast.add({
-    detail:
-      '일부 서비스는 PC에서만 지원이 됩니다. /n PC 브라우저로 접속해주세요.',
-    group: 'bc',
-    life: 3000,
-  });
+const checkViewportAndShowToast = () => {
+  if (window.innerWidth < 1024) {
+    toast.add({
+      detail:
+        '일부 서비스는 PC에서만 지원이 됩니다. \n PC 브라우저로 접속해주세요.',
+      group: 'bc',
+      life: 4000,
+    });
+  }
 };
 
 //popover
@@ -1274,4 +1290,8 @@ const trendData = ref([
   { date: '01.07', count: 3800, amount: 5000 },
   { date: '01.08', count: 4800, amount: 9000 },
 ]);
+
+onMounted(() => {
+  checkViewportAndShowToast();
+});
 </script>
