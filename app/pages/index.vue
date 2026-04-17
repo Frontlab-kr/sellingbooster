@@ -25,7 +25,7 @@
         </template>
       </Card>
     </div>
-    <!-- <div>
+    <div>
       <h5>대시보드</h5>
       <Card>
         <template #content>
@@ -34,7 +34,7 @@
           </div>
         </template>
       </Card>
-    </div> -->
+    </div>
     <div>
       <h5>로그인</h5>
       <Card>
