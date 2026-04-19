@@ -848,15 +848,14 @@
       @include breakpoint {
         &-form {
           &-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
             margin-bottom: 24px;
             padding-bottom: 24px;
             &:last-child {
               margin-bottom: 0;
               padding-bottom: 0;
-              border-bottom: none;
-            }
-            > label {
-              margin-bottom: 8px;
             }
           }
         }
