@@ -750,9 +750,21 @@
               </tr>
               <tr>
                 <td>이메일</td>
-                <td>hd_sec_info@hecto.co.kr</td>
-                <td>hd_sec_info@hecto.co.kr</td>
-                <td>privacy@hectodata.co.kr</td>
+                <td>
+                  <a href="mailto:hd_sec_info@hecto.co.kr"
+                    >hd_sec_info@hecto.co.kr</a
+                  >
+                </td>
+                <td>
+                  <a href="mailto:hd_sec_info@hecto.co.kr"
+                    >hd_sec_info@hecto.co.kr</a
+                  >
+                </td>
+                <td>
+                  <a href="mailto:privacy@hectodata.co.kr"
+                    >privacy@hectodata.co.kr</a
+                  >
+                </td>
               </tr>
             </tbody>
           </table>
