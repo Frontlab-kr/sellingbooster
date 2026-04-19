@@ -975,7 +975,16 @@ const productQnaList = ref([
 ]);
 
 //checkbox
-const selectedInquiryTypes = ref(['all']);
+const selectedInquiryTypes = ref([
+  'all',
+  'size',
+  'delivery',
+  'stock',
+  'exchange',
+  'info',
+  'price',
+  'etc',
+]);
 
 const inquiryTypeOptions = [
   { id: 'type-all', label: '전체', value: 'all', colorClass: '' },
