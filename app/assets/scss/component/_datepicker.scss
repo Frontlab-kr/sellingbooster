@@ -17,10 +17,11 @@
   --p-datepicker-date-hover-background: var(--color-primary);
   --p-datepicker-date-selected-background: var(--color-primary);
   --p-datepicker-date-range-selected-background: var(--p-primary-100);
-  --p-datepicker-date-color: var(--p-gray-900);
+  --p-datepicker-date-color: var(--title-color);
   --p-datepicker-date-hover-color: var(--p-gray-00);
   --p-datepicker-date-selected-color: var(--p-primary-contrast-color);
   --p-datepicker-date-range-selected-color: var(--p-gray-600);
+  --p-datepicker-date-disabled-color: var(--p-gray-300);
   --p-datepicker-date-width: 32px;
   --p-datepicker-date-height: 32px;
   --p-datepicker-date-border-radius: 50%;
@@ -32,18 +33,18 @@
   --p-datepicker-date-focus-ring-shadow: var(--p-focus-ring-shadow);
   --p-datepicker-week-day-padding: 0.25rem;
   --p-datepicker-week-day-font-weight: 500;
-  --p-datepicker-week-day-color: var(--p-gray-900);
+  --p-datepicker-week-day-color: var(--title-color);
   --p-datepicker-day-view-margin: 0.5rem 0 0 0;
   --p-datepicker-group-border-color: var(--p-content-border-color);
   --p-datepicker-group-gap: var(--p-overlay-popover-padding);
   --p-datepicker-select-year-hover-background: none;
-  --p-datepicker-select-year-color: var(--p-gray-900);
-  --p-datepicker-select-year-hover-color: var(--p-gray-900);
+  --p-datepicker-select-year-color: var(--title-color);
+  --p-datepicker-select-year-hover-color: var(--title-color);
   --p-datepicker-select-year-padding: 0.25rem 0;
   --p-datepicker-select-year-border-radius: var(--p-content-border-radius);
   --p-datepicker-select-month-hover-background: none;
-  --p-datepicker-select-month-color: var(--p-gray-900);
-  --p-datepicker-select-month-hover-color: var(--p-gray-900);
+  --p-datepicker-select-month-color: var(--title-color);
+  --p-datepicker-select-month-hover-color: var(--title-color);
   --p-datepicker-select-month-padding: 0.25rem 0;
   --p-datepicker-select-month-border-radius: var(--p-content-border-radius);
   --p-datepicker-input-icon-color: var(--p-form-field-icon-color);
@@ -61,11 +62,11 @@
   --p-datepicker-dropdown-sm-width: 2rem;
   --p-datepicker-title-gap: 0.5rem;
   --p-datepicker-title-font-weight: 500;
-  --p-datepicker-header-background: var(--p-content-background);
+  --p-datepicker-header-background: none;
   --p-datepicker-header-border-color: var(--p-content-border-color);
-  --p-datepicker-header-color: var(--p-gray-900);
+  --p-datepicker-header-color: var(--title-color);
   --p-datepicker-header-padding: 0 0 0.5rem 0;
-  --p-datepicker-panel-background: var(--p-content-background);
+  --p-datepicker-panel-background: var(--p-gray-00);
   --p-datepicker-panel-border-color: none;
   --p-datepicker-panel-color: var(--p-content-color);
   --p-datepicker-panel-border-radius: 32px;
@@ -87,8 +88,10 @@
 }
 
 .p-dark {
-  --p-datepicker-today-background: var(--p-surface-700);
-  --p-datepicker-today-color: var(--p-surface-0);
+  --p-datepicker-date-disabled-color: var(--p-gray-600);
+  --p-datepicker-panel-background: var(--p-gray-900);
+  --p-datepicker-panel-border-color: none;
+  --p-datepicker-panel-color: var(--p-content-color);
   --p-datepicker-dropdown-background: var(--p-surface-800);
   --p-datepicker-dropdown-hover-background: var(--p-surface-700);
   --p-datepicker-dropdown-active-background: var(--p-surface-600);
@@ -345,7 +348,7 @@
   color: var(--p-datepicker-date-color);
   &.p-disabled {
     opacity: 1;
-    color: var(--p-gray-300);
+    color: var(--p-datepicker-date-disabled-color);
   }
 }
 .p-datepicker-day:not(.p-datepicker-day-selected):not(.p-disabled):hover {

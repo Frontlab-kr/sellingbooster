@@ -89,12 +89,12 @@
                 <strong>기준 일자</strong>
 
                 <DatePicker
-                  v-model="dates"
+                  v-model="dates1"
                   selectionMode="range"
                   showButtonBar
                   placeholder="날짜를 선택해주세요"
-                  ref="datePickerRef"
-                  @date-select="onDateSelect"
+                  ref="datePickerRef1"
+                  @date-select="onDateSelect(dates1, datePickerRef1)"
                   style="min-width: 260px"
                 />
               </div>
@@ -307,12 +307,12 @@
             <div class="sb-report-history-date-head__date">
               <strong>기준 일자</strong>
               <DatePicker
-                v-model="dates"
+                v-model="dates2"
                 selectionMode="range"
                 showButtonBar
                 placeholder="날짜를 선택해주세요"
-                ref="datePickerRef"
-                @date-select="onDateSelect"
+                ref="datePickerRef2"
+                @date-select="onDateSelect(dates2, datePickerRef2)"
                 style="min-width: 260px"
               />
             </div>
@@ -646,23 +646,22 @@ const breadcrumb = ref([
 ]);
 
 //datepicker
-const dates = ref(null);
-const datePickerRef = ref(null);
+const dates1 = ref(null);
+const dates2 = ref(null);
 
-const onDateSelect = async () => {
-  if (
-    Array.isArray(dates.value) &&
-    dates.value.length === 2 &&
-    dates.value[1]
-  ) {
+const datePickerRef1 = ref(null);
+const datePickerRef2 = ref(null);
+
+const onDateSelect = async (modelValue, targetRef) => {
+  // 범위 선택 완료 확인
+  if (Array.isArray(modelValue) && modelValue.length === 2 && modelValue[1]) {
     await nextTick();
     await new Promise((resolve) => setTimeout(resolve, 400));
 
-    const dp = datePickerRef.value;
-    if (dp) {
-      dp.overlayVisible = false;
-      if (typeof dp.hide === 'function') {
-        dp.hide();
+    if (targetRef) {
+      targetRef.overlayVisible = false;
+      if (typeof targetRef.hide === 'function') {
+        targetRef.hide();
       }
     }
   }
