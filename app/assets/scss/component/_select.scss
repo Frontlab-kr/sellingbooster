@@ -110,7 +110,7 @@
   outline-color: transparent;
   box-shadow: var(--p-select-shadow);
   &-open {
-    border-radius: 24px 24px 0 0;
+    border-radius: 20px 20px 0 0;
 
     .p-select-dropdown {
       &::after {
