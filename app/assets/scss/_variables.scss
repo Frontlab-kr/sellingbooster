@@ -1037,11 +1037,13 @@
 
   --login-background: var(--p-gray-00);
   --login-background-mo: #eff1f4;
+  --login-boxshadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
   --login-title-color: var(--p-gray-900);
   --login-link-border-color: var(--p-gray-300);
   --login-link-color: var(--p-gray-500);
   --login-divider-color: var(--p-gray-300);
   --login-text-color: var(--p-gray-400);
+  --login-link-text-color: var(--p-gray-500);
 
   --auth-background: var(--p-gray-00);
   --auth-title-color: var(--p-gray-900);
@@ -1976,11 +1978,13 @@
 
     --login-background: var(--p-gray-800);
     --login-background-mo: var(--p-gray-800);
+    --login-boxshadow: 0 10px 30px 0 rgba(0, 0, 0, 0.5);
     --login-title-color: var(--p-gray-00);
     --login-link-border-color: var(--p-gray-500);
     --login-link-color: var(--p-gray-00);
     --login-divider-color: var(--p-gray-500);
     --login-text-color: var(--p-gray-400);
+    --login-link-text-color: var(--p-gray-300);
 
     --auth-background: var(--p-gray-800);
     --auth-title-color: var(--p-gray-00);

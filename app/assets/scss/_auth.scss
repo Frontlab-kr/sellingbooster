@@ -8,6 +8,8 @@
     padding: 40px;
     border-radius: 32px;
     background: var(--login-background);
+    border-radius: 32px;
+    box-shadow: var(--login-boxshadow);
     &__title {
       display: flex;
       flex-direction: column;
@@ -100,32 +102,102 @@
         letter-spacing: -0.3px;
         a {
           color: inherit;
+          text-decoration: underline;
         }
+      }
+      &-sns {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px 0 40px;
+        .p-button {
+          gap: 8px;
+          &-label {
+            color: var(--p-gray-00);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 22.4px */
+            letter-spacing: -0.4px;
+          }
+        }
+
+        img {
+          min-width: 24px;
+          width: 24px;
+          height: 24px;
+        }
+        &__naver {
+          background-color: #03c75a;
+          border-color: #03c75a;
+        }
+        &__kakao {
+          background-color: #fee500;
+          border-color: #fee500;
+          .p-button-label {
+            color: var(--Gray-900, #1b1f27);
+          }
+        }
+        &__google {
+          background-color: var(--Gray-00, #fff);
+          border-color: var(--Gray-200, #eaecf1);
+          .p-button-label {
+            color: var(--Gray-900, #1b1f27);
+          }
+        }
+        &__apple {
+          background-color: var(--Gray-900, #1b1f27);
+          border-color: var(--Gray-900, #1b1f27);
+        }
+        &__sellpick {
+          background-color: #003480;
+          border-color: #003480;
+        }
+      }
+      &-link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 0 0 0;
+        p {
+          margin: 0;
+          color: var(--login-link-text-color);
+          text-align: center;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 140%; /* 16.8px */
+          letter-spacing: -0.3px;
+        }
+        a {
+          .p-button-label {
+            text-decoration: underline;
+          }
+        }
+      }
+      &-link ~ .sb-login-form__text {
+        margin-top: 20px;
       }
     }
     @include breakpoint {
       min-width: 100%;
       width: 100%;
-      min-height: 100vh;
-      margin: 0 auto;
-      margin: -56px 0 0 0;
-      padding: 114px 20px 64px;
+      min-height: calc(100vh - 56px);
+      padding: 24px 20px 64px;
       border-radius: 0;
-      background: var(--login-background-mo);
       &__title {
-        align-items: flex-start;
-        margin-bottom: 48px;
+        align-items: center;
+        margin-bottom: 40px;
         &::before {
           content: '';
           display: block;
           width: 168px;
-          height: 28px;
-          margin: 0 0 22px 0;
+          height: 48px;
+          margin: 0 0 12px 0;
           background: var(--logo) no-repeat 0 50%;
           background-size: cover;
-        }
-        h4 {
-          text-align: left;
         }
       }
       &-form {
@@ -156,6 +228,68 @@
         }
         &__text {
           margin-top: 32px;
+        }
+        &-sns {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          padding: 20px 0 40px;
+          .p-button {
+            gap: 8px;
+            &-label {
+              color: var(--p-gray-00);
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 140%; /* 22.4px */
+              letter-spacing: -0.4px;
+            }
+          }
+
+          img {
+            min-width: 20px;
+            width: 20px;
+            height: 20px;
+          }
+          &__naver {
+            background-color: #03c75a;
+            border-color: #03c75a;
+          }
+          &__kakao {
+            background-color: #fee500;
+            border-color: #fee500;
+            .p-button-label {
+              color: var(--Gray-900, #1b1f27);
+            }
+          }
+          &__google {
+            background-color: var(--Gray-00, #fff);
+            border-color: var(--Gray-200, #eaecf1);
+            .p-button-label {
+              color: var(--Gray-900, #1b1f27);
+            }
+          }
+          &__apple {
+            background-color: var(--Gray-900, #1b1f27);
+            border-color: var(--Gray-900, #1b1f27);
+          }
+          &__sellpick {
+            background-color: #003480;
+            border-color: #003480;
+          }
+        }
+        &-link {
+          display: flex;
+          justify-content: center;
+          padding: 20px 0 0 0;
+          a {
+            .p-button-label {
+              text-decoration: underline;
+            }
+          }
+        }
+        &-link ~ .sb-login-form__text {
+          margin-top: 20px;
         }
       }
     }

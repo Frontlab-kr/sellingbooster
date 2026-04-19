@@ -21,7 +21,8 @@ const props = defineProps({
 
 const chartRef = ref(null);
 let chart = null;
-let observer = null;
+let ioObserver = null; // Intersection Observer용
+let themeObserver = null; // 테마 감지용
 
 const customFontFamily =
   "'Pretendard JP Variable', 'Pretendard JP', 'Pretendard', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'PingFang TC', 'Noto Sans TC', sans-serif";
@@ -188,26 +189,49 @@ const initChart = () => {
     series: series,
   };
 
+  option.animation = true;
+  option.animationDuration = 1000;
+  option.animationEasing = 'cubicOut';
+
   chart.setOption(option);
 };
 
 watch(
   () => props.chartData,
   () => {
-    initChart();
+    if (chart) initChart();
   },
   { deep: true },
 );
 
 onMounted(async () => {
   await nextTick();
-  initChart();
+
+  // --- Intersection Observer 설정 ---
+  ioObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // 화면에 보이면 차트 초기화 (애니메이션 시작)
+          initChart();
+          // 한 번 실행 후 감시 종료 (원치 않으시면 이 줄을 삭제하세요)
+          ioObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 1 },
+  ); // 10%만 보여도 시작
+
+  if (chartRef.value) {
+    ioObserver.observe(chartRef.value);
+  }
+  // --------------------------------
 
   // 테마(다크모드) 감지
-  observer = new MutationObserver(() => {
-    initChart();
+  themeObserver = new MutationObserver(() => {
+    if (chart) initChart();
   });
-  observer.observe(document.documentElement, {
+  themeObserver.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ['class'],
   });
@@ -217,7 +241,8 @@ onMounted(async () => {
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize);
-  if (observer) observer.disconnect();
+  if (ioObserver) ioObserver.disconnect();
+  if (themeObserver) themeObserver.disconnect();
   if (chart) chart.dispose();
 });
 

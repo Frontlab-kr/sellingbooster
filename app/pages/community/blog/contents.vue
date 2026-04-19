@@ -4,22 +4,12 @@
       <h5>이전 발행 컨텐츠</h5>
       <div class="sb-blog-contents-head__button">
         <div class="sb-swiper-controls">
-          <Button
-            rounded
-            severity="neutral"
-            :disabled="isBeginning"
-            @click="swiper.prev()"
-          >
+          <Button rounded severity="neutral" class="sb-swiper-controls__prev">
             <template #icon>
               <IconArrowLeft class="ico-arrow-left" />
             </template>
           </Button>
-          <Button
-            rounded
-            severity="neutral"
-            :disabled="isEnd"
-            @click="swiper.next()"
-          >
+          <Button rounded severity="neutral" class="sb-swiper-controls__next">
             <template #icon>
               <IconArrowRight class="ico-arrow-right" />
             </template>
@@ -29,14 +19,27 @@
     </div>
     <div class="sb-blog-contents-list">
       <ClientOnly>
-        <swiper-container
-          ref="containerRef"
-          :slides-per-view="swiperParams.slidesPerView"
-          :space-between="swiperParams.spaceBetween"
-          :breakpoints="JSON.stringify(swiperParams.breakpoints)"
-          @swiperactiveindexchange="onSlideChange"
+        <Swiper
+          :slidesPerView="2"
+          :spaceBetween="80"
+          :loop="true"
+          :navigation="{
+            prevEl: '.sb-blog-contents .sb-swiper-controls__prev',
+            nextEl: '.sb-blog-contents .sb-swiper-controls__next',
+          }"
+          :breakpoints="{
+            300: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            1600: {
+              slidesPerView: 2,
+              spaceBetween: 80,
+            },
+          }"
+          :modules="modules"
         >
-          <swiper-slide v-for="item in blogItems" :key="item.id">
+          <SwiperSlide v-for="item in blogItems" :key="item.id">
             <NuxtLink to="/" class="sb-blog-contents-list-item">
               <div class="sb-blog-contents-list-item__thumb">
                 <img :src="item.thumbnailUrl" :alt="item.title" />
@@ -68,53 +71,25 @@
                 />
               </div>
             </NuxtLink>
-          </swiper-slide>
-        </swiper-container>
+          </SwiperSlide>
+        </Swiper>
       </ClientOnly>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted } from 'vue';
-
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
 import IconArrowLeft from '@/assets/icons/arrow/left.svg?component';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+import { Autoplay } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 
-const containerRef = ref(null);
-const isBeginning = ref(true); // 시작 상태 (초기값 true)
-const isEnd = ref(false); // 끝 상태
-
-const swiperParams = {
-  slidesPerView: 1,
-  spaceBetween: 10,
-  breakpoints: {
-    1440: {
-      slidesPerView: 2,
-      spaceBetween: 80,
-    },
-  },
-};
-
-const swiper = useSwiper(containerRef, swiperParams);
-
-// 슬라이드가 바뀔 때마다 실행되어 상태를 업데이트하는 함수
-const onSlideChange = () => {
-  // swiper.instance가 Ref라면 .value로 접근해야 합니다.
-  const swiperInst = swiper.instance.value;
-
-  if (swiperInst) {
-    isBeginning.value = (swiperInst as any).isBeginning;
-    isEnd.value = (swiperInst as any).isEnd;
-  }
-};
-
-onMounted(() => {
-  // 초기 렌더링 시 상태 체크
-  setTimeout(() => {
-    onSlideChange();
-  }, 100); // Swiper 초기화 시간을 벌어주기 위해 약간의 지연을 둡니다.
-});
+const modules = [Autoplay, Navigation];
 
 const blogItems = [
   {

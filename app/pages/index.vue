@@ -40,8 +40,10 @@
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
-            <NuxtLink to="/auth/login">로그인</NuxtLink>
-            <NuxtLink to="/auth/signup">회원가입</NuxtLink>
+            <!-- <NuxtLink to="/auth/login">로그인</NuxtLink> -->
+            <NuxtLink to="/auth/login/index02">로그인</NuxtLink>
+            <!-- <NuxtLink to="/auth/signup">회원가입</NuxtLink> -->
+            <NuxtLink to="/auth/signup/index02">회원가입</NuxtLink>
             <NuxtLink to="/auth/signup/code">회원가입 인증코드</NuxtLink>
             <NuxtLink to="/auth/signup/error">회원가입 에러</NuxtLink>
             <NuxtLink to="/auth/signup/complete">회원가입 완료</NuxtLink>
@@ -206,6 +208,7 @@
         <template #content>
           <div class="flex flex-column gap-2">
             <NuxtLink to="/policy/personalPrivacy">개인정보 처리방침</NuxtLink>
+            <NuxtLink to="/policy/servicePolicy">서비스 이용약관</NuxtLink>
           </div>
         </template>
       </Card>

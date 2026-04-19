@@ -333,7 +333,7 @@
                 />
               </div>
               <div
-                v-for="(item, index) in [0, 1, 2, 3, 4]"
+                v-for="(group, groupIdx) in [0, 1, 2, 3, 4]"
                 :key="index"
                 class="sb-report-history-date-list"
                 :class="{ active: openStates[index] }"
@@ -357,7 +357,7 @@
                 <div class="sb-report-history-date-list__contents">
                   <div
                     class="sb-report-history-date-list-item"
-                    v-for="value in 4"
+                    v-for="itemIdx in 4"
                   >
                     <div class="sb-report-history-date-list-item__product">
                       <div class="sb-report-history-date-list-item__contents">
@@ -382,9 +382,20 @@
                       <div class="sb-report-history-date-list-item__button">
                         <Button
                           variant="text"
-                          @mouseenter="openPopover($event)"
+                          class="report-button"
+                          :class="{
+                            active: activeId === `btn-${groupIdx}-${itemIdx}`,
+                          }"
+                          @mouseenter="
+                            openPopover($event, `btn-${groupIdx}-${itemIdx}`)
+                          "
                           @mouseleave="closePopover"
-                          :class="{ active: popoverChart?.visible }"
+                          @click="
+                            handleButtonClick(
+                              $event,
+                              `btn-${groupIdx}-${itemIdx}`,
+                            )
+                          "
                         >
                           <span class="p-button-label"
                             >레포트 보기 : 최근 7일</span
@@ -493,7 +504,7 @@
                 <div class="sb-report-history-date-list__contents">
                   <div
                     class="sb-report-history-date-list-item"
-                    v-for="value in 4"
+                    v-for="item in 4"
                   >
                     <div class="sb-report-history-date-list-item__product">
                       <div class="sb-report-history-date-list-item__contents">
@@ -518,9 +529,11 @@
                       <div class="sb-report-history-date-list-item__button">
                         <Button
                           variant="text"
-                          @mouseenter="openPopover($event)"
+                          class="report-button"
+                          :class="{ active: activeId === item.id }"
+                          @mouseenter="openPopover($event, item.id)"
                           @mouseleave="closePopover"
-                          :class="{ active: popoverChart?.visible }"
+                          @click="handleButtonClick($event, item.id)"
                         >
                           <span class="p-button-label"
                             >레포트 보기 : 최근 7일</span
@@ -603,6 +616,7 @@
     }"
     @mouseenter="cancelClose"
     @mouseleave="closePopover"
+    @hide="onPopoverHide"
   >
     <SbChartCombinedSmall
       :sales-data="salesData02"
@@ -614,7 +628,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
 import IconArrowUp from '@/assets/icons/arrow/up.svg?component';
 import IconArrowDown from '@/assets/icons/arrow/down.svg?component';
@@ -663,37 +677,78 @@ const toggleList = (index) => {
 
 //popover
 const popoverChart = ref();
+const isStuck = ref(false);
+const activeId = ref(null); // 현재 활성화된 버튼의 ID 저장
 let closeTimeout = null;
 
-const openPopover = async (event) => {
+// 1. 팝오버 열기
+const openPopover = (event, id) => {
   if (closeTimeout) {
     clearTimeout(closeTimeout);
     closeTimeout = null;
   }
-  if (popoverChart.value?.visible) {
-    popoverChart.value.hide();
-  }
+
+  if (isStuck.value && activeId.value === id) return;
+
+  activeId.value = id; // 현재 오버된 버튼의 ID 설정
   const target = event.currentTarget;
-  setTimeout(() => {
-    popoverChart.value?.show(event, target);
-  }, 0);
+  popoverChart.value?.show(event, target);
 };
 
+// 2. 팝오버 닫기
 const closePopover = () => {
+  if (isStuck.value) return;
+
   closeTimeout = setTimeout(() => {
-    if (popoverChart.value) {
-      popoverChart.value.hide();
-    }
+    popoverChart.value?.hide();
+    // 팝오버가 완전히 사라질 때 activeId를 초기화하고 싶다면
+    // 아래 resetPopover 로직이나 @hide 이벤트를 활용하세요.
   }, 400);
 };
 
+// 3. 버튼 클릭 시
+const handleButtonClick = (event, id) => {
+  if (closeTimeout) {
+    clearTimeout(closeTimeout);
+    closeTimeout = null;
+  }
+
+  activeId.value = id;
+  isStuck.value = true;
+  popoverChart.value?.show(event, event.currentTarget);
+};
+
+// 4. 초기화 로직 (중요)
 const cancelClose = () => {
-  // 팝오버 내부 진입 시 닫기 예약 취소
   if (closeTimeout) {
     clearTimeout(closeTimeout);
     closeTimeout = null;
   }
 };
+const onPopoverHide = () => {
+  isStuck.value = false;
+  activeId.value = null; // 팝오버가 닫힐 때 active 상태 해제
+};
+
+const handleOutsideClick = (event) => {
+  if (!popoverChart.value || !isStuck.value) return;
+
+  const el = popoverChart.value.container; // 팝오버 컨테이너
+  const isButtonClick = event.target.closest('.report-button'); // 클릭된 게 버튼인지 확인
+
+  // 팝오버 내부 클릭이 아니고, 버튼 클릭도 아니라면 닫기
+  if (el && !el.contains(event.target) && !isButtonClick) {
+    popoverChart.value.hide(); // hide가 실행되면 @hide="onPopoverHide"가 실행됨
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('click', handleOutsideClick);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('click', handleOutsideClick);
+});
 
 //chart
 const salesData = ref([

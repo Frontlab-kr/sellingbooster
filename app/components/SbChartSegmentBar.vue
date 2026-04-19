@@ -1,14 +1,14 @@
 <template>
   <div
+    ref="containerRef"
     :class="[
       'sb-chart-segment',
       className,
       { 'sb-chart-segment--icon': showIcon },
-      { 'sb-chart-segment--large': processedData.length >= 4 },
     ]"
   >
     <div
-      v-for="(item, index) in processedData"
+      v-for="(item, index) in animatedData"
       :key="`col-${index}`"
       :class="['sb-chart-segment-item', item.textClass]"
     >
@@ -28,7 +28,7 @@
           :class="{ active: isSegmentActive(item, n) }"
           :style="{
             transitionDelay: isSegmentActive(item, n)
-              ? `${(totalSegments - n) * 0.03}s`
+              ? `${(totalSegments - n) * 0.08}s`
               : '0s',
           }"
         ></span>
@@ -46,45 +46,28 @@
 </template>
 
 <script setup>
-import { computed } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue';
 
 const props = defineProps({
-  chartData: {
-    type: Array,
-    required: true,
-    default: () => [],
-  },
-  showPercent: {
-    type: Boolean,
-    default: false,
-  },
-  showIcon: {
-    type: Boolean,
-    default: false,
-  },
-  totalSegments: {
-    type: Number,
-    default: 20,
-  },
-  maxValue: {
-    type: Number,
-    default: 500,
-  },
-  unitText: {
-    type: String,
-    default: '건',
-  },
-  className: {
-    type: String,
-    default: '',
-  },
+  chartData: { type: Array, required: true, default: () => [] },
+  showPercent: { type: Boolean, default: false },
+  showIcon: { type: Boolean, default: false },
+  totalSegments: { type: Number, default: 20 },
+  maxValue: { type: Number, default: 500 },
+  unitText: { type: String, default: '건' },
+  className: { type: String, default: '' },
 });
+
+const containerRef = ref(null);
+const isVisible = ref(false); // 화면 노출 여부 상태
+let observer = null;
 
 const isSegmentActive = (item, n) => {
   return props.totalSegments - n + 1 <= item.filledCount;
 };
 
-const processedData = computed(() => {
+// 화면 노출 상태에 따라 데이터 가공
+const animatedData = computed(() => {
   const classMap = {
     primaryColor: 'color-primary',
     successColor: 'color-success',
@@ -99,22 +82,47 @@ const processedData = computed(() => {
 
   return props.chartData.map((item) => {
     const percentage = totalSum > 0 ? (item.value / totalSum) * 100 : 0;
-
-    /**
-     * 핵심 로직:
-     * item.color가 'successColor'라면 'Color'를 빈값으로 바꿔서 'success'만 남깁니다.
-     */
     const severity = item.color ? item.color.replace('Color', '') : 'info';
+
+    // 핵심: 화면에 보이지 않을 때는 filledCount를 0으로 고정
+    const actualFilledCount = Math.round(
+      (item.value / props.maxValue) * props.totalSegments,
+    );
+    const filledCount = isVisible.value ? actualFilledCount : 0;
 
     return {
       ...item,
       textClass: classMap[item.color] || '',
-      badgeSeverity: severity, // 여기서 가공된 'success', 'danger' 등이 들어감
+      badgeSeverity: severity,
       percent: percentage.toFixed(1),
-      filledCount: Math.round(
-        (item.value / props.maxValue) * props.totalSegments,
-      ),
+      filledCount: filledCount,
     };
   });
+});
+
+onMounted(async () => {
+  await nextTick();
+
+  const options = {
+    threshold: 0.5, // 절반 이상 보일 때 애니메이션 시작
+  };
+
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        isVisible.value = true;
+        // 한 번 실행 후 감시 종료
+        observer.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  if (containerRef.value) {
+    observer.observe(containerRef.value);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (observer) observer.disconnect();
 });
 </script>

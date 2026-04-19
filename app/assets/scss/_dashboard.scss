@@ -686,7 +686,7 @@
       }
     }
     @include breakpoint {
-      padding: 24px 20px;
+      padding: 24px 20px 14px;
       .grid {
         margin-right: -12px;
         margin-left: -12px;
@@ -768,9 +768,11 @@
             }
           }
           @media screen and (max-width: 1800px) {
+            width: calc(100% + 20px);
+            overflow: hidden;
             &-inner {
               width: calc(100vw - 20px);
-              margin-right: 0;
+              margin: 0 0;
             }
             .swiper-slide {
               &.swiper-slide-next {

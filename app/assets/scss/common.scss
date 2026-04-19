@@ -69,17 +69,17 @@ $font-family-global:
 }
 
 .pc {
-  display: block;
+  display: block !important;
 }
 .mo {
-  display: none;
+  display: none !important;
 }
 @include breakpoint {
   .pc {
-    display: none;
+    display: none !important;
   }
   .mo {
-    display: block;
+    display: block !important;
   }
 }
 html {

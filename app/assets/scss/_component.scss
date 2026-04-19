@@ -1,6 +1,41 @@
 @use './mixins' as *;
 
 .sb {
+  &-swiper {
+    &-controls {
+      display: flex;
+      gap: 10px;
+      .p-button {
+        width: 40px;
+        height: 40px;
+        background-color: var(--swiper-controls-button-background);
+        &:disabled {
+          background-color: var(--swiper-controls-button-background);
+          .ico-arrow-right,
+          .ico-arrow-left {
+            color: var(--swiper-controls-ico-disabled-color);
+          }
+        }
+      }
+      .ico-arrow-right,
+      .ico-arrow-left {
+        color: var(--swiper-controls-ico-color);
+      }
+      @include breakpoint {
+        gap: 8px;
+        .p-button {
+          width: 32px;
+          height: 32px;
+
+          .ico-arrow-right,
+          .ico-arrow-left {
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
   &-compare {
     display: flex;
     gap: 8px;
@@ -488,7 +523,11 @@
       }
     }
   }
-
+  &-select {
+    &.p-select-open {
+      border-radius: 0 0 24px 24px;
+    }
+  }
   &-input {
     position: relative;
     display: inline-flex;
@@ -1112,6 +1151,57 @@
         margin-left: auto;
         padding: 0 !important;
       }
+      &-layer {
+        &.p-tieredmenu {
+          margin-top: 8px;
+          padding: 0;
+          border-radius: 24px;
+          min-width: 61px;
+          &-overlay {
+            inset-inline-start: 20px !important;
+            box-shadow: 0 4px 10px 0 rgba(0, 177, 189, 0.15);
+          }
+          &-root-list {
+            padding: 10px;
+            gap: 5px;
+          }
+          .p-tieredmenu-root-list {
+            flex-direction: row;
+          }
+          .p-tieredmenu-root-list,
+          .p-tieredmenu-submenu {
+            padding: 16px 8px;
+            gap: 0px;
+          }
+          .p-tieredmenu-item {
+            &.p-focus > .p-tieredmenu-item-content {
+              background: none;
+            }
+            &:not(.p-disabled) > .p-tieredmenu-item-content:hover {
+              color: var(--p-tieredmenu-item-focus-color);
+              background: none;
+            }
+            &-link {
+              flex-direction: column;
+              padding: 0;
+              gap: 4px;
+              min-width: 61px;
+              .p-tieredmenu-item-icon {
+                min-width: 48px;
+                width: 48px;
+                height: 48px;
+              }
+            }
+            &-label {
+              font-size: 12px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 140%; /* 16.8px */
+              letter-spacing: -0.3px;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -1374,41 +1464,6 @@
     }
   }
 
-  &-swiper {
-    &-controls {
-      display: flex;
-      gap: 10px;
-      .p-button {
-        width: 40px;
-        height: 40px;
-        background-color: var(--swiper-controls-button-background);
-        &:disabled {
-          background-color: var(--swiper-controls-button-background);
-          .ico-arrow-right,
-          .ico-arrow-left {
-            color: var(--swiper-controls-ico-disabled-color);
-          }
-        }
-      }
-      .ico-arrow-right,
-      .ico-arrow-left {
-        color: var(--swiper-controls-ico-color);
-      }
-      @include breakpoint {
-        gap: 8px;
-        .p-button {
-          width: 32px;
-          height: 32px;
-
-          .ico-arrow-right,
-          .ico-arrow-left {
-            width: 16px;
-            height: 16px;
-          }
-        }
-      }
-    }
-  }
   &-banner {
     position: relative;
     border-radius: 32px;
@@ -1425,12 +1480,15 @@
       object-fit: cover;
     }
 
-    &-pagination {
+    .swiper-pagination {
       position: absolute;
       bottom: 24px;
       right: 24px;
+      left: auto;
       z-index: 20;
       display: inline-flex;
+      width: auto;
+      min-width: 43px;
       padding: 4px 8px;
       align-items: center;
       gap: 4px;
@@ -1442,8 +1500,9 @@
       font-weight: 400;
       line-height: 140%; /* 16.8px */
       letter-spacing: -0.3px;
-      strong {
+      &-current {
         color: #fff;
+        font-weight: 700;
       }
     }
   }

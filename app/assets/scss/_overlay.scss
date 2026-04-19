@@ -448,6 +448,88 @@
         padding: 16px;
       }
     }
+    &-search-recent {
+      position: absolute;
+      top: 68px;
+      left: 0;
+      z-index: 50;
+      background: var(--p-popover-background);
+      border: 1px solid var(--p-popover-border-color);
+      border-radius: var(--p-popover-border-radius);
+      box-shadow: var(--p-popover-shadow);
+      color: var(--p-popover-color);
+      will-change: transform;
+      color: var(--p-popover-color);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: -0.3px;
+      line-height: 140%;
+      padding: 24px 24px 28px 24px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      min-width: 700px;
+      width: 700px;
+      transform: translateY(-6px) scale(0.98);
+      transform-origin: top left;
+
+      transition:
+        opacity 0.18s ease,
+        transform 0.18s ease,
+        visibility 0.18s step-end;
+
+      will-change: opacity, transform;
+
+      border-radius: 32px;
+
+      &-history {
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        border-bottom: 1px dashed var(--p-gray-300);
+        &-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          strong {
+            color: var(--Text_Light-900---mian, #1b1f27);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 22.4px */
+            letter-spacing: -0.4px;
+          }
+        }
+        &-body {
+          > p {
+            margin: 0;
+            padding: 40px 20px;
+            color: var(--Text_Light-400---eaplanation, #9aa3af);
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 22.4px */
+            letter-spacing: -0.4px;
+          }
+        }
+      }
+      &-popular {
+        display: flex;
+        align-items: center;
+        min-height: 32px;
+        gap: 20px;
+        &__title {
+          color: var(--Text_Light-900---mian, #1b1f27);
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 140%; /* 22.4px */
+          letter-spacing: -0.4px;
+        }
+      }
+    }
   }
   &-dialog {
     &-bottom {

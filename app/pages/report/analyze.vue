@@ -19,28 +19,37 @@
         <div class="sb-report-analyze-swiper">
           <div class="sb-report-analyze-swiper-inner">
             <ClientOnly>
-              <swiper-container
-                ref="containerRef"
-                :slides-per-view="swiperParams.slidesPerView"
-                :space-between="swiperParams.spaceBetween"
-                :breakpoints="JSON.stringify(swiperParams.breakpoints)"
-                @swiperactiveindexchange="onSlideChange"
+              <Swiper
+                :slidesPerView="3"
+                :autoplay="{
+                  delay: 2500,
+                  disableOnInteraction: true,
+                  pauseOnMouseEnter: true,
+                }"
+                :spaceBetween="8"
+                :breakpoints="{
+                  0: {
+                    slidesPerView: 'auto',
+                    spaceBetween: 0,
+                    loop: true,
+                  },
+                  1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 8,
+                    loop: false,
+                  },
+                  1800: {
+                    slidesPerView: 3,
+                    spaceBetween: 8,
+                    loop: false,
+                  },
+                }"
+                :navigation="{
+                  nextEl: '.sb-swiper-controls__next',
+                }"
+                :modules="modules"
               >
-                <swiper-slide class="swiper-slide">
-                  <div class="sb-report-analyze-swiper-item">
-                    <div class="sb-report-analyze-swiper-item__text">
-                      <strong>
-                        현재 네이버스토어 유입량이 목표대비
-                        <span class="text-primary">20% 부족</span>합니다.
-                      </strong>
-                      <p>상품명 점검을 통해 검색 노출을 높여보세요.</p>
-                    </div>
-                    <div class="sb-report-analyze-swiper-item__time">
-                      6시간 전
-                    </div>
-                  </div>
-                </swiper-slide>
-                <swiper-slide v-for="n in 10" :key="n" class="swiper-slide">
+                <SwiperSlide>
                   <div class="sb-report-analyze-swiper-item">
                     <div class="sb-report-analyze-swiper-item__text">
                       <strong>
@@ -59,20 +68,29 @@
                       6시간 전
                     </div>
                   </div>
-                </swiper-slide>
-                <swiper-slide class="swiper-slide"></swiper-slide>
-              </swiper-container>
+                </SwiperSlide>
+                <SwiperSlide v-for="n in 10" :key="n">
+                  <div class="sb-report-analyze-swiper-item">
+                    <div class="sb-report-analyze-swiper-item__text">
+                      <strong>
+                        현재 네이버스토어 유입량이 목표대비
+                        <span class="text-primary">20% 부족</span>합니다.
+                      </strong>
+                      <p>상품명 점검을 통해 검색 노출을 높여보세요.</p>
+                    </div>
+                    <div class="sb-report-analyze-swiper-item__time">
+                      6시간 전
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide class="pc"></SwiperSlide>
+              </Swiper>
             </ClientOnly>
           </div>
           <div class="sb-swiper-controls">
-            <Button
-              rounded
-              severity="neutral"
-              :disabled="isEnd"
-              @click="swiper.next()"
-            >
+            <Button rounded severity="neutral" class="sb-swiper-controls__next">
               <template #icon>
-                <IconArrowSmallRight class="ico-arrow-small-right" />
+                <IconArrowRight class="ico-arrow-right" />
               </template>
             </Button>
           </div>
@@ -257,11 +275,11 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, watch } from 'vue';
 import AppTimeline from '@/pages/planner/components/AppTimeline.vue';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
-import IconArrowSmallRight from '@/assets/icons/arrow/small-right.svg?component';
+import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
 import IconSystemCheckS from '@/assets/icons/system/check-s.svg?component';
 import IconProfileLevelLine from '@/assets/icons/profile/level-line.svg?component';
 
@@ -273,41 +291,12 @@ const breadcrumb = ref([
 ]);
 
 //swiper
-const containerRef = ref(null);
-const isBeginning = ref(true);
-const isEnd = ref(false);
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+import { Autoplay } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 
-const swiperParams = {
-  slidesPerView: 4,
-  spaceBetween: 8,
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: true,
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 4,
-    },
-    1800: {
-      slidesPerView: 4,
-    },
-  },
-};
-
-const swiper = useSwiper(containerRef, swiperParams);
-
-const onSlideChange = () => {
-  const swiperInst = swiper.instance.value;
-
-  if (swiperInst) {
-    isBeginning.value = (swiperInst as any).isBeginning;
-    isEnd.value = (swiperInst as any).isEnd;
-  }
-};
-
-onMounted(() => {
-  setTimeout(() => {
-    onSlideChange();
-  }, 100);
-});
+const modules = [Autoplay, Navigation];
 </script>

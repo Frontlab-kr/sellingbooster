@@ -667,7 +667,7 @@ const inquiryTypeStats = ref([
     badgeValue: '보통',
   },
 
-  { value: 5000, color: 'warnColor', badgeValue: '나쁨' },
-  { value: 1000, color: 'dangerColor', badgeValue: '매우나쁨' },
+  { value: 15000, color: 'warnColor', badgeValue: '나쁨' },
+  { value: 11000, color: 'dangerColor', badgeValue: '매우나쁨' },
 ]);
 </script>

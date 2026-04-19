@@ -42,7 +42,8 @@ const props = defineProps({
 
 const chartRef = ref(null);
 let chart = null;
-let observer = null;
+let ioObserver = null; // 화면 노출 감지용
+let themeObserver = null; // 테마 감지용
 
 const customFontFamily =
   "'Pretendard JP Variable', 'Pretendard JP', 'Pretendard', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'PingFang TC', 'Noto Sans TC', sans-serif";
@@ -81,6 +82,8 @@ const initChart = () => {
   const option = {
     backgroundColor: chartBackground,
     textStyle: { fontFamily: customFontFamily },
+    animation: true,
+    animationDuration: 1200,
     grid: {
       top: props.gridTop,
       left: props.gridLeft,
@@ -156,20 +159,39 @@ const initChart = () => {
 watch(
   () => props.chartData,
   () => {
-    initChart();
+    if (chart) initChart();
   },
   { deep: true },
 );
 
 onMounted(async () => {
   await nextTick();
-  initChart();
+
+  // --- Intersection Observer 설정 ---
+  const options = {
+    root: null,
+    threshold: 0.5, // 50%가 보일 때 작동
+  };
+
+  ioObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      // 만약 0.5가 너무 엄격해서 작동안할 경우를 대비해 isIntersecting 확인
+      if (entry.isIntersecting) {
+        initChart();
+        ioObserver.unobserve(entry.target);
+      }
+    });
+  }, options);
+
+  if (chartRef.value) {
+    ioObserver.observe(chartRef.value);
+  }
 
   // 테마(다크모드) 감지
-  observer = new MutationObserver(() => {
-    initChart();
+  themeObserver = new MutationObserver(() => {
+    if (chart) initChart();
   });
-  observer.observe(document.documentElement, {
+  themeObserver.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ['class'],
   });
@@ -179,7 +201,8 @@ onMounted(async () => {
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize);
-  if (observer) observer.disconnect();
+  if (ioObserver) ioObserver.disconnect();
+  if (themeObserver) themeObserver.disconnect();
   if (chart) chart.dispose();
 });
 

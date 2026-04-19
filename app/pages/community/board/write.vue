@@ -55,8 +55,12 @@
         </ul>
       </div>
       <div class="sb-board-write__button">
-        <Button severity="contrast" size="large" label="취소" outlined />
-        <Button severity="primary" size="large" label="발행" />
+        <NuxtLink to="/community/board">
+          <Button severity="contrast" size="large" label="취소" outlined />
+        </NuxtLink>
+        <NuxtLink to="/community/board">
+          <Button severity="primary" size="large" label="등록" />
+        </NuxtLink>
       </div>
     </div>
   </div>

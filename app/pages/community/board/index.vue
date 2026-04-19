@@ -8,7 +8,7 @@
       <div class="sb-community-head__button">
         <NuxtLink to="/community/board/write" class="sb-ai">
           <div class="sb-ai__tooltip">
-            <p>셀러들 모여라! 가겹게 수다 나눠요!</p>
+            <p>셀러들 모여라! 가볍게 수다 나눠요!</p>
           </div>
         </NuxtLink>
       </div>
@@ -65,6 +65,8 @@
 import { ref } from 'vue';
 import MasonryWall from '@yeger/vue-masonry-wall';
 import Item from './item.vue';
+
+const searchKeyword = ref('');
 
 //breadcrumb
 const breadcrumb = ref([

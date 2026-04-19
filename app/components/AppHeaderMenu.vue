@@ -174,6 +174,7 @@
     </div>
   </header>
 </template>
+
 <script setup>
 import { inject } from 'vue';
 import { ref, watch, nextTick } from 'vue';
@@ -235,6 +236,7 @@ const updateTitle = async () => {
       '.sb-report-head__title h5',
       '.sb-planner-head__title h5',
       '.sb-community-head__title h5',
+      '.sb-privacypolicy-title h4',
     ];
 
     let foundText = '';

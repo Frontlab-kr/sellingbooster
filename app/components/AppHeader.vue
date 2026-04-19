@@ -142,9 +142,7 @@
     </div>
   </Dialog>
 
-  <div class="pc">
-    <AppSnb />
-  </div>
+  <AppSnb />
 </template>
 
 <script setup>

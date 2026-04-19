@@ -45,7 +45,6 @@ export default defineNuxtConfig({
     '@primevue/nuxt-module',
     '@nuxt/content',
     'nuxt-tiptap-editor',
-    'nuxt-swiper',
     '@pinia/nuxt',
   ],
 

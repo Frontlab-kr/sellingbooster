@@ -9,14 +9,37 @@
       <div class="sb-dashboard-head-swiper">
         <div class="sb-dashboard-head-swiper-inner">
           <ClientOnly>
-            <swiper-container
-              ref="containerRef"
-              :slides-per-view="swiperParams.slidesPerView"
-              :space-between="swiperParams.spaceBetween"
-              :breakpoints="JSON.stringify(swiperParams.breakpoints)"
-              @swiperactiveindexchange="onSlideChange"
+            <Swiper
+              :slidesPerView="3"
+              :autoplay="{
+                delay: 2500,
+                disableOnInteraction: true,
+                pauseOnMouseEnter: true,
+              }"
+              :spaceBetween="8"
+              :breakpoints="{
+                0: {
+                  slidesPerView: 'auto',
+                  spaceBetween: 0,
+                  loop: true,
+                },
+                1024: {
+                  slidesPerView: 2,
+                  spaceBetween: 8,
+                  loop: false,
+                },
+                1800: {
+                  slidesPerView: 3,
+                  spaceBetween: 8,
+                  loop: false,
+                },
+              }"
+              :navigation="{
+                nextEl: '.sb-swiper-controls__next',
+              }"
+              :modules="modules"
             >
-              <swiper-slide class="swiper-slide" v-for="n in 10" :key="n">
+              <SwiperSlide v-for="n in 10" :key="n">
                 <div class="sb-dashboard-head-swiper-item">
                   <div class="sb-dashboard-head-swiper-item__text">
                     <strong>
@@ -29,20 +52,15 @@
                     6시간 전
                   </div>
                 </div>
-              </swiper-slide>
-              <swiper-slide class="swiper-slide pc"></swiper-slide>
-            </swiper-container>
+              </SwiperSlide>
+              <SwiperSlide class="pc"></SwiperSlide>
+            </Swiper>
           </ClientOnly>
         </div>
         <div class="sb-swiper-controls">
-          <Button
-            rounded
-            severity="neutral"
-            :disabled="isEnd"
-            @click="swiper.next()"
-          >
+          <Button rounded severity="neutral" class="sb-swiper-controls__next">
             <template #icon>
-              <IconArrowSmallRight class="ico-arrow-small-right" />
+              <IconArrowRight class="ico-arrow-right" />
             </template>
           </Button>
         </div>
@@ -824,11 +842,11 @@
     </div>
     <SbBanner />
   </div>
-
+  <AppFooter />
   <Toast position="bottom-center" group="bc" />
 </template>
 
-<script setup lang="ts">
+<script setup>
 definePageMeta({
   layoutClass: 'sb-dashboard',
 });
@@ -847,53 +865,14 @@ import IconSystemUp from '@/assets/icons/system/up.svg?component';
 import IconSystemDown from '@/assets/icons/system/down.svg?component';
 
 //swiper
-const containerRef = ref(null);
-const isBeginning = ref(true);
-const isEnd = ref(false);
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+import { Autoplay } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 
-const swiperParams = {
-  slidesPerView: 3,
-  spaceBetween: 8,
-  loop: false,
-  autoplay: {
-    delay: 30000000,
-    disableOnInteraction: true,
-  },
-  breakpoints: {
-    0: {
-      slidesPerView: 'auto',
-      spaceBetween: 0,
-      loop: true,
-    },
-    1024: {
-      slidesPerView: 2,
-      spaceBetween: 8,
-      loop: false,
-    },
-    1800: {
-      slidesPerView: 3,
-      spaceBetween: 8,
-      loop: false,
-    },
-  },
-};
-
-const swiper = useSwiper(containerRef, swiperParams);
-
-const onSlideChange = () => {
-  const swiperInst = swiper.instance.value;
-
-  if (swiperInst) {
-    isBeginning.value = (swiperInst as any).isBeginning;
-    isEnd.value = (swiperInst as any).isEnd;
-  }
-};
-
-onMounted(() => {
-  setTimeout(() => {
-    onSlideChange();
-  }, 100);
-});
+const modules = [Autoplay, Navigation];
 
 //menu
 const menuItems = ref([

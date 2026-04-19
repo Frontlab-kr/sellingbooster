@@ -30,7 +30,8 @@ const props = defineProps({
 
 const chartRef = ref(null);
 let chart = null;
-let observer = null;
+let ioObserver = null; // 화면 노출 감지용
+let themeObserver = null; // 테마 감지용
 
 const customFontFamily =
   "'Pretendard JP Variable', 'Pretendard JP', 'Pretendard', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', 'PingFang TC', 'Noto Sans TC', sans-serif";
@@ -132,7 +133,10 @@ const initChart = () => {
   const option = {
     backgroundColor: chartBackground,
     textStyle: { fontFamily: customFontFamily },
-
+    animation: true,
+    animationDuration: 1000,
+    animationDurationUpdate: 1200,
+    animationEasing: 'exponentialOut',
     series: [
       {
         type: 'gauge',
@@ -249,7 +253,19 @@ const updateMarker = (facePath) => {
             image: facePath,
             width: markerSize,
             height: markerSize,
+            opacity: 0,
           },
+          keyframeAnimation: [
+            {
+              duration: 400, // 0.5초 동안 Fade
+              delay: 1000, // 3. 중요: 게이지 애니메이션이 끝난 후 시작
+              loop: false,
+              keyframes: [
+                { percent: 0, style: { opacity: 0 } },
+                { percent: 1, style: { opacity: 1 } },
+              ],
+            },
+          ],
         },
       ],
     },
@@ -269,26 +285,34 @@ watch(
 
 onMounted(async () => {
   await nextTick();
-
-  // 최초 테마 체크 + 차트 초기화
   checkTheme();
-  initChart();
 
-  // MutationObserver 수정 - p-dark 클래스 감지
-  observer = new MutationObserver(() => {
-    const wasDark = isDarkMode.value;
+  // --- Intersection Observer 설정 ---
+  ioObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // 화면에 보이면 차트와 마커 초기화
+          initChart();
+          // 애니메이션 효과를 위해 한 번만 실행하고 관찰 종료
+          ioObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 },
+  ); // 게이지의 절반 이상이 보일 때 트리거
+
+  if (chartRef.value) {
+    ioObserver.observe(chartRef.value);
+  }
+
+  // 테마(다크모드) 감지
+  themeObserver = new MutationObserver(() => {
     checkTheme();
-
-    if (wasDark !== isDarkMode.value) {
-      console.log('🎨 Theme changed! p-dark mode:', isDarkMode.value);
-    }
-
-    nextTick(() => {
-      initChart();
-    });
+    if (chart) initChart();
   });
 
-  observer.observe(document.documentElement, {
+  themeObserver.observe(document.documentElement, {
     attributes: true,
     attributeFilter: ['class'],
   });
@@ -298,14 +322,15 @@ onMounted(async () => {
 
 onBeforeUnmount(() => {
   window.removeEventListener('resize', handleResize);
-  if (observer) observer.disconnect();
+  if (ioObserver) ioObserver.disconnect();
+  if (themeObserver) themeObserver.disconnect();
   if (chart) chart.dispose();
 });
 
 const handleResize = () => {
   if (chart) {
     chart.resize();
-    initChart(); // 리사이즈 시 마커 좌표 재계산
+    initChart();
   }
 };
 </script>

@@ -229,8 +229,9 @@
     &-segment {
       width: 100%;
       display: flex;
-      justify-content: center;
-      gap: 40px;
+      justify-content: space-between;
+      transition: all 0.4s ease;
+      padding: 0 20px;
       &-item {
         display: flex;
         flex-direction: column;
@@ -481,6 +482,7 @@
           background: var(--chart-comparisonbar-horizontal-progress-background);
           &-value {
             border-radius: 16px 24px 24px 16px;
+            transition: all 1s ease;
           }
           &-label {
             display: none;

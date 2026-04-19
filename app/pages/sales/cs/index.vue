@@ -829,6 +829,8 @@ import IconSystemFileCheck from '@/assets/icons/system/file-check.svg?component'
 import IconSystemFaceSad from '@/assets/icons/system/face-sad.svg?component';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 
+const searchKeyword = ref('');
+
 //breadcrumb
 const breadcrumb = ref([
   { label: 'Home' },

@@ -4,22 +4,12 @@
       <h5>관련 상품</h5>
       <div class="sb-blog-products-head__button">
         <div class="sb-swiper-controls">
-          <Button
-            rounded
-            severity="neutral"
-            :disabled="isBeginning"
-            @click="swiper.prev()"
-          >
+          <Button rounded severity="neutral" class="sb-swiper-controls__prev">
             <template #icon>
               <IconArrowLeft class="ico-arrow-left" />
             </template>
           </Button>
-          <Button
-            rounded
-            severity="neutral"
-            :disabled="isEnd"
-            @click="swiper.next()"
-          >
+          <Button rounded severity="neutral" class="sb-swiper-controls__next">
             <template #icon>
               <IconArrowRight class="ico-arrow-right" />
             </template>
@@ -29,14 +19,16 @@
     </div>
     <div class="sb-blog-products-list">
       <ClientOnly>
-        <swiper-container
-          ref="containerRef"
-          :slides-per-view="swiperParams.slidesPerView"
-          :space-between="swiperParams.spaceBetween"
-          :breakpoints="JSON.stringify(swiperParams.breakpoints)"
-          @swiperactiveindexchange="onSlideChange"
+        <Swiper
+          :spaceBetween="10"
+          :loop="true"
+          :navigation="{
+            prevEl: '.sb-blog-products .sb-swiper-controls__prev',
+            nextEl: '.sb-blog-products .sb-swiper-controls__next',
+          }"
+          :modules="modules"
         >
-          <swiper-slide v-for="n in 3">
+          <SwiperSlide v-for="n in 3" :key="n">
             <div class="sb-trend-top-list">
               <NuxtLink
                 v-for="item in categoryTop30"
@@ -61,47 +53,27 @@
                 </div>
               </NuxtLink>
             </div>
-          </swiper-slide>
-        </swiper-container>
+          </SwiperSlide>
+        </Swiper>
       </ClientOnly>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted } from 'vue';
 
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
 import IconArrowLeft from '@/assets/icons/arrow/left.svg?component';
 
-const containerRef = ref(null);
-const isBeginning = ref(true); // 시작 상태 (초기값 true)
-const isEnd = ref(false); // 끝 상태
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
+import { Autoplay } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 
-const swiperParams = {
-  slidesPerView: 1,
-  spaceBetween: 10,
-};
-
-const swiper = useSwiper(containerRef, swiperParams);
-
-// 슬라이드가 바뀔 때마다 실행되어 상태를 업데이트하는 함수
-const onSlideChange = () => {
-  // swiper.instance가 Ref라면 .value로 접근해야 합니다.
-  const swiperInst = swiper.instance.value;
-
-  if (swiperInst) {
-    isBeginning.value = (swiperInst as any).isBeginning;
-    isEnd.value = (swiperInst as any).isEnd;
-  }
-};
-
-onMounted(() => {
-  // 초기 렌더링 시 상태 체크
-  setTimeout(() => {
-    onSlideChange();
-  }, 100); // Swiper 초기화 시간을 벌어주기 위해 약간의 지연을 둡니다.
-});
+const modules = [Autoplay, Navigation];
 
 const categoryTop30 = ref([
   {

@@ -14,70 +14,7 @@
             셀러한테 필요한 정보 꼭 확인하세요!
           </h4>
         </div>
-        <div class="sb-blog-head-swiper">
-          <div class="sb-blog-head-swiper__contents">
-            <ClientOnly>
-              <swiper-container
-                ref="containerRef"
-                :slides-per-view="swiperParams.slidesPerView"
-                :space-between="swiperParams.spaceBetween"
-                :effect="swiperParams.effect"
-                :breakpoints="JSON.stringify(swiperParams.breakpoints)"
-                autoplay-delay="3000"
-                autoplay-disable-on-interaction="false"
-                loop="true"
-                @swiperactiveindexchange="onSlideChange"
-              >
-                <swiper-slide>
-                  <NuxtLink to="/" class="sb-blog-head-swiper-item">
-                    <div class="sb-blog-head-swiper-item__thumb">
-                      <img src="./../../../assets/images/blog.png" alt="" />
-                    </div>
-                    <h4>
-                      초보 셀러가 많이 하는 5가지 실수 제목은<br />
-                      최대 2줄까지 노출해주세요
-                    </h4>
-                  </NuxtLink>
-                </swiper-slide>
-                <swiper-slide>
-                  <NuxtLink to="/" class="sb-blog-head-swiper-item">
-                    <div class="sb-blog-head-swiper-item__thumb">
-                      <img src="https://picsum.photos/200/300" alt="" />
-                    </div>
-                    <h4>
-                      초보 셀러가 많이 하는 5가지 실수 제목은<br />
-                      최대 2줄까지 노출해주세요
-                    </h4>
-                  </NuxtLink>
-                </swiper-slide>
-              </swiper-container>
-            </ClientOnly>
-          </div>
-          <div class="sb-blog-head-swiper__button">
-            <div class="sb-swiper-controls">
-              <Button
-                rounded
-                severity="neutral"
-                :disabled="isBeginning"
-                @click="swiper.prev()"
-              >
-                <template #icon>
-                  <IconArrowLeft class="ico-arrow-left" />
-                </template>
-              </Button>
-              <Button
-                rounded
-                severity="neutral"
-                :disabled="isEnd"
-                @click="swiper.next()"
-              >
-                <template #icon>
-                  <IconArrowRight class="ico-arrow-right" />
-                </template>
-              </Button>
-            </div>
-          </div>
-        </div>
+        <Banner />
         <div class="sb-blog-head__button">
           <Button severity="primary" label="셀링블로그 구독하기" />
           <Button severity="primary" outlined label="구독 해지하기" />
@@ -137,9 +74,10 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted } from 'vue';
 import Item from './item.vue';
+import Banner from './../components/Banner.vue';
 import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
 import IconArrowLeft from '@/assets/icons/arrow/left.svg?component';
@@ -152,34 +90,6 @@ const breadcrumb = ref([
   { label: '커뮤니티' },
   { label: '블로그' },
 ]);
-
-//swiper
-const containerRef = ref(null);
-const isBeginning = ref(true);
-const isEnd = ref(false);
-
-const swiperParams = {
-  slidesPerView: 1,
-  spaceBetween: 10,
-  effect: 'fade',
-};
-
-const swiper = useSwiper(containerRef, swiperParams);
-
-const onSlideChange = () => {
-  const swiperInst = swiper.instance.value;
-
-  if (swiperInst) {
-    isBeginning.value = (swiperInst as any).isBeginning;
-    isEnd.value = (swiperInst as any).isEnd;
-  }
-};
-
-onMounted(() => {
-  setTimeout(() => {
-    onSlideChange();
-  }, 100);
-});
 
 //sort
 const selectRef = ref(null);
