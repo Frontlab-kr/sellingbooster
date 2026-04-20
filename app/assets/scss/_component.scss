@@ -1267,6 +1267,10 @@
     border: 1px solid var(--editor-border-color);
     background: var(--editor-background);
     overflow: hidden;
+    &:hover,
+    &:focus {
+      border-color: var(--p-inputtext-focus-border-color);
+    }
     .simple-editor-wrapper {
       max-height: 500px;
       @include custom-scrollbar();
