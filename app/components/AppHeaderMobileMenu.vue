@@ -39,8 +39,10 @@
           <IconIllustrationSmile class="ico-illustration-smile" />
         </div>
         <div class="sb-header-mo-menu-profile__info">
-          서비스 이용을 위해<br />
-          <NuxtLink to="/auth/login/index02">로그인</NuxtLink>을 해주세요.
+          <div class="sb-header-mo-menu-profile__text">
+            서비스 이용을 위해<br />
+            <NuxtLink to="/auth/login/index02">로그인</NuxtLink>을 해주세요.
+          </div>
         </div>
       </div>
       <AppSnb />

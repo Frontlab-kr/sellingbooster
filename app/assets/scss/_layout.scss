@@ -1125,6 +1125,12 @@
         &__thumb {
           display: flex;
           padding: 0 0 0 16px;
+          .ico-illustration-smile {
+            min-width: 48px;
+            width: 48px;
+            height: 48px;
+            margin-left: -8px;
+          }
         }
         &__info {
           p {
@@ -1147,6 +1153,16 @@
           font-weight: 700;
           line-height: 140%; /* 22.4px */
           letter-spacing: -0.4px;
+        }
+        &__text {
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 140%;
+          letter-spacing: -0.4px;
+          a {
+            text-decoration: underline;
+          }
         }
       }
     }
