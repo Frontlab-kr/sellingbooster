@@ -641,6 +641,9 @@
     &--search {
       width: 320px;
       .p-inputtext {
+        &:hover {
+          border-color: var(--p-inputtext-border-color);
+        }
         &.focus,
         &:focus-within {
           border-color: var(--input--search-border-color);
