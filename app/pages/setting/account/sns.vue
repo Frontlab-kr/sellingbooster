@@ -204,11 +204,11 @@ import { reactive, computed } from 'vue';
 import Policy from '@/pages/auth/signup/policy.vue';
 
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
-import IconSystemNaver from '@/assets/icons/system/naver.svg';
-import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg';
-import IconSystemGoogle from '@/assets/icons/system/google.svg';
-import IconSystemApple from '@/assets/icons/system/apple.svg';
-import IconSystemSellpick from '@/assets/icons/system/sellpick.svg';
+import IconSystemNaver from '@/assets/icons/system/naver.svg?component';
+import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg?component';
+import IconSystemGoogle from '@/assets/icons/system/google.svg?component';
+import IconSystemApple from '@/assets/icons/system/apple.svg?component';
+import IconSystemSellpick from '@/assets/icons/system/sellpick.svg?component';
 
 // 비밀번호 변경 모드 상태 관리
 const isChangingPassword = ref(false);

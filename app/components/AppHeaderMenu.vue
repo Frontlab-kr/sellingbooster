@@ -136,6 +136,15 @@
           </div>
         </div>
       </div>
+      <div class="sb-header-login">
+        <NuxtLink to="/auth/login/index02">
+          <Button rounded severity="white">
+            <template #icon>
+              <IconSystemEnter class="ico-system-enter" />
+            </template>
+          </Button>
+        </NuxtLink>
+      </div>
       <div class="sb-header-user">
         <button class="sb-header-user-button">
           <div class="sb-header-user__thumb">
@@ -195,6 +204,7 @@ import IconSystemManagement from '@/assets/icons/system/management.svg?component
 import IconSystemBookmark from '@/assets/icons/system/bookmark.svg?component';
 import IconSystemExit from '@/assets/icons/system/exit.svg?component';
 import IconSystemSetting from '@/assets/icons/system/setting.svg?component';
+import IconSystemEnter from '@/assets/icons/system/enter.svg?component';
 import IconGonfalonKr from '@/assets/icons/gonfalon/kr.png';
 import IconGonfalonJp from '@/assets/icons/gonfalon/jp.png';
 import IconGonfalonUs from '@/assets/icons/gonfalon/us.png';

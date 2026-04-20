@@ -427,6 +427,7 @@
   --header-search-icon-color: var(--p-gray-500);
   --header-mode-icon-color: var(--p-gray-500);
   --header-language-icon-color: var(--p-gray-500);
+  --header-login-icon-color: var(--p-gray-500);
   --header-notification-icon-color: var(--p-gray-500);
   --header-menu-layer-background: var(--p-gray-00);
   --header-menu-layer-boxshadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
@@ -1363,8 +1364,8 @@
     --header-search-icon-color: var(--p-gray-300);
     --header-mode-icon-color: var(--p-gray-300);
     --header-language-icon-color: var(--p-gray-300);
+    --header-login-icon-color: var(--p-gray-300);
     --header-notification-icon-color: var(--p-gray-300);
-
     --header-menu-layer-background: var(--p-gray-800);
     --header-menu-layer-boxshadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     --header-menu-layer-background-image: url(./../images/header-bg-dark.png)

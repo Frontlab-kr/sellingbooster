@@ -7,10 +7,17 @@
       <div class="sb-guide-light">
         <div class="sb-guide-item">
           <div class="sb-guide-item-head">
-            <h2>PC 헤더</h2>
+            <h2>헤더</h2>
           </div>
           <div class="sb-guide-header">
-            <AppHeader />
+            <div class="sb-guide-appheader">
+              <div class="has-login">
+                <AppHeader />
+              </div>
+              <div class="not-login">
+                <AppHeader />
+              </div>
+            </div>
           </div>
         </div>
       </div>

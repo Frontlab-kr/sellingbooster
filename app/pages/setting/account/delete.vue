@@ -92,11 +92,11 @@
 </template>
 
 <script setup>
-import IconSystemNaver from '@/assets/icons/system/naver.svg';
-import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg';
-import IconSystemGoogle from '@/assets/icons/system/google.svg';
-import IconSystemApple from '@/assets/icons/system/apple.svg';
-import IconSystemSellpick from '@/assets/icons/system/sellpick.svg';
+import IconSystemNaver from '@/assets/icons/system/naver.svg?component';
+import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg?component';
+import IconSystemGoogle from '@/assets/icons/system/google.svg?component';
+import IconSystemApple from '@/assets/icons/system/apple.svg?component';
+import IconSystemSellpick from '@/assets/icons/system/sellpick.svg?component';
 
 const isMemberDelete = ref(false);
 

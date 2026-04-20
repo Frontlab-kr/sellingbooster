@@ -1,8 +1,7 @@
+@use './mixins' as *;
+
 .sb {
   &-guide {
-    .sb-snb-menu {
-      display: none;
-    }
     &-head {
       padding: 100px 120px;
       border-radius: 100px 100px 0 0;
@@ -399,10 +398,48 @@
     }
   }
   &-guide {
+    &-appheader {
+      background: var(--p-gray-500);
+      @include breakpoint {
+        background: none;
+      }
+    }
     &-header {
       position: relative;
-      .sb-snb {
-        position: absolute;
+      @media screen and (min-width: 1025px) {
+        .sb-snb {
+          position: absolute !important;
+          background: none;
+          box-shadow: none !important;
+          &-menu {
+            display: none;
+          }
+        }
+      }
+      .has-login {
+        .sb-header-login {
+          display: none;
+        }
+      }
+      .not-login {
+        .sb-header-notification,
+        .sb-header-user {
+          display: none;
+        }
+        .sb-header-mo-notification {
+          display: none;
+        }
+      }
+      .sb-header-mo {
+        position: relative;
+      }
+      .sb-header-mo-menu {
+        position: relative;
+      }
+      .sb-header-mo-menu-head {
+        position: relative;
+      }
+      @include breakpoint {
       }
     }
   }
