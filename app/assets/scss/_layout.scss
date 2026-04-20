@@ -1590,5 +1590,10 @@
         padding: 0;
       }
     }
+    &-main {
+      .sb-header-mo-mode {
+        display: none;
+      }
+    }
   }
 }

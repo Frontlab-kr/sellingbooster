@@ -1,22 +1,28 @@
 <template>
   <div class="sb-header-mo-menu">
     <div class="sb-header-mo-menu-head">
-      <Button variant="text" @click="toggleMode()">
-        <template #icon>
-          <IconSystemModeLight v-if="isDark" class="ico-system-mode-light" />
-          <IconSystemModeDark v-else class="ico-system-mode-dark" />
-        </template>
-      </Button>
-      <Button variant="text" @click="controls.openNotification">
-        <template #icon>
-          <IconSystemBellOn class="ico-system-bell-on" />
-        </template>
-      </Button>
-      <Button variant="text" @click="closeMenu">
-        <template #icon>
-          <IconSystemClose class="ico-system-close" />
-        </template>
-      </Button>
+      <div class="sb-header-mo-mode">
+        <Button variant="text" @click="toggleMode()">
+          <template #icon>
+            <IconSystemModeLight v-if="isDark" class="ico-system-mode-light" />
+            <IconSystemModeDark v-else class="ico-system-mode-dark" />
+          </template>
+        </Button>
+      </div>
+      <div class="sb-header-mo-notification">
+        <Button variant="text" @click="controls.openNotification">
+          <template #icon>
+            <IconSystemBellOn class="ico-system-bell-on" />
+          </template>
+        </Button>
+      </div>
+      <div class="sb-header-mo-menu">
+        <Button variant="text" @click="closeMenu">
+          <template #icon>
+            <IconSystemClose class="ico-system-close" />
+          </template>
+        </Button>
+      </div>
     </div>
     <div class="sb-header-mo-menu-body">
       <div class="sb-header-mo-menu-profile">

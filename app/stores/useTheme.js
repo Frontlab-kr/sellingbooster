@@ -4,14 +4,19 @@ import { ref, onMounted, onUnmounted } from 'vue';
 
 export const useThemeStore = defineStore('theme', () => {
   const isDark = ref(false);
+  const isForcedLight = ref(false); // 레이아웃에 의해 강제된 상태
 
   const updateTheme = () => {
-    if (isDark.value) {
+    // 강제 라이트 모드 상태가 아닐 때만 다크모드 클래스 적용
+    if (isDark.value && !isForcedLight.value) {
       document.documentElement.classList.add('p-dark');
-      localStorage.setItem('sb-theme', 'dark');
     } else {
       document.documentElement.classList.remove('p-dark');
-      localStorage.setItem('sb-theme', 'light');
+    }
+
+    // 로컬 스토리지 저장은 강제 상태가 아닐 때만 업데이트
+    if (!isForcedLight.value) {
+      localStorage.setItem('sb-theme', isDark.value ? 'dark' : 'light');
     }
   };
 
@@ -47,9 +52,5 @@ export const useThemeStore = defineStore('theme', () => {
     window.removeEventListener('keydown', handleKeyDown);
   });
 
-  return {
-    isDark, // reactive하게 사용 가능
-    toggleMode,
-    initTheme, // 필요하면 직접 호출 가능
-  };
+  return { isDark, isForcedLight, updateTheme, toggleMode, initTheme };
 });

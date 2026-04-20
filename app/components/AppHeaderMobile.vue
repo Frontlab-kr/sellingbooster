@@ -5,11 +5,13 @@
   >
     <div class="sb-header-mo-start">
       <NuxtLink to="/" class="sb-header-mo-logo">Selling Booster</NuxtLink>
-      <Button variant="text" @click="goBack">
-        <template #icon>
-          <IconArrowAchevronLeft class="ico-arrow-achevron-left" />
-        </template>
-      </Button>
+      <div class="sb-header-mo-back">
+        <Button variant="text" @click="goBack">
+          <template #icon>
+            <IconArrowAchevronLeft class="ico-arrow-achevron-left" />
+          </template>
+        </Button>
+      </div>
     </div>
     <div class="sb-header-mo-center">
       <div class="sb-header-mo__title">{{ pageTitle }}</div>
