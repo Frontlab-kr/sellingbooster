@@ -10,23 +10,23 @@
       <div class="sb-login-form-sns">
         <Button size="large" class="sb-login-form-sns__naver">
           <IconSystemNaver class="ico-system-naver" />
-          <span class="p-button-label">네이버로 로그인</span>
+          <span class="p-button-label">네이버로 시작하기</span>
         </Button>
         <Button size="large" class="sb-login-form-sns__kakao">
           <IconSystemKakaotalk class="ico-system-kakaotalk" />
-          <span class="p-button-label">카카오로 로그인</span>
+          <span class="p-button-label">카카오로 시작하기</span>
         </Button>
         <Button size="large" class="sb-login-form-sns__google">
           <IconSystemGoogle class="ico-system-google" />
-          <span class="p-button-label">Google로 로그인</span>
+          <span class="p-button-label">Google로 시작하기</span>
         </Button>
         <Button size="large" class="sb-login-form-sns__apple">
           <IconSystemApple class="ico-system-apple" />
-          <span class="p-button-label">Apple로 로그인</span>
+          <span class="p-button-label">Apple로 시작하기</span>
         </Button>
         <Button size="large" class="sb-login-form-sns__sellpick">
           <IconSystemSellpick class="ico-system-sellpick" />
-          <span class="p-button-label">셀픽으로 로그인</span>
+          <span class="p-button-label">셀픽으로 시작하기</span>
         </Button>
       </div>
       <div class="sb-login-form-link">
