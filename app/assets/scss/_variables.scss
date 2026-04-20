@@ -700,6 +700,15 @@
   --story-write-form-item-label-color: var(--p-gray-700);
   --story-write-form-item-border-color: var(--p-gray-300);
 
+  --policy-contents-color: var(--p-gray-600);
+  --policy-contents-list-title-color: var(--p-gray-900);
+  --policy-contents-table-background: var(--p-gray-50);
+  --policy-contents-table-color: var(--p-gray-900);
+  --policy-contents-table-border-color: var(--p-gray-300);
+  --policy-contents-foot-border-color: var(--p-gray-300);
+  --policy-contents-foot-color: var(--p-gray-500);
+  --policy-contents-infotext-color: var(--p-gray-400);
+
   //trend
   --trend-background: var(--p-gray-00);
   --trend-category-background: var(--p-gray-50);
@@ -1203,8 +1212,8 @@
   --ico-illustration-smile-color4: var(--p-gray-300);
   --ico-illustration-frown-color1: var(--p-gray-300);
   --ico-illustration-frown-color2: var(--p-gray-400);
-  --ico-illustration-frown-color3: var(--p-gray-200);
-  --ico-illustration-frown-color4: var(--p-gray-300);
+  --ico-illustration-frown-color3: var(--p-gray-300);
+  --ico-illustration-frown-color4: var(--p-gray-400);
 
   &.p-dark,
   .p-dark {
@@ -1635,6 +1644,15 @@
     --story-write-title-color: var(--p-gray-00);
     --story-write-form-item-label-color: var(--p-gray-200);
     --story-write-form-item-border-color: var(--p-gray-600);
+
+    --policy-contents-color: var(--p-gray-300);
+    --policy-contents-list-title-color: var(--p-gray-00);
+    --policy-contents-table-background: var(--p-gray-700);
+    --policy-contents-table-color: var(--p-gray-00);
+    --policy-contents-table-border-color: var(--p-gray-600);
+    --policy-contents-foot-border-color: var(--p-gray-600);
+    --policy-contents-foot-color: var(--p-gray-300);
+    --policy-contents-infotext-color: var(--p-gray-400);
 
     //trend
     --trend-background: var(--p-gray-800);
@@ -2139,14 +2157,14 @@
     --error-text-color: var(--p-gray-00);
 
     //ico
-    --ico-illustration-smile-color1: var(--p-gray-600);
-    --ico-illustration-smile-color2: var(--p-gray-500);
-    --ico-illustration-smile-color3: var(--p-gray-600);
-    --ico-illustration-smile-color4: var(--p-gray-500);
-    --ico-illustration-frown-color1: var(--p-gray-600);
-    --ico-illustration-frown-color2: var(--p-gray-500);
-    --ico-illustration-frown-color3: var(--p-gray-600);
-    --ico-illustration-frown-color4: var(--p-gray-500);
+    --ico-illustration-smile-color1: var(--p-gray-300);
+    --ico-illustration-smile-color2: var(--p-gray-400);
+    --ico-illustration-smile-color3: var(--p-gray-200);
+    --ico-illustration-smile-color4: var(--p-gray-300);
+    --ico-illustration-frown-color1: var(--p-gray-300);
+    --ico-illustration-frown-color2: var(--p-gray-400);
+    --ico-illustration-frown-color3: var(--p-gray-300);
+    --ico-illustration-frown-color4: var(--p-gray-400);
   }
   @include breakpoint {
     --auth-background-image: var(--p-gray-00);

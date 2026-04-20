@@ -18,9 +18,9 @@
 
     <!-- phone 모드: InputMask + 강제 숫자 청소 -->
     <InputMask
-      v-if="number && phone"
+      v-if="phone"
       ref="inputRef"
-      v-model="rawValue"
+      v-model="model"
       v-bind="$attrs"
       :mask="phoneMask"
       :placeholder="placeholder"
@@ -30,7 +30,20 @@
       @compositionend="handleInput"
       @keypress="restrictToDigits"
     />
-    <!-- 일반 number 또는 text 모드 -->
+    <InputText
+      v-else-if="number"
+      ref="inputRef"
+      v-model="model"
+      v-bind="$attrs"
+      :maxlength="maxlength"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      inputmode="numeric"
+      :size="size"
+      @input="handleInput"
+      @keypress="restrictToDigits"
+      @paste="handlePaste"
+    />
     <InputText
       v-else
       v-model="model"
@@ -51,7 +64,7 @@
         </template>
       </Button>
     </div>
-    <div class="sb-input__button" v-if="!showLength">
+    <div class="sb-input__button" v-if="!showLength && !cancel">
       <Button variant="text" rounded @click="clearText">
         <template #icon>
           <IconSystemDelete class="ico-system-delete" />

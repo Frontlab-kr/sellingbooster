@@ -322,7 +322,8 @@
                 <div class="sb-onboarding-form-item__input">
                   <SbInput
                     placeholder="휴대폰 번호를 입력해주세요."
-                    value="010-1111-2222"
+                    v-model="phoneNumber"
+                    phone
                     cancel
                     @cancel="disablePhoneEdit"
                   />
@@ -365,7 +366,7 @@
                 v-if="!isEditingEmail"
                 class="sb-onboarding-form-item__input"
               >
-                <SbInput value="user_email@mail.com" readonly />
+                <SbInput v-model="emailAddress" readonly />
                 <Button
                   label="변경하기"
                   severity="primary"
@@ -377,7 +378,7 @@
                 <div class="sb-onboarding-form-item__input">
                   <SbInput
                     placeholder="이메일 주소를 입력해주세요."
-                    value="user_emil1234@mail.com"
+                    v-model="emailAddress"
                     cancel
                     @cancel="disableEmailEdit"
                   />
@@ -627,6 +628,9 @@ const selectedPlatforms = ref([]);
 const userTypes = ref('individual');
 const marketingConsent = ref('N');
 const consentMethods = ref([]);
+
+const phoneNumber = ref('010-1111-2222');
+const emailAddress = ref('user_emil1234@mail.com');
 
 const interestOptions = [
   { id: 'interest-health', label: '건강기능 식품', value: 'health' },

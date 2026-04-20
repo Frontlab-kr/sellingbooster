@@ -44,13 +44,13 @@
             <NuxtLink to="/auth/login/index02">로그인</NuxtLink>
             <!-- <NuxtLink to="/auth/signup">회원가입</NuxtLink> -->
             <NuxtLink to="/auth/signup/index02">회원가입</NuxtLink>
-            <!-- <NuxtLink to="/auth/signup/code">회원가입 인증코드</NuxtLink>
-            <NuxtLink to="/auth/signup/error">회원가입 에러</NuxtLink> -->
-            <NuxtLink to="/auth/signup/complete">회원가입 완료</NuxtLink>
+            <NuxtLink to="/auth/signup/code">회원가입 - 인증코드</NuxtLink>
+            <!-- <NuxtLink to="/auth/signup/error">회원가입 에러</NuxtLink>  -->
+            <NuxtLink to="/auth/signup/complete">회원가입 - 완료</NuxtLink>
 
             <!-- <NuxtLink to="/auth/find">비밀번호찾기</NuxtLink> -->
             <NuxtLink to="/auth/onboarding/">온보딩</NuxtLink>
-            <NuxtLink to="/auth/onboarding/complete">온보딩 완료</NuxtLink>
+            <NuxtLink to="/auth/onboarding/complete">온보딩 - 완료</NuxtLink>
           </div>
         </template>
       </Card>

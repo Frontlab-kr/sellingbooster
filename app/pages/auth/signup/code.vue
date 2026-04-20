@@ -4,17 +4,21 @@
       셀러가 되는 첫 순간,<br />
       셀링부스터와 함께라면 든든합니다.
     </h5>
+    <div class="sb-caution">
+      <p>[카카오톡]간편 가입을 위해 필수 약관에 동의해 주세요.</p>
+      <p>[이름]님의 소중한 정보는 안전하게 관리됩니다.</p>
+      <ul>
+        <li>
+          <strong>이메일 주소:test@test.com</strong>
+        </li>
+      </ul>
+    </div>
     <div class="sb-auth-form">
       <div class="sb-auth-form-item">
-        <label>이메일<strong>*</strong></label>
+        <label>휴대폰 번호<strong>*</strong></label>
         <div class="sb-auth-form-item__input">
-          <SbInput placeholder="이메일 주소를 입력해주세요." />
-          <Button label="메일 재발송" severity="primary" outlined />
-        </div>
-        <div class="sb-auth-form-item__message">
-          <Message size="small" severity="neutral" variant="simple"
-            >인증번호를 보냈어요. 메일함을 확인해 주세요.</Message
-          >
+          <SbInput placeholder="휴대폰 번호를 입력해주세요." phone />
+          <Button label="인증코드 발송" severity="primary" outlined />
         </div>
         <div class="sb-auth-form-item__input">
           <SbInput
@@ -25,107 +29,11 @@
           />
           <Button label="코드 인증" severity="primary" outlined />
         </div>
-      </div>
-      <div class="sb-auth-form-item">
-        <label>비밀번호<strong>*</strong></label>
-        <div class="sb-auth-form-item__input">
-          <Password
-            toggleMask
-            :feedback="false"
-            placeholder="비밀번호를 입력해주세요."
-          />
-        </div>
         <div class="sb-auth-form-item__message">
-          <Message size="small" severity="neutral" variant="simple"
-            >영문, 숫자, 특수문자를 혼합하여 8~16자로 사용해 주세요.</Message
-          >
-        </div>
-      </div>
-      <div class="sb-auth-form-item">
-        <label>비밀번호 확인<strong>*</strong></label>
-        <div class="sb-auth-form-item__input">
-          <Password
-            toggleMask
-            :feedback="false"
-            placeholder="비밀번호를 한 번 더 입력해 주세요."
-          />
-        </div>
-        <div class="sb-auth-form-item__message">
-          <Message size="small" severity="success" variant="simple"
-            >비밀번호가 서로 일치해요.</Message
-          >
-        </div>
-      </div>
-      <div class="sb-auth-form-item">
-        <label>알림 수신 동의<strong>*</strong></label>
-        <div class="sb-radio">
-          <div class="sb-radio-item">
-            <RadioButton
-              v-model="radioNotification"
-              inputId="radioNotificationNo"
-              name="radioNotification"
-              value="radioNotificationNo"
-            />
-            <label for="radioNotificationNo">지금은 받지 않을게요.</label>
-          </div>
-          <div class="sb-radio-item">
-            <RadioButton
-              v-model="radioNotification"
-              inputId="radioNotificationYes"
-              name="radioNotification"
-              value="radioNotificationYes"
-            />
-            <label for="radioNotificationYes">알림 받을게요.</label>
-          </div>
-        </div>
-        <div
-          class="sb-auth-form-item__checkbox"
-          v-if="radioNotification === 'radioNotificationYes'"
-        >
-          <div class="sb-checkbox">
-            <div class="sb-checkbox-item">
-              <Checkbox
-                v-model="selectedServices"
-                inputId="check-mail"
-                value="mail"
-              />
-              <label for="check-mail"> 메일 </label>
-            </div>
-            <div class="sb-checkbox-item">
-              <Checkbox
-                v-model="selectedServices"
-                inputId="check-sms"
-                value="sms"
-              />
-              <label for="check-sms"> 문자 </label>
-            </div>
-            <div class="sb-checkbox-item">
-              <Checkbox
-                v-model="selectedServices"
-                inputId="check-kakao"
-                value="kakao"
-              />
-              <label for="check-kakao"> 알림톡 </label>
-            </div>
-            <div class="sb-checkbox-item">
-              <Checkbox
-                v-model="selectedServices"
-                inputId="check-push"
-                value="push"
-              />
-              <label for="check-push"> 앱푸시 </label>
-            </div>
-          </div>
-        </div>
-        <div class="sb-auth-form-item__text">
-          <Message size="small" severity="neutral" variant="simple"
-            >※ 중요 알림 사항은 수신 동의 여부 상관 없이 발송 됩니다.</Message
-          >
-          <Message size="small" severity="neutral" variant="simple"
-            >※ 알림 수신 여부는 [환경설정 >
-            <NuxtLink to="/">알림 설정</NuxtLink>] 메뉴에서도 변경
-            가능합니다.</Message
-          >
+          <Message size="small" severity="neutral" variant="simple">
+            코드가 만료되었거나 문자가 오지 않을 경우 재 발송을 해주세요.<br />
+            통신사에 따라 문자가 수신되기까지 다소 시간이 걸릴 수 있습니다.
+          </Message>
         </div>
       </div>
     </div>
@@ -165,7 +73,7 @@
               label="보기"
               severity="contrast"
               variant="link"
-              @click="dialogPolicy = true"
+              @click="dialogPolicy01 = true"
             />
           </div>
           <div class="sb-auth-agree-item">
@@ -183,7 +91,7 @@
               label="보기"
               severity="contrast"
               variant="link"
-              @click="dialogPolicy = true"
+              @click="dialogPolicy02 = true"
             />
           </div>
           <div class="sb-auth-agree-item">
@@ -201,7 +109,7 @@
               label="보기"
               severity="contrast"
               variant="link"
-              @click="dialogPolicy = true"
+              @click="dialogPolicy03 = true"
             />
           </div>
         </dd>
@@ -212,8 +120,14 @@
     </div>
   </div>
 
-  <Dialog v-model:visible="dialogPolicy" modal>
+  <Dialog v-model:visible="dialogPolicy01" modal>
     <Policy />
+  </Dialog>
+  <Dialog v-model:visible="dialogPolicy02" modal>
+    <Policy02 />
+  </Dialog>
+  <Dialog v-model:visible="dialogPolicy03" modal>
+    <Policy03 />
   </Dialog>
 </template>
 
@@ -224,11 +138,15 @@ definePageMeta({
 
 import { reactive, computed } from 'vue';
 import Policy from '@/pages/auth/signup/policy.vue';
+import Policy02 from '@/pages/auth/signup/policy02.vue';
+import Policy03 from '@/pages/auth/signup/policy03.vue';
 
 const authCode = ref('');
 
 //dialog
-const dialogPolicy = ref(false);
+const dialogPolicy01 = ref(false);
+const dialogPolicy02 = ref(false);
+const dialogPolicy03 = ref(false);
 
 const radioNotification = ref('radioNotificationNo');
 const selectedServices = ref([]);

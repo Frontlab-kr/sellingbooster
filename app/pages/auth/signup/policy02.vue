@@ -2,7 +2,7 @@
   <div class="sb-policy">
     <div class="sb-policy-head">
       <div class="sb-policy-head__title">
-        <h6>개인정보 처리방침</h6>
+        <h6>서비스 이용약관</h6>
         <Select
           ref="selectRef"
           v-model="selectedSort"
@@ -23,10 +23,7 @@
         />
       </div>
     </div>
-    <PolicyPersonalPrivacy />
-    <!-- <div class="sb-policy-contents">
-      <PolicyPersonalPrivacy />
-    </div> -->
+    <PolicyServicePolicy />
   </div>
 </template>
 

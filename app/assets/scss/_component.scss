@@ -2373,6 +2373,15 @@
         letter-spacing: -0.35px;
       }
     }
+    p {
+      margin: 0 0 5px 0;
+      color: var(--caution-contents-color);
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 19.6px */
+      letter-spacing: -0.35px;
+    }
     img {
       display: block;
       max-width: 100%;
@@ -2415,6 +2424,23 @@
             border-radius: 4px;
           }
         }
+      }
+      ol {
+        li {
+          font-size: var(--Font-Label-Large, 12px);
+          font-style: normal;
+          font-weight: 400;
+          line-height: 130%; /* 15.6px */
+          letter-spacing: -0.4px;
+        }
+      }
+      p {
+        margin: 0 0 5px 0;
+        font-size: var(--Font-Label-Large, 12px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%; /* 15.6px */
+        letter-spacing: -0.4px;
       }
     }
   }
