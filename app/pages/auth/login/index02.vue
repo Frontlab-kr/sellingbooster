@@ -9,43 +9,23 @@
     <div class="sb-login-form">
       <div class="sb-login-form-sns">
         <Button size="large" class="sb-login-form-sns__naver">
-          <img
-            src="./../../../assets/icons/system/naver.svg"
-            class="ico-etc-naver"
-            alt="네이버"
-          />
+          <IconSystemNaver />
           <span class="p-button-label">네이버로 로그인</span>
         </Button>
         <Button size="large" class="sb-login-form-sns__kakao">
-          <img
-            src="./../../../assets/icons/system/kakaotalk.svg"
-            class="ico-etc-kakaotalk"
-            alt="카카오톡"
-          />
+          <IconSystemKakaotalk />
           <span class="p-button-label">카카오로 로그인</span>
         </Button>
         <Button size="large" class="sb-login-form-sns__google">
-          <img
-            src="./../../../assets/icons/system/google.svg"
-            class="ico-etc-google"
-            alt="구글"
-          />
+          <IconSystemGoogle />
           <span class="p-button-label">Google로 로그인</span>
         </Button>
         <Button size="large" class="sb-login-form-sns__apple">
-          <img
-            src="./../../../assets/icons/system/apple.svg"
-            class="ico-etc-apple"
-            alt="애플"
-          />
+          <IconSystemApple />
           <span class="p-button-label">Apple로 로그인</span>
         </Button>
         <Button size="large" class="sb-login-form-sns__sellpick">
-          <img
-            src="./../../../assets/icons/system/sellpick.svg"
-            class="ico-etc-sellpick"
-            alt="셀픽"
-          />
+          <IconSystemSellpick />
           <span class="p-button-label">셀픽으로 로그인</span>
         </Button>
       </div>
@@ -63,6 +43,12 @@
 </template>
 
 <script setup>
+import IconSystemNaver from '@/assets/icons/system/naver.svg';
+import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg';
+import IconSystemGoogle from '@/assets/icons/system/google.svg';
+import IconSystemApple from '@/assets/icons/system/apple.svg';
+import IconSystemSellpick from '@/assets/icons/system/sellpick.svg';
+
 definePageMeta({
   layout: 'auth',
   layoutClass: 'sb--login',
