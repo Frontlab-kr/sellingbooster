@@ -23,7 +23,7 @@
         <div class="sb-auth-form-item__input">
           <SbInput
             v-model="authCode"
-            placeholder="인증번호를 입력하세요"
+            placeholder="인증번호를 입력해주세요."
             time="03:59"
             number
           />

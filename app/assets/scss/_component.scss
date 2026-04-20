@@ -535,7 +535,7 @@
     .p-inputtext {
       min-width: auto;
       width: 100%;
-      padding-right: 60px;
+      padding-right: 44px;
       &:read-only {
         border-color: transparent;
         color: var(--title-color);
@@ -712,10 +712,13 @@
     }
     @include breakpoint {
       .p-inputtext {
-        padding-right: 60px;
+        padding-right: 30px;
       }
       &__time {
         right: 16px;
+      }
+      &__time ~ .p-inputtext {
+        padding-right: 60px;
       }
       &__button {
         right: 16px;
