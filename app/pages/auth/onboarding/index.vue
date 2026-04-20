@@ -367,7 +367,7 @@
               >
                 <SbInput value="user_email@mail.com" readonly />
                 <Button
-                  label="인증 코드 발송"
+                  label="변경"
                   severity="primary"
                   outlined
                   @click="enableEmailEdit"
