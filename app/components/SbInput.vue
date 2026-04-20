@@ -61,7 +61,7 @@
 
     <div class="sb-input__cancel" v-if="cancel">
       <Button variant="text" @click="emit('cancel')">
-        <span class="p-button-label"><span>변경</span>취소</span>
+        <span class="p-button-label">취소</span>
       </Button>
     </div>
   </div>
