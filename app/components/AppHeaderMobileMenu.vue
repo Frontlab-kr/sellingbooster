@@ -34,6 +34,15 @@
           <p><strong>Lv.1</strong><span>Visitor</span></p>
         </div>
       </div>
+      <div class="sb-header-mo-menu-profile">
+        <div class="sb-header-mo-menu-profile__thumb">
+          <IconIllustrationSmile class="ico-illustration-smile" />
+        </div>
+        <div class="sb-header-mo-menu-profile__info">
+          서비스 이용을 위해<br />
+          <NuxtLink to="/auth/login/index02">로그인</NuxtLink>을 해주세요.
+        </div>
+      </div>
       <AppSnb />
     </div>
   </div>
@@ -47,6 +56,7 @@ import IconSystemClose from '@/assets/icons/system/close.svg?component';
 import IconSystemModeDark from '@/assets/icons/system/mode-dark.svg?component';
 import IconSystemModeLight from '@/assets/icons/system/mode-light.svg?component';
 import IconSystemBellOn from '@/assets/icons/system/bell-on.svg?component';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 
 const controls = inject('dialogControls');
 
