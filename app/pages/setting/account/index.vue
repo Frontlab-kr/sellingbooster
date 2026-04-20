@@ -143,7 +143,7 @@
               label="보기"
               severity="contrast"
               variant="link"
-              @click="dialogPolicy = true"
+              @click="dialogPolicy01 = true"
             />
           </div>
           <div class="sb-auth-agree-item">
@@ -161,7 +161,7 @@
               label="보기"
               severity="contrast"
               variant="link"
-              @click="dialogPolicy = true"
+              @click="dialogPolicy02 = true"
             />
           </div>
           <div class="sb-auth-agree-item">
@@ -179,7 +179,7 @@
               label="보기"
               severity="contrast"
               variant="link"
-              @click="dialogPolicy = true"
+              @click="dialogPolicy03 = true"
             />
           </div>
         </dd>
@@ -199,14 +199,22 @@
     </div>
   </div>
 
-  <Dialog v-model:visible="dialogPolicy" modal>
+  <Dialog v-model:visible="dialogPolicy01" modal>
     <Policy />
+  </Dialog>
+  <Dialog v-model:visible="dialogPolicy02" modal>
+    <Policy02 />
+  </Dialog>
+  <Dialog v-model:visible="dialogPolicy03" modal>
+    <Policy03 />
   </Dialog>
 </template>
 
 <script setup>
 import { reactive, computed } from 'vue';
 import Policy from '@/pages/auth/signup/policy.vue';
+import Policy02 from '@/pages/auth/signup/policy02.vue';
+import Policy03 from '@/pages/auth/signup/policy03.vue';
 
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 import IconSystemNaver from '@/assets/icons/system/naver.svg?component';
@@ -219,7 +227,9 @@ import IconSystemSellpick from '@/assets/icons/system/sellpick.svg?component';
 const isChangingPassword = ref(false);
 
 //dialog
-const dialogPolicy = ref(false);
+const dialogPolicy01 = ref(false);
+const dialogPolicy02 = ref(false);
+const dialogPolicy03 = ref(false);
 
 const radioNotification = ref('radioNotificationNo');
 const selectedServices = ref([]);
