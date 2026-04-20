@@ -6,39 +6,24 @@
     </h5>
     <div class="sb-auth-form">
       <div class="sb-auth-form-item">
-        <label>이메일<strong>*</strong></label>
+        <label>아이디</label>
         <div class="sb-auth-form-item__input">
-          <SbInput
-            placeholder="이메일 주소를 입력해주세요."
-            :model-value="'email@mail.com'"
-            disabled
-          />
+          <SbInput value="User_id" readonly />
         </div>
       </div>
       <div class="sb-auth-form-item">
-        <label>비밀번호<strong>*</strong></label>
+        <label>SNS 계정</label>
         <div class="sb-auth-form-item__input">
-          <Password
-            toggleMask
-            :feedback="false"
-            placeholder="비밀번호를 입력해주세요."
-          />
+          <div class="sb-auth-form-item-sns__input">
+            <IconSystemKakaotalk class="ico-system-kakaotalk" />
+            <SbInput value="카카오톡" readonly />
+          </div>
         </div>
       </div>
       <div class="sb-auth-form-item">
-        <label>비밀번호 확인<strong>*</strong></label>
+        <label>알림 이메일</label>
         <div class="sb-auth-form-item__input">
-          <Password
-            toggleMask
-            :feedback="false"
-            placeholder="비밀번호를 한 번 더 입력해 주세요."
-            invalid="false"
-          />
-        </div>
-        <div class="sb-auth-form-item__message">
-          <Message size="small" severity="error" variant="simple"
-            >비밀번호가 서로 다릅니다. 다시 입력해 주세요.</Message
-          >
+          <SbInput value="email@mail.com" readonly />
         </div>
       </div>
       <div class="sb-auth-form-item">
@@ -107,6 +92,12 @@
 </template>
 
 <script setup>
+import IconSystemNaver from '@/assets/icons/system/naver.svg';
+import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg';
+import IconSystemGoogle from '@/assets/icons/system/google.svg';
+import IconSystemApple from '@/assets/icons/system/apple.svg';
+import IconSystemSellpick from '@/assets/icons/system/sellpick.svg';
+
 const isMemberDelete = ref(false);
 
 // 체크박스 옵션 데이터

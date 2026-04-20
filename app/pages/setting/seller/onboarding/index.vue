@@ -312,7 +312,7 @@
               >
                 <SbInput value="010-1111-2222" readonly />
                 <Button
-                  label="변경"
+                  label="변경하기"
                   severity="primary"
                   outlined
                   @click="enablePhoneEdit"
@@ -367,7 +367,7 @@
               >
                 <SbInput value="user_email@mail.com" readonly />
                 <Button
-                  label="변경"
+                  label="변경하기"
                   severity="primary"
                   outlined
                   @click="enableEmailEdit"

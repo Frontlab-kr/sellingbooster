@@ -15,48 +15,11 @@
         <label>SNS 계정</label>
         <div class="sb-auth-form-item__input">
           <div class="sb-auth-form-item-sns__input">
-            <IconSystemNaver class="ico-system-naver" />
-            <SbInput value="네이버" readonly />
-          </div>
-        </div>
-      </div>
-      <div class="sb-auth-form-item">
-        <label>SNS 계정</label>
-        <div class="sb-auth-form-item__input">
-          <div class="sb-auth-form-item-sns__input">
             <IconSystemKakaotalk class="ico-system-kakaotalk" />
             <SbInput value="카카오톡" readonly />
           </div>
         </div>
       </div>
-      <div class="sb-auth-form-item">
-        <label>SNS 계정</label>
-        <div class="sb-auth-form-item__input">
-          <div class="sb-auth-form-item-sns__input">
-            <IconSystemGoogle class="ico-system-google" />
-            <SbInput value="구글" readonly />
-          </div>
-        </div>
-      </div>
-      <div class="sb-auth-form-item">
-        <label>SNS 계정</label>
-        <div class="sb-auth-form-item__input">
-          <div class="sb-auth-form-item-sns__input">
-            <IconSystemApple class="ico-system-apple" />
-            <SbInput value="애플" readonly />
-          </div>
-        </div>
-      </div>
-      <div class="sb-auth-form-item">
-        <label>SNS 계정</label>
-        <div class="sb-auth-form-item__input">
-          <div class="sb-auth-form-item-sns__input">
-            <IconSystemSellpick class="ico-system-sellpick" />
-            <SbInput value="셀픽" readonly />
-          </div>
-        </div>
-      </div>
-
       <div class="sb-auth-form-item">
         <label>알림 이메일</label>
         <div v-if="!isEditingEmail" class="sb-auth-form-item__input">
@@ -97,12 +60,12 @@
       <div class="sb-auth-form-item">
         <label>닉네임<strong>*</strong></label>
         <div class="sb-auth-form-item__input">
-          <SbInput :model-value="'몰지각한오렌지주스'" />
+          <SbInput :model-value="'몰지각한오렌지주스'" invalid="false" />
           <Button label="추천 변경" severity="primary" outlined />
         </div>
         <div class="sb-auth-form-item__message">
-          <Message size="small" severity="neutral" variant="simple"
-            >닉네임 변경을 원하시면 [추천 변경 버튼]을 클릭 해주세요.</Message
+          <Message size="small" severity="error" variant="simple"
+            >이미 사용 중인 닉네임입니다.</Message
           >
         </div>
       </div>

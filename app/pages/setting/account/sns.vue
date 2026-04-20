@@ -7,56 +7,51 @@
     <div class="sb-auth-form">
       <div class="sb-auth-form-item">
         <label>아이디</label>
-        <div class="sb-auth-form-item__input">
-          <SbInput value="User_id" readonly />
-        </div>
+        <Button label="셀픽 연동하기" severity="primary" outlined />
       </div>
       <div class="sb-auth-form-item">
-        <label>SNS 계정</label>
+        <label>SNS 계정 <span>SNS 채널을 선택해주세요.</span></label>
         <div class="sb-auth-form-item__input">
-          <div class="sb-auth-form-item-sns__input">
-            <IconSystemNaver class="ico-system-naver" />
-            <SbInput value="네이버" readonly />
+          <div class="sb-auth-form-item-sns__button">
+            <Button rounded>
+              <template #icon>
+                <img
+                  src="./../../../assets/icons/etc/naver.png"
+                  class="ico-etc-naver"
+                  alt="네이버"
+                />
+              </template>
+            </Button>
+            <Button rounded>
+              <template #icon>
+                <img
+                  src="./../../../assets/icons/etc/kakaotalk.png"
+                  class="ico-etc-kakaotalk"
+                  alt="카카오톡"
+                />
+              </template>
+            </Button>
+            <Button rounded>
+              <template #icon>
+                <img
+                  src="./../../../assets/icons/etc/google.png"
+                  class="ico-etc-google"
+                  alt="구글"
+                />
+              </template>
+            </Button>
+            <Button rounded>
+              <template #icon>
+                <img
+                  src="./../../../assets/icons/etc/apple.png"
+                  class="ico-etc-apple"
+                  alt="애플"
+                />
+              </template>
+            </Button>
           </div>
         </div>
       </div>
-      <div class="sb-auth-form-item">
-        <label>SNS 계정</label>
-        <div class="sb-auth-form-item__input">
-          <div class="sb-auth-form-item-sns__input">
-            <IconSystemKakaotalk class="ico-system-kakaotalk" />
-            <SbInput value="카카오톡" readonly />
-          </div>
-        </div>
-      </div>
-      <div class="sb-auth-form-item">
-        <label>SNS 계정</label>
-        <div class="sb-auth-form-item__input">
-          <div class="sb-auth-form-item-sns__input">
-            <IconSystemGoogle class="ico-system-google" />
-            <SbInput value="구글" readonly />
-          </div>
-        </div>
-      </div>
-      <div class="sb-auth-form-item">
-        <label>SNS 계정</label>
-        <div class="sb-auth-form-item__input">
-          <div class="sb-auth-form-item-sns__input">
-            <IconSystemApple class="ico-system-apple" />
-            <SbInput value="애플" readonly />
-          </div>
-        </div>
-      </div>
-      <div class="sb-auth-form-item">
-        <label>SNS 계정</label>
-        <div class="sb-auth-form-item__input">
-          <div class="sb-auth-form-item-sns__input">
-            <IconSystemSellpick class="ico-system-sellpick" />
-            <SbInput value="셀픽" readonly />
-          </div>
-        </div>
-      </div>
-
       <div class="sb-auth-form-item">
         <label>알림 이메일</label>
         <div v-if="!isEditingEmail" class="sb-auth-form-item__input">

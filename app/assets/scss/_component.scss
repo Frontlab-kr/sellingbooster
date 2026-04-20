@@ -583,6 +583,7 @@
         font-weight: 400;
         line-height: 140%; /* 16.8px */
         letter-spacing: -0.3px;
+        text-decoration: underline;
         @include breakpoint {
           span {
             display: none;

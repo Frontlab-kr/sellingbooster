@@ -47,6 +47,8 @@
             <!-- <NuxtLink to="/auth/signup/code">회원가입 인증코드</NuxtLink>
             <NuxtLink to="/auth/signup/error">회원가입 에러</NuxtLink> -->
             <NuxtLink to="/auth/signup/complete">회원가입 완료</NuxtLink>
+            <NuxtLink to="/auth/signup/modify">회원정보 수정</NuxtLink>
+
             <!-- <NuxtLink to="/auth/find">비밀번호찾기</NuxtLink> -->
             <NuxtLink to="/auth/onboarding/">온보딩</NuxtLink>
             <NuxtLink to="/auth/onboarding/complete">온보딩 완료</NuxtLink>
@@ -190,6 +192,8 @@
         <template #content>
           <div class="flex flex-column gap-2">
             <NuxtLink to="/setting/account/">개인정보</NuxtLink>
+            <NuxtLink to="/setting/account/error">개인정보 에러</NuxtLink>
+            <NuxtLink to="/setting/account/sns">개인정보 SNS연동</NuxtLink>
             <NuxtLink to="/setting/seller/onboarding/">온보딩</NuxtLink>
             <NuxtLink to="/setting/seller/onboarding/complete"
               >온보딩 완료</NuxtLink

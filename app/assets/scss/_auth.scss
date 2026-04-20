@@ -121,11 +121,17 @@
             letter-spacing: -0.4px;
           }
         }
-
-        svg {
-          min-width: 24px;
-          width: 24px;
-          height: 24px;
+        .ico-system-naver {
+          color: #fff;
+        }
+        .ico-system-kakaotalk {
+          color: #1b1f27;
+        }
+        .ico-system-apple {
+          color: #fff;
+        }
+        .ico-system-sellpick {
+          color: #fff;
         }
         &__naver {
           background-color: #03c75a;
@@ -325,7 +331,8 @@
           border-bottom: 0;
         }
         > label {
-          display: block;
+          display: flex;
+          align-items: center;
           margin-bottom: 16px;
           color: var(--auth-form-item-label-color);
           font-size: 16px;
@@ -335,6 +342,15 @@
           letter-spacing: -0.4px;
           strong {
             color: var(--required-color);
+          }
+          span {
+            margin-left: 16px;
+            color: var(--auth-form-item-label-text-color);
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 16.8px */
+            letter-spacing: -0.3px;
           }
         }
         &__input {
@@ -381,6 +397,37 @@
         }
         .sb-radio {
           margin-top: 16px;
+        }
+        &-sns {
+          &__input {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0 20px;
+            svg {
+              min-width: 20px;
+              width: 20px;
+              height: 20px;
+              color: var(--title-color);
+            }
+            .sb-input {
+              .p-inputtext {
+                padding: 0;
+              }
+            }
+          }
+          &__button {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            .p-button {
+              background: none;
+              img {
+                width: 48px;
+                height: 48px;
+              }
+            }
+          }
         }
       }
       &-chip {
@@ -527,7 +574,12 @@
           margin-bottom: 28px;
           padding-bottom: 28px;
           > label {
-            display: block;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+            span {
+              margin: 0;
+            }
           }
           &__input {
             display: flex;
@@ -572,6 +624,31 @@
           }
           .sb-radio {
             margin-top: 20px;
+          }
+          &-sns {
+            &__input {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              padding: 0 16px;
+              svg {
+                min-width: 16px;
+                width: 16px;
+                height: 16px;
+              }
+            }
+            &__button {
+              display: flex;
+              align-items: center;
+              gap: 6px;
+              .p-button {
+                background: none;
+                img {
+                  width: 40px;
+                  height: 40px;
+                }
+              }
+            }
           }
         }
       }
