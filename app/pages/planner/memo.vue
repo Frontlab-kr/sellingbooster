@@ -32,7 +32,7 @@
               <Button label="캘린더" variant="text" />
             </NuxtLink>
 
-            <Button label="메모" variant="text" class="active" />
+            <Button label="내 일정" variant="text" class="active" />
           </div>
         </div>
         <ClientOnly>
@@ -41,14 +41,14 @@
         <div class="sb-planner-body-button">
           <div class="pc">
             <Button
-              label="메모 등록"
+              label="내 일정 등록"
               severity="primary"
               @click="openMemoWrite"
             />
           </div>
           <div class="mo">
             <Button
-              label="메모 등록"
+              label="내 일정 등록"
               severity="primary"
               size="large"
               @click="openMemoWrite"
@@ -61,10 +61,7 @@
   </div>
 
   <Dialog v-model:visible="dialogMemoWrite" modal>
-    <div class="p-dialog-inner">
-      <h6 class="p-dialog-title">잊으면 안되는 개인 일정을 메모하세요.</h6>
-      <MemoWrite />
-    </div>
+    <MemoWrite />
   </Dialog>
 </template>
 
@@ -83,6 +80,6 @@ const openMemoWrite = () => {
 const breadcrumb = ref([
   { label: 'Home' },
   { label: '셀링 플래너' },
-  { label: '메모' },
+  { label: '내 일정' },
 ]);
 </script>

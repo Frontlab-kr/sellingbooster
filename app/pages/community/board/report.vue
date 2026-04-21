@@ -1,24 +1,27 @@
 <template>
-  <div class="sb-board-report">
-    <Select
-      v-model="selectedValue"
-      :options="selectedOption"
-      optionLabel="name"
-      placeholder="신고 사유를 선택해주세요."
-      class="w-full"
-    />
-    <SbTextarea
-      v-model="textarea01"
-      maxlength="1000"
-      placeholder="기타 사유는 필수 입력 항목입니다."
-      class="sb-textarea--simple"
-    />
-    <div class="sb-board-report__button">
-      <Button
-        severity="primary"
-        label="신고하기"
-        :disabled="!textarea01.trim()"
+  <div class="p-dialog-inner">
+    <h6 class="p-dialog-title">신고하기</h6>
+    <div class="sb-board-report">
+      <Select
+        v-model="selectedValue"
+        :options="selectedOption"
+        optionLabel="name"
+        placeholder="신고 사유를 선택해주세요."
+        class="w-full"
       />
+      <SbTextarea
+        v-model="textarea01"
+        maxlength="1000"
+        placeholder="기타 사유는 필수 입력 항목입니다."
+        class="sb-textarea--simple"
+      />
+      <div class="sb-board-report__button">
+        <Button
+          severity="primary"
+          label="신고하기"
+          :disabled="!textarea01.trim()"
+        />
+      </div>
     </div>
   </div>
 </template>

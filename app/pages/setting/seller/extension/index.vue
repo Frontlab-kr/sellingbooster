@@ -1,302 +1,224 @@
 <template>
   <SbMobileInfo />
-  <div class="sb-report">
-    <div class="sb-report-head">
-      <div class="sb-report-head__title">
-        <h5>성과 분석</h5>
-        <Breadcrumb :model="breadcrumb" />
-      </div>
+  <div class="sb-seller-extension">
+    <div class="sb-seller-extension-head">
+      <h5>셀러의 성공을 위한 셀러 확장</h5>
     </div>
-
-    <div class="sb-report-contents">
-      <div class="sb-report-contents-head">
-        <h4>
-          지금 내 매출 상태를 한눈에 보고,<br />
-          목표까지 가는 “다음 한 걸음”을 바로 알려드릴게요.
-        </h4>
+    <div class="sb-seller-extension-body">
+      <div class="sb-seller-extension-body-head">
+        <div></div>
+        <Button variant="text" @click="dialogWrite = true">
+          <span class="p-button-label">새로운 목표 세우기</span>
+          <IconSystemPlus class="ico-system-plus" />
+        </Button>
       </div>
-      <div class="sb-report-analyze">
-        <div class="sb-report-analyze-swiper">
-          <div class="sb-report-analyze-swiper-inner">
-            <ClientOnly>
-              <Swiper
-                :slidesPerView="3"
-                :autoplay="{
-                  delay: 2500,
-                  disableOnInteraction: true,
-                  pauseOnMouseEnter: true,
-                }"
-                :spaceBetween="8"
-                :breakpoints="{
-                  0: {
-                    slidesPerView: 'auto',
-                    spaceBetween: 0,
-                    loop: true,
-                  },
-                  1024: {
-                    slidesPerView: 2,
-                    spaceBetween: 8,
-                    loop: false,
-                  },
-                  1800: {
-                    slidesPerView: 3,
-                    spaceBetween: 8,
-                    loop: false,
-                  },
-                }"
-                :navigation="{
-                  nextEl: '.sb-swiper-controls__next',
-                }"
-                :modules="modules"
-              >
-                <SwiperSlide>
-                  <div class="sb-report-analyze-swiper-item">
-                    <div class="sb-report-analyze-swiper-item__text">
-                      <strong>
-                        현재 네이버스토어 유입량이 목표대비
-                        <span class="text-primary">20% 부족</span>합니다.
-                      </strong>
-                      <p>상품명 점검을 통해 검색 노출을 높여보세요.</p>
-                      <Button variant="text">
-                        <span class="p-button-label">상품명 점검 하기</span>
-                        <IconArrowAchevronRight
-                          class="ico-arrow-achevron-right"
-                        />
-                      </Button>
-                    </div>
-                    <div class="sb-report-analyze-swiper-item__time">
-                      6시간 전
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide v-for="n in 10" :key="n">
-                  <div class="sb-report-analyze-swiper-item">
-                    <div class="sb-report-analyze-swiper-item__text">
-                      <strong>
-                        현재 네이버스토어 유입량이 목표대비
-                        <span class="text-primary">20% 부족</span>합니다.
-                      </strong>
-                      <p>상품명 점검을 통해 검색 노출을 높여보세요.</p>
-                    </div>
-                    <div class="sb-report-analyze-swiper-item__time">
-                      6시간 전
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide class="pc"></SwiperSlide>
-              </Swiper>
-            </ClientOnly>
-          </div>
-          <div class="sb-swiper-controls">
-            <Button rounded severity="neutral" class="sb-swiper-controls__next">
-              <template #icon>
-                <IconArrowRight class="ico-arrow-right" />
-              </template>
-            </Button>
-          </div>
+      <div class="sb-seller-extension-index">
+        <IconIllustrationEmptyFlag class="ico-illustration-empty-flag" />
+        <div class="sb-seller-extension-index__text">
+          성공적인 쇼핑몰 운영의 첫걸음!<br />
+          매출 데이터 기반 AI 스마트 전략 추천으로 셀러님의 목표 달성을
+          지원합니다.
         </div>
-        <div class="sb-report-analyze-grid">
-          <div class="grid">
-            <div class="col-8">
-              <div class="sb-report-analyze-record">
-                <div class="sb-report-analyze-record-head">
-                  <h5>현재 매출 기록</h5>
-                </div>
-                <div class="sb-report-analyze-record-chart">
-                  <div class="sb-report-analyze-record-chart-chart">
-                    <SbChartGaugeCircle :score="36" />
-                    <div class="sb-report-analyze-record-chart-text">
-                      <p>달성율</p>
-                      <div class="sb-report-analyze-record-chart-text__percent">
-                        <h1>36</h1>
-                        <h3>%</h3>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="sb-report-analyze-record-chart-contents">
-                    <div class="sb-report-analyze-record-chart-contents-price">
-                      <dl>
-                        <dt>이번달 누적 매출액</dt>
-                        <dd>
-                          <h4>12,680,760원</h4>
-                        </dd>
-                      </dl>
-                      <dl>
-                        <dt>예상 마진</dt>
-                        <dd>
-                          <h6 class="text-up">45%</h6>
-                          <h4 class="color-etc">5,706,342원</h4>
-                        </dd>
-                      </dl>
-                    </div>
-                    <div
-                      class="sb-report-analyze-record-chart-contents__expect"
-                    >
-                      <dl>
-                        <dt>데이터 기반 분석 예측</dt>
-                        <dd>
-                          <p>
-                            <IconSystemCheckS class="ico-system-check-s" />
-                            매출 :
-                            <strong class="text-up">14,580,860원</strong>예상
-                          </p>
-                          <p>
-                            <IconSystemCheckS class="ico-system-check-s" />
-                            목표 대비 : <strong class="text-up">5%</strong>초과
-                            달성
-                          </p>
-                        </dd>
-                      </dl>
-                    </div>
-                  </div>
-                </div>
-                <div class="sb-report-analyze-record-button">
-                  <Button
-                    severity="primary"
-                    label="셀러 기능 확장 하기"
-                    size="large"
+        <Button
+          label="지금 시작하기"
+          severity="primary"
+          outlined
+          size="small"
+        />
+      </div>
+      <div class="sb-seller-extension-dashboard"></div>
+    </div>
+    <div class="sb-seller-extension-foot">
+      <div class="sb-seller-extension-table">
+        <div class="sb-seller-extension-table-head">
+          <strong>지난 레포트</strong>
+        </div>
+
+        <div class="sb-table">
+          <DataTable :value="campaigns" responsiveLayout="scroll">
+            <Column field="period" header="기간" style="width: 233px"></Column>
+            <Column
+              field="targetAmount"
+              header="목표금액"
+              bodyClass="text-right"
+              style="width: 233px"
+            >
+              <template #body="slotProps">
+                {{
+                  slotProps.data.targetAmount
+                    ? slotProps.data.targetAmount.toLocaleString() + ' 원'
+                    : '-'
+                }}
+              </template>
+            </Column>
+
+            <Column
+              field="achievedAmount"
+              header="달성금액"
+              bodyClass="text-right"
+              style="width: 233px"
+            >
+              <template #body="slotProps">
+                {{
+                  slotProps.data.achievedAmount
+                    ? slotProps.data.achievedAmount.toLocaleString() + ' 원'
+                    : '-'
+                }}
+              </template>
+            </Column>
+
+            <Column
+              field="achievementRate"
+              header="달성률"
+              bodyClass="text-right"
+              style="width: 233px"
+            >
+              <template #body="slotProps">
+                <span
+                  v-if="slotProps.data.achievementRate"
+                  :class="
+                    slotProps.data.achievementRate >= 100
+                      ? 'text-success'
+                      : 'text-danger'
+                  "
+                >
+                  {{ slotProps.data.achievementRate }}%
+                </span>
+                <span v-else>-</span>
+              </template>
+            </Column>
+
+            <Column header="목표 상품 판매량" style="width: 300px">
+              <template #body="slotProps">
+                <div
+                  v-if="
+                    slotProps.data.products && slotProps.data.products.length
+                  "
+                  class="sb-table-body-product"
+                >
+                  <img
+                    v-for="(img, index) in slotProps.data.products"
+                    :key="index"
+                    :src="img"
                   />
                 </div>
-              </div>
-            </div>
-            <div class="col-4">
-              <div class="sb-report-analyze-schedule">
-                <div class="sb-report-analyze-schedule-head">
-                  <h5>금주의 중요한 일정, 놓치지 말고 챙기세요~</h5>
-                </div>
-                <div class="sb-report-analyze-schedule-body" v-scroll-end>
-                  <AppTimeline />
-                </div>
-                <div class="sb-report-analyze-schedule-button">
-                  <Button severity="contrast" outlined label="전체 일정 보기" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                <span v-else>-</span>
+              </template>
+            </Column>
 
-        <div class="sb-report-analyze-level">
-          <div class="sb-report-analyze-level-head">
-            <h5>다음 레벨까지 얼마나 남았을까요?</h5>
-          </div>
-          <div class="sb-report-analyze-level-list">
-            <div class="sb-report-analyze-level-list-item level01">
-              <ul>
-                <li class="active">
-                  <IconSystemCheckS class="ico-system-check-s" />사업자 정보
-                  입력
-                </li>
-                <li class="active">
-                  <IconSystemCheckS class="ico-system-check-s" />관심 카테고리
-                  설정
-                </li>
-                <li class="active">
-                  <IconSystemCheckS class="ico-system-check-s" />온보딩 시나리오
-                </li>
-              </ul>
-            </div>
-            <div class="sb-report-analyze-level-list-item level02 active">
-              <div class="sb-report-analyze-level-list-item__tooltip">
-                <p>현재 레벨</p>
+            <Column header="최종 상태" style="width: 233px">
+              <template #body="slotProps">
+                <div class="sb-table-body-tags">
+                  <div
+                    v-for="(status, index) in slotProps.data.finalStatus"
+                    :key="index"
+                    class="sb-table-body-tags-item"
+                  >
+                    <spa>{{ status.label }} :</spa>
+                    <Badge
+                      :value="status.value"
+                      :severity="status.value === '달성' ? 'success' : 'danger'"
+                    ></Badge>
+                  </div>
+                  <Badge
+                    v-if="slotProps.data.userClosed"
+                    value="사용자 종료"
+                    severity="contrast"
+                  ></Badge>
+                </div>
+              </template>
+            </Column>
+            <template #empty>
+              <div class="sb-nodata">
+                <IconIllustrationSmile class="ico-illustration-smile" />
+                <div class="sb-nodata__text">
+                  <p>지난 레포트가 없습니다.</p>
+                </div>
               </div>
-              <div class="sb-report-analyze-level-list-item__line">
-                <IconProfileLevelLine class="ico-profile-level-line" />
-              </div>
-              <ul>
-                <li class="active">
-                  <IconSystemCheckS class="ico-system-check-s" />스토어 연동
-                </li>
-                <li>
-                  <IconSystemCheckS class="ico-system-check-s" />상품명
-                  점검(35/50
-                </li>
-                <li>
-                  <IconSystemCheckS class="ico-system-check-s" />최적가
-                  조정(42/50)
-                </li>
-              </ul>
-            </div>
-            <div class="sb-report-analyze-level-list-item level03">
-              <div class="sb-report-analyze-level-list-item__line">
-                <IconProfileLevelLine class="ico-profile-level-line" />
-              </div>
-              <ul>
-                <li>
-                  <IconSystemCheckS class="ico-system-check-s" />자금 진단 및
-                  대출 조회
-                </li>
-                <li>
-                  <IconSystemCheckS class="ico-system-check-s" />경쟁사 정밀
-                  모니터링
-                </li>
-                <li>
-                  <IconSystemCheckS class="ico-system-check-s" />광고 효율 관리
-                </li>
-              </ul>
-            </div>
-            <div class="sb-report-analyze-level-list-item level04">
-              <div class="sb-report-analyze-level-list-item__line">
-                <IconProfileLevelLine class="ico-profile-level-line" />
-              </div>
-              <ul>
-                <li>
-                  <IconSystemCheckS class="ico-system-check-s" />매출 달성 및
-                  성장율 조회
-                </li>
-                <li>
-                  <IconSystemCheckS class="ico-system-check-s" />심층 외부
-                  동향(뉴스/논문)
-                </li>
-                <li>
-                  <IconSystemCheckS class="ico-system-check-s" />
-                  커뮤니티 노하우 공유
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="sb-report-analyze-level-text">
-            <p>
-              <span
-                >상품명 점검을 <strong>15건</strong>과 최적가 가격 조정
-                <strong>8건</strong>을 더 완료하면</span
-              >
-              <span class="sb-report-analyze-level-text__badge">
-                <Badge value="Level 3" severity="level3"></Badge>
-              </span>
-              <span
-                ><strong class="text-level03">LV3. BOOSTER(부스터)</strong>로
-                레벨업 할 수 있어요.</span
-              >
-            </p>
-          </div>
+            </template>
+          </DataTable>
         </div>
       </div>
     </div>
   </div>
+
+  <Dialog v-model:visible="dialogWrite" modal>
+    <Write />
+  </Dialog>
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
-import AppTimeline from '@/pages/planner/components/AppTimeline.vue';
-import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
-import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
-import IconSystemCheckS from '@/assets/icons/system/check-s.svg?component';
-import IconProfileLevelLine from '@/assets/icons/profile/level-line.svg?component';
+import { ref } from 'vue';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
+import IconIllustrationEmptyFlag from '@/assets/icons/illustration/empty-flag.svg?component';
+import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
+import IconSystemPlus from '@/assets/icons/system/plus.svg?component';
 
-//breadcrumb
-const breadcrumb = ref([
-  { label: 'Home' },
-  { label: '성장 리포트' },
-  { label: '성과 분석' },
+import Write from './Write.vue';
+
+const dialogWrite = ref(false);
+
+const openWrite = () => {
+  dialogWrite.value = true;
+};
+
+//data
+const campaigns = ref([
+  {
+    period: '2026.01.01 ~ 2026.01.31',
+    targetAmount: 15000000,
+    achievedAmount: 13500000,
+    achievementRate: 96.3,
+    products: [
+      'https://picsum.photos/200/300',
+      'https://picsum.photos/200/200',
+      'https://picsum.photos/200/100',
+    ],
+    finalStatus: [
+      { label: '목표 금액', value: '미달' },
+      { label: '상품 판매', value: '달성' },
+    ],
+  },
+  {
+    period: '2026.01.01 ~ 2026.01.31',
+    targetAmount: 15000000,
+    achievedAmount: 13500000,
+    achievementRate: 108.8,
+    products: [],
+    finalStatus: [{ label: '목표 금액', value: '달성' }],
+  },
+  {
+    period: '2026.01.01 ~ 2026.01.31',
+    targetAmount: null,
+    achievedAmount: null,
+    achievementRate: null,
+    products: [
+      'https://picsum.photos/200/300',
+      'https://picsum.photos/200/200',
+    ],
+    userClosed: true,
+  },
+  {
+    period: '2026.01.01 ~ 2026.01.31',
+    targetAmount: 15000000,
+    achievedAmount: 13500000,
+    achievementRate: 96.3,
+    products: [],
+    finalStatus: [{ label: '상품 판매', value: '미달' }],
+  },
+  {
+    period: '2026.01.01 ~ 2026.01.31',
+    targetAmount: 15000000,
+    achievedAmount: 13500000,
+    achievementRate: 100,
+    products: [
+      'https://picsum.photos/200/300',
+      'https://picsum.photos/200/200',
+    ],
+    finalStatus: [
+      { label: '목표 금액', value: '달성' },
+      { label: '상품 판매', value: '미달' },
+    ],
+  },
 ]);
-
-//swiper
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-fade';
-import { Autoplay } from 'swiper/modules';
-import { Navigation } from 'swiper/modules';
-
-const modules = [Autoplay, Navigation];
 </script>

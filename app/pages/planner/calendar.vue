@@ -30,7 +30,7 @@
             </NuxtLink>
             <Button label="캘린더" variant="text" class="active" />
             <NuxtLink to="/planner/memo">
-              <Button label="메모" variant="text" />
+              <Button label="내 일정" variant="text" />
             </NuxtLink>
           </div>
         </div>
@@ -40,14 +40,14 @@
         <div class="sb-planner-body-button">
           <div class="pc">
             <Button
-              label="메모 등록"
+              label="내 일정 등록"
               severity="primary"
               @click="openMemoWrite"
             />
           </div>
           <div class="mo">
             <Button
-              label="메모 등록"
+              label="내 일정 등록"
               severity="primary"
               size="large"
               @click="openMemoWrite"
@@ -60,10 +60,7 @@
   </div>
 
   <Dialog v-model:visible="dialogMemoWrite" modal>
-    <div class="p-dialog-inner">
-      <h6 class="p-dialog-title">잊으면 안되는 개인 일정을 메모하세요.</h6>
-      <MemoWrite />
-    </div>
+    <MemoWrite />
   </Dialog>
 </template>
 

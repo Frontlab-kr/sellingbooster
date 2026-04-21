@@ -65,7 +65,7 @@ const totalRecords = ref(9990);
 const isMobile = ref(false);
 
 const updateVisibleCount = () => {
-  isMobile.value = window.innerWidth <= 1024;
+  isMobile.value = window.innerWidth <= 1440;
 };
 
 const visibleCount = computed(() => {

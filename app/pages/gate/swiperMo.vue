@@ -4,6 +4,9 @@
       :modules="modules"
       :effect="'fade'"
       :loop="true"
+      :autoplay="{
+        delay: 4000,
+      }"
       :navigation="navigationConfig"
       :pagination="paginationConfig"
       @autoplay-time-left="onAutoplayTimeLeft"

@@ -23,12 +23,12 @@
                   spaceBetween: 0,
                   loop: true,
                 },
-                1024: {
+                1440: {
                   slidesPerView: 2,
                   spaceBetween: 8,
                   loop: false,
                 },
-                1800: {
+                1801: {
                   slidesPerView: 3,
                   spaceBetween: 8,
                   loop: false,
@@ -890,7 +890,7 @@ const menuItems = ref([
 const toast = useToast();
 
 const checkViewportAndShowToast = () => {
-  if (window.innerWidth < 1024) {
+  if (window.innerWidth < 1440) {
     toast.add({
       detail:
         '일부 서비스는 PC에서만 지원이 됩니다. \n PC 브라우저로 접속해주세요.',

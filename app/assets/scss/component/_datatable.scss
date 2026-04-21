@@ -685,7 +685,7 @@
     border-color var(--p-datatable-transition-duration),
     outline-color var(--p-datatable-transition-duration),
     box-shadow var(--p-datatable-transition-duration);
-  @media screen and (min-width: 1025px) {
+  @media screen and (min-width: 1440px) {
     &:not(.p-datatable-empty-message) {
       &:hover {
         td {

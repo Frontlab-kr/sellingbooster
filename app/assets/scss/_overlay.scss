@@ -482,7 +482,6 @@
       will-change: opacity, transform;
 
       border-radius: 32px;
-
       &-history {
         margin-bottom: 20px;
         padding-bottom: 20px;
@@ -527,6 +526,61 @@
           font-weight: 700;
           line-height: 140%; /* 22.4px */
           letter-spacing: -0.4px;
+        }
+      }
+      @media screen and (max-width: 1800px) {
+        min-width: 520px;
+        width: 520px;
+      }
+      @include breakpoint {
+        top: 56px;
+        left: 20px;
+        min-width: auto;
+        width: 100%;
+        width: calc(100% - 40px);
+        padding: 16px;
+        border-radius: 16px;
+        &-history {
+          margin-bottom: 20px;
+          padding-bottom: 20px;
+          border-bottom: 1px dashed var(--p-gray-300);
+          &-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            strong {
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 140%; /* 19.6px */
+              letter-spacing: -0.35px;
+            }
+          }
+          &-body {
+            > p {
+              margin: 0;
+              padding: 24px 16px;
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 140%; /* 19.6px */
+              letter-spacing: -0.35px;
+            }
+          }
+        }
+        &-popular {
+          display: flex;
+          align-items: center;
+          min-height: 20px;
+          gap: 20px;
+          &__title {
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 19.6px */
+            letter-spacing: -0.35px;
+          }
         }
       }
     }
@@ -793,7 +847,7 @@
           }
         }
       }
-      @media screen and (min-width: 1025px) {
+      @media screen and (min-width: 1440px) {
         min-width: 600px;
         width: 600px;
         border: none;
@@ -827,8 +881,10 @@
             border-bottom: none;
           }
           > label {
-            display: block;
+            display: flex;
+            align-items: center;
             min-width: 100px;
+            height: 48px;
             color: var(--dialog-memowrite-label-color);
             font-size: 16px;
             font-style: normal;
@@ -856,6 +912,9 @@
             &:last-child {
               margin-bottom: 0;
               padding-bottom: 0;
+            }
+            > label {
+              height: auto;
             }
           }
         }
@@ -974,6 +1033,61 @@
           min-width: 20px;
           width: 20px;
           height: 20px;
+        }
+      }
+    }
+    &-extension-write {
+      &-form {
+        &-item {
+          display: flex;
+          gap: 16px;
+          margin-bottom: 16px;
+          padding-bottom: 16px;
+          border-bottom: 1px dashed var(--dialog-memowrite-border-color);
+          &:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+          }
+          > label {
+            display: block;
+            min-width: 100px;
+            color: var(--dialog-memowrite-label-color);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 22.4px */
+            letter-spacing: -0.4px;
+          }
+        }
+      }
+      &-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 32px;
+      }
+      @include breakpoint {
+        &-form {
+          &-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            &:last-child {
+              margin-bottom: 0;
+              padding-bottom: 0;
+            }
+          }
+        }
+        &-button {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 32px;
         }
       }
     }

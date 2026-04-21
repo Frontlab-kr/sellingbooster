@@ -467,7 +467,7 @@
           }
         }
       }
-      @media screen and (max-width: 1440px) {
+      @media screen and (max-width: 1439px) {
         &-contents {
           flex-direction: column;
           gap: 24px;
@@ -611,7 +611,7 @@
           }
         }
       }
-      @media screen and (max-width: 1440px) {
+      @media screen and (max-width: 1439px) {
         &-contents {
           flex-direction: column;
         }
@@ -678,7 +678,7 @@
       }
       display: none;
     }
-    @media screen and (max-width: 1440px) {
+    @media screen and (max-width: 1439px) {
       .grid {
         > [class*='col'] {
           width: 100%;
@@ -954,7 +954,7 @@
         &-product {
           display: none;
         }
-        @media screen and (max-width: 1440px) {
+        @media screen and (max-width: 1439px) {
           &-contents {
             flex-direction: column;
             gap: 16px;

@@ -30,21 +30,27 @@
             <div class="sb-popover-search-recent-history">
               <div class="sb-popover-search-recent-history-head">
                 <strong>최근 검색 내역</strong>
-                <Button label="전체 삭제" severity="contrast" variant="text" />
+                <Button
+                  label="전체 삭제"
+                  severity="contrast"
+                  variant="text"
+                  @click="clearAllHistory"
+                />
               </div>
               <div class="sb-popover-search-recent-history-body">
-                <!-- <p>최근 검색 내역이 없습니다.</p> -->
-                <div class="sb-chip">
+                <div class="sb-chip" v-if="SearchRecentHistory.length > 0">
                   <div class="sb-chip-list">
                     <Chip
                       v-for="chip in SearchRecentHistory"
                       :key="chip.id"
                       :label="chip.label"
                       removable
+                      @click.stop
                       @remove="removeChip(chip.id)"
                     />
                   </div>
                 </div>
+                <p v-else class="no-history">최근 검색 내역이 없습니다.</p>
               </div>
             </div>
             <div class="sb-popover-search-recent-popular">
@@ -165,6 +171,90 @@
             </div>
           </div>
         </div>
+        <div class="tablet">
+          <div
+            class="sb-gate-introduce-list sb-gsap"
+            ref="gateIntroduceBottom1"
+          >
+            <div class="sb-gate-introduce-list-item">
+              <Badge value="마켓 트렌드" severity="secondary"></Badge>
+              <h4>
+                키워드와 시장 분석으로<br />
+                <span class="text-primary">새로운 상품 기회</span>를 찾아냅니다.
+              </h4>
+              <img
+                src="./../../assets/images/gate/introduce-img01.png"
+                alt=""
+              />
+            </div>
+            <div class="sb-gate-introduce-list-item">
+              <Badge value="판매 가속" severity="secondary"></Badge>
+              <h4>
+                <span class="text-primary">가격, CS, 상품명까지 분석</span>을
+                통해 <br />성과를 끌어올립니다.
+              </h4>
+              <img
+                src="./../../assets/images/gate/introduce-img02.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div
+            class="sb-gate-introduce-list sb-gsap"
+            ref="gateIntroduceBottom2"
+          >
+            <div class="sb-gate-introduce-list-item">
+              <Badge value="성장 리포트" severity="secondary"></Badge>
+              <h4>
+                매출 데이터를 분석하고 <br />인사이트를
+                <span class="text-primary">알기 쉽게 제공</span>합니다.
+              </h4>
+              <img
+                src="./../../assets/images/gate/introduce-img03.png"
+                alt=""
+              />
+            </div>
+            <div class="sb-gate-introduce-list-item">
+              <Badge value="상품명 추천" severity="secondary"></Badge>
+              <h4>
+                <span class="text-primary">최적의 상품명을 제안</span>해
+                클릭률과 스토어 유입을 효과적으로 높입니다.
+              </h4>
+              <img
+                src="./../../assets/images/gate/introduce-img04.png"
+                alt=""
+              />
+            </div>
+          </div>
+          <div
+            class="sb-gate-introduce-list sb-gsap"
+            ref="gateIntroduceBottom3"
+          >
+            <div class="sb-gate-introduce-list-item">
+              <Badge value="셀링 플래너" severity="secondary"></Badge>
+              <h4>
+                셀러의 일정 알림을 통해 다음을<br />
+                <span class="text-primary">미리 준비</span> 할 수 있도록
+                돕습니다.
+              </h4>
+              <img
+                src="./../../assets/images/gate/introduce-img05.png"
+                alt=""
+              />
+            </div>
+            <div class="sb-gate-introduce-list-item">
+              <Badge value="K-트렌드" severity="secondary"></Badge>
+              <h4>
+                <span class="text-primary">최신 트렌드 분석</span>으로<br />
+                적합한 아이템을 추천해드립니다.
+              </h4>
+              <img
+                src="./../../assets/images/gate/introduce-img06.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
         <div class="mo sb-gsap" ref="gateIntroduceMo">
           <introduceMo />
         </div>
@@ -220,12 +310,22 @@
             </NuxtLink>
           </div>
           <div class="sb-gate-board-button">
-            <NuxtLink to="/">
-              <Button severity="primary">
-                <span class="p-button-label">더보기</span>
-                <IconArrowRight class="ico-arrow-right" />
-              </Button>
-            </NuxtLink>
+            <div class="pc">
+              <NuxtLink to="/">
+                <Button severity="primary">
+                  <span class="p-button-label">더보기</span>
+                  <IconArrowRight class="ico-arrow-right" />
+                </Button>
+              </NuxtLink>
+            </div>
+            <div class="mo">
+              <NuxtLink to="/">
+                <Button severity="primary" size="large">
+                  <span class="p-button-label">더보기</span>
+                  <IconArrowRight class="ico-arrow-right" />
+                </Button>
+              </NuxtLink>
+            </div>
           </div>
         </div>
         <div
@@ -324,6 +424,7 @@
 definePageMeta({
   layout: 'main',
   layoutClass: 'sb--gate',
+  showExtension: true,
 });
 
 import { ref, onMounted, onUnmounted, computed, watch, nextTick } from 'vue';
@@ -356,6 +457,9 @@ const gateMenu = ref(null);
 const gateIntroduceTitle = ref(null);
 const gateIntroduceLeft = ref(null);
 const gateIntroduceRight = ref(null);
+const gateIntroduceBottom1 = ref(null);
+const gateIntroduceBottom2 = ref(null);
+const gateIntroduceBottom3 = ref(null);
 const gateIntroduceMo = ref(null);
 const gateBanner = ref(null);
 const gateBoardTab = ref(null);
@@ -454,10 +558,61 @@ onMounted(() => {
   );
 
   gsap.fromTo(
+    gateIntroduceBottom1.value,
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateIntroduceBottom1.value,
+        start: 'top 80%',
+        end: 'top 50%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
+    gateIntroduceBottom2.value,
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateIntroduceBottom2.value,
+        start: 'top 80%',
+        end: 'top 50%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
+    gateIntroduceBottom3.value,
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateIntroduceBottom3.value,
+        start: 'top 80%',
+        end: 'top 50%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
     gateIntroduceMo.value,
     { y: 100, opacity: 0 },
     {
-      x: 0,
+      y: 0,
       opacity: 1,
       duration: 1,
       ease: 'power2.out',
@@ -612,7 +767,7 @@ onMounted(() => {
   });
 });
 
-//
+//chip
 const SearchRecentHistory = ref([
   { id: 1, label: '두바이쫀득쿠키' },
   { id: 2, label: '봄동비빔밥' },
@@ -624,6 +779,15 @@ const SearchRecentHistory = ref([
   { id: 8, label: '가디건' },
   { id: 9, label: '화분' },
 ]);
+const clearAllHistory = () => {
+  SearchRecentHistory.value = [];
+};
+
+const removeChip = (id) => {
+  SearchRecentHistory.value = SearchRecentHistory.value.filter(
+    (chip) => chip.id !== id,
+  );
+};
 
 //popover
 const popoverSearchRecent = ref(null);

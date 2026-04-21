@@ -193,7 +193,7 @@ const snbMenu = ref([
     items: [
       { label: '타임라인', route: '/planner/timeline' },
       { label: '캘린더', route: '/planner/calendar' },
-      { label: '메모', route: '/planner/memo' },
+      { label: '내 일정', route: '/planner/memo' },
     ],
   },
   {
@@ -362,12 +362,12 @@ const isActive = (item) => {
 
 /** 3. UI 제어 및 테마 로직 */
 const handleClickOutside = (event) => {
-  // 1. 1024px 미만인 경우: 외부를 클릭해도 아무 동작도 하지 않음 (isFolded false 유지)
-  if (window.innerWidth < 1024) {
+  // 1. 1439px 미만인 경우: 외부를 클릭해도 아무 동작도 하지 않음 (isFolded false 유지)
+  if (window.innerWidth < 1440) {
     return;
   }
 
-  // 2. 1024px 이상 ~ 1601px 미만인 경우: 외부 클릭 시 메뉴를 접음
+  // 2. 1439px 이상 ~ 1601px 미만인 경우: 외부 클릭 시 메뉴를 접음
   if (window.innerWidth < 1601 && !isFolded.value) {
     const snbElement = document.querySelector('.sb-snb');
 
@@ -381,7 +381,7 @@ const handleClickOutside = (event) => {
 };
 
 const handleResize = () => {
-  if (window.innerWidth < 1024) {
+  if (window.innerWidth < 1440) {
     isFolded.value = false;
   } else if (window.innerWidth < 1601) {
     isFolded.value = true;
@@ -409,7 +409,7 @@ watch(
     // async/await 추가로 렌더링 타이밍 확보
     if (process.client) {
       // 1. 화면 너비에 따른 Fold 상태 결정
-      if (window.innerWidth >= 1024 && window.innerWidth < 1601) {
+      if (window.innerWidth >= 1440 && window.innerWidth < 1601) {
         isFolded.value = true;
       } else if (window.innerWidth >= 1601) {
         isFolded.value = false;

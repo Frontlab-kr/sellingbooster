@@ -387,7 +387,7 @@
         }
       }
     }
-    @media screen and (max-width: 1440px) {
+    @media screen and (max-width: 1439px) {
       &-list {
         display: grid;
         grid-template-columns: 1fr;
@@ -670,7 +670,7 @@
         margin-top: 32px;
       }
     }
-    @media screen and (max-width: 1440px) {
+    @media screen and (max-width: 1439px) {
       &-list {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -863,7 +863,7 @@
         }
       }
     }
-    @media screen and (max-width: 1440px) {
+    @media screen and (max-width: 1439px) {
       &-list {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -1404,7 +1404,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
-      @media screen and (max-width: 1440px) {
+      @media screen and (max-width: 1439px) {
         grid-template-columns: 1fr;
       }
       &-item {
@@ -1620,7 +1620,7 @@
         row-gap: 20px;
         margin: 0;
         background: var(--blog-products-background);
-        @media screen and (max-width: 1440px) {
+        @media screen and (max-width: 1439px) {
           grid-template-columns: 1fr 1fr;
           column-gap: 45px;
         }
@@ -1985,7 +1985,7 @@
       padding: 40px;
       border-radius: 32px;
       background: var(--ktrend-background);
-      @media screen and (max-width: 1440px) {
+      @media screen and (max-width: 1439px) {
         .grid {
           gap: 20px;
         }
@@ -2059,7 +2059,7 @@
           height: 1104px;
           overflow: auto;
           @include custom-scrollbar();
-          @media screen and (max-width: 1440px) {
+          @media screen and (max-width: 1439px) {
             grid-template-columns: 1fr;
           }
         }
@@ -2075,7 +2075,7 @@
         display: block;
 
         padding: 30px;
-        @media screen and (max-width: 1440px) {
+        @media screen and (max-width: 1439px) {
           padding: 0;
         }
         &-head {
@@ -2128,7 +2128,7 @@
     }
     &-keyword {
       padding: 0 30px;
-      @media screen and (max-width: 1440px) {
+      @media screen and (max-width: 1439px) {
         padding: 0;
       }
       &-head {
@@ -2163,7 +2163,7 @@
     }
     &-ranking {
       padding: 0 30px;
-      @media screen and (max-width: 1440px) {
+      @media screen and (max-width: 1439px) {
         padding: 0;
       }
       &-head {
@@ -2373,7 +2373,7 @@
         }
       }
     }
-    @media screen and (max-width: 1440px) {
+    @media screen and (max-width: 1439px) {
       .grid {
         flex-direction: column;
         > [class*='col'] {

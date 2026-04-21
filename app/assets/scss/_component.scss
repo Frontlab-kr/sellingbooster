@@ -1,6 +1,84 @@
 @use './mixins' as *;
 
 .sb {
+  &-chrome-extension {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 100px;
+    background: var(--Gray-50, #f9fbfc);
+    transition: all 1s ease;
+    height: 0;
+    overflow: hidden;
+    &.active {
+      height: 100px;
+    }
+    &-contents {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      width: 100%;
+      padding: 0 400px 0 360px;
+      &__text {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        img {
+          width: 40px;
+        }
+        p {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          margin: 0;
+          strong {
+            color: var(--Text_Light-900---mian, #1b1f27);
+
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 28px */
+            letter-spacing: -0.5px;
+          }
+          span {
+            color: var(--Text_Light-500---sub, #6a7381);
+
+            /* Body/Medium-Regular */
+            font-family: 'Pretendard JP';
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 19.6px */
+            letter-spacing: -0.35px;
+          }
+        }
+      }
+    }
+    &-button {
+      position: absolute;
+      top: 12px;
+      right: 40px;
+    }
+    @media screen and (max-width: 1600px) {
+      &-contents {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 0 40px 0 40px;
+      }
+      &-button {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+      }
+    }
+    @include breakpoint {
+      display: none;
+    }
+  }
   &-swiper {
     &-controls {
       display: flex;
@@ -1439,6 +1517,29 @@
           }
         }
       }
+      &-product {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        img {
+          width: 40px;
+          height: 40px;
+          border-radius: 8px;
+          object-fit: cover;
+        }
+      }
+      &-tags {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        &-item {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+      }
     }
     &-popover {
       margin-left: 22px;
@@ -1531,7 +1632,7 @@
         width: 100%;
         height: 100%;
         max-width: 100%;
-        border-radius: 0;
+        border-radius: 16px;
         object-fit: cover;
       }
 

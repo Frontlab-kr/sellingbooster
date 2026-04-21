@@ -275,10 +275,7 @@
   </div>
 
   <Dialog v-model:visible="dialogReport" modal class="p-dialog-sm">
-    <div class="p-dialog-inner">
-      <h6 class="p-dialog-title">신고하기</h6>
-      <StoryReport />
-    </div>
+    <StoryReport />
   </Dialog>
 </template>
 
@@ -308,12 +305,12 @@ const commentRef = ref(null);
 let observer = null;
 
 const handleResize = () => {
-  isMobile.value = window.innerWidth <= 1024;
+  isMobile.value = window.innerWidth <= 1440;
 };
 
 onMounted(() => {
   // 모바일 체크 로직
-  isMobile.value = window.innerWidth <= 1024;
+  isMobile.value = window.innerWidth <= 1440;
   window.addEventListener('resize', handleResize);
 
   observer = new IntersectionObserver(

@@ -130,7 +130,7 @@
           <div class="flex flex-column gap-2">
             <NuxtLink to="/planner/timeline">타임라인</NuxtLink>
             <NuxtLink to="/planner/calendar">캘린더</NuxtLink>
-            <NuxtLink to="/planner/memo">메모</NuxtLink>
+            <NuxtLink to="/planner/memo">내 일정</NuxtLink>
           </div>
         </template>
       </Card>

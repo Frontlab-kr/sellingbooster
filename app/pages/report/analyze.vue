@@ -33,12 +33,12 @@
                     spaceBetween: 0,
                     loop: true,
                   },
-                  1024: {
+                  1440: {
                     slidesPerView: 2,
                     spaceBetween: 8,
                     loop: false,
                   },
-                  1800: {
+                  1801: {
                     slidesPerView: 3,
                     spaceBetween: 8,
                     loop: false,
