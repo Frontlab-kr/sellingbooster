@@ -1,6 +1,6 @@
 <template>
   <div class="sb-gate">
-    <div class="sb-gate-swiper sb-gate-gsap" ref="gateSwiper">
+    <div class="sb-gate-swiper sb-gsap" ref="gateSwiper">
       <div class="pc">
         <swiperPc />
       </div>
@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="sb-gate-body">
-      <div class="sb-gate-menu sb-gate-gsap" ref="gateMenu">
+      <div class="sb-gate-menu sb-gsap" ref="gateMenu">
         <div
           ref="popoverSearchRecent"
           class="sb-gate-search"
@@ -87,16 +87,13 @@
         </div>
       </div>
       <div class="sb-gate-introduce">
-        <h3 class="sb-gate-gsap" ref="gateIntroduceTitle">
+        <h3 class="sb-gsap" ref="gateIntroduceTitle">
           셀러의 성장을 위한<br class="mo" />
           가장 빠른 길,
           <span class="text-primary">셀링부스터</span>
         </h3>
         <div class="pc">
-          <div
-            class="sb-gate-introduce-list sb-gate-gsap"
-            ref="gateIntroduceLeft"
-          >
+          <div class="sb-gate-introduce-list sb-gsap" ref="gateIntroduceLeft">
             <div class="sb-gate-introduce-list-item">
               <Badge value="마켓 트렌드" severity="secondary"></Badge>
               <h4>
@@ -131,10 +128,7 @@
               />
             </div>
           </div>
-          <div
-            class="sb-gate-introduce-list sb-gate-gsap"
-            ref="gateIntroduceRight"
-          >
+          <div class="sb-gate-introduce-list sb-gsap" ref="gateIntroduceRight">
             <div class="sb-gate-introduce-list-item">
               <Badge value="상품명 추천" severity="secondary"></Badge>
               <h4>
@@ -171,15 +165,15 @@
             </div>
           </div>
         </div>
-        <div class="mo sb-gate-gsap" ref="gateIntroduceMo">
+        <div class="mo sb-gsap" ref="gateIntroduceMo">
           <introduceMo />
         </div>
       </div>
-      <div class="sb-gate-banner sb-gate-gsap" ref="gateBanner">
+      <div class="sb-gate-banner sb-gsap" ref="gateBanner">
         <SbBanner />
       </div>
       <div class="sb-gate-board">
-        <div class="sb-gate-board-tab sb-gate-gsap" ref="gateBoardTab">
+        <div class="sb-gate-board-tab sb-gsap" ref="gateBoardTab">
           <div class="sb-tab">
             <Button variant="text" class="active">
               <h5>K-Trend</h5>
@@ -192,10 +186,7 @@
             </Button>
           </div>
         </div>
-        <div
-          class="sb-gate-board-contents sb-gate-gsap"
-          ref="gateBoardContents"
-        >
+        <div class="sb-gate-board-contents sb-gsap" ref="gateBoardContents">
           <div class="sb-gate-board-list">
             <NuxtLink to="/" class="sb-gate-board-list-item" v-for="n in 6">
               <div class="sb-gate-board-list-item-body">
@@ -238,13 +229,13 @@
           </div>
         </div>
         <div
-          class="sb-gate-board-background sb-gate-gsap"
+          class="sb-gate-board-background sb-gsap"
           ref="gateBoardBackground"
         ></div>
       </div>
       <div class="sb-gate-news">
         <div class="grid">
-          <div class="col-6 sb-gate-gsap" ref="gateNewsSeller">
+          <div class="col-6 sb-gsap" ref="gateNewsSeller">
             <dl class="sb-gate-news-item sb-gate-news-item-seller">
               <dt>WANTED</dt>
               <dd>
@@ -269,7 +260,7 @@
               </dd>
             </dl>
           </div>
-          <div class="col-3 sb-gate-gsap" ref="gateNewsQna">
+          <div class="col-3 sb-gsap" ref="gateNewsQna">
             <dl class="sb-gate-news-item sb-gate-news-item-qna">
               <dt>자주 묻는 질문</dt>
               <dd>
@@ -293,7 +284,7 @@
               </dd>
             </dl>
           </div>
-          <div class="col-3 sb-gate-gsap" ref="gateNewsIntroduce">
+          <div class="col-3 sb-gsap" ref="gateNewsIntroduce">
             <dl class="sb-gate-news-item sb-gate-news-item-introduce">
               <dt>서비스 소개</dt>
               <dd>
@@ -321,7 +312,7 @@
             </dl>
           </div>
         </div>
-        <div class="sb-gate-gsap" ref="gateNewsBanner">
+        <div class="sb-gsap" ref="gateNewsBanner">
           <SbBanner />
         </div>
       </div>

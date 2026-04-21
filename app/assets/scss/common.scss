@@ -226,3 +226,7 @@ a {
   padding: 0;
   background: none;
 }
+.sb-gsap {
+  opacity: 0;
+  will-change: transform, opacity;
+}
