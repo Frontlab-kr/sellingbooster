@@ -43,10 +43,12 @@
           <NuxtLink to="/policy/servicePolicy" class="sb-footer-link-item"
             >서비스 이용약관</NuxtLink
           >
-          <NuxtLink to="/" class="sb-footer-link-item">
+          <NuxtLink to="/about/service" class="sb-footer-link-item">
             셀링부스터 서비스 소개
           </NuxtLink>
-          <NuxtLink to="/" class="sb-footer-link-item">회사 소개</NuxtLink>
+          <NuxtLink to="/about/company" class="sb-footer-link-item"
+            >회사 소개</NuxtLink
+          >
           <div class="pc">
             <NuxtLink to="/" class="sb-footer-link-item"
               >크롬 익스텐션</NuxtLink
