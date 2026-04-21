@@ -484,7 +484,7 @@ onMounted(() => {
       ease: 'power2.out',
       scrollTrigger: {
         trigger: companyFootVideo.value,
-        start: 'top 70%',
+        start: 'top 50%',
         end: 'top 0%',
         pin: true,
         scrub: 1,

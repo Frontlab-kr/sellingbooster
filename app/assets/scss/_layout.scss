@@ -1197,6 +1197,9 @@
         display: none;
       }
     }
+    &--mo-menu ~ .sb-footer {
+      display: none;
+    }
     &-snb {
       position: relative;
       top: auto;
