@@ -200,6 +200,19 @@
             <NuxtLink to="/setting/account/delete">회원탈퇴</NuxtLink>
             <NuxtLink to="/setting/seller/channel">채널연동</NuxtLink>
             <NuxtLink to="/setting/seller/alarm">알림 설정</NuxtLink>
+            <NuxtLink to="/setting/seller/extension">셀러확징기능</NuxtLink>
+            <NuxtLink to="/setting/seller/extension">셀러확징기능</NuxtLink>
+          </div>
+        </template>
+      </Card>
+    </div>
+
+    <div>
+      <h5>GATE</h5>
+      <Card>
+        <template #content>
+          <div class="flex flex-column gap-2">
+            <NuxtLink to="/gate/">GATE</NuxtLink>
           </div>
         </template>
       </Card>
@@ -210,6 +223,8 @@
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
+            <NuxtLink to="/about/company">회사소개</NuxtLink>
+            <NuxtLink to="/about/service">서비스소개</NuxtLink>
             <NuxtLink to="/policy/personalPrivacy">개인정보 처리방침</NuxtLink>
             <NuxtLink to="/policy/servicePolicy">서비스 이용약관</NuxtLink>
           </div>

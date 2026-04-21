@@ -708,7 +708,7 @@
           &:hover,
           &:focus,
           &.p-panelmenu-header-active {
-            background: var(--p-primary-500);
+            background: var(--color-primary);
             color: var(--p-gray-00);
             svg {
               color: var(--p-gray-00);
@@ -719,7 +719,7 @@
       .p-panelmenu-header.p-panelmenu-header-active
         .p-panelmenu-header-content {
         > .p-panelmenu-header-link {
-          background: var(--p-primary-500);
+          background: var(--color-primary);
           color: var(--p-gray-00);
           svg {
             color: var(--p-gray-00);
@@ -916,14 +916,13 @@
     display: none;
   }
   &--login,
-  &-dashboard {
+  &-dashboard,
+  &--gate {
     .sb-header-mo-logo {
       display: block;
     }
-    .sb-header-mo-start {
-      .p-button {
-        display: none;
-      }
+    .sb-header-mo-back {
+      display: none;
     }
   }
   &-dashboard {
@@ -1265,7 +1264,7 @@
         .p-panelmenu-header.p-panelmenu-header-active
           .p-panelmenu-header-content {
           > .p-panelmenu-header-link {
-            background: var(--p-primary-500);
+            background: var(--color-primary);
             color: var(--p-gray-00);
             svg {
               color: var(--p-gray-00);

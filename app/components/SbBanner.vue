@@ -4,20 +4,30 @@
       <Swiper
         :effect="'fade'"
         :loop="true"
-        :autoplay="{
-          delay: 2500,
-          disableOnInteraction: true,
-          pauseOnMouseEnter: true,
-        }"
         :pagination="{
           type: 'fraction',
           clickable: true,
         }"
         :modules="modules"
       >
-        <SwiperSlide v-for="n in 3" :key="n">
+        <SwiperSlide>
           <NuxtLink to="/">
-            <img src="/temp/banner02.png" alt="" />
+            <div class="pc">
+              <img src="/temp/banner.png" alt="" />
+            </div>
+            <div class="mo">
+              <img src="/temp/banner-mo01.png" alt="" />
+            </div>
+          </NuxtLink>
+        </SwiperSlide>
+        <SwiperSlide>
+          <NuxtLink to="/">
+            <div class="pc">
+              <img src="/temp/banner02.png" alt="" />
+            </div>
+            <div class="mo">
+              <img src="/temp/banner-mo02.png" alt="" />
+            </div>
           </NuxtLink>
         </SwiperSlide>
       </Swiper>

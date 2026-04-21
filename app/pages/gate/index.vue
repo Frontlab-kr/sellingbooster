@@ -1,10 +1,15 @@
 <template>
   <div class="sb-gate">
-    <div class="sb-gate-swiper">
-      <swiperItem />
+    <div class="sb-gate-swiper sb-gate-gsap" ref="gateSwiper">
+      <div class="pc">
+        <swiperPc />
+      </div>
+      <div class="mo">
+        <swiperMo />
+      </div>
     </div>
     <div class="sb-gate-body">
-      <div class="sb-gate-menu">
+      <div class="sb-gate-menu sb-gate-gsap" ref="gateMenu">
         <div
           ref="popoverSearchRecent"
           class="sb-gate-search"
@@ -82,68 +87,99 @@
         </div>
       </div>
       <div class="sb-gate-introduce">
-        <h3>
-          셀러의 성장을 위한 가장 빠른 길,
+        <h3 class="sb-gate-gsap" ref="gateIntroduceTitle">
+          셀러의 성장을 위한<br class="mo" />
+          가장 빠른 길,
           <span class="text-primary">셀링부스터</span>
         </h3>
-        <div class="sb-gate-introduce-list">
-          <div class="sb-gate-introduce-list-item">
-            <Badge value="마켓 트렌드" severity="secondary"></Badge>
-            <h4>
-              키워드와 시장 분석으로<br />
-              <span class="text-primary">새로운 상품 기회</span>를 찾아냅니다.
-            </h4>
-            <img src="./../../assets/images/gate/introduce-img01.png" alt="" />
+        <div class="pc">
+          <div
+            class="sb-gate-introduce-list sb-gate-gsap"
+            ref="gateIntroduceLeft"
+          >
+            <div class="sb-gate-introduce-list-item">
+              <Badge value="마켓 트렌드" severity="secondary"></Badge>
+              <h4>
+                키워드와 시장 분석으로<br />
+                <span class="text-primary">새로운 상품 기회</span>를 찾아냅니다.
+              </h4>
+              <img
+                src="./../../assets/images/gate/introduce-img01.png"
+                alt=""
+              />
+            </div>
+            <div class="sb-gate-introduce-list-item">
+              <Badge value="판매 가속" severity="secondary"></Badge>
+              <h4>
+                <span class="text-primary">가격, CS, 상품명까지 분석</span>을
+                통해 <br />성과를 끌어올립니다.
+              </h4>
+              <img
+                src="./../../assets/images/gate/introduce-img02.png"
+                alt=""
+              />
+            </div>
+            <div class="sb-gate-introduce-list-item">
+              <Badge value="성장 리포트" severity="secondary"></Badge>
+              <h4>
+                매출 데이터를 분석하고 <br />인사이트를
+                <span class="text-primary">알기 쉽게 제공</span>합니다.
+              </h4>
+              <img
+                src="./../../assets/images/gate/introduce-img03.png"
+                alt=""
+              />
+            </div>
           </div>
-          <div class="sb-gate-introduce-list-item">
-            <Badge value="판매 가속" severity="secondary"></Badge>
-            <h4>
-              <span class="text-primary">가격, CS, 상품명까지 분석</span>을 통해
-              <br />성과를 끌어올립니다.
-            </h4>
-            <img src="./../../assets/images/gate/introduce-img02.png" alt="" />
-          </div>
-          <div class="sb-gate-introduce-list-item">
-            <Badge value="성장 리포트" severity="secondary"></Badge>
-            <h4>
-              매출 데이터를 분석하고 <br />인사이트를
-              <span class="text-primary">알기 쉽게 제공</span>합니다.
-            </h4>
-            <img src="./../../assets/images/gate/introduce-img03.png" alt="" />
+          <div
+            class="sb-gate-introduce-list sb-gate-gsap"
+            ref="gateIntroduceRight"
+          >
+            <div class="sb-gate-introduce-list-item">
+              <Badge value="상품명 추천" severity="secondary"></Badge>
+              <h4>
+                <span class="text-primary">최적의 상품명을 제안</span>해
+                클릭률과 스토어 유입을 효과적으로 높입니다.
+              </h4>
+              <img
+                src="./../../assets/images/gate/introduce-img04.png"
+                alt=""
+              />
+            </div>
+            <div class="sb-gate-introduce-list-item">
+              <Badge value="셀링 플래너" severity="secondary"></Badge>
+              <h4>
+                셀러의 일정 알림을 통해 다음을<br />
+                <span class="text-primary">미리 준비</span> 할 수 있도록
+                돕습니다.
+              </h4>
+              <img
+                src="./../../assets/images/gate/introduce-img05.png"
+                alt=""
+              />
+            </div>
+            <div class="sb-gate-introduce-list-item">
+              <Badge value="K-트렌드" severity="secondary"></Badge>
+              <h4>
+                <span class="text-primary">최신 트렌드 분석</span>으로<br />
+                적합한 아이템을 추천해드립니다.
+              </h4>
+              <img
+                src="./../../assets/images/gate/introduce-img06.png"
+                alt=""
+              />
+            </div>
           </div>
         </div>
-        <div class="sb-gate-introduce-list">
-          <div class="sb-gate-introduce-list-item">
-            <Badge value="상품명 추천" severity="secondary"></Badge>
-            <h4>
-              <span class="text-primary">최적의 상품명을 제안</span>해 클릭률과
-              스토어 유입을 효과적으로 높입니다.
-            </h4>
-            <img src="./../../assets/images/gate/introduce-img04.png" alt="" />
-          </div>
-          <div class="sb-gate-introduce-list-item">
-            <Badge value="셀링 플래너" severity="secondary"></Badge>
-            <h4>
-              셀러의 일정 알림을 통해 다음을<br />
-              <span class="text-primary">미리 준비</span> 할 수 있도록 돕습니다.
-            </h4>
-            <img src="./../../assets/images/gate/introduce-img05.png" alt="" />
-          </div>
-          <div class="sb-gate-introduce-list-item">
-            <Badge value="K-트렌드" severity="secondary"></Badge>
-            <h4>
-              <span class="text-primary">최신 트렌드 분석</span>으로<br />
-              적합한 아이템을 추천해드립니다.
-            </h4>
-            <img src="./../../assets/images/gate/introduce-img06.png" alt="" />
-          </div>
+        <div class="mo sb-gate-gsap" ref="gateIntroduceMo">
+          <introduceMo />
         </div>
       </div>
-      <div class="sb-gate-banner">
+      <div class="sb-gate-banner sb-gate-gsap" ref="gateBanner">
         <SbBanner />
       </div>
       <div class="sb-gate-board">
-        <div class="sb-gate-board-tab">
+        <div class="sb-gate-board-tab sb-gate-gsap" ref="gateBoardTab">
           <div class="sb-tab">
             <Button variant="text" class="active">
               <h5>K-Trend</h5>
@@ -156,18 +192,21 @@
             </Button>
           </div>
         </div>
-        <div class="sb-gate-board-contents">
+        <div
+          class="sb-gate-board-contents sb-gate-gsap"
+          ref="gateBoardContents"
+        >
           <div class="sb-gate-board-list">
             <NuxtLink to="/" class="sb-gate-board-list-item" v-for="n in 6">
-              <div class="sb-gate-board-list-item-head">
-                <Badge value="NEWS" severity="warn"></Badge>
-                <p>2026.02.14</p>
-              </div>
               <div class="sb-gate-board-list-item-body">
                 <div class="sb-gate-board-list-item-body__thumb">
                   <img src="https://picsum.photos/200/300" alt="" />
                 </div>
                 <div class="sb-gate-board-list-item-body__contents">
+                  <div class="sb-gate-board-list-item-head">
+                    <Badge value="NEWS" severity="warn"></Badge>
+                    <p>2026.02.14</p>
+                  </div>
                   <h6>
                     컨텐츠 제목은 최대 1줄로 처리하고 더 길어질 경우는 ...으로
                     처리하는 것으로 결정
@@ -198,10 +237,14 @@
             </NuxtLink>
           </div>
         </div>
+        <div
+          class="sb-gate-board-background sb-gate-gsap"
+          ref="gateBoardBackground"
+        ></div>
       </div>
       <div class="sb-gate-news">
         <div class="grid">
-          <div class="col-6">
+          <div class="col-6 sb-gate-gsap" ref="gateNewsSeller">
             <dl class="sb-gate-news-item sb-gate-news-item-seller">
               <dt>WANTED</dt>
               <dd>
@@ -209,16 +252,24 @@
                   우리와 함께 성장할<br />
                   '트렌디사냥꾼’ 셀러를 찾아요
                 </h4>
-                <p>
-                  트렌드를 읽는 눈이 남다르고,<br />
-                  자신의 성장스토리를 멋지게 공유해 줄 셀러님이 있다면?<br />
-                  우리가 찾던 바로 그 주인공을 셀링부스터에 알려주세요.
-                </p>
+                <div class="pc">
+                  <p>
+                    트렌드를 읽는 눈이 남다르고,<br />
+                    자신의 성장스토리를 멋지게 공유해 줄 셀러님이 있다면?<br />
+                    우리가 찾던 바로 그 주인공을 셀링부스터에 알려주세요.
+                  </p>
+                </div>
+                <div class="mo">
+                  <p>
+                    우리가 찾는 주인공을<br />
+                    셀링부스터에 알려주세요.
+                  </p>
+                </div>
                 <img src="./../../assets/images/gate/news-seller.png" alt="" />
               </dd>
             </dl>
           </div>
-          <div class="col-3">
+          <div class="col-3 sb-gate-gsap" ref="gateNewsQna">
             <dl class="sb-gate-news-item sb-gate-news-item-qna">
               <dt>자주 묻는 질문</dt>
               <dd>
@@ -226,10 +277,12 @@
                   시행착오는 줄이고<br />
                   성과에만 집중하는 방법
                 </h4>
-                <p>
-                  셀링부스터를 더 200% 활용할 수 있도록<br />
-                  자주 찾는 질문과 답변을 모아두었어요.
-                </p>
+                <div class="pc">
+                  <p>
+                    셀링부스터를 더 200% 활용할 수 있도록<br />
+                    자주 찾는 질문과 답변을 모아두었어요.
+                  </p>
+                </div>
                 <NuxtLink to="/">
                   <Button variant="text">
                     <span class="p-button-label">보러 가기</span>
@@ -240,7 +293,7 @@
               </dd>
             </dl>
           </div>
-          <div class="col-3">
+          <div class="col-3 sb-gate-gsap" ref="gateNewsIntroduce">
             <dl class="sb-gate-news-item sb-gate-news-item-introduce">
               <dt>서비스 소개</dt>
               <dd>
@@ -248,10 +301,12 @@
                   데이터로 발견하는<br />
                   셀러의 숨은 성장 기회
                 </h4>
-                <p>
-                  복잡한 시장 트렌드와 매출 관리,<br />
-                  이제 셀링부스터가 분석해 드려요.
-                </p>
+                <div class="pc">
+                  <p>
+                    복잡한 시장 트렌드와 매출 관리,<br />
+                    이제 셀링부스터가 분석해 드려요.
+                  </p>
+                </div>
                 <NuxtLink to="/">
                   <Button variant="text">
                     <span class="p-button-label">보러 가기</span>
@@ -266,7 +321,9 @@
             </dl>
           </div>
         </div>
-        <SbBanner />
+        <div class="sb-gate-gsap" ref="gateNewsBanner">
+          <SbBanner />
+        </div>
       </div>
     </div>
   </div>
@@ -275,11 +332,15 @@
 <script setup>
 definePageMeta({
   layout: 'main',
+  layoutClass: 'sb--gate',
 });
 
-import { ref, onMounted, computed, watch, nextTick } from 'vue';
+import { ref, onMounted, onUnmounted, computed, watch, nextTick } from 'vue';
 
-import swiperItem from './swiperItem.vue';
+import swiperPc from './swiperPc.vue';
+import swiperMo from './swiperMo.vue';
+import introduceMo from './introduceMo.vue';
+
 import searchKeyword from './searchKeyword.vue';
 
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
@@ -292,6 +353,275 @@ import IconArrowLinkStory from '@/assets/icons/gate/link-story.svg?component';
 import IconArrowLinkKtrend from '@/assets/icons/gate/link-ktrend.svg?component';
 import IconArrowLinkPlanner from '@/assets/icons/gate/link-planner.svg?component';
 
+//animation
+import Lenis from 'lenis';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const gateSwiper = ref(null);
+const gateMenu = ref(null);
+const gateIntroduceTitle = ref(null);
+const gateIntroduceLeft = ref(null);
+const gateIntroduceRight = ref(null);
+const gateIntroduceMo = ref(null);
+const gateBanner = ref(null);
+const gateBoardTab = ref(null);
+const gateBoardContents = ref(null);
+const gateBoardBackground = ref(null);
+const gateNewsSeller = ref(null);
+const gateNewsQna = ref(null);
+const gateNewsIntroduce = ref(null);
+const gateNewsBanner = ref(null);
+
+onMounted(() => {
+  // --- A. Lenis 초기화 ---
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  });
+
+  // --- B. [핵심] Lenis와 ScrollTrigger 연결 ---
+  // 이 코드가 있어야 Lenis 스크롤에 맞춰 GSAP 애니메이션이 정확히 동작합니다.
+  lenis.on('scroll', ScrollTrigger.update);
+
+  gsap.ticker.add((time) => {
+    lenis.raf(time * 1000);
+  });
+  gsap.ticker.lagSmoothing(0);
+
+  // --- C. 실제 애니메이션 코드 ---
+  gsap.fromTo(
+    gateSwiper.value,
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      delay: 0.2,
+      ease: 'power2.out',
+    },
+  );
+
+  gsap.fromTo(
+    gateMenu.value,
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      delay: 0.4,
+      ease: 'power2.out',
+    },
+  );
+
+  gsap.fromTo(
+    gateIntroduceTitle.value,
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      delay: 1,
+      ease: 'power2.out',
+    },
+  );
+
+  gsap.fromTo(
+    gateIntroduceLeft.value,
+    { x: -500, opacity: 0 },
+    {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateIntroduceLeft.value,
+        start: 'top 80%',
+        end: 'top 50%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
+    gateIntroduceRight.value,
+    { x: 500, opacity: 0 },
+    {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateIntroduceRight.value,
+        start: 'top 80%',
+        end: 'top 50%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
+    gateIntroduceMo.value,
+    { y: 100, opacity: 0 },
+    {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateIntroduceMo.value,
+        start: 'top 80%',
+        end: 'top 50%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
+    gateBanner.value,
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateBanner.value,
+        start: 'top 80%',
+        end: 'top 50%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
+    gateBoardTab.value,
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateBoardTab.value,
+        start: 'top 80%',
+        end: 'top 50%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
+    gateBoardContents.value,
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateBoardContents.value,
+        start: 'top 60%',
+        end: 'top 40%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
+    gateBoardBackground.value,
+    { x: 1920, opacity: 0 },
+    {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateBoardBackground.value,
+        start: 'top 100%',
+        end: 'top 0%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
+    gateNewsSeller.value,
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateNewsSeller.value,
+        start: 'top 100%',
+        end: 'top 40%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
+    gateNewsQna.value,
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateNewsQna.value,
+        start: 'top 80%',
+        end: 'top 40%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
+    gateNewsIntroduce.value,
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateNewsIntroduce.value,
+        start: 'top 60%',
+        end: 'top 40%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
+    gateNewsBanner.value,
+    { y: 100, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: gateNewsBanner.value,
+        start: 'top 100%',
+        end: 'top 40%',
+        scrub: 1,
+      },
+    },
+  );
+
+  onUnmounted(() => {
+    lenis.destroy();
+    ScrollTrigger.getAll().forEach((t) => t.kill());
+  });
+});
+
+//
 const SearchRecentHistory = ref([
   { id: 1, label: '두바이쫀득쿠키' },
   { id: 2, label: '봄동비빔밥' },

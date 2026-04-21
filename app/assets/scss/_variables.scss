@@ -1066,6 +1066,7 @@
   --auth-complete-background: var(--p-gray-00);
   --auth-complete-title-color: var(--p-gray-900);
   --auth-complete-text-color: var(--p-gray-900);
+  --auth-form-sns-color: #000;
   --auth-form-chip-title-color: var(--p-gray-600);
 
   //policy
@@ -2017,6 +2018,7 @@
     --auth-complete-background: var(--p-gray-800);
     --auth-complete-title-color: var(--p-gray-00);
     --auth-complete-text-color: var(--p-gray-00);
+    --auth-form-sns-color: var(--p-gray-00);
     --auth-form-chip-title-color: var(--p-gray-00);
 
     //policy
