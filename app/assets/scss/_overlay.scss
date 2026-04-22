@@ -612,7 +612,17 @@
         align-items: center;
         padding: 40px;
       }
+      @keyframes floatLogo {
+        0%,
+        100% {
+          transform: translateY(4px);
+        }
+        50% {
+          transform: translateY(-4px);
+        }
+      }
       .sb-loading-logo {
+        animation: float 2s ease-in-out infinite;
       }
       &__text {
         width: 100%;

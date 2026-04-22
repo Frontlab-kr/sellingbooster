@@ -143,6 +143,8 @@
   </Dialog>
 
   <AppSnb />
+
+  <AppFeedback />
 </template>
 
 <script setup>

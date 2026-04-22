@@ -1,6 +1,168 @@
 @use './mixins' as *;
 
 .sb {
+  &-feedback {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &-ai {
+      position: relative;
+      cursor: pointer;
+      .ico-ai-feedback {
+        position: relative;
+        z-index: 20;
+        width: 72px;
+      }
+      &__bubble {
+        position: absolute;
+        z-index: 30;
+        top: -14px;
+        left: -32px;
+        transition: all 0.2s ease-in-out;
+        .ico-ai-bubble-chat {
+          width: 51px;
+          --path-color-1: var(--feedback-bubble-color01);
+          --path-color-2: var(--feedback-bubble-color02);
+        }
+      }
+      &__text {
+        position: absolute;
+        z-index: 10;
+        left: 20px;
+        bottom: 24px;
+        transform: translateX(-100%);
+        display: flex;
+        align-items: center;
+        height: 50px;
+        border-radius: 50px 0 0 50px;
+        background: var(--feedback-text-background);
+        transition: all 0.4s ease-in-out;
+        max-width: 0;
+        overflow: hidden;
+        p {
+          margin: 0;
+          padding: 0 28px 0 20px;
+          color: var(--feedback-text-color);
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 140%; /* 19.6px */
+          letter-spacing: -0.35px;
+          white-space: noWrap;
+        }
+      }
+      &:hover & {
+        &__bubble {
+          opacity: 0;
+          visibility: hidden;
+        }
+        &__text {
+          max-width: 200px;
+        }
+      }
+    }
+    .p-button {
+      width: 50px;
+      height: 50px;
+      background-color: var(--feedback-button-background);
+      box-shadow: var(--feedback-button-boxshadow);
+      .ico-arrow-up {
+        animation: bounce 2s infinite;
+        color: var(--feedback-button-color);
+      }
+    }
+    @keyframes bounce {
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-3px);
+      }
+      60% {
+        transform: translateY(-2px);
+      }
+    }
+    @include breakpoint {
+      position: fixed;
+      bottom: 30px;
+      right: 20px;
+      &-ai {
+        position: relative;
+        cursor: pointer;
+        .ico-ai-feedback {
+          position: relative;
+          z-index: 20;
+          width: 56px;
+        }
+        &__bubble {
+          position: absolute;
+          z-index: 30;
+          top: -12px;
+          left: -28px;
+          transition: all 0.2s ease-in-out;
+          .ico-ai-bubble-chat {
+            width: 42px;
+            --path-color-1: var(--feedback-bubble-color01);
+            --path-color-2: var(--feedback-bubble-color02);
+          }
+        }
+        &__text {
+          position: absolute;
+          z-index: 10;
+          left: 20px;
+          bottom: 19px;
+          transform: translateX(-100%);
+          display: flex;
+          align-items: center;
+          height: 40px;
+          border-radius: 50px 0 0 50px;
+          background: var(--feedback-text-background);
+          transition: all 0.4s ease-in-out;
+          max-width: 0;
+          overflow: hidden;
+
+          p {
+            margin: 0;
+            padding: 0 28px 0 20px;
+            color: var(--feedback-text-color);
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 19.6px */
+            letter-spacing: -0.35px;
+            white-space: noWrap;
+          }
+        }
+        &:hover & {
+          &__bubble {
+            opacity: 0;
+            visibility: hidden;
+          }
+          &__text {
+            max-width: 200px;
+          }
+        }
+      }
+      .p-button {
+        width: 50px;
+        height: 50px;
+        background-color: var(--feedback-button-background);
+        box-shadow: var(--feedback-button-boxshadow);
+        .ico-arrow-up {
+          animation: bounce 2s infinite;
+          color: var(--feedback-button-color);
+        }
+      }
+    }
+  }
   &-chrome-extension {
     position: relative;
     display: flex;
@@ -2238,7 +2400,7 @@
     padding: 0;
     border: none;
     background: transparent;
-    //animation: float 3s ease-in-out infinite;
+    animation: float 3s ease-in-out infinite;
 
     cursor: pointer;
     &__tooltip {

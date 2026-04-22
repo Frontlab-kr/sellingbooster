@@ -1193,6 +1193,14 @@
   --price-setting-popover-text-color: var(--p-gray-900);
   --price-setting-popover-ico-color: var(--p-gray-500);
 
+  --feedback-bubble-color01: var(--p-gray-600);
+  --feedback-bubble-color02: var(--p-gray-50);
+  --feedback-text-background: var(--p-gray-600);
+  --feedback-text-color: var(--p-gray-00);
+  --feedback-button-background: var(--p-gray-00);
+  --feedback-button-color: var(--p-gray-900);
+  --feedback-button-boxshadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
+
   //swiper
   --swiper-controls-button-background: var(--p-gray-50);
   --swiper-controls-ico-color: var(--p-gray-500);
@@ -2145,6 +2153,14 @@
     --price-setting-error-text-color: var(--p-gray-300);
     --price-setting-popover-text-color: var(--p-gray-00);
     --price-setting-popover-ico-color: var(--p-gray-300);
+
+    --feedback-bubble-color01: var(--p-gray-300);
+    --feedback-bubble-color02: var(--p-gray-900);
+    --feedback-text-background: var(--p-gray-300);
+    --feedback-text-color: var(--p-gray-900);
+    --feedback-button-background: var(--p-gray-00);
+    --feedback-button-color: var(--p-gray-900);
+    --feedback-button-boxshadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
 
     //swiper
     --swiper-controls-button-background: var(--p-gray-700);
