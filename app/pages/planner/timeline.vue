@@ -76,9 +76,5 @@ const openMemoWrite = () => {
 };
 
 //breadcrumb
-const breadcrumb = ref([
-  { label: 'Home' },
-  { label: '셀링 플래너' },
-  { label: '타임라인' },
-]);
+const breadcrumb = ref([{ label: 'Home' }, { label: '셀링 플래너' }]);
 </script>
