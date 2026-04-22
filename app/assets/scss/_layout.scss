@@ -935,7 +935,8 @@
   }
   &--login,
   &-dashboard,
-  &--gate {
+  &--gate,
+  &--company {
     .sb-header-mo-logo {
       display: block;
     }
