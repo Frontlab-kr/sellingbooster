@@ -246,19 +246,7 @@
       </Card>
     </div>
 
-    <Dialog v-model:visible="dialogLoading" modal class="sb-dialog-loading">
-      <SbLoadingLogo />
-      <div class="sb-dialog-loading__text">
-        <p>
-          거의 다 됐어요!<br />
-          조금만 더 기다려 주세요.
-        </p>
-        <span>
-          상품 분석 URL만 입력하면<br />
-          빠르게 분석해드려요.
-        </span>
-      </div>
-    </Dialog>
+    <SbLoadingDialog v-model:visible="dialogLoading" />
   </div>
 </template>
 

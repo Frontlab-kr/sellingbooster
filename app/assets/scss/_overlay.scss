@@ -612,17 +612,21 @@
         align-items: center;
         padding: 40px;
       }
-      @keyframes floatLogo {
+      @keyframes bounceLogo {
         0%,
         100% {
           transform: translateY(4px);
+          animation-timing-function: ease-out; /* 올라갈 때 서서히 감속 */
         }
         50% {
-          transform: translateY(-4px);
+          transform: translateY(-4px); /* 점프 높이 */
+          animation-timing-function: ease-in; /* 내려올 때 서서히 가속 */
         }
       }
-      .sb-loading-logo {
-        animation: float 2s ease-in-out infinite;
+      .ico-logo-loading {
+        width: 80px;
+        height: 80px;
+        animation: bounceLogo 0.8s infinite alternate ease-in-out;
       }
       &__text {
         width: 100%;

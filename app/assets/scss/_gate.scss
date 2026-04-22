@@ -710,6 +710,7 @@
         gap: 20px;
         overflow: auto;
         padding-left: 20px;
+        padding-bottom: 12px;
         @include custom-scrollbar();
         &-item {
           display: flex;
@@ -794,7 +795,7 @@
         }
 
         @media screen and (max-width: 1800px) {
-          padding: 12px 0 24px 0;
+          padding: 0 0 24px 0;
           .pc {
             display: none !important;
           }
