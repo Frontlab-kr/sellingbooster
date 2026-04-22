@@ -1771,15 +1771,40 @@
     border-radius: 32px;
     overflow: hidden;
 
-    a {
+    &-item {
       display: flex;
-    }
-    img {
+      align-items: center;
+      position: relative;
       width: 100%;
-      height: 100%;
-      max-width: 100%;
-      border-radius: 30px;
-      object-fit: cover;
+      height: 200px;
+
+      &__title {
+        position: relative;
+        z-index: 20;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 0 6.25%;
+        h4 {
+          color: var(--Text_Light-900---mian, #1b1f27);
+        }
+        h5 {
+          color: var(--Text_Light-500---sub, #6a7381);
+        }
+      }
+      &__background {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+        display: flex;
+        justify-content: flex-end;
+        img {
+          height: 100%;
+        }
+      }
     }
 
     .swiper-pagination {
@@ -1809,21 +1834,40 @@
     }
     @include breakpoint {
       position: relative;
-      border-radius: 0;
+      border-radius: 16px;
       overflow: hidden;
 
-      a {
+      &-item {
         display: flex;
-        div {
-          width: 100%;
-        }
-      }
-      img {
+        align-items: center;
+        position: relative;
         width: 100%;
-        height: 100%;
-        max-width: 100%;
-        border-radius: 16px;
-        object-fit: cover;
+        height: 140px;
+
+        &__title {
+          position: relative;
+          z-index: 20;
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          padding: 0 20px;
+          h5 {
+            display: none;
+          }
+        }
+        &__background {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          z-index: 10;
+          display: flex;
+          justify-content: flex-end;
+          img {
+            height: 100%;
+          }
+        }
       }
 
       .swiper-pagination {
