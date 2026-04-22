@@ -200,8 +200,15 @@
             <NuxtLink to="/setting/account/delete">회원탈퇴</NuxtLink>
             <NuxtLink to="/setting/seller/channel">채널연동</NuxtLink>
             <NuxtLink to="/setting/seller/alarm">알림 설정</NuxtLink>
-            <NuxtLink to="/setting/seller/extension">셀러확징기능</NuxtLink>
-            <NuxtLink to="/setting/seller/extension">셀러확징기능</NuxtLink>
+            <NuxtLink to="/setting/seller/extension"
+              >셀러확장기능 - 기본</NuxtLink
+            >
+            <NuxtLink to="/setting/seller/extension/dashboard"
+              >셀러확장기능 - 목표금액+상품판매</NuxtLink
+            >
+            <NuxtLink to="/setting/seller/extension/nodata"
+              >셀러확장기능 - Nodata</NuxtLink
+            >
           </div>
         </template>
       </Card>

@@ -1,6 +1,25 @@
 @use './mixins' as *;
 
 .sb {
+  &-tooltip {
+    &-product {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      max-width: 200px;
+      p {
+        margin: 0;
+        color: var(--Gray-00, #fff);
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 16.8px */
+        letter-spacing: -0.3px;
+        text-align: center;
+        white-space: normal;
+      }
+    }
+  }
   &-feedback {
     position: fixed;
     bottom: 40px;
@@ -2409,7 +2428,7 @@
     padding: 0;
     border: none;
     background: transparent;
-    animation: float 3s ease-in-out infinite;
+    //animation: float 3s ease-in-out infinite;
 
     cursor: pointer;
     &__tooltip {

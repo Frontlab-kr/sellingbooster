@@ -182,9 +182,11 @@
         letter-spacing: -0.4px;
       }
       &-footer {
-        gap: 4px;
+        gap: 8px;
+        justify-content: center;
         .p-button {
           width: 100%;
+          max-width: 160px;
         }
       }
       &-close-button {

@@ -217,6 +217,7 @@
   font-size: var(--p-toast-detail-font-size);
   line-height: 140%; /* 22.4px */
   letter-spacing: -0.4px;
+  text-align: center;
   @include breakpoint {
     text-align: center;
     font-size: 14px;

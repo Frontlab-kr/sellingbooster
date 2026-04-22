@@ -1,7 +1,7 @@
 <template>
   <div class="p-dialog-inner">
-    <h6 class="p-dialog-title">판매 목표 수립</h6>
     <div class="sb-dialog-extension-write">
+      <h6 class="p-dialog-title">판매 목표 수립</h6>
       <div class="sb-dialog-extension-write__text">
         목표 금액을 설정하거나, 주력 상품의 개별 판매 목표를 직접 관리해 보세요.
       </div>
@@ -35,12 +35,24 @@
             (최대 5개)
           </label>
           <div class="sb-dialog-extension-write-search">
-            <SbInput
-              v-model="searchKeyword"
-              show-search
-              @search="onSearch"
-              placeholder="공지사항 검색"
-            />
+            <div class="sb-dialog-extension-write-search-head">
+              <SbInput
+                v-model="searchKeyword"
+                show-search
+                @search="onSearch"
+                placeholder="상품명 또는 상품 코드 검색"
+              />
+            </div>
+            <div class="sb-dialog-extension-write-search-body">
+              <div class="sb-nodata">
+                <IconIllustrationEmptySearch
+                  class="ico-illustration-empty-search"
+                />
+                <div class="sb-nodata__text">
+                  <p>검색을 통해 주력 상품 최대 5개까지 선택해주세요.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -53,6 +65,9 @@
 
 <script setup>
 import { ref, nextTick } from 'vue';
+
+import IconIllustrationEmptySearch from '@/assets/icons/illustration/empty-search.svg?component';
+
 const searchKeyword = ref('');
 
 //datepicker

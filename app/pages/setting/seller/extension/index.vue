@@ -1,17 +1,41 @@
 <template>
   <SbMobileInfo />
+  <div class="flex gap-2 mb-4">
+    <Button
+      severity="contrast"
+      outlined
+      size="small"
+      label="02등록&수정"
+      @click="dialogWrite01 = true"
+    />
+    <Button
+      severity="contrast"
+      outlined
+      size="small"
+      label="03상품검색상태"
+      @click="dialogWrite02 = true"
+    />
+    <Button
+      severity="contrast"
+      outlined
+      size="small"
+      label="04상품선택및수정모드"
+      @click="dialogWrite03 = true"
+    />
+  </div>
+
   <div class="sb-seller-extension">
     <div class="sb-seller-extension-head">
       <h5>셀러의 성공을 위한 셀러 확장</h5>
     </div>
     <div class="sb-seller-extension-body">
-      <div class="sb-seller-extension-body-head">
+      <!-- <div class="sb-seller-extension-body-head">
         <div></div>
-        <Button variant="text" @click="dialogWrite = true">
+        <Button variant="text">
           <span class="p-button-label">새로운 목표 세우기</span>
           <IconSystemPlus class="ico-system-plus" />
         </Button>
-      </div>
+      </div> -->
       <div class="sb-seller-extension-index">
         <IconIllustrationEmptyFlag class="ico-illustration-empty-flag" />
         <div class="sb-seller-extension-index__text">
@@ -19,14 +43,8 @@
           매출 데이터 기반 AI 스마트 전략 추천으로 셀러님의 목표 달성을
           지원합니다.
         </div>
-        <Button
-          label="지금 시작하기"
-          severity="primary"
-          outlined
-          size="small"
-        />
+        <Button label="지금 시작하기" severity="primary" outlined />
       </div>
-      <div class="sb-seller-extension-dashboard"></div>
     </div>
     <div class="sb-seller-extension-foot">
       <div class="sb-seller-extension-table">
@@ -142,9 +160,19 @@
     </div>
   </div>
 
-  <Dialog v-model:visible="dialogWrite" modal>
-    <Write />
+  <Dialog v-model:visible="dialogWrite01" modal>
+    <Write01 />
   </Dialog>
+
+  <Dialog v-model:visible="dialogWrite02" modal>
+    <Write02 />
+  </Dialog>
+
+  <Dialog v-model:visible="dialogWrite03" modal>
+    <Write03 />
+  </Dialog>
+
+  <ConfirmDialog></ConfirmDialog>
 </template>
 
 <script setup>
@@ -154,71 +182,12 @@ import IconIllustrationEmptyFlag from '@/assets/icons/illustration/empty-flag.sv
 import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 import IconSystemPlus from '@/assets/icons/system/plus.svg?component';
 
-import Write from './Write.vue';
+import Table from './Table.vue';
+import Write01 from './Write01.vue';
+import Write02 from './Write02.vue';
+import Write03 from './Write03.vue';
 
-const dialogWrite = ref(false);
-
-const openWrite = () => {
-  dialogWrite.value = true;
-};
-
-//data
-const campaigns = ref([
-  {
-    period: '2026.01.01 ~ 2026.01.31',
-    targetAmount: 15000000,
-    achievedAmount: 13500000,
-    achievementRate: 96.3,
-    products: [
-      'https://picsum.photos/200/300',
-      'https://picsum.photos/200/200',
-      'https://picsum.photos/200/100',
-    ],
-    finalStatus: [
-      { label: '목표 금액', value: '미달' },
-      { label: '상품 판매', value: '달성' },
-    ],
-  },
-  {
-    period: '2026.01.01 ~ 2026.01.31',
-    targetAmount: 15000000,
-    achievedAmount: 13500000,
-    achievementRate: 108.8,
-    products: [],
-    finalStatus: [{ label: '목표 금액', value: '달성' }],
-  },
-  {
-    period: '2026.01.01 ~ 2026.01.31',
-    targetAmount: null,
-    achievedAmount: null,
-    achievementRate: null,
-    products: [
-      'https://picsum.photos/200/300',
-      'https://picsum.photos/200/200',
-    ],
-    userClosed: true,
-  },
-  {
-    period: '2026.01.01 ~ 2026.01.31',
-    targetAmount: 15000000,
-    achievedAmount: 13500000,
-    achievementRate: 96.3,
-    products: [],
-    finalStatus: [{ label: '상품 판매', value: '미달' }],
-  },
-  {
-    period: '2026.01.01 ~ 2026.01.31',
-    targetAmount: 15000000,
-    achievedAmount: 13500000,
-    achievementRate: 100,
-    products: [
-      'https://picsum.photos/200/300',
-      'https://picsum.photos/200/200',
-    ],
-    finalStatus: [
-      { label: '목표 금액', value: '달성' },
-      { label: '상품 판매', value: '미달' },
-    ],
-  },
-]);
+const dialogWrite01 = ref(false);
+const dialogWrite02 = ref(false);
+const dialogWrite03 = ref(false);
 </script>

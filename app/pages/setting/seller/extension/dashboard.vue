@@ -1,22 +1,322 @@
 <template>
   <SbMobileInfo />
+
   <div class="sb-seller-extension">
     <div class="sb-seller-extension-head">
       <h5>셀러의 성공을 위한 셀러 확장</h5>
     </div>
     <div class="sb-seller-extension-body">
-      <div class="sb-seller-extension-body-head">
-        <div></div>
-        <Button variant="text" @click="dialogWrite = true">
-          <span class="p-button-label">새로운 목표 세우기</span>
-          <IconSystemPlus class="ico-system-plus" />
-        </Button>
-      </div>
       <div class="sb-seller-extension-dashboard">
         <div class="sb-seller-extension-dashboard-status">
-          <SbChartGaugeCircle :score="36" />
-          <div class="sb-seller-extension-dashboard-status"></div>
+          <div class="sb-seller-extension-dashboard-status-chart">
+            <SbChartGaugeCircle :score="72" />
+            <div class="sb-seller-extension-dashboard-status-chart__text">
+              <p>달성율</p>
+              <div class="sb-seller-extension-dashboard-status-chart__percent">
+                <h1>72</h1>
+                <h3>%</h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="sb-seller-extension-dashboard-status-contents">
+            <div class="sb-seller-extension-dashboard-status-date">
+              <label> 2026.02.01~2026.05.31 </label>
+              <p>
+                <span>남은 기간 : <span class="text-primary">55</span>일</span>
+                <Badge value="진행 중" severity="success"></Badge>
+              </p>
+            </div>
+            <div class="sb-seller-extension-dashboard-status-price">
+              <dl>
+                <dt>목표 금액</dt>
+                <dd>
+                  <h4>12,680,760원</h4>
+                </dd>
+              </dl>
+              <dl>
+                <dt>달성 금액</dt>
+                <dd>
+                  <h4>5,706,342원</h4>
+                </dd>
+              </dl>
+            </div>
+            <div class="sb-seller-extension-dashboard-status-product">
+              <dl>
+                <dt>판매 상품</dt>
+                <dd>
+                  <div
+                    class="sb-seller-extension-dashboard-status-product-list"
+                    v-scroll-end
+                  >
+                    <div
+                      class="sb-seller-extension-dashboard-status-product-list-scroll"
+                    >
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>72</strong>/100개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>48</strong>/100개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>20</strong>/60개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>52</strong>/80개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>72</strong>/100개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>48</strong>/100개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>20</strong>/60개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>52</strong>/80개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>72</strong>/100개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>48</strong>/100개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>20</strong>/60개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>52</strong>/80개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>72</strong>/100개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>48</strong>/100개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>20</strong>/60개</p>
+                      </div>
+                      <div
+                        class="sb-seller-extension-dashboard-status-product-item"
+                        v-tooltip.top="{
+                          value: `<div class='sb-tooltip-product'>
+              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
+              <p><strong class='text-success'>148</strong>/130개</p>
+            </div>`,
+                          escape: false,
+                        }"
+                      >
+                        <img src="https://picsum.photos/200/300" alt="" />
+                        <p><strong>52</strong>/80개</p>
+                      </div>
+                    </div>
+                  </div>
+                </dd>
+              </dl>
+            </div>
+          </div>
         </div>
+        <div class="sb-seller-extension-dashboard-ai" v-scroll-end>
+          <div class="sb-seller-extension-dashboard-ai-scroll">
+            <div class="sb-ai sb-ai--right">
+              <div class="sb-ai__tooltip">
+                <p>AI의 추천 전략</p>
+              </div>
+            </div>
+            <div class="sb-seller-extension-dashboard-ai-list">
+              <div class="sb-seller-extension-dashboard-ai-list-item">
+                <p>
+                  5개 상품 중 3개 상품은 목표 기간 내에 목표 달성이 가능할 것
+                  같습니다.
+                </p>
+              </div>
+              <div class="sb-seller-extension-dashboard-ai-list-item">
+                <p>{상품명} 상품을 <strong>하루 28개</strong> 팔아야 합니다.</p>
+              </div>
+              <div class="sb-seller-extension-dashboard-ai-list-item">
+                <p>{상품명} 상품을 <strong>하루 35개</strong> 팔아야 합니다.</p>
+              </div>
+              <div class="sb-seller-extension-dashboard-ai-list-item">
+                <p>{상품명} 상품을 <strong>하루 28개</strong> 팔아야 합니다.</p>
+              </div>
+              <div class="sb-seller-extension-dashboard-ai-list-item">
+                <p>{상품명} 상품을 <strong>하루 35개</strong> 팔아야 합니다.</p>
+              </div>
+              <div class="sb-seller-extension-dashboard-ai-list-item">
+                <p>{상품명} 상품을 <strong>하루 28개</strong> 팔아야 합니다.</p>
+              </div>
+              <div class="sb-seller-extension-dashboard-ai-list-item">
+                <p>{상품명} 상품을 <strong>하루 35개</strong> 팔아야 합니다.</p>
+              </div>
+              <div class="sb-seller-extension-dashboard-ai-list-item">
+                <p>{상품명} 상품을 <strong>하루 28개</strong> 팔아야 합니다.</p>
+              </div>
+              <div class="sb-seller-extension-dashboard-ai-list-item">
+                <p>{상품명} 상품을 <strong>하루 35개</strong> 팔아야 합니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sb-seller-extension-dashboard-button">
+        <Button
+          severity="contrast"
+          outlined
+          label="종료하기"
+          @click="confirm1()"
+        />
+        <Button severity="primary" label="목표 수정하기" @click="confirm2()" />
       </div>
     </div>
     <div class="sb-seller-extension-foot">
@@ -25,191 +325,86 @@
           <strong>지난 레포트</strong>
         </div>
 
-        <div class="sb-table">
-          <DataTable :value="campaigns" responsiveLayout="scroll">
-            <Column field="period" header="기간" style="width: 233px"></Column>
-            <Column
-              field="targetAmount"
-              header="목표금액"
-              bodyClass="text-right"
-              style="width: 233px"
-            >
-              <template #body="slotProps">
-                {{
-                  slotProps.data.targetAmount
-                    ? slotProps.data.targetAmount.toLocaleString() + ' 원'
-                    : '-'
-                }}
-              </template>
-            </Column>
-
-            <Column
-              field="achievedAmount"
-              header="달성금액"
-              bodyClass="text-right"
-              style="width: 233px"
-            >
-              <template #body="slotProps">
-                {{
-                  slotProps.data.achievedAmount
-                    ? slotProps.data.achievedAmount.toLocaleString() + ' 원'
-                    : '-'
-                }}
-              </template>
-            </Column>
-
-            <Column
-              field="achievementRate"
-              header="달성률"
-              bodyClass="text-right"
-              style="width: 233px"
-            >
-              <template #body="slotProps">
-                <span
-                  v-if="slotProps.data.achievementRate"
-                  :class="
-                    slotProps.data.achievementRate >= 100
-                      ? 'text-success'
-                      : 'text-danger'
-                  "
-                >
-                  {{ slotProps.data.achievementRate }}%
-                </span>
-                <span v-else>-</span>
-              </template>
-            </Column>
-
-            <Column header="목표 상품 판매량" style="width: 300px">
-              <template #body="slotProps">
-                <div
-                  v-if="
-                    slotProps.data.products && slotProps.data.products.length
-                  "
-                  class="sb-table-body-product"
-                >
-                  <img
-                    v-for="(img, index) in slotProps.data.products"
-                    :key="index"
-                    :src="img"
-                  />
-                </div>
-                <span v-else>-</span>
-              </template>
-            </Column>
-
-            <Column header="최종 상태" style="width: 233px">
-              <template #body="slotProps">
-                <div class="sb-table-body-tags">
-                  <div
-                    v-for="(status, index) in slotProps.data.finalStatus"
-                    :key="index"
-                    class="sb-table-body-tags-item"
-                  >
-                    <spa>{{ status.label }} :</spa>
-                    <Badge
-                      :value="status.value"
-                      :severity="status.value === '달성' ? 'success' : 'danger'"
-                    ></Badge>
-                  </div>
-                  <Badge
-                    v-if="slotProps.data.userClosed"
-                    value="사용자 종료"
-                    severity="contrast"
-                  ></Badge>
-                </div>
-              </template>
-            </Column>
-            <template #empty>
-              <div class="sb-nodata">
-                <IconIllustrationSmile class="ico-illustration-smile" />
-                <div class="sb-nodata__text">
-                  <p>지난 레포트가 없습니다.</p>
-                </div>
-              </div>
-            </template>
-          </DataTable>
-        </div>
+        <ExtensionTable />
       </div>
     </div>
   </div>
 
-  <Dialog v-model:visible="dialogWrite" modal>
-    <Write />
+  <Dialog v-model:visible="dialogWrite01" modal>
+    <Write01 />
   </Dialog>
+
+  <Dialog v-model:visible="dialogWrite02" modal>
+    <Write02 />
+  </Dialog>
+
+  <Dialog v-model:visible="dialogWrite03" modal>
+    <Write03 />
+  </Dialog>
+
+  <ConfirmDialog></ConfirmDialog>
+  <Toast position="bottom-center" group="bc" />
 </template>
 
 <script setup>
 import { ref } from 'vue';
-import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
-import IconIllustrationEmptyFlag from '@/assets/icons/illustration/empty-flag.svg?component';
-import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
-import IconSystemPlus from '@/assets/icons/system/plus.svg?component';
+import { useConfirm } from 'primevue/useconfirm';
+import { useToast } from 'primevue/usetoast';
 
-import Write from './Write.vue';
+import ExtensionTable from './ExtensionTable.vue';
+import Write01 from './Write01.vue';
+import Write02 from './Write02.vue';
+import Write03 from './Write03.vue';
 
-const dialogWrite = ref(false);
+//dialog
+const dialogWrite01 = ref(false);
+const dialogWrite02 = ref(false);
+const dialogWrite03 = ref(false);
 
-const openWrite = () => {
-  dialogWrite.value = true;
+//confirm
+const confirm = useConfirm();
+
+const confirm1 = () => {
+  confirm.require({
+    message: '진행 중인 계획을 종료 하시겠습니까?',
+    rejectProps: {
+      label: '아니오',
+      severity: 'contrast',
+      outlined: true,
+    },
+    acceptProps: {
+      label: '예',
+    },
+  });
+};
+const confirm2 = () => {
+  confirm.require({
+    message: '진행 중인 계획을 수정 하시겠습니까?',
+    rejectProps: {
+      label: '아니오',
+      severity: 'contrast',
+      outlined: true,
+    },
+    acceptProps: {
+      label: '예',
+    },
+  });
 };
 
-//data
-const campaigns = ref([
-  {
-    period: '2026.01.01 ~ 2026.01.31',
-    targetAmount: 15000000,
-    achievedAmount: 13500000,
-    achievementRate: 96.3,
-    products: [
-      'https://picsum.photos/200/300',
-      'https://picsum.photos/200/200',
-      'https://picsum.photos/200/100',
-    ],
-    finalStatus: [
-      { label: '목표 금액', value: '미달' },
-      { label: '상품 판매', value: '달성' },
-    ],
-  },
-  {
-    period: '2026.01.01 ~ 2026.01.31',
-    targetAmount: 15000000,
-    achievedAmount: 13500000,
-    achievementRate: 108.8,
-    products: [],
-    finalStatus: [{ label: '목표 금액', value: '달성' }],
-  },
-  {
-    period: '2026.01.01 ~ 2026.01.31',
-    targetAmount: null,
-    achievedAmount: null,
-    achievementRate: null,
-    products: [
-      'https://picsum.photos/200/300',
-      'https://picsum.photos/200/200',
-    ],
-    userClosed: true,
-  },
-  {
-    period: '2026.01.01 ~ 2026.01.31',
-    targetAmount: 15000000,
-    achievedAmount: 13500000,
-    achievementRate: 96.3,
-    products: [],
-    finalStatus: [{ label: '상품 판매', value: '미달' }],
-  },
-  {
-    period: '2026.01.01 ~ 2026.01.31',
-    targetAmount: 15000000,
-    achievedAmount: 13500000,
-    achievementRate: 100,
-    products: [
-      'https://picsum.photos/200/300',
-      'https://picsum.photos/200/200',
-    ],
-    finalStatus: [
-      { label: '목표 금액', value: '달성' },
-      { label: '상품 판매', value: '미달' },
-    ],
-  },
-]);
+//toast
+const toast = useToast();
+
+const showToast = () => {
+  toast.add({
+    detail: '계획이 종료 되었습니다. \n 새로운 목표로 다시 도전해보세요.',
+    group: 'bc',
+    life: 3000,
+  });
+};
+
+onMounted(() => {
+  setTimeout(() => {
+    showToast();
+  }, 2000);
+});
 </script>
