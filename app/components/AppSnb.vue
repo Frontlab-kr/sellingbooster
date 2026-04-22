@@ -190,11 +190,6 @@ const snbMenu = ref([
     label: '셀링 플래너',
     icon: IconSnbPlanner,
     route: '/planner/timeline',
-    items: [
-      { label: '타임라인', route: '/planner/timeline' },
-      { label: '캘린더', route: '/planner/calendar' },
-      { label: '내 일정', route: '/planner/memo' },
-    ],
   },
   {
     key: 'community',
@@ -334,10 +329,8 @@ const isActive = (item) => {
   if (!item) return false;
   const currentPath = route.path;
 
-  // 1. 하위 메뉴가 있는 부모 메뉴일 경우
+  // 1. 하위 메뉴(items)가 정의된 부모 메뉴일 경우
   if (item.items && item.items.length > 0) {
-    // 자식 route 중 하나라도 현재 경로에 포함되어 있으면 부모 active
-    // 예: /sales/product는 /sales를 포함함
     return item.items.some((sub) => {
       if (!sub.route) return false;
       return (
@@ -346,15 +339,17 @@ const isActive = (item) => {
     });
   }
 
-  // 2. 1뎁스 전용 메뉴이거나 자식 메뉴 본인인 경우
+  // 2. 1뎁스 전용 메뉴 (planner, dashboard 등)
   if (item.route) {
-    // 대시보드 같은 1뎁스는 정확히 일치할 때
-    if (!item.items) {
-      return (
-        currentPath === item.route || currentPath.startsWith(item.route + '/')
-      );
+    // [추가] planner의 경우 /planner/calendar, /planner/memo 등을 모두 포함하도록 처리
+    if (item.key === 'planner') {
+      return currentPath.startsWith('/planner');
     }
-    return currentPath === item.route;
+
+    // 일반적인 1뎁스 메뉴 활성화 조건
+    return (
+      currentPath === item.route || currentPath.startsWith(item.route + '/')
+    );
   }
 
   return false;
