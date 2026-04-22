@@ -63,31 +63,31 @@
         </div>
         <div class="sb-gate-link">
           <NuxtLink to="/" class="sb-gate-link-item">
-            <IconArrowLinkRecommend />
+            <img src="./../../assets/icons/gate/link-recommend.png" alt="" />
             <p>추천 기회</p>
           </NuxtLink>
           <NuxtLink to="/" class="sb-gate-link-item">
-            <IconArrowLinkKeyword />
+            <img src="./../../assets/icons/gate/link-keyword.png" alt="" />
             <p>키워드 분석</p>
           </NuxtLink>
           <NuxtLink to="/" class="sb-gate-link-item">
-            <IconArrowLinkProduct />
+            <img src="./../../assets/icons/gate/link-product.png" alt="" />
             <p>상품분석</p>
           </NuxtLink>
           <NuxtLink to="/" class="sb-gate-link-item">
-            <IconArrowLinkRanking />
+            <img src="./../../assets/icons/gate/link-ranking.png" alt="" />
             <p>나의 랭킹 찾기</p>
           </NuxtLink>
           <NuxtLink to="/" class="sb-gate-link-item">
-            <IconArrowLinkStory />
+            <img src="./../../assets/icons/gate//link-story.png" alt="" />
             <p>성장 스토리</p>
           </NuxtLink>
           <NuxtLink to="/" class="sb-gate-link-item">
-            <IconArrowLinkKtrend />
+            <img src="./../../assets/icons/gate/link-ktrend.png" alt="" />
             <p>K-트렌드</p>
           </NuxtLink>
           <NuxtLink to="/" class="sb-gate-link-item">
-            <IconArrowLinkPlanner />
+            <img src="./../../assets/icons/gate/link-planner.png" alt="" />
             <p>셀링플래너</p>
           </NuxtLink>
         </div>
@@ -569,13 +569,6 @@ import searchKeyword from './searchKeyword.vue';
 
 import IconArrowRight from '@/assets/icons/arrow/right.svg?component';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
-import IconArrowLinkRecommend from '@/assets/icons/gate/link-recommend.svg?component';
-import IconArrowLinkKeyword from '@/assets/icons/gate/link-keyword.svg?component';
-import IconArrowLinkProduct from '@/assets/icons/gate/link-product.svg?component';
-import IconArrowLinkRanking from '@/assets/icons/gate/link-ranking.svg?component';
-import IconArrowLinkStory from '@/assets/icons/gate/link-story.svg?component';
-import IconArrowLinkKtrend from '@/assets/icons/gate/link-ktrend.svg?component';
-import IconArrowLinkPlanner from '@/assets/icons/gate/link-planner.svg?component';
 
 import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
