@@ -182,7 +182,6 @@ import IconIllustrationEmptyFlag from '@/assets/icons/illustration/empty-flag.sv
 import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 import IconSystemPlus from '@/assets/icons/system/plus.svg?component';
 
-import Table from './Table.vue';
 import Write01 from './Write01.vue';
 import Write02 from './Write02.vue';
 import Write03 from './Write03.vue';

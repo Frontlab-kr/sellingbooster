@@ -35,6 +35,20 @@
         <h2>셀링부스터는 흩어진 판매 데이터를</h2>
         <h2>통합 대시보드로 제공합니다.</h2>
       </div>
+      <div class="sb-service-dashboard-step">
+        <div class="sb-service-dashboard-step-item">
+          <strong>STEP 01</strong>
+          <h4>기회 발견</h4>
+        </div>
+        <div class="sb-service-dashboard-step-item">
+          <strong>STEP 02</strong>
+          <h4>가벼운 실행</h4>
+        </div>
+        <div class="sb-service-dashboard-step-item">
+          <strong>STEP 03</strong>
+          <h4>매출 모니터링</h4>
+        </div>
+      </div>
     </div>
     <div class="sb-service-introduce">
       <img src="./../../../assets/images/service/introduce01.png" alt="" />
@@ -48,7 +62,12 @@
       </div>
       <div class="sb-service-loadmap-list">
         <div class="sb-service-loadmap-list-item level01">
-          <SbChartLoadmap :score="36" />
+          <div class="sb-service-loadmap-list-item__tooltip">
+            <p>이커머스 진입 준비</p>
+          </div>
+          <div class="sb-service-loadmap-list-item__chart">
+            <SbChartLoadmap :score="36" end-color="#FFC13D" />
+          </div>
           <ul>
             <li class="active">
               <IconSystemCheckS class="ico-system-check-s" />사업자 정보 입력
@@ -63,29 +82,16 @@
         </div>
         <div class="sb-service-loadmap-list-item level02 active">
           <div class="sb-service-loadmap-list-item__tooltip">
-            <p>현재 레벨</p>
+            <p>첫 주문 발생 유도</p>
+          </div>
+          <div class="sb-service-loadmap-list-item__chart">
+            <SbChartLoadmap :score="36" end-color="#FB7310" />
           </div>
           <div class="sb-service-loadmap-list-item__line">
             <IconProfileLevelLine class="ico-profile-level-line" />
           </div>
           <ul>
             <li class="active">
-              <IconSystemCheckS class="ico-system-check-s" />스토어 연동
-            </li>
-            <li>
-              <IconSystemCheckS class="ico-system-check-s" />상품명 점검(35/50
-            </li>
-            <li>
-              <IconSystemCheckS class="ico-system-check-s" />최적가 조정(42/50)
-            </li>
-          </ul>
-        </div>
-        <div class="sb-service-loadmap-list-item level03">
-          <div class="sb-service-loadmap-list-item__line">
-            <IconProfileLevelLine class="ico-profile-level-line" />
-          </div>
-          <ul>
-            <li>
               <IconSystemCheckS class="ico-system-check-s" />자금 진단 및 대출
               조회
             </li>
@@ -98,7 +104,36 @@
             </li>
           </ul>
         </div>
+        <div class="sb-service-loadmap-list-item level03">
+          <div class="sb-service-loadmap-list-item__tooltip">
+            <p>매출 가속화</p>
+          </div>
+          <div class="sb-service-loadmap-list-item__chart">
+            <SbChartLoadmap :score="36" end-color="#F04755" />
+          </div>
+
+          <div class="sb-service-loadmap-list-item__line">
+            <IconProfileLevelLine class="ico-profile-level-line" />
+          </div>
+          <ul>
+            <li>
+              <IconSystemCheckS class="ico-system-check-s" />심층 외부
+              동향(뉴스/논문)
+            </li>
+            <li>
+              <IconSystemCheckS class="ico-system-check-s" />커뮤니티 노하우
+              공유
+            </li>
+          </ul>
+        </div>
         <div class="sb-service-loadmap-list-item level04">
+          <div class="sb-service-loadmap-list-item__tooltip">
+            <p>시장 지배력 확대</p>
+          </div>
+          <div class="sb-service-loadmap-list-item__chart">
+            <SbChartLoadmap :score="36" end-color="#6466FA" />
+          </div>
+
           <div class="sb-service-loadmap-list-item__line">
             <IconProfileLevelLine class="ico-profile-level-line" />
           </div>

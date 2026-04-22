@@ -660,6 +660,13 @@
     &-dashboard {
       padding: 100px 8%;
     }
+    &-introduce {
+      padding: 100px 8%;
+      background: var(--bg_50_EFF1F4, #eff1f4);
+      img {
+        width: 1520px;
+      }
+    }
     &-loadmap {
       padding: 100px 8%;
       &__title {
@@ -675,9 +682,20 @@
           display: flex;
           flex-direction: column;
           align-items: center;
-          justify-content: center;
+
           gap: 16px;
           min-width: 240px;
+          &__chart {
+            position: relative;
+            z-index: 50;
+            width: 240px;
+            height: 240px;
+            border-radius: 240px;
+            background: var(--Gray-00, #fff);
+
+            /* light/Shadow 2 */
+            box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.1);
+          }
           &__tooltip {
             position: absolute;
             top: 0;
@@ -698,6 +716,7 @@
               font-weight: 700;
               line-height: 140%; /* 22.4px */
               letter-spacing: -0.4px;
+              white-space: noWrap;
             }
             &:after {
               content: '';
@@ -738,83 +757,7 @@
               color: var(--report-analyze-level-line-color);
             }
           }
-          &::before {
-            content: '';
-            position: relative;
-            z-index: 20;
-            display: block;
-            width: 240px;
-            height: 240px;
-            background: url(./../icons/profile/badge-level1.svg) no-repeat 50%
-              50%;
-          }
-          &.level01 {
-            &::before {
-              background: url(./../icons/profile/badge-level1.svg) no-repeat 50%
-                50%;
-            }
-            &.active {
-              &::before {
-                background: url(./../icons/profile/badge-level1.svg) no-repeat
-                  50% 50%;
-                background-size: 240px 240px;
-              }
-            }
-          }
-          &.level02 {
-            &::before {
-              background: url(./../icons/profile/badge-level2.svg) no-repeat 50%
-                50%;
-            }
-            &.active {
-              &::before {
-                background: url(./../icons/profile/badge-level2.svg) no-repeat
-                  50% 50%;
-                background-size: 240px 240px;
-              }
-            }
-          }
-          &.level03 {
-            &::before {
-              background: url(./../icons/profile/badge-level3.svg) no-repeat 50%
-                50%;
-            }
-            &.active {
-              &::before {
-                background: url(./../icons/profile/badge-level3.svg) no-repeat
-                  50% 50%;
-                background-size: 240px 240px;
-              }
-            }
-          }
-          &.level04 {
-            &::before {
-              background: url(./../icons/profile/badge-level4.svg) no-repeat 50%
-                50%;
-            }
-            &.active {
-              &::before {
-                background: url(./../icons/profile/badge-level4.svg) no-repeat
-                  50% 50%;
-                background-size: 240px 240px;
-              }
-            }
-          }
-          &.active ~ .level02 {
-            &::before {
-              background: var(--report-analyze-level2-disabled-background);
-            }
-          }
-          &.active ~ .level03 {
-            &::before {
-              background: var(--report-analyze-level3-disabled-background);
-            }
-          }
-          &.active ~ .level04 {
-            &::before {
-              background: var(--report-analyze-level4-disabled-background);
-            }
-          }
+
           ul {
             margin: 0;
             padding: 0;
