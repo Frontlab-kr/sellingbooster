@@ -148,12 +148,12 @@
     border-top: none;
     margin-top: -1px;
 
-    &[style*='transform-origin'][style*='bottom'] {
-      margin-top: 1px !important;
-      border-radius: 24px 24px 0 0;
-      border: 1px solid var(--p-select-overlay-border-color);
-      border-bottom: none;
-    }
+    // &[style*='transform-origin'][style*='bottom'] {
+    //   margin-top: 1px !important;
+    //   border-radius: 24px 24px 0 0;
+    //   border: 1px solid var(--p-select-overlay-border-color);
+    //   border-bottom: none;
+    // }
     &.p-select-overlay--text {
       min-width: 92px !important;
       margin-top: 4px;

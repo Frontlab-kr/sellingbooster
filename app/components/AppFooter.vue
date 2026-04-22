@@ -31,6 +31,7 @@
           placeholder="패밀리 사이트"
           class="sb-select sb-select--bottom"
           @change="onSiteChange"
+          appendTo="self"
         />
       </div>
     </div>
@@ -103,15 +104,13 @@ import IconSystemYoutube from '@/assets/icons/system/youtube.svg?component';
 
 const selectedValue = ref();
 const familySites = ref([
+  { name: '헥토그룹', url: 'https://hecto.co.kr/' },
   { name: '헥토이노베이션', url: 'https://www.hectoinnovation.co.kr/corp' },
   { name: '헥토파이낸셜', url: 'https://www.hectofinancial.co.kr/main' },
   { name: '헥토헬스케어', url: 'https://www.hectohealthcare.com/corp' },
-  {
-    name: '헥토데이터',
-    url: 'https://hectodata.co.kr/?utm_source=hecto&utm_medium=familysite&utm_campaign=hectodata',
-  },
   { name: '헥토미디어', url: 'https://hectomedia.co.kr/' },
   { name: '헥토큐앤엠', url: 'https://www.hectoqnm.co.kr/' },
+  { name: '헥토채용', url: 'https://hecto.career.greetinghr.com' },
 ]);
 
 const onSiteChange = (e) => {
