@@ -32,6 +32,7 @@
           class="sb-select sb-select--bottom"
           @change="onSiteChange"
           appendTo="self"
+          data-lenis-prevent
         />
       </div>
     </div>
