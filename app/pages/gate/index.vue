@@ -100,7 +100,7 @@
         </h3>
         <div class="pc">
           <div class="sb-gate-introduce-list sb-gsap" ref="gateIntroduceLeft">
-            <div class="sb-gate-introduce-list-item">
+            <NuxtLink to="/" class="sb-gate-introduce-list-item">
               <Badge value="마켓 트렌드" severity="secondary"></Badge>
               <h4>
                 키워드와 시장 분석으로<br />
@@ -110,8 +110,8 @@
                 src="./../../assets/images/gate/introduce-img01.png"
                 alt=""
               />
-            </div>
-            <div class="sb-gate-introduce-list-item">
+            </NuxtLink>
+            <NuxtLink to="/" class="sb-gate-introduce-list-item">
               <Badge value="판매 가속" severity="secondary"></Badge>
               <h4>
                 <span class="text-primary">가격, CS, 상품명까지 분석</span>을
@@ -121,8 +121,8 @@
                 src="./../../assets/images/gate/introduce-img02.png"
                 alt=""
               />
-            </div>
-            <div class="sb-gate-introduce-list-item">
+            </NuxtLink>
+            <NuxtLink to="/" class="sb-gate-introduce-list-item">
               <Badge value="성장 리포트" severity="secondary"></Badge>
               <h4>
                 매출 데이터를 분석하고 <br />인사이트를
@@ -132,10 +132,10 @@
                 src="./../../assets/images/gate/introduce-img03.png"
                 alt=""
               />
-            </div>
+            </NuxtLink>
           </div>
           <div class="sb-gate-introduce-list sb-gsap" ref="gateIntroduceRight">
-            <div class="sb-gate-introduce-list-item">
+            <NuxtLink to="/" class="sb-gate-introduce-list-item">
               <Badge value="상품명 추천" severity="secondary"></Badge>
               <h4>
                 <span class="text-primary">최적의 상품명을 제안</span>해
@@ -146,8 +146,8 @@
                 src="./../../assets/images/gate/introduce-img04.png"
                 alt=""
               />
-            </div>
-            <div class="sb-gate-introduce-list-item">
+            </NuxtLink>
+            <NuxtLink to="/" class="sb-gate-introduce-list-item">
               <Badge value="셀링 플래너" severity="secondary"></Badge>
               <h4>
                 셀러의 일정 알림을 통해 다음을<br />
@@ -158,8 +158,8 @@
                 src="./../../assets/images/gate/introduce-img05.png"
                 alt=""
               />
-            </div>
-            <div class="sb-gate-introduce-list-item">
+            </NuxtLink>
+            <NuxtLink to="/" class="sb-gate-introduce-list-item">
               <Badge value="K-트렌드" severity="secondary"></Badge>
               <h4>
                 <span class="text-primary">최신 트렌드 분석</span>으로<br />
@@ -169,7 +169,7 @@
                 src="./../../assets/images/gate/introduce-img06.png"
                 alt=""
               />
-            </div>
+            </NuxtLink>
           </div>
         </div>
         <div class="tablet">
@@ -177,7 +177,7 @@
             class="sb-gate-introduce-list sb-gsap"
             ref="gateIntroduceBottom1"
           >
-            <div class="sb-gate-introduce-list-item">
+            <NuxtLink to="/" class="sb-gate-introduce-list-item">
               <Badge value="마켓 트렌드" severity="secondary"></Badge>
               <h4>
                 키워드와 시장 분석으로<br />
@@ -187,8 +187,8 @@
                 src="./../../assets/images/gate/introduce-img01.png"
                 alt=""
               />
-            </div>
-            <div class="sb-gate-introduce-list-item">
+            </NuxtLink>
+            <NuxtLink to="/" class="sb-gate-introduce-list-item">
               <Badge value="판매 가속" severity="secondary"></Badge>
               <h4>
                 <span class="text-primary">가격, CS, 상품명까지 분석</span>을
@@ -198,13 +198,13 @@
                 src="./../../assets/images/gate/introduce-img02.png"
                 alt=""
               />
-            </div>
+            </NuxtLink>
           </div>
           <div
             class="sb-gate-introduce-list sb-gsap"
             ref="gateIntroduceBottom2"
           >
-            <div class="sb-gate-introduce-list-item">
+            <NuxtLink to="/" class="sb-gate-introduce-list-item">
               <Badge value="성장 리포트" severity="secondary"></Badge>
               <h4>
                 매출 데이터를 분석하고 <br />인사이트를
@@ -214,8 +214,8 @@
                 src="./../../assets/images/gate/introduce-img03.png"
                 alt=""
               />
-            </div>
-            <div class="sb-gate-introduce-list-item">
+            </NuxtLink>
+            <NuxtLink to="/" class="sb-gate-introduce-list-item">
               <Badge value="상품명 추천" severity="secondary"></Badge>
               <h4>
                 <span class="text-primary">최적의 상품명을 제안</span>해
@@ -226,13 +226,13 @@
                 src="./../../assets/images/gate/introduce-img04.png"
                 alt=""
               />
-            </div>
+            </NuxtLink>
           </div>
           <div
             class="sb-gate-introduce-list sb-gsap"
             ref="gateIntroduceBottom3"
           >
-            <div class="sb-gate-introduce-list-item">
+            <NuxtLink to="/" class="sb-gate-introduce-list-item">
               <Badge value="셀링 플래너" severity="secondary"></Badge>
               <h4>
                 셀러의 일정 알림을 통해 다음을<br />
@@ -243,8 +243,8 @@
                 src="./../../assets/images/gate/introduce-img05.png"
                 alt=""
               />
-            </div>
-            <div class="sb-gate-introduce-list-item">
+            </NuxtLink>
+            <NuxtLink to="/" class="sb-gate-introduce-list-item">
               <Badge value="K-트렌드" severity="secondary"></Badge>
               <h4>
                 <span class="text-primary">최신 트렌드 분석</span>으로<br />
@@ -254,7 +254,7 @@
                 src="./../../assets/images/gate/introduce-img06.png"
                 alt=""
               />
-            </div>
+            </NuxtLink>
           </div>
         </div>
         <div class="mo sb-gsap" ref="gateIntroduceMo">
