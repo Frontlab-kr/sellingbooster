@@ -1144,6 +1144,11 @@
   --popover-tag-list-item-background: var(--p-gray-50);
   --popover-tag-list-item-text-color: var(--p-gray-900);
 
+  --rating-star-background: url(./../icons/action/rating-star.svg) no-repeat 50%
+    50%;
+  --rating-star-active-background: url(./../icons/action/rating-star-active.svg)
+    no-repeat 50% 50%;
+
   //dialog
   --dialog-schedule-head-title-color: var(--p-gray-300);
   --dialog-schedule-head-text-color: var(--p-gray-500);
@@ -2104,6 +2109,11 @@
     --popover-tag-head-icon-color: var(--p-gray-400);
     --popover-tag-list-item-background: var(--p-gray-800);
     --popover-tag-list-item-text-color: var(--p-gray-00);
+
+    --rating-star-background: url(./../icons/action/rating-star-dark.svg)
+      no-repeat 50% 50%;
+    --rating-star-active-background: url(./../icons/action/rating-star-active-dark.svg)
+      no-repeat 50% 50%;
 
     //dialog
     --dialog-schedule-head-title-color: var(--p-gray-300);

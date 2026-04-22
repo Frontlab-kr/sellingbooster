@@ -1107,6 +1107,11 @@
         }
       }
     }
+    &-feedback {
+      .sb-textarea {
+        margin-top: 16px;
+      }
+    }
   }
 }
 

@@ -2583,7 +2583,7 @@
         > label {
           display: flex;
           align-items: center;
-          width: 100px;
+          width: 100%;
           min-width: 100px;
           height: auto;
           font-size: 16px;
@@ -2613,6 +2613,7 @@
         gap: 4px;
         .p-button {
           width: 100%;
+          max-width: 160px;
         }
       }
     }

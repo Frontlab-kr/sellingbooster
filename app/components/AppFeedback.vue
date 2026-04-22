@@ -1,6 +1,6 @@
 <template>
   <div class="sb-feedback">
-    <div class="sb-feedback-ai">
+    <div class="sb-feedback-ai" @click="dialogFeedback = true">
       <IconAiFeedback class="ico-ai-feedback" />
       <div class="sb-feedback-ai__bubble">
         <IconAiBubbleChat class="ico-ai-bubble-chat" />
@@ -13,6 +13,74 @@
       </template>
     </Button>
   </div>
+
+  <Dialog v-model:visible="dialogFeedback" modal>
+    <div class="p-dialog-inner">
+      <h6 class="p-dialog-title">
+        [해당 메뉴명] 컨텐츠가 어땠나요?<br />
+        편하게 의견 주시면 더 좋은<br class="mo" />
+        서비스 개선에 적극 반영하겠습니다.
+      </h6>
+      <div class="sb-dialog-feedback">
+        <div class="sb-form">
+          <div class="sb-form-item">
+            <label>별점</label>
+            <div class="sb-form-item-content">
+              <Rating v-model="ratingValue" />
+            </div>
+          </div>
+          <div class="sb-form-item">
+            <label>
+              <span class="pc">상세 이유</span>
+              <span class="mo"> 별점에 대한 상세 이유를 알려주세요. </span>
+            </label>
+            <div class="sb-form-item-content">
+              <div class="sb-chip sb-chip--sm">
+                <div class="sb-checkbox">
+                  <div
+                    v-for="item in categories"
+                    :key="item.id"
+                    class="sb-checkbox-item"
+                  >
+                    <Checkbox
+                      v-model="radioCategory"
+                      :inputId="item.id"
+                      name="contactCategory"
+                      :value="item.id"
+                    />
+                    <label :for="item.id">
+                      <component :is="item.icon" :class="item.iconClass" />
+                      {{ item.label }}
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <SbTextarea
+                v-model="textarea01"
+                maxlength="300"
+                placeholder="지금 경험하신 페이지에 의견이 있으시면 300자 내외로 편하게 의견 남겨주세요."
+                class="sb-textarea--simple"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="pc">
+          <div class="sb-form-button">
+            <Button label="보내기" @click="dialogFeedback = false" />
+          </div>
+        </div>
+        <div class="mo">
+          <div class="sb-form-button">
+            <Button
+              label="보내기"
+              @click="dialogFeedback = false"
+              size="large"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </Dialog>
 </template>
 
 <script setup>
@@ -22,6 +90,48 @@ import IconAiFeedback from '@/assets/icons/ai/ai-feedback.svg';
 import IconAiBubbleChat from '@/assets/icons/ai/bubble-chat.svg?component';
 import IconArrowUp from '@/assets/icons/arrow/up.svg?component';
 
+//dialog
+const dialogFeedback = ref(false);
+const ratingValue = ref(null);
+const textarea01 = ref('');
+
+const checkboxCategory = ref('checkboxCategory01');
+const categories = [
+  {
+    id: 'checkboxCategory01',
+    label: '무난한 사용성',
+  },
+  {
+    id: 'checkboxCategory02',
+    label: '적당한 정보량',
+  },
+  {
+    id: 'checkboxCategory03',
+    label: '무난한 디자인',
+  },
+  {
+    id: 'checkboxCategory04',
+    label: '평이한 조작감',
+  },
+  {
+    id: 'checkboxCategory05',
+    label: '설명 보완 필요',
+  },
+  {
+    id: 'checkboxCategory06',
+    label: '로딩 속도 보통',
+  },
+  {
+    id: 'checkboxCategory07',
+    label: '모바일 지원 희망',
+  },
+  {
+    id: 'checkboxCategory08',
+    label: '기타',
+  },
+];
+
+//animation
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
