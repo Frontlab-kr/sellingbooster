@@ -83,7 +83,7 @@
 <script setup>
 import { ref } from 'vue';
 import StoryReport from './report.vue';
-import SbSocial from '@/pages/community/components/SbSocial.vue';
+
 import SbComment from '@/pages/community/components/SbComment.vue';
 import IconArrowLeft from '@/assets/icons/arrow/left.svg?component';
 import IconSystemDownload from '@/assets/icons/system/download.svg?component';

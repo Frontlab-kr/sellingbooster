@@ -109,7 +109,6 @@
 <script setup>
 import { ref } from 'vue';
 
-import SbSocial from '@/pages/community/components/SbSocial.vue';
 import SbComment from '@/pages/community/components/SbComment.vue';
 import contents from '@/pages/community/blog/contents';
 import products from '@/pages/community/blog/products';

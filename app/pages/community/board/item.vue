@@ -43,7 +43,7 @@
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import Report from './report.vue';
-import SbSocial from '@/pages/community/components/SbSocial.vue';
+
 import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
 import IconSystemBlock from '@/assets/icons/system/block.svg?component';

@@ -139,7 +139,8 @@
               <Badge value="상품명 추천" severity="secondary"></Badge>
               <h4>
                 <span class="text-primary">최적의 상품명을 제안</span>해
-                클릭률과 스토어 유입을 효과적으로 높입니다.
+                클릭률과<br />
+                스토어 유입을 효과적으로 높입니다.
               </h4>
               <img
                 src="./../../assets/images/gate/introduce-img04.png"
@@ -218,7 +219,8 @@
               <Badge value="상품명 추천" severity="secondary"></Badge>
               <h4>
                 <span class="text-primary">최적의 상품명을 제안</span>해
-                클릭률과 스토어 유입을 효과적으로 높입니다.
+                클릭률과<br />
+                스토어 유입을 효과적으로 높입니다.
               </h4>
               <img
                 src="./../../assets/images/gate/introduce-img04.png"
@@ -265,66 +267,196 @@
       <div class="sb-gate-board">
         <div class="sb-gate-board-tab sb-gsap" ref="gateBoardTab">
           <div class="sb-tab">
-            <Button variant="text" class="active">
-              <h5>K-Trend</h5>
-            </Button>
-            <Button variant="text">
-              <h5>Blog</h5>
-            </Button>
-            <Button variant="text">
-              <h5>성장 스토리</h5>
+            <Button
+              v-for="(tab, index) in tabs"
+              :key="index"
+              variant="text"
+              :class="{ active: activeTab === index }"
+              @click="changeTab(index)"
+            >
+              <h5>{{ tab.label }}</h5>
             </Button>
           </div>
         </div>
         <div class="sb-gate-board-contents sb-gsap" ref="gateBoardContents">
-          <div class="sb-gate-board-list">
-            <NuxtLink to="/" class="sb-gate-board-list-item" v-for="n in 6">
-              <div class="sb-gate-board-list-item-body">
-                <div class="sb-gate-board-list-item-body__thumb">
-                  <img src="https://picsum.photos/200/300" alt="" />
-                </div>
-                <div class="sb-gate-board-list-item-body__contents">
-                  <div class="sb-gate-board-list-item-head">
-                    <Badge value="NEWS" severity="warn"></Badge>
-                    <p>2026.02.14</p>
+          <div v-if="activeTab === 0">
+            <div class="sb-gate-board-list">
+              <NuxtLink to="/" class="sb-gate-board-list-item" v-for="n in 6">
+                <div class="sb-gate-board-list-item-body">
+                  <div class="sb-gate-board-list-item-body__thumb">
+                    <img src="https://picsum.photos/200/300" alt="" />
                   </div>
-                  <h6>
-                    컨텐츠 제목은 최대 1줄로 처리하고 더 길어질 경우는 ...으로
-                    처리하는 것으로 결정
-                  </h6>
-                  <p>
-                    본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질 경우에는
-                    ... 으로 마무리 처리 본문 컨텐츠 내용은 최대 3줄까지
-                    노출하고 더 길어질 경우에는 ...으로 마무리 처리 본문 컨텐츠
-                    내용은 최대 3줄까지 노출하고 더 길어질 경우에는 ... 으로
-                    마무리 처리 본문 컨텐츠 내용은 최대 3줄까지 노출하고 더
-                    길어질 경우에는 ...으로 마무리 처리본문 컨텐츠 내용은 최대
-                    3줄까지 노출하고 더 길어질 경우에는 ... 으로 마무리 처리
-                    본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질 경우에는
-                    ...으로 마무리 처리 본문 컨텐츠 내용은 최대 3줄까지 노출하고
-                    더 길어질 경우에는 ... 으로 마무리 처리 본문 컨텐츠 내용은
-                    최대 3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리 처리
-                  </p>
+                  <div class="sb-gate-board-list-item-body__contents">
+                    <div class="sb-gate-board-list-item-head">
+                      <div class="sb-gate-board-list-item-head__badge">
+                        <Badge value="NEWS" severity="warn" />
+                      </div>
+                      <p>2026.02.14</p>
+                    </div>
+                    <h6>
+                      컨텐츠 제목은 최대 1줄로 처리하고 더 길어질 경우는 ...으로
+                      처리하는 것으로 결정
+                    </h6>
+                    <p>
+                      본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질
+                      경우에는 ... 으로 마무리 처리 본문 컨텐츠 내용은 최대
+                      3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리 처리
+                      본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질
+                      경우에는 ... 으로 마무리 처리 본문 컨텐츠 내용은 최대
+                      3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리
+                      처리본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질
+                      경우에는 ... 으로 마무리 처리 본문 컨텐츠 내용은 최대
+                      3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리 처리
+                      본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질
+                      경우에는 ... 으로 마무리 처리 본문 컨텐츠 내용은 최대
+                      3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리 처리
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </NuxtLink>
-          </div>
-          <div class="sb-gate-board-button">
-            <div class="pc">
-              <NuxtLink to="/">
-                <Button severity="primary">
-                  <span class="p-button-label">더보기</span>
-                  <IconArrowRight class="ico-arrow-right" />
-                </Button>
               </NuxtLink>
             </div>
-            <div class="mo">
-              <NuxtLink to="/">
-                <Button severity="primary" size="large">
-                  <span class="p-button-label">더보기</span>
-                  <IconArrowRight class="ico-arrow-right" />
-                </Button>
+            <div class="sb-gate-board-button">
+              <div class="pc">
+                <NuxtLink to="/">
+                  <Button severity="primary">
+                    <span class="p-button-label">더보기</span>
+                    <IconArrowRight class="ico-arrow-right" />
+                  </Button>
+                </NuxtLink>
+              </div>
+              <div class="mo">
+                <NuxtLink to="/">
+                  <Button severity="primary" size="large">
+                    <span class="p-button-label">더보기</span>
+                    <IconArrowRight class="ico-arrow-right" />
+                  </Button>
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
+          <div v-if="activeTab === 1">
+            <div class="sb-gate-board-list sb-gate-board-list--blog">
+              <NuxtLink to="/" class="sb-gate-board-list-item" v-for="n in 6">
+                <div class="sb-gate-board-list-item-body">
+                  <div class="sb-gate-board-list-item-body__thumb">
+                    <img src="https://picsum.photos/200/300" alt="" />
+                  </div>
+                  <div class="sb-gate-board-list-item-body__contents">
+                    <div class="sb-gate-board-list-item-head">
+                      <div class="sb-gate-board-list-item-head__badge">
+                        <Badge value="NEWS" severity="warn" />
+                        <Badge value="셀링트렌드" severity="success" />
+                      </div>
+                      <p>2026.02.14</p>
+                    </div>
+                    <h6>
+                      컨텐츠 제목은 최대 1줄로 처리하고 더 길어질 경우는 ...으로
+                      처리하는 것으로 결정
+                    </h6>
+                    <p>
+                      본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질
+                      경우에는 ... 으로 마무리 처리 본문 컨텐츠 내용은 최대
+                      3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리 처리
+                      본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질
+                      경우에는 ... 으로 마무리 처리 본문 컨텐츠 내용은 최대
+                      3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리
+                      처리본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질
+                      경우에는 ... 으로 마무리 처리 본문 컨텐츠 내용은 최대
+                      3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리 처리
+                      본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질
+                      경우에는 ... 으로 마무리 처리 본문 컨텐츠 내용은 최대
+                      3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리 처리
+                    </p>
+                  </div>
+                </div>
+                <div class="sb-gate-board-list-item-foot">
+                  <SbInfo
+                    :visible-buttons="['view', 'read']"
+                    :view-count="'12,325'"
+                    :read-time="'12분 분량'"
+                  />
+                </div>
               </NuxtLink>
+            </div>
+            <div class="sb-gate-board-button">
+              <div class="pc">
+                <NuxtLink to="/">
+                  <Button severity="primary">
+                    <span class="p-button-label">더보기</span>
+                    <IconArrowRight class="ico-arrow-right" />
+                  </Button>
+                </NuxtLink>
+              </div>
+              <div class="mo">
+                <NuxtLink to="/">
+                  <Button severity="primary" size="large">
+                    <span class="p-button-label">더보기</span>
+                    <IconArrowRight class="ico-arrow-right" />
+                  </Button>
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
+          <div v-if="activeTab === 2">
+            <div class="sb-gate-board-list">
+              <NuxtLink
+                v-for="(item, index) in storyList"
+                :key="index"
+                to="/community/story/view"
+                class="sb-board-list-item"
+              >
+                <div class="sb-board-list-item__head">
+                  <div class="sb-board-list-item__thumb">
+                    <img
+                      v-if="item.thumb"
+                      :src="item.thumb"
+                      alt="프로필 이미지"
+                    />
+                    <IconProfileDefault v-else class="ico-profile-default" />
+                  </div>
+                  <div class="sb-board-list-item__name">
+                    <p>{{ item.author }}</p>
+                    <span>{{ item.date }}</span>
+                  </div>
+                  <div class="sb-board-list-item__menu" @click.stop.prevent>
+                    <SbMenu :items="menuItems" />
+                  </div>
+                </div>
+
+                <h6 class="sb-board-list-item__title">{{ item.title }}</h6>
+                <div class="sb-board-list-item__contents">
+                  {{ item.content }}
+                </div>
+
+                <div class="sb-board-list-item__foot">
+                  <SbSocial
+                    class="sb-social--disabled"
+                    :visible-buttons="['like', 'comment', 'share']"
+                    :like-count="item.likeCount"
+                    :comment-count="item.commentCount"
+                    :share-count="item.shareCount"
+                    v-model:like-active="item.likeActive"
+                  />
+                </div>
+              </NuxtLink>
+            </div>
+            <div class="sb-gate-board-button">
+              <div class="pc">
+                <NuxtLink to="/">
+                  <Button severity="primary">
+                    <span class="p-button-label">더보기</span>
+                    <IconArrowRight class="ico-arrow-right" />
+                  </Button>
+                </NuxtLink>
+              </div>
+              <div class="mo">
+                <NuxtLink to="/">
+                  <Button severity="primary" size="large">
+                    <span class="p-button-label">더보기</span>
+                    <IconArrowRight class="ico-arrow-right" />
+                  </Button>
+                </NuxtLink>
+              </div>
             </div>
           </div>
         </div>
@@ -444,6 +576,12 @@ import IconArrowLinkRanking from '@/assets/icons/gate/link-ranking.svg?component
 import IconArrowLinkStory from '@/assets/icons/gate/link-story.svg?component';
 import IconArrowLinkKtrend from '@/assets/icons/gate/link-ktrend.svg?component';
 import IconArrowLinkPlanner from '@/assets/icons/gate/link-planner.svg?component';
+
+import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
+import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
+import IconSystemBlock from '@/assets/icons/system/block.svg?component';
+import IconSystemReport from '@/assets/icons/system/report.svg?component';
+import IconProfileDefault from '@/assets/icons/profile/default.svg?component';
 
 //animation
 import Lenis from 'lenis';
@@ -767,6 +905,22 @@ onMounted(() => {
   });
 });
 
+//tab
+const activeTab = ref(0);
+
+const tabs = [
+  { label: 'K-Trend', value: 'ktrend' },
+  { label: 'Blog', value: 'blog' },
+  { label: '성장 스토리', value: 'story' },
+];
+
+const changeTab = (index) => {
+  activeTab.value = index;
+  nextTick(() => {
+    ScrollTrigger.refresh();
+  });
+};
+
 //chip
 const SearchRecentHistory = ref([
   { id: 1, label: '두바이쫀득쿠키' },
@@ -825,4 +979,108 @@ onMounted(() => {
 onBeforeUnmount(() => {
   document.removeEventListener('click', handleClickOutside);
 });
+
+const menuItems = ref([
+  {
+    label: '차단',
+    icon: IconSystemBlock,
+    class: 'p-tieredmenu-item-link-danger',
+  },
+  {
+    label: '신고',
+    icon: IconSystemReport,
+    class: 'p-tieredmenu-item-link-danger',
+    command: () => {
+      reportOpen();
+    },
+  },
+  {
+    label: '수정',
+    icon: IconSystemEdit,
+    command: () => {
+      router.push('./write');
+    },
+  },
+  {
+    label: '삭제',
+    icon: IconSystemTrash,
+  },
+]);
+
+const storyList = ref([
+  {
+    author: '셀링부스터',
+    date: '2026.02.14',
+    title:
+      '작은 시작에서, 꾸준한 성장까지작은 시작에서, 꾸준한 성장까지작은 시작에서, 꾸준한 성장까지작은 시작에서, 꾸준한 성장까지작은 시작에서, 꾸준한 성장까지작은 시작에서, 꾸준한 성장까지작은 시작에서, 꾸준한 성장까지',
+    content:
+      '처음부터 모든 게 순조롭진 않았습니다. 상품 등록 하나에도 고민이 많았고, 판매가 일어나지 않는 날엔 "내가 잘하고 있는 걸까?"라는 생각이 들기도 했어요. 하지만 포기하지 않고 하나씩 배워가며 상품을 개선하고, 고객의 목소리에 귀 기울였습니다. 작은 변화들이 쌓이자 조금씩 결과가 보이기 시작했고, 그 경험은 다시 도전할 수 있는 힘이 되었습니다. 지금도 완성형은 아니지만, 셀러로서 성장하는 과정 자체가 값진 자산이 되었다고 느낍니다. 이 스토리가 같은 길을 걷고 있는 누군가에게 작은 용기가 되었으면 합니다.',
+    likeCount: '9,000',
+    likeActive: true,
+    commentCount: '9,000',
+    shareCount: '9,000',
+  },
+  {
+    thumb: 'https://picsum.photos/id/1/100/100',
+    author: '셀링부스터',
+    date: '2026.02.14',
+    title: '위기를 기회로, 품절 대란 극복기',
+    content: '111',
+    image: 'https://picsum.photos/id/1/200/200',
+    likeCount: '9,000',
+    likeActive: false,
+    commentCount: '9,000',
+    shareCount: '9,000',
+  },
+  {
+    thumb: 'https://picsum.photos/id/1/200/300',
+    author: '셀링부스터',
+    date: '2026.02.14',
+    title: '첫 해외 배송 주문이 들어왔을 때의 설렘과 긴박했던 발송 현장 스케치',
+    content:
+      '처음부터 모든 게 순조롭진 않았습니다. 상품 등록 하나에도 고민이 많았고, 판매가 일어나지 않는 날엔 "내가 잘하고 있는 걸까?"라는 생각이 들기도 했어요. 하지만 포기하지 않고 하나씩 배워가며 상품을 개선하고, 고객의 목소리에 귀 기울였습니다. 작은 변화들이 쌓이자 조금씩 결과가 보이기 시작했고, 그 경험은 다시 도전할 수 있는 힘이 되었습니다. 지금도 완성형은 아니지만, 셀러로서 성장하는 과정 자체가 값진 자산이 되었다고 느낍니다. 이 스토리가 같은 길을 걷고 있는 누군가에게 작은 용기가 되었으면 합니다.',
+    likeCount: '9,000',
+    likeActive: false,
+    commentCount: '9,000',
+    shareCount: '9,000',
+  },
+  {
+    thumb: 'https://picsum.photos/id/1/100/100',
+    author: '셀링부스터',
+    date: '2026.02.14',
+    title: '셀러로서의 1주년, 나에게 주는 선물',
+    content:
+      '홀로 컴퓨터 앞에서 시작했던 판매가 어느덧 1주년을 맞이했습니다. 밤새워 박스를 테이핑하던 기억들이 주마등처럼 스쳐 지나가네요. 스스로에게 "고생했다"고 말해주며, 앞으로의 10년을 위한 새로운 목표를 세워봅니다.',
+    likeCount: '9,000',
+    likeActive: false,
+    commentCount: '9,000',
+    shareCount: '9,000',
+  },
+  {
+    thumb: 'https://picsum.photos/id/1/100/100',
+    author: '셀링부스터',
+    date: '2026.02.14',
+    title: '단골 고객의 진심 어린 리뷰 한 줄의 힘',
+    content:
+      '예상치 못한 인기 폭주로 갑작스러운 품절 사태가 발생했습니다. 당황스러웠지만 고객들께 정중히 사과드리고 재입고 알림 신청을 유도했더니, 재입고 당일 역대 최고 매출을 기록했습니다. 소통의 중요성을 다시 배웁니다.',
+    image: 'https://picsum.photos/id/1/200/200',
+    likeCount: '9,000',
+    likeActive: false,
+    commentCount: '9,000',
+    shareCount: '9,000',
+  },
+  {
+    thumb: 'https://picsum.photos/id/1/100/100',
+    author: '셀링부스터',
+    date: '2026.02.14',
+    title: '단골 고객의 진심 어린 리뷰 한 줄의 힘',
+    content:
+      '예상치 못한 인기 폭주로 갑작스러운 품절 사태가 발생했습니다. 당황스러웠지만 고객들께 정중히 사과드리고 재입고 알림 신청을 유도했더니, 재입고 당일 역대 최고 매출을 기록했습니다. 소통의 중요성을 다시 배웁니다.',
+    image: 'https://picsum.photos/id/1/200/200',
+    likeCount: '9,000',
+    likeActive: false,
+    commentCount: '9,000',
+    shareCount: '9,000',
+  },
+]);
 </script>

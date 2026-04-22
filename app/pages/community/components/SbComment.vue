@@ -282,7 +282,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import StoryReport from '@/pages/community/story/report.vue';
-import SbSocial from '@/pages/community/components/SbSocial.vue';
 
 import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
 import IconArrowBentArrow from '@/assets/icons/arrow/bent-arrow.svg?component';
