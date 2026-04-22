@@ -193,8 +193,13 @@
       <div class="sb-company-foot__video sb-gsap" ref="companyFootVideo">
         <video autoplay loop muted playsinline>
           <source
+            src="./../../../assets/images/company/doughnut.mov"
+            type='video/quicktime; codecs="hvc1"'
+          />
+
+          <source
             src="./../../../assets/images/company/doughnut.webm"
-            type="video/mp4"
+            type="video/webm"
           />
         </video>
       </div>
