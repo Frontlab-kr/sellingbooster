@@ -104,7 +104,7 @@
       display: flex;
       justify-content: center;
       gap: 60px;
-      padding: 60px 8%;
+      padding: 60px 8% 40px;
       @media screen and (max-width: 1800px) {
         gap: 40px;
         padding: 60px 40px;
@@ -112,6 +112,7 @@
     }
     &-search {
       position: relative;
+      margin-top: 24px;
       .sb-input {
         width: 700px;
         border: 1px solid transparent;
@@ -215,6 +216,7 @@
       display: flex;
       gap: 20px;
       overflow: auto;
+      margin-top: 13px;
       @include custom-scrollbar();
       &-item {
         display: flex;
@@ -654,6 +656,7 @@
       }
       &-search {
         position: relative;
+        margin-top: 0;
         padding: 0 20px;
         .sb-input {
           .p-inputtext {
@@ -728,6 +731,7 @@
         display: flex;
         gap: 20px;
         overflow: auto;
+        margin-top: 0;
         padding-left: 20px;
         padding-bottom: 12px;
         @include custom-scrollbar();
