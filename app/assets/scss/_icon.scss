@@ -713,6 +713,10 @@
       --path-color-1: var(--ico-illustration-frown-color1);
       --path-color-2: var(--ico-illustration-frown-color2);
     }
+    &-pc {
+      --path-color-1: var(--ico-illustration-pc-color1);
+      --path-color-2: var(--ico-illustration-pc-color2);
+    }
   }
 
   //ai

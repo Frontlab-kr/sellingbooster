@@ -710,6 +710,9 @@
   --policy-contents-foot-color: var(--p-gray-500);
   --policy-contents-infotext-color: var(--p-gray-400);
 
+  --mobile-info-text-color: var(--p-gray-500);
+  --mobile-info-button-color: var(--p-gray-500);
+
   //trend
   --trend-background: var(--p-gray-00);
   --trend-category-background: var(--p-gray-50);
@@ -1253,6 +1256,8 @@
   --ico-illustration-frown-color4: var(--p-gray-400);
   --ico-illustration-empty-flag-color1: var(--p-gray-300);
   --ico-illustration-empty-flag-color2: var(--p-gray-400);
+  --ico-illustration-pc-color1: var(--p-gray-300);
+  --ico-illustration-pc-color2: var(--p-gray-400);
 
   &.p-dark,
   .p-dark {
@@ -1693,6 +1698,9 @@
     --policy-contents-foot-border-color: var(--p-gray-600);
     --policy-contents-foot-color: var(--p-gray-300);
     --policy-contents-infotext-color: var(--p-gray-400);
+
+    --mobile-info-text-color: var(--p-gray-300);
+    --mobile-info-button-color: var(--p-gray-300);
 
     //trend
     --trend-background: var(--p-gray-800);
@@ -2243,6 +2251,8 @@
     --ico-illustration-frown-color2: var(--p-gray-400);
     --ico-illustration-frown-color3: var(--p-gray-300);
     --ico-illustration-frown-color4: var(--p-gray-400);
+    --ico-illustration-pc-color1: var(--p-gray-600);
+    --ico-illustration-pc-color2: var(--p-gray-500);
   }
   @include breakpoint {
     --auth-background-image: var(--p-gray-00);

@@ -1424,6 +1424,7 @@
               border-radius: 20px;
               background: var(--ai-tooltip-background);
               transform: translate(-50%, calc(-100% - 12px));
+              display: none;
               p {
                 margin: 0;
                 color: var(--ai-tooltip-color);
@@ -1466,6 +1467,11 @@
             &.level04 {
               .ico-profile-level-line {
                 color: var(--color-level3);
+              }
+            }
+            &.active {
+              .sb-report-analyze-level-list-item__tooltip {
+                display: flex;
               }
             }
             &.active ~ .sb-report-analyze-level-list-item {

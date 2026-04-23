@@ -181,6 +181,9 @@
           </div>
           <div class="sb-report-analyze-level-list">
             <div class="sb-report-analyze-level-list-item level01">
+              <div class="sb-report-analyze-level-list-item__tooltip">
+                <p>현재 레벨</p>
+              </div>
               <ul>
                 <li class="active">
                   <IconSystemCheckS class="ico-system-check-s" />사업자 정보
@@ -217,6 +220,9 @@
               </ul>
             </div>
             <div class="sb-report-analyze-level-list-item level03">
+              <div class="sb-report-analyze-level-list-item__tooltip">
+                <p>현재 레벨</p>
+              </div>
               <div class="sb-report-analyze-level-list-item__line">
                 <IconProfileLevelLine class="ico-profile-level-line" />
               </div>
@@ -235,6 +241,9 @@
               </ul>
             </div>
             <div class="sb-report-analyze-level-list-item level04">
+              <div class="sb-report-analyze-level-list-item__tooltip">
+                <p>현재 레벨</p>
+              </div>
               <div class="sb-report-analyze-level-list-item__line">
                 <IconProfileLevelLine class="ico-profile-level-line" />
               </div>
