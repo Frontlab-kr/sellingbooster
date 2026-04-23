@@ -113,8 +113,7 @@
         width: 60px;
         height: 60px;
         z-index: 20;
-        cursor: default;
-        pointer-events: none;
+
         svg {
           color: var(--header-language-icon-color);
         }
@@ -164,15 +163,13 @@
           }
         }
       }
-      &.active &,
-      &:hover & {
+      &.active & {
         &-layer {
           opacity: 1;
           visibility: visible;
         }
       }
-      &.active,
-      &:hover {
+      &.active {
         .p-button {
           background: none;
           svg {
@@ -188,8 +185,7 @@
         width: 60px;
         height: 60px;
         z-index: 20;
-        cursor: default;
-        pointer-events: none;
+
         svg {
           color: var(--header-language-icon-color);
         }
@@ -312,15 +308,13 @@
           }
         }
       }
-      &.active &,
-      &:hover & {
+      &.active & {
         &-layer {
           opacity: 1;
           visibility: visible;
         }
       }
-      &.active,
-      &:hover {
+      &.active {
         > .p-button {
           background: none;
           svg {
@@ -383,8 +377,6 @@
           border-color var(--p-button-transition-duration),
           outline-color var(--p-button-transition-duration),
           box-shadow var(--p-button-transition-duration);
-        cursor: default;
-        pointer-events: none;
       }
       &__thumb {
         position: relative;
@@ -478,8 +470,7 @@
           }
         }
       }
-      &.active &,
-      &:hover & {
+      &.active & {
         &-layer {
           opacity: 1;
           visibility: visible;

@@ -47,7 +47,10 @@ const initChart = () => {
   const option = {
     backgroundColor: chartBackground,
     textStyle: { fontFamily: customFontFamily },
-
+    animationDuration: 0,
+    animationDurationUpdate: 600,
+    //animationDuration: 10,
+    //animationEasingUpdate: 'cubicOut',
     series: [
       {
         type: 'gauge',
@@ -92,7 +95,7 @@ const initChart = () => {
           },
         },
         axisLabel: { show: false }, // 숫자 라벨 숨김
-        data: [{ value: chartValue }],
+        data: [{ value: props.score }],
         detail: { show: false },
       },
     ],
@@ -102,9 +105,18 @@ const initChart = () => {
 };
 
 watch(
-  () => [props.score, props.endColor],
-  () => {
-    initChart();
+  () => props.score,
+  (newScore) => {
+    if (chart) {
+      // 차트 전체 초기화 없이 데이터만 가볍게 업데이트
+      chart.setOption({
+        series: [
+          {
+            data: [{ value: newScore }],
+          },
+        ],
+      });
+    }
   },
 );
 

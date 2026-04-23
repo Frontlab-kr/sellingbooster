@@ -1,5 +1,9 @@
 <template>
-  <header class="sb-header" :class="{ 'sb-header--search': isSearchOpen }">
+  <header
+    class="sb-header"
+    :class="{ 'sb-header--search': isSearchOpen }"
+    ref="headerRef"
+  >
     <NuxtLink to="/" class="sb-header-logo"> Selling Booster </NuxtLink>
     <div class="sb-header-gnb">
       <NuxtLink to="/trend/recommend" class="sb-header-gnb-item"
@@ -43,8 +47,8 @@
           </template>
         </Button>
       </div>
-      <div class="sb-header-language">
-        <Button rounded severity="white">
+      <div class="sb-header-language" :class="{ active: isLanguageOpen }">
+        <Button rounded severity="white" @click="toggleLayer('language')">
           <template #icon>
             <IconSystemGlobe class="ico-system-globe" />
           </template>
@@ -78,8 +82,11 @@
           </div>
         </div>
       </div>
-      <div class="sb-header-notification">
-        <Button rounded severity="white">
+      <div
+        class="sb-header-notification"
+        :class="{ active: isNotificationOpen }"
+      >
+        <Button rounded severity="white" @click="toggleLayer('notification')">
           <template #icon>
             <IconSystemBellOn class="ico-system-bell-on" />
           </template>
@@ -107,7 +114,11 @@
             <div class="sb-header-notification-center-text">
               <p>최근 7일간의 알림</p>
             </div>
-            <div class="sb-header-notification-center-list" v-scroll-end>
+            <div
+              class="sb-header-notification-center-list"
+              v-scroll-end
+              data-lenis-prevent
+            >
               <div class="sb-header-notification-center-list-scroll">
                 <NuxtLink
                   to="/"
@@ -146,8 +157,8 @@
           </Button>
         </NuxtLink>
       </div> -->
-      <div class="sb-header-user">
-        <button class="sb-header-user-button">
+      <div class="sb-header-user" :class="{ active: isUserOpen }">
+        <button class="sb-header-user-button" @click="toggleLayer('user')">
           <div class="sb-header-user__thumb">
             <IconProfileBadgeLevel1Small />
           </div>
@@ -272,6 +283,69 @@ watch(
   () => {
     updateTitle();
     isSearchOpen.value = false; // 페이지 이동하면 검색창 닫기
+  },
+  { immediate: true },
+);
+
+// 각 레이어 상태 관리
+const headerRef = ref(null);
+const isLanguageOpen = ref(false);
+const isNotificationOpen = ref(false);
+const isUserOpen = ref(false);
+
+// 통합 토글 함수 (하나가 열리면 나머지는 닫히도록 처리)
+const toggleLayer = (type) => {
+  if (type === 'language') {
+    isLanguageOpen.value = !isLanguageOpen.value;
+    isNotificationOpen.value = false;
+    isUserOpen.value = false;
+  } else if (type === 'notification') {
+    isNotificationOpen.value = !isNotificationOpen.value;
+    isLanguageOpen.value = false;
+    isUserOpen.value = false;
+  } else if (type === 'user') {
+    isUserOpen.value = !isUserOpen.value;
+    isLanguageOpen.value = false;
+    isNotificationOpen.value = false;
+  }
+
+  // 검색창이 열려있다면 닫기
+  if (isSearchOpen.value) isSearchOpen.value = false;
+};
+
+// 모든 레이어 닫기 함수
+const closeAllLayers = () => {
+  isSearchOpen.value = false;
+  isLanguageOpen.value = false;
+  isNotificationOpen.value = false;
+  isUserOpen.value = false;
+};
+
+// 외부 클릭 감지 로직
+const handleOutsideClick = (event) => {
+  // 클릭된 대상이 headerRef(헤더 전체) 내부에 포함되어 있지 않으면 닫기
+  if (headerRef.value && !headerRef.value.contains(event.target)) {
+    closeAllLayers();
+  }
+};
+
+onMounted(() => {
+  document.addEventListener('click', handleOutsideClick);
+});
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleOutsideClick);
+});
+
+// 페이지 이동 시 모든 레이어 닫기 (기존 watch문에 추가)
+watch(
+  () => route.path,
+  () => {
+    updateTitle();
+    isSearchOpen.value = false;
+    isLanguageOpen.value = false;
+    isNotificationOpen.value = false;
+    isUserOpen.value = false;
   },
   { immediate: true },
 );

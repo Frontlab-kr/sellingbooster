@@ -23,8 +23,8 @@
       </div>
       <div class="sb-service-word-title sb-gsap" ref="serviceWordTitle">
         <h1>
-          무엇을 팔아야 할지 아직도
-          <span class="text-primary">고민 중</span>이신가요?
+          무엇을 팔아야 할지<br class="mo" />
+          아직도 <span class="text-primary">고민 중</span>이신가요?
         </h1>
         <Button severity="primary" size="large" label="무료로 시작하기" />
       </div>
@@ -35,7 +35,10 @@
     </div>
     <div class="sb-service-dashboard">
       <div class="sb-service-dashboard__title" ref="serviceDashboardTitle">
-        <h2>셀링부스터는 흩어진 판매 데이터를</h2>
+        <h2>
+          셀링부스터는<br class="mo" />
+          흩어진 판매 데이터를
+        </h2>
         <h2>통합 대시보드로 제공합니다.</h2>
       </div>
       <div class="sb-service-dashboard-contents">
@@ -43,29 +46,46 @@
           class="sb-service-dashboard-image sb-gsap"
           ref="serviceDashboardImage"
         >
-          <img src="./../../../assets/images/service/dashboard.png" alt="" />
+          <div class="pc">
+            <img src="./../../../assets/images/service/dashboard.png" alt="" />
+          </div>
+          <div class="mo">
+            <img
+              src="./../../../assets/images/service/dashboard-mo.png"
+              alt=""
+            />
+          </div>
         </div>
         <div class="sb-service-dashboard-step">
           <div
             class="sb-service-dashboard-step-item sb-gsap"
             ref="serviceDashboardStep01"
           >
-            <strong>STEP 01</strong>
-            <h4>기회 발견</h4>
+            <strong><span class="pc">STEP</span> 01</strong>
+            <h4>
+              기회<br class="mo" />
+              발견
+            </h4>
           </div>
           <div
             class="sb-service-dashboard-step-item sb-gsap"
             ref="serviceDashboardStep02"
           >
-            <strong>STEP 02</strong>
-            <h4>가벼운 실행</h4>
+            <strong><span class="pc">STEP</span> 02</strong>
+            <h4>
+              가벼운<br class="mo" />
+              실행
+            </h4>
           </div>
           <div
             class="sb-service-dashboard-step-item sb-gsap"
             ref="serviceDashboardStep03"
           >
-            <strong>STEP 03</strong>
-            <h4>매출 모니터링</h4>
+            <strong><span class="pc">STEP</span> 03</strong>
+            <h4>
+              매출<br class="mo" />
+              모니터링
+            </h4>
           </div>
         </div>
       </div>
@@ -76,23 +96,48 @@
     </div>
     <div class="sb-service-introduce">
       <div class="sb-service-introduce-card" ref="serviceIntroduce01">
-        <img src="./../../../assets/images/service/introduce01.png" alt="" />
+        <div class="pc">
+          <img src="./../../../assets/images/service/introduce01.png" alt="" />
+        </div>
+        <div class="mo">
+          <img
+            src="./../../../assets/images/service/introduce01-mo.png"
+            alt=""
+          />
+        </div>
       </div>
       <div class="sb-service-introduce-card" ref="serviceIntroduce02">
-        <img src="./../../../assets/images/service/introduce02.png" alt="" />
+        <div class="pc">
+          <img src="./../../../assets/images/service/introduce02.png" alt="" />
+        </div>
+        <div class="mo">
+          <img
+            src="./../../../assets/images/service/introduce02-mo.png"
+            alt=""
+          />
+        </div>
       </div>
       <div class="sb-service-introduce-card" ref="serviceIntroduce03">
-        <img src="./../../../assets/images/service/introduce03.png" alt="" />
+        <div class="pc">
+          <img src="./../../../assets/images/service/introduce03.png" alt="" />
+        </div>
+        <div class="mo">
+          <img
+            src="./../../../assets/images/service/introduce03-mo.png"
+            alt=""
+          />
+        </div>
       </div>
     </div>
     <div class="sb-service-loadmap">
       <div class="sb-service-loadmap__title sb-gsap" ref="serviceLoadmapTitle">
         <h2>
-          셀링부스터는 셀러의 성장단계에 맞는<br />
+          셀링부스터는<br class="mo" />
+          셀러의 성장단계에 맞는<br />
           로드맵을 제공합니다.
         </h2>
       </div>
-      <div class="sb-service-loadmap-list">
+      <div class="sb-service-loadmap-list" ref="serviceLoadmapList">
         <div class="sb-service-loadmap-list-item level01 active">
           <div class="sb-service-loadmap-list-item__tooltip">
             <p>이커머스 진입 준비</p>
@@ -104,7 +149,7 @@
               </div>
               <h4>VISITER</h4>
             </div>
-            <SbChartLoadmap :score="36" end-color="#FFC13D" />
+            <SbChartLoadmap :score="scores[0]" end-color="#FFC13D" />
           </div>
           <ul>
             <li>
@@ -129,7 +174,7 @@
               </div>
               <h4>STARTER</h4>
             </div>
-            <SbChartLoadmap :score="36" end-color="#FB7310" />
+            <SbChartLoadmap :score="scores[1]" end-color="#FB7310" />
           </div>
           <div class="sb-service-loadmap-list-item__line">
             <IconProfileLevelLine class="ico-profile-level-line" />
@@ -154,7 +199,7 @@
               </div>
               <h4>BOOSTER</h4>
             </div>
-            <SbChartLoadmap :score="36" end-color="#F04755" />
+            <SbChartLoadmap :score="scores[2]" end-color="#F04755" />
           </div>
 
           <div class="sb-service-loadmap-list-item__line">
@@ -185,7 +230,7 @@
               </div>
               <h4>MASTER</h4>
             </div>
-            <SbChartLoadmap :score="36" end-color="#6466FA" />
+            <SbChartLoadmap :score="scores[3]" end-color="#6466FA" />
           </div>
 
           <div class="sb-service-loadmap-list-item__line">
@@ -214,7 +259,7 @@
           생태계를 만듭니다.
         </h2>
       </div>
-      <div class="sb-service-ecosystem-card">
+      <div class="sb-service-ecosystem-card sb-gsap" ref="serviceEcosystemCard">
         <div class="sb-service-ecosystem-card-item">
           <img src="./../../../assets/images/service/ecosystem01.png" alt="" />
         </div>
@@ -238,19 +283,25 @@
     </div>
     <div class="sb-service-foot" ref="serviceFoot">
       <div class="sb-service-map">
-        <Map />
+        <div class="pc">
+          <img src="./../../../assets/images/service/map.png" alt="" />
+        </div>
+        <div class="mo">
+          <img src="./../../../assets/images/service/map-mo.png" alt="" />
+        </div>
       </div>
       <div class="sb-service-foot__contents" ref="serviceFootContents">
         <div class="sb-service-foot__title">
           <h1>
             지금,<br />
-            셀링부스터를 무료로 시작하세요
+            셀링부스터를<br class="mo" />
+            무료로 시작하세요
           </h1>
           <p>당신도 셀러로 성공할 수 있습니다!</p>
         </div>
         <div class="sb-service-foot__button">
           <Button
-            severity="primary"
+            severity="contrast"
             outlined
             size="large"
             label="서비스 소개서 다운로드"
@@ -270,7 +321,6 @@ definePageMeta({
 import { ref, onMounted, onUnmounted, computed, watch, nextTick } from 'vue';
 import IconSystemCheckS from '@/assets/icons/system/check-s.svg?component';
 import IconProfileLevelLine from '@/assets/icons/profile/level-line.svg?component';
-import Map from './map.vue';
 import SbChartLoadmap from './SbChartLoadmap.vue';
 
 //animation
@@ -291,11 +341,15 @@ const serviceDashboardStep01 = ref(null);
 const serviceDashboardStep02 = ref(null);
 const serviceDashboardStep03 = ref(null);
 const serviceLoadmapTitle = ref(null);
+const serviceLoadmapList = ref(null);
 const serviceEcosystemTitle = ref(null);
+const serviceEcosystemCard = ref(null);
 const serviceGlobal = ref(null);
 const serviceGlobalTitle = ref(null);
 const serviceFootContents = ref(null);
 const serviceFoot = ref(null);
+
+const scores = ref([0, 0, 0, 0]);
 
 onMounted(() => {
   // --- A. Lenis 초기화 ---
@@ -326,6 +380,7 @@ onMounted(() => {
       end: '+=2500', // 타이틀 애니메이션 시간을 확보하기 위해 길이를 늘려줍니다.
       pin: true,
       scrub: 1,
+      invalidateOnRefresh: true,
       onUpdate: (self) => {
         // 단어들이 다 나오는 시점(전체 2500px 중 약 50~60% 지점)을 계산
         // 진행도(progress)가 0.5(50%)를 넘어가면 end 추가, 아니면 제거
@@ -346,6 +401,7 @@ onMounted(() => {
         onStart: () => word.classList.add('active'),
         onReverseComplete: () => word.classList.remove('active'),
         duration: 0.5,
+        invalidateOnRefresh: true,
       },
       index === 0 ? '0' : '>0.2', // 첫 번째 단어는 즉시, 나머지는 간격을 둡니다.
     );
@@ -355,12 +411,13 @@ onMounted(() => {
   // ">0.5"는 마지막 단어가 활성화된 지점으로부터 약간 뒤에 시작한다는 의미입니다.
   tl.fromTo(
     serviceWordTitle.value,
-    { y: 100, opacity: 0 },
+    { y: 40, opacity: 0 },
     {
       y: 0,
       opacity: 1,
       duration: 1, // 스크롤 진행 비율에 따른 상대적 시간
       ease: 'power2.out',
+      invalidateOnRefresh: true,
     },
     '>0.5',
   );
@@ -369,8 +426,9 @@ onMounted(() => {
   // 단독 ScrollTrigger보다는 타임라인에 넣는 것이 싱크 맞추기 편합니다.
   tl.fromTo(
     serviceWordBackground.value,
-    { right: '-240px' },
+    { bottom: '284px', right: '-232px' },
     {
+      bottom: '120px',
       right: '-106px',
       ease: 'power2.out',
       duration: tl.duration(), // 타임라인 전체 길이에 걸쳐 부드럽게 이동
@@ -388,6 +446,7 @@ onMounted(() => {
     },
     '>0.5',
   );
+  tl.to({}, { duration: 2 });
 
   gsap.fromTo(
     serviceDashboardTitle.value,
@@ -473,7 +532,7 @@ onMounted(() => {
     '>',
   );
 
-  // --- Introduce 섹션 카스 스택 애니메이션 ---
+  // --- Introduce 섹션 수정 코드 ---
   const introduceSection = document.querySelector('.sb-service-introduce');
   const introCards = introduceSection.querySelectorAll(
     '.sb-service-introduce-card',
@@ -481,43 +540,45 @@ onMounted(() => {
 
   introCards.forEach((card, index) => {
     const isLast = index === introCards.length - 1;
-    const img = card.querySelector('img'); // 카드 내부의 실제 콘텐츠(이미지)
+
+    // 수정: 특정 이미지가 아니라 이미지들을 감싸고 있는 div들을 타겟팅합니다.
+    // 또는 card 내부에 애니메이션용 래퍼를 따로 두지 않았다면 .pc와 .mo 모두를 선택합니다.
+    const animatedContent = card.querySelectorAll('.pc, .mo');
 
     if (!isLast) {
       // 1. 카드가 뒤로 눕고 작아지는 효과
-      gsap.to(img, {
-        rotationX: 20, // 뒤로 기울어짐
-        rotationZ: (index % 2 === 0 ? 1 : -1) * 3, // 살짝 지그재그 회전
-        scale: 0.8, // 작아짐
-        y: -50, // 위로 살짝 이동
+      gsap.to(animatedContent, {
+        rotationX: 20,
+        rotationZ: (index % 2 === 0 ? 1 : -1) * 3,
+        scale: 0.8,
+        y: -50,
         ease: 'power1.inOut',
         scrollTrigger: {
           trigger: card,
-          start: 'top top', // 카드가 상단에 닿을 때 시작
-          end: '+=80%', // 다음 카드가 올라올 때까지 유지
+          start: 'top top',
+          end: '+=80%',
           scrub: true,
-          pin: true, // 현재 카드를 화면에 고정
-          pinSpacing: false, // 중요: 다음 카드가 아래에서 겹치며 올라오게 함
+          pin: true,
+          pinSpacing: false,
         },
       });
 
-      // 2. 다음 카드가 거의 다 왔을 때 현재 카드 투명하게 만들기
-      gsap.to(img, {
+      // 2. 투명도 조절
+      gsap.to(animatedContent, {
         opacity: 0,
         scrollTrigger: {
           trigger: card,
-          start: 'top+=70% top', // 70% 정도 스크롤 되었을 때부터
-          end: 'top+=100% top', // 100% 지점에서 완전히 사라짐
+          start: 'top+=70% top',
+          end: 'top+=100% top',
           scrub: true,
         },
       });
     } else {
-      // 마지막 카드는 고정만 시키고 다음 섹션으로 넘어가게 함
       ScrollTrigger.create({
         trigger: card,
         start: 'top top',
         pin: true,
-        pinSpacing: true, // 마지막 카드는 공간을 확보해야 다음 섹션이 밀려나지 않음
+        pinSpacing: true,
       });
     }
   });
@@ -539,11 +600,29 @@ onMounted(() => {
     },
   );
 
+  gsap.fromTo(
+    serviceLoadmapList.value,
+    { y: 40, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: serviceLoadmapList.value,
+        start: 'top 50%',
+        end: 'top 40%',
+        scrub: 1,
+      },
+    },
+  );
+
   // --- Loadmap 섹션 순차 활성화 애니메이션 ---
-  const loadmapSection = document.querySelector('.sb-service-loadmap');
-  const loadmapItems = document.querySelectorAll(
+
+  const loadmapItems = serviceLoadmapList.value.querySelectorAll(
     '.sb-service-loadmap-list-item',
   );
+  const loadmapSection = document.querySelector('.sb-service-loadmap');
 
   const loadmapTl = gsap.timeline({
     scrollTrigger: {
@@ -557,29 +636,48 @@ onMounted(() => {
 
   // 타이틀이 이미 위에서 나오고 있으므로, 여기서는 아이템 활성화에 집중합니다.
   loadmapItems.forEach((item, index) => {
-    // 첫 번째 아이템은 이미 active일 수 있으므로 인덱스에 따라 처리
+    const targetScoreValue = 36; // 목표 점수: 25, 50, 75, 100
+
     loadmapTl.to(
       item,
       {
         duration: 0.5,
         onStart: () => {
-          // 현재 아이템 활성화 및 나머지 비활성화 (선택 사항)
-          loadmapItems.forEach((el) => el.classList.remove('active'));
+          // 1. 클래스 활성화
           item.classList.add('active');
+
+          // 2. 해당 인덱스의 스코어만 애니메이션
+          // scores.value[index]를 직접 타겟팅하기 위해 임시 객체를 활용하는 것이 가장 안전합니다.
+          const tempObj = { val: scores.value[index] };
+
+          gsap.to(tempObj, {
+            val: targetScoreValue,
+            duration: 1, // 1초 동안 부드럽게 상승
+            ease: 'power2.out',
+            onUpdate: () => {
+              // 계산된 값을 실제 ref 배열에 할당하고, 새 배열로 복사하여 반응성 트리거
+              scores.value[index] = tempObj.val;
+              scores.value = [...scores.value];
+            },
+          });
         },
         onReverseComplete: () => {
-          // 역방향 스크롤 시 이전 아이템으로 active 복구
           item.classList.remove('active');
-          if (index > 0) {
-            loadmapItems[index - 1].classList.add('active');
-          } else {
-            // 첫 번째 아이템에서 역방향으로 나갈 때
-            loadmapItems[0].classList.add('active');
-          }
+
+          // 역방향 스크롤 시 다시 0으로 내림
+          const tempObj = { val: scores.value[index] };
+          gsap.to(tempObj, {
+            val: 0,
+            duration: 0.5,
+            onUpdate: () => {
+              scores.value[index] = tempObj.val;
+              scores.value = [...scores.value];
+            },
+          });
         },
       },
-      index === 0 ? '+=0.1' : '+=0.5',
-    ); // 아이템 간의 간격 조절
+      index === 0 ? '+=0.2' : '+=0.5', // 간격을 조금씩 둬서 스크롤 시점을 명확히 함
+    );
   });
 
   gsap.fromTo(
@@ -594,6 +692,23 @@ onMounted(() => {
         trigger: serviceEcosystemTitle.value,
         start: 'top 80%',
         end: 'top 60%',
+        scrub: 1,
+      },
+    },
+  );
+
+  gsap.fromTo(
+    serviceEcosystemCard.value,
+    { y: 40, opacity: 0 },
+    {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: serviceEcosystemCard.value,
+        start: 'top 60%',
+        end: 'top 40%',
         scrub: 1,
       },
     },
