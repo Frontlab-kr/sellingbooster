@@ -9,12 +9,11 @@
       <div class="sb-seller-extension-dashboard">
         <div class="sb-seller-extension-dashboard-status">
           <div class="sb-seller-extension-dashboard-status-chart">
-            <SbChartGaugeCircle :score="72" />
+            <SbChartGaugeCircle :score="0" />
             <div class="sb-seller-extension-dashboard-status-chart__text">
               <p>달성율</p>
               <div class="sb-seller-extension-dashboard-status-chart__percent">
-                <h1>72</h1>
-                <h3>%</h3>
+                <h1 style="color: var(--p-gray-300)">-</h1>
               </div>
             </div>
           </div>
@@ -28,99 +27,19 @@
               </p>
             </div>
             <div class="sb-seller-extension-dashboard-status-price">
-              <dl>
-                <dt>목표 금액</dt>
-                <dd>
-                  <h4>12,680,760원</h4>
-                </dd>
-              </dl>
-              <dl>
-                <dt>달성 금액</dt>
-                <dd>
-                  <h4>5,706,342원</h4>
-                </dd>
-              </dl>
+              <div class="sb-seller-extension-dashboard-status-none">
+                <strong>막연한 매출은 그만! 진짜 목표를 세울 때입니다.</strong
+                ><br />
+                목표 금액이 너무 거창할 필요는 없습니다.<br />
+                작은 시작이 큰 차이를 만듭니다.
+              </div>
             </div>
             <div class="sb-seller-extension-dashboard-status-product">
-              <dl>
-                <dt>판매 상품</dt>
-                <dd>
-                  <div
-                    class="sb-seller-extension-dashboard-status-product-list"
-                    v-scroll-end
-                  >
-                    <div
-                      class="sb-seller-extension-dashboard-status-product-list-scroll"
-                    >
-                      <div
-                        class="sb-seller-extension-dashboard-status-product-item"
-                        v-tooltip.top="{
-                          value: `<div class='sb-tooltip-product'>
-              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
-              <p><strong class='text-success'>148</strong>/130개</p>
-            </div>`,
-                          escape: false,
-                        }"
-                      >
-                        <img src="https://picsum.photos/200/300" alt="" />
-                        <p><strong>72</strong>/100개</p>
-                      </div>
-                      <div
-                        class="sb-seller-extension-dashboard-status-product-item"
-                        v-tooltip.top="{
-                          value: `<div class='sb-tooltip-product'>
-              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
-              <p><strong class='text-success'>148</strong>/130개</p>
-            </div>`,
-                          escape: false,
-                        }"
-                      >
-                        <img src="https://picsum.photos/200/300" alt="" />
-                        <p><strong>48</strong>/100개</p>
-                      </div>
-                      <div
-                        class="sb-seller-extension-dashboard-status-product-item"
-                        v-tooltip.top="{
-                          value: `<div class='sb-tooltip-product'>
-              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
-              <p><strong class='text-success'>148</strong>/130개</p>
-            </div>`,
-                          escape: false,
-                        }"
-                      >
-                        <img src="https://picsum.photos/200/300" alt="" />
-                        <p><strong>20</strong>/60개</p>
-                      </div>
-                      <div
-                        class="sb-seller-extension-dashboard-status-product-item"
-                        v-tooltip.top="{
-                          value: `<div class='sb-tooltip-product'>
-              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
-              <p><strong class='text-success'>148</strong>/130개</p>
-            </div>`,
-                          escape: false,
-                        }"
-                      >
-                        <img src="https://picsum.photos/200/300" alt="" />
-                        <p><strong>52</strong>/80개</p>
-                      </div>
-                      <div
-                        class="sb-seller-extension-dashboard-status-product-item"
-                        v-tooltip.top="{
-                          value: `<div class='sb-tooltip-product'>
-              <p>폴햄 여성 플리스 스트레이트 팬츠 상품명은 영역 전체 상품명 다 툴팁으로 노출</p>
-              <p><strong class='text-success'>148</strong>/130개</p>
-            </div>`,
-                          escape: false,
-                        }"
-                      >
-                        <img src="https://picsum.photos/200/300" alt="" />
-                        <p><strong>72</strong>/100개</p>
-                      </div>
-                    </div>
-                  </div>
-                </dd>
-              </dl>
+              <div class="sb-seller-extension-dashboard-status-none">
+                판매 상품을 정해놓으신 것이 있으신가요?<br />
+                <strong>목표 수정에서 상품을 설정</strong> 해주세요.<br />
+                목표 판매량을 실시간으로 확인할 수 있습니다.
+              </div>
             </div>
           </div>
         </div>

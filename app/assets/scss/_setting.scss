@@ -757,7 +757,7 @@
     &-extension {
       padding: 40px 56px;
       border-radius: 32px;
-      background: var(--Gray-00, #fff);
+      background: var(--extension-background);
       &-head {
         display: flex;
         align-items: center;
@@ -784,11 +784,14 @@
         min-height: 340px;
         padding: 24px;
         border-radius: 16px;
-        border: 1px solid var(--Gray-300, #d1d6dd);
-        background: var(--Gray-00, #fff);
+        border: 1px solid var(--extension-index-border-color);
+        .ico-illustration-empty-flag {
+          --path-color-1: var(--ico-illustration-empty-flag-color1);
+          --path-color-2: var(--ico-illustration-empty-flag-color2);
+        }
         &__text {
           margin: 8px 0 32px 0;
-          color: var(--Text_Light-400---eaplanation, #9aa3af);
+          color: var(--extension-index-text-color);
           text-align: center;
           font-size: 16px;
           font-style: normal;
@@ -796,14 +799,16 @@
           line-height: 140%; /* 22.4px */
           letter-spacing: -0.4px;
         }
+        .p-button {
+          min-width: auto !important;
+        }
       }
       &-table {
         &-head {
           display: flex;
           margin-bottom: 40px;
           strong {
-            color: var(--Text_Light-900---mian, #1b1f27);
-
+            color: var(--title-color);
             font-size: 16px;
             font-style: normal;
             font-weight: 700;
@@ -815,20 +820,20 @@
           .p-datatable-tbody > tr > td {
             height: 80px;
           }
+          .ico-illustration-smile {
+            --path-color-1: var(--ico-illustration-smile-color1);
+            --path-color-2: var(--ico-illustration-smile-color2);
+          }
         }
       }
       &-foot {
         margin-top: 40px;
         padding-top: 40px;
-        border-top: 1px dashed #d1d6dd;
+        border-top: 1px dashed var(--extension-foot-border-color);
       }
       &-dashboard {
         display: flex;
         gap: 12px;
-
-        @media screen and (max-width: 1800px) {
-          flex-direction: column;
-        }
         &-status {
           display: flex;
           // align-items: center;
@@ -836,7 +841,7 @@
           width: 100%;
           padding: 0 40px 0 0;
           border-radius: 170px 16px 16px 170px;
-          background: var(--Gray-50, #f9fbfc);
+          background: var(--extension-dashboard-status-background);
           &-contents {
             width: 100%;
             padding: 26px 0 0 0;
@@ -854,7 +859,7 @@
               height: 42px;
               margin: 0;
               padding: 0;
-              color: var(--Text_Light-500---sub, #6a7381);
+              color: var(--extension-dashboard-status-title-color);
               font-size: 16px;
               font-style: normal;
               font-weight: 700;
@@ -884,7 +889,7 @@
               justify-content: center;
               p {
                 margin: 0;
-                color: var(--Text_Light-500---sub, #6a7381);
+                color: var(--extension-dashboard-status-chart-text-color);
                 font-size: 20px;
                 font-style: normal;
                 font-weight: 700;
@@ -896,9 +901,11 @@
               display: flex;
               align-items: center;
               gap: 4px;
+              h1,
+              h3 {
+                color: var(--title-color);
+              }
             }
-          }
-          &-contents {
           }
           &-date {
             display: flex;
@@ -906,11 +913,12 @@
             justify-content: space-between;
             margin-bottom: 20px;
             padding-bottom: 20px;
-            border-bottom: 1px dashed #d1d6dd;
+            border-bottom: 1px dashed
+              var(--extension-dashboard-status-border-color);
             label {
               margin: 0;
               padding: 0;
-              color: var(--Text_Light-500---sub, #6a7381);
+              color: var(--extension-dashboard-status-title-color);
               font-size: 16px;
               font-style: normal;
               font-weight: 400;
@@ -922,7 +930,7 @@
               align-items: center;
               gap: 8px;
               margin: 0;
-              color: var(--Text_Light-900---mian, #1b1f27);
+              color: var(--title-color);
               font-size: 16px;
               font-style: normal;
               font-weight: 700;
@@ -936,7 +944,8 @@
             gap: 12px;
             margin-bottom: 20px;
             padding-bottom: 20px;
-            border-bottom: 1px dashed #d1d6dd;
+            border-bottom: 1px dashed
+              var(--extension-dashboard-status-border-color);
             dl {
               margin: 0;
               padding: 0;
@@ -963,7 +972,9 @@
               }
               p {
                 margin: 4px 0 0 0;
-                color: var(--Text_Light-500---sub, #6a7381);
+                color: var(
+                  --extension-dashboard-status-product-item-text-color
+                );
                 font-size: 14px;
                 font-style: normal;
                 font-weight: 400;
@@ -971,7 +982,7 @@
                 letter-spacing: -0.35px;
                 text-align: center;
                 strong {
-                  color: var(--Text_Light-900---mian, #1b1f27);
+                  color: var(--title-color);
                 }
               }
             }
@@ -1013,12 +1024,22 @@
               }
             }
           }
+          &-none {
+            padding: 12px 0;
+            color: var(--extension-dashboard-status-none-color);
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%; /* 22.4px */
+            letter-spacing: -0.4px;
+          }
         }
-
         &-ai {
           min-width: 494px;
+          width: 494px;
           border-radius: 16px;
-          background: var(--Gray-50, #f9fbfc);
+          background: var(--extension-dashboard-status-background);
 
           @include custom-scrollbar-blur();
           &.is-scroll-end {
@@ -1078,6 +1099,12 @@
           justify-content: center;
           gap: 8px;
           margin-top: 24px;
+        }
+        @media screen and (max-width: 1800px) {
+          flex-direction: column;
+          &-ai {
+            width: 100%;
+          }
         }
       }
     }

@@ -48,7 +48,10 @@
               />
             </div>
             <div class="sb-dialog-extension-write-search-body">
-              <div class="sb-dialog-extension-write-search-list" v-scroll-end>
+              <div
+                class="sb-dialog-extension-write-search-list sb-dialog-extension-write-search-list--modify"
+                v-scroll-end
+              >
                 <div class="sb-dialog-extension-write-search-list-scroll">
                   <div
                     v-for="item in productList"
@@ -84,16 +87,6 @@
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="sb-dialog-extension-write-search-button">
-                <Button variant="text" disabled>
-                  <IconSystemCheckS class="ico-system-check-s" />
-                  <span class="p-button-label">선택 완료</span>
-                </Button>
-                <Button variant="text">
-                  <IconSystemCheckS class="ico-system-check-s" />
-                  <span class="p-button-label">선택 완료</span>
-                </Button>
               </div>
             </div>
           </div>
@@ -154,6 +147,25 @@ const productList = [
   },
   {
     id: 3,
+    thumbnail: 'https://picsum.photos/200/200',
+    title: '폴햄 여성 플리스 스트레이트 팬츠',
+    price: '79,410원',
+  },
+  {
+    id: 4,
+    thumbnail: 'https://picsum.photos/200/300',
+    title:
+      '[2종세트] 26SS 루즈 스트레이트 데님 [2종세트] 26SS 루즈 스트레이트 데님[2종세트] 26SS 루즈 스트레이트 데님 [2종세트] 26SS 루즈 스트레이트 데님',
+    price: '79,410원',
+  },
+  {
+    id: 5,
+    thumbnail: 'https://picsum.photos/200/200',
+    title: '폴햄 여성 플리스 스트레이트 팬츠',
+    price: '79,410원',
+  },
+  {
+    id: 6,
     thumbnail: 'https://picsum.photos/200/200',
     title: '폴햄 여성 플리스 스트레이트 팬츠',
     price: '79,410원',

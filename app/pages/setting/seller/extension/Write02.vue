@@ -53,6 +53,7 @@
                     v-for="item in productList"
                     :key="item.id"
                     class="sb-dialog-extension-write-search-list-item"
+                    @click="toggleSelection(item.id)"
                   >
                     <div
                       class="sb-dialog-extension-write-search-list-item__check"
@@ -64,6 +65,7 @@
                             :inputId="'agreeCheck' + item.id"
                             :value="item.id"
                             @change="checkMaxSelection"
+                            @click.stop
                           />
                         </div>
                       </div>
@@ -154,6 +156,19 @@ const productList = [
     title: '폴햄 여성 플리스 스트레이트 팬츠',
     price: '79,410원',
   },
+  {
+    id: 3,
+    thumbnail: 'https://picsum.photos/200/300',
+    title:
+      '[2종세트] 26SS 루즈 스트레이트 데님 [2종세트] 26SS 루즈 스트레이트 데님[2종세트] 26SS 루즈 스트레이트 데님 [2종세트] 26SS 루즈 스트레이트 데님',
+    price: '79,410원',
+  },
+  {
+    id: 4,
+    thumbnail: 'https://picsum.photos/200/200',
+    title: '폴햄 여성 플리스 스트레이트 팬츠',
+    price: '79,410원',
+  },
 ];
 
 const confirm = useConfirm();
@@ -166,5 +181,26 @@ const confirm1 = () => {
       label: '확인',
     },
   });
+};
+
+const toggleSelection = (id) => {
+  const index = selectedProducts.value.indexOf(id);
+
+  if (index > -1) {
+    selectedProducts.value.splice(index, 1);
+  } else {
+    if (selectedProducts.value.length >= 5) {
+      confirm1();
+      return;
+    }
+    selectedProducts.value.push(id);
+  }
+};
+
+const checkMaxSelection = (event) => {
+  if (selectedProducts.value.length > 5) {
+    selectedProducts.value.pop();
+    confirm1();
+  }
 };
 </script>

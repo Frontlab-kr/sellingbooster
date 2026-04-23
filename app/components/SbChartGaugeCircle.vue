@@ -59,7 +59,7 @@ const initChart = () => {
   const colorEnd = getCssVar('--chart-gauge-circle-end-color');
   const colorLine = getCssVar('--chart-gauge-circle-line-color');
 
-  const rate = 36;
+  const isZero = props.score === 0;
 
   const option = {
     backgroundColor: chartBackground,
@@ -73,7 +73,7 @@ const initChart = () => {
         radius: '97%',
         pointer: { show: false },
         progress: {
-          show: true,
+          show: !isZero,
           overlap: false,
           roundCap: true,
           clip: false,
@@ -118,7 +118,7 @@ const initChart = () => {
         endAngle: -270,
         z: 3,
         pointer: {
-          show: true,
+          show: !isZero,
           icon: 'circle',
           length: '243%',
           width: 12,

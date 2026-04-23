@@ -1120,6 +1120,19 @@
   --alarm-view-data-color: var(--p-gray-400);
   --alarm-view-contents-color: var(--p-gray-900);
 
+  //extension
+  --extension-background: var(--p-gray-00);
+  --extension-index-border-color: var(--p-gray-300);
+  --extension-index-text-color: var(--p-gray-400);
+  --extension-foot-border-color: var(--p-gray-300);
+
+  --extension-dashboard-status-background: var(--p-gray-50);
+  --extension-dashboard-status-title-color: var(--p-gray-500);
+  --extension-dashboard-status-border-color: var(--p-gray-300);
+  --extension-dashboard-status-chart-text-color: var(--p-gray-500);
+  --extension-dashboard-status-product-item-text-color: var(--p-gray-500);
+  --extension-dashboard-status-none-color: var(--p-gray-400);
+
   //popover
   --popover-search-history-list-item-background: var(--p-gray-50);
   --popover-search-history-list-head-color: var(--p-gray-400);
@@ -1172,6 +1185,13 @@
   --dialog-notification-list-item-background: var(--p-gray-50);
   --dialog-notification-list-item-text-color: var(--p-gray-400);
   --dialog-notification-list-item-title-color: var(--p-gray-900);
+  --dialog-notification-list-item-button-color: var(--p-gray-200);
+  --dialog-extension-write-body-border-color: var(--p-gray-300);
+  --dialog-extension-write-search-list-item-input-border-color: var(
+    --p-gray-300
+  );
+  --dialog-extension-write-search-list-item-input-text-color: var(--p-gray-600);
+  --dialog-extension-write-search-button-border-color: var(--p-gray-200);
 
   //price setting
   --price-setting-background: var(--p-gray-50);
@@ -1206,6 +1226,8 @@
   --feedback-button-color: var(--p-gray-900);
   --feedback-button-boxshadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
 
+  --tooltip-product-text-color: var(--p-gray-00);
+
   //swiper
   --swiper-controls-button-background: var(--p-gray-50);
   --swiper-controls-ico-color: var(--p-gray-500);
@@ -1229,6 +1251,8 @@
   --ico-illustration-frown-color2: var(--p-gray-400);
   --ico-illustration-frown-color3: var(--p-gray-300);
   --ico-illustration-frown-color4: var(--p-gray-400);
+  --ico-illustration-empty-flag-color1: var(--p-gray-300);
+  --ico-illustration-empty-flag-color2: var(--p-gray-400);
 
   &.p-dark,
   .p-dark {
@@ -2086,6 +2110,19 @@
     --alarm-view-data-color: var(--p-gray-400);
     --alarm-view-contents-color: var(--p-gray-00);
 
+    //extension
+    --extension-background: var(--p-gray-800);
+    --extension-index-border-color: var(--p-gray-600);
+    --extension-index-text-color: var(--p-gray-400);
+    --extension-foot-border-color: var(--p-gray-600);
+
+    --extension-dashboard-status-background: var(--p-gray-900);
+    --extension-dashboard-status-title-color: var(--p-gray-300);
+    --extension-dashboard-status-border-color: var(--p-gray-600);
+    --extension-dashboard-status-chart-text-color: var(--p-gray-300);
+    --extension-dashboard-status-product-item-text-color: var(--p-gray-300);
+    --extension-dashboard-status-none-color: var(--p-gray-400);
+
     //popover
     --popover-search-history-list-item-background: var(--p-gray-700);
     --popover-search-history-list-head-color: var(--p-gray-400);
@@ -2138,6 +2175,15 @@
     --dialog-notification-list-item-background: var(--p-gray-700);
     --dialog-notification-list-item-text-color: var(--p-gray-400);
     --dialog-notification-list-item-title-color: var(--p-gray-00);
+    --dialog-notification-list-item-button-color: var(--p-gray-800);
+    --dialog-extension-write-body-border-color: var(--p-gray-600);
+    --dialog-extension-write-search-list-item-input-border-color: var(
+      --p-gray-600
+    );
+    --dialog-extension-write-search-list-item-input-text-color: var(
+      --p-gray-00
+    );
+    --dialog-extension-write-search-button-border-color: var(--p-gray-600);
 
     //price setting
     --price-setting-background: var(--p-gray-900);
@@ -2171,6 +2217,8 @@
     --feedback-button-background: var(--p-gray-00);
     --feedback-button-color: var(--p-gray-900);
     --feedback-button-boxshadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
+
+    --tooltip-product-text-color: var(--p-gray-900);
 
     //swiper
     --swiper-controls-button-background: var(--p-gray-700);

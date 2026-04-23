@@ -9,7 +9,7 @@
       max-width: 200px;
       p {
         margin: 0;
-        color: var(--Gray-00, #fff);
+        color: var(--tooltip-product-text-color);
         font-size: 12px;
         font-style: normal;
         font-weight: 400;
@@ -227,8 +227,6 @@
           span {
             color: var(--Text_Light-500---sub, #6a7381);
 
-            /* Body/Medium-Regular */
-            font-family: 'Pretendard JP';
             font-size: 14px;
             font-style: normal;
             font-weight: 400;

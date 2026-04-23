@@ -57,7 +57,7 @@
         </div>
       </div>
       <div class="sb-dialog-extension-write-button">
-        <Button severity="primary" label="목표 세우기" />
+        <Button severity="primary" label="목표 세우기" disabled />
       </div>
     </div>
   </div>
