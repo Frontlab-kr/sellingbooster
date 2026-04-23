@@ -34,6 +34,7 @@
 </template>
 
 <script setup>
+import { onMounted, onUnmounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import { useToast } from 'primevue/usetoast';
 import IconillustrationPc from '@/assets/icons/illustration/pc.svg?component';
@@ -46,6 +47,18 @@ const route = useRoute();
 const goBack = () => {
   router.back();
 };
+
+const layoutClass = useState('globalLayoutClass');
+
+onMounted(() => {
+  // 컴포넌트가 나타날 때 클래스 추가
+  layoutClass.value = 'sb--mobile-info';
+});
+
+onUnmounted(() => {
+  // 컴포넌트가 사라질 때 클래스 초기화 (중요!)
+  layoutClass.value = '';
+});
 
 //toast
 const toast = useToast();

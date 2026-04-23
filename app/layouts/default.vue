@@ -2,6 +2,7 @@
   <div
     :class="[
       'sb',
+      layoutClass,
       route.meta.layoutClass,
       {
         'sb--fold': isFolded,
@@ -18,6 +19,7 @@
 
 <script setup>
 const route = useRoute();
+const layoutClass = useState('globalLayoutClass', () => '');
 const isFolded = useState('isFolded', () => false);
 const isMoMenuOpen = useState('isMoMenuOpen', () => false);
 </script>

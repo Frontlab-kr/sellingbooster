@@ -25,6 +25,7 @@
           @search="onSearch"
           placeholder="검색어를 입력하세요."
           size="large"
+          class="focus"
         />
         <div class="sb-header-search__toggle">
           <Button rounded severity="white" @click="toggleSearch">
