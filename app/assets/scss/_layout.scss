@@ -66,7 +66,7 @@
         box-shadow: var(--header-menu-layer-boxshadow);
         opacity: 0;
         visibility: hidden;
-        transition: all 0.4s ease;
+        transition: all 0s ease;
       }
     }
     &-search {
@@ -117,8 +117,12 @@
         svg {
           color: var(--header-language-icon-color);
         }
-        &:hover {
-          background: none !important;
+      }
+      &.active {
+        > .p-button {
+          &:hover {
+            background: none !important;
+          }
         }
       }
       &-layer {
@@ -129,7 +133,7 @@
           position: absolute;
           top: -57px;
           right: -11px;
-          width: 178px;
+          width: 92px;
           height: 57px;
           background: var(--header-menu-layer-background-image);
           background-size: 178px auto;
@@ -189,8 +193,12 @@
         svg {
           color: var(--header-language-icon-color);
         }
-        &:hover {
-          background: none !important;
+      }
+      &.active {
+        > .p-button {
+          &:hover {
+            background: none !important;
+          }
         }
       }
       &-layer {
@@ -200,7 +208,7 @@
           position: absolute;
           top: -57px;
           right: -11px;
-          width: 178px;
+          width: 92px;
           height: 57px;
           background: var(--header-menu-layer-background-image);
           background-size: 178px auto;
@@ -377,9 +385,54 @@
           border-color var(--p-button-transition-duration),
           outline-color var(--p-button-transition-duration),
           box-shadow var(--p-button-transition-duration);
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: -7px;
+          left: -24px;
+          width: 24px;
+          height: 57px;
+          background: var(--header-menu-layer-background-image-large);
+          background-size: cover;
+          z-index: 15;
+        }
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: -1px;
+          right: 0;
+          //width: 186px;
+          left: -1px;
+          height: 51px;
+          border: 1px solid transparent;
+          border-bottom: none;
+          border-radius: 32px 32px 0 0;
+          background-image:
+            linear-gradient(
+              var(--header-menu-layer-background),
+              var(--header-menu-layer-background)
+            ),
+            var(
+              --Gradation-03,
+              linear-gradient(to right, var(--p-indigo-300), var(--p-slate-400))
+            );
+          background-origin: border-box;
+          background-clip: content-box, border-box;
+          //box-shadow: var(--header-menu-layer-boxshadow);
+          z-index: 10;
+        }
+        &:after,
+        &:before {
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0s ease;
+        }
       }
       &__thumb {
         position: relative;
+        z-index: 20;
         display: flex;
         align-items: flex-end;
         width: 40px;
@@ -403,12 +456,14 @@
         }
       }
       &__text {
+        position: relative;
+        z-index: 20;
         display: flex;
         flex-direction: column;
         gap: 4px;
         align-items: flex-start;
         > strong {
-          max-width: 80px;
+          max-width: 136px;
           color: var(--header-menu-user-name-color);
           text-align: left;
           font-size: 16px;
@@ -428,21 +483,7 @@
           letter-spacing: -0.3px;
         }
       }
-      &-layer {
-        // opacity: 1;
-        // visibility: visible;
-        &::before {
-          content: '';
-          display: block;
-          position: absolute;
-          top: -57px;
-          right: -11px;
-          width: 288px;
-          height: 57px;
-          background: var(--header-menu-layer-background-image-large);
-          background-size: 288px auto;
-        }
-      }
+
       &-list {
         display: flex;
         flex-direction: column;
@@ -477,6 +518,11 @@
         }
         &-button {
           background: none;
+          &::after,
+          &::before {
+            opacity: 1;
+            visibility: visible;
+          }
         }
       }
     }

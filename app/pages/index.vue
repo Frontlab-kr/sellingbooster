@@ -209,6 +209,7 @@
             <NuxtLink to="/setting/seller/extension/nodata"
               >셀러확장기능 - Nodata</NuxtLink
             >
+            <NuxtLink to="/setting/team/">팀/권한 관리</NuxtLink>
           </div>
         </template>
       </Card>

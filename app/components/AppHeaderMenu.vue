@@ -163,7 +163,7 @@
             <IconProfileBadgeLevel1Small />
           </div>
           <div class="sb-header-user__text">
-            <strong>셀링부스터</strong>
+            <strong>셀링부스터셀링부스터</strong>
             <p><strong>Lv.1</strong> Visitor</p>
           </div>
         </button>

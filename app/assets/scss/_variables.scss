@@ -433,9 +433,9 @@
   --header-menu-layer-background: var(--p-gray-00);
   --header-menu-layer-boxshadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
   --header-menu-layer-background-image: url(./../images/header-bg.png) no-repeat
-    0 0;
+    100% 0;
   --header-menu-layer-background-image-large: url(./../images/header-bg-large.png)
-    no-repeat 0 0;
+    no-repeat 100% 0;
   --header-menu-language-list-color: var(--p-gray-500);
   --header-menu-language-list-hover-color: var(--p-gray-900);
   --header-menu-language-list-hover-background: var(--p-gray-100);
