@@ -418,9 +418,9 @@
                     <p>{{ item.author }}</p>
                     <span>{{ item.date }}</span>
                   </div>
-                  <div class="sb-board-list-item__menu" @click.stop.prevent>
+                  <!-- <div class="sb-board-list-item__menu" @click.stop.prevent>
                     <SbMenu :items="menuItems" />
-                  </div>
+                  </div> -->
                 </div>
 
                 <h6 class="sb-board-list-item__title">{{ item.title }}</h6>
