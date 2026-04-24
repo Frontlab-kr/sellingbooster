@@ -915,12 +915,12 @@
         // &:focus-within {
         //   border-color: var(--input--search-border-color);
         // }
-        // &.focus ~ .sb-input__search,
-        // &:focus-within ~ .sb-input__search {
-        //   .ico-system-search {
-        //     color: var(--input-search-color);
-        //   }
-        // }
+        &.focus ~ .sb-input__search,
+        &:focus-within ~ .sb-input__search {
+          .ico-system-search {
+            color: var(--input-search-color);
+          }
+        }
       }
 
       &.sb-input--large {

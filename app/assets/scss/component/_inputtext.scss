@@ -113,6 +113,7 @@
   &-lg ~ .sb-input__button .ico-system-delete {
     color: var(--p-inputtext-lg-delete-color);
   }
+  &:focus,
   &.focus {
     border-color: var(--p-inputtext-hover-border-color);
   }
