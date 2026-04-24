@@ -62,7 +62,9 @@
                     <Button
                       variant="text"
                       @click="
-                        slotProps.data.isFavorite = !slotProps.data.isFavorite
+                        ((slotProps.data.isFavorite =
+                          !slotProps.data.isFavorite),
+                        (dialogKeyword = true))
                       "
                     >
                       <template #icon>
