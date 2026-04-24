@@ -2103,8 +2103,16 @@
       }
       &-item {
         display: block;
-
+        border-radius: 32px;
         padding: 30px;
+        background: var(--community-list-item-background);
+        border: 1px solid var(--community-list-item-background);
+        transition: all 0.1s ease;
+        cursor: pointer;
+        &:hover {
+          border-color: var(--color-primary);
+          box-shadow: var(--community-list-item-hover-boxshadow);
+        }
         @media screen and (max-width: 1439px) {
           padding: 0;
         }
