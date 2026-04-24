@@ -2541,6 +2541,10 @@
 
           height: 100px;
           padding: 0 0 0 120px;
+          &:hover {
+            border-color: var(--community-list-item-background);
+            box-shadow: none;
+          }
           &-head {
             display: flex;
             align-items: center;
