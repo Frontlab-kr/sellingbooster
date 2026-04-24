@@ -160,7 +160,13 @@
         padding: 40px;
         border-radius: 30px;
         background: var(--community-list-item-background);
+        border: 1px solid var(--community-list-item-background);
+        transition: all 0.1s ease;
         cursor: pointer;
+        &:hover {
+          border-color: var(--color-primary);
+          box-shadow: var(--community-list-item-hover-boxshadow);
+        }
         &__head {
           display: flex;
           align-items: center;
@@ -581,7 +587,13 @@
         padding: 32px;
         border-radius: 32px;
         background: var(--community-list-item-background);
-
+        border: 1px solid var(--community-list-item-background);
+        transition: all 0.1s ease;
+        cursor: pointer;
+        &:hover {
+          border-color: var(--color-primary);
+          box-shadow: var(--community-list-item-hover-boxshadow);
+        }
         &__head {
           display: flex;
           align-items: center;
@@ -771,9 +783,15 @@
         display: block;
         padding: 32px;
         border-radius: 32px;
-        background: var(--community-list-item-background);
-        border: 0;
         text-align: left;
+        background: var(--community-list-item-background);
+        border: 1px solid var(--community-list-item-background);
+        transition: all 0.1s ease;
+        cursor: pointer;
+        &:hover {
+          border-color: var(--color-primary);
+          box-shadow: var(--community-list-item-hover-boxshadow);
+        }
         &__badge {
           margin-bottom: 8px;
         }
@@ -967,7 +985,13 @@
         padding: 30px;
         border-radius: 32px;
         background: var(--community-list-item-background);
-
+        border: 1px solid var(--community-list-item-background);
+        transition: all 0.1s ease;
+        cursor: pointer;
+        &:hover {
+          border-color: var(--color-primary);
+          box-shadow: var(--community-list-item-hover-boxshadow);
+        }
         a {
           display: block;
         }
@@ -1411,8 +1435,14 @@
         display: block;
         padding: 30px;
         border-radius: 32px;
-        background: var(--blog-list-item-background);
-
+        background: var(--community-list-item-background);
+        border: 1px solid var(--community-list-item-background);
+        transition: all 0.1s ease;
+        cursor: pointer;
+        &:hover {
+          border-color: var(--color-primary);
+          box-shadow: var(--community-list-item-hover-boxshadow);
+        }
         &__head {
           display: flex;
           align-items: center;
