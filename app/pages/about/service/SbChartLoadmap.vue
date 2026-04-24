@@ -48,7 +48,7 @@ const initChart = () => {
     backgroundColor: chartBackground,
     textStyle: { fontFamily: customFontFamily },
     animationDuration: 0,
-    animationDurationUpdate: 600,
+    animationDurationUpdate: 0,
     //animationDuration: 10,
     //animationEasingUpdate: 'cubicOut',
     series: [

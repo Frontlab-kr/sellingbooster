@@ -773,7 +773,7 @@ onMounted(() => {
     scrollTrigger: {
       trigger: globalSection,
       start: 'top top',
-      end: '+=2500', // 연출 시간을 위해 길이를 넉넉히 설정
+      end: '+=2000', // 연출 시간을 위해 길이를 넉넉히 설정
       pin: true,
       scrub: 1,
     },
@@ -824,7 +824,7 @@ onMounted(() => {
     scrollTrigger: {
       trigger: footSection,
       start: 'top top', // 섹션이 상단에 닿으면 고정
-      end: '+=3000', // 두 단계 애니메이션을 위해 길이를 충분히 확보
+      end: '+=2500', // 두 단계 애니메이션을 위해 길이를 충분히 확보
       pin: true,
       scrub: 1,
     },
