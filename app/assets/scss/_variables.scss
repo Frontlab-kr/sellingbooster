@@ -1196,6 +1196,9 @@
   --dialog-extension-write-search-list-item-input-text-color: var(--p-gray-600);
   --dialog-extension-write-search-button-border-color: var(--p-gray-200);
 
+  --dialog-keyword-label-color: var(--p-gray-500);
+  --dialog-keyword-label-strong-color: var(--p-gray-500);
+
   //price setting
   --price-setting-background: var(--p-gray-50);
   --price-setting-head-border-color: var(--p-gray-300);
@@ -2192,6 +2195,9 @@
       --p-gray-00
     );
     --dialog-extension-write-search-button-border-color: var(--p-gray-600);
+
+    --dialog-keyword-label-color: var(--p-gray-600);
+    --dialog-keyword-label-strong-color: var(--p-gray-300);
 
     //price setting
     --price-setting-background: var(--p-gray-900);

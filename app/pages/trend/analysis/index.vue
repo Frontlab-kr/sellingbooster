@@ -24,6 +24,18 @@
                 @click="changeTab(tab.id)"
               />
             </div>
+            <p>네이버 쇼핑 기준 데이터 입니다.</p>
+          </div>
+        </div>
+        <div class="sb-trend-table-tab">
+          <div class="sb-tab-circle">
+            <Button label="전체" variant="text" class="active" />
+            <Button label="벤치마킹(2)" variant="text" />
+            <Button label="경쟁사(6)" variant="text" />
+            <Button label="트렌드(1)" variant="text" />
+            <Button label="광고(1)" variant="text" />
+            <Button label="판매" variant="text" />
+            <Button label="구매(20)" variant="text" />
           </div>
         </div>
         <div v-if="currentTab === 'keyword'">
@@ -35,7 +47,7 @@
               removableSort
               scrollable
             >
-              <Column field="keyword" header="키워드" style="width: 225px">
+              <Column field="keyword" header="키워드" style="width: 188px">
                 <template #body="slotProps">
                   <div class="sb-table-body-title">
                     <Button
@@ -57,6 +69,16 @@
                     </Button>
                     <strong>{{ slotProps.data.keyword }}</strong>
                   </div>
+                </template>
+              </Column>
+              <Column
+                field="group"
+                header="관심그룹"
+                sortable
+                style="width: 150px"
+              >
+                <template #body="slotProps">
+                  <span v-html="slotProps.data.group"></span>
                 </template>
               </Column>
               <Column
@@ -84,7 +106,7 @@
                 header="상품수"
                 sortable
                 bodyClass="text-right"
-                style="width: 225px"
+                style="width: 188px"
               >
                 <template #body="slotProps">
                   <span v-html="slotProps.data.productCount"></span>
@@ -95,7 +117,7 @@
                 header="PC 월 검색량"
                 sortable
                 bodyClass="text-right"
-                style="width: 225px"
+                style="width: 188px"
               >
                 <template #body="slotProps">
                   <span v-html="slotProps.data.pcSearchVol"></span>
@@ -106,7 +128,7 @@
                 header="MO 월 검색량"
                 sortable
                 bodyClass="text-right"
-                style="width: 225px"
+                style="width: 188px"
               >
                 <template #body="slotProps">
                   <span v-html="slotProps.data.moSearchVol"></span>
@@ -183,15 +205,6 @@
           </div>
         </div>
         <div v-if="currentTab === 'category'">
-          <div class="sb-trend-category">
-            <IconActionFavoriteFull class="ico-action-favorite-full" />
-            <p>
-              <span>생활/건강</span>
-              <span>주방용품</span>
-              <span>와인용품</span>
-              <span>디켄터</span>
-            </p>
-          </div>
           <div class="sb-table">
             <DataTable
               v-scroll-end
@@ -200,18 +213,19 @@
               removableSort
               scrollable
             >
-              <Column field="top50" header="TOP 50" style="width: 80px">
+              <Column
+                field="categoryPath"
+                header="카테고리"
+                style="width: 530px"
+              >
                 <template #body="slotProps">
-                  <span v-html="slotProps.data.top50"></span>
-                </template>
-              </Column>
-              <Column field="keyword" header="키워드" style="width: 242px">
-                <template #body="slotProps">
-                  <div class="sb-table-body-title">
+                  <div class="sb-table-body-category">
                     <Button
                       variant="text"
                       @click="
-                        slotProps.data.isFavorite = !slotProps.data.isFavorite
+                        ((slotProps.data.isFavorite =
+                          !slotProps.data.isFavorite),
+                        (dialogKeyword = true))
                       "
                     >
                       <template #icon>
@@ -225,87 +239,57 @@
                         />
                       </template>
                     </Button>
+                    <div class="sb-table-body-category-path">
+                      <template
+                        v-for="(path, index) in slotProps.data.categoryPath"
+                        :key="index"
+                      >
+                        <span>{{ path }}</span>
+                        <IconArrowAchevronRight
+                          class="ico-arrow-achevron-right"
+                        />
+                      </template>
+                    </div>
                     <strong>{{ slotProps.data.keyword }}</strong>
                   </div>
                 </template>
               </Column>
+
               <Column
-                field="influence"
-                header="영향력"
+                field="group"
+                header="관심그룹"
                 sortable
                 style="width: 150px"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.influence"></span>
-                </template>
-              </Column>
+                class="text-center"
+              />
+
               <Column
                 field="avgPrice"
                 header="평균가"
                 sortable
                 style="width: 150px"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.avgPrice"></span>
-                </template>
-              </Column>
+                class="text-center"
+              />
+
               <Column
-                field="productCount"
-                header="상품수"
+                field="shoppingProp"
+                header="쇼핑성"
                 sortable
-                style="width: 242px"
-                bodyClass="text-right"
+                style="width: 174px"
+                class="text-right"
               >
                 <template #body="slotProps">
-                  <span v-html="slotProps.data.productCount"></span>
+                  {{ slotProps.data.shoppingProp.toLocaleString() }}개
                 </template>
               </Column>
-              <Column
-                field="pcSearchVol"
-                header="PC 월 검색량"
-                sortable
-                style="width: 242px"
-                bodyClass="text-right"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.pcSearchVol"></span>
-                </template>
-              </Column>
-              <Column
-                field="moSearchVol"
-                header="MO 월 검색량"
-                sortable
-                style="width: 242px"
-                bodyClass="text-right"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.moSearchVol"></span>
-                </template>
-              </Column>
+
               <Column
                 field="competition"
+                header="경쟁률"
                 sortable
-                bodyClass="text-right"
                 style="width: 150px"
+                class="text-center"
               >
-                <template #header>
-                  <div class="sb-table-header-title">
-                    <span
-                      class="p-datatable-column-title"
-                      data-pc-section="columntitle"
-                      >경쟁강도</span
-                    >
-                    <div
-                      class="sb-table-header-title__icon"
-                      @mouseenter="togglePopover"
-                      @mouseleave="togglePopover"
-                    >
-                      <IconSystemInformationCircle
-                        class="ico-system-information-circle"
-                      />
-                    </div>
-                  </div>
-                </template>
                 <template #body="slotProps">
                   <div class="sb-legend">
                     <span
@@ -327,17 +311,30 @@
                   </div>
                 </template>
               </Column>
-              <template #empty>
-                <div class="sb-nodata">
-                  <IconIllustrationSmile class="ico-illustration-smile" />
-                  <div class="sb-nodata__text">
-                    <p>
-                      궁금한 카테고리가 있다면 지금 검색해보세요<br />
-                      정확한 분석 데이터가 기다리고 있어요.
-                    </p>
-                  </div>
-                </div>
-              </template>
+
+              <Column
+                field="pcSearchVol"
+                header="PC 월 검색량"
+                sortable
+                style="width: 174px"
+                class="text-right"
+              >
+                <template #body="slotProps">
+                  {{ slotProps.data.pcSearchVol.toLocaleString() }}건
+                </template>
+              </Column>
+
+              <Column
+                field="moSearchVol"
+                header="MO 월 검색량"
+                sortable
+                style="width: 174px"
+                class="text-right"
+              >
+                <template #body="slotProps">
+                  {{ slotProps.data.moSearchVol.toLocaleString() }}건
+                </template>
+              </Column>
             </DataTable>
           </div>
         </div>
@@ -355,6 +352,50 @@
       </Popover>
 
       <SbBanner />
+
+      <Dialog v-model:visible="dialogKeyword" modal>
+        <div class="p-dialog-inner">
+          <h6 class="p-dialog-title">관심 키워드 저장</h6>
+          <div class="sb-dialog-keyword">
+            <div class="sb-chip">
+              <div class="sb-checkbox">
+                <div
+                  class="sb-checkbox-item"
+                  v-for="item in interestOptions"
+                  :key="item.value"
+                >
+                  <Checkbox
+                    v-model="selectedInterests"
+                    :inputId="item.id"
+                    :value="item.value"
+                  />
+                  <label :for="item.id">
+                    {{ item.label }}
+                    <span
+                      ><strong>{{ item.count }}</strong
+                      >/{{ item.total }}</span
+                    >
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="sb-caution">
+              <ul>
+                <li>저장하려는 키워드의 관심 그룹을 선택해주세요.</li>
+                <li>관심 키워드는 그룹 당 최대 20개씩 저장 가능해요.</li>
+                <li>저장한 키워드는 분석결과 목록에서 확인할 수 있어요.</li>
+              </ul>
+            </div>
+            <div class="sb-dialog-keyword__button">
+              <Button
+                label="확인"
+                severity="primary"
+                @click="dialogKeyword = false"
+              />
+            </div>
+          </div>
+        </div>
+      </Dialog>
     </div>
   </div>
 </template>
@@ -365,14 +406,16 @@ import IconActionFavorite from '@/assets/icons/action/favorite.svg?component';
 import IconActionFavoriteFull from '@/assets/icons/action/favorite-full.svg?component';
 import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
-import IconArrowLeft from '@/assets/icons/arrow/left.svg?component';
-
+import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 //breadcrumb
 const breadcrumb = ref([
   { label: 'Home' },
   { label: '마켓 트렌드' },
   { label: '분석 결과' },
 ]);
+
+//dialog
+const dialogKeyword = ref(false);
 
 //popover
 const popoverScore = ref();
@@ -390,6 +433,7 @@ const keywordList = ref([
     ranking: 14,
     isFavorite: true,
     keyword: '도브센시티브바',
+    group: '벤치마킹',
     influence: '높음',
     avgPrice: '높음',
     productCount: '1,671개',
@@ -402,6 +446,7 @@ const keywordList = ref([
     ranking: 18,
     isFavorite: false,
     keyword: '디올립글로우',
+    group: '경쟁사',
     influence: '높음',
     avgPrice: '높음',
     productCount: '1,412개',
@@ -414,6 +459,7 @@ const keywordList = ref([
     ranking: 5,
     isFavorite: true,
     keyword: '록시땅핸드크림',
+    group: '트렌드',
     influence: '높음',
     avgPrice: '높음',
     productCount: '121개',
@@ -426,6 +472,7 @@ const keywordList = ref([
     ranking: 12,
     isFavorite: false,
     keyword: '립밤',
+    group: '광고',
     influence: '중간',
     avgPrice: '중간',
     productCount: '63,231개',
@@ -438,6 +485,7 @@ const keywordList = ref([
     ranking: 9,
     isFavorite: false,
     keyword: '마데카크림',
+    group: '구매',
     influence: '높음',
     avgPrice: '높음',
     productCount: '576개',
@@ -450,6 +498,7 @@ const keywordList = ref([
     ranking: 10,
     isFavorite: false,
     keyword: '바디로션',
+    group: '구매',
     influence: '높음',
     avgPrice: '높음',
     productCount: '33,309개',
@@ -462,6 +511,7 @@ const keywordList = ref([
     ranking: 5,
     isFavorite: true,
     keyword: '록시땅핸드크림',
+    group: '구매',
     influence: '높음',
     avgPrice: '높음',
     productCount: '121개',
@@ -474,6 +524,7 @@ const keywordList = ref([
     ranking: 12,
     isFavorite: false,
     keyword: '립밤',
+    group: '구매',
     influence: '중간',
     avgPrice: '중간',
     productCount: '63,231개',
@@ -486,6 +537,7 @@ const keywordList = ref([
     ranking: 9,
     isFavorite: false,
     keyword: '마데카크림',
+    group: '구매',
     influence: '높음',
     avgPrice: '높음',
     productCount: '576개',
@@ -498,6 +550,7 @@ const keywordList = ref([
     ranking: 10,
     isFavorite: false,
     keyword: '바디로션',
+    group: '구매',
     influence: '높음',
     avgPrice: '높음',
     productCount: '33,309개',
@@ -510,6 +563,7 @@ const keywordList = ref([
     ranking: 10,
     isFavorite: false,
     keyword: '바디로션',
+    group: '구매',
     influence: '높음',
     avgPrice: '높음',
     productCount: '33,309개',
@@ -522,6 +576,7 @@ const keywordList = ref([
     ranking: 10,
     isFavorite: false,
     keyword: '바디로션',
+    group: '구매',
     influence: '높음',
     avgPrice: '높음',
     productCount: '33,309개',
@@ -535,141 +590,119 @@ const keywordList = ref([
 //관심 카테고리
 const categoryList = ref([
   {
-    top50: 50,
     isFavorite: true,
-    keyword: '도브센시티브바',
-    influence: '높음',
+    categoryPath: ['패션의류', '여성의류'],
+    keyword: '코디세트',
+    group: '벤치마킹',
     avgPrice: '높음',
-    productCount: '1,671개',
-    pcSearchVol: '449,700건',
-    moSearchVol: '449,700건',
+    shoppingProp: 1671,
     competition: 0.41,
+    pcSearchVol: 449700,
+    moSearchVol: 449700,
   },
   {
-    top50: 49,
     isFavorite: false,
-    keyword: '디올립글로우',
-    influence: '높음',
+    categoryPath: ['화장품/미용', '스킨케어'],
+    keyword: '스킨/토너',
+    group: '경쟁사',
     avgPrice: '높음',
-    productCount: '1,412개',
-    pcSearchVol: '113,700건',
-    moSearchVol: '113,700건',
+    shoppingProp: 1412,
     competition: 0.26,
+    pcSearchVol: 113700,
+    moSearchVol: 113700,
   },
   {
-    top50: 48,
-    isFavorite: true,
-    keyword: '록시땅핸드크림',
-    influence: '높음',
-    avgPrice: '높음',
-    productCount: '121개',
-    pcSearchVol: '102,580건',
-    moSearchVol: '102,580건',
-    competition: 0.02,
-  },
-  {
-    top50: 47,
     isFavorite: false,
-    keyword: '립밤',
-    influence: '중간',
+    categoryPath: ['가구/인테리어', '홈데코', '커버류'],
+    keyword: '쇼파커버/패드',
+    group: '트렌드',
+    avgPrice: '높음',
+    shoppingProp: 121,
+    competition: 0.02,
+    pcSearchVol: 102580,
+    moSearchVol: 102580,
+  },
+  {
+    isFavorite: false,
+    categoryPath: ['식품', '건강식품', '비타민제'],
+    keyword: '멀티비타민',
+    group: '광고',
     avgPrice: '중간',
-    productCount: '63,231개',
-    pcSearchVol: '51,520건',
-    moSearchVol: '51,520건',
+    shoppingProp: 63231,
     competition: 0.07,
+    pcSearchVol: 51520,
+    moSearchVol: 51520,
   },
   {
-    top50: 46,
     isFavorite: false,
-    keyword: '마데카크림',
-    influence: '높음',
+    categoryPath: ['생활/건강', '주방용품', '와인용품'],
+    keyword: '디켄터',
+    group: '판매',
     avgPrice: '높음',
-    productCount: '576개',
-    pcSearchVol: '51,500건',
-    moSearchVol: '51,500건',
+    shoppingProp: 576,
     competition: 0.02,
+    pcSearchVol: 51500,
+    moSearchVol: 51500,
   },
   {
-    top50: 45,
     isFavorite: false,
-    keyword: '바디로션',
-    influence: '높음',
+    categoryPath: ['패션의류', '남성의류'],
+    keyword: '티셔츠',
+    group: '구매',
     avgPrice: '높음',
-    productCount: '33,309개',
-    pcSearchVol: '46,600건',
-    moSearchVol: '46,600건',
+    shoppingProp: 33309,
     competition: 0.6,
+    pcSearchVol: 46600,
+    moSearchVol: 46600,
   },
   {
-    top50: 44,
-    isFavorite: true,
-    keyword: '록시땅핸드크림',
-    influence: '높음',
-    avgPrice: '높음',
-    productCount: '121개',
-    pcSearchVol: '102,580건',
-    moSearchVol: '102,580건',
-    competition: 0.02,
-  },
-  {
-    top50: 43,
     isFavorite: false,
-    keyword: '립밤',
-    influence: '중간',
+    categoryPath: ['화장품/미용', '클렌징'],
+    keyword: '클렌징 오일',
+    group: '구매',
+    avgPrice: '높음',
+    shoppingProp: 121,
+    competition: 0.02,
+    pcSearchVol: 102580,
+    moSearchVol: 102580,
+  },
+  {
+    isFavorite: false,
+    categoryPath: ['생활/건강', '생활용품', '섬유유연제'],
+    keyword: '고농축섬유유연제',
+    group: '구매',
     avgPrice: '중간',
-    productCount: '63,231개',
-    pcSearchVol: '51,520건',
-    moSearchVol: '51,520건',
+    shoppingProp: 63231,
     competition: 0.07,
+    pcSearchVol: 51520,
+    moSearchVol: 51520,
   },
   {
-    top50: 42,
     isFavorite: false,
-    keyword: '마데카크림',
-    influence: '높음',
+    categoryPath: ['가구/인테리어', '홈데코', '쿠션/방석'],
+    keyword: '기능성방석',
+    group: '구매',
     avgPrice: '높음',
-    productCount: '576개',
-    pcSearchVol: '51,500건',
-    moSearchVol: '51,500건',
+    shoppingProp: 576,
     competition: 0.02,
+    pcSearchVol: 51500,
+    moSearchVol: 51500,
   },
   {
-    top50: 41,
     isFavorite: false,
-    keyword: '바디로션',
-    influence: '높음',
+    categoryPath: ['생활/건강', '문구/사무용품', '다이어리/플래너'],
+    keyword: '다이어리',
+    group: '구매',
     avgPrice: '높음',
-    productCount: '33,309개',
-    pcSearchVol: '46,600건',
-    moSearchVol: '46,600건',
+    shoppingProp: 33309,
     competition: 0.6,
-  },
-  {
-    top50: 40,
-    isFavorite: false,
-    keyword: '바디로션',
-    influence: '높음',
-    avgPrice: '높음',
-    productCount: '33,309개',
-    pcSearchVol: '46,600건',
-    moSearchVol: '46,600건',
-    competition: 0.6,
-  },
-  {
-    top50: 39,
-    isFavorite: false,
-    keyword: '바디로션',
-    influence: '높음',
-    avgPrice: '높음',
-    productCount: '33,309개',
-    pcSearchVol: '46,600건',
-    moSearchVol: '46,600건',
-    competition: 0.6,
+    pcSearchVol: 46600,
+    moSearchVol: 46600,
   },
 ]);
 
 //탭
-const currentTab = ref('keyword'); // 기본값: 관심 키워드
+const currentTab = ref('keyword');
 const tabs = [
   { id: 'keyword', label: '관심 키워드' },
   { id: 'category', label: '관심 카테고리' },
@@ -677,4 +710,28 @@ const tabs = [
 const changeTab = (tabId) => {
   currentTab.value = tabId;
 };
+
+//chip
+const interestOptions = ref([
+  {
+    id: 'benchmarking',
+    label: '벤치마킹',
+    value: 'benchmarking',
+    count: 0,
+    total: 20,
+  },
+  { id: 'trend', label: '트렌드', value: 'trend', count: 0, total: 20 },
+  {
+    id: 'competitor',
+    label: '경쟁사',
+    value: 'competitor',
+    count: 0,
+    total: 20,
+  },
+  { id: 'ad', label: '광고', value: 'ad', count: 0, total: 20 },
+  { id: 'sales', label: '판매', value: 'sales', count: 0, total: 20 },
+  { id: 'purchase', label: '구매', value: 'purchase', count: 0, total: 20 },
+]);
+
+const selectedInterests = ref([]); // 선택된 값들이 담길 배열
 </script>

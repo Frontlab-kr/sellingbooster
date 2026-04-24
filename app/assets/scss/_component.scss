@@ -1728,6 +1728,32 @@
           gap: 8px;
         }
       }
+      &-category {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        overflow: hidden;
+        color: var(--title-color);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 22.4px */
+        letter-spacing: -0.4px;
+        white-space: noWrap;
+        &-path {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          // span {
+          //   @include text-clamp(1);
+          // }
+          .ico-arrow-achevron-right {
+            min-width: 16px;
+            width: 16px;
+            height: 16px;
+          }
+        }
+      }
     }
     &-popover {
       margin-left: 22px;

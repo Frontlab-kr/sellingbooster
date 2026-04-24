@@ -134,6 +134,18 @@
             letter-spacing: -0.35px;
           }
         }
+        &__text {
+          color: var(--Gray-400, #9aa3af);
+          text-align: right;
+
+          /* Body/Medium-Regular */
+          font-family: 'Pretendard JP';
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 140%; /* 19.6px */
+          letter-spacing: -0.35px;
+        }
         &__popover {
           display: flex;
           align-items: center;

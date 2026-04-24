@@ -1258,6 +1258,35 @@
         margin-top: 16px;
       }
     }
+    &-keyword {
+      .sb-caution {
+        margin-top: 24px;
+      }
+      .sb-chip {
+        .sb-checkbox-item {
+          label {
+            span {
+              color: var(--dialog-keyword-label-color);
+
+              font-size: 14px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 140%;
+              letter-spacing: -0.35px;
+              strong {
+                color: var(--dialog-keyword-label-strong-color);
+              }
+            }
+          }
+        }
+      }
+      &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 24px;
+      }
+    }
   }
 }
 
