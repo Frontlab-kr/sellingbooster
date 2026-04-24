@@ -161,6 +161,11 @@
       &-tab {
         margin-bottom: 32px;
       }
+      &-tab-center {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
     }
 
     &-top {

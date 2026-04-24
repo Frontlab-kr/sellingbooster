@@ -27,7 +27,7 @@
             <p>네이버 쇼핑 기준 데이터 입니다.</p>
           </div>
         </div>
-        <div class="sb-trend-table-tab">
+        <div class="sb-trend-table-tab-center">
           <div class="sb-tab-circle">
             <Button label="전체" variant="text" class="active" />
             <Button label="벤치마킹(2)" variant="text" />
@@ -38,6 +38,15 @@
             <Button label="구매(20)" variant="text" />
           </div>
         </div>
+        <div class="sb-trend-category">
+          <IconActionFavoriteFull class="ico-action-favorite-full" />
+          <p>
+            <span>생활/건강</span>
+            <span>주방용품</span>
+            <span>와인용품</span>
+            <span>디켄터</span>
+          </p>
+        </div>
         <div v-if="currentTab === 'keyword'">
           <div class="sb-table">
             <DataTable
@@ -47,7 +56,7 @@
               removableSort
               scrollable
             >
-              <Column field="keyword" header="키워드" style="width: 188px">
+              <Column field="keyword" header="키워드" style="width: 200px">
                 <template #body="slotProps">
                   <div class="sb-table-body-title">
                     <Button
@@ -71,80 +80,59 @@
                   </div>
                 </template>
               </Column>
+
               <Column
-                field="group"
-                header="관심그룹"
+                field="category"
+                header="카테고리"
                 sortable
                 style="width: 150px"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.group"></span>
-                </template>
-              </Column>
+              />
+
+              <Column
+                field="type"
+                header="구분"
+                sortable
+                style="width: 150px"
+              />
+
               <Column
                 field="influence"
                 header="영향력"
                 sortable
                 style="width: 150px"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.influence"></span>
-                </template>
-              </Column>
+              />
+
               <Column
                 field="avgPrice"
                 header="평균가"
                 sortable
                 style="width: 150px"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.avgPrice"></span>
-                </template>
-              </Column>
+              />
+
               <Column
                 field="productCount"
                 header="상품수"
                 sortable
                 bodyClass="text-right"
-                style="width: 188px"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.productCount"></span>
-                </template>
-              </Column>
+                style="width: 200px"
+              />
+
               <Column
                 field="pcSearchVol"
                 header="PC 월 검색량"
                 sortable
                 bodyClass="text-right"
-                style="width: 188px"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.pcSearchVol"></span>
-                </template>
-              </Column>
+                style="width: 200px"
+              />
+
               <Column
                 field="moSearchVol"
                 header="MO 월 검색량"
                 sortable
                 bodyClass="text-right"
-                style="width: 188px"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.moSearchVol"></span>
-                </template>
-              </Column>
-              <Column
-                field="avgClick"
-                header="평균 클릭 수"
-                sortable
-                bodyClass="text-right"
                 style="width: 150px"
-              >
-                <template #body="slotProps">
-                  <span v-html="slotProps.data.avgClick"></span>
-                </template>
-              </Column>
+              />
+
               <Column
                 field="competition"
                 sortable
@@ -190,17 +178,6 @@
                   </div>
                 </template>
               </Column>
-              <template #empty>
-                <div class="sb-nodata">
-                  <IconIllustrationSmile class="ico-illustration-smile" />
-                  <div class="sb-nodata__text">
-                    <p>
-                      궁금한 카테고리가 있다면 지금 검색해보세요<br />
-                      정확한 분석 데이터가 기다리고 있어요.
-                    </p>
-                  </div>
-                </div>
-              </template>
             </DataTable>
           </div>
         </div>
@@ -257,39 +234,82 @@
 
               <Column
                 field="group"
-                header="관심그룹"
+                header="구분"
                 sortable
                 style="width: 150px"
-                class="text-center"
               />
 
               <Column
-                field="avgPrice"
-                header="평균가"
+                field="productCount"
+                header="상품수"
                 sortable
-                style="width: 150px"
-                class="text-center"
-              />
+                style="width: 200px"
+                bodyClass="text-right"
+              >
+                <template #body="slotProps">
+                  {{ slotProps.data.productCount.toLocaleString() }}개
+                </template>
+              </Column>
 
               <Column
                 field="shoppingProp"
                 header="쇼핑성"
                 sortable
-                style="width: 174px"
-                class="text-right"
+                style="width: 150px"
               >
                 <template #body="slotProps">
-                  {{ slotProps.data.shoppingProp.toLocaleString() }}개
+                  {{ slotProps.data.shoppingProp }}%
+                </template>
+              </Column>
+
+              <Column
+                field="pcSearchVol"
+                header="PC 월 검색량"
+                sortable
+                style="width: 160px"
+                bodyClass="text-right"
+              >
+                <template #body="slotProps">
+                  {{ slotProps.data.pcSearchVol.toLocaleString() }}건
+                </template>
+              </Column>
+
+              <Column
+                field="moSearchVol"
+                header="MO 월 검색량"
+                sortable
+                style="width: 160px"
+                bodyClass="text-right"
+              >
+                <template #body="slotProps">
+                  {{ slotProps.data.moSearchVol.toLocaleString() }}건
                 </template>
               </Column>
 
               <Column
                 field="competition"
-                header="경쟁률"
                 sortable
                 style="width: 150px"
-                class="text-center"
+                bodyClass="text-right"
               >
+                <template #header>
+                  <div class="sb-table-header-title">
+                    <span
+                      class="p-datatable-column-title"
+                      data-pc-section="columntitle"
+                      >경쟁강도</span
+                    >
+                    <div
+                      class="sb-table-header-title__icon"
+                      @mouseenter="togglePopover"
+                      @mouseleave="togglePopover"
+                    >
+                      <IconSystemInformationCircle
+                        class="ico-system-information-circle"
+                      />
+                    </div>
+                  </div>
+                </template>
                 <template #body="slotProps">
                   <div class="sb-legend">
                     <span
@@ -309,30 +329,6 @@
                       {{ slotProps.data.competition.toFixed(2) }}
                     </span>
                   </div>
-                </template>
-              </Column>
-
-              <Column
-                field="pcSearchVol"
-                header="PC 월 검색량"
-                sortable
-                style="width: 174px"
-                class="text-right"
-              >
-                <template #body="slotProps">
-                  {{ slotProps.data.pcSearchVol.toLocaleString() }}건
-                </template>
-              </Column>
-
-              <Column
-                field="moSearchVol"
-                header="MO 월 검색량"
-                sortable
-                style="width: 174px"
-                class="text-right"
-              >
-                <template #body="slotProps">
-                  {{ slotProps.data.moSearchVol.toLocaleString() }}건
                 </template>
               </Column>
             </DataTable>
@@ -430,159 +426,243 @@ const togglePopover = (event) => {
 //관심 키워드
 const keywordList = ref([
   {
-    ranking: 14,
     isFavorite: true,
     keyword: '도브센시티브바',
-    group: '벤치마킹',
+    category: '의류',
+    type: '벤치마킹',
     influence: '높음',
-    avgPrice: '높음',
-    productCount: '1,671개',
+    avgPrice: '중간',
+    productCount: '449,700개',
     pcSearchVol: '449,700건',
     moSearchVol: '449,700건',
-    avgClick: '4163.3',
     competition: 0.41,
   },
   {
-    ranking: 18,
     isFavorite: false,
     keyword: '디올립글로우',
-    group: '경쟁사',
+    category: '라면/면류',
+    type: '벤치마킹',
     influence: '높음',
     avgPrice: '높음',
-    productCount: '1,412개',
+    productCount: '113,700개',
     pcSearchVol: '113,700건',
     moSearchVol: '113,700건',
-    avgClick: '449.4',
     competition: 0.26,
   },
   {
-    ranking: 5,
     isFavorite: true,
     keyword: '록시땅핸드크림',
-    group: '트렌드',
+    category: '휴대폰액세서리',
+    type: '트렌드',
     influence: '높음',
     avgPrice: '높음',
-    productCount: '121개',
+    productCount: '102,580개',
     pcSearchVol: '102,580건',
     moSearchVol: '102,580건',
-    avgClick: '1259.7',
     competition: 0.02,
   },
   {
-    ranking: 12,
     isFavorite: false,
     keyword: '립밤',
-    group: '광고',
+    category: '여성가방',
+    type: '광고',
     influence: '중간',
     avgPrice: '중간',
-    productCount: '63,231개',
+    productCount: '51,520개',
     pcSearchVol: '51,520건',
     moSearchVol: '51,520건',
-    avgClick: '1207.6',
     competition: 0.07,
   },
   {
-    ranking: 9,
     isFavorite: false,
     keyword: '마데카크림',
-    group: '구매',
+    category: '농산물',
+    type: '구매',
     influence: '높음',
     avgPrice: '높음',
-    productCount: '576개',
+    productCount: '51,500개',
     pcSearchVol: '51,500건',
-    moSearchVol: '51,500건',
-    avgClick: '519.5',
+    moSearchVol: '46,600건',
     competition: 0.02,
   },
   {
-    ranking: 10,
     isFavorite: false,
     keyword: '바디로션',
-    group: '구매',
+    category: '휴대폰',
+    type: '구매',
     influence: '높음',
     avgPrice: '높음',
-    productCount: '33,309개',
+    productCount: '46,600개',
     pcSearchVol: '46,600건',
     moSearchVol: '46,600건',
-    avgClick: '1794.9',
     competition: 0.6,
   },
   {
-    ranking: 5,
     isFavorite: true,
     keyword: '록시땅핸드크림',
-    group: '구매',
+    category: '게임기/타이틀',
+    type: '구매',
     influence: '높음',
     avgPrice: '높음',
-    productCount: '121개',
+    productCount: '102,580개',
     pcSearchVol: '102,580건',
     moSearchVol: '102,580건',
-    avgClick: '1259.7',
     competition: 0.02,
   },
   {
-    ranking: 12,
     isFavorite: false,
     keyword: '립밤',
-    group: '구매',
+    category: '색조메이크업',
+    type: '구매',
     influence: '중간',
     avgPrice: '중간',
-    productCount: '63,231개',
+    productCount: '51,520개',
     pcSearchVol: '51,520건',
     moSearchVol: '51,520건',
-    avgClick: '1207.6',
     competition: 0.07,
   },
   {
-    ranking: 9,
     isFavorite: false,
     keyword: '마데카크림',
-    group: '구매',
+    category: '의류',
+    type: '구매',
     influence: '높음',
     avgPrice: '높음',
-    productCount: '576개',
-    pcSearchVol: '51,500건',
-    moSearchVol: '51,500건',
-    avgClick: '519.5',
+    productCount: '51,500개',
+    pcSearchVol: '51,520건',
+    moSearchVol: '51,520건',
     competition: 0.02,
   },
   {
-    ranking: 10,
     isFavorite: false,
     keyword: '바디로션',
-    group: '구매',
+    category: '휴대폰',
+    type: '구매',
     influence: '높음',
     avgPrice: '높음',
-    productCount: '33,309개',
+    productCount: '46,600개',
     pcSearchVol: '46,600건',
     moSearchVol: '46,600건',
-    avgClick: '1794.9',
     competition: 0.6,
   },
   {
-    ranking: 10,
+    isFavorite: true,
+    keyword: '도브센시티브바',
+    category: '의류',
+    type: '벤치마킹',
+    influence: '높음',
+    avgPrice: '중간',
+    productCount: '449,700개',
+    pcSearchVol: '449,700건',
+    moSearchVol: '449,700건',
+    competition: 0.41,
+  },
+  {
     isFavorite: false,
-    keyword: '바디로션',
-    group: '구매',
+    keyword: '디올립글로우',
+    category: '라면/면류',
+    type: '벤치마킹',
     influence: '높음',
     avgPrice: '높음',
-    productCount: '33,309개',
+    productCount: '113,700개',
+    pcSearchVol: '113,700건',
+    moSearchVol: '113,700건',
+    competition: 0.26,
+  },
+  {
+    isFavorite: true,
+    keyword: '록시땅핸드크림',
+    category: '휴대폰액세서리',
+    type: '트렌드',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '102,580개',
+    pcSearchVol: '102,580건',
+    moSearchVol: '102,580건',
+    competition: 0.02,
+  },
+  {
+    isFavorite: false,
+    keyword: '립밤',
+    category: '여성가방',
+    type: '광고',
+    influence: '중간',
+    avgPrice: '중간',
+    productCount: '51,520개',
+    pcSearchVol: '51,520건',
+    moSearchVol: '51,520건',
+    competition: 0.07,
+  },
+  {
+    isFavorite: false,
+    keyword: '마데카크림',
+    category: '농산물',
+    type: '구매',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '51,500개',
+    pcSearchVol: '51,500건',
+    moSearchVol: '46,600건',
+    competition: 0.02,
+  },
+  {
+    isFavorite: false,
+    keyword: '바디로션',
+    category: '휴대폰',
+    type: '구매',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '46,600개',
     pcSearchVol: '46,600건',
     moSearchVol: '46,600건',
-    avgClick: '1794.9',
     competition: 0.6,
   },
   {
-    ranking: 10,
-    isFavorite: false,
-    keyword: '바디로션',
-    group: '구매',
+    isFavorite: true,
+    keyword: '록시땅핸드크림',
+    category: '게임기/타이틀',
+    type: '구매',
     influence: '높음',
     avgPrice: '높음',
-    productCount: '33,309개',
+    productCount: '102,580개',
+    pcSearchVol: '102,580건',
+    moSearchVol: '102,580건',
+    competition: 0.02,
+  },
+  {
+    isFavorite: false,
+    keyword: '립밤',
+    category: '색조메이크업',
+    type: '구매',
+    influence: '중간',
+    avgPrice: '중간',
+    productCount: '51,520개',
+    pcSearchVol: '51,520건',
+    moSearchVol: '51,520건',
+    competition: 0.07,
+  },
+  {
+    isFavorite: false,
+    keyword: '마데카크림',
+    category: '의류',
+    type: '구매',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '51,500개',
+    pcSearchVol: '51,520건',
+    moSearchVol: '51,520건',
+    competition: 0.02,
+  },
+  {
+    isFavorite: false,
+    keyword: '바디로션',
+    category: '휴대폰',
+    type: '구매',
+    influence: '높음',
+    avgPrice: '높음',
+    productCount: '46,600개',
     pcSearchVol: '46,600건',
     moSearchVol: '46,600건',
-    avgClick: '1794.9',
     competition: 0.6,
   },
 ]);
@@ -594,110 +674,110 @@ const categoryList = ref([
     categoryPath: ['패션의류', '여성의류'],
     keyword: '코디세트',
     group: '벤치마킹',
-    avgPrice: '높음',
-    shoppingProp: 1671,
-    competition: 0.41,
+    productCount: 449700,
+    shoppingProp: 87,
     pcSearchVol: 449700,
     moSearchVol: 449700,
+    competition: 0.41,
   },
   {
     isFavorite: false,
     categoryPath: ['화장품/미용', '스킨케어'],
     keyword: '스킨/토너',
     group: '경쟁사',
-    avgPrice: '높음',
-    shoppingProp: 1412,
-    competition: 0.26,
+    productCount: 113700,
+    shoppingProp: 85,
     pcSearchVol: 113700,
     moSearchVol: 113700,
+    competition: 0.26,
   },
   {
     isFavorite: false,
     categoryPath: ['가구/인테리어', '홈데코', '커버류'],
     keyword: '쇼파커버/패드',
     group: '트렌드',
-    avgPrice: '높음',
-    shoppingProp: 121,
-    competition: 0.02,
+    productCount: 102580,
+    shoppingProp: 85,
     pcSearchVol: 102580,
     moSearchVol: 102580,
+    competition: 0.02,
   },
   {
     isFavorite: false,
     categoryPath: ['식품', '건강식품', '비타민제'],
     keyword: '멀티비타민',
     group: '광고',
-    avgPrice: '중간',
-    shoppingProp: 63231,
-    competition: 0.07,
+    productCount: 51520,
+    shoppingProp: 92,
     pcSearchVol: 51520,
     moSearchVol: 51520,
+    competition: 0.07,
   },
   {
     isFavorite: false,
     categoryPath: ['생활/건강', '주방용품', '와인용품'],
     keyword: '디켄터',
     group: '판매',
-    avgPrice: '높음',
-    shoppingProp: 576,
-    competition: 0.02,
+    productCount: 51500,
+    shoppingProp: 84,
     pcSearchVol: 51500,
     moSearchVol: 51500,
+    competition: 0.02,
   },
   {
     isFavorite: false,
     categoryPath: ['패션의류', '남성의류'],
     keyword: '티셔츠',
     group: '구매',
-    avgPrice: '높음',
-    shoppingProp: 33309,
-    competition: 0.6,
+    productCount: 46600,
+    shoppingProp: 84,
     pcSearchVol: 46600,
     moSearchVol: 46600,
+    competition: 0.6,
   },
   {
     isFavorite: false,
     categoryPath: ['화장품/미용', '클렌징'],
     keyword: '클렌징 오일',
     group: '구매',
-    avgPrice: '높음',
-    shoppingProp: 121,
-    competition: 0.02,
+    productCount: 102580,
+    shoppingProp: 96,
     pcSearchVol: 102580,
     moSearchVol: 102580,
+    competition: 0.02,
   },
   {
     isFavorite: false,
     categoryPath: ['생활/건강', '생활용품', '섬유유연제'],
     keyword: '고농축섬유유연제',
     group: '구매',
-    avgPrice: '중간',
-    shoppingProp: 63231,
-    competition: 0.07,
+    productCount: 51520,
+    shoppingProp: 84,
     pcSearchVol: 51520,
     moSearchVol: 51520,
+    competition: 0.07,
   },
   {
     isFavorite: false,
     categoryPath: ['가구/인테리어', '홈데코', '쿠션/방석'],
     keyword: '기능성방석',
     group: '구매',
-    avgPrice: '높음',
-    shoppingProp: 576,
-    competition: 0.02,
+    productCount: 51500,
+    shoppingProp: 96,
     pcSearchVol: 51500,
     moSearchVol: 51500,
+    competition: 0.02,
   },
   {
     isFavorite: false,
     categoryPath: ['생활/건강', '문구/사무용품', '다이어리/플래너'],
     keyword: '다이어리',
     group: '구매',
-    avgPrice: '높음',
-    shoppingProp: 33309,
-    competition: 0.6,
+    productCount: 46600,
+    shoppingProp: 79,
     pcSearchVol: 46600,
     moSearchVol: 46600,
+    competition: 0.6,
   },
 ]);
 
