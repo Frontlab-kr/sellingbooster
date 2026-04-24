@@ -175,6 +175,15 @@
           </div>
         </div>
         <div v-if="currentTab === 'category'">
+          <div class="sb-trend-category">
+            <IconActionFavoriteFull class="ico-action-favorite-full" />
+            <p>
+              <span>생활/건강</span>
+              <span>주방용품</span>
+              <span>와인용품</span>
+              <span>디켄터</span>
+            </p>
+          </div>
           <div class="sb-table">
             <DataTable
               v-scroll-end
@@ -775,7 +784,7 @@ const categoryList = ref([
 ]);
 
 //탭
-const currentTab = ref('keyword');
+const currentTab = ref('category');
 const tabs = [
   { id: 'keyword', label: '관심 키워드' },
   { id: 'category', label: '관심 카테고리' },
