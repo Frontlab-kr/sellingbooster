@@ -87,7 +87,7 @@
             <NuxtLink to="/trend/product/detail">상품 분석 - 상세</NuxtLink>
             <NuxtLink to="/trend/analysis/">분석 결과</NuxtLink>
             <NuxtLink to="/trend/analysis/detail"
-              >분석 결과 - 관심 카테고리</NuxtLink
+              >분석 결과 > 관심 카테고리 > 카테고리 상세 키워드</NuxtLink
             >
           </div>
         </template>
