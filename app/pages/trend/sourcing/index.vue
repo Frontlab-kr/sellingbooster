@@ -123,7 +123,7 @@
               <div class="sb-trend-sourcing-result-image-inner">
                 <div
                   class="sb-trend-sourcing-result-image__point"
-                  style="top: 30px; left: 40px"
+                  style="top: 30%; left: 40%"
                 >
                   <Button
                     variant="text"
@@ -137,7 +137,7 @@
                 </div>
                 <div
                   class="sb-trend-sourcing-result-image__point"
-                  style="top: 430px; left: 240px"
+                  style="top: 1%; left: 20%"
                 >
                   <Button
                     variant="text"
@@ -151,7 +151,7 @@
                 </div>
                 <div
                   class="sb-trend-sourcing-result-image__point"
-                  style="top: 330px; left: 310px"
+                  style="top: 30%; left: 31%"
                 >
                   <Button
                     variant="text"
@@ -165,7 +165,7 @@
                 </div>
                 <div
                   class="sb-trend-sourcing-result-image__point"
-                  style="top: 230px; left: 40px"
+                  style="top: 80%; left: 40%"
                 >
                   <Button
                     variant="text"
@@ -184,9 +184,6 @@
                 ref="popoverSourcing"
                 class="sb-popover-sourcing"
                 :dismissable="true"
-                :pt="{
-                  root: { class: 'sb-popover-tag' },
-                }"
                 @mouseenter="cancelClose"
                 @mouseleave="closePopover"
               >
@@ -401,39 +398,56 @@ const toggleError = () => {
 //popover
 const popoverSourcing = ref();
 let closeTimeout = null;
+let currentTarget = null; // 현재 열린 타겟을 추적하기 위한 변수
 
-const openPopover = async (event) => {
-  // 1. 기존 예약된 닫기(지연 닫기)가 있다면 무조건 취소
+// [공통] 팝오버 열기 로직 분리
+const showPopover = (event, target) => {
   if (closeTimeout) {
     clearTimeout(closeTimeout);
     closeTimeout = null;
   }
 
-  // 2. 중요: 이미 열려 있다면 "즉시" 닫아서 상태를 초기화합니다.
-  // 이 과정이 있어야 태그 간 이동 시 팝오버가 잔상처럼 남지 않습니다.
-  if (popoverSourcing.value?.visible) {
+  // 같은 아이콘을 다시 조작하는 게 아니라면 초기화 후 새로 노출
+  if (popoverSourcing.value?.visible && currentTarget !== target) {
     popoverSourcing.value.hide();
   }
 
-  // 3. 브라우저가 hide를 인지하고 난 뒤(다음 프레임) 새 타겟에 보여줍니다.
-  // setTimeout 0 또는 nextTick을 사용합니다.
-  const target = event.currentTarget;
+  currentTarget = target;
   setTimeout(() => {
     popoverSourcing.value?.show(event, target);
   }, 0);
 };
 
+// [PC] 마우스 호버 시
+const openPopover = (event) => {
+  showPopover(event, event.currentTarget);
+};
+
+// [PC/Mobile] 클릭 시 (토글 기능 포함)
+const handlePointClick = (event) => {
+  const target = event.currentTarget;
+
+  if (popoverSourcing.value?.visible && currentTarget === target) {
+    // 이미 열려있는 걸 다시 클릭하면 닫기
+    popoverSourcing.value.hide();
+    currentTarget = null;
+  } else {
+    // 새로 열거나 다른 걸 열 때
+    showPopover(event, target);
+  }
+};
+
+// [PC] 마우스 아웃 시
 const closePopover = () => {
-  // 태그를 벗어났을 때 0.1초 뒤에 닫기 (팝오버로 진입할 시간 확보)
   closeTimeout = setTimeout(() => {
     if (popoverSourcing.value) {
       popoverSourcing.value.hide();
+      currentTarget = null;
     }
   }, 500);
 };
 
 const cancelClose = () => {
-  // 팝오버 내부 진입 시 닫기 예약 취소
   if (closeTimeout) {
     clearTimeout(closeTimeout);
     closeTimeout = null;

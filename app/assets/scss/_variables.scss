@@ -511,6 +511,12 @@
   --blog-contents-list-item-title-color: var(--p-gray-900);
   --blog-contents-list-item-date-color: var(--p-gray-400);
 
+  --ktrend-title-color: var(--p-gray-900);
+  --ktrend-text-color: var(--p-gray-500);
+  --ktrend-styling-background: var(--p-slate-50);
+  --ktrend-styling-text-background: var(--p-slate-100);
+  --ktrend-styling-text-color: var(--p-slate-600);
+
   --ktrend-background: var(--p-gray-00);
   --ktrend-head-swiper-background: var(--p-gray-00);
   --ktrend-list-item-head-date-color: var(--p-gray-400);
@@ -783,7 +789,9 @@
   --trend-sourcing-result-image-point-boxshadow: 0 10px 30px 0
     rgba(0, 0, 0, 0.1);
   --trend-sourcing-result-image-point-color: var(--p-gray-00);
+  --trend-sourcing-result-end-background: var(--p-gray-50);
   --trend-sourcing-result-item-background: var(--p-gray-50);
+  --trend-sourcing-result-item-background02: var(--p-gray-00);
   --trend-sourcing-result-item-title-color: var(--p-gray-900);
   --trend-sourcing-result-item-text-color: var(--p-gray-500);
   --trend-sourcing-result-item-text-border-color: var(--p-gray-300);
@@ -1507,6 +1515,12 @@
     --blog-contents-list-item-title-color: var(--p-gray-00);
     --blog-contents-list-item-date-color: var(--p-gray-400);
 
+    --ktrend-title-color: var(--p-gray-00);
+    --ktrend-text-color: var(--p-gray-300);
+    --ktrend-styling-background: var(--p-slate-800);
+    --ktrend-styling-text-background: var(--p-slate-900);
+    --ktrend-styling-text-color: var(--p-slate-300);
+
     --ktrend-background: var(--p-gray-800);
     --ktrend-head-swiper-background: var(--p-gray-800);
     --ktrend-list-item-head-date-color: var(--p-gray-400);
@@ -1779,7 +1793,9 @@
     --trend-sourcing-result-image-point-boxshadow: 0 10px 30px 0
       rgba(0, 0, 0, 0.1);
     --trend-sourcing-result-image-point-color: var(--p-gray-900);
+    --trend-sourcing-result-end-background: var(--p-gray-700);
     --trend-sourcing-result-item-background: var(--p-gray-900);
+    --trend-sourcing-result-item-background02: var(--p-gray-900);
     --trend-sourcing-result-item-title-color: var(--p-gray-00);
     --trend-sourcing-result-item-text-color: var(--p-gray-300);
     --trend-sourcing-result-item-text-border-color: var(--p-gray-600);

@@ -354,6 +354,14 @@
           padding: 30px;
           border-radius: 32px;
           background: rgba(244, 244, 244, 1);
+          border: 1px solid rgba(244, 244, 244, 1);
+          transition: all 0.1s ease;
+          cursor: pointer;
+          &:hover {
+            border-color: var(--color-primary);
+            box-shadow: var(--community-list-item-hover-boxshadow);
+          }
+
           &-head {
             position: absolute;
             top: 0;
@@ -506,6 +514,8 @@
             letter-spacing: -0.4px;
           }
           a {
+            position: relative;
+            z-index: 20;
             display: inline-flex;
             margin-top: 20px;
           }

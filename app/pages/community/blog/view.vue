@@ -110,8 +110,8 @@
 import { ref } from 'vue';
 
 import SbComment from '@/pages/community/components/SbComment.vue';
-import contents from '@/pages/community/blog/contents';
-import products from '@/pages/community/blog/products';
+import contents from '@/pages/community/components/contents';
+import products from '@/pages/community/components/products';
 import IconArrowLeft from '@/assets/icons/arrow/left.svg?component';
 import IconSystemDownload from '@/assets/icons/system/download.svg?component';
 import IconProfileDefault from '@/assets/icons/profile/default.svg?component';

@@ -2,9 +2,9 @@
 
 :root,
 :host {
-  --p-badge-xl-font-size: 1rem;
+  --p-badge-xl-font-size: 20px;
   --p-badge-xl-min-width: 2rem;
-  --p-badge-xl-height: 2rem;
+  --p-badge-xl-height: 40px;
   --p-badge-lg-font-size: 0.875rem;
   --p-badge-lg-min-width: 1.75rem;
   --p-badge-lg-height: 1.75rem;
@@ -73,6 +73,10 @@
     --p-badge-info-border-color: var(--p-blue-100);
     --p-badge-info-background: var(--p-blue-100);
     --p-badge-info-color: var(--p-blue-900);
+  }
+  @include breakpoint {
+    --p-badge-xl-font-size: 12px;
+    --p-badge-xl-height: 24px;
   }
 }
 
@@ -172,7 +176,15 @@
   height: var(--p-badge-lg-height);
 }
 .p-badge-xl {
+  padding: 0 12px;
   font-size: var(--p-badge-xl-font-size);
   min-width: var(--p-badge-xl-min-width);
   height: var(--p-badge-xl-height);
+  border-radius: 10px;
+  border-width: 1.5px;
+  @include breakpoint {
+    padding: 0 8px;
+    border-radius: 6px;
+    border-width: 1px;
+  }
 }
