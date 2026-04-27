@@ -35,7 +35,7 @@
   --p-toggleswitch-handle-checked-hover-color: var(--p-primary-hover-color);
   --p-toggleswitch-background: var(--p-gray-200);
   --p-toggleswitch-disabled-background: var(--p-form-field-disabled-background);
-  --p-toggleswitch-hover-background: var(--p-primary-500);
+  --p-toggleswitch-hover-background: var(--p-gray-200);
   --p-toggleswitch-checked-background: var(--p-primary-500);
   --p-toggleswitch-checked-hover-background: var(--p-primary-500);
   &.p-dark,
@@ -51,7 +51,7 @@
     --p-toggleswitch-handle-checked-hover-color: var(--p-primary-hover-color);
     --p-toggleswitch-background: var(--p-gray-800);
     --p-toggleswitch-disabled-background: var(--p-surface-600);
-    --p-toggleswitch-hover-background: var(--p-primary-300);
+    --p-toggleswitch-hover-background: var(--p-gray-800);
     --p-toggleswitch-checked-background: var(--p-primary-300);
     --p-toggleswitch-checked-hover-background: var(--p-primary-300);
   }

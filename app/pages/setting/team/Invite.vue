@@ -104,7 +104,7 @@
 <script setup>
 import { ref, nextTick } from 'vue';
 
-const activeTab = ref('link');
+const activeTab = ref('email');
 
 const searchKeyword = ref('');
 
