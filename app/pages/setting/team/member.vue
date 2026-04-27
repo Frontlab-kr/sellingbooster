@@ -155,7 +155,7 @@
                 >
                   <Button variant="text" label="취소하기" class="underline" />
 
-                  <Button variant="text">
+                  <Button variant="text" disabled="">
                     <template #icon>
                       <IconSystemTrash class="ico-system-trash" />
                     </template>
