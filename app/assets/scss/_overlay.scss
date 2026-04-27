@@ -1364,7 +1364,7 @@
     }
     &-workspace {
       .p-dialog-title {
-        margin-bottom: 24px;
+        margin-bottom: 32px;
       }
       &__text {
         margin-bottom: 32px;
@@ -1409,6 +1409,25 @@
         margin-top: 32px;
       }
       &-member {
+        width: 100%;
+      }
+      &-member & {
+        &-form {
+          &-item {
+            gap: 8px;
+            margin-bottom: 0;
+            border: none;
+            &__input {
+              width: 100%;
+            }
+          }
+          .sb-input {
+            width: 100%;
+          }
+          .p-select {
+            min-width: 190px;
+          }
+        }
       }
       @include breakpoint {
         &-form {

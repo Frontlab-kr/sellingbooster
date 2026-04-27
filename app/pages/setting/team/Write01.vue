@@ -16,12 +16,64 @@
           <div class="sb-dialog-workspace-member">
             <div class="sb-dialog-workspace-form">
               <div class="sb-dialog-workspace-form-item">
-                <SbInput placeholder="이메일 주소를 입력해주세요." />
+                <div class="sb-dialog-workspace-form-item__input">
+                  <SbInput placeholder="이메일 주소를 입력해주세요." />
+                </div>
                 <Select
                   v-model="selectedValue"
                   :options="selectedOption"
                   optionLabel="name"
-                  placeholder="신고 사유를 선택해주세요."
+                  placeholder="구분 선택"
+                />
+              </div>
+              <div class="sb-dialog-workspace-form-item">
+                <div class="sb-dialog-workspace-form-item__input">
+                  <SbInput placeholder="이메일 주소를 입력해주세요." />
+                </div>
+                <Select
+                  v-model="selectedValue"
+                  :options="selectedOption"
+                  optionLabel="name"
+                  placeholder="구분 선택"
+                />
+              </div>
+              <div class="sb-dialog-workspace-form-item">
+                <div class="sb-dialog-workspace-form-item__input">
+                  <SbInput
+                    placeholder="이메일 주소를 입력해주세요."
+                    invalid="false"
+                  />
+                  <Message size="small" severity="error" variant="simple">
+                    이메일 형식이 아닙니다. 다시 입력해주세요.
+                  </Message>
+                </div>
+                <Select
+                  v-model="selectedValue"
+                  :options="selectedOption"
+                  optionLabel="name"
+                  placeholder="구분 선택"
+                />
+              </div>
+              <div class="sb-dialog-workspace-form-item">
+                <div class="sb-dialog-workspace-form-item__input">
+                  <SbInput placeholder="이메일 주소를 입력해주세요." />
+                </div>
+                <Select
+                  v-model="selectedValue"
+                  :options="selectedOption"
+                  optionLabel="name"
+                  placeholder="구분 선택"
+                />
+              </div>
+              <div class="sb-dialog-workspace-form-item">
+                <div class="sb-dialog-workspace-form-item__input">
+                  <SbInput placeholder="이메일 주소를 입력해주세요." />
+                </div>
+                <Select
+                  v-model="selectedValue"
+                  :options="selectedOption"
+                  optionLabel="name"
+                  placeholder="구분 선택"
                 />
               </div>
             </div>
@@ -29,7 +81,10 @@
         </div>
       </div>
       <div class="sb-dialog-workspace-button">
-        <Button severity="primary" label="목표 세우기" disabled />
+        <Button
+          severity="primary"
+          label="워크스페이스 생성 및 초대 메일 발송"
+        />
       </div>
     </div>
   </div>
@@ -68,13 +123,7 @@ const onDateSelect = async () => {
 //
 const selectedValue = ref();
 const selectedOption = ref([
-  { name: '구분 선택' },
-  { name: '음란물입니다.' },
-  { name: '불법정보를 포함하고 있습니다.' },
-  { name: '청소년에게 유해한 내용입니다.' },
-  { name: '욕설/혐오/차별적 표현입니다.' },
-  { name: '개인정보 노출 게시물입니다.' },
-  { name: '블퀘한 표현이 있습니다.' },
-  { name: '기타 (기타 사유를 입력해주세요.)' },
+  { name: '멤버(편집 가능)' },
+  { name: '멤버(뷰어만 가능)' },
 ]);
 </script>
