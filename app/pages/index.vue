@@ -218,10 +218,10 @@
               >팀/권한 관리 - 멤버관리</NuxtLink
             >
             <a href="/sellingbooster/mail/mail01.html" target="_blank"
-              >PC_환경설정_04팀,관한관리_03멤버관리_05이메일템플릿_01팀초대</a
+              >이메일템플릿 - 팀초대</a
             >
             <a href="/sellingbooster/mail/mail02.html" target="_blank"
-              >PC_환경설정_04팀,관한관리_03멤버관리_05이메일템플릿_02소유권변경</a
+              >이메일템플릿 - 소유권변경</a
             >
           </div>
         </template>
