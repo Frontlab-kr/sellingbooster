@@ -1666,6 +1666,13 @@
             padding: 32px;
             border-radius: 16px;
             background: var(--trend-sourcing-result-item-background);
+            border: 1px solid var(--trend-sourcing-result-item-background);
+            transition: all 0.1s ease;
+            cursor: pointer;
+            &:hover {
+              border-color: var(--color-primary);
+              box-shadow: var(--community-list-item-hover-boxshadow);
+            }
             &:first-child {
               margin-top: 0;
             }
