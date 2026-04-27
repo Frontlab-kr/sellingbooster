@@ -1275,11 +1275,16 @@
         line-height: 140%; /* 19.6px */
         letter-spacing: -0.35px;
       }
-      &:last-child {
-        &.p-button-text .p-button-label {
-          padding-right: 24px;
-        }
-      }
+      // &:last-child {
+      //   &.p-button-text .p-button-label {
+      //     padding-right: 24px;
+      //   }
+      //   &.active {
+      //     &.p-button-text .p-button-label {
+      //       padding-right: 15px;
+      //     }
+      //   }
+      // }
       &:hover {
         background: none;
       }

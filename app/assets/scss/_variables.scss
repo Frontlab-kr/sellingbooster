@@ -361,6 +361,10 @@
   --chart-gauge-circle-end-color: #fb7310;
   --chart-gauge-circle-line-color: rgba(154, 163, 175, 0.5);
 
+  --chart-gauge-credit-active: var(--color-primary);
+  --chart-gauge-credit-background: var(--p-gray-200);
+  --chart-gauge-credit-text-color: var(--p-gray-400);
+
   --chart-segment-segments-color: var(--p-gray-200);
   --chart-segment-legend-color: var(--p-gray-500);
   --chart-segment-primary: var(--p-indigo-500);
@@ -1163,6 +1167,29 @@
   --team-workspace-index-text-color: var(--p-gray-400);
   --team-workspace-list-border-color: var(--p-gray-300);
 
+  --subscribe-background: var(--p-gray-00);
+  --subscribe-index-item-background: var(--p-gray-50);
+  --subscribe-index-item-title-color: var(--p-gray-500);
+  --subscribe-index-chart-title-color: var(--p-gray-500);
+  --subscribe-index-chart-text-color: var(--p-gray-300);
+  --subscribe-index-info-list-item-background: var(--p-gray-00);
+  --subscribe-index-info-list-item-body-title-color: var(--p-gray-500);
+  --subscribe-index-info-list-item-body-text-color: var(--p-gray-500);
+  --subscribe-index-info-list-item-body-background: var(--p-gray-300);
+  --subscribe-index-info-list-item-body-none-color: var(--p-gray-300);
+  --subscribe-index-info-list-item-card-title-color: var(--p-gray-500);
+  --subscribe-index-info-list-item-card-text-color: var(--p-gray-500);
+  --subscribe-index-credit-list-item-background: var(--p-gray-00);
+  --subscribe-index-credit-list-item-active-boxshadow: 0 4px 10px 0
+    rgba(0, 177, 189, 0.1);
+  --subscribe-index-credit-list-item-ico-color: var(--p-slate-500);
+  --subscribe-index-credit-list-item-best-color: var(--p-gray-00);
+  --subscribe-index-credit-list-item-title-border-color: var(--p-gray-300);
+  --subscribe-index-credit-list-item-text-color: var(--p-gray-400);
+  --subscribe-index-credit-list-item-text-background: var(--p-gray-100);
+  --subscribe-index-credit-list-item-subtext-color: var(--p-gray-500);
+  --subscribe-index-table-border-color: var(--p-gray-300);
+
   //popover
   --popover-search-history-list-item-background: var(--p-gray-50);
   --popover-search-history-list-head-color: var(--p-gray-400);
@@ -1233,6 +1260,21 @@
   --dialog-workspace-form-item-title-text-color: var(--p-gray-400);
   --dialog-workspace-link-head-title-color: var(--p-gray-500);
   --dialog-workspace-link-head-text-color: var(--p-gray-500);
+
+  --dialog-payment-item-border-color: var(--p-gray-300);
+  --dialog-payment-item-background-color: var(--p-gray-00);
+  --dialog-payment-item-price-text-color: var(--p-gray-500);
+  --dialog-payment-item-text-ico-color: var(--p-gray-400);
+  --dialog-payment-detail-head-text-color: var(--p-gray-500);
+  --dialog-payment-detail-head-border-color: var(--p-gray-300);
+  --dialog-payment-detail-item-border-color: var(--p-gray-300);
+  --dialog-payment-detail-item-table-title-color: var(--p-gray-500);
+  --dialog-payment-detail-item-table-text-color: var(--p-gray-900);
+  --dialog-payment-section-list-item-border-color: var(--p-gray-300);
+  --dialog-payment-section-list-item-text-color: var(--p-gray-500);
+  --dialog-payment-section-list-item-icon-border-color: var(--p-gray-200);
+  --dialog-payment-form-col-border-color: var(--p-gray-300);
+  --dialog-payment-form-item-title-color: var(--p-gray-600);
 
   //price setting
   --price-setting-background: var(--p-gray-50);
@@ -1395,6 +1437,10 @@
     --chart-gauge-circle-start-color: var(--p-gray-800);
     --chart-gauge-circle-end-color: #fb7310;
     --chart-gauge-circle-line-color: rgba(209, 214, 221, 0.5);
+
+    --chart-gauge-credit-active: var(--color-primary);
+    --chart-gauge-credit-background: var(--p-gray-700);
+    --chart-gauge-credit-text-color: var(--p-gray-400);
 
     --chart-segment-segments-color: var(--p-gray-700);
     --chart-segment-legend-color: var(--p-gray-300);
@@ -2196,6 +2242,29 @@
     --team-workspace-index-text-color: var(--p-gray-400);
     --team-workspace-list-border-color: var(--p-gray-600);
 
+    --subscribe-background: var(--p-gray-800);
+    --subscribe-index-item-background: var(--p-gray-900);
+    --subscribe-index-item-title-color: var(--p-gray-300);
+    --subscribe-index-chart-title-color: var(--p-gray-300);
+    --subscribe-index-chart-text-color: var(--p-gray-600);
+    --subscribe-index-info-list-item-background: var(--p-gray-800);
+    --subscribe-index-info-list-item-body-title-color: var(--p-gray-300);
+    --subscribe-index-info-list-item-body-text-color: var(--p-gray-300);
+    --subscribe-index-info-list-item-body-background: var(--p-gray-600);
+    --subscribe-index-info-list-item-body-none-color: var(--p-gray-400);
+    --subscribe-index-info-list-item-card-title-color: var(--p-gray-300);
+    --subscribe-index-info-list-item-card-text-color: var(--p-gray-300);
+    --subscribe-index-credit-list-item-background: var(--p-gray-800);
+    --subscribe-index-credit-list-item-active-boxshadow: 0 4px 10px 0
+      rgba(0, 0, 0, 0.5);
+    --subscribe-index-credit-list-item-ico-color: var(--p-slate-400);
+    --subscribe-index-credit-list-item-best-color: var(--p-gray-00);
+    --subscribe-index-credit-list-item-title-border-color: var(--p-gray-600);
+    --subscribe-index-credit-list-item-text-color: var(--p-gray-400);
+    --subscribe-index-credit-list-item-text-background: var(--p-gray-600);
+    --subscribe-index-credit-list-item-subtext-color: var(--p-gray-300);
+    --subscribe-index-table-border-color: var(--p-gray-600);
+
     //popover
     --popover-search-history-list-item-background: var(--p-gray-700);
     --popover-search-history-list-head-color: var(--p-gray-400);
@@ -2268,6 +2337,21 @@
     --dialog-workspace-form-item-title-text-color: var(--p-gray-400);
     --dialog-workspace-link-head-title-color: var(--p-gray-300);
     --dialog-workspace-link-head-text-color: var(--p-gray-300);
+
+    --dialog-payment-item-border-color: var(--p-gray-600);
+    --dialog-payment-item-background-color: var(--p-gray-800);
+    --dialog-payment-item-price-text-color: var(--p-gray-300);
+    --dialog-payment-item-text-ico-color: var(--p-gray-400);
+    --dialog-payment-detail-head-text-color: var(--p-gray-300);
+    --dialog-payment-detail-head-border-color: var(--p-gray-600);
+    --dialog-payment-detail-item-border-color: var(--p-gray-600);
+    --dialog-payment-detail-item-table-title-color: var(--p-gray-300);
+    --dialog-payment-detail-item-table-text-color: var(--p-gray-00);
+    --dialog-payment-section-list-item-border-color: var(--p-gray-600);
+    --dialog-payment-section-list-item-text-color: var(--p-gray-300);
+    --dialog-payment-section-list-item-icon-border-color: var(--p-gray-200);
+    --dialog-payment-form-col-border-color: var(--p-gray-600);
+    --dialog-payment-form-item-title-color: var(--p-gray-00);
 
     //price setting
     --price-setting-background: var(--p-gray-900);

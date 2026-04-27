@@ -223,6 +223,7 @@
             <a href="/sellingbooster/mail/mail02.html" target="_blank"
               >이메일템플릿 - 소유권변경</a
             >
+            <NuxtLink to="/setting/subscribe/">요금 및 결제 관리</NuxtLink>
           </div>
         </template>
       </Card>

@@ -18,11 +18,11 @@
 
     <!-- phone 모드: InputMask + 강제 숫자 청소 -->
     <InputMask
-      v-if="phone"
+      v-if="phone || mask"
       ref="inputRef"
       v-model="model"
       v-bind="$attrs"
-      :mask="phoneMask"
+      :mask="activeMask"
       :placeholder="placeholder"
       :disabled="disabled"
       type="tel"
@@ -105,6 +105,7 @@ const props = defineProps({
   size: { type: String, default: '' },
   cancel: { type: Boolean, default: false },
   save: { type: Boolean, default: false },
+  mask: { type: String, default: null },
 });
 
 const emit = defineEmits(['search', 'cancel', 'save']);
@@ -128,6 +129,10 @@ const handleSearch = () => {
   emit('search', model.value);
 };
 
+const activeMask = computed(() => {
+  if (props.phone) return '999-9999-9999';
+  return props.mask; // 직접 주입받은 마스크 사용
+});
 const phoneMask = computed(() => (props.phone ? '999-9999-9999' : null));
 const phonePlaceholder = computed(() =>
   props.phone ? '010-1234-5678' : props.placeholder,
@@ -180,25 +185,22 @@ const onCompositionEnd = () => {
 
 // 입력/조합 끝날 때마다 숫자만 강제 추출 + 업데이트
 const handleInput = (e) => {
-  if (!props.number) return;
+  if (!props.number && !props.phone && !props.mask) return; // 조건 확장
 
   const el = inputRef.value?.$el?.input || e.target;
   if (!el) return;
 
-  let current = props.phone ? rawValue.value : model.value;
+  // InputMask를 쓸 때는 내부적으로 포맷팅된 값을 다루므로
+  // 단순 number일 때와 구분해서 처리하는 것이 안전합니다.
+  if (props.phone || props.mask) return;
 
-  // 숫자만 남기기
+  let current = model.value;
   const cleaned = current.replace(/[^0-9]/g, '');
 
   if (cleaned !== model.value) {
     model.value = cleaned;
-
     nextTick(() => {
-      if (props.phone) {
-        rawValue.value = cleaned; // InputMask가 마스크 재적용
-      } else {
-        el.value = cleaned;
-      }
+      el.value = cleaned;
     });
   }
 };
