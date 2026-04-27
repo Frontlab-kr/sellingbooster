@@ -801,7 +801,7 @@
     .p-inputtext {
       min-width: auto;
       width: 100%;
-      padding-right: 44px;
+      padding-right: 72px;
       &:read-only {
         border-color: transparent;
         color: var(--title-color);
@@ -828,6 +828,34 @@
       letter-spacing: -0.3px;
       transform: translateY(-50%);
       z-index: 50;
+    }
+    &__save {
+      position: absolute;
+      right: 52px;
+      top: 50%;
+      color: var(--Gray-600, #454f5b);
+      font-size: 12px;
+      line-height: 140%; /* 16.8px */
+      letter-spacing: -0.3px;
+      transform: translateY(-50%);
+      z-index: 50;
+      .p-button {
+        min-width: auto !important;
+      }
+      .p-button-label {
+        color: var(--Gray-600, #454f5b);
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%; /* 16.8px */
+        letter-spacing: -0.3px;
+        text-decoration: underline;
+        @include breakpoint {
+          span {
+            display: none;
+          }
+        }
+      }
     }
     &__cancel {
       position: absolute;

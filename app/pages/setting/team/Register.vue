@@ -4,15 +4,22 @@
       <h6 class="p-dialog-title">워크스페이스 생성</h6>
       <div class="sb-dialog-workspace-form">
         <div class="sb-dialog-workspace-form-item">
-          <label>이름 <strong>*</strong></label>
+          <div class="sb-dialog-workspace-form-item__title">
+            <label>이름 <strong>*</strong></label>
+          </div>
           <SbInput placeholder="공백 포함 최대 15자 이내 작성" />
         </div>
         <div class="sb-dialog-workspace-form-item">
-          <label>설명</label>
+          <div class="sb-dialog-workspace-form-item__title">
+            <label>설명</label>
+          </div>
           <SbInput placeholder="공백 포함 최대 30자 이내 작성" />
         </div>
         <div class="sb-dialog-workspace-form-item">
-          <label> 멤버 초대 </label>
+          <div class="sb-dialog-workspace-form-item__title">
+            <label> 멤버 초대 </label>
+            <p>최대5명</p>
+          </div>
           <div class="sb-dialog-workspace-member">
             <div class="sb-dialog-workspace-form">
               <div class="sb-dialog-workspace-form-item">

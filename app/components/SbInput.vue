@@ -75,7 +75,11 @@
         </template>
       </Button>
     </div>
-
+    <div class="sb-input__save" v-if="save">
+      <Button variant="text" @click="emit('save')">
+        <span class="p-button-label">저장</span>
+      </Button>
+    </div>
     <div class="sb-input__cancel" v-if="cancel">
       <Button variant="text" @click="emit('cancel')">
         <span class="p-button-label">취소</span>
@@ -100,9 +104,10 @@ const props = defineProps({
   time: { type: String, default: '' },
   size: { type: String, default: '' },
   cancel: { type: Boolean, default: false },
+  save: { type: Boolean, default: false },
 });
 
-const emit = defineEmits(['search', 'cancel']);
+const emit = defineEmits(['search', 'cancel', 'save']);
 
 const model = defineModel({ type: String, default: '' }); // 최종 숫자만
 const rawValue = ref(''); // InputMask 포맷용

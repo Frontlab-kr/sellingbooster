@@ -1150,6 +1150,19 @@
   --extension-dashboard-status-product-item-text-color: var(--p-gray-500);
   --extension-dashboard-status-none-color: var(--p-gray-400);
 
+  --team-background: var(--p-gray-00);
+  --team-workspace-head-text-color: var(--p-gray-400);
+  --team-workspace-head-form-text-color: var(--p-gray-500);
+  --team-workspace-head-form-button-background: var(--p-gray-200);
+  --team-workspace-head-form-button-icon-color: var(--p-gray-400);
+  --team-workspace-status-item-background: var(--p-gray-50);
+  --team-workspace-status-item-title-color: var(--p-gray-500);
+  --team-workspace-status-item-text-color: var(--p-gray-500);
+  --team-workspace-status-item-subtext-color: var(--p-gray-400);
+  --team-workspace-index-border-color: var(--p-gray-300);
+  --team-workspace-index-text-color: var(--p-gray-400);
+  --team-workspace-list-border-color: var(--p-gray-300);
+
   //popover
   --popover-search-history-list-item-background: var(--p-gray-50);
   --popover-search-history-list-head-color: var(--p-gray-400);
@@ -1212,6 +1225,14 @@
 
   --dialog-keyword-label-color: var(--p-gray-500);
   --dialog-keyword-label-strong-color: var(--p-gray-500);
+
+  --dialog-workspace-head-text-color: var(--p-gray-400);
+  --dialog-workspace-tab-border-color: var(--p-gray-300);
+  --dialog-workspace-form-item-border-color: var(--p-gray-300);
+  --dialog-workspace-form-item-title-color: var(--p-gray-600);
+  --dialog-workspace-form-item-title-text-color: var(--p-gray-400);
+  --dialog-workspace-link-head-title-color: var(--p-gray-500);
+  --dialog-workspace-link-head-text-color: var(--p-gray-500);
 
   //price setting
   --price-setting-background: var(--p-gray-50);
@@ -2162,6 +2183,19 @@
     --extension-dashboard-status-product-item-text-color: var(--p-gray-300);
     --extension-dashboard-status-none-color: var(--p-gray-400);
 
+    --team-background: var(--p-gray-800);
+    --team-workspace-head-text-color: var(--p-gray-400);
+    --team-workspace-head-form-text-color: var(--p-gray-300);
+    --team-workspace-head-form-button-background: var(--p-gray-600);
+    --team-workspace-head-form-button-icon-color: var(--p-gray-400);
+    --team-workspace-status-item-background: var(--p-gray-900);
+    --team-workspace-status-item-title-color: var(--p-gray-300);
+    --team-workspace-status-item-text-color: var(--p-gray-300);
+    --team-workspace-status-item-subtext-color: var(--p-gray-400);
+    --team-workspace-index-border-color: var(--p-gray-600);
+    --team-workspace-index-text-color: var(--p-gray-400);
+    --team-workspace-list-border-color: var(--p-gray-600);
+
     //popover
     --popover-search-history-list-item-background: var(--p-gray-700);
     --popover-search-history-list-head-color: var(--p-gray-400);
@@ -2226,6 +2260,14 @@
 
     --dialog-keyword-label-color: var(--p-gray-600);
     --dialog-keyword-label-strong-color: var(--p-gray-300);
+
+    --dialog-workspace-head-text-color: var(--p-gray-400);
+    --dialog-workspace-tab-border-color: var(--p-gray-600);
+    --dialog-workspace-form-item-border-color: var(--p-gray-600);
+    --dialog-workspace-form-item-title-color: var(--p-gray-00);
+    --dialog-workspace-form-item-title-text-color: var(--p-gray-400);
+    --dialog-workspace-link-head-title-color: var(--p-gray-300);
+    --dialog-workspace-link-head-text-color: var(--p-gray-300);
 
     //price setting
     --price-setting-background: var(--p-gray-900);

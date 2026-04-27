@@ -6,7 +6,7 @@
     </div>
     <div class="sb-team-workspace">
       <div class="sb-team-workspace-head">
-        <strong>팀 워크스페이스를 시작해보세요.</strong>
+        <strong>셀링부스터 워크스페이스</strong>
         <div class="sb-team-workspace-head-form">
           <div v-if="!isEditMode" class="sb-team-workspace-head-form__text">
             <p>
@@ -24,11 +24,12 @@
           <div v-else class="sb-team-workspace-head-form__input">
             <SbInput
               v-model="tempDescription"
+              save
               cancel
               placeholder="워크스페이스 30자 이내의 설명 내용이 노출됩니다."
               @cancel="toggleEditMode"
+              maxlength="30"
             />
-            <Button label="저장" severity="primary" @click="saveDescription" />
           </div>
         </div>
       </div>
@@ -47,17 +48,16 @@
           <dt>다음 결제 예정일</dt>
           <dd>
             <strong>2026년 4월 15일</strong>
+            <span>신용카드 자동 결제</span>
           </dd>
-          <span>신용카드 자동 결제</span>
         </dl>
       </div>
       <div class="sb-team-workspace-list">
         <div class="sb-team-workspace-list-head">
-          <strong>멤버 초대</strong>
-          <Button variant="text">
-            <template #icon>
-              <IconSystemPlus class="ico-system-plus" />
-            </template>
+          <strong>멤버 리스트</strong>
+          <Button variant="text" @click="dialogInvite = true">
+            <div class="p-button-label">멤버 초대</div>
+            <IconSystemPlus class="ico-system-plus" />
           </Button>
         </div>
         <div class="sb-table">
@@ -152,7 +152,9 @@
                   v-if="data.isOwner && data.role.includes('소유권 이전')"
                   class="sb-table-body-owner"
                 >
-                  <Badge value="취소하기" severity="contrast"></Badge>
+                  <Button variant="text">
+                    <Badge value="취소하기" severity="contrast"></Badge>
+                  </Button>
                   <Button variant="text">
                     <template #icon>
                       <IconSystemTrash class="ico-system-trash" />
@@ -161,7 +163,9 @@
                 </div>
 
                 <div v-else-if="!data.isOwner" class="sb-table-body-owner">
-                  <Badge value="권한 변경" severity="secondary"></Badge>
+                  <Button variant="text">
+                    <Badge value="권한 변경" severity="secondary"></Badge>
+                  </Button>
                   <Button variant="text">
                     <template #icon>
                       <IconSystemTrash class="ico-system-trash" />
@@ -190,30 +194,35 @@
       </div>
     </div>
   </div>
+  <Dialog v-model:visible="dialogInvite" modal>
+    <Invite />
+  </Dialog>
 </template>
 
 <script setup>
+import Invite from './Invite.vue';
 import IconSystemPlus from '@/assets/icons/system/plus.svg?component';
 import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
 import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 
+const dialogInvite = ref(false);
+
 const isEditMode = ref(false);
 const workspaceDescription = ref('워크스페이 30자 이내의 설명이 노출됩니다.');
-const tempDescription = ref(''); // 수정 중 취소를 대비한 임시 변수
+const tempDescription = ref('');
 
 const toggleEditMode = () => {
   if (!isEditMode.value) {
-    tempDescription.value = workspaceDescription.value; // 모드 진입 시 현재 값 복사
+    tempDescription.value = workspaceDescription.value;
   }
   isEditMode.value = !isEditMode.value;
 };
 
 const saveDescription = () => {
-  workspaceDescription.value = tempDescription.value; // 저장 시 반영
+  workspaceDescription.value = tempDescription.value;
   isEditMode.value = false;
 };
 
-// 멤버 데이터 (v-model 연결을 위해 role을 value 값으로 관리 권장)
 const memberList = ref([
   {
     email: 'selling@hecto.co.kr',
@@ -247,7 +256,6 @@ const memberList = ref([
   },
 ]);
 
-// 권한 옵션 데이터
 const roleOptions = ref([
   { label: '멤버(편집 가능)', value: '멤버(편집 가능)' },
   { label: '멤버(뷰어만 가능)', value: '멤버(뷰어만 가능)' },
