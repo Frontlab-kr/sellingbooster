@@ -798,6 +798,11 @@
   --trend-sourcing-result-tag-item-background: var(--p-gray-100);
   --trend-sourcing-result-tag-item-color: var(--p-gray-900);
   --trend-sourcing-product-item-text-color: var(--p-gray-900);
+  --trend-sourcing-shadow: linear-gradient(
+    180deg,
+    rgba(249, 251, 252, 0) 0%,
+    #f9fbfc 100%
+  );
 
   //keyword
   --keyword-detail-head-title-color: var(--p-gray-900);
@@ -1802,6 +1807,11 @@
     --trend-sourcing-result-tag-item-background: var(--p-gray-500);
     --trend-sourcing-result-tag-item-color: var(--p-gray-00);
     --trend-sourcing-product-item-text-color: var(--p-gray-00);
+    --trend-sourcing-shadow: linear-gradient(
+      180deg,
+      rgba(56, 65, 79, 0) 0%,
+      #38414f 100%
+    );
 
     //keyword
     --keyword-detail-head-title-color: var(--p-gray-00);
@@ -2280,9 +2290,20 @@
   }
   @include breakpoint {
     --auth-background-image: var(--p-gray-00);
+    --trend-sourcing-shadow: linear-gradient(
+      90deg,
+      rgba(249, 251, 252, 0) 0%,
+      #f9fbfc 100%
+    );
+
     &.p-dark,
     .p-dark {
       --auth-background-image: var(--p-gray-800);
+      --trend-sourcing-shadow: linear-gradient(
+        90deg,
+        rgba(56, 65, 79, 0) 0%,
+        #38414f 100%
+      );
     }
   }
 }

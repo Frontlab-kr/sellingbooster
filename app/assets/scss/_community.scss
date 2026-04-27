@@ -1679,6 +1679,7 @@
           display: flex;
           align-items: center;
           gap: 20px;
+          width: 100%;
           font-size: 16px;
           background: var(--blog-contents-background);
           &__thumb {
@@ -1692,6 +1693,9 @@
               height: 100%;
               object-fit: cover;
             }
+          }
+          &__contents {
+            width: 100%;
           }
           &__title {
             margin: 0 0 12px 0;
@@ -2491,6 +2495,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
+          max-width: 50%;
           width: 100%;
           min-height: 688px;
           padding: 0px;
@@ -2555,16 +2560,22 @@
         }
         &-list {
           width: 100%;
+          &::after {
+            background: var(--trend-sourcing-shadow) !important;
+          }
+
           &-scroll {
             overflow: auto;
             height: 688px;
             @include custom-scrollbar();
           }
-          @include custom-scrollbar-blur();
-          &.is-scroll-end {
-            &::after {
-              opacity: 0;
-              visibility: hidden;
+          @media screen and (min-width: 1440px) {
+            @include custom-scrollbar-blur();
+            &.is-scroll-end {
+              &::after {
+                opacity: 0;
+                visibility: hidden;
+              }
             }
           }
           &-item {
@@ -3221,6 +3232,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            max-width: 100%;
             width: 100%;
             min-height: auto;
             padding: 0px;
@@ -3266,20 +3278,23 @@
           }
           &-list {
             width: 100%;
+            overflow: hidden;
+            overflow-y: auto;
             &-scroll {
-              overflow: auto;
-              height: 360px;
+              display: flex;
+              height: 208px;
               @include custom-scrollbar();
             }
-            @include custom-scrollbar-blur();
-            &.is-scroll-end {
+            @include custom-scrollbar-vertical-blur();
+            &.is-scroll-end-x {
               &::after {
                 opacity: 0;
                 visibility: hidden;
               }
             }
             &-item {
-              margin-top: 10px;
+              min-width: 100%;
+              margin: 0 8px 0 0;
               padding: 20px;
               border-radius: 16px;
               &:first-child {

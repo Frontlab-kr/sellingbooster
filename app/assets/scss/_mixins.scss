@@ -138,5 +138,8 @@ $BreakpointMd: 1439px;
     backdrop-filter: blur(0.5px);
     pointer-events: none;
     z-index: 50;
+    @include breakpoint {
+      width: 40px;
+    }
   }
 }
