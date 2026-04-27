@@ -66,7 +66,13 @@
           </div>
         </div>
         <div class="sb-table">
-          <DataTable :value="top30" responsiveLayout="scroll" removableSort>
+          <DataTable
+            v-scroll-end
+            :value="top30"
+            responsiveLayout="scroll"
+            removableSort
+            scrollable
+          >
             <Column field="ranking" header="랭킹" style="width: 80px">
               <template #body="slotProps">
                 {{ slotProps.data.ranking }}
@@ -188,35 +194,37 @@
           <h5>카테고리 연관 상품 TOP 30</h5>
           <p>네이버 쇼핑 기준 데이터 입니다.</p>
         </div>
-        <div class="sb-trend-top-list">
-          <NuxtLink
-            v-for="item in categoryTop30"
-            :key="item.rank"
-            to="/"
-            class="sb-trend-top-list-item"
-          >
-            <div class="sb-trend-top-list-item__thumb">
-              <Badge
-                :value="item.rank"
-                size="small"
-                class="p-badge-circle"
-                :severity="item.rank > 3 ? 'contrast' : undefined"
-              ></Badge>
-              <img :src="item.imgSrc" :alt="item.title" />
-            </div>
-            <div class="sb-trend-top-list-item__contents">
-              <div class="sb-trend-top-list-item__category">
-                <span>{{ item.brand }}</span>
-                <span>{{ item.mall }}</span>
+        <div class="sb-trend-top-list" v-scroll-end>
+          <div class="sb-trend-top-list-scroll">
+            <NuxtLink
+              v-for="item in categoryTop30"
+              :key="item.rank"
+              to="/"
+              class="sb-trend-top-list-item"
+            >
+              <div class="sb-trend-top-list-item__thumb">
+                <Badge
+                  :value="item.rank"
+                  size="small"
+                  class="p-badge-circle"
+                  :severity="item.rank > 3 ? 'contrast' : undefined"
+                ></Badge>
+                <img :src="item.imgSrc" :alt="item.title" />
               </div>
-              <div class="sb-trend-top-list-item__title">
-                {{ item.title }}
+              <div class="sb-trend-top-list-item__contents">
+                <div class="sb-trend-top-list-item__category">
+                  <span>{{ item.brand }}</span>
+                  <span>{{ item.mall }}</span>
+                </div>
+                <div class="sb-trend-top-list-item__title">
+                  {{ item.title }}
+                </div>
+                <div class="sb-trend-top-list-item__price">
+                  {{ item.price.toLocaleString() }}원
+                </div>
               </div>
-              <div class="sb-trend-top-list-item__price">
-                {{ item.price.toLocaleString() }}원
-              </div>
-            </div>
-          </NuxtLink>
+            </NuxtLink>
+          </div>
         </div>
       </div>
       <SbBanner />
@@ -336,9 +344,100 @@ const top30 = ref([
     searchVol: 9999,
     competition: 6.05,
   },
+  {
+    ranking: 5,
+    keyword: '마그네슘',
+    influence: '높음',
+    productCount: 121,
+    searchVol: 9999,
+    competition: 0.02,
+  },
+  {
+    ranking: 19,
+    keyword: '오메가3',
+    influence: '높음',
+    productCount: 19327,
+    searchVol: 9999,
+    competition: 6.05,
+  },
 ]);
 
 const categoryTop30 = ref([
+  {
+    rank: 1,
+    imgSrc: 'https://picsum.photos/200/300',
+    brand: '스텐리1913',
+    mall: '네이버쇼핑',
+    title: '스텐리 스텐리1913 젠처 H2.0 플로우스테이트 텀블러',
+    price: 28000,
+  },
+  {
+    rank: 2,
+    imgSrc: 'https://picsum.photos/200/300',
+    brand: '스텐리1913',
+    mall: '네이버쇼핑',
+    title: '스텐리 스텐리1913 젠처 프로듀어 플립 스트로 텀블러 887ml 크림',
+    price: 22580,
+  },
+  {
+    rank: 3,
+    imgSrc: 'https://picsum.photos/200/300',
+    brand: '락앤락',
+    mall: '네이버쇼핑',
+    title:
+      '락앤락 텀블러 손잡이 스텐 텀블러 메트로 머그 475ml 보온 보냉 컵 커피 티',
+    price: 23200,
+  },
+  {
+    rank: 4,
+    imgSrc: 'https://picsum.photos/200/300',
+    brand: '스텐리1913',
+    mall: '네이버쇼핑',
+    title: '스텐리 퀜처 플로우 스테이트 텀블러 H2.0',
+    price: 38630,
+  },
+  {
+    rank: 5,
+    imgSrc: 'https://picsum.photos/200/300',
+    brand: '스텐리1913',
+    mall: '네이버쇼핑',
+    title: '스텐리 바이탈라이즈 쉐이커 텀블러 591ml + 컨테이너 103ml 세트',
+    price: 57660,
+  },
+  {
+    rank: 6,
+    imgSrc: 'https://picsum.photos/200/300',
+    brand: '보아르',
+    mall: '네이버쇼핑',
+    title: '보아르 투웨이 대용량 손잡이 스텐 보온 보냉 텀블러...',
+    price: 22700,
+  },
+  {
+    rank: 7,
+    imgSrc: 'https://picsum.photos/200/300',
+    brand: '락앤락',
+    mall: '네이버쇼핑',
+    title: '락앤락 모그 스텐 머그컵 텀블러',
+    price: 24790,
+  },
+  {
+    id: 'stanley-aerolight-33',
+    rank: 8,
+    imgSrc: 'https://picsum.photos/200/300',
+    brand: '스텐리',
+    mall: '네이버쇼핑',
+    title: '스텐리 아이스플로우 에어로라이트 패스트플로우 텀블러',
+    price: 33490,
+    to: '/product/stanley-aerolight-33',
+  },
+  {
+    rank: 9,
+    imgSrc: 'https://picsum.photos/200/300',
+    brand: '락앤락',
+    mall: '네이버쇼핑',
+    title: '락앤락 메트로카페 세라믹 텀블러 바닐라라떼 650ml',
+    price: 24570,
+  },
   {
     rank: 1,
     imgSrc: 'https://picsum.photos/200/300',

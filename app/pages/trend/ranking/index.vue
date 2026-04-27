@@ -62,37 +62,6 @@
             </div>
             <Button severity="contrast" outlined label="보기" size="small" />
           </div>
-          <div class="sb-trend-ranking-list-item">
-            <div class="sb-trend-ranking-list-item-text">
-              <div class="sb-trend-ranking-list-item-text__title">
-                <Badge value="키워드+스토어명" severity="secondary"></Badge>
-                <p>키워드 : <span>두바이쫀득쿠기</span></p>
-                <p>스토어명 : <span>한입에디저트</span></p>
-              </div>
-              <p>
-                → 키워드와 스토어명을 입력하면, 해당 키워드로 노출되는 상품을 한
-                번에 보여드려요.
-              </p>
-            </div>
-            <Button severity="contrast" outlined label="보기" size="small" />
-          </div>
-          <div class="sb-trend-ranking-list-item">
-            <div class="sb-trend-ranking-list-item-text">
-              <div class="sb-trend-ranking-list-item-text__title">
-                <Badge value="키워드+상품 URL" severity="secondary"></Badge>
-                <p>키워드 : <span>두바이쫀득쿠기</span></p>
-                <p>
-                  상품 URL :
-                  <span>https://smartstore.naver.com/.../...312420</span>
-                </p>
-              </div>
-              <p>
-                → 키워드와 상품 URL을 입력하면, 검색 결과 속 랭킹 위치를 한눈에
-                확인할 수 있어요.
-              </p>
-            </div>
-            <Button severity="contrast" outlined label="보기" size="small" />
-          </div>
         </div>
       </div>
     </div>

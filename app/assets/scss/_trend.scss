@@ -193,11 +193,26 @@
         }
       }
       &-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        row-gap: 20px;
-        column-gap: 102px;
-        margin-top: 30px;
+        width: 100%;
+        &-scroll {
+          overflow: auto;
+          height: 422px;
+          @include custom-scrollbar();
+        }
+        @include custom-scrollbar-blur();
+        &.is-scroll-end {
+          &::after {
+            opacity: 0;
+            visibility: hidden;
+          }
+        }
+        &-scroll {
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          row-gap: 20px;
+          column-gap: 102px;
+          margin-top: 30px;
+        }
         &-item {
           display: flex;
           align-items: center;
