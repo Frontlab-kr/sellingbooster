@@ -1754,6 +1754,12 @@
           }
         }
       }
+      &-owner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
     }
     &-popover {
       margin-left: 22px;

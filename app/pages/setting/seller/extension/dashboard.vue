@@ -210,7 +210,7 @@ import { useConfirm } from 'primevue/useconfirm';
 import { useToast } from 'primevue/usetoast';
 
 import ExtensionTable from './ExtensionTable.vue';
-import Write01 from './Write01.vue';
+import Write01 from '../../team/Write01.vue';
 import Write02 from './Write02.vue';
 import Write03 from './Write03.vue';
 
