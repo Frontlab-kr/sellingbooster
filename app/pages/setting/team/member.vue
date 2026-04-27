@@ -28,6 +28,7 @@
               cancel
               placeholder="워크스페이스 30자 이내의 설명 내용이 노출됩니다."
               @cancel="toggleEditMode"
+              @save="handleSaveData"
               maxlength="30"
             />
           </div>
@@ -206,9 +207,8 @@ import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
 import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 
 const dialogInvite = ref(false);
-
 const isEditMode = ref(false);
-const workspaceDescription = ref('워크스페이 30자 이내의 설명이 노출됩니다.');
+const workspaceDescription = ref('워크스페이스 30자 이내의 설명이 노출됩니다.');
 const tempDescription = ref('');
 
 const toggleEditMode = () => {
@@ -216,6 +216,11 @@ const toggleEditMode = () => {
     tempDescription.value = workspaceDescription.value;
   }
   isEditMode.value = !isEditMode.value;
+};
+
+// 2. 함수 호출 수정
+const handleSaveData = () => {
+  saveDescription(); // 뒤에 ()를 붙여서 함수를 실행해야 합니다.
 };
 
 const saveDescription = () => {

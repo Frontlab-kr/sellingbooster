@@ -217,10 +217,10 @@
             <NuxtLink to="/setting/team/member"
               >팀/권한 관리 - 멤버관리</NuxtLink
             >
-            <a href="/mail/mail01.html" target="_blank"
+            <a href="/sellingbooster/mail/mail01.html" target="_blank"
               >PC_환경설정_04팀,관한관리_03멤버관리_05이메일템플릿_01팀초대</a
             >
-            <a href="/mail/mail02.html" target="_blank"
+            <a href="/sellingbooster/mail/mail02.html" target="_blank"
               >PC_환경설정_04팀,관한관리_03멤버관리_05이메일템플릿_02소유권변경</a
             >
           </div>
