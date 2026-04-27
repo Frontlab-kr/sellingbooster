@@ -153,9 +153,8 @@
                   v-if="data.isOwner && data.role.includes('소유권 이전')"
                   class="sb-table-body-owner"
                 >
-                  <Button variant="text">
-                    <Badge value="취소하기" severity="contrast"></Badge>
-                  </Button>
+                  <Button variant="text" label="취소하기" class="underline" />
+
                   <Button variant="text">
                     <template #icon>
                       <IconSystemTrash class="ico-system-trash" />
@@ -164,9 +163,7 @@
                 </div>
 
                 <div v-else-if="!data.isOwner" class="sb-table-body-owner">
-                  <Button variant="text">
-                    <Badge value="권한 변경" severity="secondary"></Badge>
-                  </Button>
+                  <Button variant="text" label="권한 변경" class="underline" />
                   <Button variant="text">
                     <template #icon>
                       <IconSystemTrash class="ico-system-trash" />
