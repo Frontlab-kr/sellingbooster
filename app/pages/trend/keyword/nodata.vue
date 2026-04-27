@@ -247,6 +247,11 @@
           <div class="sb-trend-table-head__title">
             <h5>나의 관심 키워드</h5>
           </div>
+          <Button variant="text" severity="white">
+            <template #icon>
+              <IconArrowUpRight class="ico-arrow-up-right" />
+            </template>
+          </Button>
         </div>
         <div class="sb-table">
           <DataTable
@@ -432,6 +437,7 @@ import IconActionFavoriteFull from '@/assets/icons/action/favorite-full.svg?comp
 import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
 import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
+import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 
 //breadcrumb
 const breadcrumb = ref([
