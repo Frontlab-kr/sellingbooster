@@ -259,6 +259,7 @@
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
+            <NuxtLink to="/etc/alarm">알림함</NuxtLink>
             <NuxtLink @click="dialogLoading = true">로딩</NuxtLink>
             <NuxtLink to="/etc/403/">403</NuxtLink>
             <NuxtLink to="/etc/404/">404</NuxtLink>
