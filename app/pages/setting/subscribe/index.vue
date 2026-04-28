@@ -291,7 +291,6 @@
                   size="small"
                   class="w-full"
                   panelClass="p-select-overlay--text"
-                  @change="updateDateRange($event.value)"
                 />
               </div>
               <DatePicker
@@ -545,7 +544,6 @@
                   size="small"
                   class="w-full"
                   panelClass="p-select-overlay--text"
-                  @change="updateDateRange($event.value)"
                 />
               </div>
               <DatePicker
@@ -749,7 +747,7 @@
 </template>
 
 <script setup>
-import { ref, nextTick } from 'vue';
+import { ref, nextTick, watch } from 'vue';
 import { useToast } from 'primevue/usetoast';
 import dialog01Contents from './dialog01.vue';
 import dialog02Contents from './dialog02.vue';
@@ -834,6 +832,11 @@ const updateDateRange = (value) => {
   dates1.value = [start, end];
 };
 
+watch(selectedRevenue, (newValue) => {
+  updateDateRange(newValue);
+});
+
+// 초기화 시 실행
 updateDateRange(selectedRevenue.value);
 
 //credit
