@@ -296,15 +296,19 @@ const openActiveMenu = () => {
 
   const currentPath = route.path;
 
-  // 현재 경로를 포함하는 하위 메뉴가 있는 부모 찾기
+  // 현재 경로를 포함하거나, 현재 경로의 상위 경로를 포함하는 하위 메뉴가 있는 부모 찾기
   const activeParent = snbMenu.value.find((item) => {
-    return item.items && item.items.some((sub) => currentPath === sub.route);
+    return item.items && item.items.some((sub) => {
+      if (!sub.route) return false;
+      // 정확히 일치하거나, 현재 경로가 메뉴 경로로 시작하는지 확인 (상세 페이지 대응)
+      return currentPath === sub.route || currentPath.startsWith(sub.route + '/');
+    });
   });
 
   if (activeParent) {
     expandedKeys.value = { [activeParent.key]: true };
   } else {
-    // 하위 메뉴가 없는 1뎁스 메뉴로 이동한 경우 모든 메뉴를 닫음
+    // 1뎁스 전용 메뉴이거나 매칭되는 메뉴가 없으면 닫음
     expandedKeys.value = {};
   }
 };
