@@ -1864,6 +1864,10 @@
             .sb-input {
               width: 100%;
             }
+            .sb-input,
+            .p-password {
+              max-width: 232px;
+            }
             .sb-checkbox-item {
               white-space: noWrap;
             }
@@ -2078,6 +2082,10 @@
               }
               .sb-input {
                 width: 100%;
+              }
+              .sb-input,
+              .p-password {
+                max-width: 100%;
               }
               .sb-checkbox-item {
                 margin-top: 12px;

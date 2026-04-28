@@ -26,7 +26,7 @@
                   v-model="cardInfo.number"
                   placeholder="0000-0000-0000-0000"
                   mask="9999-9999-9999-9999"
-                  class="w-full"
+                  class="w-full max-w-full"
                   number
                 />
                 <div class="sb-checkbox-item">
@@ -101,7 +101,10 @@
                   placeholder="은행 선택"
                   style="min-width: 160px"
                 />
-                <SbInput placeholder="0000-0000-0000-0000" class="w-full" />
+                <SbInput
+                  placeholder="계좌번호(숫자만 입력) / 가상ㆍ적금ㆍ펀드 계좌 불가"
+                  class="w-full max-w-full"
+                />
                 <div class="sb-checkbox-item">
                   <Checkbox
                     v-model="consentMethods"
