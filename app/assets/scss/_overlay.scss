@@ -1817,6 +1817,24 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end;
+            .p-button {
+              &-label {
+                color: var(--dialog-payment-section-list-item-button-color);
+              }
+              .ico-system-check-s {
+                color: var(--dialog-payment-section-list-item-button-color);
+              }
+              &.active {
+                .p-button-label {
+                  color: var(
+                    --dialog-payment-section-list-item-button-active-color
+                  );
+                }
+                .ico-system-check-s {
+                  color: var(--color-primary);
+                }
+              }
+            }
           }
         }
         &--bank & {

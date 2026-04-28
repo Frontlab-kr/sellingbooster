@@ -25,17 +25,10 @@
                 </dl>
               </div>
               <div class="sb-dialog-payment-list-item-end">
-                <div class="sb-radio">
-                  <div class="sb-radio-item">
-                    <RadioButton
-                      v-model="primaryPayment"
-                      inputId="pay_card_shinhan"
-                      name="primaryPayment"
-                      value="card_shinhan"
-                    />
-                    <label for="pay_card_shinhan">대표 결제 수단</label>
-                  </div>
-                </div>
+                <Button variant="text" class="active">
+                  <IconSystemCheckS class="ico-system-check-s" />
+                  <span class="p-button-label">대표 결제 수단</span>
+                </Button>
                 <Button variant="text">
                   <template #icon>
                     <IconSystemTrash class="ico-system-trash" />
@@ -60,17 +53,10 @@
                 </dl>
               </div>
               <div class="sb-dialog-payment-list-item-end">
-                <div class="sb-radio">
-                  <div class="sb-radio-item">
-                    <RadioButton
-                      v-model="primaryPayment"
-                      inputId="pay_card_hyundai"
-                      name="primaryPayment"
-                      value="card_hyundai"
-                    />
-                    <label for="pay_card_hyundai">대표 결제 수단</label>
-                  </div>
-                </div>
+                <Button variant="text">
+                  <IconSystemCheckS class="ico-system-check-s" />
+                  <span class="p-button-label">대표 결제 수단</span>
+                </Button>
                 <Button variant="text">
                   <template #icon>
                     <IconSystemTrash class="ico-system-trash" />
@@ -102,17 +88,10 @@
                 </dl>
               </div>
               <div class="sb-dialog-payment-list-item-end">
-                <div class="sb-radio">
-                  <div class="sb-radio-item">
-                    <RadioButton
-                      v-model="primaryPayment"
-                      inputId="pay_bank_kakao"
-                      name="primaryPayment"
-                      value="bank_kakao"
-                    />
-                    <label for="pay_bank_kakao">대표 결제 수단</label>
-                  </div>
-                </div>
+                <Button variant="text">
+                  <IconSystemCheckS class="ico-system-check-s" />
+                  <span class="p-button-label">대표 결제 수단</span>
+                </Button>
                 <Button variant="text">
                   <template #icon>
                     <IconSystemTrash class="ico-system-trash" />
@@ -137,17 +116,10 @@
                 </dl>
               </div>
               <div class="sb-dialog-payment-list-item-end">
-                <div class="sb-radio">
-                  <div class="sb-radio-item">
-                    <RadioButton
-                      v-model="primaryPayment"
-                      inputId="pay_bank_shinhan"
-                      name="primaryPayment"
-                      value="bank_shinhan"
-                    />
-                    <label for="pay_bank_shinhan">대표 결제 수단</label>
-                  </div>
-                </div>
+                <Button variant="text">
+                  <IconSystemCheckS class="ico-system-check-s" />
+                  <span class="p-button-label">대표 결제 수단</span>
+                </Button>
                 <Button variant="text">
                   <template #icon>
                     <IconSystemTrash class="ico-system-trash" />
@@ -173,6 +145,7 @@
 <script setup>
 import { ref } from 'vue';
 import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
+import IconSystemCheckS from '@/assets/icons/system/check-s.svg?component';
 
 const primaryPayment = ref('card_shinhan');
 </script>
