@@ -102,9 +102,22 @@
           </tbody>
         </table>
       </div>
-      <div class="sb-dialog-payment-detail-button">
-        <Button severity="primary" label="영수증 출력" />
-        <Button severity="primary" label="거래 명세표 출력" outlined />
+      <div class="pc">
+        <div class="sb-dialog-payment-detail-button">
+          <Button severity="primary" label="영수증 출력" />
+          <Button severity="primary" label="거래 명세표 출력" outlined />
+        </div>
+      </div>
+      <div class="mo">
+        <div class="sb-dialog-payment-detail-button">
+          <Button severity="primary" label="영수증 출력" size="large" />
+          <Button
+            severity="primary"
+            label="거래 명세표 출력"
+            outlined
+            size="large"
+          />
+        </div>
       </div>
       <div class="sb-caution">
         <ul>

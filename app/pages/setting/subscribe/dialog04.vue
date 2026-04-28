@@ -159,7 +159,12 @@
         </div>
       </div>
       <div class="sb-dialog-payment__button">
-        <Button severity="primary" label="결제 수단 추가 등록" />
+        <div class="pc">
+          <Button severity="primary" label="결제 수단 추가 등록" />
+        </div>
+        <div class="mo">
+          <Button severity="primary" label="결제 수단 추가 등록" size="large" />
+        </div>
       </div>
     </div>
   </div>

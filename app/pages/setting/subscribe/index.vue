@@ -1,22 +1,24 @@
 <template>
-  <SbMobileInfo />
-  <div class="flex gap-2 mb-4">
-    <Button variant="text" @click="confirm1()" label="alert01" />
-    <Button variant="text" @click="confirm2()" label="alert02" />
-    <Button variant="text" @click="confirm3()" label="alert03" />
-    <Button variant="text" @click="confirm4()" label="alert04" />
-    <Button variant="text" @click="confirm5()" label="alert05" />
-  </div>
-  <div class="flex gap-2 mb-4">
-    <Button variant="text" @click="dialog01 = true" label="dialog01" />
-    <Button variant="text" @click="dialog02 = true" label="dialog02" />
-    <Button variant="text" @click="dialog03 = true" label="dialog03" />
-    <Button variant="text" @click="dialog04 = true" label="dialog04" />
-    <Button variant="text" @click="dialog05 = true" label="dialog05" />
-  </div>
   <div class="sb-subscribe">
+    <div class="flex gap-2 mb-4">
+      <Button variant="text" @click="confirm1()" label="alert01" />
+      <Button variant="text" @click="confirm2()" label="alert02" />
+      <Button variant="text" @click="confirm3()" label="alert03" />
+      <Button variant="text" @click="confirm4()" label="alert04" />
+      <Button variant="text" @click="confirm5()" label="alert05" />
+    </div>
+    <div class="flex gap-2 mb-4">
+      <Button variant="text" @click="dialog01 = true" label="dialog01" />
+      <Button variant="text" @click="dialog02 = true" label="dialog02" />
+      <Button variant="text" @click="dialog03 = true" label="dialog03" />
+      <Button variant="text" @click="dialog04 = true" label="dialog04" />
+      <Button variant="text" @click="dialog05 = true" label="dialog05" />
+    </div>
     <div class="sb-subscribe__title">
-      <h5>요금제 관리 및 결제 정보 한눈에 확인하세요.</h5>
+      <h5>
+        요금제 관리 및 결제 정보<br class="mo" />
+        한눈에 확인하세요.
+      </h5>
     </div>
     <div class="sb-tab">
       <Button
@@ -52,12 +54,16 @@
               <div class="sb-subscribe-info-list-item-body">
                 <ul>
                   <li>
-                    <strong>무료</strong>
-                    <p></p>
+                    <span>
+                      <strong>무료</strong>
+                      <p></p>
+                    </span>
                   </li>
                   <li>
-                    <strong>다음 결제일</strong>
-                    <p class="sb-subscribe-info-list-item-body__none">-</p>
+                    <span>
+                      <strong>다음 결제일</strong>
+                      <p class="sb-subscribe-info-list-item-body__none">-</p>
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -123,7 +129,12 @@
               @click="selectedCredit = 'C2'"
             >
               <div class="sb-subscribe-credit-list-item__best">
-                <IconEtcBest class="ico-etc-best" />
+                <div class="pc">
+                  <IconEtcBest class="ico-etc-best" />
+                </div>
+                <div class="mo">
+                  <IconEtcBestMo class="ico-etc-best-mo" />
+                </div>
                 <p>BEST</p>
               </div>
               <div class="sb-subscribe-credit-list-item__title">C2</div>
@@ -175,18 +186,24 @@
                 <div class="sb-subscribe-info-list-item-body">
                   <ul>
                     <li>
-                      <strong>Pro 플랜 </strong>
-                      <p>월 29,000원</p>
+                      <span>
+                        <strong>Pro 플랜 </strong>
+                        <p>월 29,000원</p>
+                      </span>
                     </li>
                     <li>
-                      <strong>다음 결제일</strong>
-                      <p>
-                        <strong class="text-primary">2026.04.05</strong>
-                      </p>
-                      <strong>마지막 결제일</strong>
-                      <p>
-                        <strong>2026.04.05</strong>
-                      </p>
+                      <span>
+                        <strong>다음 결제일</strong>
+                        <p>
+                          <strong class="text-primary">2026.04.05</strong>
+                        </p>
+                      </span>
+                      <span>
+                        <strong>마지막 결제일</strong>
+                        <p>
+                          <strong>2026.04.05</strong>
+                        </p>
+                      </span>
                     </li>
                   </ul>
                 </div>
@@ -244,23 +261,38 @@
         <div v-if="activeTab02 === 0">
           <div class="sb-subscribe-table-head">
             <div class="sb-subscribe-table-head__date">
-              <div class="sb-chip">
-                <div class="sb-chip__title">분석 기간 선택</div>
-                <div class="sb-radio">
-                  <div
-                    class="sb-radio-item"
-                    v-for="item in radioRange"
-                    :key="item.id"
-                  >
-                    <RadioButton
-                      v-model="selectedRevenue"
-                      :inputId="item.id"
-                      :value="item.value"
-                      name="revenueRange"
-                    />
-                    <label :for="item.id">{{ item.label }}</label>
+              <div class="pc">
+                <div class="sb-chip">
+                  <div class="sb-chip__title">분석 기간 선택</div>
+                  <div class="sb-radio">
+                    <div
+                      class="sb-radio-item"
+                      v-for="item in radioRange"
+                      :key="item.id"
+                    >
+                      <RadioButton
+                        v-model="selectedRevenue"
+                        :inputId="item.id"
+                        :value="item.value"
+                        name="revenueRange"
+                      />
+                      <label :for="item.id">{{ item.label }}</label>
+                    </div>
                   </div>
                 </div>
+              </div>
+              <div class="mo">
+                <Select
+                  v-model="selectedRevenue"
+                  :options="radioRange"
+                  optionLabel="label"
+                  optionValue="value"
+                  placeholder="기간 선택"
+                  size="small"
+                  class="w-full"
+                  panelClass="p-select-overlay--text"
+                  @change="updateDateRange($event.value)"
+                />
               </div>
               <DatePicker
                 v-model="dates1"
@@ -294,112 +326,227 @@
               />
             </div>
           </div>
-          <div class="sb-table">
-            <DataTable
-              v-scroll-end
-              :value="paymentHistory"
-              responsiveLayout="scroll"
-              removableSort
-              scrollable
-            >
-              <Column
-                field="paymentDate"
-                header="결제일시"
-                sortable
-                style="width: 200px"
-              />
-
-              <Column
-                field="productName"
-                header="상품명"
-                bodyClass="text-left"
-                style="min-width: 300px"
+          <div class="pc">
+            <div class="sb-table">
+              <DataTable
+                v-scroll-end
+                :value="paymentHistory"
+                responsiveLayout="scroll"
+                removableSort
+                scrollable
               >
-                <template #body="slotProps">
-                  {{ slotProps.data.productName }}
-                </template>
-              </Column>
+                <Column
+                  field="paymentDate"
+                  header="결제일시"
+                  sortable
+                  style="width: 200px"
+                />
 
-              <Column
-                field="amount"
-                header="결제 금액"
-                sortable
-                bodyClass="text-right"
-                style="width: 160px"
-              >
-                <template #body="slotProps">
-                  {{ slotProps.data.amount.toLocaleString() }}원
-                </template>
-              </Column>
+                <Column
+                  field="productName"
+                  header="상품명"
+                  bodyClass="text-left"
+                  style="min-width: 300px"
+                >
+                  <template #body="slotProps">
+                    {{ slotProps.data.productName }}
+                  </template>
+                </Column>
 
-              <Column
-                field="paymentMethod"
-                header="결제 수단"
-                style="width: 200px"
-              />
+                <Column
+                  field="amount"
+                  header="결제 금액"
+                  sortable
+                  bodyClass="text-right"
+                  style="width: 160px"
+                >
+                  <template #body="slotProps">
+                    {{ slotProps.data.amount.toLocaleString() }}원
+                  </template>
+                </Column>
 
-              <Column field="status" header="결제 상태" style="width: 200px">
-                <template #body="slotProps">
-                  <span
-                    :class="{
-                      'text-danger':
-                        slotProps.data.status === '취소' ||
-                        slotProps.data.status === '환불',
-                    }"
-                  >
-                    {{ slotProps.data.status }}
-                  </span>
-                </template>
-              </Column>
+                <Column
+                  field="paymentMethod"
+                  header="결제 수단"
+                  style="width: 200px"
+                />
 
-              <Column field="receipt" header="영수증" style="width: 200px">
-                <template #body="slotProps">
-                  {{ slotProps.data.receipt || '-' }}
-                </template>
-              </Column>
+                <Column field="status" header="결제 상태" style="width: 200px">
+                  <template #body="slotProps">
+                    <span
+                      :class="{
+                        'text-danger':
+                          slotProps.data.status === '취소' ||
+                          slotProps.data.status === '환불',
+                      }"
+                    >
+                      {{ slotProps.data.status }}
+                    </span>
+                  </template>
+                </Column>
 
-              <Column header="비고" style="width: 200px">
-                <template #body="slotProps">
+                <Column field="receipt" header="영수증" style="width: 200px">
+                  <template #body="slotProps">
+                    {{ slotProps.data.receipt || '-' }}
+                  </template>
+                </Column>
+
+                <Column header="비고" style="width: 200px">
+                  <template #body="slotProps">
+                    <Button
+                      v-if="slotProps.data.status === '환불'"
+                      variant="text"
+                      label="재시도"
+                      class="underline text-danger"
+                      @click="handleRetry(slotProps.data)"
+                    />
+                    <Button
+                      v-else
+                      variant="text"
+                      label="상세"
+                      class="underline"
+                      @click="handleDetail(slotProps.data)"
+                    />
+                  </template>
+                </Column>
+              </DataTable>
+            </div>
+            <SbPaginator />
+          </div>
+          <div class="mo">
+            <div class="sb-subscribe-list">
+              <div class="sb-subscribe-list-item">
+                <div class="sb-subscribe-list-item-head">
+                  <p>2026.03.31</p>
+                  <Button variant="text" label="상세" class="underline" />
+                </div>
+                <div class="sb-subscribe-list-item-body">
+                  <div class="sb-subscribe-list-item-info">
+                    <strong>Pro 플랜</strong>
+                    <strong>월 29,000원</strong>
+                  </div>
+                  <div class="sb-subscribe-list-item-payment">
+                    <p>신용카드(KB국민)</p>
+                    <strong class="text-primary">결제 완료</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="sb-subscribe-list-item">
+                <div class="sb-subscribe-list-item-head">
+                  <p>2026.03.31</p>
+                  <Button variant="text" label="상세" class="underline" />
+                </div>
+                <div class="sb-subscribe-list-item-body">
+                  <div class="sb-subscribe-list-item-info">
+                    <strong>Pro 플랜</strong>
+                    <strong>월 29,000원</strong>
+                  </div>
+                  <div class="sb-subscribe-list-item-payment">
+                    <p>신용카드(KB국민)</p>
+                    <strong class="text-primary">결제 완료</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="sb-subscribe-list-item">
+                <div class="sb-subscribe-list-item-head">
+                  <p>2026.03.31</p>
                   <Button
-                    v-if="slotProps.data.status === '환불'"
                     variant="text"
                     label="재시도"
                     class="underline text-danger"
-                    @click="handleRetry(slotProps.data)"
                   />
+                </div>
+                <div class="sb-subscribe-list-item-body">
+                  <div class="sb-subscribe-list-item-info">
+                    <strong>Pro 플랜</strong>
+                    <strong>월 29,000원</strong>
+                  </div>
+                  <div class="sb-subscribe-list-item-payment">
+                    <p>신용카드(KB국민)</p>
+                    <strong class="text-danger">실패</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="sb-subscribe-list-item">
+                <div class="sb-subscribe-list-item-head">
+                  <p>2026.03.31</p>
+                  <Button variant="text" label="상세" class="underline" />
+                </div>
+                <div class="sb-subscribe-list-item-body">
+                  <div class="sb-subscribe-list-item-info">
+                    <strong>Pro 플랜</strong>
+                    <strong>월 29,000원</strong>
+                  </div>
+                  <div class="sb-subscribe-list-item-payment">
+                    <p>신용카드(KB국민)</p>
+                    <strong class="text-primary">결제 완료</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="sb-subscribe-list-item">
+                <div class="sb-subscribe-list-item-head">
+                  <p>2026.03.31</p>
                   <Button
-                    v-else
                     variant="text"
-                    label="상세"
-                    class="underline"
-                    @click="handleDetail(slotProps.data)"
+                    label="재시도"
+                    class="underline text-danger"
                   />
-                </template>
-              </Column>
-            </DataTable>
+                </div>
+                <div class="sb-subscribe-list-item-body">
+                  <div class="sb-subscribe-list-item-info">
+                    <strong>Pro 플랜</strong>
+                    <strong>월 29,000원</strong>
+                  </div>
+                  <div class="sb-subscribe-list-item-payment">
+                    <p>신용카드(KB국민)</p>
+                    <strong class="text-danger">실패</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sb-subscribe-list-button">
+              <Button severity="contrast" outlined>
+                <span class="p-button-label">더보기(16/83)</span>
+                <IconArrowAchevronDown class="ico-arrow-achevron-down" />
+              </Button>
+            </div>
           </div>
-          <SbPaginator />
         </div>
         <div v-if="activeTab02 === 1">
           <div class="sb-subscribe-table-head">
             <div class="sb-subscribe-table-head__date">
-              <div class="sb-chip">
-                <div class="sb-chip__title">분석 기간 선택</div>
-                <div class="sb-radio">
-                  <div
-                    class="sb-radio-item"
-                    v-for="item in radioRange"
-                    :key="item.id"
-                  >
-                    <RadioButton
-                      v-model="selectedRevenue"
-                      :inputId="item.id"
-                      :value="item.value"
-                      name="revenueRange"
-                    />
-                    <label :for="item.id">{{ item.label }}</label>
+              <div class="pc">
+                <div class="sb-chip">
+                  <div class="sb-chip__title">분석 기간 선택</div>
+                  <div class="sb-radio">
+                    <div
+                      class="sb-radio-item"
+                      v-for="item in radioRange"
+                      :key="item.id"
+                    >
+                      <RadioButton
+                        v-model="selectedRevenue"
+                        :inputId="item.id"
+                        :value="item.value"
+                        name="revenueRange"
+                      />
+                      <label :for="item.id">{{ item.label }}</label>
+                    </div>
                   </div>
                 </div>
+              </div>
+              <div class="mo">
+                <Select
+                  v-model="selectedRevenue"
+                  :options="radioRange"
+                  optionLabel="label"
+                  optionValue="value"
+                  placeholder="기간 선택"
+                  size="small"
+                  class="w-full"
+                  panelClass="p-select-overlay--text"
+                  @change="updateDateRange($event.value)"
+                />
               </div>
               <DatePicker
                 v-model="dates1"
@@ -412,70 +559,162 @@
               />
             </div>
           </div>
-          <div class="sb-table">
-            <DataTable
-              v-scroll-end
-              :value="paymentFailureList"
-              responsiveLayout="scroll"
-              removableSort
-              scrollable
-            >
-              <Column
-                field="paymentDate"
-                header="결제일시"
-                sortable
-                style="width: 260px"
-              />
-
-              <Column
-                field="productName"
-                header="상품명"
-                bodyClass="text-left"
-                style="min-width: 260px"
+          <div class="pc">
+            <div class="sb-table">
+              <DataTable
+                v-scroll-end
+                :value="paymentFailureList"
+                responsiveLayout="scroll"
+                removableSort
+                scrollable
               >
-                <template #body="slotProps">
-                  {{ slotProps.data.productName }}
-                </template>
-              </Column>
+                <Column
+                  field="paymentDate"
+                  header="결제일시"
+                  sortable
+                  style="width: 260px"
+                />
 
-              <Column
-                field="amount"
-                header="결제 금액"
-                sortable
-                bodyClass="text-right"
-                style="width: 160px"
-              >
-                <template #body="slotProps">
-                  {{ slotProps.data.amount.toLocaleString() }}원
-                </template>
-              </Column>
+                <Column
+                  field="productName"
+                  header="상품명"
+                  bodyClass="text-left"
+                  style="min-width: 260px"
+                >
+                  <template #body="slotProps">
+                    {{ slotProps.data.productName }}
+                  </template>
+                </Column>
 
-              <Column
-                field="paymentMethod"
-                header="결제 수단"
-                style="width: 260px"
-              />
+                <Column
+                  field="amount"
+                  header="결제 금액"
+                  sortable
+                  bodyClass="text-right"
+                  style="width: 160px"
+                >
+                  <template #body="slotProps">
+                    {{ slotProps.data.amount.toLocaleString() }}원
+                  </template>
+                </Column>
 
-              <Column
-                field="failureReason"
-                header="실패 사유"
-                style="width: 260px"
-              >
-                <template #body="slotProps">
-                  <span class="text-danger">
-                    {{ slotProps.data.failureReason }}
-                  </span>
-                </template>
-              </Column>
+                <Column
+                  field="paymentMethod"
+                  header="결제 수단"
+                  style="width: 260px"
+                />
 
-              <Column field="memo" header="비고" style="width: 260px">
-                <template #body="slotProps">
-                  {{ slotProps.data.memo || '-' }}
-                </template>
-              </Column>
-            </DataTable>
+                <Column
+                  field="failureReason"
+                  header="실패 사유"
+                  style="width: 260px"
+                >
+                  <template #body="slotProps">
+                    <span class="text-danger">
+                      {{ slotProps.data.failureReason }}
+                    </span>
+                  </template>
+                </Column>
+
+                <Column field="memo" header="비고" style="width: 260px">
+                  <template #body="slotProps">
+                    {{ slotProps.data.memo || '-' }}
+                  </template>
+                </Column>
+              </DataTable>
+            </div>
+            <SbPaginator />
           </div>
-          <SbPaginator />
+          <div class="mo">
+            <div class="sb-subscribe-list">
+              <div class="sb-subscribe-list-item">
+                <div class="sb-subscribe-list-item-head">
+                  <p>2026.03.31</p>
+                  <Button variant="text" label="상세" class="underline" />
+                </div>
+                <div class="sb-subscribe-list-item-body">
+                  <div class="sb-subscribe-list-item-info">
+                    <strong>Pro 플랜</strong>
+                    <strong>월 29,000원</strong>
+                  </div>
+                  <div class="sb-subscribe-list-item-payment">
+                    <p>신용카드(KB국민)</p>
+                    <strong class="text-danger">실패</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="sb-subscribe-list-item">
+                <div class="sb-subscribe-list-item-head">
+                  <p>2026.03.31</p>
+                  <Button variant="text" label="상세" class="underline" />
+                </div>
+                <div class="sb-subscribe-list-item-body">
+                  <div class="sb-subscribe-list-item-info">
+                    <strong>Pro 플랜</strong>
+                    <strong>월 29,000원</strong>
+                  </div>
+                  <div class="sb-subscribe-list-item-payment">
+                    <p>신용카드(KB국민)</p>
+                    <strong class="text-danger">실패</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="sb-subscribe-list-item">
+                <div class="sb-subscribe-list-item-head">
+                  <p>2026.03.31</p>
+                  <Button variant="text" label="상세" class="underline" />
+                </div>
+                <div class="sb-subscribe-list-item-body">
+                  <div class="sb-subscribe-list-item-info">
+                    <strong>Pro 플랜</strong>
+                    <strong>월 29,000원</strong>
+                  </div>
+                  <div class="sb-subscribe-list-item-payment">
+                    <p>신용카드(KB국민)</p>
+                    <strong class="text-danger">실패</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="sb-subscribe-list-item">
+                <div class="sb-subscribe-list-item-head">
+                  <p>2026.03.31</p>
+                  <Button variant="text" label="상세" class="underline" />
+                </div>
+                <div class="sb-subscribe-list-item-body">
+                  <div class="sb-subscribe-list-item-info">
+                    <strong>Pro 플랜</strong>
+                    <strong>월 29,000원</strong>
+                  </div>
+                  <div class="sb-subscribe-list-item-payment">
+                    <p>신용카드(KB국민)</p>
+                    <strong class="text-danger">실패</strong>
+                  </div>
+                </div>
+              </div>
+              <div class="sb-subscribe-list-item">
+                <div class="sb-subscribe-list-item-head">
+                  <p>2026.03.31</p>
+                  <Button variant="text" label="상세" class="underline" />
+                </div>
+                <div class="sb-subscribe-list-item-body">
+                  <div class="sb-subscribe-list-item-info">
+                    <strong>Pro 플랜</strong>
+                    <strong>월 29,000원</strong>
+                  </div>
+                  <div class="sb-subscribe-list-item-payment">
+                    <p>신용카드(KB국민)</p>
+                    <strong class="text-danger">실패</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sb-subscribe-list-button">
+              <Button severity="contrast" outlined>
+                <span class="p-button-label">더보기(16/83)</span>
+                <IconArrowAchevronDown class="ico-arrow-achevron-down" />
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -484,15 +723,15 @@
     <dialog01Contents />
   </Dialog>
 
-  <Dialog v-model:visible="dialog02" modal>
+  <Dialog v-model:visible="dialog02" modal class="p-dialog--full">
     <dialog02Contents />
   </Dialog>
 
-  <Dialog v-model:visible="dialog03" modal>
+  <Dialog v-model:visible="dialog03" modal class="p-dialog--full">
     <dialog03Contents />
   </Dialog>
 
-  <Dialog v-model:visible="dialog04" modal>
+  <Dialog v-model:visible="dialog04" modal class="p-dialog--full">
     <dialog04Contents />
   </Dialog>
 
@@ -500,6 +739,7 @@
     v-model:visible="dialog05"
     modal
     style="min-width: 600px; width: 600px"
+    class="p-dialog--full"
   >
     <dialog05Contents />
   </Dialog>
@@ -509,7 +749,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
 import { useToast } from 'primevue/usetoast';
 import dialog01Contents from './dialog01.vue';
 import dialog02Contents from './dialog02.vue';
@@ -517,8 +757,10 @@ import dialog03Contents from './dialog03.vue';
 import dialog04Contents from './dialog04.vue';
 import dialog05Contents from './dialog05.vue';
 
+import IconArrowAchevronDown from '@/assets/icons/arrow/achevron-down.svg?component';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 import IconEtcBest from '@/assets/icons/etc/best.svg?component';
+import IconEtcBestMo from '@/assets/icons/etc/best-mo.svg?component';
 
 const activeTab = ref(0);
 const activeTab02 = ref(0);
@@ -565,6 +807,34 @@ const selectedSortOption = ref([
   { name: '환불' },
 ]);
 const selectedSort = ref(selectedSortOption.value[0]);
+
+//
+const updateDateRange = (value) => {
+  const end = new Date();
+  let start = new Date();
+
+  switch (value) {
+    case '1d':
+      start.setDate(end.getDate() - 1);
+      break;
+    case '7d':
+      start.setDate(end.getDate() - 7);
+      break;
+    case '1m':
+      start.setMonth(end.getMonth() - 1);
+      break;
+    case '6m':
+      start.setMonth(end.getMonth() - 6);
+      break;
+    default:
+      return;
+  }
+
+  // DatePicker와 연결된 dates1 모델 업데이트 [시작일, 종료일]
+  dates1.value = [start, end];
+};
+
+updateDateRange(selectedRevenue.value);
 
 //credit
 const selectedCredit = ref('C2');

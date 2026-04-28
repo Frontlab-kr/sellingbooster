@@ -38,6 +38,7 @@ const initChart = () => {
     chart = echarts.init(chartRef.value);
   }
 
+  const gaugeWidth = window.innerWidth >= 1440 ? 32 : 20;
   const chartBackground = getCssVar('--chart-background');
   const colorActive = getCssVar('--chart-gauge-credit-active');
   const colorBackground = getCssVar('--chart-gauge-credit-background');
@@ -70,7 +71,7 @@ const initChart = () => {
         axisLine: {
           roundCap: true,
           lineStyle: {
-            width: 32, // 게이지 두께
+            width: gaugeWidth, // 게이지 두께
             color: [[1, colorBackground]], // 배경 트랙 색상
           },
         },
@@ -129,6 +130,9 @@ onBeforeUnmount(() => {
 });
 
 const handleResize = () => {
-  if (chart) chart.resize();
+  if (chart) {
+    chart.resize();
+    initChart(); // 리사이즈 시 옵션을 다시 설정하여 두께 계산 반영
+  }
 };
 </script>

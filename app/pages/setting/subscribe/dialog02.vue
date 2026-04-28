@@ -24,7 +24,12 @@
             </ul>
           </div>
           <div class="sb-dialog-payment-plan-item__button">
-            <Button label="요금제 선택" severity="primary" />
+            <div class="pc">
+              <Button label="요금제 선택" severity="primary" />
+            </div>
+            <div class="mo">
+              <Button label="요금제 선택" severity="primary" size="large" />
+            </div>
           </div>
         </div>
       </div>
@@ -63,7 +68,12 @@
             </ul>
           </div>
           <div class="sb-dialog-payment-plan-item__button">
-            <Button label="요금제 선택" severity="primary" />
+            <div class="pc">
+              <Button label="요금제 선택" severity="primary" />
+            </div>
+            <div class="mo">
+              <Button label="요금제 선택" severity="primary" size="large" />
+            </div>
           </div>
         </div>
       </div>

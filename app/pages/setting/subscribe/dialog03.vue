@@ -78,11 +78,15 @@
                 />
               </div>
             </div>
-            <div class="sb-dialog-payment-form-item"></div>
           </div>
         </div>
-        <div class="sb-dialog-payment__button">
-          <Button severity="primary" label="등록" />
+        <div class="sb-dialog-payment-form__button">
+          <div class="pc">
+            <Button severity="primary" label="등록" />
+          </div>
+          <div class="mo">
+            <Button severity="primary" label="등록" size="large" />
+          </div>
         </div>
       </div>
       <div v-if="activeTab === 1">
@@ -110,8 +114,13 @@
             </div>
           </div>
         </div>
-        <div class="sb-dialog-payment__button">
-          <Button severity="primary" label="인증" />
+        <div class="sb-dialog-payment-form__button">
+          <div class="pc">
+            <Button severity="primary" label="인증" />
+          </div>
+          <div class="mo">
+            <Button severity="primary" label="인증" size="large" />
+          </div>
         </div>
         <div class="sb-caution">
           <div class="sb-caution__title">계좌 등록 주의 사항 안내</div>
