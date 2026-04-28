@@ -26,7 +26,7 @@
               v-model="tempDescription"
               save
               cancel
-              placeholder="워크스페이스 30자 이내의 설명 내용이 노출됩니다."
+              placeholder="워크스페이스 설명은 최대 30글자 이내로 작성해주세요."
               @cancel="toggleEditMode"
               @save="handleSaveData"
               maxlength="30"
@@ -205,7 +205,7 @@ import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 
 const dialogInvite = ref(false);
 const isEditMode = ref(false);
-const workspaceDescription = ref('워크스페이스 30자 이내의 설명이 노출됩니다.');
+const workspaceDescription = ref('');
 const tempDescription = ref('');
 
 const toggleEditMode = () => {

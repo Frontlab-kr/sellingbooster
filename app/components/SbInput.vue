@@ -75,14 +75,12 @@
         </template>
       </Button>
     </div>
-    <div class="sb-input__save" v-if="save">
-      <Button variant="text" @click="emit('save')">
-        <span class="p-button-label">저장</span>
+    <div class="sb-input__button-text">
+      <Button variant="text" @click="emit('cancel')" v-if="cancel">
+        <span class="p-button-label text-danger">취소</span>
       </Button>
-    </div>
-    <div class="sb-input__cancel" v-if="cancel">
-      <Button variant="text" @click="emit('cancel')">
-        <span class="p-button-label">취소</span>
+      <Button variant="text" @click="emit('save')" v-if="save">
+        <span class="p-button-label">저장</span>
       </Button>
     </div>
   </div>
