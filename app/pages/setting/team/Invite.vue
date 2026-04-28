@@ -25,7 +25,7 @@
         />
       </div>
       <div v-if="activeTab === 'email'">
-        <div class="sb-table">
+        <div class="sb-table sb-table--hover-none">
           <DataTable
             v-scroll-end
             :value="memberList"

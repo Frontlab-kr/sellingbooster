@@ -1820,6 +1820,10 @@
         display: flex;
         flex-direction: column;
         gap: 8px;
+        // padding: 0 120px;
+        // @media screen and (max-width: 1800px) {
+        //   padding: 0 80px;
+        // }
         padding: 0 6.25%;
         h4 {
           color: var(--Text_Light-900---mian, #1b1f27);
