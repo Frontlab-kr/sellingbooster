@@ -148,7 +148,7 @@
           </div>
         </div>
       </div>
-      <!-- <div class="sb-header-login">
+      <div class="sb-header-login">
         <NuxtLink to="/auth/login/index02">
           <Button rounded severity="white">
             <template #icon>
@@ -156,7 +156,7 @@
             </template>
           </Button>
         </NuxtLink>
-      </div> -->
+      </div>
       <div class="sb-header-user" :class="{ active: isUserOpen }">
         <button class="sb-header-user-button" @click="toggleLayer('user')">
           <div class="sb-header-user__thumb">
