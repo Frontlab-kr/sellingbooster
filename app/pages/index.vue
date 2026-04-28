@@ -21,6 +21,7 @@
             <NuxtLink to="/guide/GuideTooltip">08 Tool tip</NuxtLink>
             <NuxtLink to="/guide/GuideHeader">09 Header</NuxtLink>
             <NuxtLink to="/guide/GuideAlert">10 Alert</NuxtLink>
+            <NuxtLink to="/guide/GuidePagination">11 Pagination</NuxtLink>
           </div>
         </template>
       </Card>
