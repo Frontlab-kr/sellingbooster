@@ -104,6 +104,7 @@
                 <SbInput
                   placeholder="계좌번호(숫자만 입력) / 가상ㆍ적금ㆍ펀드 계좌 불가"
                   class="w-full max-w-full"
+                  number
                 />
                 <div class="sb-checkbox-item">
                   <Checkbox
