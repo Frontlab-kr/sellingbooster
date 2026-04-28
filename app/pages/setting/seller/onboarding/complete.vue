@@ -37,7 +37,7 @@
       <Button
         severity="contrast"
         outlined
-        label="온보딩 2단계 작성하기"
+        label="셀러 확장 기능 설정하기"
         size="large"
       />
       <Button label="셀러님의 대시보드 보러 가실까요?" size="large" />
