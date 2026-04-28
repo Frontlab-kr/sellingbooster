@@ -137,11 +137,11 @@
           position: absolute;
           z-index: 10;
           left: 20px;
-          bottom: 19px;
+          bottom: 22px;
           transform: translateX(-100%);
           display: flex;
           align-items: center;
-          height: 40px;
+          height: 32px;
           border-radius: 50px 0 0 50px;
           background: var(--feedback-text-background);
           transition: all 0.4s ease-in-out;
@@ -150,14 +150,12 @@
 
           p {
             margin: 0;
-            padding: 0 28px 0 20px;
-            color: var(--feedback-text-color);
-            font-size: 14px;
+            padding: 0 28px 0 12px;
+            font-size: 12px;
             font-style: normal;
             font-weight: 700;
-            line-height: 140%; /* 19.6px */
-            letter-spacing: -0.35px;
-            white-space: noWrap;
+            line-height: 140%; /* 16.8px */
+            letter-spacing: -0.3px;
           }
         }
         &:hover & {
@@ -176,7 +174,7 @@
         background-color: var(--feedback-button-background);
         box-shadow: var(--feedback-button-boxshadow);
         .ico-arrow-up {
-          animation: bounce 2s infinite;
+          //animation: bounce 2s infinite;
           color: var(--feedback-button-color);
         }
       }
