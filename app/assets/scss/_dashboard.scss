@@ -496,19 +496,14 @@
     }
     &-category-top10 {
       .sb-trend-top {
-        .sb-trend-top-list {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          overflow: auto;
-          max-height: 582px;
-          margin-top: 32px;
-          @include custom-scrollbar();
-        }
-        @include custom-scrollbar-blur();
-        &.is-scroll-end {
-          &::after {
-            opacity: 0;
-            visibility: hidden;
+        &-list {
+          &-scroll {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 20px;
+            column-gap: 40px;
+            height: 574px;
+            margin-top: 32px;
           }
         }
       }

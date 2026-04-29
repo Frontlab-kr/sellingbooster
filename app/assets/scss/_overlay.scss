@@ -397,7 +397,6 @@
       width: 400px;
       border: none;
       margin-left: -134px;
-
       &::before,
       &::after {
         display: none;
@@ -407,8 +406,11 @@
       }
       .sb-ktrend-view-product-list-item,
       .sb-trend-sourcing-result-list-item {
+        margin: 0;
         padding: 20px;
         background: none;
+        border: 1px solid var(--color-primary);
+        box-shadow: var(--community-list-item-hover-boxshadow);
         &__thumb {
           min-width: 100px;
           width: 100px;
@@ -464,11 +466,8 @@
         }
       }
       @include breakpoint {
-        width: 124px;
-        border: none;
-        margin-left: -50px;
-        border-radius: 8px;
-
+        width: 262px;
+        margin-left: 0;
         &::before,
         &::after {
           display: none;
@@ -476,36 +475,43 @@
         .p-popover-content {
           padding: 0;
         }
+        // .sb-ktrend-view-product-list-item,
+        // .sb-trend-sourcing-result-list-item {
+        //   padding: 12px;
+        //   background: none;
+
+        //   &__thumb {
+        //     min-width: 60px;
+        //     width: 60px;
+        //     height: 60px;
+        //   }
+        //   &__contents {
+        //     flex-direction: column;
+        //     align-items: flex-start;
+        //   }
+        //   &__text {
+        //     p {
+        //       display: flex;
+        //       flex-direction: column;
+        //       justify-content: flex-start;
+        //       align-items: flex-start;
+        //       gap: 4px;
+        //       span {
+        //         &:after {
+        //           display: none;
+        //         }
+        //       }
+        //     }
+        //   }
+        //   &__link {
+        //     display: none;
+        //   }
+        // }
         .sb-ktrend-view-product-list-item,
         .sb-trend-sourcing-result-list-item {
-          padding: 12px;
-          background: none;
-
-          &__thumb {
-            min-width: 60px;
-            width: 60px;
-            height: 60px;
-          }
-          &__contents {
-            flex-direction: column;
-            align-items: flex-start;
-          }
-          &__text {
-            p {
-              display: flex;
-              flex-direction: column;
-              justify-content: flex-start;
-              align-items: flex-start;
-              gap: 4px;
-              span {
-                &:after {
-                  display: none;
-                }
-              }
-            }
-          }
           &__link {
-            display: none;
+            margin-top: 20px;
+            align-items: flex-start;
           }
         }
       }

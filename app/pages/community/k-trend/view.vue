@@ -56,7 +56,7 @@
             <div class="sb-ktrend-view-product-image-inner">
               <div
                 class="sb-ktrend-view-product-image__point"
-                style="top: 30%; left: 40%"
+                style="top: 30%; left: 90%"
               >
                 <Button
                   variant="text"
@@ -149,14 +149,18 @@
                 </div>
 
                 <div class="sb-ktrend-view-product-list-item__link">
-                  <span><NuxtLink to="/">1688 검색</NuxtLink></span>
-                  <span><NuxtLink to="/">도매꾹 검색</NuxtLink></span>
-                  <span><NuxtLink to="/">네이버쇼핑 검색</NuxtLink></span>
-                  <span
-                    ><NuxtLink to="/" class="text-primary"
-                      >셀링부스터 검색</NuxtLink
-                    ></span
-                  >
+                  <p>
+                    <span><NuxtLink to="/">1688 검색</NuxtLink></span>
+                    <span><NuxtLink to="/">도매꾹 검색</NuxtLink></span>
+                  </p>
+                  <p>
+                    <span><NuxtLink to="/">네이버쇼핑 검색</NuxtLink></span>
+                    <span
+                      ><NuxtLink to="/" class="text-primary"
+                        >셀링부스터 검색</NuxtLink
+                      ></span
+                    >
+                  </p>
                 </div>
               </div>
             </Popover>
