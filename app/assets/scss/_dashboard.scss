@@ -2,6 +2,10 @@
 
 .sb {
   &-dashboard {
+    &:not(.sb) {
+      max-width: 1920px;
+      margin: 0 auto;
+    }
     &-head {
       display: flex;
       align-items: center;
