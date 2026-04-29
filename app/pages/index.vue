@@ -5,6 +5,7 @@
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
+            <NuxtLink to="/guide/GuideLogoSymbol">Logo / Symbol</NuxtLink>
             <NuxtLink to="/guide/GuideTypography">Typography</NuxtLink>
             <NuxtLink to="/guide/GuideColorLight">Color Light</NuxtLink>
             <NuxtLink to="/guide/GuideColorDark">Color Dark</NuxtLink>
