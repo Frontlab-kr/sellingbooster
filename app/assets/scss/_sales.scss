@@ -316,6 +316,9 @@
         }
         &-body {
           padding: 40px;
+          .sb-table {
+            margin-bottom: 48px;
+          }
         }
         &-status {
           margin-bottom: 40px;

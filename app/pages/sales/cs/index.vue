@@ -372,6 +372,7 @@
                   </template>
                 </DataTable>
               </div>
+              <SbPaginator />
             </div>
           </div>
         </div>
