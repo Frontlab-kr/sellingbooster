@@ -664,7 +664,7 @@
   --table-body-progress-title-color: var(--p-gray-900);
   --table-body-progress-background: var(--p-gray-200);
 
-  --ai-tooltip-background: #000;
+  --ai-tooltip-background: var(--p-gray-1000);
   --ai-tooltip-color: var(--p-gray-00);
 
   --confirmdialog-content-color: var(--p-gray-900);
@@ -1088,7 +1088,7 @@
   --auth-complete-background: var(--p-gray-00);
   --auth-complete-title-color: var(--p-gray-900);
   --auth-complete-text-color: var(--p-gray-900);
-  --auth-form-sns-color: #000;
+  --auth-form-sns-color: var(--p-gray-1000);
   --auth-form-chip-title-color: var(--p-gray-600);
 
   //policy

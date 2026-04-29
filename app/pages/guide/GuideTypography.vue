@@ -286,10 +286,6 @@
         <div class="sb-guide-item">
           <div class="sb-guide-item-head">
             <h2>Heading . <span class="text-slate-500">MO</span></h2>
-            <h5>
-              서비스의 구조를 구분하는 제목 역할을 하며, 사용자가 콘텐츠를
-              빠르게 스캔하고, 필요한 정보를 효율적으로 탐색하도 돕는다.
-            </h5>
           </div>
           <div class="sb-guide-font-table guide-mo">
             <table>

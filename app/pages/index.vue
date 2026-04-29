@@ -9,6 +9,8 @@
             <NuxtLink to="/guide/GuideTypography">Typography</NuxtLink>
             <NuxtLink to="/guide/GuideColorLight">Color Light</NuxtLink>
             <NuxtLink to="/guide/GuideColorDark">Color Dark</NuxtLink>
+            <NuxtLink to="/guide/GuideUseColor">Use Color</NuxtLink>
+            <NuxtLink to="/guide/GuideRoundValue">Round value</NuxtLink>
             <NuxtLink to="/guide/GuideShadow">Shadow</NuxtLink>
             <NuxtLink to="/guide/GuideIcon">01 Icon</NuxtLink>
             <NuxtLink to="/guide/GuideButton">02 Button</NuxtLink>

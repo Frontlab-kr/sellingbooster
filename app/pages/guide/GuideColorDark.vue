@@ -212,8 +212,7 @@
           <div class="sb-guide-color">
             <div class="sb-guide-color-item">
               <div
-                class="sb-guide-color-item__bg bg-gray-00"
-                style="border: 1px solid var(--Gray-gray200-d3d3d3, #e2e5e9)"
+                class="sb-guide-color-item__bg bg-gray-00 border-1 border-gray-200"
               ></div>
               <div class="sb-guide-color-item__text">
                 <p>White</p>
@@ -303,8 +302,7 @@
             </div>
             <div class="sb-guide-color-item">
               <div
-                class="sb-guide-color-item__bg bg-gray-900"
-                style="border: 1px solid var(--p-gray-700)"
+                class="sb-guide-color-item__bg bg-gray-900 border-1 border-gray-700"
               >
                 <p>Backgraound</p>
               </div>
@@ -360,11 +358,7 @@
           <div class="sb-guide-color">
             <div class="sb-guide-color-item">
               <div
-                class="sb-guide-color-item__bg"
-                style="
-                  background-color: var(--p-gray-900);
-                  border: 1px solid var(--p-gray-700);
-                "
+                class="sb-guide-color-item__bg border-1 border-gray-700 bg-gray-900"
               ></div>
               <div class="sb-guide-color-item__text">
                 <p>Bg-01 / 페이지 기본</p>
@@ -373,11 +367,7 @@
             </div>
             <div class="sb-guide-color-item">
               <div
-                class="sb-guide-color-item__bg"
-                style="
-                  background-color: var(--p-gray-800);
-                  border: 1px solid var(--p-gray-700);
-                "
+                class="sb-guide-color-item__bg border-1 border-gray-700 bg-gray-800"
               ></div>
               <div class="sb-guide-color-item__text">
                 <p>Bg-02 / 팝업, 화면 박스</p>
@@ -385,20 +375,14 @@
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div
-                class="sb-guide-color-item__bg"
-                style="background-color: var(--p-gray-700)"
-              ></div>
+              <div class="sb-guide-color-item__bg bg-gray-700"></div>
               <div class="sb-guide-color-item__text">
                 <p>Bg-03 / 선택 요소 (첨부파일 등)</p>
                 <strong>gray-700 #38414F</strong>
               </div>
             </div>
             <div class="sb-guide-color-item">
-              <div
-                class="sb-guide-color-item__bg"
-                style="background-color: var(--p-gray-600)"
-              ></div>
+              <div class="sb-guide-color-item__bg bg-gray-600"></div>
               <div class="sb-guide-color-item__text">
                 <p>Bg-04 / 드롭다운, 상위 레이어</p>
                 <strong>gray-600 #495666</strong>
@@ -647,7 +631,7 @@
                 style="
                   background: var(
                     --Gradation-01,
-                    linear-gradient(91deg, #ff4d00 0%, #8385fc 100%)
+                    linear-gradient(90deg, #ff4d00 0%, #8385fc 100%)
                   );
                 "
               ></div>
@@ -693,7 +677,7 @@
                 style="
                   background: var(
                     --Gradation-01,
-                    linear-gradient(91deg, #3adde9 0%, #8385fc 100%)
+                    linear-gradient(90deg, #3adde9 0%, #8385fc 100%)
                   );
                 "
               ></div>
