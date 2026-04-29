@@ -518,11 +518,11 @@
                             [네이버 단독 100일분] 블랙모어스 알티지오메가3 호주
                             프리미엄 RTG오메가3 임산부 피쉬오일 미니 캡슐 2+1
                           </div>
-                          <div class="sb-report-history-date-list-item__price">
+                          <!-- <div class="sb-report-history-date-list-item__price">
                             <span>변경 전 28,000원</span>
                             <IconArrowRight class="ico-arrow-right" />
                             <strong>변경가 28,000원</strong>
-                          </div>
+                          </div> -->
                           <p>(변경일시 : 2026.03.13 16:23:16)</p>
                         </div>
                       </div>

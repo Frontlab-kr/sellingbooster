@@ -103,7 +103,9 @@ const props = defineProps({
 const emit = defineEmits(['save']);
 
 // 부모 데이터를 복사하여 내부 편집 상태로 관리
-const tempWidgets = ref(JSON.parse(JSON.stringify(props.initialData)));
+const tempWidgets = ref(
+  props.initialData ? JSON.parse(JSON.stringify(props.initialData)) : [],
+);
 
 // 드래그 리스트: 체크된 항목들만 노출
 const draggableWidgets = computed({
