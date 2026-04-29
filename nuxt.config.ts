@@ -82,6 +82,10 @@ export default defineNuxtConfig({
         'Popover',
       ],
     },
+    services: {
+      toast: true,
+      confirmation: true,
+    },
     options: {
       ripple: true,
       locale: {

@@ -565,6 +565,7 @@ import IconSystemSmartstore from '@/assets/icons/system/smartstore.png';
 import IconSystemCoupang from '@/assets/icons/system/coupang.png';
 import IconSystemGmarket from '@/assets/icons/system/gmarket.png';
 import IconSystemCheckS from '@/assets/icons/system/check-s.svg?component';
+const toast = useToast();
 
 //breadcrumb
 const breadcrumb = ref([
@@ -578,8 +579,6 @@ const selectedOption = ref([{ name: '상품명' }, { name: '상품 번호' }]);
 const selectedValue = ref(selectedOption.value[0]);
 
 const activeTab = ref(0);
-
-const toast = useToast();
 
 const handleShowToast = () => {
   toast.add({

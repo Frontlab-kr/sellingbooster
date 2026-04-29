@@ -125,7 +125,7 @@
   </div>
 </template>
 <script setup>
-import { ref, watch, onMounted, onUnmounted } from 'vue';
+import { ref, watch, onMounted, onUnmounted, markRaw } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 import IconSnbHome from '@/assets/icons/snb/home.svg?component';
 import IconSnbDocument from '@/assets/icons/snb/document.svg?component';
@@ -145,13 +145,13 @@ const snbMenu = ref([
   {
     key: 'dashboard',
     label: '대시보드',
-    icon: IconSnbHome,
+    icon: markRaw(IconSnbHome),
     route: '/dashboard',
   },
   {
     key: 'trend',
     label: '마켓 트렌드',
-    icon: IconSnbDocument,
+    icon: markRaw(IconSnbDocument),
     route: '/trend/recommend',
     items: [
       { label: '추천 기회', route: '/trend/recommend' },
@@ -166,7 +166,7 @@ const snbMenu = ref([
   {
     key: 'sales',
     label: '판매 가속',
-    icon: IconSnbStar,
+    icon: markRaw(IconSnbStar),
     route: '/sales/price',
     items: [
       { label: '가격 실행', route: '/sales/price' },
@@ -177,7 +177,7 @@ const snbMenu = ref([
   {
     key: 'report',
     label: '성장 리포트',
-    icon: IconSnbChart,
+    icon: markRaw(IconSnbChart),
     route: '/report/summary',
     items: [
       { label: '성과 요약', route: '/report/summary' },
@@ -188,13 +188,13 @@ const snbMenu = ref([
   {
     key: 'planner',
     label: '셀링 플래너',
-    icon: IconSnbPlanner,
+    icon: markRaw(IconSnbPlanner),
     route: '/planner/timeline',
   },
   {
     key: 'community',
     label: '커뮤니티',
-    icon: IconSnbChat,
+    icon: markRaw(IconSnbChat),
     route: '/community/qna',
     items: [
       { label: 'Q&A', route: '/community/qna' },
@@ -212,14 +212,14 @@ const pcUtill = ref([
   {
     key: 'store',
     label: '스토어 관리',
-    icon: IconSnbShop,
+    icon: markRaw(IconSnbShop),
     route: '/policy/personalPrivacy',
     items: [
       { label: '스마트 스토어', route: '/policy/personalPrivacy' },
       { label: '쿠팡', route: '/policy/personalPrivacy' },
     ],
   },
-  { id: 'toggle-btn', label: '메뉴 닫기', icon: IconSnbMenuClose },
+  { id: 'toggle-btn', label: '메뉴 닫기', icon: markRaw(IconSnbMenuClose) },
 ]);
 
 const moUtill = ref([
@@ -298,11 +298,16 @@ const openActiveMenu = () => {
 
   // 현재 경로를 포함하거나, 현재 경로의 상위 경로를 포함하는 하위 메뉴가 있는 부모 찾기
   const activeParent = snbMenu.value.find((item) => {
-    return item.items && item.items.some((sub) => {
-      if (!sub.route) return false;
-      // 정확히 일치하거나, 현재 경로가 메뉴 경로로 시작하는지 확인 (상세 페이지 대응)
-      return currentPath === sub.route || currentPath.startsWith(sub.route + '/');
-    });
+    return (
+      item.items &&
+      item.items.some((sub) => {
+        if (!sub.route) return false;
+        // 정확히 일치하거나, 현재 경로가 메뉴 경로로 시작하는지 확인 (상세 페이지 대응)
+        return (
+          currentPath === sub.route || currentPath.startsWith(sub.route + '/')
+        );
+      })
+    );
   });
 
   if (activeParent) {
