@@ -128,7 +128,9 @@
         &-item {
           padding: 40px;
           border-radius: 32px;
+          border: 1px solid var(--sales-background);
           background: var(--sales-background);
+          transition: all 0.1s ease;
           &-head {
             display: flex;
             align-items: center;
@@ -205,6 +207,10 @@
             &__contents {
               width: 100%;
             }
+          }
+          &:hover {
+            border-color: var(--color-primary);
+            box-shadow: var(--list-item-hover-boxshadow);
           }
         }
       }
@@ -787,7 +793,9 @@
           gap: 12px;
           padding: 32px;
           border-radius: 16px;
+          border: 1px solid var(--sales-product-list-item-background);
           background: var(--sales-product-list-item-background);
+          transition: all 0.1s ease;
           &-head {
             display: flex;
             align-items: center;
@@ -905,6 +913,10 @@
             line-height: 140%; /* 22.4px */
             letter-spacing: -0.4px;
             @include text-clamp(2, 22.4);
+          }
+          &:hover {
+            border-color: var(--color-primary);
+            box-shadow: var(--list-item-hover-boxshadow);
           }
         }
       }

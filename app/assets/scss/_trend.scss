@@ -223,11 +223,14 @@
             min-width: 120px;
             width: 120px;
             height: 120px;
+            border-radius: 16px;
+            transition: all 0.1s ease;
+            border: 1px solid transparent;
+            overflow: hidden;
             img {
               width: 100%;
               height: 100%;
               object-fit: cover;
-              border-radius: 16px;
             }
             .p-badge {
               position: absolute;
@@ -283,6 +286,14 @@
             font-weight: 700;
             line-height: 140%; /* 19.6px */
             letter-spacing: -0.35px;
+          }
+          &:hover & {
+            &__thumb {
+              border-color: var(--color-primary);
+            }
+            &__title {
+              color: var(--color-primary);
+            }
           }
         }
         @include breakpoint {
@@ -624,6 +635,13 @@
               }
             }
           }
+          &:hover & {
+            &__title {
+              h6 {
+                color: var(--color-primary);
+              }
+            }
+          }
         }
       }
 
@@ -948,6 +966,11 @@
             line-height: 140%; /* 16.8px */
             letter-spacing: -0.24px;
           }
+          &:hover {
+            p {
+              color: var(--color-primary);
+            }
+          }
         }
       }
     }
@@ -1160,6 +1183,15 @@
               @include text-clamp(1);
             }
           }
+          &:hover & {
+            &-text {
+              &__title {
+                p {
+                  color: var(--color-primary);
+                }
+              }
+            }
+          }
         }
       }
       &-button {
@@ -1332,6 +1364,11 @@
                   display: none;
                 }
               }
+            }
+          }
+          &:hover & {
+            &__title {
+              color: var(--color-primary);
             }
           }
         }
@@ -1686,7 +1723,7 @@
             cursor: pointer;
             &:hover {
               border-color: var(--color-primary);
-              box-shadow: var(--community-list-item-hover-boxshadow);
+              box-shadow: var(--list-item-hover-boxshadow);
             }
             &:first-child {
               margin-top: 0;
@@ -1845,6 +1882,8 @@
               width: 120px;
               height: 120px;
               border-radius: 16px;
+              border: 1px solid transparent;
+              transition: all 0.1s ease;
               overflow: hidden;
               img {
                 width: 100%;
@@ -1870,6 +1909,16 @@
                 font-weight: 700;
                 line-height: 140%; /* 19.6px */
                 letter-spacing: -0.35px;
+              }
+            }
+            &:hover & {
+              &__thumb {
+                border-color: var(--color-primary);
+              }
+              &__contents {
+                p {
+                  color: var(--color-primary);
+                }
               }
             }
           }
@@ -2636,6 +2685,11 @@
               }
             }
           }
+          &:hover {
+            h6 {
+              color: var(--color-primary);
+            }
+          }
         }
         &-scroll {
           overflow: auto;
@@ -2714,6 +2768,13 @@
               line-height: 140%; /* 28px */
               letter-spacing: -0.5px;
               @include text-clamp(2, 28);
+            }
+          }
+          &:hover & {
+            &__title {
+              h6 {
+                color: var(--color-primary);
+              }
             }
           }
         }

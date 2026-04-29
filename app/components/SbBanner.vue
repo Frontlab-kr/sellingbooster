@@ -9,6 +9,11 @@
           clickable: true,
         }"
         :modules="modules"
+        :autoplay="{
+          delay: 4000,
+          disableOnInteraction: true,
+          pauseOnMouseEnter: true,
+        }"
       >
         <SwiperSlide>
           <NuxtLink to="/">

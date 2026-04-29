@@ -165,7 +165,7 @@
         cursor: pointer;
         &:hover {
           border-color: var(--color-primary);
-          box-shadow: var(--community-list-item-hover-boxshadow);
+          box-shadow: var(--list-item-hover-boxshadow);
         }
         &__head {
           display: flex;
@@ -592,7 +592,7 @@
         cursor: pointer;
         &:hover {
           border-color: var(--color-primary);
-          box-shadow: var(--community-list-item-hover-boxshadow);
+          box-shadow: var(--list-item-hover-boxshadow);
         }
         &__head {
           display: flex;
@@ -790,7 +790,7 @@
         cursor: pointer;
         &:hover {
           border-color: var(--color-primary);
-          box-shadow: var(--community-list-item-hover-boxshadow);
+          box-shadow: var(--list-item-hover-boxshadow);
         }
         &__badge {
           margin-bottom: 8px;
@@ -990,7 +990,7 @@
         cursor: pointer;
         &:hover {
           border-color: var(--color-primary);
-          box-shadow: var(--community-list-item-hover-boxshadow);
+          box-shadow: var(--list-item-hover-boxshadow);
         }
         a {
           display: block;
@@ -1441,7 +1441,7 @@
         cursor: pointer;
         &:hover {
           border-color: var(--color-primary);
-          box-shadow: var(--community-list-item-hover-boxshadow);
+          box-shadow: var(--list-item-hover-boxshadow);
         }
         &__head {
           display: flex;
@@ -1695,6 +1695,8 @@
             height: 160px;
             border-radius: 16px;
             overflow: hidden;
+            border: 1px solid transparent;
+            transition: all 0.1s ease;
             img {
               width: 100%;
               height: 100%;
@@ -1734,6 +1736,14 @@
             font-weight: 400;
             line-height: 140%; /* 19.6px */
             letter-spacing: -0.35px;
+          }
+          &:hover & {
+            &__thumb {
+              border-color: var(--color-primary);
+            }
+            &__title {
+              color: var(--color-primary);
+            }
           }
         }
       }
@@ -2129,7 +2139,7 @@
         cursor: pointer;
         &:hover {
           border-color: var(--color-primary);
-          box-shadow: var(--community-list-item-hover-boxshadow);
+          box-shadow: var(--list-item-hover-boxshadow);
         }
         @media screen and (max-width: 1439px) {
           padding: 0;
@@ -2321,6 +2331,13 @@
               @include text-clamp(1);
             }
           }
+          &:hover & {
+            &__text {
+              h6 {
+                color: var(--color-primary);
+              }
+            }
+          }
         }
       }
     }
@@ -2388,6 +2405,8 @@
             height: 100px;
             border-radius: 10px;
             overflow: hidden;
+            border: 1px solid transparent;
+            transition: all 0.1s ease;
             img {
               width: 100%;
               height: 100%;
@@ -2424,6 +2443,16 @@
               line-height: 140%; /* 22.4px */
               letter-spacing: -0.4px;
               @include text-clamp(2, 22.4);
+            }
+          }
+          &:hover & {
+            &__thumb {
+              border-color: var(--color-primary);
+            }
+            &__body {
+              p {
+                color: var(--color-primary);
+              }
             }
           }
         }
@@ -2602,7 +2631,7 @@
             cursor: pointer;
             &:hover {
               border-color: var(--color-primary);
-              box-shadow: var(--community-list-item-hover-boxshadow);
+              box-shadow: var(--list-item-hover-boxshadow);
             }
 
             &:first-child {

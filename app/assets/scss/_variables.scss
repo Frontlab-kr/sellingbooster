@@ -466,6 +466,7 @@
 
   --title-color: var(--p-gray-900);
   --contents-color: var(--p-gray-900);
+  --list-item-hover-boxshadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
 
   --dashboard-swiper-button-background: var(--p-gray-900);
   --dashboard-swiper-button-ico-color: var(--p-gray-00);
@@ -537,7 +538,7 @@
   --community-list-item-name-color: var(--p-primary-500);
   --community-list-item-date-color: var(--p-gray-400);
   --community-list-item-divider-color: var(--p-gray-300);
-  --community-list-item-hover-boxshadow: 0 4px 10px 0 rgba(0, 177, 189, 0.1);
+
   --community-view-background: var(--p-gray-00);
 
   --comment-write-name-color: var(--p-slate-500);
@@ -1538,6 +1539,7 @@
 
     --title-color: var(--p-gray-00);
     --contents-color: var(--p-gray-00);
+    --list-item-hover-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
 
     --dashboard-swiper-button-background: var(--p-gray-00);
     --dashboard-swiper-button-ico-color: var(--p-gray-900);
@@ -1612,7 +1614,7 @@
     --community-list-item-name-color: var(--p-primary-300);
     --community-list-item-date-color: var(--p-gray-400);
     --community-list-item-divider-color: var(--p-gray-600);
-    --community-list-item-hover-boxshadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
+
     --community-view-background: var(--p-gray-800);
 
     --comment-write-name-color: var(--p-slate-300);

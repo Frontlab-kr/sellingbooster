@@ -196,92 +196,94 @@
                   </template>
                 </Button>
               </div>
-              <DataTable
-                v-scroll-end
-                :value="rankingList"
-                responsiveLayout="scroll"
-                removableSort
-                scrollable
-                class="sb-ktrend-datatable"
-              >
-                <Column
-                  field="ranking"
-                  header="랭킹"
-                  style="width: 80px"
-                  class="sb-table-pc"
+              <div class="sb-table">
+                <DataTable
+                  v-scroll-end
+                  :value="rankingList"
+                  responsiveLayout="scroll"
+                  removableSort
+                  scrollable
+                  class="sb-ktrend-datatable"
                 >
-                  <template #body="slotProps">
-                    {{ slotProps.data.ranking }}
-                  </template>
-                </Column>
+                  <Column
+                    field="ranking"
+                    header="랭킹"
+                    style="width: 80px"
+                    class="sb-table-pc"
+                  >
+                    <template #body="slotProps">
+                      {{ slotProps.data.ranking }}
+                    </template>
+                  </Column>
 
-                <Column field="keyword" header="키워드" style="width: 300px">
-                  <template #body="slotProps">
-                    {{ slotProps.data.keyword }}
-                  </template>
-                </Column>
+                  <Column field="keyword" header="키워드" style="width: 300px">
+                    <template #body="slotProps">
+                      {{ slotProps.data.keyword }}
+                    </template>
+                  </Column>
 
-                <Column
-                  field="searchVol"
-                  header="검색량"
-                  headerClass="justify-content-end"
-                  bodyClass="text-right"
-                  style="width: 100px"
-                >
-                  <template #body="slotProps">
-                    <div
-                      class="sb-table-body-ranking"
-                      :class="{
-                        'text-up': slotProps.data.searchDir === 'up',
-                        'text-down': slotProps.data.searchDir === 'down',
-                      }"
-                    >
-                      <IconArrowSmallUp
-                        class="ico-arrow-small-up text-up"
-                        v-if="slotProps.data.searchDir === 'up'"
-                      />
-                      <IconArrowSmallDown
-                        class="ico-arrow-small-down text-down"
-                        v-else
-                      />
-                      <strong class="sb-table-body-ranking__value">{{
-                        slotProps.data.searchVol
-                      }}</strong>
+                  <Column
+                    field="searchVol"
+                    header="검색량"
+                    headerClass="justify-content-end"
+                    bodyClass="text-right"
+                    style="width: 100px"
+                  >
+                    <template #body="slotProps">
+                      <div
+                        class="sb-table-body-ranking"
+                        :class="{
+                          'text-up': slotProps.data.searchDir === 'up',
+                          'text-down': slotProps.data.searchDir === 'down',
+                        }"
+                      >
+                        <IconArrowSmallUp
+                          class="ico-arrow-small-up text-up"
+                          v-if="slotProps.data.searchDir === 'up'"
+                        />
+                        <IconArrowSmallDown
+                          class="ico-arrow-small-down text-down"
+                          v-else
+                        />
+                        <strong class="sb-table-body-ranking__value">{{
+                          slotProps.data.searchVol
+                        }}</strong>
+                      </div>
+                    </template>
+                  </Column>
+
+                  <Column
+                    field="competition"
+                    header="경쟁강도"
+                    bodyClass="text-right"
+                    style="width: 175px"
+                  >
+                    <template #body="slotProps">
+                      <div class="sb-table-body-badge">
+                        <span>{{ slotProps.data.competition }}</span>
+                        <Badge
+                          :value="slotProps.data.status"
+                          :severity="
+                            slotProps.data.status === '최적'
+                              ? 'success'
+                              : 'danger'
+                          "
+                          class="sb-badge-sm"
+                        />
+                      </div>
+                    </template>
+                  </Column>
+
+                  <template #empty>
+                    <div class="sb-nodata">
+                      <IconIllustrationSmile class="ico-illustration-smile" />
+                      <div class="sb-nodata__text">
+                        <p>조회된 데이터가 없습니다.</p>
+                      </div>
                     </div>
                   </template>
-                </Column>
-
-                <Column
-                  field="competition"
-                  header="경쟁강도"
-                  bodyClass="text-right"
-                  style="width: 175px"
-                >
-                  <template #body="slotProps">
-                    <div class="sb-table-body-badge">
-                      <span>{{ slotProps.data.competition }}</span>
-                      <Badge
-                        :value="slotProps.data.status"
-                        :severity="
-                          slotProps.data.status === '최적'
-                            ? 'success'
-                            : 'danger'
-                        "
-                        class="sb-badge-sm"
-                      />
-                    </div>
-                  </template>
-                </Column>
-
-                <template #empty>
-                  <div class="sb-nodata">
-                    <IconIllustrationSmile class="ico-illustration-smile" />
-                    <div class="sb-nodata__text">
-                      <p>조회된 데이터가 없습니다.</p>
-                    </div>
-                  </div>
-                </template>
-              </DataTable>
+                </DataTable>
+              </div>
             </div>
           </div>
         </div>

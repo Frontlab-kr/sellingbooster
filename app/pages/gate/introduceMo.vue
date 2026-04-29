@@ -4,7 +4,7 @@
       :modules="modules"
       :loop="true"
       :autoplay="{
-        delay: 4000000,
+        delay: 4000,
       }"
       :pagination="{ clickable: true }"
     >

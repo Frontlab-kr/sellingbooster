@@ -346,7 +346,7 @@
               <div class="sb-guide-color-item__bg bg-gray-600"></div>
               <div class="sb-guide-color-item__text">
                 <p>Text-disabled</p>
-                <strong>gray-600 #495666</strong>
+                <strong>gray-600 #454f5b</strong>
               </div>
             </div>
           </div>
@@ -385,7 +385,7 @@
               <div class="sb-guide-color-item__bg bg-gray-600"></div>
               <div class="sb-guide-color-item__text">
                 <p>Bg-04 / 드롭다운, 상위 레이어</p>
-                <strong>gray-600 #495666</strong>
+                <strong>gray-600 #454f5b</strong>
               </div>
             </div>
           </div>

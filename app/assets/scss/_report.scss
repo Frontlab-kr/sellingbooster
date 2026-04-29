@@ -289,7 +289,9 @@
             margin-top: 8px;
             padding: 20px;
             border-radius: 16px;
+            border: 1px solid var(--report-summary-product-list-item-background);
             background: var(--report-summary-product-list-item-background);
+            transition: all 0.1s ease;
             &:first-child {
               margin-top: 0;
             }
@@ -425,6 +427,10 @@
                 line-height: 140%; /* 19.6px */
                 letter-spacing: -0.35px;
               }
+            }
+            &:hover {
+              border-color: var(--color-primary);
+              box-shadow: var(--list-item-hover-boxshadow);
             }
           }
           &-foot {
@@ -834,8 +840,11 @@
             padding: 20px;
             border-radius: 16px;
             width: 100%;
+            border: 1px solid
+              var(--report-history-date-body-list-item-background);
             background: var(--report-history-date-body-list-item-background);
             display: none;
+            transition: all 0.1s ease;
             &:first-child {
               display: flex;
             }
@@ -1053,6 +1062,10 @@
                   }
                 }
               }
+            }
+            &:hover {
+              border-color: var(--color-primary);
+              box-shadow: var(--list-item-hover-boxshadow);
             }
           }
           &.active & {

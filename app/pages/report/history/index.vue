@@ -158,13 +158,15 @@
                   </div>
                 </div>
                 <div class="sb-report-history-bna-list-item-button">
-                  <NuxtLink to="#bestPrice">
-                    <Button severity="contrast" outlined>
-                      <span class="p-button-label"
-                        >상품별 성과 히스토리 보기</span
-                      >
-                    </Button>
-                  </NuxtLink>
+                  <Button
+                    severity="contrast"
+                    outlined
+                    @click="scrollToBestPrice"
+                  >
+                    <span class="p-button-label"
+                      >상품별 성과 히스토리 보기</span
+                    >
+                  </Button>
                 </div>
               </div>
               <div class="sb-report-history-bna-list-item">
@@ -224,13 +226,15 @@
                   </div>
                 </div>
                 <div class="sb-report-history-bna-list-item-button">
-                  <NuxtLink to="#productAnalysis">
-                    <Button severity="contrast" outlined>
-                      <span class="p-button-label"
-                        >상품별 성과 히스토리 보기</span
-                      >
-                    </Button>
-                  </NuxtLink>
+                  <Button
+                    severity="contrast"
+                    outlined
+                    @click="scrollToProductAnalysis"
+                  >
+                    <span class="p-button-label"
+                      >상품별 성과 히스토리 보기</span
+                    >
+                  </Button>
                 </div>
               </div>
               <div class="sb-report-history-bna-list-item">
@@ -672,6 +676,23 @@ const openStates = ref({});
 
 const toggleList = (index) => {
   openStates.value[index] = !openStates.value[index];
+};
+
+// 앵커이동
+const scrollToBestPrice = () => {
+  const element = document.getElementById('bestPrice');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+    window.history.pushState(null, '', '#bestPrice');
+  }
+};
+const scrollToProductAnalysis = () => {
+  const element = document.getElementById('productAnalysis');
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' });
+    // URL에 해시를 남기고 싶다면 아래 코드 추가
+    window.history.pushState(null, '', '#productAnalysis');
+  }
 };
 
 //popover

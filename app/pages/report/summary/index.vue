@@ -139,83 +139,85 @@
               </div>
             </div>
           </div>
-          <DataTable
-            v-scroll-end
-            :value="dailyStats"
-            responsiveLayout="scroll"
-            scrollable
-            class="sb-ktrend-datatable"
-          >
-            <Column field="date" header="일자" style="min-width: 150px">
-              <template #body="slotProps">
-                {{ slotProps.data.date }}
-              </template>
-            </Column>
-
-            <Column
-              field="orderCount"
-              header="주문 건수"
-              bodyClass="text-right"
-              style="min-width: 250px"
+          <div class="sb-table">
+            <DataTable
+              v-scroll-end
+              :value="dailyStats"
+              responsiveLayout="scroll"
+              scrollable
+              class="sb-ktrend-datatable"
             >
-              <template #body="slotProps">
-                {{ slotProps.data.orderCount }}
-              </template>
-            </Column>
+              <Column field="date" header="일자" style="min-width: 150px">
+                <template #body="slotProps">
+                  {{ slotProps.data.date }}
+                </template>
+              </Column>
 
-            <Column
-              field="totalAmount"
-              header="총 결제 금액"
-              bodyClass="text-right"
-              style="min-width: 250px"
-            >
-              <template #body="slotProps">
-                {{ slotProps.data.totalAmount }}
-              </template>
-            </Column>
+              <Column
+                field="orderCount"
+                header="주문 건수"
+                bodyClass="text-right"
+                style="min-width: 250px"
+              >
+                <template #body="slotProps">
+                  {{ slotProps.data.orderCount }}
+                </template>
+              </Column>
 
-            <Column
-              field="confirmCount"
-              header="결제 확정 건수"
-              bodyClass="text-right"
-              style="min-width: 250px"
-            >
-              <template #body="slotProps">
-                {{ slotProps.data.confirmCount }}
-              </template>
-            </Column>
+              <Column
+                field="totalAmount"
+                header="총 결제 금액"
+                bodyClass="text-right"
+                style="min-width: 250px"
+              >
+                <template #body="slotProps">
+                  {{ slotProps.data.totalAmount }}
+                </template>
+              </Column>
 
-            <Column
-              field="refundCount"
-              header="환불 건수"
-              bodyClass="text-right"
-              style="min-width: 250px"
-            >
-              <template #body="slotProps">
-                {{ slotProps.data.refundCount }}
-              </template>
-            </Column>
+              <Column
+                field="confirmCount"
+                header="결제 확정 건수"
+                bodyClass="text-right"
+                style="min-width: 250px"
+              >
+                <template #body="slotProps">
+                  {{ slotProps.data.confirmCount }}
+                </template>
+              </Column>
 
-            <Column
-              field="cancelCount"
-              header="취소 건수"
-              bodyClass="text-right"
-              style="min-width: 250px"
-            >
-              <template #body="slotProps">
-                {{ slotProps.data.cancelCount }}
-              </template>
-            </Column>
+              <Column
+                field="refundCount"
+                header="환불 건수"
+                bodyClass="text-right"
+                style="min-width: 250px"
+              >
+                <template #body="slotProps">
+                  {{ slotProps.data.refundCount }}
+                </template>
+              </Column>
 
-            <template #empty>
-              <div class="sb-nodata">
-                <IconIllustrationSmile class="ico-illustration-smile" />
-                <div class="sb-nodata__text">
-                  <p>조회된 데이터가 없습니다.</p>
+              <Column
+                field="cancelCount"
+                header="취소 건수"
+                bodyClass="text-right"
+                style="min-width: 250px"
+              >
+                <template #body="slotProps">
+                  {{ slotProps.data.cancelCount }}
+                </template>
+              </Column>
+
+              <template #empty>
+                <div class="sb-nodata">
+                  <IconIllustrationSmile class="ico-illustration-smile" />
+                  <div class="sb-nodata__text">
+                    <p>조회된 데이터가 없습니다.</p>
+                  </div>
                 </div>
-              </div>
-            </template>
-          </DataTable>
+              </template>
+            </DataTable>
+          </div>
         </div>
 
         <div class="sb-report-summary-section">

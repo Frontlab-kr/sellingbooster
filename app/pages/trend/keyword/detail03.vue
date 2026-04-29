@@ -570,36 +570,38 @@
                   }"
                 />
               </div>
-              <div class="sb-trend-top sb-trend-top--small" v-scroll-end>
-                <div class="sb-trend-top-list">
-                  <NuxtLink
-                    v-for="item in top20List"
-                    :key="item.rank"
-                    to="/"
-                    class="sb-trend-top-list-item"
-                  >
-                    <div class="sb-trend-top-list-item__thumb">
-                      <Badge
-                        :value="item.rank"
-                        size="small"
-                        class="p-badge-circle"
-                        :severity="item.rank > 3 ? 'contrast' : undefined"
-                      ></Badge>
-                      <img :src="item.imgSrc" :alt="item.title" />
-                    </div>
-                    <div class="sb-trend-top-list-item__contents">
-                      <div class="sb-trend-top-list-item__category">
-                        <span>{{ item.brand }}</span>
-                        <span>{{ item.mall }}</span>
+              <div class="sb-trend-top sb-trend-top--small">
+                <div class="sb-trend-top-list" v-scroll-end>
+                  <div class="sb-trend-top-list-scroll">
+                    <NuxtLink
+                      v-for="item in top20List"
+                      :key="item.rank"
+                      to="/"
+                      class="sb-trend-top-list-item"
+                    >
+                      <div class="sb-trend-top-list-item__thumb">
+                        <Badge
+                          :value="item.rank"
+                          size="small"
+                          class="p-badge-circle"
+                          :severity="item.rank > 3 ? 'contrast' : undefined"
+                        ></Badge>
+                        <img :src="item.imgSrc" :alt="item.title" />
                       </div>
-                      <div class="sb-trend-top-list-item__title">
-                        {{ item.title }}
+                      <div class="sb-trend-top-list-item__contents">
+                        <div class="sb-trend-top-list-item__category">
+                          <span>{{ item.brand }}</span>
+                          <span>{{ item.mall }}</span>
+                        </div>
+                        <div class="sb-trend-top-list-item__title">
+                          {{ item.title }}
+                        </div>
+                        <div class="sb-trend-top-list-item__price">
+                          {{ item.price.toLocaleString() }}원
+                        </div>
                       </div>
-                      <div class="sb-trend-top-list-item__price">
-                        {{ item.price.toLocaleString() }}원
-                      </div>
-                    </div>
-                  </NuxtLink>
+                    </NuxtLink>
+                  </div>
                 </div>
               </div>
             </div>

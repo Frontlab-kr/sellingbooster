@@ -521,7 +521,9 @@
 
         padding: 32px;
         border-radius: 32px;
+        border: 1px solid var(--alarm-list-item-background);
         background: var(--alarm-list-item-background);
+        transition: all 0.1s ease;
         &-head {
           display: flex;
           align-items: center;
@@ -550,6 +552,10 @@
             letter-spacing: -0.4px;
             @include text-clamp(3, 22.4);
           }
+        }
+        &:hover {
+          border-color: var(--color-primary);
+          box-shadow: var(--list-item-hover-boxshadow);
         }
       }
       &-button {
