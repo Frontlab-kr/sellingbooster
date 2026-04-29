@@ -497,8 +497,11 @@
     &-category-top10 {
       .sb-trend-top {
         .sb-trend-top-list {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
           overflow: auto;
           max-height: 582px;
+          margin-top: 32px;
           @include custom-scrollbar();
         }
         @include custom-scrollbar-blur();
@@ -509,11 +512,11 @@
           }
         }
       }
-      // @media screen and (max-width: 1800px) {
-      //   .sb-trend-top-list {
-      //     grid-template-columns: 1fr !important;
-      //   }
-      // }
+      @media screen and (max-width: 1800px) {
+        .sb-trend-top-list {
+          grid-template-columns: 1fr !important;
+        }
+      }
     }
     &-report {
       &-contents {
