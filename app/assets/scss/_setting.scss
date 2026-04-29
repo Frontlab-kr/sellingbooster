@@ -838,6 +838,7 @@
           display: flex;
           // align-items: center;
           gap: 40px;
+          max-width: 947px;
           width: 100%;
           padding: 0 40px 0 0;
           border-radius: 170px 16px 16px 170px;
@@ -1038,6 +1039,7 @@
         &-ai {
           min-width: 494px;
           width: 494px;
+          //width: 52%;
           border-radius: 16px;
           background: var(--extension-dashboard-status-background);
 
@@ -1100,8 +1102,21 @@
           gap: 8px;
           margin-top: 24px;
         }
+        @media screen and (min-width: 1921px) {
+          &-status {
+            max-width: 60%;
+            width: 60%;
+          }
+          &-ai {
+            max-width: 40%;
+            width: 40%;
+          }
+        }
         @media screen and (max-width: 1800px) {
           flex-direction: column;
+          &-status {
+            max-width: 100%;
+          }
           &-ai {
             width: 100%;
           }
