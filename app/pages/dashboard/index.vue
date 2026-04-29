@@ -23,7 +23,11 @@
   </div>
 
   <Dialog v-model:visible="dialogEdit" modal>
-    <DialogEdit :initial-data="allWidgets" @save="updateWidgets" />
+    <DialogEdit
+      :initial-data="allWidgets"
+      :default-data="defaultWidgets"
+      @save="updateWidgets"
+    />
   </Dialog>
 
   <AppFooter />

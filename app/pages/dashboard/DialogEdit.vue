@@ -37,49 +37,53 @@
                   </div>
                 </div>
               </template>
-
-              <template #footer>
-                <div class="drag-item add-item full-width">
-                  <div class="item-content">
-                    <span>컨텐츠를 추가해주세요.</span>
-                    <span class="plus-icon">+</span>
-                  </div>
-                </div>
-              </template>
             </draggable>
           </div>
         </div>
       </div>
 
       <aside class="control-sidebar">
-        <div class="info-box">
-          <h6>컨텐츠 노출 관리</h6>
-          <ul>
-            <li>
-              대시보드의 컨텐츠를 셀러님의 성향에 맞춰 순서 변경 및 추가/삭제
-              관리 하실 수 있습니다.
-            </li>
-            <li>
-              우측 항목을 체크 선택 하시면 대시보드에 해당 컨텐츠가 노출됩니다.
-            </li>
-            <li>마우스로 드래그해서 원하는 위치에 놓으세요.</li>
+        <div class="sidebar-top">
+          <div class="info-box">
+            <h6>컨텐츠 노출 관리</h6>
+            <ul>
+              <li>
+                대시보드의 컨텐츠를 셀러님의 성향에 맞춰 순서 변경 및 추가/삭제
+                관리 하실 수 있습니다.
+              </li>
+              <li>
+                우측 항목을 체크 선택 하시면 대시보드에 해당 컨텐츠가
+                노출됩니다.
+              </li>
+              <li>마우스로 드래그해서 원하는 위치에 놓으세요.</li>
+            </ul>
+          </div>
+
+          <ul class="check-list">
+            <template v-for="widget in tempWidgets" :key="widget.id">
+              <li v-if="widget.id !== 'banner'" class="check-item">
+                <Checkbox
+                  v-model="widget.visible"
+                  :binary="true"
+                  :inputId="'chk-' + widget.id"
+                />
+                <label :for="'chk-' + widget.id" class="ml-2">{{
+                  widget.title
+                }}</label>
+              </li>
+            </template>
           </ul>
         </div>
 
-        <ul class="check-list">
-          <template v-for="widget in tempWidgets" :key="widget.id">
-            <li v-if="widget.id !== 'banner'" class="check-item">
-              <Checkbox
-                v-model="widget.visible"
-                :binary="true"
-                :inputId="'chk-' + widget.id"
-              />
-              <label :for="'chk-' + widget.id" class="ml-2">{{
-                widget.title
-              }}</label>
-            </li>
-          </template>
-        </ul>
+        <div class="sidebar-bottom">
+          <Button
+            label="설정 초기화"
+            icon="pi pi-refresh"
+            variant="text"
+            class="btn-reset"
+            @click="handleReset"
+          />
+        </div>
       </aside>
     </div>
 
@@ -98,16 +102,21 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  // 초기 상태로 되돌리기 위한 기본값 배열 (Dashboard.vue의 defaultWidgets)
+  defaultData: {
+    type: Array,
+    default: () => [],
+  },
 });
 
 const emit = defineEmits(['save']);
 
-// 부모 데이터를 복사하여 내부 편집 상태로 관리
+// 내부 편집 상태 관리
 const tempWidgets = ref(
   props.initialData ? JSON.parse(JSON.stringify(props.initialData)) : [],
 );
 
-// 드래그 리스트: 체크된 항목들만 노출
+// 드래그 리스트 연동
 const draggableWidgets = computed({
   get: () => tempWidgets.value.filter((w) => w.visible),
   set: (newOrder) => {
@@ -116,11 +125,15 @@ const draggableWidgets = computed({
   },
 });
 
-// 왼쪽 X 버튼 클릭 시 해제 로직
 const toggleVisible = (id) => {
   const target = tempWidgets.value.find((w) => w.id === id);
-  if (target) {
-    target.visible = false;
+  if (target) target.visible = false;
+};
+
+// ⭐ 초기화 기능: 기본값으로 데이터를 덮어씌움
+const handleReset = () => {
+  if (confirm('대시보드 설정을 초기 상태로 되돌리시겠습니까?')) {
+    tempWidgets.value = JSON.parse(JSON.stringify(props.defaultData));
   }
 };
 
@@ -130,7 +143,6 @@ const handleSave = () => {
 </script>
 
 <style lang="scss" scoped>
-/* 기존 스타일 그대로 유지 (제이드 그린 톤 버튼 및 드래그 그리드 포함) */
 .dashboard-edit {
   padding: 10px;
 }
@@ -139,6 +151,8 @@ const handleSave = () => {
   gap: 20px;
   min-height: 550px;
 }
+
+/* 왼쪽 미리보기 */
 .preview-area {
   flex: 1;
   background: #f8faff;
@@ -176,6 +190,7 @@ const handleSave = () => {
   flex-direction: column;
   gap: 10px;
 }
+
 .fixed-item,
 .drag-item {
   height: 54px;
@@ -200,6 +215,7 @@ const handleSave = () => {
   display: flex;
   gap: 10px;
 }
+
 .drag-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -234,20 +250,17 @@ const handleSave = () => {
     cursor: pointer;
   }
 }
-.add-item {
-  border: 1px dashed #6366f1;
-  background-color: #f0f4ff;
-  color: #4338ca;
-  .plus-icon {
-    font-size: 18px;
-    margin-left: 6px;
-  }
-}
+
+/* 오른쪽 사이드바 */
 .control-sidebar {
   width: 310px;
   background: #f1f5f9;
   border-radius: 16px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; // 상단 리스트와 하단 초기화 버튼 분리
+
   .info-box {
     background: #fff;
     padding: 15px;
@@ -269,6 +282,7 @@ const handleSave = () => {
     }
   }
 }
+
 .check-list {
   list-style: none;
   padding: 0;
@@ -285,6 +299,23 @@ const handleSave = () => {
     }
   }
 }
+
+.sidebar-bottom {
+  margin-top: 20px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 15px;
+  text-align: right;
+  .btn-reset {
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 600;
+    &:hover {
+      color: #1e293b;
+    }
+  }
+}
+
+/* 하단 저장 버튼 */
 .edit-footer {
   margin-top: 25px;
   text-align: center;
@@ -297,6 +328,7 @@ const handleSave = () => {
     font-weight: 700;
   }
 }
+
 .ghost {
   opacity: 0;
 }
