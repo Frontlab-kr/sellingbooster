@@ -833,6 +833,7 @@
       }
       &-dashboard {
         display: flex;
+        justify-content: center;
         gap: 12px;
         &-status {
           display: flex;
@@ -1102,16 +1103,7 @@
           gap: 8px;
           margin-top: 24px;
         }
-        @media screen and (min-width: 1921px) {
-          &-status {
-            max-width: 60%;
-            width: 60%;
-          }
-          &-ai {
-            max-width: 40%;
-            width: 40%;
-          }
-        }
+
         @media screen and (max-width: 1800px) {
           flex-direction: column;
           &-status {
