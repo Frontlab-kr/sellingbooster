@@ -1,5 +1,5 @@
 <template>
-  <div class="sb-feedback">
+  <div class="sb-feedback" :class="{ 'is-scrolling': isScrolling }">
     <div class="sb-feedback-ai" @click="dialogFeedback = true">
       <IconAiFeedback class="ico-ai-feedback" />
       <div class="sb-feedback-ai__bubble">
@@ -131,6 +131,9 @@ const categories = [
   },
 ];
 
+const isScrolling = ref(false);
+let scrollTimeout = null;
+
 //animation
 const scrollToTop = () => {
   window.scrollTo({
@@ -141,7 +144,20 @@ const scrollToTop = () => {
 
 let mouseMoveHandler;
 
+const handleScroll = () => {
+  isScrolling.value = true;
+
+  if (scrollTimeout) {
+    clearTimeout(scrollTimeout);
+  }
+
+  scrollTimeout = setTimeout(() => {
+    isScrolling.value = false;
+  }, 600);
+};
+
 onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
   const ctx = gsap.context(() => {
     // 1. 눈 & 입 깜빡임 동기화 (입이 안 움직인다면 scale 수치를 더 과감하게 조정)
     const blinkTL = gsap.timeline({
@@ -210,10 +226,14 @@ onMounted(() => {
     };
 
     window.addEventListener('mousemove', handleMouseMove);
+
+    mouseMoveHandler = handleMouseMove;
   });
 });
 
 onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+  if (scrollTimeout) clearTimeout(scrollTimeout);
   window.removeEventListener('mousemove', mouseMoveHandler);
 });
 </script>

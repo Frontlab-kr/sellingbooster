@@ -28,8 +28,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
     &-ai {
       position: relative;
+      transition: all 0.4s ease;
       cursor: pointer;
       .ico-ai-feedback {
         position: relative;
@@ -113,6 +115,11 @@
       position: fixed;
       bottom: 30px;
       right: 20px;
+      &.is-scrolling & {
+        &-ai {
+          opacity: 0;
+        }
+      }
       &-ai {
         position: relative;
         cursor: pointer;
@@ -147,7 +154,7 @@
           transition: all 0.4s ease-in-out;
           max-width: 0;
           overflow: hidden;
-
+          display: none;
           p {
             margin: 0;
             padding: 0 28px 0 12px;
