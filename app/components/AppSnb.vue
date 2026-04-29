@@ -229,10 +229,10 @@ const moUtill = ref([
     route: '/setting/account/',
     items: [
       { label: '개인 정보 관리', route: '/setting/account/' },
-      { label: '셀러 정보 관리', route: '/policy/personalPrivacy' },
-      { label: '알림 관리', route: '/setting/seller/alarm' },
-      { label: '팀/권한 관리', route: '/policy/personalPrivacy' },
-      { label: '구독 관리', route: '/policy/personalPrivacy' },
+      { label: '셀러 정보 관리', route: '/seller/onboarding/' },
+      { label: '셀러 확장 기능', route: '/setting/seller/extension' },
+      { label: '팀/권한 관리', route: '/setting/team/' },
+      { label: '구독 관리', route: '/setting/subscribe/' },
     ],
   },
   {

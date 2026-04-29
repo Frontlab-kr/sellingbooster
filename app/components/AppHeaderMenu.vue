@@ -178,6 +178,10 @@
               셀러 정보 관리
             </NuxtLink>
             <NuxtLink to="/" class="sb-header-user-list-item">
+              <IconSystemScale class="ico-system-scale" />
+              셀러 확장 기능
+            </NuxtLink>
+            <NuxtLink to="/" class="sb-header-user-list-item">
               <IconSystemManagement class="ico-system-management" />
               팀/권한 관리
             </NuxtLink>
@@ -212,6 +216,7 @@ import IconProfileBadgeLevel1Small from '@/assets/icons/profile/badge-level1-sma
 import IconSystemUserProfile from '@/assets/icons/system/user-profile.svg?component';
 import IconSystemWreach from '@/assets/icons/system/wreach.svg?component';
 import IconSystemBellOff from '@/assets/icons/system/bell-off.svg?component';
+import IconSystemScale from '@/assets/icons/system/scale.svg?component';
 import IconSystemManagement from '@/assets/icons/system/management.svg?component';
 import IconSystemBookmark from '@/assets/icons/system/bookmark.svg?component';
 import IconSystemExit from '@/assets/icons/system/exit.svg?component';
