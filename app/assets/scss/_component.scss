@@ -126,18 +126,16 @@
         .ico-ai-feedback {
           position: relative;
           z-index: 20;
-          width: 56px;
+          width: 50px;
         }
         &__bubble {
           position: absolute;
           z-index: 30;
-          top: -12px;
-          left: -28px;
+          top: -14px;
+          left: -26px;
           transition: all 0.2s ease-in-out;
           .ico-ai-bubble-chat {
-            width: 42px;
-            --path-color-1: var(--feedback-bubble-color01);
-            --path-color-2: var(--feedback-bubble-color02);
+            width: 44px;
           }
         }
         &__text {
