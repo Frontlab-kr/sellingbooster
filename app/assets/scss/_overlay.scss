@@ -1303,6 +1303,16 @@
           padding: 10px 0;
           border-top: 1px solid
             var(--dialog-extension-write-search-button-border-color);
+          .p-button {
+            &:not(:disabled) {
+              .p-button-label {
+                color: var(--dialog-extension-write-search-button-button-color);
+              }
+              .ico-system-check-s {
+                color: var(--color-primary);
+              }
+            }
+          }
         }
       }
       @include breakpoint {
