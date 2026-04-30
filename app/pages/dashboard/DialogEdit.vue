@@ -1,6 +1,7 @@
 <template>
   <div class="dashboard-edit">
     <div class="edit-content-wrapper">
+      <!-- 왼쪽: 드래그 미리보기 영역 -->
       <div class="preview-area">
         <div class="preview-header">
           <div class="gnb-util-mock">GNB + Util Menu</div>
@@ -8,12 +9,14 @@
         <div class="preview-body">
           <div class="lnb-mock">LNB</div>
           <div class="content-mock">
+            <!-- 고정 영역 -->
             <div class="fixed-item full">알림</div>
             <div class="fixed-group">
               <div class="fixed-item half">현재 매출 기록</div>
               <div class="fixed-item half">셀링 플래너</div>
             </div>
 
+            <!-- 가변 영역: 현재 대시보드에 노출 중인 위젯들 -->
             <draggable
               v-model="draggableWidgets"
               item-key="id"
@@ -28,6 +31,7 @@
                 >
                   <div class="item-content">
                     <span class="title">{{ element.title }}</span>
+                    <!-- 여기서 ✕를 누르면 다시 우측 리스트로 돌아갑니다 -->
                     <button
                       class="btn-close"
                       @click="toggleVisible(element.id)"
@@ -42,25 +46,23 @@
         </div>
       </div>
 
+      <!-- 오른쪽: 미선택 위젯 추가 영역 -->
       <aside class="control-sidebar">
         <div class="sidebar-top">
           <div class="info-box">
             <h6>컨텐츠 노출 관리</h6>
             <ul>
+              <li>목록에서 항목을 체크하면 대시보드에 추가됩니다.</li>
               <li>
-                대시보드의 컨텐츠를 셀러님의 성향에 맞춰 순서 변경 및 추가/삭제
-                관리 하실 수 있습니다.
-              </li>
-              <li>
-                우측 항목을 체크 선택 하시면 대시보드에 해당 컨텐츠가
-                노출됩니다.
+                대시보드에 이미 노출 중인 항목은 목록에 표시되지 않습니다.
               </li>
               <li>마우스로 드래그해서 원하는 위치에 놓으세요.</li>
             </ul>
           </div>
 
+          <!-- ⭐ 미선택 상태인 위젯들만 노출되는 리스트 -->
           <ul class="check-list">
-            <template v-for="widget in tempWidgets" :key="widget.id">
+            <template v-for="widget in inactiveWidgets" :key="widget.id">
               <li v-if="widget.id !== 'banner'" class="check-item">
                 <Checkbox
                   v-model="widget.visible"
@@ -72,6 +74,10 @@
                 }}</label>
               </li>
             </template>
+            <!-- 모든 항목이 선택되었을 때의 피드백 -->
+            <li v-if="inactiveWidgets.length === 0" class="empty-msg">
+              추가할 수 있는 모든 컨텐츠가 노출 중입니다.
+            </li>
           </ul>
         </div>
 
@@ -98,25 +104,17 @@ import { ref, computed } from 'vue';
 import draggable from 'vuedraggable';
 
 const props = defineProps({
-  initialData: {
-    type: Array,
-    required: true,
-  },
-  // 초기 상태로 되돌리기 위한 기본값 배열 (Dashboard.vue의 defaultWidgets)
-  defaultData: {
-    type: Array,
-    default: () => [],
-  },
+  initialData: { type: Array, required: true },
+  defaultData: { type: Array, default: () => [] },
 });
 
 const emit = defineEmits(['save']);
 
-// 내부 편집 상태 관리
 const tempWidgets = ref(
   props.initialData ? JSON.parse(JSON.stringify(props.initialData)) : [],
 );
 
-// 드래그 리스트 연동
+// 1. 왼쪽: 체크된(visible: true) 항목들 (드래그 가능)
 const draggableWidgets = computed({
   get: () => tempWidgets.value.filter((w) => w.visible),
   set: (newOrder) => {
@@ -125,12 +123,16 @@ const draggableWidgets = computed({
   },
 });
 
+// 2. ⭐ 오른쪽: 미선택(visible: false) 상태인 항목들만 계산
+const inactiveWidgets = computed(() => {
+  return tempWidgets.value.filter((w) => !w.visible);
+});
+
 const toggleVisible = (id) => {
   const target = tempWidgets.value.find((w) => w.id === id);
   if (target) target.visible = false;
 };
 
-// ⭐ 초기화 기능: 기본값으로 데이터를 덮어씌움
 const handleReset = () => {
   if (confirm('대시보드 설정을 초기 상태로 되돌리시겠습니까?')) {
     tempWidgets.value = JSON.parse(JSON.stringify(props.defaultData));
@@ -143,6 +145,7 @@ const handleSave = () => {
 </script>
 
 <style lang="scss" scoped>
+/* 기존 스타일 유지 및 추가 */
 .dashboard-edit {
   padding: 10px;
 }
@@ -151,8 +154,6 @@ const handleSave = () => {
   gap: 20px;
   min-height: 550px;
 }
-
-/* 왼쪽 미리보기 */
 .preview-area {
   flex: 1;
   background: #f8faff;
@@ -220,6 +221,7 @@ const handleSave = () => {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+  min-height: 100px;
 }
 .drag-item {
   border: 1px solid #e2e8f0;
@@ -248,10 +250,12 @@ const handleSave = () => {
     color: #94a3b8;
     font-size: 14px;
     cursor: pointer;
+    &:hover {
+      color: #ef4444;
+    }
   }
 }
 
-/* 오른쪽 사이드바 */
 .control-sidebar {
   width: 310px;
   background: #f1f5f9;
@@ -259,8 +263,7 @@ const handleSave = () => {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between; // 상단 리스트와 하단 초기화 버튼 분리
-
+  justify-content: space-between;
   .info-box {
     background: #fff;
     padding: 15px;
@@ -298,6 +301,14 @@ const handleSave = () => {
       color: #334155;
     }
   }
+  .empty-msg {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 12px;
+    padding: 20px 0;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+  }
 }
 
 .sidebar-bottom {
@@ -309,13 +320,8 @@ const handleSave = () => {
     color: #64748b;
     font-size: 13px;
     font-weight: 600;
-    &:hover {
-      color: #1e293b;
-    }
   }
 }
-
-/* 하단 저장 버튼 */
 .edit-footer {
   margin-top: 25px;
   text-align: center;
@@ -328,7 +334,6 @@ const handleSave = () => {
     font-weight: 700;
   }
 }
-
 .ghost {
   opacity: 0;
 }
