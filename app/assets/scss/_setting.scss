@@ -603,6 +603,16 @@
         margin-top: 40px;
       }
     }
+    .sb-nodata {
+      padding: 40px 0 40px 0;
+      .ico-illustration-smile {
+        --path-color-1: var(--ico-illustration-smile-color3);
+        --path-color-2: var(--ico-illustration-smile-color4);
+      }
+      p {
+        color: var(--p-gray-400);
+      }
+    }
     @include breakpoint {
       min-width: 100%;
       width: 100%;
