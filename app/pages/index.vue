@@ -215,9 +215,15 @@
             <NuxtLink to="/setting/seller/extension/dashboard"
               >셀러확장기능 - 목표금액+상품판매</NuxtLink
             >
-            <NuxtLink to="/setting/seller/extension/nodata"
-              >셀러확장기능 - Nodata</NuxtLink
+            <NuxtLink to="/setting/seller/extension/dashboard02"
+              >셀러확장기능 - 목표금액만진행</NuxtLink
             >
+            <NuxtLink to="/setting/seller/extension/dashboard03"
+              >셀러확장기능 - 상품판매만진행</NuxtLink
+            >
+            <!-- <NuxtLink to="/setting/seller/extension/nodata"
+              >셀러확장기능 - Nodata</NuxtLink
+            > -->
             <NuxtLink to="/setting/team/">팀/권한 관리</NuxtLink>
             <NuxtLink to="/setting/team/member"
               >팀/권한 관리 - 멤버관리</NuxtLink
