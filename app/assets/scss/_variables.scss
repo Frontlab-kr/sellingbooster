@@ -1280,6 +1280,22 @@
   --dialog-payment-form-col-border-color: var(--p-gray-300);
   --dialog-payment-form-item-title-color: var(--p-gray-600);
 
+  --dialog-dashboard-edit-preview-background: #eff1f4;
+  --dialog-dashboard-edit-preview-header-border-color: var(--p-gray-300);
+  --dialog-dashboard-edit-preview-header-text-color: var(--p-gray-400);
+  --dialog-dashboard-edit-preview-lnb-border-color: var(--p-gray-300);
+  --dialog-dashboard-edit-preview-lnb-text-color: var(--p-gray-400);
+  --dialog-dashboard-edit-preview-item-border-color: var(--p-gray-300);
+  --dialog-dashboard-edit-preview-item-background: rgba(255, 255, 255, 0.5);
+  --dialog-dashboard-edit-preview-item-text-color: rgba(27, 31, 39, 0.5);
+  --dialog-dashboard-edit-preview-item-button-color: var(--p-gray-600);
+  --dialog-dashboard-edit-preview-drag-item-text-color: var(--p-gray-900);
+  --dialog-dashboard-edit-sidebar-background: #eff1f4;
+  --dialog-dashboard-edit-sidebar-title-color: var(--p-gray-500);
+  --dialog-dashboard-edit-sidebar-head-background: var(--p-gray-50);
+  --dialog-dashboard-edit-sidebar-head-text-color: var(--p-gray-500);
+  --dialog-dashboard-edit-sidebar-button-color: var(--p-gray-500);
+
   //price setting
   --price-setting-background: var(--p-gray-50);
   --price-setting-head-border-color: var(--p-gray-300);
@@ -2360,6 +2376,22 @@
     --dialog-payment-section-list-item-button-active-color: var(--p-gray-200);
     --dialog-payment-form-col-border-color: var(--p-gray-600);
     --dialog-payment-form-item-title-color: var(--p-gray-00);
+
+    --dialog-dashboard-edit-preview-background: var(--p-gray-700);
+    --dialog-dashboard-edit-preview-header-border-color: var(--p-gray-500);
+    --dialog-dashboard-edit-preview-header-text-color: var(--p-gray-400);
+    --dialog-dashboard-edit-preview-lnb-border-color: var(--p-gray-500);
+    --dialog-dashboard-edit-preview-lnb-text-color: var(--p-gray-400);
+    --dialog-dashboard-edit-preview-item-border-color: var(--p-gray-500);
+    --dialog-dashboard-edit-preview-item-background: rgba(38, 47, 56, 0.5);
+    --dialog-dashboard-edit-preview-item-text-color: rgba(255, 255, 255, 0.5);
+    --dialog-dashboard-edit-preview-item-button-color: var(--p-gray-300);
+    --dialog-dashboard-edit-preview-drag-item-text-color: var(--p-gray-00);
+    --dialog-dashboard-edit-sidebar-background: var(--p-gray-700);
+    --dialog-dashboard-edit-sidebar-title-color: var(--p-gray-300);
+    --dialog-dashboard-edit-sidebar-head-background: var(--p-gray-900);
+    --dialog-dashboard-edit-sidebar-head-text-color: var(--p-gray-400);
+    --dialog-dashboard-edit-sidebar-button-color: var(--p-gray-300);
 
     //price setting
     --price-setting-background: var(--p-gray-900);

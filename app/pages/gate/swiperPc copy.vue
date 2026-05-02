@@ -3,7 +3,13 @@
     <Swiper
       :modules="modules"
       :effect="'coverflow'"
-      :coverflow-effect="coverflowOptions"
+      :coverflow-effect="{
+        rotate: 0,
+        stretch: 540,
+        depth: 240,
+        modifier: 1,
+        slideShadows: false,
+      }"
       :slides-per-view="1"
       :centered-slides="true"
       :loop-additional-slides="1"
@@ -14,7 +20,6 @@
       :navigation="navigationConfig"
       :pagination="paginationConfig"
       @autoplay-time-left="onAutoplayTimeLeft"
-      @swiper="onSwiper"
     >
       <SwiperSlide>
         <div class="sb-gate-swiper-item">
@@ -128,8 +133,6 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
-
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay } from 'swiper/modules';
 import { Navigation } from 'swiper/modules';
@@ -159,50 +162,4 @@ const paginationConfig = {
   formatFractionCurrent: (number) => `${number}`.slice(-2), // 01, 02 형태로 포맷팅
   formatFractionTotal: (number) => `${number}`.slice(-2),
 };
-
-//
-const swiperInstance = ref(null);
-const coverflowOptions = ref({
-  rotate: 0,
-  stretch: 540,
-  depth: 240,
-  modifier: 1,
-  slideShadows: false,
-});
-
-const calculateStretch = () => {
-  if (!swiperInstance.value) return;
-
-  const width = window.innerWidth;
-  const newStretch = Math.round((width / 1920) * 540);
-
-  // 1. coverflowOptions 업데이트 (UI 바인딩용)
-  coverflowOptions.value.stretch = newStretch;
-
-  // 2. Swiper 인스턴스에 직접 적용 (중요!)
-  swiperInstance.value.params.coverflowEffect.stretch = newStretch;
-
-  // 3. Swiper 재계산
-  swiperInstance.value.update();
-
-  console.log('New stretch:', newStretch);
-};
-
-// Swiper 초기화 완료 시점
-const onSwiper = (swiper) => {
-  swiperInstance.value = swiper;
-  calculateStretch(); // 처음 한 번 계산
-};
-
-// resize 이벤트
-onMounted(() => {
-  window.addEventListener('resize', calculateStretch);
-
-  // 초기 로드 시 약간의 지연을 주는 것도 안전 (필요하면)
-  // setTimeout(calculateStretch, 100);
-});
-
-onUnmounted(() => {
-  window.removeEventListener('resize', calculateStretch);
-});
 </script>

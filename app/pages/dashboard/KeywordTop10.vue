@@ -11,7 +11,6 @@
             </template>
           </Button>
         </NuxtLink>
-        <SbMenu :items="menuItems" />
       </div>
     </div>
     <div class="sb-dashboard-card-body">
@@ -142,18 +141,6 @@ import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
 import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
-
-//menu
-const emit = defineEmits(['edit-widget']);
-const menuItems = ref([
-  {
-    label: '편집',
-    icon: IconSystemEdit,
-    command: () => {
-      emit('edit-widget');
-    },
-  },
-]);
 
 //popover
 const popoverScore = ref();

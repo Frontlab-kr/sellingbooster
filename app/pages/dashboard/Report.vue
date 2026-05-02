@@ -79,18 +79,6 @@ import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
 import IconSystemRotateRight from '@/assets/icons/system/rotate-right.svg';
 
-//menu
-const emit = defineEmits(['edit-widget']);
-const menuItems = ref([
-  {
-    label: '편집',
-    icon: IconSystemEdit,
-    command: () => {
-      emit('edit-widget');
-    },
-  },
-]);
-
 //sort
 const selectRef = ref(null);
 const selectedSortOption = ref([{ name: '주간' }, { name: '월간' }]);

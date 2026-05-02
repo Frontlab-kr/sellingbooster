@@ -11,12 +11,11 @@
         </Button>
       </div>
       <div class="col-6">
-        <Status />
+        <StatusNone />
       </div>
       <div class="col-6 sb-dashboard-planner">
-        <Planner />
+        <PlannerNone />
       </div>
-      <Banner />
       <template v-for="widget in activeWidgets" :key="widget.id">
         <div :class="[widget.fullWidth ? 'col-12' : 'col-6', widget.className]">
           <component :is="getWidgetComponent(widget.id)" />
@@ -46,9 +45,10 @@ definePageMeta({
 import { ref, onMounted, computed } from 'vue';
 import Notice from './Notice.vue';
 import Status from './Status.vue';
-import Planner from './Planner.vue';
+import StatusNone from './StatusNone.vue';
+import PlannerNone from './PlannerNone.vue';
 import KeywordTop10 from './KeywordTop10.vue';
-import Price from './Price.vue';
+import PriceNone from './PriceNone.vue';
 import Trend from './Trend.vue';
 import Report from './Report.vue';
 import Banner from './Banner.vue';
@@ -64,9 +64,9 @@ import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 const widgetComponents = {
   notice: Notice,
   status: Status,
-  planner: Planner,
+  PlannerNone: PlannerNone,
   'keyword-top': KeywordTop10,
-  'price-ai': Price,
+  'price-ai': PriceNone,
   'trend-keyword': Trend,
   report: Report,
   banner: Banner,

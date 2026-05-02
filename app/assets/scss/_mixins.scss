@@ -5,11 +5,11 @@ $BreakpointMd: 1439px;
 :root,
 :host {
   --scroll-thumb-color-background: var(--p-gray-00);
-  --scroll-thumb-color: var(--p-gray-200);
-  --scroll-hover-thumb-color: var(--p-gray-300);
+  --scroll-thumb-color: var(--p-gray-300);
+  --scroll-hover-thumb-color: var(--p-gray-400);
   &.p-dark {
-    --scroll-thumb-color: var(--p-gray-700);
-    --scroll-hover-thumb-color: var(--p-gray-600);
+    --scroll-thumb-color: var(--p-gray-500);
+    --scroll-hover-thumb-color: var(--p-gray-400);
   }
 }
 

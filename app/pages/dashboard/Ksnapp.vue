@@ -4,8 +4,6 @@
       <h5>KSnapp</h5>
       <div class="sb-dashboard-card-head-menu">
         <div class="sb-dashboard-card-head-menu__text">정보 출처 K-snapp</div>
-
-        <SbMenu :items="menuItems" />
       </div>
     </div>
     <div class="sb-dashboard-card-body">
@@ -45,18 +43,6 @@ import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
 import IconSystemUp from '@/assets/icons/system/up.svg?component';
 import IconSystemDown from '@/assets/icons/system/down.svg?component';
-
-//menu
-const emit = defineEmits(['edit-widget']);
-const menuItems = ref([
-  {
-    label: '편집',
-    icon: IconSystemEdit,
-    command: () => {
-      emit('edit-widget');
-    },
-  },
-]);
 
 //data
 const ksnappItems = [

@@ -6,7 +6,7 @@
       display: flex;
       align-items: center;
       gap: 32px;
-      margin-bottom: 60px;
+      margin-bottom: 47px;
       width: 100%;
       &-title {
         h4,
@@ -101,6 +101,12 @@
         }
       }
     }
+    &-edit {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
     &-card {
       height: 100%;
       padding: 40px;
@@ -155,11 +161,23 @@
         display: flex;
         flex-direction: column;
         padding: 20px 20px 25px 20px;
-        h5 {
-          margin: 0 0 40px 0;
+        &-title {
+          margin: 0 0 30px 0;
+          h5,
+          h6 {
+            color: var(--title-color);
+          }
+        }
+        &-none {
+          color: var(--title-color);
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 170%; /* 22.4px */
+          letter-spacing: -0.4px;
         }
         &-badge {
-          margin-bottom: 12px;
+          padding: 8px 0 12px 0;
         }
         &-price {
           display: flex;
@@ -336,10 +354,19 @@
           }
         }
       }
+      .sb-nodata {
+        margin-top: -8px;
+        padding: 0;
+      }
     }
     &-keyword-top10 {
       .p-datatable-scrollable > .p-datatable-table-container {
-        max-height: 470px;
+        max-height: 468px;
+      }
+    }
+    &-price {
+      .sb-nodata {
+        padding: 110px 0 0 0;
       }
     }
     &-trend {
@@ -515,6 +542,19 @@
           font-size: 0;
         }
       }
+      .sb-ktrend-ksnapp-list-scroll {
+        height: 476px;
+      }
+    }
+    &-ktrend {
+      .sb-ktrend-trend-list-scroll {
+        height: 468px;
+      }
+    }
+    &-interest {
+      .p-datatable-scrollable > .p-datatable-table-container {
+        max-height: 468px;
+      }
     }
     &-category-top10 {
       .sb-trend-top {
@@ -524,7 +564,7 @@
             grid-template-columns: 1fr 1fr;
             row-gap: 20px;
             column-gap: 40px;
-            height: 574px;
+            height: 398px;
             margin-top: 32px;
           }
         }
@@ -707,7 +747,7 @@
       }
     }
     @include breakpoint {
-      padding: 24px 20px 14px;
+      padding: 24px 20px 32px;
       .grid {
         margin-right: -12px;
         margin-left: -12px;
@@ -722,7 +762,7 @@
         align-items: flex-start;
         flex-direction: column;
         gap: 32px;
-        margin-bottom: 32px;
+        margin-bottom: 8px;
         width: 100%;
 
         &-swiper {
@@ -803,6 +843,9 @@
           }
         }
       }
+      &-edit {
+        display: none;
+      }
       &-card {
         position: relative;
         height: auto;
@@ -864,16 +907,35 @@
           justify-content: center;
           padding: 0;
           z-index: 20;
-          h5 {
-            margin: 0 0 16px 0;
-            font-size: 16px;
+          &-title {
+            margin: 0 0 6px 0;
+            text-align: center;
+            h5 {
+              font-size: 18px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 140%;
+              letter-spacing: -0.45px;
+            }
+            h6 {
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 140%; /* 22.4px */
+              letter-spacing: -0.4px;
+            }
+          }
+          &-none {
+            padding: 4px 0;
+            text-align: center;
+            font-size: 14px;
             font-style: normal;
             font-weight: 700;
-            line-height: 140%; /* 22.4px */
-            letter-spacing: -0.4px;
+            line-height: 170%; /* 19.6px */
+            letter-spacing: -0.35px;
           }
           &-badge {
-            margin-bottom: 2px;
+            padding: 8px 0 2px 0;
           }
           &-price {
             display: flex;
@@ -1009,7 +1071,7 @@
         display: none;
       }
       .sb-banner {
-        display: none;
+        margin-top: 20px;
       }
       &-mobile-notice {
         display: flex;

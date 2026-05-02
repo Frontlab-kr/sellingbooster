@@ -4,7 +4,6 @@
       <h5>내 상품 카테고리 급상승 키워드</h5>
       <div class="sb-dashboard-card-head-menu">
         <div class="sb-dashboard-card-head-menu__text">최근 7일 기준</div>
-        <SbMenu :items="menuItems" />
       </div>
     </div>
     <div class="sb-dashboard-card-body">
@@ -136,18 +135,6 @@ import { ref } from 'vue';
 import IconArrowSmallRight from '@/assets/icons/arrow/small-right.svg?component';
 import IconSystemEdit from '@/assets/icons/system/edit.svg?component';
 import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
-
-//menu
-const emit = defineEmits(['edit-widget']);
-const menuItems = ref([
-  {
-    label: '편집',
-    icon: IconSystemEdit,
-    command: () => {
-      emit('edit-widget');
-    },
-  },
-]);
 
 //data
 const trendKeyword = ref([

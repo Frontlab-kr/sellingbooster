@@ -35,6 +35,7 @@
         <template #content>
           <div class="flex flex-column gap-2">
             <NuxtLink to="/dashboard">대시보드</NuxtLink>
+            <NuxtLink to="/dashboard/nodata">대시보드 - Nodata</NuxtLink>
           </div>
         </template>
       </Card>

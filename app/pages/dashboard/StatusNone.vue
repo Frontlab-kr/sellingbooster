@@ -2,23 +2,12 @@
   <div class="sb-dashboard-status">
     <div class="sb-dashboard-status-info">
       <div class="sb-dashboard-status-info-title">
-        <h5>현재 매출 기록</h5>
+        <h5><span class="text-primary">셀링부스터</span>님</h5>
+        <h6>아직 목표 설정을 안 하셨네요.</h6>
       </div>
-      <div class="sb-dashboard-status-info-badge">
-        <div class="pc">
-          <Badge value="Level 2" severity="level2"></Badge>
-        </div>
-        <div class="mo">
-          <Badge value="Lv.2" severity="level2"></Badge>
-        </div>
-      </div>
-      <div class="sb-dashboard-status-info-price">
-        <h3>12,680,760</h3>
-        <h3>원</h3>
-      </div>
-      <div class="sb-dashboard-status-info-text">
-        Lv.3 <span>목표</span>까지 <strong>22,319,240원</strong>
-        <span>남았어요!</span>
+      <div class="sb-dashboard-status-info-none">
+        나만의 목표를 만들고<br />
+        성장을 시각적으로 확인하세요.
       </div>
       <div class="sb-dashboard-status-info-button">
         <Button severity="contrast" size="small">
@@ -33,13 +22,12 @@
     </div>
     <div class="sb-dashboard-status-chart">
       <div class="sb-dashboard-status-chart-text">
-        <p>달성율</p>
+        <p>성장율</p>
         <div class="sb-dashboard-status-chart-text__percent">
-          <h1>36</h1>
-          <h3>%</h3>
+          <h1 class="text-primary">UP</h1>
         </div>
       </div>
-      <SbChartGaugeCircle :score="36" />
+      <SbChartGaugeCircle :score="0" />
     </div>
   </div>
 </template>
