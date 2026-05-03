@@ -2360,6 +2360,11 @@
           margin-top: auto;
           .p-button {
             color: var(--dialog-dashboard-edit-sidebar-button-color);
+            .ico-system-refresh {
+              min-width: 16px;
+              width: 16px;
+              height: 16px;
+            }
           }
         }
       }

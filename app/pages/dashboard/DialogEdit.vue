@@ -68,7 +68,11 @@
           <div class="sb-dialog-dashboard-edit-sidebar-list">
             <div class="sb-checkbox">
               <template v-for="widget in inactiveWidgets" :key="widget.id">
-                <div class="sb-checkbox-item" v-if="widget.id !== 'banner'">
+                <div
+                  class="sb-checkbox-item"
+                  :class="widget.fullWidth ? 'is-full' : 'is-half'"
+                  v-if="widget.id !== 'banner'"
+                >
                   <Checkbox
                     v-model="widget.visible"
                     :binary="true"
@@ -77,6 +81,7 @@
                   <label :for="'chk-' + widget.id">{{ widget.title }}</label>
                 </div>
               </template>
+
               <div
                 v-if="inactiveWidgets.length === 0"
                 class="sb-checkbox-empty"
@@ -87,7 +92,10 @@
           </div>
 
           <div class="sb-dialog-dashboard-edit-sidebar-button">
-            <Button label="설정 초기화" variant="text" @click="handleReset" />
+            <Button variant="text" @click="handleReset">
+              <IconSystemRefresh class="ico-system-refresh" />
+              <span class="p-button-label">설정 초기화</span>
+            </Button>
           </div>
         </aside>
       </div>
@@ -107,6 +115,7 @@
 import { ref, computed } from 'vue';
 import draggable from 'vuedraggable';
 import IconSystemClose from '@/assets/icons/system/close.svg?component';
+import IconSystemRefresh from '@/assets/icons/system/refresh.svg?component';
 
 const props = defineProps({
   initialData: { type: Array, required: true },

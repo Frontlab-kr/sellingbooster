@@ -351,20 +351,26 @@ const serviceFoot = ref(null);
 
 const scores = ref([0, 0, 0, 0]);
 
-onMounted(() => {
-  // --- A. Lenis 초기화 ---
-  const lenis = new Lenis({
+let lenis = null;
+let rafId = null;
+
+onMounted(async () => {
+  await nextTick();
+
+  // 1. Lenis 초기화
+  lenis = new Lenis({
     duration: 1.2,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   });
 
-  // --- B. [핵심] Lenis와 ScrollTrigger 연결 ---
-  // 이 코드가 있어야 Lenis 스크롤에 맞춰 GSAP 애니메이션이 정확히 동작합니다.
   lenis.on('scroll', ScrollTrigger.update);
 
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
+  // 2. 틱커 함수를 변수에 할당 (나중에 해제하기 위함)
+  rafId = (time) => {
+    if (lenis) lenis.raf(time * 1000);
+  };
+
+  gsap.ticker.add(rafId);
   gsap.ticker.lagSmoothing(0);
 
   // 1. 대상 선정
@@ -818,7 +824,7 @@ onMounted(() => {
 
   // 초기 상태 세팅
   gsap.set(footContents, { yPercent: 100, opacity: 0 });
-  gsap.set('.sb-service-map', { scale: 1.5, opacity: 0 }); // 지도는 크게 시작
+  gsap.set('.sb-service-map', { scale: 0.5, opacity: 0 }); // 지도는 크게 시작
 
   const footTl = gsap.timeline({
     scrollTrigger: {
@@ -839,7 +845,7 @@ onMounted(() => {
   });
 
   // 2단계: 텀(Term) 두기 - 빈 애니메이션을 추가하여 스크롤 여백 생성
-  footTl.to({}, { duration: 0.8 });
+  footTl.to({}, { duration: 0.4 });
 
   // 3단계: 푸터 콘텐츠가 아래에서 위로 등장
   footTl.to(footContents, {
@@ -850,10 +856,36 @@ onMounted(() => {
   });
 
   // 마지막 여운을 위한 대기
-  footTl.to({}, { duration: 0.5 });
-  onUnmounted(() => {
+  footTl.to({}, { duration: 0.3 });
+
+  ScrollTrigger.refresh();
+});
+
+onUnmounted(() => {
+  // 1. GSAP 틱커 루프 즉시 정지
+  if (rafId) {
+    gsap.ticker.remove(rafId);
+  }
+
+  // 2. Lenis 파괴 및 메모리 해제
+  if (lenis) {
     lenis.destroy();
-    ScrollTrigger.getAll().forEach((t) => t.kill());
-  });
+    lenis = null;
+  }
+
+  // 3. ScrollTrigger 모든 인스턴스 죽이기
+  ScrollTrigger.getAll().forEach((t) => t.kill());
+  ScrollTrigger.clearScrollMemory();
+
+  // 4. HTML/BODY에 남은 Lenis 스타일 강제 복구
+  // 다른 페이지에서 휠이 안 먹는 주범인 overflow: hidden을 제거합니다.
+  document.documentElement.classList.remove('lenis');
+  document.documentElement.style.overflow = '';
+  document.documentElement.style.height = '';
+  document.body.style.overflow = '';
+  document.body.style.height = '';
+
+  // 5. 페이지 최상단으로 강제 이동 (선택 사항)
+  window.scrollTo(0, 0);
 });
 </script>
