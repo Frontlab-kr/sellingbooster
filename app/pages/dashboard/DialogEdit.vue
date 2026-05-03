@@ -24,6 +24,7 @@
               <draggable
                 v-model="draggableWidgets"
                 item-key="id"
+                :animation="400"
                 class="sb-dialog-dashboard-edit-preview-drag"
                 ghost-class="ghost"
                 drag-class="drag"
