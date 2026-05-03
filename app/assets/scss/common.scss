@@ -231,6 +231,8 @@ a {
 .sb-gsap {
   opacity: 0;
   will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 .border-round-4xl {
   border-radius: 2rem !important;

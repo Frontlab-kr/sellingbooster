@@ -662,7 +662,7 @@ onMounted(async () => {
 
   gsap.fromTo(
     gateIntroduceLeft.value,
-    { x: -500, opacity: 0 },
+    { x: -300, opacity: 0 },
     {
       x: 0,
       opacity: 1,
@@ -679,7 +679,7 @@ onMounted(async () => {
 
   gsap.fromTo(
     gateIntroduceRight.value,
-    { x: 500, opacity: 0 },
+    { x: 300, opacity: 0 },
     {
       x: 0,
       opacity: 1,
@@ -696,7 +696,7 @@ onMounted(async () => {
 
   gsap.fromTo(
     gateIntroduceBottom1.value,
-    { y: 100, opacity: 0 },
+    { y: 50, opacity: 0 },
     {
       y: 0,
       opacity: 1,
@@ -713,7 +713,7 @@ onMounted(async () => {
 
   gsap.fromTo(
     gateIntroduceBottom2.value,
-    { y: 100, opacity: 0 },
+    { y: 50, opacity: 0 },
     {
       y: 0,
       opacity: 1,
@@ -730,7 +730,7 @@ onMounted(async () => {
 
   gsap.fromTo(
     gateIntroduceBottom3.value,
-    { y: 100, opacity: 0 },
+    { y: 50, opacity: 0 },
     {
       y: 0,
       opacity: 1,
@@ -747,7 +747,7 @@ onMounted(async () => {
 
   gsap.fromTo(
     gateIntroduceMo.value,
-    { y: 100, opacity: 0 },
+    { y: 50, opacity: 0 },
     {
       y: 0,
       opacity: 1,
@@ -764,7 +764,7 @@ onMounted(async () => {
 
   gsap.fromTo(
     gateBanner.value,
-    { y: 100, opacity: 0 },
+    { y: 50, opacity: 0 },
     {
       y: 0,
       opacity: 1,
@@ -781,7 +781,7 @@ onMounted(async () => {
 
   gsap.fromTo(
     gateBoardTab.value,
-    { y: 100, opacity: 0 },
+    { y: 50, opacity: 0 },
     {
       y: 0,
       opacity: 1,
@@ -798,7 +798,7 @@ onMounted(async () => {
 
   gsap.fromTo(
     gateBoardContents.value,
-    { y: 100, opacity: 0 },
+    { y: 50, opacity: 0 },
     {
       y: 0,
       opacity: 1,
@@ -806,8 +806,8 @@ onMounted(async () => {
       ease: 'power2.out',
       scrollTrigger: {
         trigger: gateBoardContents.value,
-        start: 'top 60%',
-        end: 'top 40%',
+        start: 'top 80%',
+        end: 'top 50%',
         scrub: 1,
       },
     },
@@ -832,7 +832,7 @@ onMounted(async () => {
 
   gsap.fromTo(
     gateNewsSeller.value,
-    { y: 100, opacity: 0 },
+    { y: 50, opacity: 0 },
     {
       y: 0,
       opacity: 1,
@@ -841,7 +841,7 @@ onMounted(async () => {
       scrollTrigger: {
         trigger: gateNewsSeller.value,
         start: 'top 100%',
-        end: 'top 40%',
+        end: 'top 50%',
         scrub: 1,
       },
     },
@@ -849,7 +849,7 @@ onMounted(async () => {
 
   gsap.fromTo(
     gateNewsQna.value,
-    { y: 100, opacity: 0 },
+    { y: 50, opacity: 0 },
     {
       y: 0,
       opacity: 1,
@@ -857,8 +857,8 @@ onMounted(async () => {
       ease: 'power2.out',
       scrollTrigger: {
         trigger: gateNewsQna.value,
-        start: 'top 80%',
-        end: 'top 40%',
+        start: 'top 90%',
+        end: 'top 50%',
         scrub: 1,
       },
     },
@@ -866,7 +866,7 @@ onMounted(async () => {
 
   gsap.fromTo(
     gateNewsIntroduce.value,
-    { y: 100, opacity: 0 },
+    { y: 50, opacity: 0 },
     {
       y: 0,
       opacity: 1,
@@ -874,8 +874,8 @@ onMounted(async () => {
       ease: 'power2.out',
       scrollTrigger: {
         trigger: gateNewsIntroduce.value,
-        start: 'top 60%',
-        end: 'top 40%',
+        start: 'top 80%',
+        end: 'top 50%',
         scrub: 1,
       },
     },
@@ -883,7 +883,7 @@ onMounted(async () => {
 
   gsap.fromTo(
     gateNewsBanner.value,
-    { y: 100, opacity: 0 },
+    { y: 50, opacity: 0 },
     {
       y: 0,
       opacity: 1,
@@ -891,8 +891,8 @@ onMounted(async () => {
       ease: 'power2.out',
       scrollTrigger: {
         trigger: gateNewsBanner.value,
-        start: 'top 100%',
-        end: 'top 40%',
+        start: 'top 80%',
+        end: 'top 60%',
         scrub: 1,
       },
     },

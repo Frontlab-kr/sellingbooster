@@ -9,7 +9,6 @@
       },
     ]"
   >
-    <AppChromeExtension v-if="route.meta.showExtension" />
     <AppHeader />
     <div class="sb-contents">
       <slot />
