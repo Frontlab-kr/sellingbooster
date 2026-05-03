@@ -1,6 +1,6 @@
 <template>
   <div class="sb-dashboard">
-    <div class="grid">
+    <div class="grid sb-dashboard-grid-container">
       <div class="col-12">
         <Notice />
       </div>
@@ -21,6 +21,7 @@
           <component :is="getWidgetComponent(widget.id)" />
         </div>
       </template>
+      <Banner />
     </div>
     <SbBanner />
   </div>
