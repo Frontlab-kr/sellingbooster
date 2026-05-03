@@ -23,7 +23,7 @@
       </div>
     </div>
     <div class="sb-company-text">
-      <div class="sb-company-text__title sb-gsap" ref="companyTextTile">
+      <div class="sb-company-text__title sb-gsap" ref="companyTextTitle">
         <LogoHecto />
       </div>
       <div class="sb-company-text__contents">
@@ -273,7 +273,7 @@ gsap.registerPlugin(ScrollTrigger);
 const companyKeyvisualTextLeft = ref(null);
 const companyKeyvisualTextRight = ref(null);
 const companyKeyvisualVideo = ref(null);
-const companyTextTile = ref(null);
+const companyTextTitle = ref(null);
 const companyTextText01 = ref(null);
 const companyTextText02 = ref(null);
 const companyAboutTitle = ref(null);
@@ -305,6 +305,8 @@ onMounted(async () => {
 
   gsap.ticker.add(rafId);
   gsap.ticker.lagSmoothing(0);
+
+  let mm = gsap.matchMedia();
 
   // --- C. 실제 애니메이션 코드 ---
   const companyKeyvisualCircle = document.querySelectorAll(
@@ -369,173 +371,326 @@ onMounted(async () => {
       ease: 'power2.out',
     },
   );
+  mm.add('(min-width: 1440px)', () => {
+    gsap.fromTo(
+      companyTextTitle.value,
+      { y: 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyTextTitle.value,
+          start: 'top 100%',
+          end: 'top 50%',
+          scrub: 1,
+        },
+      },
+    );
+    gsap.fromTo(
+      companyTextText01.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyTextText01.value,
+          start: 'top 100%',
+          end: 'top 60%',
+          scrub: 1,
+        },
+      },
+    );
+    gsap.fromTo(
+      companyTextText02.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyTextText02.value,
+          start: 'top 100%',
+          end: 'top 60%',
+          scrub: 1,
+        },
+      },
+    );
 
-  gsap.fromTo(
-    companyTextTile.value,
-    { y: 100, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: companyTextTile.value,
-        start: 'top 100%',
-        end: 'top 50%',
-        scrub: 1,
+    gsap.fromTo(
+      companyAboutTitle.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyAboutTitle.value,
+          start: 'top 100%',
+          end: 'top 60%',
+          scrub: 1,
+        },
       },
-    },
-  );
-  gsap.fromTo(
-    companyTextText01.value,
-    { y: 40, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: companyTextText01.value,
-        start: 'top 100%',
-        end: 'top 60%',
-        scrub: 1,
+    );
+    gsap.fromTo(
+      companyAboutContents.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyAboutContents.value,
+          start: 'top 100%',
+          end: 'top 50%',
+          scrub: 1,
+        },
       },
-    },
-  );
-  gsap.fromTo(
-    companyTextText02.value,
-    { y: 40, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: companyTextText02.value,
-        start: 'top 100%',
-        end: 'top 60%',
-        scrub: 1,
-      },
-    },
-  );
+    );
 
-  gsap.fromTo(
-    companyAboutTitle.value,
-    { y: 40, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: companyAboutTitle.value,
-        start: 'top 100%',
-        end: 'top 60%',
-        scrub: 1,
+    gsap.fromTo(
+      companyWhatwedoTitle.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyWhatwedoTitle.value,
+          start: 'top 100%',
+          end: 'top 60%',
+          scrub: 1,
+        },
       },
-    },
-  );
-  gsap.fromTo(
-    companyAboutContents.value,
-    { y: 40, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: companyAboutContents.value,
-        start: 'top 100%',
-        end: 'top 50%',
-        scrub: 1,
+    );
+    gsap.fromTo(
+      companyWhatwedoContents.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyWhatwedoContents.value,
+          start: 'top 100%',
+          end: 'top 50%',
+          scrub: 1,
+        },
       },
-    },
-  );
+    );
 
-  gsap.fromTo(
-    companyWhatwedoTitle.value,
-    { y: 40, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: companyWhatwedoTitle.value,
-        start: 'top 100%',
-        end: 'top 60%',
-        scrub: 1,
+    gsap.fromTo(
+      companyFootVideo.value,
+      { scale: 0.5, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyFootVideo.value,
+          start: 'top 50%',
+          end: 'top 0%',
+          pin: true,
+          scrub: 1,
+          // markers: true,
+        },
       },
-    },
-  );
-  gsap.fromTo(
-    companyWhatwedoContents.value,
-    { y: 40, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: companyWhatwedoContents.value,
-        start: 'top 100%',
-        end: 'top 50%',
-        scrub: 1,
+    );
+    gsap.fromTo(
+      companyFootText.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyFootText.value,
+          start: 'top 100%',
+          end: 'top 80%',
+          scrub: 1,
+        },
       },
-    },
-  );
+    );
+    gsap.fromTo(
+      companyFootButton.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyFootButton.value,
+          start: 'top 100%',
+          end: 'top 80%',
+          scrub: 1,
+        },
+      },
+    );
+  });
 
-  gsap.fromTo(
-    companyFootVideo.value,
-    { scale: 0.5, opacity: 0 },
-    {
-      scale: 1,
-      opacity: 1,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: companyFootVideo.value,
-        start: 'top 50%',
-        end: 'top 0%',
-        pin: true,
-        scrub: 1,
-        // markers: true,
+  mm.add('(max-width: 1439px)', () => {
+    gsap.fromTo(
+      companyTextTitle.value,
+      { y: 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 3.2,
+        ease: 'power2.out',
       },
-    },
-  );
-  gsap.fromTo(
-    companyFootText.value,
-    { y: 40, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: companyFootText.value,
-        start: 'top 100%',
-        end: 'top 80%',
-        scrub: 1,
+    );
+    gsap.fromTo(
+      companyTextText01.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 3.4,
+        ease: 'power2.out',
       },
-    },
-  );
-  gsap.fromTo(
-    companyFootButton.value,
-    { y: 40, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-      ease: 'power2.out',
-      scrollTrigger: {
-        trigger: companyFootButton.value,
-        start: 'top 100%',
-        end: 'top 80%',
-        scrub: 1,
+    );
+    gsap.fromTo(
+      companyTextText02.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        delay: 3.6,
+        ease: 'power2.out',
       },
-    },
-  );
+    );
 
+    gsap.fromTo(
+      companyAboutTitle.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyAboutTitle.value,
+          start: 'top 100%',
+          end: 'top 60%',
+          scrub: 1,
+        },
+      },
+    );
+    gsap.fromTo(
+      companyAboutContents.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyAboutContents.value,
+          start: 'top 100%',
+          end: 'top 50%',
+          scrub: 1,
+        },
+      },
+    );
+
+    gsap.fromTo(
+      companyWhatwedoTitle.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyWhatwedoTitle.value,
+          start: 'top 100%',
+          end: 'top 60%',
+          scrub: 1,
+        },
+      },
+    );
+    gsap.fromTo(
+      companyWhatwedoContents.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyWhatwedoContents.value,
+          start: 'top 100%',
+          end: 'top 50%',
+          scrub: 1,
+        },
+      },
+    );
+
+    gsap.fromTo(
+      companyFootVideo.value,
+      { scale: 0.5, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyFootVideo.value,
+          start: 'top 65%',
+          end: 'top 0%',
+          pin: true,
+          scrub: 1,
+          // markers: true,
+        },
+      },
+    );
+    gsap.fromTo(
+      companyFootText.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyFootText.value,
+          start: 'top 100%',
+          end: 'top 80%',
+          scrub: 1,
+        },
+      },
+    );
+    gsap.fromTo(
+      companyFootButton.value,
+      { y: 40, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: companyFootButton.value,
+          start: 'top 100%',
+          end: 'top 80%',
+          scrub: 1,
+        },
+      },
+    );
+  });
   const companyFootLine = document.querySelectorAll(
     '.sb-company-foot__line svg path',
   );
