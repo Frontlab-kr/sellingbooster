@@ -739,6 +739,27 @@
       }
       display: none;
     }
+    @media screen and (min-width: 1440px) {
+      &-grid {
+        &-container {
+          display: grid !important;
+          grid-template-columns: repeat(12, 1fr);
+          gap: 0;
+          grid-auto-flow: row dense;
+        }
+      }
+      .grid {
+        .col-6 {
+          grid-column: span 6;
+          width: 100%;
+        }
+        .col-12 {
+          grid-column: span 12;
+          width: 100%;
+        }
+        align-self: start;
+      }
+    }
     @media screen and (max-width: 1439px) {
       .grid {
         > [class*='col'] {

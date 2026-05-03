@@ -2270,6 +2270,7 @@
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 12px;
+          grid-auto-flow: row dense;
           .width-full {
             grid-column: span 2;
           }

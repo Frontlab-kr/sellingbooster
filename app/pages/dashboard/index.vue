@@ -1,6 +1,6 @@
 <template>
   <div class="sb-dashboard">
-    <div class="grid">
+    <div class="grid sb-dashboard-grid-container">
       <div class="col-12">
         <Notice />
       </div>
@@ -16,12 +16,13 @@
       <div class="col-6 sb-dashboard-planner">
         <Planner />
       </div>
-      <Banner />
+
       <template v-for="widget in activeWidgets" :key="widget.id">
         <div :class="[widget.fullWidth ? 'col-12' : 'col-6', widget.className]">
           <component :is="getWidgetComponent(widget.id)" />
         </div>
       </template>
+      <Banner />
     </div>
     <SbBanner />
   </div>
@@ -177,18 +178,18 @@ onMounted(() => {
   const savedData = localStorage.getItem(STORAGE_KEY);
   if (savedData) {
     try {
-      allWidgets.value = JSON.parse(savedData);
+      const parsed = JSON.parse(savedData);
+      // 저장된 데이터가 있으면 순서와 상태를 포함하여 반영
+      allWidgets.value = parsed;
     } catch (e) {
-      allWidgets.value = defaultWidgets;
+      allWidgets.value = [...defaultWidgets];
     }
-  } else {
-    allWidgets.value = defaultWidgets;
   }
 });
 
 // 3. 팝업에서 '저장' 버튼 클릭 시 호출
 const updateWidgets = (newWidgets) => {
-  allWidgets.value = newWidgets;
+  allWidgets.value = [...newWidgets];
 
   // 로컬 스토리지에 저장 (JSON 문자열로 변환)
   localStorage.setItem(STORAGE_KEY, JSON.stringify(newWidgets));
@@ -199,5 +200,7 @@ const updateWidgets = (newWidgets) => {
   // toast.add({ severity: 'success', summary: '저장 완료', detail: '대시보드 설정이 저장되었습니다.', life: 3000 });
 };
 
-const activeWidgets = computed(() => allWidgets.value.filter((w) => w.visible));
+const activeWidgets = computed(() => {
+  return allWidgets.value.filter((w) => w.visible && w.id !== 'banner');
+});
 </script>

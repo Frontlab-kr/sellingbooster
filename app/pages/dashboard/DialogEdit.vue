@@ -92,7 +92,12 @@
         </aside>
       </div>
       <div class="sb-dialog-dashboard-edit-footer">
-        <Button label="저장" @click="handleSave" />
+        <Button
+          severity="primary"
+          label="저장"
+          :disabled="isInvalidCount"
+          @click="handleSave"
+        />
       </div>
     </div>
   </div>
@@ -114,7 +119,7 @@ const tempWidgets = ref(
   props.initialData ? JSON.parse(JSON.stringify(props.initialData)) : [],
 );
 
-// 1. 왼쪽: 체크된(visible: true) 항목들 (드래그 가능)
+// 1. 왼쪽: 체크된(visible: true) 항목들
 const draggableWidgets = computed({
   get: () => tempWidgets.value.filter((w) => w.visible),
   set: (newOrder) => {
@@ -123,9 +128,17 @@ const draggableWidgets = computed({
   },
 });
 
-// 2. ⭐ 오른쪽: 미선택(visible: false) 상태인 항목들만 계산
+// 2. 오른쪽: 미선택(visible: false) 상태인 항목들
 const inactiveWidgets = computed(() => {
   return tempWidgets.value.filter((w) => !w.visible);
+});
+
+// ⭐ 추가된 로직: 2단 위젯(fullWidth가 false인 것)이 홀수인지 체크
+const isInvalidCount = computed(() => {
+  const halfWidthWidgets = tempWidgets.value.filter(
+    (w) => w.visible && !w.fullWidth && w.id !== 'banner',
+  );
+  return halfWidthWidgets.length % 2 !== 0;
 });
 
 const toggleVisible = (id) => {
@@ -141,5 +154,3 @@ const handleSave = () => {
   emit('save', tempWidgets.value);
 };
 </script>
-
-<style lang="scss" scoped></style>
