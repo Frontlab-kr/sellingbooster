@@ -548,7 +548,7 @@
     }
     &-ktrend {
       .sb-ktrend-trend-list-scroll {
-        height: 468px;
+        max-height: 468px;
       }
     }
     &-interest {
@@ -564,7 +564,7 @@
             grid-template-columns: 1fr 1fr;
             row-gap: 20px;
             column-gap: 40px;
-            height: 398px;
+            max-height: 398px;
             margin-top: 32px;
           }
         }

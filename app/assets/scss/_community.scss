@@ -2384,11 +2384,12 @@
         }
         &-scroll {
           display: grid;
+          align-items: flex-start;
           grid-template-columns: 1fr 1fr;
           row-gap: 20px;
           column-gap: 40px;
           overflow: auto;
-          height: 680px;
+          max-height: 680px;
           @include custom-scrollbar();
           @media screen and (max-width: 1800px) {
             grid-template-columns: 1fr;
