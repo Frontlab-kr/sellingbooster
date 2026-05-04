@@ -297,6 +297,19 @@ button {
       letter-spacing: -0.45px;
     }
   }
+  &[data-p~='xsmall'] {
+    &:not(.p-button-icon-only):not(.p-button-rounded):not(.p-button-text):not(
+        .p-button-link
+      ) {
+      min-width: auto !important;
+      height: 24px !important;
+      padding: 0 10px;
+      font-size: var(--Font-Button-Small, 14px) !important;
+      font-style: normal;
+      font-weight: 700;
+      letter-spacing: -0.35px;
+    }
+  }
   &-primary {
     svg {
       color: var(--p-button-primary-color);

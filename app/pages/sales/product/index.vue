@@ -97,7 +97,12 @@
                 <dl>
                   <dt>점검 상태</dt>
                   <dd>
-                    <Badge value="점검시작" severity="neutral"></Badge>
+                    <Button
+                      label="점검시작"
+                      severity="contrast"
+                      outlined
+                      size="xsmall"
+                    />
                   </dd>
                 </dl>
                 <analyze @copy="handleShowToast" />
@@ -143,7 +148,12 @@
                 <dl>
                   <dt>점검 상태</dt>
                   <dd>
-                    <Badge value="점검시작" severity="neutral"></Badge>
+                    <Button
+                      label="점검시작"
+                      severity="contrast"
+                      outlined
+                      size="xsmall"
+                    />
                   </dd>
                 </dl>
                 <analyze @copy="handleShowToast" />
