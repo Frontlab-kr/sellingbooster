@@ -254,22 +254,45 @@
 
                   <Column
                     field="competition"
-                    header="경쟁강도"
                     bodyClass="text-right"
                     style="width: 175px"
                   >
+                    <template #header>
+                      <div class="sb-table-header-title">
+                        <span
+                          class="p-datatable-column-title"
+                          data-pc-section="columntitle"
+                          >경쟁강도</span
+                        >
+                        <div
+                          class="sb-table-header-title__icon"
+                          @mouseenter="togglePopover"
+                          @mouseleave="togglePopover"
+                        >
+                          <IconSystemInformationCircle
+                            class="ico-system-information-circle"
+                          />
+                        </div>
+                      </div>
+                    </template>
                     <template #body="slotProps">
-                      <div class="sb-table-body-badge">
-                        <span>{{ slotProps.data.competition }}</span>
-                        <Badge
-                          :value="slotProps.data.status"
-                          :severity="
-                            slotProps.data.status === '최적'
-                              ? 'success'
-                              : 'danger'
+                      <div class="sb-legend">
+                        <span
+                          class="sb-legend-item"
+                          :class="
+                            slotProps.data.competition >= 0.8
+                              ? 'text-success'
+                              : slotProps.data.competition >= 0.6
+                                ? 'text-secondary'
+                                : slotProps.data.competition >= 0.4
+                                  ? 'text-info'
+                                  : slotProps.data.competition >= 0.2
+                                    ? 'text-warn'
+                                    : 'text-danger'
                           "
-                          class="sb-badge-sm"
-                        />
+                        >
+                          {{ slotProps.data.competition.toFixed(2) }}
+                        </span>
                       </div>
                     </template>
                   </Column>
@@ -285,6 +308,16 @@
                 </DataTable>
               </div>
             </div>
+            <Popover
+              ref="popoverScore"
+              :pt="{
+                root: {
+                  class: 'p-popover-flipped sb-table-popover',
+                },
+              }"
+            >
+              <SbLegend />
+            </Popover>
           </div>
         </div>
       </div>
@@ -399,6 +432,7 @@ import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 import IconSystemUp from '@/assets/icons/system/up.svg?component';
 import IconSystemDown from '@/assets/icons/system/down.svg?component';
 import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
+import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
 import { useToast } from 'primevue/usetoast';
 
 // breadcrumb
@@ -455,96 +489,84 @@ const rankingList = ref([
     keyword: '오메가3',
     searchVol: '12%',
     searchDir: 'up',
-    competition: '6.06',
-    status: '최적',
+    competition: 6.06,
   },
   {
     ranking: 2,
     keyword: '정관장',
     searchVol: '4%',
     searchDir: 'down',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 3,
     keyword: '유산균',
     searchVol: '8%',
     searchDir: 'up',
-    competition: '0.26',
-    status: '최적',
+    competition: 0.26,
   },
   {
     ranking: 4,
     keyword: '마그네슘',
     searchVol: '3%',
     searchDir: 'up',
-    competition: '0.02',
-    status: '최저',
+    competition: 0.02,
   },
   {
     ranking: 5,
     keyword: '알부민',
     searchVol: '25%',
     searchDir: 'up',
-    competition: '0.07',
-    status: '최적',
+    competition: 0.07,
   },
   {
     ranking: 6,
     keyword: '비타민C',
     searchVol: '12%',
     searchDir: 'up',
-    competition: '0.02',
-    status: '최저',
+    competition: 0.02,
   },
   {
     ranking: 7,
     keyword: '홍삼',
     searchVol: '12%',
     searchDir: 'up',
-    competition: '0.06',
-    status: '최적',
+    competition: 0.06,
   },
   {
     ranking: 8,
     keyword: '뉴케어',
     searchVol: '12%',
     searchDir: 'up',
-    competition: '0.26',
-    status: '최적',
+    competition: 0.26,
   },
   {
     ranking: 9,
     keyword: '코드로이친',
     searchVol: '12%',
     searchDir: 'up',
-    competition: '0.06',
-    status: '최적',
+    competition: 0.06,
   },
   {
     ranking: 10,
     keyword: '카투트효소',
     searchVol: '12%',
     searchDir: 'up',
-    competition: '0.26',
-    status: '최적',
+    competition: 0.26,
   },
   {
     ranking: 10,
     keyword: '카투트효소',
     searchVol: '12%',
     searchDir: 'up',
-    competition: '0.26',
-    status: '최적',
+    competition: 0.26,
   },
   {
     ranking: 10,
     keyword: '카투트효소',
     searchVol: '12%',
     searchDir: 'up',
-    competition: '0.26',
-    status: '최적',
+    competition: 0.26,
   },
 ]);
 
@@ -890,6 +912,16 @@ const cancelClose = () => {
   if (closeTimeout) {
     clearTimeout(closeTimeout);
     closeTimeout = null;
+  }
+};
+
+//popover
+const popoverScore = ref();
+const togglePopover = (event) => {
+  if (event.type === 'mouseenter') {
+    popoverScore.value.show(event);
+  } else {
+    popoverScore.value.hide();
   }
 };
 

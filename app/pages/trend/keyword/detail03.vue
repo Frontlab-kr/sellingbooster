@@ -511,17 +511,45 @@
                   </Column>
                   <Column
                     field="competition"
-                    header="경쟁강도"
                     bodyClass="text-right"
                     style="width: 155px"
                   >
+                    <template #header>
+                      <div class="sb-table-header-title">
+                        <span
+                          class="p-datatable-column-title"
+                          data-pc-section="columntitle"
+                          >경쟁강도</span
+                        >
+                        <div
+                          class="sb-table-header-title__icon"
+                          @mouseenter="togglePopover"
+                          @mouseleave="togglePopover"
+                        >
+                          <IconSystemInformationCircle
+                            class="ico-system-information-circle"
+                          />
+                        </div>
+                      </div>
+                    </template>
                     <template #body="slotProps">
-                      <div class="sb-table-body-badge">
-                        <span>{{ slotProps.data.competition }}</span>
-                        <Badge
-                          :value="slotProps.data.status"
-                          severity="success"
-                        ></Badge>
+                      <div class="sb-legend">
+                        <span
+                          class="sb-legend-item"
+                          :class="
+                            slotProps.data.competition >= 0.8
+                              ? 'text-success'
+                              : slotProps.data.competition >= 0.6
+                                ? 'text-secondary'
+                                : slotProps.data.competition >= 0.4
+                                  ? 'text-info'
+                                  : slotProps.data.competition >= 0.2
+                                    ? 'text-warn'
+                                    : 'text-danger'
+                          "
+                        >
+                          {{ slotProps.data.competition.toFixed(2) }}
+                        </span>
                       </div>
                     </template>
                   </Column>
@@ -537,6 +565,16 @@
                 </DataTable>
               </div>
             </div>
+            <Popover
+              ref="popoverScore"
+              :pt="{
+                root: {
+                  class: 'p-popover-flipped sb-table-popover-center',
+                },
+              }"
+            >
+              <SbLegend />
+            </Popover>
           </div>
           <div class="col-6">
             <div class="sb-keyword-ranking" ref="rankingRef">
@@ -796,7 +834,16 @@ import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 import IconArrowAchevronLeft from '@/assets/icons/arrow/achevron-left.svg?component';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
-import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
+
+//popover
+const popoverScore = ref();
+const togglePopover = (event) => {
+  if (event.type === 'mouseenter') {
+    popoverScore.value.show(event);
+  } else {
+    popoverScore.value.hide();
+  }
+};
 
 // 탭
 const activeTabIndex = ref(0);
@@ -937,160 +984,140 @@ const keywordList = ref([
     keyword: '어린이 유산균',
     category: '건강기능식품',
     searchVol: '896,000건', // 필드명을 template과 일치시킴
-    competition: '6.05',
-    status: '최적',
+    competition: 6.05,
   },
   {
     ranking: 2,
     keyword: '가루 유산균',
     category: '건강기능식품',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 3,
     keyword: '임산부 유산균',
     category: '건강기능식품',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 4,
     keyword: '멀티 비타민',
     category: '건강기능식품',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 5,
     keyword: '고함량 유산균',
     category: '헬스케어',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 6,
     keyword: '락토핏',
     category: '헬스케어',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 7,
     keyword: '임산부 유산균',
     category: '건강기능식품',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 8,
     keyword: '멀티 비타민',
     category: '건강기능식품',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 9,
     keyword: '고함량 유산균',
     category: '헬스케어',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 10,
     keyword: '락토핏',
     category: '헬스케어',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 1,
     keyword: '어린이 유산균',
     category: '건강기능식품',
     searchVol: '896,000건', // 필드명을 template과 일치시킴
-    competition: '6.05',
-    status: '최적',
+    competition: 6.05,
   },
   {
     ranking: 2,
     keyword: '가루 유산균',
     category: '건강기능식품',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 3,
     keyword: '임산부 유산균',
     category: '건강기능식품',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 4,
     keyword: '멀티 비타민',
     category: '건강기능식품',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 5,
     keyword: '고함량 유산균',
     category: '헬스케어',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 6,
     keyword: '락토핏',
     category: '헬스케어',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 7,
     keyword: '임산부 유산균',
     category: '건강기능식품',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 8,
     keyword: '멀티 비타민',
     category: '건강기능식품',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 9,
     keyword: '고함량 유산균',
     category: '헬스케어',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
   {
     ranking: 10,
     keyword: '락토핏',
     category: '헬스케어',
     searchVol: '449,700건',
-    competition: '0.41',
-    status: '최적',
+    competition: 0.41,
   },
 ]);
 
