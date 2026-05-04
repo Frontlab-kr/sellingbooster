@@ -1,23 +1,20 @@
 <template>
   <ClientOnly>
     <Swiper
+      :key="dynamicStretch"
       :modules="modules"
       :effect="'coverflow'"
       :coverflow-effect="{
         rotate: 0,
-        stretch: 540 /* 기본값 */,
+        stretch: dynamicStretch,
         depth: 240,
         modifier: 1,
         slideShadows: false,
       }"
-      :breakpoints="swiperBreakpoints"
       :slides-per-view="1"
       :centered-slides="true"
       :loop-additional-slides="1"
       :loop="true"
-      :autoplay="{
-        delay: 4000,
-      }"
       :navigation="navigationConfig"
       :pagination="paginationConfig"
       @autoplay-time-left="onAutoplayTimeLeft"
@@ -134,6 +131,8 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Autoplay } from 'swiper/modules';
 import { Navigation } from 'swiper/modules';
@@ -152,6 +151,34 @@ const navigationConfig = {
   nextEl: '.sb-gate-swiper .sb-gate-swiper-controls__next',
 };
 
+const windowWidth = ref(0);
+const updateWidth = () => {
+  if (typeof window !== 'undefined') {
+    windowWidth.value = window.innerWidth;
+  }
+};
+
+const dynamicStretch = computed(() => {
+  if (windowWidth.value === 0) return 540;
+
+  const baseWidth = 1920; // 기준 해상도
+  const baseStretch = 540; // 기준 stretch 값
+  const exponent = 2.6; // 지수 (2: 제곱, 2.5: 더 급격함, 3: 폭발적)
+
+  const ratio = windowWidth.value / baseWidth;
+  // 공식: (현재너비/기준너비)^지수 * 기준값
+  return Math.floor(Math.pow(ratio, exponent) * baseStretch);
+});
+
+onMounted(() => {
+  updateWidth();
+  window.addEventListener('resize', updateWidth);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWidth);
+});
+
 //progress
 const progressWidth = ref(0);
 const onAutoplayTimeLeft = (s, time, progress) => {
@@ -162,45 +189,5 @@ const paginationConfig = {
   type: 'fraction',
   formatFractionCurrent: (number) => `${number}`.slice(-2), // 01, 02 형태로 포맷팅
   formatFractionTotal: (number) => `${number}`.slice(-2),
-};
-
-const swiperBreakpoints = {
-  // 1440: 기준점(1920)보다 약 25% 작음
-  1440: {
-    coverflowEffect: { stretch: 140, depth: 240 },
-  },
-  1540: {
-    coverflowEffect: { stretch: 240, depth: 240 },
-  },
-  1640: {
-    coverflowEffect: { stretch: 340, depth: 240 },
-  },
-  1740: {
-    coverflowEffect: { stretch: 440, depth: 240 },
-  },
-  // 1920: 요청하신 기준점
-  1840: {
-    coverflowEffect: { stretch: 540, depth: 240 },
-  },
-  // 2134: 기준점보다 약 11% 증가
-  2130: {
-    coverflowEffect: { stretch: 740, depth: 240 },
-  },
-  // 2400: QHD급 진입
-  2380: {
-    coverflowEffect: { stretch: 1000, depth: 240 },
-  },
-  // 2560: QHD 표준
-  2540: {
-    coverflowEffect: { stretch: 1160, depth: 240 },
-  },
-  // 2880: 5K급 혹은 고해상도 모니터
-  2860: {
-    coverflowEffect: { stretch: 1480, depth: 240 },
-  },
-  // 3840: 4K UHD
-  3820: {
-    coverflowEffect: { stretch: 2440, depth: 240 },
-  },
 };
 </script>
