@@ -76,14 +76,55 @@ const initChart = () => {
   const chartBackground = getCssVar('--chart-background');
   const chartLabelColor01 = getCssVar('--chart-label-color01');
   const chartLabelColor02 = getCssVar('--chart-label-color02');
+  const chartsStackedbarBackground = getCssVar('--chart-stackedbar-background');
 
   const dataTotalSum = props.chartData.reduce((acc, cur) => acc + cur.value, 0);
+  const isZeroAll = dataTotalSum === 0;
+
+  const dataSeries = props.chartData.map((item, index) => {
+    const targetVar = colorMap[item.color] || item.color;
+    const finalColor = getCssVar(targetVar) || targetVar;
+
+    return {
+      name: item.name,
+      type: 'bar',
+      stack: 'total',
+      barWidth: props.barWidth,
+      data: [item.value],
+      itemStyle: {
+        color: finalColor,
+        borderRadius:
+          index === 0
+            ? [10, 0, 0, 10]
+            : index === props.chartData.length - 1
+              ? [0, 10, 10, 0]
+              : 0,
+      },
+      emphasis: { disabled: true },
+      zIndex: 2,
+    };
+  });
+
+  const backgroundSeries = {
+    name: '배경',
+    type: 'bar',
+    barWidth: props.barWidth,
+    silent: true,
+    itemStyle: {
+      color: chartsStackedbarBackground,
+      borderRadius: 10,
+    },
+    // 데이터가 0일 때는 전체를 채우고, 있을 때는 합계만큼 채워 바닥에 깔아줌
+    data: [isZeroAll ? 100 : dataTotalSum],
+    animation: false,
+    zIndex: 1,
+    // [핵심] 다른 바와 겹치게 설정하여 간격 차이 방지
+    barGap: '-100%',
+  };
 
   const option = {
     backgroundColor: chartBackground,
     textStyle: { fontFamily: customFontFamily },
-    animation: true,
-    animationDuration: 1200,
     grid: {
       top: props.gridTop,
       left: props.gridLeft,
@@ -94,7 +135,7 @@ const initChart = () => {
     xAxis: {
       type: 'value',
       min: 0,
-      max: dataTotalSum,
+      max: isZeroAll ? 100 : dataTotalSum,
       show: false,
     },
     yAxis: {
@@ -102,14 +143,12 @@ const initChart = () => {
       data: [''],
       show: false,
     },
-    // [핵심] 커스텀 HTML 대신 ECharts 내부 Legend 사용
     legend: {
       bottom: '0',
       left: 'center',
       icon: 'circle',
       itemWidth: 8,
       itemGap: 16,
-      itemStyle: { borderWidth: 0 },
       formatter: function (name) {
         const item = props.chartData.find((d) => d.name === name);
         const val = item ? item.value : 0;
@@ -117,39 +156,13 @@ const initChart = () => {
       },
       textStyle: {
         rich: {
-          name: {
-            fontSize: 12,
-            color: chartLabelColor01,
-          },
-          value: {
-            fontSize: 12,
-            color: chartLabelColor02,
-          },
+          name: { fontSize: 12, color: chartLabelColor01 },
+          value: { fontSize: 12, color: chartLabelColor02 },
         },
       },
     },
-    series: props.chartData.map((item, index) => {
-      const targetVar = colorMap[item.color] || item.color;
-      const finalColor = getCssVar(targetVar) || targetVar;
 
-      return {
-        name: item.name,
-        type: 'bar',
-        stack: 'total',
-        barWidth: props.barWidth,
-        data: [item.value],
-        itemStyle: {
-          color: finalColor,
-          borderRadius:
-            index === 0
-              ? [10, 0, 0, 10]
-              : index === props.chartData.length - 1
-                ? [0, 10, 10, 0]
-                : 0,
-        },
-        emphasis: { disabled: true },
-      };
-    }),
+    series: [backgroundSeries, ...dataSeries],
   };
 
   chart.setOption(option);

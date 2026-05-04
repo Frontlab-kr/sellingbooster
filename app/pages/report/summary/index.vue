@@ -648,13 +648,13 @@ const csChartData = ref([
   { value: 311, name: '불만/불평', color: 'warnColor' },
 ]);
 const categoryStats = ref([
-  { value: 13, name: '사이즈 문의', color: 'infoColor' },
-  { value: 1, name: '배송 문의', color: 'successColor' },
-  { value: 10, name: '재고/옵션', color: 'secondaryColor' },
-  { value: 5, name: '교환/반품', color: 'dangerColor' },
-  { value: 20, name: '상품 정보', color: 'warnColor' },
-  { value: 20, name: '가격/할인', color: 'primaryColor' },
-  { value: 24, name: '기타', color: 'contrastColor' },
+  { value: 0, name: '사이즈 문의', color: 'infoColor' },
+  { value: 0, name: '배송 문의', color: 'successColor' },
+  { value: 0, name: '재고/옵션', color: 'secondaryColor' },
+  { value: 0, name: '교환/반품', color: 'dangerColor' },
+  { value: 0, name: '상품 정보', color: 'warnColor' },
+  { value: 0, name: '가격/할인', color: 'primaryColor' },
+  { value: 0, name: '기타', color: 'contrastColor' },
 ]);
 const inquiryTypeStats = ref([
   {

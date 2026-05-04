@@ -383,6 +383,7 @@
   --chart-stackedbar-warn: var(--p-orange-500);
   --chart-stackedbar-danger: var(--p-red-500);
   --chart-stackedbar-contrast: var(--p-gray-500);
+  --chart-stackedbar-background: var(--p-gray-200);
 
   --chart-combined-warn: var(--p-orange-400);
   --chart-combined-secondary: var(--p-slate-400);
@@ -1484,6 +1485,7 @@
     --chart-stackedbar-warn: var(--p-orange-400);
     --chart-stackedbar-danger: var(--p-red-400);
     --chart-stackedbar-contrast: var(--p-gray-400);
+    --chart-stackedbar-background: var(--p-gray-700);
 
     --chart-combined-warn: var(--p-orange-400);
     --chart-combined-secondary: var(--p-slate-400);
