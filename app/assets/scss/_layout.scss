@@ -989,6 +989,11 @@
       display: none;
     }
   }
+  &--gate {
+    .sb-header-search {
+      display: none;
+    }
+  }
   &-dashboard {
     .sb-footer {
       display: none;
