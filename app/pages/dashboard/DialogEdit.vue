@@ -51,6 +51,13 @@
                     </div>
                   </div>
                 </template>
+                <template #footer>
+                  <div v-if="isInvalidCount" class="drag-item is-placeholder">
+                    <div class="sb-dialog-dashboard-edit-preview-item is-dummy">
+                      관심 콘텐츠를 추가해주세요.
+                    </div>
+                  </div>
+                </template>
               </draggable>
             </div>
           </div>

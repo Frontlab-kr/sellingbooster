@@ -2276,10 +2276,21 @@
           }
           .sb-dialog-dashboard-edit-preview-item {
             border: 1px solid transparent;
+            background-color: var(
+              --dialog-dashboard-edit-preview-drag-item-background
+            );
             color: var(--dialog-dashboard-edit-preview-drag-item-text-color);
             cursor: pointer;
             &:hover {
               border-color: var(--color-primary);
+            }
+            &.is-dummy {
+              border: 1px dashed var(--color-primary);
+              background: var(
+                --dialog-dashboard-edit-preview-dummy-item-background
+              );
+              cursor: default;
+              color: var(--dialog-dashboard-edit-preview-dummy-item-text-color);
             }
           }
           .ghost {
