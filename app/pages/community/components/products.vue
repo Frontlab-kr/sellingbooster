@@ -103,29 +103,5 @@ const categoryTop30 = ref([
       '락앤락 텀블러 손잡이 스텐 텀블러 메트로 머그 475ml 보온 보냉 컵 커피 티',
     price: 23200,
   },
-  {
-    rank: 4,
-    imgSrc: 'https://picsum.photos/200/300',
-    brand: '스텐리1913',
-    mall: '네이버쇼핑',
-    title: '스텐리 퀜처 플로우 스테이트 텀블러 H2.0',
-    price: 38630,
-  },
-  {
-    rank: 5,
-    imgSrc: 'https://picsum.photos/200/300',
-    brand: '스텐리1913',
-    mall: '네이버쇼핑',
-    title: '스텐리 바이탈라이즈 쉐이커 텀블러 591ml + 컨테이너 103ml 세트',
-    price: 57660,
-  },
-  {
-    rank: 6,
-    imgSrc: 'https://picsum.photos/200/300',
-    brand: '보아르',
-    mall: '네이버쇼핑',
-    title: '보아르 투웨이 대용량 손잡이 스텐 보온 보냉 텀블러...',
-    price: 22700,
-  },
 ]);
 </script>

@@ -62,31 +62,34 @@
           </div>
         </div>
         <div class="sb-gate-link">
-          <NuxtLink to="/" class="sb-gate-link-item">
+          <NuxtLink
+            to="/"
+            class="sb-gate-link-item sb-gate-link-item--recommend"
+          >
             <img src="./../../assets/icons/gate/link-recommend.png" alt="" />
             <p>추천 기회</p>
           </NuxtLink>
-          <NuxtLink to="/" class="sb-gate-link-item">
+          <NuxtLink to="/" class="sb-gate-link-item sb-gate-link-item--keyword">
             <img src="./../../assets/icons/gate/link-keyword.png" alt="" />
             <p>키워드 분석</p>
           </NuxtLink>
-          <NuxtLink to="/" class="sb-gate-link-item">
+          <NuxtLink to="/" class="sb-gate-link-item sb-gate-link-item--product">
             <img src="./../../assets/icons/gate/link-product.png" alt="" />
             <p>상품분석</p>
           </NuxtLink>
-          <NuxtLink to="/" class="sb-gate-link-item">
+          <NuxtLink to="/" class="sb-gate-link-item sb-gate-link-item--ranking">
             <img src="./../../assets/icons/gate/link-ranking.png" alt="" />
             <p>나의 랭킹 찾기</p>
           </NuxtLink>
-          <NuxtLink to="/" class="sb-gate-link-item">
+          <NuxtLink to="/" class="sb-gate-link-item sb-gate-link-item--story">
             <img src="./../../assets/icons/gate//link-story.png" alt="" />
             <p>성장 스토리</p>
           </NuxtLink>
-          <NuxtLink to="/" class="sb-gate-link-item">
+          <NuxtLink to="/" class="sb-gate-link-item sb-gate-link-item--ktrend">
             <img src="./../../assets/icons/gate/link-ktrend.png" alt="" />
             <p>K-트렌드</p>
           </NuxtLink>
-          <NuxtLink to="/" class="sb-gate-link-item">
+          <NuxtLink to="/" class="sb-gate-link-item sb-gate-link-item--planner">
             <img src="./../../assets/icons/gate/link-planner.png" alt="" />
             <p>셀링플래너</p>
           </NuxtLink>
