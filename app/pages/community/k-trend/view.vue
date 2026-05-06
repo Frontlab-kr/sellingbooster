@@ -39,11 +39,9 @@
           >
             <template #item="{ item, props }">
               <a v-bind="props.action" class="p-tieredmenu-item-link">
-                <component
-                  :is="item.icon"
-                  v-if="item.icon"
-                  class="p-tieredmenu-item-icon"
-                />
+                <div class="p-tieredmenu-item-icon">
+                  <component :is="item.icon" v-if="item.icon" />
+                </div>
                 <span class="p-tieredmenu-item-label">{{ item.label }}</span>
               </a>
             </template>
@@ -359,11 +357,11 @@ import IconSystemLikeActive from '@/assets/icons/system/like-active.svg?componen
 import IconSystemMessage from '@/assets/icons/system/message.svg?component';
 import IconSystemShare from '@/assets/icons/system/share.svg?component';
 
-import IconSocialFacebook from '@/assets/icons/social/facebook.svg?component';
-import IconSocialX from '@/assets/icons/social/x.svg?component';
-import IconSocialKakaotalk from '@/assets/icons/social/kakaotalk.svg?component';
-import IconSocialNaverblog from '@/assets/icons/social/naverblog.svg?component';
-import IconSocialCopy from '@/assets/icons/social/copy.svg?component';
+import IconSystemFacebook from '@/assets/icons/system/facebook.svg?component';
+import IconSystemX from '@/assets/icons/system/x.svg?component';
+import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg?component';
+import IconSystemNaverblog from '@/assets/icons/system/naverblog.svg?component';
+import IconSystemCopy from '@/assets/icons/system/copy.svg?component';
 
 import IconSystemPlus from '@/assets/icons/system/plus.svg?component';
 
@@ -384,28 +382,23 @@ const menu = ref();
 const menuItems = ref([
   {
     label: '페이스북',
-    icon: IconSocialFacebook,
-    class: 'ico-social-facebook',
+    icon: IconSystemFacebook,
   },
   {
     label: '트위터',
-    icon: IconSocialX,
-    class: 'ico-social-x',
+    icon: IconSystemX,
   },
   {
     label: '카카오톡',
-    icon: IconSocialKakaotalk,
-    class: 'ico-social-kakaotalk',
+    icon: IconSystemKakaotalk,
   },
   {
     label: '네이버블로그',
-    icon: IconSocialNaverblog,
-    class: 'ico-social-naverblog',
+    icon: IconSystemNaverblog,
   },
   {
     label: 'URL',
-    icon: IconSocialCopy,
-    class: 'ico-social-copy',
+    icon: IconSystemCopy,
   },
 ]);
 

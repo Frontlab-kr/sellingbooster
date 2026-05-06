@@ -52,11 +52,11 @@ import IconSystemLikeActive from '@/assets/icons/system/like-active.svg?componen
 import IconSystemMessage from '@/assets/icons/system/message.svg?component';
 import IconSystemShare from '@/assets/icons/system/share.svg?component';
 
-import IconSystemFacebook from '@/assets/icons/System/facebook.svg?component';
-import IconSystemX from '@/assets/icons/System/x.svg?component';
-import IconSystemKakaotalk from '@/assets/icons/System/kakaotalk.svg?component';
-import IconSystemNaverblog from '@/assets/icons/System/naverblog.svg?component';
-import IconSystemCopy from '@/assets/icons/System/copy.svg?component';
+import IconSystemFacebook from '@/assets/icons/system/facebook.svg?component';
+import IconSystemX from '@/assets/icons/system/x.svg?component';
+import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg?component';
+import IconSystemNaverblog from '@/assets/icons/system/naverblog.svg?component';
+import IconSystemCopy from '@/assets/icons/system/copy.svg?component';
 
 const emit = defineEmits(['reply', 'update:likeActive']);
 
