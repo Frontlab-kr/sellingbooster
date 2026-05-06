@@ -91,6 +91,7 @@
       height: 50px;
       background-color: var(--feedback-button-background);
       box-shadow: var(--feedback-button-boxshadow);
+      transition: all 0.4s ease;
       .ico-arrow-up {
         animation: bounce 2s infinite;
         color: var(--feedback-button-color);
@@ -115,6 +116,11 @@
       position: fixed;
       bottom: 30px;
       right: 20px;
+      &.is-scrolling {
+        .p-button {
+          opacity: 0;
+        }
+      }
       &.is-scrolling & {
         &-ai {
           opacity: 0;
