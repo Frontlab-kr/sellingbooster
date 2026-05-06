@@ -183,9 +183,11 @@
             <IconSystemGoogle class="ico-system-google" />
             <IconSystemApple class="ico-system-apple" />
             <IconSystemSellpick class="ico-system-sellpick" />
-            <!-- <IconSocialX class="ico-social-x" />
-            <IconSocialFacebook class="ico-social-facebook" /> -->
+            <IconSystemX class="ico-system-x" />
+            <IconSystemFacebook class="ico-system-facebook" />
+            <IconSystemLink02 class="ico-system-link02" />
             <IconSystemScale class="ico-system-scale" />
+            <IconSystemReset class="ico-system-reset" />
             <IconSystemHalf class="ico-system-half" />
             <IconSystemFull class="ico-system-full" />
           </div>
@@ -427,9 +429,11 @@ import IconSystemNaver from '@/assets/icons/system/naver.svg?component';
 import IconSystemGoogle from '@/assets/icons/system/google.svg?component';
 import IconSystemApple from '@/assets/icons/system/apple.svg?component';
 import IconSystemSellpick from '@/assets/icons/system/sellpick.svg?component';
-import IconSocialX from '@/assets/icons/social/x.svg?component';
-import IconSocialFacebook from '@/assets/icons/social/facebook.svg?component';
+import IconSystemX from '@/assets/icons/system/x.svg?component';
+import IconSystemFacebook from '@/assets/icons/system/facebook.svg?component';
+import IconSystemLink02 from '@/assets/icons/system/link02.svg?component';
 import IconSystemScale from '@/assets/icons/system/scale.svg?component';
+import IconSystemReset from '@/assets/icons/system/reset.svg?component';
 import IconSystemHalf from '@/assets/icons/system/half.svg?component';
 import IconSystemFull from '@/assets/icons/system/full.svg';
 

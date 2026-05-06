@@ -1409,6 +1409,22 @@
             padding: 0;
             gap: 4px;
           }
+          &-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 58px;
+            width: 58px;
+            height: 58px;
+            border-radius: 58px;
+            background-color: var(--menu-layer-icon-background);
+            svg {
+              min-width: 24px;
+              width: 24px;
+              height: 24px;
+              color: var(--menu-layer-icon-color);
+            }
+          }
           &-label {
             color: var(--menu-layer-text-color);
             font-size: var(--Font-Label-Large, 12px);
@@ -1481,6 +1497,12 @@
                 width: 48px;
                 height: 48px;
               }
+            }
+            &-icon {
+              min-width: 48px;
+              width: 48px;
+              height: 48px;
+              border-radius: 48px;
             }
             &-label {
               font-size: 12px;
