@@ -976,6 +976,8 @@
   --memo-item-background: var(--p-gray-00);
   --memo-item-folding-background: var(--p-gray-100)
     url(./../icons/etc/folding.svg) no-repeat 50% 50%;
+  --memo-item-folding-background-hover: var(--p-gray-100)
+    url(./../icons/etc/folding-hover.svg) no-repeat 50% 50%;
   --memo-item-date-color: var(--p-gray-900);
   --memo-item-text-color: var(--p-gray-900);
   --memo-item-button-background: var(--p-gray-200);
@@ -2077,6 +2079,8 @@
     --memo-item-background: var(--p-gray-800);
     --memo-item-folding-background: var(--p-gray-900)
       url(./../icons/etc/folding-dark.svg) no-repeat 50% 50%;
+    --memo-item-folding-background-hover: var(--p-gray-900)
+      url(./../icons/etc/folding-hover-dark.svg) no-repeat 50% 50%;
     --memo-item-date-color: var(--p-gray-00);
     --memo-item-text-color: var(--p-gray-00);
     --memo-item-button-background: var(--p-gray-600);

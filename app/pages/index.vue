@@ -5,26 +5,30 @@
       <Card>
         <template #content>
           <div class="flex flex-column gap-2">
-            <NuxtLink to="/guide/GuideLogoSymbol">Logo / Symbol</NuxtLink>
-            <NuxtLink to="/guide/GuideTypography">Typography</NuxtLink>
-            <NuxtLink to="/guide/GuideColorLight">Color Light</NuxtLink>
-            <NuxtLink to="/guide/GuideColorDark">Color Dark</NuxtLink>
-            <NuxtLink to="/guide/GuideUseColor">Use Color</NuxtLink>
-            <NuxtLink to="/guide/GuideRoundValue">Round value</NuxtLink>
-            <NuxtLink to="/guide/GuideShadow">Shadow</NuxtLink>
-            <NuxtLink to="/guide/GuideIcon">01 Icon</NuxtLink>
-            <NuxtLink to="/guide/GuideButton">02 Button</NuxtLink>
-            <NuxtLink to="/guide/GuideSelectControl"
-              >03 Select Control</NuxtLink
+            <NuxtLink to="/guide/GuideLogoSymbol"
+              >01_system-Logo,Symbol</NuxtLink
             >
-            <NuxtLink to="/guide/GuideSelectBox">04 Select box</NuxtLink>
-            <NuxtLink to="/guide/GuideTextInput">05 Text input</NuxtLink>
-            <NuxtLink to="/guide/GuideTab">06 Tab</NuxtLink>
-            <NuxtLink to="/guide/GuideBadge">07 Badge</NuxtLink>
-            <NuxtLink to="/guide/GuideTooltip">08 Tool tip</NuxtLink>
-            <NuxtLink to="/guide/GuideHeader">09 Header</NuxtLink>
-            <NuxtLink to="/guide/GuideAlert">10 Alert</NuxtLink>
-            <NuxtLink to="/guide/GuidePagination">11 Pagination</NuxtLink>
+            <NuxtLink to="/guide/GuideTypography"
+              >02_Typography_KR,EN,JP</NuxtLink
+            >
+            <NuxtLink to="/guide/GuideColorLight">03_Color (Light)</NuxtLink>
+            <NuxtLink to="/guide/GuideColorDark">03_Color (Dark)</NuxtLink>
+            <NuxtLink to="/guide/GuideUseColor">04_Use color</NuxtLink>
+            <NuxtLink to="/guide/GuideRoundValue">05_Round value</NuxtLink>
+            <NuxtLink to="/guide/GuideShadow">06_Shadow</NuxtLink>
+            <NuxtLink to="/guide/GuideIcon">07_Icon</NuxtLink>
+            <NuxtLink to="/guide/GuideButton">09_Button</NuxtLink>
+            <NuxtLink to="/guide/GuideSelectControl"
+              >10_Select Control</NuxtLink
+            >
+            <NuxtLink to="/guide/GuideSelectBox">11_Select box</NuxtLink>
+            <NuxtLink to="/guide/GuideTextInput">12_Text input</NuxtLink>
+            <NuxtLink to="/guide/GuideTab">13_Tab</NuxtLink>
+            <NuxtLink to="/guide/GuideBadge">14_Badge</NuxtLink>
+            <NuxtLink to="/guide/GuideTooltip">15_Tool tip</NuxtLink>
+            <NuxtLink to="/guide/GuideHeader">16_Header,Footer</NuxtLink>
+            <NuxtLink to="/guide/GuideAlert">18_Alert</NuxtLink>
+            <NuxtLink to="/guide/GuidePagination">19_Pagination</NuxtLink>
           </div>
         </template>
       </Card>
