@@ -1424,7 +1424,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 16px;
+            gap: 20px;
             min-width: 240px;
             &__tooltip {
               position: absolute;
@@ -1576,8 +1576,8 @@
               li {
                 display: flex;
                 align-items: center;
-                gap: 5px;
-                margin: 8px 0 0 0;
+                gap: 8px;
+                margin: 12px 0 0 0;
                 padding: 0;
 
                 color: var(--report-analyze-level-list-text-color);
@@ -1594,9 +1594,23 @@
                   .ico-system-check-s {
                     color: var(--color-primary);
                   }
+
+                  &::before {
+                    background-color: var(--color-primary);
+                  }
                 }
                 &:first-child {
                   margin-top: 0;
+                }
+                .ico-system-check-s {
+                  display: none;
+                }
+                &::before {
+                  content: '';
+                  width: 4px;
+                  height: 4px;
+                  border-radius: 4px;
+                  background-color: var(--p-gray-400);
                 }
               }
             }

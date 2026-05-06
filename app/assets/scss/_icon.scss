@@ -328,7 +328,7 @@
       height: 24px;
       color: var(--p-gray-400);
     }
-    &-user {
+    &-user-profile {
       min-width: 24px;
       width: 24px;
       height: 24px;
@@ -590,16 +590,19 @@
       min-width: 24px;
       width: 24px;
       height: 24px;
+      color: var(--p-gray-400);
     }
     &-down {
       min-width: 24px;
       width: 24px;
       height: 24px;
+      color: var(--p-gray-400);
     }
     &-check-s {
-      min-width: 20px;
-      width: 20px;
-      height: 20px;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
     }
     &-smartstore {
       min-width: 40px;
@@ -615,6 +618,60 @@
       min-width: 20px;
       width: 20px;
       height: 20px;
+    }
+    &-like-active {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-wreach {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-management {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-bookmark {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-scale {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-naverblog {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-youtube {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-instagram {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
+    }
+    &-blog {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+      color: var(--p-gray-400);
     }
   }
 

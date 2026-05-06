@@ -3,9 +3,9 @@
     <div class="sb-guide-head">
       <h1>Icon (아이콘)</h1>
       <p>
-        아이콘은 기능과 의미를 시각적으로 축약하여 전달하는 요소로, 텍스트
-        이해를 보조하고 사용자의 인지 부담을 줄인다.<br />일관된 아이콘 스타일은
-        인터페이스의 통일성과 사용성을 향상시킨다.
+        아이콘은 기능과 의미를 시각적으로 축약하여 전달하는 언어다. <br />
+        텍스트 이해를 보조하여 사용자의 인지 부담을 줄이며, 통일된 아이콘
+        스타일은 인터페이스 전반의 완성도와 사용성을 향상시킨다.
       </p>
     </div>
     <div class="sb-guide-body">
@@ -95,6 +95,7 @@
             <IconSystemPlus class="ico-system-plus" />
             <IconSystemDotmenu class="ico-system-dotmenu" />
             <IconSystemDownload class="ico-system-download" />
+            <IconSystemUpload class="ico-system-upload" />
             <IconSystemSetting class="ico-system-setting" />
             <IconSystemRefresh class="ico-system-refresh" />
             <IconSystemCheck class="ico-system-check" />
@@ -111,7 +112,7 @@
             <IconSnbChart class="ico-snb-chart" />
             <IconSnbChat class="ico-snb-chat" />
             <IconSystemSearch class="ico-system-search" />
-            <IconSystemUser class="ico-system-user" />
+            <IconSystemUserProfile class="ico-system-user-profile" />
             <IconSystemLink class="ico-system-link" />
             <IconSystemGlobe class="ico-system-globe" />
             <IconSystemModeDark class="ico-system-mode-dark" />
@@ -150,15 +151,43 @@
             <IconSystemWebsiteCheck class="ico-system-website-check" />
             <IconSystemEditMessage class="ico-system-edit-message" />
             <IconSystemDeliveryBox class="ico-system-delivery-box" />
-            <IconSystemKakaotalk class="ico-system-kakaotalk" />
+            <IconSystemCardDouble class="ico-system-card-double" />
+            <IconSystemMagicWand class="ico-system-magic-wand" />
+            <IconSystemSearch02 class="ico-system-search02" />
+            <IconSystemShoppingBag class="ico-system-shopping-bag" />
             <IconSystemMail class="ico-system-mail" />
             <IconSystemCopy class="ico-system-copy" />
+            <IconSystemCalendar02 class="ico-system-calendar02" />
             <IconSystemThema class="ico-system-thema" />
+            <IconSystemAi class="ico-system-ai" />
             <IconSystemDot class="ico-system-dot" />
             <IconSystemUp class="ico-system-up" />
             <IconSystemDown class="ico-system-down" />
             <IconSystemCheckS class="ico-system-check-s" />
-            <IconSystemAi class="ico-system-ai" />
+            <IconSystemPin class="ico-system-pin" />
+            <IconSystemFilter class="ico-system-filter" />
+            <IconSystemFeedback class="ico-system-feedback" />
+            <IconSystemLikeActive class="ico-system-like-active" />
+            <IconSystemWreach class="ico-system-wreach" />
+            <IconSystemShop class="ico-system-shop" />
+            <IconSystemUser class="ico-system-user" />
+            <IconSystemEnter class="ico-system-enter" />
+            <IconSystemManagement class="ico-system-management" />
+            <IconSystemBookmark class="ico-system-bookmark" />
+            <IconSystemKakaotalk class="ico-system-kakaotalk" />
+            <IconSystemNaverblog class="ico-system-naverblog" />
+            <IconSystemYoutube class="ico-system-youtube" />
+            <IconSystemInstagram class="ico-system-instagram" />
+            <IconSystemBlog class="ico-system-blog" />
+            <IconSystemNaver class="ico-system-naver" />
+            <IconSystemGoogle class="ico-system-google" />
+            <IconSystemApple class="ico-system-apple" />
+            <IconSystemSellpick class="ico-system-sellpick" />
+            <!-- <IconSocialX class="ico-social-x" />
+            <IconSocialFacebook class="ico-social-facebook" /> -->
+            <IconSystemScale class="ico-system-scale" />
+            <IconSystemHalf class="ico-system-half" />
+            <IconSystemFull class="ico-system-full" />
           </div>
         </div>
         <div class="sb-guide-item">
@@ -214,7 +243,7 @@
             <h2>일러스트 아이콘 사이즈</h2>
             <h5>
               기본 일러스트 그리드는 80×80 픽셀이며, 필요에 따라 크기를 조절해
-              사용합니다.
+              사용한다.
             </h5>
           </div>
           <div class="sb-guide-icon-example">
@@ -245,6 +274,16 @@
                 </span>
               </div>
               <p>80x80</p>
+            </div>
+            <div class="sb-guide-icon-example-item">
+              <div class="sb-guide-icon-example-item__icon">
+                <span
+                  ><IconIllustrationSmile
+                    class="ico-illustration-smile"
+                    style="min-width: 100px; width: 100px; height: 100px"
+                /></span>
+              </div>
+              <p>100x100</p>
             </div>
           </div>
         </div>
@@ -302,6 +341,7 @@ import IconSystemClose from '@/assets/icons/system/close.svg?component';
 import IconSystemPlus from '@/assets/icons/system/plus.svg?component';
 import IconSystemDotmenu from '@/assets/icons/system/dotmenu.svg?component';
 import IconSystemDownload from '@/assets/icons/system/download.svg?component';
+import IconSystemUpload from '@/assets/icons/system/upload.svg?component';
 import IconSystemSetting from '@/assets/icons/system/setting.svg?component';
 import IconSystemRefresh from '@/assets/icons/system/refresh.svg?component';
 import IconSystemCheck from '@/assets/icons/system/check.svg?component';
@@ -318,7 +358,7 @@ import IconSnbDocument from '@/assets/icons/snb/document.svg?component';
 import IconSnbChart from '@/assets/icons/snb/chart.svg?component';
 import IconSnbChat from '@/assets/icons/snb/chat.svg?component';
 import IconSystemSearch from '@/assets/icons/system/search.svg?component';
-import IconSystemUser from '@/assets/icons/system/user.svg?component';
+import IconSystemUserProfile from '@/assets/icons/system/user-profile.svg?component';
 import IconSystemLink from '@/assets/icons/system/link.svg?component';
 import IconSystemGlobe from '@/assets/icons/system/globe.svg?component';
 import IconSystemModeDark from '@/assets/icons/system/mode-dark.svg?component';
@@ -355,15 +395,43 @@ import IconSystemSent from '@/assets/icons/system/sent.svg?component';
 import IconSystemWebsiteCheck from '@/assets/icons/system/website-check.svg?component';
 import IconSystemEditMessage from '@/assets/icons/system/edit-message.svg?component';
 import IconSystemDeliveryBox from '@/assets/icons/system/delivery-box.svg?component';
-import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg?component';
+import IconSystemCardDouble from '@/assets/icons/system/card-double.svg?component';
+import IconSystemMagicWand from '@/assets/icons/system/magic-wand.svg?component';
+import IconSystemSearch02 from '@/assets/icons/system/search02.svg?component';
+import IconSystemShoppingBag from '@/assets/icons/system/shopping-bag.svg?component';
 import IconSystemMail from '@/assets/icons/system/mail.svg?component';
 import IconSystemCopy from '@/assets/icons/system/copy.svg?component';
+import IconSystemCalendar02 from '@/assets/icons/system/calendar02.svg?component';
 import IconSystemThema from '@/assets/icons/system/thema.svg?component';
+import IconSystemAi from '@/assets/icons/system/ai.svg?component';
 import IconSystemDot from '@/assets/icons/system/dot.svg?component';
 import IconSystemUp from '@/assets/icons/system/up.svg?component';
 import IconSystemDown from '@/assets/icons/system/down.svg?component';
 import IconSystemCheckS from '@/assets/icons/system/check-s.svg?component';
-import IconSystemAi from '@/assets/icons/system/ai.svg?component';
+import IconSystemPin from '@/assets/icons/system/pin.svg?component';
+import IconSystemFilter from '@/assets/icons/system/filter.svg?component';
+import IconSystemFeedback from '@/assets/icons/system/feedback.svg?component';
+import IconSystemLikeActive from '@/assets/icons/system/like-active.svg?component';
+import IconSystemWreach from '@/assets/icons/system/wreach.svg?component';
+import IconSystemShop from '@/assets/icons/system/shop.svg?component';
+import IconSystemUser from '@/assets/icons/system/user.svg?component';
+import IconSystemEnter from '@/assets/icons/system/enter.svg?component';
+import IconSystemManagement from '@/assets/icons/system/management.svg?component';
+import IconSystemBookmark from '@/assets/icons/system/bookmark.svg?component';
+import IconSystemKakaotalk from '@/assets/icons/system/kakaotalk.svg?component';
+import IconSystemNaverblog from '@/assets/icons/system/naverblog.svg?component';
+import IconSystemYoutube from '@/assets/icons/system/youtube.svg?component';
+import IconSystemInstagram from '@/assets/icons/system/instagram.svg?component';
+import IconSystemBlog from '@/assets/icons/system/blog.svg?component';
+import IconSystemNaver from '@/assets/icons/system/naver.svg?component';
+import IconSystemGoogle from '@/assets/icons/system/google.svg?component';
+import IconSystemApple from '@/assets/icons/system/apple.svg?component';
+import IconSystemSellpick from '@/assets/icons/system/sellpick.svg?component';
+import IconSocialX from '@/assets/icons/social/x.svg?component';
+import IconSocialFacebook from '@/assets/icons/social/facebook.svg?component';
+import IconSystemScale from '@/assets/icons/system/scale.svg?component';
+import IconSystemHalf from '@/assets/icons/system/half.svg?component';
+import IconSystemFull from '@/assets/icons/system/full.svg';
 
 import IconActionScore from '@/assets/icons/action/score.svg?component';
 import IconActionScoreHalf from '@/assets/icons/action/score-half.svg?component';

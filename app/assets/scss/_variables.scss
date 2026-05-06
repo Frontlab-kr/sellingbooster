@@ -267,8 +267,8 @@
   --color-danger: var(--p-red-600);
   --color-contrast: var(--p-gray-500);
 
-  --color-down: var(--p-blue-500);
   --color-up: var(--p-red-600);
+  --color-down: var(--p-blue-500);
 
   --color-level1: var(--p-orange-500);
   --color-level2: #fb7310;
@@ -1052,7 +1052,7 @@
     no-repeat 50% 50%;
   --report-analyze-level4-disabled-background: url(./../icons/profile/badge-level4-disabled.svg)
     no-repeat 50% 50%;
-  --report-analyze-level-list-text-color: var(--p-gray-400);
+  --report-analyze-level-list-text-color: var(--p-gray-300);
   --report-analyze-level-list-active-text-color: var(--p-gray-900);
   --report-analyze-level-text-background: var(--p-gray-50);
   --report-analyze-level-text-color: var(--p-gray-900);

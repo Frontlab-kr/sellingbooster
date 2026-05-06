@@ -2288,13 +2288,19 @@
           height: 680px;
           @include custom-scrollbar();
         }
+
         &-item {
           display: flex;
           align-items: center;
           gap: 20px;
           padding: 20px 0;
           border-bottom: 1px dashed var(--ktrend-ksnapp-list-item-border-color);
-
+          .ico-system-up {
+            color: var(--color-up);
+          }
+          .ico-system-down {
+            color: var(--color-down);
+          }
           &:first-child {
             padding-top: 0;
           }
