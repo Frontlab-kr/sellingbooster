@@ -13,6 +13,9 @@
     <AppHeader />
     <div class="sb-contents">
       <slot />
+      <div class="sb-contents-feedback">
+        <AppFeedback />
+      </div>
       <AppFooter />
     </div>
   </div>

@@ -20,10 +20,26 @@
       }
     }
   }
-  &-feedback {
-    position: fixed;
-    bottom: 40px;
+  &-contents-feedback {
+    position: absolute;
+    top: 0;
     right: 30px;
+    bottom: 400px;
+    width: 72px;
+    pointer-events: none;
+    z-index: 80;
+    @include breakpoint {
+      right: 20px;
+      bottom: 568px;
+      width: 50px;
+    }
+  }
+
+  &-feedback {
+    position: sticky;
+    top: calc(100vh - 160px);
+    pointer-events: auto;
+    right: 0;
     z-index: 1002;
     display: flex;
     flex-direction: column;
@@ -113,9 +129,7 @@
       }
     }
     @include breakpoint {
-      position: fixed;
-      bottom: 30px;
-      right: 20px;
+      top: calc(100vh - 130px);
       &.is-scrolling {
         .p-button {
           opacity: 0;

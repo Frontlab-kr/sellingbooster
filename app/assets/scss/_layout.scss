@@ -543,6 +543,8 @@
     display: none;
   }
   &-footer {
+    position: relative;
+    z-index: 90;
     padding: 48px 8% 60px;
     border-top: 1px solid var(--footer-border-color);
     background: var(--body-background);
@@ -902,6 +904,9 @@
     }
     .sb-contents {
       background: #fff;
+    }
+    .sb-contents-feedback {
+      bottom: 40px;
     }
   }
   &-main & {
