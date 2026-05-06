@@ -883,16 +883,16 @@
   &-contents {
     position: relative;
     z-index: 80;
-    padding: 20px 40px 40px 300px;
+    padding: 20px 40px 0 300px;
     transition: $transition-layout;
     background: var(--contents-background);
     background-size: 604px 1188px;
     @media screen and (max-width: 1600px) {
-      padding: 20px 40px 40px 160px;
+      padding: 20px 40px 0 160px;
     }
     .sb-footer {
-      margin: 60px 0 0 0;
-      padding: 60px 0 20px 0;
+      margin: 60px -40px 0 0;
+      padding: 60px 40px 60px 0;
     }
   }
   &-main {
@@ -971,7 +971,7 @@
       }
     }
     &-contents {
-      padding: 20px 40px 40px 160px;
+      padding: 20px 40px 0 160px;
       @media screen and (max-width: 1600px) {
         //padding-left: 140px;
       }
