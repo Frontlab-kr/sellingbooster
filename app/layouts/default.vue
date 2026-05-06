@@ -13,6 +13,7 @@
     <AppHeader />
     <div class="sb-contents">
       <slot />
+      <AppFooter />
     </div>
   </div>
 </template>

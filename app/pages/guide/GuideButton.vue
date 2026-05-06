@@ -19,125 +19,111 @@
               사용합니다.
             </h5>
           </div>
-          <div class="sb-guide-button-example"></div>
+          <div class="sb-guide-button-example">
+            <img
+              src="./../../assets/images/guide/button-img01.png"
+              alt=""
+              class="w-full"
+            />
+          </div>
         </div>
         <div class="sb-guide-item">
           <div class="sb-guide-item-head">
-            <h2>버튼 사이즈 (가변)</h2>
+            <h2>버튼 사이즈</h2>
             <h5>
               PC : 버튼은 역할에 따라 56px / 48px / 40px 세 가지 크기로
-              구분합니다.<br />
+              구분한다.<br />
               Mobile : 화면 크기와 사용 환경을 고려하여 48px / 40px 두 가지
-              크기로 적용합니다.
+              크기로 적용한다.<br />
+              버튼은 최소 너비 기준을 가지며, 텍스트 길이에 따라 버튼 너비가
+              가변 확장되는 방식을 기본으로 사용한다.
             </h5>
           </div>
           <div class="sb-guide-table">
             <table>
               <colgroup>
-                <col style="width: 496px" />
-                <col style="width: 394px" />
-                <col style="width: 394px" />
-                <col style="width: 394px" />
+                <col style="width: 448px" />
+                <col style="width: 500px" />
+                <col style="width: 770px" />
               </colgroup>
               <thead>
                 <tr>
                   <th>Size</th>
-                  <th>Normal</th>
-                  <th>Icon-left</th>
-                  <th>Icon-right</th>
+                  <th>고정</th>
+                  <th>가변</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>
                     <h6>Large (56px)</h6>
-                    <p>
-                      팝업이나 텍스트 필드 영역에서 고정 너비로 사용할 경우<br />
-                      최소 너비는 160px으로 사용<br />
-                      <br />
-                      최종 CTA 버튼 사용 : 컨테이너 너비에 맞게 확장
-                    </p>
                   </td>
                   <td>
-                    <Button severity="primary" size="large" label="Button" />
+                    <div class="sb-guide-button">
+                      <Button severity="primary" size="large" label="Button" />
+                      <div class="sb-guide-button-padding" style="width: 24px">
+                        24
+                        <div class="sb-guide-button-padding__bg"></div>
+                      </div>
+                      <div
+                        class="sb-guide-button-padding"
+                        style="width: 24px; right: 0"
+                      >
+                        24
+                        <div class="sb-guide-button-padding__bg"></div>
+                      </div>
+                      <div class="sb-guide-button-text">
+                        <div class="sb-guide-button-text__bg"></div>
+                        너비 고정 버튼 : 326px
+                      </div>
+                    </div>
                   </td>
                   <td>
-                    <Button severity="primary" size="large" label="Button">
-                      <template #icon>
-                        <IconArrowLeft class="ico-arrow-left" />
-                      </template>
-                    </Button>
-                  </td>
-                  <td>
-                    <Button
-                      severity="primary"
-                      size="large"
-                      label="Button"
-                      class="ico-right"
-                    >
-                      <template #icon>
-                        <IconArrowRight class="ico-arrow-right" />
-                      </template>
-                    </Button>
+                    <div class="sb-guide-button">
+                      <Button
+                        severity="primary"
+                        size="large"
+                        label="Button"
+                        class="min-w-full w-full"
+                      />
+                      <div class="sb-guide-button-padding" style="width: 24px">
+                        24
+                        <div class="sb-guide-button-padding__bg"></div>
+                      </div>
+                      <div
+                        class="sb-guide-button-padding"
+                        style="width: 24px; right: 0"
+                      >
+                        24
+                        <div class="sb-guide-button-padding__bg"></div>
+                      </div>
+                      <div class="sb-guide-button-text">
+                        <div class="sb-guide-button-text__bg"></div>
+                        너비 고정 버튼 : 326px
+                      </div>
+                    </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
                     <h6>Medium (48px)</h6>
-                    <p>
-                      팝업, 텍스트 필드 영역에서 고정 너비로 사용할 경우<br />
-                      최소 너비는 160px으로 사용<br />
-                      <br />
-                      최종 CTA 버튼 사용 : 컨테이너 너비에 맞게 확장
-                    </p>
                   </td>
                   <td>
                     <Button severity="primary" label="Button" />
                   </td>
                   <td>
-                    <Button severity="primary" label="Button">
-                      <template #icon>
-                        <IconArrowLeft class="ico-arrow-left" />
-                      </template>
-                    </Button>
-                  </td>
-                  <td>
-                    <Button severity="primary" label="Button" class="ico-right">
-                      <template #icon>
-                        <IconArrowRight class="ico-arrow-right" />
-                      </template>
-                    </Button>
+                    <Button severity="primary" label="Button" />
                   </td>
                 </tr>
                 <tr>
                   <td>
                     <h6>Small (40px)</h6>
-                    <p>
-                      텍스트 필드 영역에서 고정 너비로 사용할 경우<br />
-                      최소 너비는 109px으로 사용
-                    </p>
                   </td>
                   <td>
                     <Button severity="primary" size="small" label="Button" />
                   </td>
                   <td>
-                    <Button severity="primary" size="small" label="Button">
-                      <template #icon>
-                        <IconArrowLeft class="ico-arrow-left" />
-                      </template>
-                    </Button>
-                  </td>
-                  <td>
-                    <Button
-                      severity="primary"
-                      size="small"
-                      label="Button"
-                      class="ico-right"
-                    >
-                      <template #icon>
-                        <IconArrowRight class="ico-arrow-right" />
-                      </template>
-                    </Button>
+                    <Button severity="primary" size="small" label="Button" />
                   </td>
                 </tr>
               </tbody>

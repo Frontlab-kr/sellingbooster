@@ -35,7 +35,6 @@
     />
   </Dialog>
 
-  <AppFooter />
   <Toast position="bottom-center" group="bc" />
 </template>
 
