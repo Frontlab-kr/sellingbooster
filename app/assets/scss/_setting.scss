@@ -781,6 +781,9 @@
         margin: 0 -16px;
         margin-bottom: 40px;
         h5 {
+          display: flex;
+          align-items: center;
+          gap: 8px;
           color: var(--title-color);
         }
       }

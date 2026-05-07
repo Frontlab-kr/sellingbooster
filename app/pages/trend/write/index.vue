@@ -10,8 +10,9 @@
     <div class="sb-trend-contents">
       <div class="sb-trend-search">
         <h4>
-          <IconSystemAi class="ico-system-ai" />상품명 고민 끝! 최적의 상품명
-          바로 만들어드려요.
+          <IconSystemAi class="ico-system-ai" />
+          상품명 고민은 이제 그만!<br />
+          AI가 최적의 조합을 찾아드려요
         </h4>
       </div>
       <div class="sb-trend-write">
@@ -145,8 +146,12 @@
             <div class="sb-trend-write-ai-scroll">
               <div class="sb-ai sb-ai--right">
                 <div class="sb-ai__tooltip">
-                  <p>AI가 상품명을 추천해드려요</p>
+                  <p>
+                    정보를 입력하시면<br />
+                    정보를 기반으로 상품명을 추천해드려요.
+                  </p>
                 </div>
+                <IconSystemAi class="ico-system-ai" />
               </div>
               <div class="sb-trend-write-ai-list">
                 <div class="sb-trend-write-ai-list-item">

@@ -2568,6 +2568,14 @@
     //animation: float 3s ease-in-out infinite;
     cursor: pointer;
     overflow: hidden;
+    .ico-system-ai {
+      position: absolute;
+      top: 0;
+      left: 65px;
+      min-width: 20px;
+      width: 20px;
+      height: 20px;
+    }
     &__tooltip {
       position: relative;
       display: flex;
@@ -2585,7 +2593,7 @@
       p {
         display: inline-flex;
         align-items: center;
-        height: 42px;
+        min-height: 42px;
         position: relative;
         padding: 10px 20px;
         border-radius: 20px;
@@ -2653,7 +2661,7 @@
         p {
           display: inline-flex;
           align-items: center;
-          height: 38px;
+          min-height: 38px;
           position: relative;
           padding: 8px 20px;
           border-radius: 20px;

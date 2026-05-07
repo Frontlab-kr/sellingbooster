@@ -3,7 +3,9 @@
 
   <div class="sb-seller-extension">
     <div class="sb-seller-extension-head">
-      <h5>셀러의 성공을 위한 셀러 확장</h5>
+      <h5>
+        <IconSystemAi class="ico-system-ai" />셀러의 성공을 위한 셀러 확장
+      </h5>
     </div>
     <div class="sb-seller-extension-body">
       <div class="sb-seller-extension-dashboard">
@@ -56,6 +58,7 @@
               <div class="sb-ai__tooltip">
                 <p>AI의 추천 전략</p>
               </div>
+              <IconSystemAi class="ico-system-ai" />
             </div>
             <div class="sb-seller-extension-dashboard-ai-list">
               <div class="sb-seller-extension-dashboard-ai-list-item">
@@ -115,6 +118,8 @@ import ExtensionTable from './ExtensionTable.vue';
 import Write01 from './Write01.vue';
 import Write02 from './Write02.vue';
 import Write03 from './Write03.vue';
+
+import IconSystemAi from '@/assets/icons/system/ai.svg?component';
 
 //dialog
 const dialogWrite01 = ref(false);
