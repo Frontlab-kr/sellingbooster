@@ -92,7 +92,11 @@
 
                     <div class="sb-ktrend-list-item-contents">
                       <div class="sb-ktrend-list-item-contents__thumb">
-                        <img :src="item.thumbnail" :alt="item.title" />
+                        <img
+                          :src="item.thumbnail"
+                          :alt="item.title"
+                          v-if="item.thumbnail"
+                        />
                       </div>
                       <div class="sb-ktrend-list-item-contents__text">
                         <h6>{{ item.title }}</h6>
@@ -659,7 +663,7 @@ const ktrendList = [
     category: 'NEWS',
     severity: 'warn',
     date: '2026.02.14',
-    thumbnail: 'https://picsum.photos/id/1/200/300',
+
     title: '글로벌 이커머스 시장 진출을 위한 필수 전략 가이드',
     description:
       '본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질 경우에는 말줄임표로 마무리 처리합니다. 해외 시장 조사부터 물류 최적화까지 한 번에 확인하세요. 성공적인 글로벌 셀러가 되기 위한 첫걸음을 지금 시작해보세요.본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질 경우에는 말줄임표로 마무리 처리합니다. 해외 시장 조사부터 물류 최적화까지 한 번에 확인하세요. 성공적인 글로벌 셀러가 되기 위한 첫걸음을 지금 시작해보세요.본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질 경우에는 말줄임표로 마무리 처리합니다. 해외 시장 조사부터 물류 최적화까지 한 번에 확인하세요. 성공적인 글로벌 셀러가 되기 위한 첫걸음을 지금 시작해보세요.본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질 경우에는 말줄임표로 마무리 처리합니다. 해외 시장 조사부터 물류 최적화까지 한 번에 확인하세요. 성공적인 글로벌 셀러가 되기 위한 첫걸음을 지금 시작해보세요.',

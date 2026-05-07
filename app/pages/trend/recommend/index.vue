@@ -209,7 +209,7 @@
                   class="p-badge-circle"
                   :severity="item.rank > 3 ? 'contrast' : undefined"
                 ></Badge>
-                <img :src="item.imgSrc" :alt="item.title" />
+                <img :src="item.imgSrc" :alt="item.title" v-if="item.imgSrc" />
               </div>
               <div class="sb-trend-top-list-item__contents">
                 <div class="sb-trend-top-list-item__category">
@@ -365,7 +365,7 @@ const top30 = ref([
 const categoryTop30 = ref([
   {
     rank: 1,
-    imgSrc: 'https://picsum.photos/200/300',
+
     brand: '스텐리1913',
     mall: '네이버쇼핑',
     title: '스텐리 스텐리1913 젠처 H2.0 플로우스테이트 텀블러',

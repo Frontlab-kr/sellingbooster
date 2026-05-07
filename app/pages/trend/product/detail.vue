@@ -16,7 +16,7 @@
               <div class="sb-trend-summary-head">
                 <div class="sb-trend-summary-product">
                   <div class="sb-trend-summary-product__thumb">
-                    <img src="/temp/detail01.png" alt="" />
+                    <!-- <img src="/temp/detail01.png" alt="" /> -->
                   </div>
                   <div class="sb-trend-summary-product__contents">
                     <div class="sb-trend-summary-product__platform">

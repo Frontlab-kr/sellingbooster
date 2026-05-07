@@ -194,7 +194,7 @@
                 <div class="sb-trend-sourcing-result-list-item">
                   <div class="sb-trend-sourcing-result-list-item__contents">
                     <div class="sb-trend-sourcing-result-list-item__thumb">
-                      <img src="https://picsum.photos/200/300" alt="" />
+                      <!-- <img src="https://picsum.photos/200/300" alt="" /> -->
                     </div>
                     <div class="sb-trend-sourcing-result-list-item__text">
                       <div class="sb-trend-sourcing-result-list-item__badge">
@@ -234,7 +234,7 @@
                 >
                   <div class="sb-trend-sourcing-result-list-item__contents">
                     <div class="sb-trend-sourcing-result-list-item__thumb">
-                      <img src="https://picsum.photos/200/300" alt="" />
+                      <!-- <img src="https://picsum.photos/200/300" alt="" /> -->
                     </div>
                     <div class="sb-trend-sourcing-result-list-item__text">
                       <div class="sb-trend-sourcing-result-list-item__badge">
@@ -328,24 +328,26 @@
               <Button label="네이버쇼핑" variant="text" />
             </div>
           </div>
-          <div class="sb-trend-sourcing-product-list">
-            <NuxtLink
-              to="/"
-              class="sb-trend-sourcing-product-list-item"
-              v-for="item in 9"
-            >
-              <div class="sb-trend-sourcing-product-list-item__thumb">
-                <img src="https://picsum.photos/200/300" alt="" />
-              </div>
-              <div class="sb-trend-sourcing-product-list-item__contents">
-                <p>
-                  반하나핏 베이직 피치기모 티셔츠 긴팔 양기모 라운드 밑단 기본티
-                  이너 레이어드 유넥반하나핏 베이직 피치기모 티셔츠 긴팔 양기모
-                  라운드 밑단 기본티 이너 레이어드 유넥
-                </p>
-                <strong>28,000원</strong>
-              </div>
-            </NuxtLink>
+          <div class="sb-trend-sourcing-product-list" v-scroll-end>
+            <div class="sb-trend-sourcing-product-list-scroll">
+              <NuxtLink
+                to="/"
+                class="sb-trend-sourcing-product-list-item"
+                v-for="item in 12"
+              >
+                <div class="sb-trend-sourcing-product-list-item__thumb">
+                  <!-- <img src="https://picsum.photos/200/300" alt="" /> -->
+                </div>
+                <div class="sb-trend-sourcing-product-list-item__contents">
+                  <p>
+                    반하나핏 베이직 피치기모 티셔츠 긴팔 양기모 라운드 밑단
+                    기본티 이너 레이어드 유넥반하나핏 베이직 피치기모 티셔츠
+                    긴팔 양기모 라운드 밑단 기본티 이너 레이어드 유넥
+                  </p>
+                  <strong>28,000원</strong>
+                </div>
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </div>

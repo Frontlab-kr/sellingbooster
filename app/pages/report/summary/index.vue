@@ -284,9 +284,9 @@
                       v-for="value in 8"
                     >
                       <div class="sb-report-summary-product-list-item-body">
-                        <div class="sb-report-summary-product-list-item__thumb">
-                          <img src="https://picsum.photos/200/300" alt="" />
-                        </div>
+                        <div
+                          class="sb-report-summary-product-list-item__thumb"
+                        ></div>
                         <div
                           class="sb-report-summary-product-list-item__contents"
                         >

@@ -235,6 +235,11 @@
             transition: all 0.1s ease;
             border: 1px solid transparent;
             overflow: hidden;
+            background: var(--nodata-url);
+            background-size: 36px 36px;
+            @include breakpoint {
+              background-size: 36px 36px;
+            }
             img {
               width: 100%;
               height: 100%;
@@ -504,6 +509,11 @@
             margin-right: 20px;
             border-radius: 16px;
             overflow: hidden;
+            background: var(--nodata-url);
+            background-size: 24px 24px;
+            @include breakpoint {
+              background-size: 24px 24px;
+            }
             img {
               width: 100%;
               height: 100%;
@@ -738,6 +748,13 @@
           min-width: 120px;
           width: 120px;
           height: 120px;
+          border-radius: 16px;
+          background: var(--nodata-url);
+          background-size: 36px 36px;
+          overflow: hidden;
+          @include breakpoint {
+            background-size: 36px 36px;
+          }
           img {
             width: 100%;
             height: 100%;
@@ -1289,6 +1306,11 @@
             height: 120px;
             border-radius: 16px;
             overflow: hidden;
+            background: var(--nodata-url);
+            background-size: 36px 36px;
+            @include breakpoint {
+              background-size: 36px 36px;
+            }
             img {
               width: 100%;
               height: 100%;
@@ -1747,6 +1769,11 @@
               height: 120px;
               border-radius: 16px;
               overflow: hidden;
+              background: var(--nodata-url);
+              background-size: 36px 36px;
+              @include breakpoint {
+                background-size: 36px 36px;
+              }
               img {
                 width: 100%;
                 height: 100%;
@@ -1905,6 +1932,11 @@
               border: 1px solid transparent;
               transition: all 0.1s ease;
               overflow: hidden;
+              background: var(--nodata-url);
+              background-size: 36px 36px;
+              @include breakpoint {
+                background-size: 36px 36px;
+              }
               img {
                 width: 100%;
                 height: 100%;
@@ -2021,6 +2053,11 @@
           height: 120px;
           border-radius: 16px;
           overflow: hidden;
+          background: var(--nodata-url);
+          background-size: 36px 36px;
+          @include breakpoint {
+            background-size: 36px 36px;
+          }
           img {
             width: 100%;
             height: 100%;
@@ -2773,6 +2810,11 @@
             height: 100px;
             border-radius: 16px;
             overflow: hidden;
+            background: var(--nodata-url);
+            background-size: 36px 36px;
+            @include breakpoint {
+              background-size: 36px 36px;
+            }
             img {
               width: 100%;
               height: 100%;

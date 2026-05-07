@@ -12,7 +12,7 @@
     </div>
     <div class="sb-blog-list-item__contents">
       <div class="sb-blog-list-item__thumb">
-        <img :src="item.imgSrc" :alt="item.title" />
+        <img :src="item.imgSrc" :alt="item.title" v-if="item.imgSrc" />
       </div>
       <div class="sb-blog-list-item__text">
         <h6 v-html="blogTitle"></h6>

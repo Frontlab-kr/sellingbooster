@@ -1239,6 +1239,11 @@
               border-radius: 16px;
               overflow: hidden;
               cursor: pointer;
+              background: var(--nodata-url);
+              background-size: 36px 36px;
+              @include breakpoint {
+                background-size: 36px 36px;
+              }
               img {
                 width: 100%;
                 height: 100%;

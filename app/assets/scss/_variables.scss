@@ -471,6 +471,8 @@
   --breadcrumb-color: var(--p-gray-500);
 
   --loading-url: url(./../icons/etc/loading.svg) no-repeat 50% 50%;
+  --nodata-url: var(--p-gray-200) url(./../icons/etc/nodata.svg) no-repeat 50%
+    50%;
 
   --title-color: var(--p-gray-900);
   --contents-color: var(--p-gray-900);
@@ -1588,6 +1590,8 @@
     --breadcrumb-color: var(--p-gray-300);
 
     --loading-url: url(./../icons/etc/loading-dark.svg) no-repeat 50% 50%;
+    --nodata-url: var(--p-gray-600) url(./../icons/etc/nodata-dark.svg)
+      no-repeat 50% 50%;
 
     --title-color: var(--p-gray-00);
     --contents-color: var(--p-gray-00);

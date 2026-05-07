@@ -43,9 +43,7 @@
           </div>
           <div class="sb-trend-result-list">
             <NuxtLink to="/" class="sb-trend-result-list-item">
-              <div class="sb-trend-result-list-item__thumb">
-                <img src="https://picsum.photos/200/300" alt="" />
-              </div>
+              <div class="sb-trend-result-list-item__thumb"></div>
               <div class="sb-trend-result-list-item__contents">
                 <div class="sb-trend-result-list-item__ranking">
                   <Badge value="광고" severity="secondary"></Badge>
@@ -146,9 +144,7 @@
           </div>
           <div class="sb-trend-result-list">
             <NuxtLink to="/" class="sb-trend-result-list-item">
-              <div class="sb-trend-result-list-item__thumb">
-                <img src="https://picsum.photos/200/300" alt="" />
-              </div>
+              <div class="sb-trend-result-list-item__thumb"></div>
               <div class="sb-trend-result-list-item__contents">
                 <div class="sb-trend-result-list-item__ranking">
                   <p>1위 - 1위</p>

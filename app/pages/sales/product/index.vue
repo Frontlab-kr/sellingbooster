@@ -75,9 +75,7 @@
                 </Button>
               </div>
               <div class="sb-sales-product-list-item-body">
-                <div class="sb-sales-product-list-item__thumb">
-                  <img src="https://picsum.photos/200/300" alt="" />
-                </div>
+                <div class="sb-sales-product-list-item__thumb"></div>
                 <div class="sb-sales-product-list-item__contents">
                   <div class="sb-sales-product-list-item__number">
                     <img

@@ -23,7 +23,7 @@
             :key="n"
           >
             <div class="sb-ktrend-trend-list-item__thumb">
-              <img src="https://picsum.photos/200/300" alt="" />
+              <!-- <img src="https://picsum.photos/200/300" alt="" /> -->
             </div>
             <div class="sb-ktrend-trend-list-item__contents">
               <div class="sb-ktrend-trend-list-item__head">

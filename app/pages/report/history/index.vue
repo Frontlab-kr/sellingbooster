@@ -365,9 +365,9 @@
                   >
                     <div class="sb-report-history-date-list-item__product">
                       <div class="sb-report-history-date-list-item__contents">
-                        <div class="sb-report-history-date-list-item__thumb">
-                          <img src="https://picsum.photos/200/300" alt="" />
-                        </div>
+                        <div
+                          class="sb-report-history-date-list-item__thumb"
+                        ></div>
                         <div class="sb-report-history-date-list-item__text">
                           <div class="sb-report-history-date-list-item__title">
                             [네이버 단독 100일분] 블랙모어스 알티지오메가3 호주

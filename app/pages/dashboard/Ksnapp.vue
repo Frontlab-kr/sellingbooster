@@ -22,7 +22,11 @@
                 class="p-badge-circle"
                 :severity="item.rank > 3 ? 'contrast' : undefined"
               ></Badge>
-              <img :src="item.thumbnail" :alt="item.title" />
+              <img
+                :src="item.thumbnail"
+                :alt="item.title"
+                v-if="item.thumbnail"
+              />
             </div>
 
             <div class="sb-ktrend-ksnapp-list-item__text">
@@ -49,7 +53,7 @@ const ksnappItems = [
   {
     rank: 1,
     trend: 'up',
-    thumbnail: 'https://picsum.photos/200/300',
+
     title:
       '[리뷰] "백지영도 쓴다" ... 피부 고민 해결 해 줄 화제의 뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템뷰티템',
   },

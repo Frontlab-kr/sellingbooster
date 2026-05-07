@@ -38,7 +38,11 @@
                   class="sb-trend-top-list-item"
                 >
                   <div class="sb-trend-top-list-item__thumb">
-                    <img :src="item.imgSrc" :alt="item.title" />
+                    <img
+                      :src="item.imgSrc"
+                      :alt="item.title"
+                      v-if="item.imgSrc"
+                    />
                   </div>
                   <div class="sb-trend-top-list-item__contents">
                     <div class="sb-trend-top-list-item__category">
@@ -80,7 +84,7 @@ const modules = [Autoplay, Navigation];
 const categoryTop30 = ref([
   {
     rank: 1,
-    imgSrc: 'https://picsum.photos/200/300',
+
     brand: '스텐리1913',
     mall: '네이버쇼핑',
     title: '스텐리 스텐리1913 젠처 H2.0 플로우스테이트 텀블러',

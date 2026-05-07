@@ -23,7 +23,7 @@
               <div class="sb-keyword-report-head">
                 <div class="sb-keyword-report-product">
                   <div class="sb-keyword-report-product__thumb">
-                    <img src="/temp/keyword2.png" alt="" />
+                    <!-- <img src="/temp/keyword2.png" alt="" /> -->
                   </div>
                   <div class="sb-keyword-report-product__contents">
                     <h5>뉴오리진 이너플로라 UREX 프로바이오틱스 170mg</h5>
@@ -615,7 +615,11 @@
                           class="p-badge-circle"
                           :severity="item.rank > 3 ? 'contrast' : undefined"
                         ></Badge>
-                        <img :src="item.imgSrc" :alt="item.title" />
+                        <img
+                          :src="item.imgSrc"
+                          :alt="item.title"
+                          v-if="item.imgSrc"
+                        />
                       </div>
                       <div class="sb-trend-top-list-item__contents">
                         <div class="sb-trend-top-list-item__category">
@@ -727,7 +731,11 @@
                     class="sb-keyword-ksnapp-list-item"
                   >
                     <div class="sb-keyword-ksnapp-list-item__thumb">
-                      <img :src="item.thumbnail" :alt="item.title" />
+                      <img
+                        :src="item.thumbnail"
+                        :alt="item.title"
+                        v-if="item.thumbnail"
+                      />
                     </div>
 
                     <div class="sb-keyword-ksnapp-list-item__title">
@@ -1289,7 +1297,7 @@ const keywordList = ref([
 const top20List = ref([
   {
     rank: 1,
-    imgSrc: 'https://picsum.photos/200/300',
+
     brand: '덴프스',
     mall: '네이버쇼핑',
     title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',
@@ -1522,7 +1530,7 @@ const ktrendList = [
 const ksnappList = [
   {
     title: "장원영이 쏘아올린 '두쫀쿠' 열풍, 한국 강타…냉면집에서도 판다",
-    thumbnail: 'https://picsum.photos/200/300',
+
     link: '/',
   },
   {

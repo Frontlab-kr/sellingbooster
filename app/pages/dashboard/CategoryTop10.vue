@@ -38,7 +38,7 @@
                   class="p-badge-circle"
                   :severity="item.rank > 3 ? 'contrast' : undefined"
                 ></Badge>
-                <img :src="item.imgSrc" :alt="item.title" />
+                <img :src="item.imgSrc" :alt="item.title" v-if="item.imgSrc" />
               </div>
               <div class="sb-trend-top-list-item__contents">
                 <div class="sb-trend-top-list-item__category">
@@ -69,7 +69,7 @@ import IconSystemTrash from '@/assets/icons/system/trash.svg?component';
 const top20List = ref([
   {
     rank: 1,
-    imgSrc: 'https://picsum.photos/200/300',
+
     brand: '덴프스',
     mall: '네이버쇼핑',
     title: '덴프스 덴마크 유산균이야기 프로 170mg × 60캡슐',

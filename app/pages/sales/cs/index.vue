@@ -334,9 +334,7 @@
                       <div class="sb-sales-cs-product-expanded-product">
                         <div
                           class="sb-sales-cs-product-expanded-product__thumb"
-                        >
-                          <img src="https://picsum.photos/200/300" alt="" />
-                        </div>
+                        ></div>
                         <div
                           class="sb-sales-cs-product-expanded-product__contents"
                         >

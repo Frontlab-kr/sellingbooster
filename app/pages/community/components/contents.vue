@@ -42,7 +42,11 @@
           <SwiperSlide v-for="item in blogItems" :key="item.id">
             <NuxtLink to="/" class="sb-blog-contents-list-item">
               <div class="sb-blog-contents-list-item__thumb">
-                <img :src="item.thumbnailUrl" :alt="item.title" />
+                <img
+                  :src="item.thumbnailUrl"
+                  :alt="item.title"
+                  v-if="item.thumbnailUrl"
+                />
               </div>
 
               <div class="sb-blog-contents-list-item__contents">
@@ -94,7 +98,7 @@ const modules = [Autoplay, Navigation];
 const blogItems = [
   {
     id: 1,
-    thumbnailUrl: 'https://picsum.photos/200/300',
+
     badges: [
       { value: 'NEW', severity: 'warn' },
       { value: '셀링트렌드', severity: 'success' },

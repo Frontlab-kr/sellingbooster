@@ -405,6 +405,12 @@
               min-width: 160px;
               width: 160px;
               height: 160px;
+              background: var(--nodata-url);
+              border-radius: 16px;
+              overflow: hidden;
+              @include breakpoint {
+                background-size: 36px 36px;
+              }
               img {
                 width: 100%;
                 height: 100%;

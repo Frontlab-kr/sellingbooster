@@ -104,7 +104,7 @@
                 :key="n"
               >
                 <div class="sb-dashboard-trend-product-list-item__thumb">
-                  <img src="https://picsum.photos/200/300" alt="" />
+                  <!-- <img src="https://picsum.photos/200/300" alt="" /> -->
                 </div>
                 <div class="sb-dashboard-trend-product-list-item__contents">
                   <div class="sb-dashboard-trend-product-list-item__category">

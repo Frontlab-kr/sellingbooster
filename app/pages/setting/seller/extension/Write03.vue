@@ -61,7 +61,11 @@
                     <div
                       class="sb-dialog-extension-write-search-list-item__thumb"
                     >
-                      <img :src="item.thumbnail" :alt="item.title" />
+                      <img
+                        :src="item.thumbnail"
+                        :alt="item.title"
+                        v-if="item.thumbnailk"
+                      />
                     </div>
 
                     <div
@@ -134,7 +138,7 @@ const onDateSelect = async () => {
 const productList = [
   {
     id: 1,
-    thumbnail: 'https://picsum.photos/200/300',
+
     title:
       '[2종세트] 26SS 루즈 스트레이트 데님 [2종세트] 26SS 루즈 스트레이트 데님[2종세트] 26SS 루즈 스트레이트 데님 [2종세트] 26SS 루즈 스트레이트 데님',
     price: '79,410원',

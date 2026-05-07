@@ -30,6 +30,13 @@ export default defineNuxtConfig({
     buildAssetsDir: 'assets',
     head: {
       meta: [
+        { property: 'og:title', content: '서비스 이름' },
+        { property: 'og:description', content: '서비스 설명' },
+        {
+          property: 'og:image',
+          content: 'https://frontlab-kr.github.io/sellingbooster/og-image.png', // 경로 변경 부탁드립니다.
+        },
+
         {
           name: 'viewport',
           content:

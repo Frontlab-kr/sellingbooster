@@ -125,7 +125,7 @@
               <div class="sb-ktrend-view-product-list-item">
                 <div class="sb-ktrend-view-product-list-item__contents">
                   <div class="sb-ktrend-view-product-list-item__thumb">
-                    <img src="https://picsum.photos/200/300" alt="" />
+                    <!-- <img src="https://picsum.photos/200/300" alt="" /> -->
                   </div>
                   <div class="sb-ktrend-view-product-list-item__text">
                     <div class="sb-ktrend-view-product-list-item__badge">
@@ -173,7 +173,7 @@
                 <div class="sb-ktrend-view-product-list-item" v-for="item in 9">
                   <div class="sb-ktrend-view-product-list-item__contents">
                     <div class="sb-ktrend-view-product-list-item__thumb">
-                      <img src="https://picsum.photos/200/300" alt="" />
+                      <!-- <img src="https://picsum.photos/200/300" alt="" /> -->
                     </div>
                     <div class="sb-ktrend-view-product-list-item__text">
                       <div class="sb-ktrend-view-product-list-item__badge">

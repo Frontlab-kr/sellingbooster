@@ -58,9 +58,7 @@
                 </template>
               </Button>
             </div>
-            <div class="sb-trend-product-list-item__thumb">
-              <img src="https://picsum.photos/id/1/800/800" alt="" />
-            </div>
+            <div class="sb-trend-product-list-item__thumb"></div>
             <div class="sb-trend-product-list-item__title">
               <div class="sb-trend-product-list-item__platform">
                 <span>인테리어조명</span><span>네이버쇼핑</span>

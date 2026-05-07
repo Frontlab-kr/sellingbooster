@@ -33,7 +33,7 @@
           <div class="sb-sales-price-list-item">
             <div class="sb-sales-price-list-item-head">
               <div class="sb-sales-price-list-item-head__thumb">
-                <img src="https://picsum.photos/200/300" alt="" />
+                <!-- <img src="https://picsum.photos/200/300" alt="" /> -->
               </div>
               <div class="sb-sales-price-list-item-head__contents">
                 <div class="sb-sales-price-list-item-head__title">

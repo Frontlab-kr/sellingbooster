@@ -287,7 +287,7 @@
               <NuxtLink to="/" class="sb-gate-board-list-item" v-for="n in 6">
                 <div class="sb-gate-board-list-item-body">
                   <div class="sb-gate-board-list-item-body__thumb">
-                    <img src="https://picsum.photos/200/300" alt="" />
+                    <!-- <img src="https://picsum.photos/200/300" alt="" /> -->
                   </div>
                   <div class="sb-gate-board-list-item-body__contents">
                     <div class="sb-gate-board-list-item-head">
@@ -296,24 +296,7 @@
                       </div>
                       <p>2026.02.14</p>
                     </div>
-                    <h6>
-                      컨텐츠 제목은 최대 1줄로 처리하고 더 길어질 경우는 ...으로
-                      처리하는 것으로 결정
-                    </h6>
-                    <p>
-                      본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질
-                      경우에는 ... 으로 마무리 처리 본문 컨텐츠 내용은 최대
-                      3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리 처리
-                      본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질
-                      경우에는 ... 으로 마무리 처리 본문 컨텐츠 내용은 최대
-                      3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리
-                      처리본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질
-                      경우에는 ... 으로 마무리 처리 본문 컨텐츠 내용은 최대
-                      3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리 처리
-                      본문 컨텐츠 내용은 최대 3줄까지 노출하고 더 길어질
-                      경우에는 ... 으로 마무리 처리 본문 컨텐츠 내용은 최대
-                      3줄까지 노출하고 더 길어질 경우에는 ...으로 마무리 처리
-                    </p>
+                    <h6>산뜻한 계절을 준비하는 스포티 캐주얼 룩</h6>
                   </div>
                 </div>
               </NuxtLink>
@@ -342,7 +325,7 @@
               <NuxtLink to="/" class="sb-gate-board-list-item" v-for="n in 6">
                 <div class="sb-gate-board-list-item-body">
                   <div class="sb-gate-board-list-item-body__thumb">
-                    <img src="https://picsum.photos/200/300" alt="" />
+                    <!-- <img src="https://picsum.photos/200/300" alt="" /> -->
                   </div>
                   <div class="sb-gate-board-list-item-body__contents">
                     <div class="sb-gate-board-list-item-head">
