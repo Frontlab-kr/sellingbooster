@@ -11,6 +11,7 @@
         }"
         :loop="true"
         :modules="modules"
+        :initial-slide="randomStartIndex"
       >
         <SwiperSlide>
           <p>클릭 후 자유로운 이야기를 남겨보세요.</p>
@@ -37,4 +38,7 @@ import 'swiper/css';
 import 'swiper/css/effect-fade';
 
 const modules = [Autoplay, EffectFade];
+
+const totalSlides = 4;
+const randomStartIndex = Math.floor(Math.random() * totalSlides);
 </script>

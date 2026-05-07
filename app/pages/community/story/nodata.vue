@@ -7,9 +7,7 @@
       </div>
       <div class="sb-community-head__button">
         <NuxtLink to="./write" class="sb-ai">
-          <div class="sb-ai__tooltip">
-            <p>셀러님만의 성장 스토리를 알려주세요.</p>
-          </div>
+          <Ai />
         </NuxtLink>
       </div>
     </div>
@@ -29,6 +27,7 @@
 <script setup>
 import { ref } from 'vue';
 import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
+import Ai from './ai.vue';
 
 //breadcrumb
 const breadcrumb = ref([

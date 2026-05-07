@@ -2580,24 +2580,24 @@
           display: flex;
           justify-content: flex-end;
           background-color: var(--body-background);
-          p {
-            display: inline-flex;
-            align-items: center;
-            height: 42px;
-            position: relative;
-            padding: 10px 20px;
-            border-radius: 20px;
-            background: var(--ai-tooltip-background);
-            margin: 0;
-            color: var(--ai-tooltip-color);
-
-            font-size: var(--Font-Heading-Small, 16px);
-            font-style: normal;
-            font-weight: 700;
-            line-height: 140%; /* 22.4px */
-            letter-spacing: -0.4px;
-          }
         }
+      }
+      p {
+        display: inline-flex;
+        align-items: center;
+        height: 42px;
+        position: relative;
+        padding: 10px 20px;
+        border-radius: 20px;
+        background: var(--ai-tooltip-background);
+        margin: 0;
+        color: var(--ai-tooltip-color);
+
+        font-size: var(--Font-Heading-Small, 16px);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%; /* 22.4px */
+        letter-spacing: -0.4px;
       }
       &:after {
         content: '';
@@ -2648,22 +2648,22 @@
         .swiper {
           height: 100%;
           &-slide {
-            p {
-              display: inline-flex;
-              align-items: center;
-              height: 38px;
-              position: relative;
-              padding: 8px 20px;
-              border-radius: 20px;
-              margin-top: 4px;
-              margin: 0;
-              font-size: 14px;
-              font-style: normal;
-              font-weight: 700;
-              line-height: 130%; /* 18.2px */
-              letter-spacing: -0.35px;
-            }
           }
+        }
+        p {
+          display: inline-flex;
+          align-items: center;
+          height: 38px;
+          position: relative;
+          padding: 8px 20px;
+          border-radius: 20px;
+          margin-top: 4px;
+          margin: 0;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 130%; /* 18.2px */
+          letter-spacing: -0.35px;
         }
         &:after {
           content: '';

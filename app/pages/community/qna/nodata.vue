@@ -7,9 +7,7 @@
       </div>
       <div class="sb-community-head__button">
         <button class="sb-ai" @click="writeOpen">
-          <div class="sb-ai__tooltip">
-            <p>질문하고 바로 답변받기 👆</p>
-          </div>
+          <Ai />
         </button>
       </div>
     </div>
@@ -34,6 +32,7 @@ import { ref } from 'vue';
 import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 
 import Write from './write.vue';
+import Ai from './ai.vue';
 
 //dialog
 const dialogWrite = ref(false);

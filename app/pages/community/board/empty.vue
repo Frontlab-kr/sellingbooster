@@ -7,9 +7,7 @@
       </div>
       <div class="sb-community-head__button">
         <NuxtLink to="/community/board/write" class="sb-ai">
-          <div class="sb-ai__tooltip">
-            <p>셀러들 모여라! 가볍게 수다 나눠요!</p>
-          </div>
+          <Ai />
         </NuxtLink>
       </div>
     </div>
@@ -44,6 +42,7 @@
 import { ref } from 'vue';
 import IconSystemRefresh from '@/assets/icons/system/refresh.svg?component';
 import IconIllustrationFrown from '@/assets/icons/illustration/frown.svg?component';
+import Ai from './ai.vue';
 
 const searchKeyword = ref('');
 
