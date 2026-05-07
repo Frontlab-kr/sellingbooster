@@ -1090,6 +1090,18 @@
   --login-text-color: var(--p-gray-400);
   --login-link-text-color: var(--p-gray-500);
 
+  --login-button-naver: #03c75a;
+  --login-button-kakao: #fee500;
+  --login-button-kakao-text-color: var(--p-gray-900);
+  --login-button-google: var(--p-gray-00);
+  --login-button-google-border-color: var(--p-gray-200);
+  --login-button-google-text-color: var(--p-gray-900);
+  --login-button-apple: var(--p-gray-900);
+  --login-button-apple-border-color: var(--p-gray-900);
+  --login-button-apple-text-color: var(--p-gray-00);
+  --login-button-sellpick: #003480;
+  --login-button-sellpick-border-color: #003480;
+
   --auth-background: var(--p-gray-00);
   --auth-title-color: var(--p-gray-900);
   --auth-form-item-border-color: var(--p-gray-300);
@@ -2200,6 +2212,18 @@
     --login-divider-color: var(--p-gray-500);
     --login-text-color: var(--p-gray-400);
     --login-link-text-color: var(--p-gray-300);
+
+    --login-button-naver: #03c75a;
+    --login-button-kakao: #fee500;
+    --login-button-kakao-text-color: var(--p-gray-900);
+    --login-button-google: var(--p-gray-600);
+    --login-button-google-border-color: var(--p-gray-600);
+    --login-button-google-text-color: var(--p-gray-00);
+    --login-button-apple: var(--p-gray-00);
+    --login-button-apple-border-color: var(--p-gray-00);
+    --login-button-apple-text-color: var(--p-gray-900);
+    --login-button-sellpick: #003480;
+    --login-button-sellpick-border-color: #003480;
 
     --auth-background: var(--p-gray-800);
     --auth-title-color: var(--p-gray-00);

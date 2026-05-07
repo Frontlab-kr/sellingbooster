@@ -4,7 +4,9 @@
   <div class="sb-seller-extension">
     <div class="sb-seller-extension-head">
       <h5>
-        <IconSystemAi class="ico-system-ai" />셀러의 성공을 위한 셀러 확장
+        <IconSystemAi class="ico-system-ai" /><span
+          >셀러의 성공을 위한 셀러 확장</span
+        >
       </h5>
     </div>
     <div class="sb-seller-extension-body">

@@ -26,7 +26,11 @@
 
   <div class="sb-seller-extension">
     <div class="sb-seller-extension-head">
-      <h5>셀러의 성공을 위한 셀러 확장</h5>
+      <h5>
+        <IconSystemAi class="ico-system-ai" /><span
+          >셀러의 성공을 위한 셀러 확장</span
+        >
+      </h5>
     </div>
     <div class="sb-seller-extension-body">
       <!-- <div class="sb-seller-extension-body-head">
@@ -185,6 +189,8 @@ import IconSystemPlus from '@/assets/icons/system/plus.svg?component';
 import Write01 from './Write01.vue';
 import Write02 from './Write02.vue';
 import Write03 from './Write03.vue';
+
+import IconSystemAi from '@/assets/icons/system/ai.svg?component';
 
 const dialogWrite01 = ref(false);
 const dialogWrite02 = ref(false);

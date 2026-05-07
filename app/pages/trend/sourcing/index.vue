@@ -10,8 +10,11 @@
     <div class="sb-trend-contents">
       <div class="sb-trend-search">
         <h4>
-          <IconSystemAi class="ico-system-ai" /> 사진 한 장이면 끝! AI가 상품
-          분석부터 연관 아이템까지 싹 찾아드려요
+          <IconSystemAi class="ico-system-ai" />
+          <span
+            >사진 한 장이면 끝! AI가 상품 분석부터 연관 아이템까지 싹
+            찾아드려요</span
+          >
         </h4>
       </div>
       <div class="sb-trend-sourcing">

@@ -130,37 +130,41 @@
         .ico-system-kakaotalk {
           color: #1b1f27;
         }
-        .ico-system-apple {
-          color: #fff;
-        }
+
         .ico-system-sellpick {
           color: #fff;
         }
         &__naver {
-          background-color: #03c75a;
-          border-color: #03c75a;
+          background-color: var(--login-button-naver);
+          border-color: var(--login-button-naver);
         }
         &__kakao {
-          background-color: #fee500;
-          border-color: #fee500;
+          background-color: var(--login-button-kakao);
+          border-color: var(--login-button-kakao);
           .p-button-label {
-            color: var(--Gray-900, #1b1f27);
+            color: var(--login-button-kakao-text-color);
           }
         }
         &__google {
-          background-color: var(--Gray-00, #fff);
-          border-color: var(--Gray-200, #eaecf1);
+          background-color: var(--login-button-google);
+          border-color: var(--login-button-google-border-color);
           .p-button-label {
-            color: var(--Gray-900, #1b1f27);
+            color: var(--login-button-google-text-color);
           }
         }
         &__apple {
-          background-color: var(--Gray-900, #1b1f27);
-          border-color: var(--Gray-900, #1b1f27);
+          background-color: var(--login-button-apple);
+          border-color: var(--login-button-apple-border-color);
+          .p-button-label {
+            color: var(--login-button-apple-text-color);
+          }
+          .ico-system-apple {
+            color: var(--login-button-apple-text-color);
+          }
         }
         &__sellpick {
-          background-color: #003480;
-          border-color: #003480;
+          background-color: var(--login-button-sellpick);
+          border-color: var(--login-button-sellpick-border-color);
         }
       }
       &-link {

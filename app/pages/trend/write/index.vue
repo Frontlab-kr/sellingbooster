@@ -11,8 +11,10 @@
       <div class="sb-trend-search">
         <h4>
           <IconSystemAi class="ico-system-ai" />
-          상품명 고민은 이제 그만!<br />
-          AI가 최적의 조합을 찾아드려요
+          <span>
+            상품명 고민은 이제 그만!<br />
+            AI가 최적의 조합을 찾아드려요
+          </span>
         </h4>
       </div>
       <div class="sb-trend-write">
