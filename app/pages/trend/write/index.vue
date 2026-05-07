@@ -9,7 +9,10 @@
     </div>
     <div class="sb-trend-contents">
       <div class="sb-trend-search">
-        <h4>상품명 고민 끝! 최적의 상품명 바로 만들어드려요.</h4>
+        <h4>
+          <IconSystemAi class="ico-system-ai" />상품명 고민 끝! 최적의 상품명
+          바로 만들어드려요.
+        </h4>
       </div>
       <div class="sb-trend-write">
         <div class="sb-trend-write-start">
@@ -280,6 +283,7 @@
 import { ref } from 'vue';
 
 import IconSystemCopy from '@/assets/icons/system/copy.svg?component';
+import IconSystemAi from '@/assets/icons/system/ai.svg?component';
 
 import { useToast } from 'primevue/usetoast';
 const toast = useToast();

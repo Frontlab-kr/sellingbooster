@@ -231,7 +231,7 @@ const allEvents = ref([
   {
     id: '2',
     title: '상품 소싱',
-    start: '2026-04-11',
+    start: '2026-05-07',
     className: 'color-info',
     extendedProps: { category: 'product' },
   },
@@ -246,7 +246,7 @@ const allEvents = ref([
   {
     id: '4',
     title: '키워드 광고 종료',
-    start: '2026-04-13',
+    start: '2026-05-07',
     className: 'color-contrast',
     extendedProps: { category: 'marketing' },
   },

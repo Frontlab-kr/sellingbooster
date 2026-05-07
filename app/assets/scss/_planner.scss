@@ -674,6 +674,7 @@
 .fc .fc-daygrid-day-top {
   display: flex;
   flex-direction: row;
+  margin-bottom: 8px;
   color: var(--fc-number-color);
   font-size: 16px;
   font-style: normal;
@@ -856,6 +857,7 @@
   .fc .fc-daygrid-day-top {
     display: flex;
     flex-direction: row;
+    margin-bottom: 4px;
     color: var(--fc-number-color);
     font-size: 16px;
     font-style: normal;

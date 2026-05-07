@@ -158,77 +158,77 @@ const handleScroll = () => {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
-  // const ctx = gsap.context(() => {
-  //   // 1. 눈 & 입 깜빡임 동기화 (입이 안 움직인다면 scale 수치를 더 과감하게 조정)
-  //   const blinkTL = gsap.timeline({
-  //     repeat: -1,
-  //     repeatDelay: 3 + Math.random() * 2,
-  //   });
+  const ctx = gsap.context(() => {
+    // 1. 눈 & 입 깜빡임 동기화 (입이 안 움직인다면 scale 수치를 더 과감하게 조정)
+    const blinkTL = gsap.timeline({
+      repeat: -1,
+      repeatDelay: 3 + Math.random() * 2,
+    });
 
-  //   blinkTL
-  //     .to('.character-eye', {
-  //       duration: 0.1,
-  //       scaleY: 0,
-  //       transformOrigin: 'center',
-  //     })
-  //     .to(
-  //       '.character-mouth',
-  //       {
-  //         duration: 0.1,
-  //         scaleY: 0.5, // 입을 더 확실히 납작하게
-  //         y: 0.3, // 아래로 1px 살짝 내려서 근육 움직임 표현
-  //         transformOrigin: 'center center',
-  //       },
-  //       '<',
-  //     )
-  //     .to(['.character-eye', '.character-mouth'], {
-  //       duration: 0.1,
-  //       scaleY: 1,
-  //       y: 0,
-  //       ease: 'power2.inOut',
-  //     });
+    blinkTL
+      .to('.character-eye', {
+        duration: 0.1,
+        scaleY: 0,
+        transformOrigin: 'center',
+      })
+      .to(
+        '.character-mouth',
+        {
+          duration: 0.1,
+          scaleY: 0.5, // 입을 더 확실히 납작하게
+          y: 0.3, // 아래로 1px 살짝 내려서 근육 움직임 표현
+          transformOrigin: 'center center',
+        },
+        '<',
+      )
+      .to(['.character-eye', '.character-mouth'], {
+        duration: 0.1,
+        scaleY: 1,
+        y: 0,
+        ease: 'power2.inOut',
+      });
 
-  //   gsap.to('.sb-feedback-ai', {
-  //     y: -4,
-  //     duration: 2,
-  //     repeat: -1,
-  //     yoyo: true,
-  //     ease: 'sine.inOut',
-  //   });
+    gsap.to('.sb-feedback-ai', {
+      y: -4,
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+    });
 
-  //   // 2. 시선 추적 (입이 눈을 따라 아주 살짝 움직이게)
-  //   const eyeSetter = {
-  //     x: gsap.quickSetter('.character-eye', 'x', 'px'),
-  //     y: gsap.quickSetter('.character-eye', 'y', 'px'),
-  //   };
-  //   const mouthSetter = {
-  //     x: gsap.quickSetter('.character-mouth', 'x', 'px'),
-  //     y: gsap.quickSetter('.character-mouth', 'y', 'px'),
-  //   };
+    // 2. 시선 추적 (입이 눈을 따라 아주 살짝 움직이게)
+    const eyeSetter = {
+      x: gsap.quickSetter('.character-eye', 'x', 'px'),
+      y: gsap.quickSetter('.character-eye', 'y', 'px'),
+    };
+    const mouthSetter = {
+      x: gsap.quickSetter('.character-mouth', 'x', 'px'),
+      y: gsap.quickSetter('.character-mouth', 'y', 'px'),
+    };
 
-  //   const handleMouseMove = (e) => {
-  //     const charElement = document.querySelector('.sb-feedback-ai');
-  //     if (!charElement) return;
+    const handleMouseMove = (e) => {
+      const charElement = document.querySelector('.sb-feedback-ai');
+      if (!charElement) return;
 
-  //     const rect = charElement.getBoundingClientRect();
-  //     const charX = rect.left + rect.width / 2;
-  //     const charY = rect.top + rect.height / 2;
+      const rect = charElement.getBoundingClientRect();
+      const charX = rect.left + rect.width / 2;
+      const charY = rect.top + rect.height / 2;
 
-  //     const angle = Math.atan2(e.clientY - charY, e.clientX - charX);
+      const angle = Math.atan2(e.clientY - charY, e.clientX - charX);
 
-  //     // 입이 안 움직인다고 느껴지면 이 수치를 조금씩 올려보세요 (현재 1.5px)
-  //     const dist = { eye: 0.8, mouth: 0.8 };
+      // 입이 안 움직인다고 느껴지면 이 수치를 조금씩 올려보세요 (현재 1.5px)
+      const dist = { eye: 0.8, mouth: 0.8 };
 
-  //     eyeSetter.x(Math.cos(angle) * dist.eye);
-  //     eyeSetter.y(Math.sin(angle) * dist.eye);
-  //     mouthSetter.x(Math.cos(angle) * dist.mouth);
-  //     mouthSetter.y(Math.sin(angle) * dist.mouth);
-  //   };
+      eyeSetter.x(Math.cos(angle) * dist.eye);
+      eyeSetter.y(Math.sin(angle) * dist.eye);
+      mouthSetter.x(Math.cos(angle) * dist.mouth);
+      mouthSetter.y(Math.sin(angle) * dist.mouth);
+    };
 
-  //   window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove);
 
-  //   mouseMoveHandler = handleMouseMove;
-  // });
+    mouseMoveHandler = handleMouseMove;
+  });
 });
 
 onUnmounted(() => {

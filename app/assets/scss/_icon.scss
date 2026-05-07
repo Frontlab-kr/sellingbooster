@@ -207,6 +207,12 @@
 
   //system
   &-system {
+    &-ai {
+      display: block;
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+    }
     &-delete {
       display: block;
       min-width: 24px;

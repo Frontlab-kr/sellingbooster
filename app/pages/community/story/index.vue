@@ -7,9 +7,7 @@
       </div>
       <div class="sb-community-head__button">
         <NuxtLink to="/community/story/write" class="sb-ai">
-          <div class="sb-ai__tooltip">
-            <p>셀러님만의 성장 스토리를 알려주세요.</p>
-          </div>
+          <Ai />
         </NuxtLink>
       </div>
     </div>
@@ -56,6 +54,7 @@
 import { ref } from 'vue';
 import Item from './item.vue';
 import MasonryWall from '@yeger/vue-masonry-wall';
+import Ai from './ai.vue';
 
 //breadcrumb
 const breadcrumb = ref([

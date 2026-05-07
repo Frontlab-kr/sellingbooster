@@ -29,6 +29,12 @@
             <NuxtLink to="/guide/GuideHeader">16_Header,Footer</NuxtLink>
             <NuxtLink to="/guide/GuideAlert">18_Alert</NuxtLink>
             <NuxtLink to="/guide/GuidePagination">19_Pagination</NuxtLink>
+
+            <NuxtLink to="/guide/GuideGraphChart">22_Graph,Chart</NuxtLink>
+            <NuxtLink to="/guide/GuideCanendar">23_Calendar</NuxtLink>
+            <NuxtLink to="/guide/GuideFooterTextList"
+              >24_Footer Text list</NuxtLink
+            >
           </div>
         </template>
       </Card>

@@ -2178,7 +2178,7 @@
         margin: 4px 0 0 16px;
         li {
           position: relative;
-          padding: 0 0 0 20px;
+          padding: 0 0 0 20px !important;
           &::before {
             content: '';
             display: block;

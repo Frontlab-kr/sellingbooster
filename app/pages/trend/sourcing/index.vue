@@ -10,7 +10,8 @@
     <div class="sb-trend-contents">
       <div class="sb-trend-search">
         <h4>
-          사진 한 장이면 끝! AI가 상품 분석부터 연관 아이템까지 싹 찾아드려요
+          <IconSystemAi class="ico-system-ai" /> 사진 한 장이면 끝! AI가 상품
+          분석부터 연관 아이템까지 싹 찾아드려요
         </h4>
       </div>
       <div class="sb-trend-sourcing">
@@ -359,6 +360,7 @@ import IconEtcAiLoading from '@/assets/icons/etc/ai-loading.svg?component';
 import IconSystemPlus from '@/assets/icons/system/plus.svg?component';
 import IconActionFavorite from '@/assets/icons/action/favorite.svg?component';
 import IconActionFavoriteFull from '@/assets/icons/action/favorite-full.svg?component';
+import IconSystemAi from '@/assets/icons/system/ai.svg?component';
 
 //breadcrumb
 const breadcrumb = ref([
