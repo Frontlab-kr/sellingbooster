@@ -29,7 +29,7 @@
         <SwiperSlide>
           <NuxtLink to="/" class="sb-community-swiper-item">
             <div class="sb-community-swiper-item__thumb">
-              <img src="https://picsum.photos/200/300" alt="" />
+              <!-- <img src="https://picsum.photos/200/300" alt="" /> -->
             </div>
             <h4>
               초보 셀러가 많이 하는 5가지 실수 제목은<br />
