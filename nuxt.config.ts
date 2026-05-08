@@ -32,7 +32,7 @@ export default defineNuxtConfig({
       meta: [
         {
           property: 'og:image',
-          content: 'https://frontlab-kr.github.io/sellingbooster/og-image.png',
+          content: 'https://frontlab-kr.github.io/sellingbooster/og-image.png?v=20260508',
         },
 
         {
