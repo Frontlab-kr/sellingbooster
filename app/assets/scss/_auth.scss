@@ -211,7 +211,7 @@
           height: 48px;
           margin: 0 0 12px 0;
           background: var(--logo) no-repeat 0 50%;
-          background-size: cover;
+          background-size: 100% auto;
         }
       }
       &-form {
@@ -250,14 +250,7 @@
           padding: 20px 0 40px;
           .p-button {
             gap: 8px;
-            &-label {
-              color: var(--p-gray-00);
-              font-size: 16px;
-              font-style: normal;
-              font-weight: 700;
-              line-height: 140%; /* 22.4px */
-              letter-spacing: -0.4px;
-            }
+          
           }
 
           svg {
@@ -265,32 +258,7 @@
             width: 20px;
             height: 20px;
           }
-          &__naver {
-            background-color: #03c75a;
-            border-color: #03c75a;
-          }
-          &__kakao {
-            background-color: #fee500;
-            border-color: #fee500;
-            .p-button-label {
-              color: var(--Gray-900, #1b1f27);
-            }
-          }
-          &__google {
-            background-color: var(--Gray-00, #fff);
-            border-color: var(--Gray-200, #eaecf1);
-            .p-button-label {
-              color: var(--Gray-900, #1b1f27);
-            }
-          }
-          &__apple {
-            background-color: var(--Gray-900, #1b1f27);
-            border-color: var(--Gray-900, #1b1f27);
-          }
-          &__sellpick {
-            background-color: #003480;
-            border-color: #003480;
-          }
+          
         }
         &-link {
           display: flex;
