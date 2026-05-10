@@ -4,6 +4,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     mounted(el) {
       const container =
         el.querySelector('.p-datatable-table-container') ||
+        el.querySelector('.sb-keyword-ranking__tab-list-scroll') || // 가로 스크롤 컨테이너 명시적 추가 가능
         el.firstElementChild ||
         el;
 
@@ -17,28 +18,30 @@ export default defineNuxtPlugin((nuxtApp) => {
           scrollWidth,
         } = container;
 
-        // 1. 세로 스크롤 끝 감지 (1px 오차 허용)
-        const isBottom = scrollTop + clientHeight >= scrollHeight - 1;
-        const noVerticalScroll = scrollHeight <= clientHeight;
+        // 1. 세로 스크롤 감지 (스크롤이 생겼을 때만 작동)
+        const hasVerticalScroll = scrollHeight > clientHeight;
+        const isBottom =
+          hasVerticalScroll && scrollTop + clientHeight >= scrollHeight - 1;
 
-        // 스크롤 영역이 없을 때(scrollHeight <= clientHeight) 처리 포함
-        if (isBottom || scrollHeight <= clientHeight) {
+        if (isBottom) {
           el.classList.add('is-scroll-end-y');
         } else {
           el.classList.remove('is-scroll-end-y');
         }
 
-        // 2. 가로 스크롤 끝 감지 (1px 오차 허용)
-        const isRightEnd = scrollLeft + clientWidth >= scrollWidth - 1;
-        // 가로 스크롤 영역이 없을 때 처리 포함
-        if (isRightEnd || scrollWidth <= clientWidth) {
+        // 2. 가로 스크롤 감지 (스크롤이 생겼을 때만 작동)
+        const hasHorizontalScroll = scrollWidth > clientWidth;
+        const isRightEnd =
+          hasHorizontalScroll && scrollLeft + clientWidth >= scrollWidth - 1;
+
+        if (isRightEnd) {
           el.classList.add('is-scroll-end-x');
         } else {
           el.classList.remove('is-scroll-end-x');
         }
 
-        // 기존 클래스 유지용 (필요 시)
-        if (isBottom || noVerticalScroll) {
+        // 3. 전체 상태 (가로든 세로든 스크롤이 생겼고, 끝에 도달했을 때)
+        if (isBottom || isRightEnd) {
           el.classList.add('is-scroll-end');
         } else {
           el.classList.remove('is-scroll-end');
@@ -50,20 +53,16 @@ export default defineNuxtPlugin((nuxtApp) => {
       });
 
       observer.observe(container);
-      // 자식 요소(테이블 내용)의 크기 변화도 감지해야 정확합니다
       if (container.firstElementChild) {
         observer.observe(container.firstElementChild);
       }
 
       container.addEventListener('scroll', handleScroll);
 
-      el._scrollTarget = {
-        container,
-        handleScroll,
-        observer,
-      };
+      el._scrollTarget = { container, handleScroll, observer };
 
-      handleScroll();
+      // 레이아웃이 완전히 잡힌 후 계산하기 위해 nextTick이나 setTimeout 활용 고려
+      setTimeout(() => handleScroll(), 0);
     },
     unmounted(el) {
       if (el._scrollTarget) {

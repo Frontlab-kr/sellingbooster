@@ -11,6 +11,7 @@
             <NuxtLink to="/guide/GuideTypography"
               >02_Typography_KR,EN,JP</NuxtLink
             >
+            <NuxtLink to="/guide/GuideTypography02">02_Typography_CN</NuxtLink>
             <NuxtLink to="/guide/GuideColorLight">03_Color (Light)</NuxtLink>
             <NuxtLink to="/guide/GuideColorDark">03_Color (Dark)</NuxtLink>
             <NuxtLink to="/guide/GuideUseColor">04_Use color</NuxtLink>
@@ -26,10 +27,24 @@
             <NuxtLink to="/guide/GuideTab">13_Tab</NuxtLink>
             <NuxtLink to="/guide/GuideBadge">14_Badge</NuxtLink>
             <NuxtLink to="/guide/GuideTooltip">15_Tool tip</NuxtLink>
-            <NuxtLink to="/guide/GuideHeader">16_Header,Footer</NuxtLink>
+            <NuxtLink to="/guide/GuideHeaderFooter">16_Header,Footer</NuxtLink>
+            <NuxtLink to="/guide/GuideLnb"
+              >17_LNB (Left Navigation Bar)</NuxtLink
+            >
             <NuxtLink to="/guide/GuideAlert">18_Alert</NuxtLink>
             <NuxtLink to="/guide/GuidePagination">19_Pagination</NuxtLink>
 
+            <NuxtLink to="/guide/GuideContentsList01"
+              >20_Contents List_텍스트형 리스트</NuxtLink
+            >
+            <NuxtLink to="/guide/GuideContentsList02"
+              >20_Contents List_썸네일,카드형</NuxtLink
+            >
+            <NuxtLink to="/guide/GuideContentsList03"
+              >20_Contents List_복합,데이터 리스트</NuxtLink
+            >
+
+            <NuxtLink to="/guide/GuideBanner">21_Banner</NuxtLink>
             <NuxtLink to="/guide/GuideGraphChart">22_Graph,Chart</NuxtLink>
             <NuxtLink to="/guide/GuideCanendar">23_Calendar</NuxtLink>
             <NuxtLink to="/guide/GuideFooterTextList"

@@ -60,7 +60,7 @@
             &:last-child {
               border-radius: 0 8px 8px 0;
             }
-            p {
+            > p {
               margin: 12px 0 0 0;
               color: var(--Gray-500_6A7381, #6a7381);
               font-family: 'Roboto Mono', monospace;
@@ -86,7 +86,6 @@
         }
       }
       &.p-dark {
-        margin-top: 55px;
         table {
           thead {
             th {

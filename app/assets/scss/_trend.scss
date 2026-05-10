@@ -2564,10 +2564,25 @@
       }
       &__tab {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-between;
         .sb-tab {
           width: auto;
+        }
+        &-list {
+          width: calc(100% - 200px);
+          height: 52px;
+          @include custom-scrollbar-vertical-blur();
+          &.is-scroll-end {
+            &::after {
+              opacity: 0;
+              visibility: hidden;
+            }
+          }
+          &-scroll {
+            @include custom-scrollbar();
+            overflow: auto;
+          }
         }
       }
       .sb-trend-top {

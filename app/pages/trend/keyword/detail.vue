@@ -573,12 +573,26 @@
                 <h5>연관 상품 랭킹 TOP20</h5>
               </div>
               <div class="sb-keyword-ranking__tab">
-                <div class="sb-tab">
-                  <Button label="ALL" variant="text" class="active" />
-                  <Button label="5천원" variant="text" />
-                  <Button label="1만원" variant="text" />
-                  <Button label="3만원" variant="text" />
-                  <Button label="5만원 이상" variant="text" />
+                <div class="sb-keyword-ranking__tab-list" v-scroll-end>
+                  <div class="sb-keyword-ranking__tab-list-scroll">
+                    <div class="sb-tab">
+                      <Button label="ALL" variant="text" class="active" />
+                      <Button label="5천원" variant="text" />
+                      <Button label="1만원" variant="text" />
+                      <Button label="3만원" variant="text" />
+                      <Button label="5만원 이상" variant="text" />
+                      <Button label="5만원 이상" variant="text" />
+                      <Button label="5만원 이상" variant="text" />
+                      <Button label="5만원 이상" variant="text" />
+                      <Button label="5만원 이상" variant="text" />
+                      <Button label="5만원 이상" variant="text" />
+                      <Button label="5만원 이상" variant="text" />
+                      <Button label="5만원 이상" variant="text" />
+                      <Button label="5만원 이상" variant="text" />
+                      <Button label="5만원 이상" variant="text" />
+                      <Button label="5만원 이상" variant="text" />
+                    </div>
+                  </div>
                 </div>
                 <Select
                   ref="selectRef"

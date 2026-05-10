@@ -437,6 +437,7 @@
         border: 1px solid var(--memo-item-background);
         background: var(--memo-item-background);
         cursor: pointer;
+        &.hover,
         &:hover {
           border-color: var(--color-primary);
           box-shadow: var(--list-item-hover-boxshadow);
