@@ -44,7 +44,7 @@
           </p>
         </div>
         <div class="sb-nodata__button">
-          <Button severity="contrast" outlined>
+          <Button severity="contrast" outlined size="small">
             <span class="p-button-label">채널 연동하기</span>
           </Button>
         </div>

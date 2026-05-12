@@ -68,70 +68,119 @@ export default {
 ## 폴더 구조
 
 ```
-root/
-├── app.vue                    # Nuxt 앱 루트
-├── gate.vue                   # 8. 기타 – Gate 페이지
-├── feedback.vue               # 10. etc – 사용자 피드백 수집(윙배너)
-├── loading.vue                # 로딩 화면
-├── error.vue                  # 에러 페이지
-│
-├── pages/                     # 페이지 라우팅
-│   ├── dashboard/             # 1. Main (대시보드)
-│   │   └── index.vue          # 오늘의 할 일
-│   ├── auth/                  # 2. Util Menu
-│   │   ├── login.vue          # 2.1 로그인
-│   │   ├── signup.vue         # 2.2 회원가입
-│   │   └── find.vue           # 2.3 아이디/비밀번호 찾기
-│   ├── util/                  # # Util Menu (전역)
-│   │   ├── language.vue       # 2.4 다국어
-│   │   └── notification.vue   # 2.5 알림
-│   ├── opportunity/           # 3. 기회 찾기(가칭)
-│   │   ├── recommend.vue      # 3.1 추천 기회
-│   │   └── search.vue         # 3.2 직접(검색) 탐색
-│   ├── execution/             # 4. 바로 실행(가칭)
-│   │   ├── center.vue         # 4.1 실행 센터
-│   │   └── result.vue         # 4.2 실행 결과
-│   ├── performance/           # 5. 성과 보기(가칭)
-│   │   ├── summary.vue        # 5.1 성과 요약
-│   │   ├── insight.vue        # 5.2 성장 인사이트
-│   │   └── history.vue        # 5.3 성장 히스토리
-│   ├── community/             # 6. 커뮤니티
-│   │   ├── qna.vue            # 6.1 Q&A
-│   │   ├── notice.vue         # 6.2 공지사항
-│   │   ├── faq.vue            # 6.3 FAQ
-│   │   ├── story.vue          # 6.4 성장 스토리
-│   │   └── news.vue           # 6.5 뉴스/법령
-│   ├── setting/               # 7. 환경 설정
-│   │   ├── account.vue        # 7.1 계정 관리
-│   │   ├── product.vue        # 7.2 상품 관리
-│   │   ├── keyword.vue        # 7.3 키워드 관리
-│   │   ├── channel.vue        # 7.4 채널 연동 관리
-│   │   ├── notification.vue   # 7.5 알림 설정
-│   │   ├── team.vue           # 7.6 팀 / 권한 관리
-│   │   └── subscription.vue   # 7.7 구독 관리
-│   └── policy/                # 9. Footer
-│       ├── privacy.vue        # 9.1 개인정보처리방침
-│       ├── terms.vue          # 9.2 서비스 이용약관
-│       ├── service.vue        # 9.3 셀링부스터 서비스 소개
-│       └── company.vue        # 9.4 회사 소개
-│
-├── assets/
-│   ├── scss/                  # 스타일 시트
-│   │   ├── layout.scss        # 공통 레이아웃 (Header, Sidebar, Footer)
-│   │   ├── dashboard.scss     # 대시보드 스타일
-│   │   ├── auth.scss          # 로그인 / 회원가입
-│   │   ├── util.scss          # 다국어 / 알림
-│   │   ├── opportunity.scss   # 기회 찾기
-│   │   ├── execution.scss     # 실행 센터 / 결과
-│   │   ├── performance.scss   # 성과 보기
-│   │   ├── community.scss     # 커뮤니티
-│   │   ├── setting.scss       # 환경 설정
-│   │   ├── gate.scss          # Gate 페이지
-│   │   ├── policy.scss        # 약관 / 정책
-│   │   └── etc.scss           # 피드백 / 로딩 / 에러
-│   └── images/                # 이미지 리소스
-│
-└── public/                    # 정적 리소스
+├── app/
+│   ├── app.vue
+│   │
+│   ├── assets/
+│   │   ├── icons/
+│   │   │   ├── action/
+│   │   │   ├── ai/
+│   │   │   ├── arrow/
+│   │   │   ├── card/
+│   │   │   ├── chart/
+│   │   │   ├── etc/
+│   │   │   ├── gate/
+│   │   │   ├── gonfalon/
+│   │   │   ├── illustration/
+│   │   │   ├── profile/
+│   │   │   ├── snb/
+│   │   │   └── system/
+│   │   │
+│   │   ├── images/
+│   │   │
+│   │   └── scss/
+│   │       ├── component/
+│   │       ├── _auth.scss
+│   │       ├── _chart.scss
+│   │       ├── _colors.scss
+│   │       ├── _community.scss
+│   │       ├── _component.scss
+│   │       ├── _dashboard.scss
+│   │       ├── _etc.scss
+│   │       ├── _footer.scss
+│   │       ├── _gate.scss
+│   │       ├── _guide.scss
+│   │       ├── _icon.scss
+│   │       ├── _layout.scss
+│   │       ├── _mixins.scss
+│   │       ├── _overlay.scss
+│   │       ├── _planner.scss
+│   │       ├── _report.scss
+│   │       ├── _sales.scss
+│   │       ├── _setting.scss
+│   │       ├── _trend.scss
+│   │       └── _variables.scss
+│   │       └── common.scss
+│   │
+│   ├── components/
+│   │   ├── analyze.vue
+│   │   ├── AppChromeExtension.vue
+│   │   ├── AppFeedback.vue
+│   │   ├── AppFooter.vue
+│   │   ├── AppHeader.vue
+│   │   ├── AppHeaderMenu.vue
+│   │   ├── AppHeaderMobile.vue
+│   │   ├── AppHeaderMobileMenu.vue
+│   │   ├── AppSnb.vue
+│   │   ├── ExtensionTable.vue
+│   │   ├── PolicyMarketing.vue
+│   │   ├── PolicyPersonalPrivacy.vue
+│   │   ├── PolicyServicePolicy.vue
+│   │   ├── SbBanner.vue
+│   │   ├── SbChartBar.vue
+│   │   ├── SbChartBarDashboard.vue
+│   │   ├── SbChartCombined.vue
+│   │   ├── SbChartCombinedSmall.vue
+│   │   ├── SbChartComparisonBar.vue
+│   │   ├── SbChartComparisonBarHorizontal.vue
+│   │   ├── SbChartDoughnut.vue
+│   │   ├── SbChartDoughnutCs.vue
+│   │   ├── SbChartDoughnutReport.vue
+│   │   ├── SbChartGauge.vue
+│   │   ├── SbChartGaugeCircle.vue
+│   │   ├── SbChartGaugeCredit.vue
+│   │   ├── SbChartGaugeFace.vue
+│   │   ├── SbChartLine.vue
+│   │   ├── SbChartSegmentBar.vue
+│   │   ├── SbChartStackedBar.vue
+│   │   ├── SbChartWave.vue
+│   │   ├── SbFileupload.vue
+│   │   ├── SbImageupload.vue
+│   │   ├── SbInfo.vue
+│   │   ├── SbInput.vue
+│   │   ├── SbLegend.vue
+│   │   ├── SbLoading.vue
+│   │   ├── SbLoadingDialog.vue
+│   │   ├── SbMenu.vue
+│   │   ├── SbMobileInfo.vue
+│   │   ├── SbPaginator.vue
+│   │   ├── SbPriceSetting.vue
+│   │   ├── SbSearchHistory.vue
+│   │   ├── SbSocial.vue
+│   │   ├── SbTextarea.vue
+│   │   └── TiptapEditor.vue
+│   │
+│   ├── layouts/
+│   │   ├── auth.vue
+│   │   ├── default.vue
+│   │   ├── error.vue
+│   │   ├── guide.vue
+│   │   └── main.vue
+│   │
+│   ├── pages/
+│   │   ├── about/
+│   │   ├── auth/
+│   │   ├── community/
+│   │   ├── dashboard/
+│   │   ├── etc/
+│   │   ├── gate/
+│   │   ├── guide/
+│   │   ├── planner/
+│   │   ├── policy/
+│   │   ├── report/
+│   │   ├── sales/
+│   │   ├── setting/
+│   │   └── trend/
 ```
 
 ## 마크업 및 클래스 명명 규칙 (BEM & Prefix)
@@ -204,31 +253,8 @@ font-family:
 
 ## 반응형 레이아웃 (Breakpoint)
 
-화면 크기에 따른 유연한 레이아웃 대응을 위해 아래의 표준 브레이크 포인트를 사용합니다. (수치 확정 시 업데이트 예정)
-
-```js
-sm:  *px   // 모바일 가로
-md:  *px   // 태블릿
-lg:  *px  // 데스크탑
-xl:  *px  // 대형
-```
-
-## 컴포넌트 및 아이콘 (Draft)
-
-현재 정의된 공통 컴포넌트 및 아이콘 가이드는 아래와 같습니다.
-
-- 컴포넌트: PrimeVue의 기본 컴포넌트를 우선적으로 활용하며, 복합 컴포넌트 생성 시 @/components/common/ 하위에 배치합니다.
-
-- 아이콘: **(미정)**
+1440px기준으로 모바일 구분
 
 ## 차트
 
-ECharts https://echarts.apache.org/ **(미정)**
-
-####
-
-공식지원하는 nuxt icon 쓰다가 작동이 잘 안되서 딴거 쓰는거 적어두고
-
-css 작성방식
-
-생각나는거 그때그때 적어두기
+ECharts https://echarts.apache.org/

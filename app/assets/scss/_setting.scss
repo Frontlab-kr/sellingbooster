@@ -832,7 +832,7 @@
           display: flex;
           margin-bottom: 40px;
           strong {
-            color: var(--title-color);
+            color: var(--extension-index-title-color);
             font-size: 16px;
             font-style: normal;
             font-weight: 700;
@@ -1157,7 +1157,7 @@
       &-head {
         margin-bottom: 16px;
         > strong {
-          color: var(--title-color);
+          color: var(--team-workspace-head-title-color);
           font-size: 16px;
           font-style: normal;
           font-weight: 700;

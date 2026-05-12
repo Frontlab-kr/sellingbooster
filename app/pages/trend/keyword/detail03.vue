@@ -671,7 +671,12 @@
                   <p>아직 질문이 없어요. 지금 남겨 보세요!</p>
                 </div>
                 <div class="sb-nodata__button">
-                  <Button severity="primary" label="질문 남기기" />
+                  <Button
+                    severity="contrast"
+                    label="질문 남기기"
+                    outlined
+                    size="small"
+                  />
                 </div>
               </div>
             </div>
@@ -848,6 +853,7 @@ import IconArrowUpRight from '@/assets/icons/arrow/up-right.svg?component';
 import IconArrowAchevronLeft from '@/assets/icons/arrow/achevron-left.svg?component';
 import IconArrowAchevronRight from '@/assets/icons/arrow/achevron-right.svg?component';
 import IconSystemInformationCircle from '@/assets/icons/system/information-circle.svg?component';
+import IconIllustrationSmile from '@/assets/icons/illustration/smile.svg?component';
 
 //popover
 const popoverScore = ref();

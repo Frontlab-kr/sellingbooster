@@ -501,7 +501,7 @@
   --dashboard-planner-item-title-color: var(--p-gray-900);
   --dashboard-planner-item-text-color: var(--p-gray-500);
   --dashboard-trend-product-border-color: var(--p-gray-200);
-  --dashboard-trend-product-head-color: var(--p-gray-900);
+  --dashboard-trend-product-head-color: var(--p-gray-500);
   --dashboard-trend-product-head-buttn-color: var(--p-gray-500);
   --dashboard-trend-product-list-item-border-color: var(--p-gray-300);
   --dashboard-trend-product-list-item-category-color: var(--p-gray-400);
@@ -509,7 +509,7 @@
   --dashboard-trend-product-list-item-title-color: var(--p-gray-900);
   --dashboard-trend-product-list-item-price-color: var(--p-gray-900);
   --dashboard-report-info-item-background: var(--p-gray-50);
-  --dashboard-report-info-item-title-color: var(--p-gray-900);
+  --dashboard-report-info-item-title-color: var(--p-gray-500);
   --dashboard-report-info-item-button-color: var(--p-gray-400);
   --dashboard-report-info-item-text-color: var(--p-gray-500);
   --dashboard-report-chart-label-color: var(--p-gray-500);
@@ -572,7 +572,8 @@
   --comment-write-mo-mention-color: var(--p-gray-600);
 
   --caution-background: var(--p-gray-50);
-  --caution-contents-color: var(--p-gray-500);
+  --caution-subtitle-color: var(--p-gray-500);
+  --caution-contents-color: var(--p-gray-400);
 
   --attachment-item-background: var(--p-gray-100);
   --attachment-item-text-color: var(--p-gray-800);
@@ -615,7 +616,7 @@
   --radio-label-color: var(--p-gray-900);
 
   //chip
-  --chip-title-color: var(--p-gray-900);
+  --chip-title-color: var(--p-gray-500);
   --chip-color: var(--p-gray-500);
   --chip-border-color: var(--p-gray-300);
   --chip-active-color: var(--p-primary-500);
@@ -761,7 +762,7 @@
   --trend-summary-product-platform-border-color: var(--p-gray-300);
   --trend-summary-product-category-color: var(--p-gray-400);
   --trend-summary-list-item-background: var(--p-gray-50);
-  --trend-summary-list-item-text-color: var(--p-gray-400);
+  --trend-summary-list-item-text-color: var(--p-gray-500);
   --trend-summary-list-item-title-color: var(--p-gray-900);
   --trend-summary-text-color: var(--p-gray-400);
   --trend-review-summary-background: var(--p-gray-50);
@@ -838,20 +839,21 @@
   --keyword-report-body-analysis-text-text-color: var(--p-gray-500);
   --keyword-report-status-button-icon-color: var(--p-gray-500);
   --keyword-report-status-item-background: var(--p-gray-50);
-  --keyword-report-status-item-title-color: var(--p-gray-400);
+  --keyword-report-status-item-title-color: var(--p-gray-500);
   --keyword-report-status-item-text-color: var(--p-gray-900);
   --keyword-report-trend-border-color: var(--p-gray-300);
   --keyword-report-trend-title-color: var(--p-gray-500);
-  --keyword-report-trend-result-item-title-color: var(--p-gray-900);
+  --keyword-report-trend-result-item-title-color: var(--p-gray-500);
   --keyword-report-trend-chart-item-background: var(--p-gray-50);
-  --keyword-report-trend-chart-item-title-color: var(--p-gray-900);
+  --keyword-report-trend-chart-item-title-color: var(--p-gray-500);
   --keyword-report-trend-chart-item-subtitle-color: var(--p-gray-400);
   --keyword-report-trend-chart-item-text-color: var(--p-gray-900);
+  --keyword-history-title-color: var(--p-gray-500);
   --keyword-history-text-color: var(--p-gray-600);
   --keyword-history-border-color: var(--p-gray-200);
   --keyword-analyze-chart-color: var(--p-gray-500);
   --keyword-analyze-state-background: var(--p-gray-50);
-  --keyword-analyze-state-title-color: var(--p-gray-400);
+  --keyword-analyze-state-title-color: var(--p-gray-500);
   --keyword-analyze-state-text-color: var(--p-gray-900);
   --keyword-table-title-text-color: var(--p-gray-400);
   --keyword-faq-q-background: var(--p-gray-600);
@@ -892,13 +894,13 @@
   --sales-cs-product-status-list-item-border-color: var(--p-gray-300);
   --sales-cs-product-status-list-item-text-color: var(--p-gray-900);
   --sales-cs-product-table-checkbox-background: var(--p-gray-50);
-  --sales-cs-product-table-title-color: var(--p-gray-900);
+  --sales-cs-product-table-title-color: var(--p-gray-500);
   --sales-cs-product-expanded-product-border-color: var(--p-gray-200);
   --sales-cs-product-expanded-product-title-color: var(--p-gray-900);
   --sales-cs-product-expanded-product-text-color: var(--p-gray-400);
   --sales-cs-product-expanded-product-price-color: var(--p-gray-900);
   --sales-cs-store-head-border-color: var(--p-gray-300);
-  --sales-cs-store-search-item-title-color: var(--p-gray-900);
+  --sales-cs-store-search-item-title-color: var(--p-gray-500);
   --sales-cs-store-table-head-amount-color: var(--p-gray-500);
   --sales-cs-store-table-head-status-color: var(--p-gray-900);
   --sales-cs-report-head-text-color: var(--p-gray-500);
@@ -1014,7 +1016,7 @@
   --report-history-chart-head-text-color: var(--p-gray-900);
   --report-history-chart-menu-text-color: var(--p-gray-400);
   --report-history-chart-menu-label-color: var(--p-gray-500);
-  --report-history-bna-menu-date-title-color: var(--p-gray-900);
+  --report-history-bna-menu-date-title-color: var(--p-gray-500);
   --report-history-bna-menu-text-color: var(--p-gray-400);
   --report-history-bna-list-item-background: var(--p-gray-50);
   --report-history-bna-list-item-head-text-color: var(--p-gray-900);
@@ -1028,7 +1030,7 @@
   --report-history-date-head-border-color: var(--p-gray-300);
   --report-history-date-head-date-title-color: var(--p-gray-900);
   --report-history-date-head-date-text-color: var(--p-gray-400);
-  --report-history-date-body-head-text-color: var(--p-gray-900);
+  --report-history-date-body-head-text-color: var(--p-gray-500);
   --report-history-date-body-section-border-color: var(--p-gray-300);
   --report-history-date-body-list-border-color: var(--p-gray-300);
   --report-history-date-body-list-title-color: var(--p-gray-500);
@@ -1128,7 +1130,7 @@
   //compare
   --compare-background: var(--p-gray-50);
   --compare-item-background: var(--p-gray-00);
-  --compare-item-title-color: var(--p-gray-400);
+  --compare-item-title-color: var(--p-gray-500);
 
   //onboarding
   --onboarding-background: var(--p-gray-00);
@@ -1171,6 +1173,7 @@
   //extension
   --extension-background: var(--p-gray-00);
   --extension-index-border-color: var(--p-gray-300);
+  --extension-index-title-color: var(--p-gray-500);
   --extension-index-text-color: var(--p-gray-400);
   --extension-foot-border-color: var(--p-gray-300);
 
@@ -1182,6 +1185,7 @@
   --extension-dashboard-status-none-color: var(--p-gray-400);
 
   --team-background: var(--p-gray-00);
+  --team-workspace-head-title-color: var(--p-gray-500);
   --team-workspace-head-text-color: var(--p-gray-400);
   --team-workspace-head-form-text-color: var(--p-gray-500);
   --team-workspace-head-form-button-background: var(--p-gray-200);
@@ -1621,7 +1625,7 @@
     --dashboard-planner-item-title-color: var(--p-gray-00);
     --dashboard-planner-item-text-color: var(--p-gray-300);
     --dashboard-trend-product-border-color: var(--p-gray-600);
-    --dashboard-trend-product-head-color: var(--p-gray-00);
+    --dashboard-trend-product-head-color: var(--p-gray-300);
     --dashboard-trend-product-head-buttn-color: var(--p-gray-300);
     --dashboard-trend-product-list-item-border-color: var(--p-gray-600);
     --dashboard-trend-product-list-item-category-color: var(--p-gray-400);
@@ -1631,7 +1635,7 @@
     --dashboard-trend-product-list-item-title-color: var(--p-gray-00);
     --dashboard-trend-product-list-item-price-color: var(--p-gray-00);
     --dashboard-report-info-item-background: var(--p-gray-900);
-    --dashboard-report-info-item-title-color: var(--p-gray-00);
+    --dashboard-report-info-item-title-color: var(--p-gray-300);
     --dashboard-report-info-item-button-color: var(--p-gray-400);
     --dashboard-report-info-item-text-color: var(--p-gray-300);
     --dashboard-report-chart-label-color: var(--p-gray-300);
@@ -1693,6 +1697,7 @@
     --comment-write-mo-mention-color: var(--p-gray-400);
 
     --caution-background: var(--p-gray-900);
+    --caution-subtitle-color: var(--p-gray-300);
     --caution-contents-color: var(--p-gray-400);
 
     --attachment-item-background: var(--p-gray-700);
@@ -1734,7 +1739,7 @@
     --radio-label-color: var(--p-gray-00);
 
     //chip
-    --chip-title-color: var(--p-gray-00);
+    --chip-title-color: var(--p-gray-300);
     --chip-color: var(--p-gray-300);
     --chip-border-color: var(--p-gray-500);
     --chip-active-color: var(--p-primary-300);
@@ -1882,7 +1887,7 @@
     --trend-summary-product-platform-border-color: var(--p-gray-600);
     --trend-summary-product-category-color: var(--p-gray-400);
     --trend-summary-list-item-background: var(--p-gray-900);
-    --trend-summary-list-item-text-color: var(--p-gray-400);
+    --trend-summary-list-item-text-color: var(--p-gray-300);
     --trend-summary-list-item-title-color: var(--p-gray-300);
     --trend-summary-text-color: var(--p-gray-400);
     --trend-review-summary-background: var(--p-gray-900);
@@ -1960,21 +1965,22 @@
     --keyword-report-body-analysis-text-text-color: var(--p-gray-300);
     --keyword-report-status-button-icon-color: var(--p-gray-500);
     --keyword-report-status-item-background: var(--p-gray-900);
-    --keyword-report-status-item-title-color: var(--p-gray-400);
-    --keyword-report-status-item-text-color: var(--p-gray-300);
+    --keyword-report-status-item-title-color: var(--p-gray-300);
+    --keyword-report-status-item-text-color: var(--p-gray-00);
     --keyword-report-trend-border-color: var(--p-gray-600);
     --keyword-report-trend-title-color: var(--p-gray-300);
-    --keyword-report-trend-result-item-title-color: var(--p-gray-00);
+    --keyword-report-trend-result-item-title-color: var(--p-gray-300);
     --keyword-report-trend-chart-item-background: var(--p-gray-900);
-    --keyword-report-trend-chart-item-title-color: var(--p-gray-00);
+    --keyword-report-trend-chart-item-title-color: var(--p-gray-300);
     --keyword-report-trend-chart-item-subtitle-color: var(--p-gray-400);
-    --keyword-report-trend-chart-item-text-color: var(--p-gray-300);
+    --keyword-report-trend-chart-item-text-color: var(--p-gray-00);
+    --keyword-history-title-color: var(--p-gray-300);
     --keyword-history-text-color: var(--p-gray-300);
     --keyword-history-border-color: var(--p-gray-600);
     --keyword-analyze-chart-color: var(--p-gray-300);
     --keyword-analyze-state-background: var(--p-gray-900);
-    --keyword-analyze-state-title-color: var(--p-gray-400);
-    --keyword-analyze-state-text-color: var(--p-gray-300);
+    --keyword-analyze-state-title-color: var(--p-gray-300);
+    --keyword-analyze-state-text-color: var(--p-gray-00);
     --keyword-table-title-text-color: var(--p-gray-400);
 
     --keyword-faq-q-background: var(--p-gray-00);
@@ -2016,13 +2022,13 @@
     --sales-cs-product-status-list-item-border-color: var(--p-gray-300);
     --sales-cs-product-status-list-item-text-color: var(--p-gray-00);
     --sales-cs-product-table-checkbox-background: var(--p-gray-900);
-    --sales-cs-product-table-title-color: var(--p-gray-00);
+    --sales-cs-product-table-title-color: var(--p-gray-300);
     --sales-cs-product-expanded-product-border-color: var(--p-gray-600);
     --sales-cs-product-expanded-product-title-color: var(--p-gray-00);
     --sales-cs-product-expanded-product-text-color: var(--p-gray-400);
     --sales-cs-product-expanded-product-price-color: var(--p-gray-00);
     --sales-cs-store-head-border-color: var(--p-gray-600);
-    --sales-cs-store-search-item-title-color: var(--p-gray-00);
+    --sales-cs-store-search-item-title-color: var(--p-gray-300);
     --sales-cs-store-table-head-amount-color: var(--p-gray-300);
     --sales-cs-store-table-head-status-color: var(--p-gray-00);
     --sales-cs-report-head-text-color: var(--p-gray-300);
@@ -2122,7 +2128,7 @@
     --report-summary-head-list-text-color: var(--p-gray-00);
     --report-summary-section-head-text-color: var(--p-gray-400);
     --report-summary-section-item-background: var(--p-gray-900);
-    --report-summary-section-item-title-color: var(--p-gray-400);
+    --report-summary-section-item-title-color: var(--p-gray-300);
     --report-summary-chart-head-text-color: var(--p-gray-400);
     --report-summary-product-item-border-color: var(--p-gray-600);
     --report-summary-product-list-head-color: var(--p-gray-00);
@@ -2138,7 +2144,7 @@
     --report-history-chart-head-text-color: var(--p-gray-00);
     --report-history-chart-menu-text-color: var(--p-gray-400);
     --report-history-chart-menu-label-color: var(--p-gray-300);
-    --report-history-bna-menu-date-title-color: var(--p-gray-00);
+    --report-history-bna-menu-date-title-color: var(--p-gray-300);
     --report-history-bna-menu-text-color: var(--p-gray-400);
     --report-history-bna-list-item-background: var(--p-gray-900);
     --report-history-bna-list-item-head-text-color: var(--p-gray-00);
@@ -2152,7 +2158,7 @@
     --report-history-date-head-border-color: var(--p-gray-600);
     --report-history-date-head-date-title-color: var(--p-gray-00);
     --report-history-date-head-date-text-color: var(--p-gray-400);
-    --report-history-date-body-head-text-color: var(--p-gray-00);
+    --report-history-date-body-head-text-color: var(--p-gray-300);
     --report-history-date-body-section-border-color: var(--p-gray-600);
     --report-history-date-body-list-border-color: var(--p-gray-600);
     --report-history-date-body-list-title-color: var(--p-gray-300);
@@ -2253,7 +2259,7 @@
     //compare
     --compare-background: var(--p-gray-900);
     --compare-item-background: var(--p-gray-800);
-    --compare-item-title-color: var(--p-gray-400);
+    --compare-item-title-color: var(--p-gray-300);
 
     //onboarding
     --onboarding-background: var(--p-gray-800);
@@ -2296,6 +2302,7 @@
     //extension
     --extension-background: var(--p-gray-800);
     --extension-index-border-color: var(--p-gray-600);
+    --extension-index-title-color: var(--p-gray-300);
     --extension-index-text-color: var(--p-gray-400);
     --extension-foot-border-color: var(--p-gray-600);
 
@@ -2307,6 +2314,7 @@
     --extension-dashboard-status-none-color: var(--p-gray-400);
 
     --team-background: var(--p-gray-800);
+    --team-workspace-head-title-color: var(--p-gray-300);
     --team-workspace-head-text-color: var(--p-gray-400);
     --team-workspace-head-form-text-color: var(--p-gray-300);
     --team-workspace-head-form-button-background: var(--p-gray-600);
